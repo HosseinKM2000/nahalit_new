@@ -1,0 +1,273 @@
+@font-face {
+  font-family: shabnam;
+  src: url("./fonts/Shabnam/Shabnam.woff2");
+}
+@font-face {
+  font-family: shabnamBold;
+  src: url("./fonts/Shabnam/Shabnam-Bold.woff2");
+}
+@font-face {
+  font-family: shabnamMedium;
+  src: url("./fonts/Shabnam/Shabnam-Medium.woff2");
+}
+@font-face {
+  font-family: shabnamThin;
+  src: url("./fonts/Shabnam/Shabnam-Thin.woff2");
+}
+@font-face {
+  font-family: shabnamLight;
+  src: url("./fonts/Shabnam/Shabnam-Light.woff2");
+}
+@font-face {
+  font-family: vasir;
+  src: url("./fonts/Vasir/Vazirmatn-Medium.woff2");
+}
+@font-face {
+  font-family: vasirbold;
+  src: url("./fonts/Vasir/Vazirmatn-Bold.woff2");
+}
+@font-face {
+  font-family: vasirLight;
+  src: url("./fonts/Vasir/Vazirmatn-Light.woff2");
+}
+@font-face {
+  font-family: vasirBlack;
+  src: url("./fonts/Vasir/Vazirmatn-ExtraBold.woff2");
+}
+@font-face {
+  font-family: IranSans-b;
+  src: url('./assets/font/IranSans/Woff2/IRANSansXFaNum-Black.woff2');
+}
+@font-face {
+  font-family: IranSans-m;
+  src: url('./assets/font/IranSans/Woff2/IRANSansXFaNum-Medium.woff2');
+}
+@font-face {
+  font-family: IranSans-r;
+  src: url('./assets//font/IranSans/Woff2/IRANSansXFaNum-Regular.woff2');
+}
+
+
+
+body {
+  font-family: shabnamThin;
+}
+html {
+  scroll-behavior: smooth;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  overflow-x: hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+p
+{
+  font-family:shabnamLight ;
+}
+.border_
+{
+  border: solid !important;
+}
+.line-clamp-1
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-2
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.line-clamp-3
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.line-clamp-4
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.line-clamp-5
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+.line-clamp-6
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+.footer-border
+{
+  border-top: solid rgb(0, 221, 88) 5px;
+}
+::-webkit-scrollbar
+{
+  width: 0.6rem;
+}
+::-webkit-scrollbar-track
+{
+    background-color: rgb(229, 229, 229);
+}
+::-webkit-scrollbar-button
+{
+    display: none;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: rgb(174, 174, 174);
+}
+.scroll_NON
+{
+  overflow: hidden !important;
+}
+.span
+{
+  line-height: 1.5rem;
+}
+
+
+@media(max-width:640px)
+{
+    .end-box
+    {
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .end-box > img
+    {
+        width: 80rem;
+    }
+    .end-box > div
+    {
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .end-box > div > span
+    {
+        font-size: 1rem;
+        line-height: 2.5rem;
+    }
+    .end-box > div > button
+    {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    } 
+    .span
+    {
+      line-height: 2rem;
+    }
+}
+
+@media(min-width:1536px)
+{
+    .text-2rem
+    {
+      font-size: 2rem !important;
+    }
+    .end-box
+    {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .end-box > img
+    {
+        width: 80rem;
+    }
+    .end-box > div
+    {
+        align-items: center;
+    }
+    .end-box > div > span
+    {
+        font-size: 3rem;
+        line-height: 6rem;
+    }
+    .end-box > div > button
+    {
+        font-size: 2.5rem;
+        line-height: 1.25rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 70%;
+    } 
+    .span
+    {
+        line-height: 4rem;
+        font-size: 2.5rem;
+    }
+    .Toast_info
+    {
+        width: 40% !important;
+        font-size: 3rem !important;
+        padding: 2rem !important;
+    }
+    .Toastify__toast
+    {
+        padding: 3rem !important;
+        gap: 3rem !important;
+    }
+    .Toastify__close-button
+    {
+        transform: scale(4) !important;
+    }
+    .Toastify--animate-icon
+    {
+        transform: scale(4) !important;
+    }
+}

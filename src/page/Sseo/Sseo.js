@@ -122,9 +122,9 @@ function Sseo() {
             <div className='flex flex-col gap-2 2xl:gap-10'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات وبسایت و سئو وبسایت تیم نهال آی تی</h6>
                 <div className=' flex-col sm:flex-row flex items-center justify-between gap-5 sm:gap-0'>
-                    <img src={Img_8} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4'/>
-                    <img src={Img_9} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4'/>
-                    <img src={Img_10} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4'/>
+                    <img src={Img_8} alt="tarrif" className='w-11/12 sm:w-[30%]  2xl:w-1/4'/>
+                    <img src={Img_9} alt="tarrif" className='w-11/12 sm:w-[30%]  2xl:w-1/4'/>
+                    <img src={Img_10} alt="tarrif" className='w-11/12 sm:w-[30%] 2xl:w-1/4'/>
                 </div>
             </div>
             <div className='flex flex-col w-full'>

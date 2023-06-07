@@ -106,6 +106,14 @@ p
 {
   text-align-last: center;
 }
+.background-gra-green
+{
+  background: linear-gradient(180deg,#354558,#505e6f);
+}
+.border_b_g
+{
+  border-bottom: solid #00FFCA 3px !important;
+}
 .border_
 {
   border: solid !important;

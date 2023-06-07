@@ -17,7 +17,7 @@ const Brochure = () => {
       </header>
       <div className="bg-[#f5f5f9] pt-9 pb-12">
         <div className="container px-48 mx-auto max-lg:px-20">
-          <h2 className="font-[shabnamBold] text-4xl px-12 max-sm:px-2 max-sm:text-xl">نمونه کارهای بروشور نهال آی تی</h2>
+          <h2 className="font-[shabnamBold] max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter pt-8 mt-1  text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه کارهای بروشور نهال آی تی</h2>
           <div className="flex items-center justify-center gap-x-8 mt-8 flex-wrap gap-y-5">
             <img
               alt="image_Brochure"

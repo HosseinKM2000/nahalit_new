@@ -17,7 +17,7 @@ const MotionGraphics = () => {
       </header>
       <div className="bg-[#f5f5f9] z-0">
         <div className="px-52 max-lg:px-20 max-md:px-16 max-sm:px-0 mx-auto pt-14 mt-1 pb-24">
-          <h2 className="mb-10 font-[shabnamMedium] text-center tracking-tighter text-4xl">نمونه کار موشن گرافیک</h2>
+          <h2 className="font-[shabnamBold] text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه کار موشن گرافیک</h2>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-12 max-sm:gap-y-4">
             <div>
               <iframe

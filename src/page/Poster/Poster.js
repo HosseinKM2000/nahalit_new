@@ -16,7 +16,7 @@ const Poster = () => (
     </header>
     <div className="bg-[#f5f5f9] pb-10">
       <div className="container px-48 max-lg:px-16 max-md:px-12 max-sm:px-5 mx-auto">
-        <h2 className="font-[shabnamBold] text-4xl max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter px-12 pt-8 mt-1">
+        <h2 className="font-[shabnamBold] max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter pt-8 mt-1  text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">
           نمونه کار های پوستر و بنر نهال آی تی
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-5">

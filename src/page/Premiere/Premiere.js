@@ -17,7 +17,7 @@ const Premiere = () => {
       </header>
       <div className="bg-[#f5f5f9] pt-10 pb-10">
         <div className="container px-48 max-lg:px-20 max-md:px-10 max-sm:px-5 mx-auto">
-          <h2 className="font-[shabnamBold] text-4xl px-12 tracking-tighter">نمونه کارهای پریمیر</h2>
+          <h2 className="font-[shabnamBold] max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter pt-8 mt-1  text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه کارهای پریمیر</h2>
           <div className="flex flex-wrap items-center justify-center gap-5 mt-5">
             <video src="https://nahalit.com/wp-content/uploads/2022/10/before-after.mp4" className="w-[33rem]" controls />
             <video src="https://nahalit.com/wp-content/uploads/2022/10/Untitled.mp4" className="w-[33rem]" controls />

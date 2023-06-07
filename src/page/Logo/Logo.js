@@ -17,7 +17,7 @@ const Logo = () => {
       </header>
       <div className="bg-[#f5f5f9] pt-9 pb-12">
         <div className="container px-48 max-lg:px-20 max-md:px-14 max-sm:px-10 mx-auto">
-          <h2 className="font-[shabnamBold] text-4xl px-12">نمونه های لوگو و مهر نهال آی تی</h2>
+          <h2 className="font-[shabnamBold] text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه های لوگو و مهر نهال آی تی</h2>
           <div className="flex flex-wrap items-center justify-center gap-x-8 mt-8">
             <img
               alt="image_Brochure"

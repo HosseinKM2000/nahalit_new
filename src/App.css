@@ -102,6 +102,10 @@ p
 {
   font-family:shabnamLight ;
 }
+.text-last
+{
+  text-align-last: center;
+}
 .border_
 {
   border: solid !important;

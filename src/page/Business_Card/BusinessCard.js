@@ -17,7 +17,7 @@ const BusinessCard = () => {
       </header>
       <div className="bg-[#f5f5f9] pt-9 pb-12">
         <div className="container px-48 mx-auto">
-          <h2 className="font-[shabnamBold] text-4xl mb-10">نمونه کار های کارت ویزیت</h2>
+          <h2 className="font-[shabnamBold] max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter pt-8 mt-1  text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه کار های کارت ویزیت</h2>
           <div className="flex flex-wrap items-center justify-start gap-8">
             <img
               alt="Imgae_Catalog"

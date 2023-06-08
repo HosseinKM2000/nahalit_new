@@ -1,7 +1,7 @@
 import React from 'react';
-import SideDash from '../../Components/Dashboard/SlideDash/SideDash';
-import ContentDash from '../../Components/Dashboard/ContentDash/ContentDash';
-import UpperDash from '../../Components/Dashboard/UpperDash/UpperDash';
+import SideDash from '../../Components/Dashboard/MainDash/SideDash/SideDash';
+import ContentDash from '../../Components/Dashboard/MainDash/ContentDash/ContentDash';
+import UpperDash from '../../Components/Dashboard/MainDash/UpperDash/UpperDash';
 
 function Dashboard() {
   return (

@@ -180,6 +180,22 @@ p
 {
     background-color: rgb(174, 174, 174);
 }
+.dashboard_side::-webkit-scrollbar
+{
+  width: 1px;
+}
+.dashboard_side::-webkit-scrollbar-thumb
+{
+    background-color: #00FFCA;
+}
+.scroll-dash-content::-webkit-scrollbar
+{
+  width: 1px;
+}
+.scroll-dash-content::-webkit-scrollbar-thumb
+{
+  background-color: #00FFCA;
+}
 .scroll_NON
 {
   overflow: hidden !important;
@@ -188,7 +204,14 @@ p
 {
   line-height: 1.5rem;
 }
-
+.opacity-motion
+{
+  animation: opacity 1s ease-out 1 ;
+}
+@keyframes opacity {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
 
 @media(max-width:640px)
 {

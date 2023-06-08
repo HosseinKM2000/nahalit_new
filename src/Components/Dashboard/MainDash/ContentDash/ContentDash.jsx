@@ -8,6 +8,8 @@ import Users from '../../Content/Users/Users';
 import Commentes from '../../Content/Comments/Comments';
 import WorkSample from '../../Content/WorkSample/WorkSample';
 import Projects from '../../Content/Projects/Projects';
+import Categories from '../../Content/Categories/Categories';
+import Home from '../../Content/Home/Home';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -16,6 +18,8 @@ function ContentDash() {
   useEffect(()=>{
     switch(content)
     {
+      case 'categories' : setCurrentContent(<Categories/>)
+      break
       case 'articles' : setCurrentContent(<Articles/>)
       break
       case 'services' : setCurrentContent(<Services/>)
@@ -32,14 +36,14 @@ function ContentDash() {
       break
       case 'projects' : setCurrentContent(<Projects/>)
       break
-      default : setCurrentContent(<Articles/>)
+      case 'homePage' : setCurrentContent(<Home/>)
+      break
+      default : setCurrentContent('این بخش وجود ندارد')
     }
   },[content])
 
   return (
-    <div className='bg-[#363d4f] w-[75%] h-[90%] relative'>
-        <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[10rem] absolute top-[1rem] right-[1rem] z-0'></div>
-        <div className='w-[10rem] h-[10rem] rounded-full bg-[#6FEDD6] blur-[10rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
+    <div className='bg-[#363d4f] scroll-dash-content w-[75%] h-[90%] max-h-screen overflow-y-scroll relative'>
         {
           currentContent
         }

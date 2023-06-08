@@ -47,7 +47,7 @@ const Article = () => {
   },[])
 
   return (
-    <div className='flex flex-col sm:flex-row mt-5 w-11/12 overflow-x-hidden text-right gap-2'>
+    <div className='flex flex-col sm:flex-row mt-5 w-11/12 overflow-x-hidden text-right gap-2 sm:pr-3'>
         {/* right side */}
         <div className='flex flex-col'>
             <ul className='flex flex-row border-y-2 text-xs border-for-border gap-2 sm:gap-20 py-3 justify-start'>

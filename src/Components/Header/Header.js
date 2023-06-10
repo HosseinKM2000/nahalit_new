@@ -534,8 +534,8 @@ const Header = () => {
                 <div
                   className={
                     showSlide5
-                      ? "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2 justify-around w-80 h-28 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] top-10 -right-[21rem] transition-all duration-700"
-                      : "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2  w-80 h-28 px-5 mx-auto absolute opacity-0 -right-[21rem] -translate-y-[50rem] top-10 transition-all duration-700"
+                      ? "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2 justify-around w-80 h-28 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] top-10 -right-[22rem] transition-all duration-700"
+                      : "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2  w-80 h-28 px-5 mx-auto absolute opacity-0 -right-[22rem] -translate-y-[50rem] top-10 transition-all duration-700"
                   }
                 >
                   <div className="flex justify-between items-center pt-2">
@@ -552,6 +552,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <hr className="bg-slate-200 mt-8 h-[2px]"/>
       </div>
     </>
   );

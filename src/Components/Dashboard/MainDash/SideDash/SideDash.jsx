@@ -1,4 +1,4 @@
-import {React , useState , useEffect} from 'react';
+import {React , useState} from 'react';
 import {BiCategory} from 'react-icons/bi';
 import {MdOutlineArrowLeft , MdOutlineArticle , MdShoppingCart , MdRoomService , MdWorkspaces} from 'react-icons/md';
 import {FiShoppingBag} from 'react-icons/fi';

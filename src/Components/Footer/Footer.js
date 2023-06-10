@@ -92,19 +92,19 @@ const Footer = () => {
       <div className="flex flex-col items-center justify-center gap-y-6">
         <div className="flex items-center justify-center gap-x-5 mt-8">
           <Link>
-            <FaTelegramPlane className="text-2xl text-[#ccc]" title="telegram" />
+            <FaTelegramPlane className="text-2xl hover:text-blue-500 transition-all duration-200 text-[#ccc]" title="telegram" />
           </Link>
           <Link>
-            <AiOutlineInstagram className="text-2xl text-[#ccc]" title="instagram" />
+            <AiOutlineInstagram className="text-2xl hover:text-rose-500 transition-all duration-200 text-[#ccc]" title="instagram" />
           </Link>
           <Link>
-            <AiOutlineTwitter className="text-2xl text-[#ccc]" title="twitter" />
+            <AiOutlineTwitter className="text-2xl hover:text-sky-500 transition-all duration-200 text-[#ccc]" title="twitter" />
           </Link>
           <Link>
-            <BsYoutube className="text-2xl text-[#ccc]" title="youtube" />
+            <BsYoutube className="text-2xl hover:text-red-500 transition-all duration-200 text-[#ccc]" title="youtube" />
           </Link>
           <Link>
-            <SiAparat className="text-2xl text-[#ccc]" title="aparat" />
+            <SiAparat className="text-2xl hover:text-red-700 transition-all duration-200 text-[#ccc]" title="aparat" />
           </Link>
         </div>
         <div className="flex items-center justify-center gap-x-2">

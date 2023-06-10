@@ -41,6 +41,7 @@ import News from  './page/News/News';
 import Articles from "./page/Articles/Articles";
 import Article from "./page/Articles/Article/Article";
 import Dashboard  from './page/Dashboard/Dashboard.jsx'
+import Products from "./page/Products/Products";
 
 const App = () => {
   return (
@@ -81,7 +82,8 @@ const App = () => {
           <Route path="/articles/article" element={<Article/>}/>
           <Route path="/news" element={<News/>}/>
           <Route path="*" element={<Error/>}/>
-          <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path="/shop" element={<Products/>}/>
         </Routes>
       </div>
       </>

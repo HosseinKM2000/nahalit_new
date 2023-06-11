@@ -42,6 +42,7 @@ import Articles from "./page/Articles/Articles";
 import Article from "./page/Articles/Article/Article";
 import Dashboard  from './page/Dashboard/Dashboard.jsx'
 import Products from "./page/Products/Products";
+import Product from "./page/Products/Product/Product";
 
 const App = () => {
   return (
@@ -84,6 +85,7 @@ const App = () => {
           <Route path="*" element={<Error/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path="/shop" element={<Products/>}/>
+          <Route path="/shop/product/:id" element={<Product/>}/>
         </Routes>
       </div>
       </>

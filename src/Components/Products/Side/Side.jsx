@@ -14,23 +14,23 @@ function Side() {
     }
 
   return (
-    <div className='flex w-[25%] flex-col pt-5 gap-5'>
-        <div className='flex flex-col gap-8 w-full items-start relative'>
-        <div onClick={()=>setFRotate(!fRotate)} className='flex text-lg z-10 text-rose-950 bg-white items-center font-bold cursor-pointer hover:text-blue-500 transition-all'>
+    <div className='flex w-full md:w-[50%] lg:w-[25%] flex-col pt-5 gap-5 2xl:gap-10'>
+        <div className='flex flex-col gap-8  w-full items-start relative'>
+        <div onClick={()=>setFRotate(!fRotate)} className='flex text-lg 2xl:text-2xl z-10 text-rose-950 bg-white items-center font-bold cursor-pointer hover:text-blue-500 transition-all'>
             <MdArrowLeft className='transition-all duration-300' style={{rotate:fRotate?'-90deg':''}}/>
             <span className='font-[vasirbold]'>فیلتر محصول</span>
-            <div className='flex text-gray-600 text-base gap-1 mr-1'>
+            <div className='flex text-gray-600 text-base 2xl:text-2xl gap-1 mr-1'>
               <span>/نتایج:</span>
               <span>22</span>
               <span>محصول</span>
             </div>
         </div>
         <div className='flex items-center transition-all duration-300 z-0 gap-1 text-gray-600 absolute' style={{top:!fRotate?'0px':'2rem'}}>
-            <span className='hover:text-blue-500 transition-all cursor-default'>&#10006;</span>
-            <span className='text-sm font-extrabold'>پلاگین کاربردی</span>
+            <span className='hover:text-blue-500 transition-all cursor-default 2xl:scale-150'>&#10006;</span>
+            <span className='text-sm 2xl:text-xl font-extrabold'>پلاگین کاربردی</span>
         </div>
         </div>
-        <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm font-[shabnamMedium] text-stone-600 outline-none mt-3 p-1' style={{border:'solid 1px #DBDCDD'}}>
+        <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm 2xl:text-xl font-[shabnamMedium] text-stone-600 outline-none mt-3 p-1' style={{border:'solid 1px #DBDCDD'}}>
              <option value="">مرتب سازی پیش فرض</option>
              <option value="popular">مرتب سازی بر اساس محبوبیت</option>
              <option value="rate">مرتب سازی بر اساس امتیاز</option>

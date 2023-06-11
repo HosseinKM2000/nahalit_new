@@ -4,38 +4,33 @@ import ReactPaginate from 'react-paginate';
 import { useState } from 'react';
 import { useSelector , useDispatch} from 'react-redux';
 import { useSearchParams  , useNavigate} from 'react-router-dom';
-import NewsPages from '../NewsPages/NewsPages';
-
-import { setPageQuery } from '../../../features/news/newsSlice';
+import ProductsPage from '../ProductsPage/ProductsPage';
 
 function Pagination() {
 
     const [itemOffset, setItemOffset] = useState(0);
     const [params] = useSearchParams()
-    const [numberOfPage] = useState(params.get('page'))
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
-    const news = useSelector(state => state.news.news);
-
+    const products = useSelector(state => state.products.products);
     const endOffset = itemOffset + itemsPerPage;
-    const currentItems = news.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(news.length / itemsPerPage);
+    const currentItems = products.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(products.length / itemsPerPage);
   
 
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % news.length;
+      const newOffset = (event.selected * itemsPerPage) % products.length;
       window.scrollTo({top:0,behavior:'instant'})
-      dispatch(setPageQuery(event.selected+1))
-      navigate(`/news?page=${event.selected+1}`)
+      navigate(`/shop?page=${event.selected+1}`)
       setItemOffset(newOffset);
     };
 
 
   return (
     <>
-    <NewsPages currentItems={currentItems} />
+    <ProductsPage currentItems={currentItems} />
     <ReactPaginate
       breakLabel="..."
       nextLabel={mobile ? '>>' : "برگه بعدی >>"}

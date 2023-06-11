@@ -512,8 +512,8 @@ const Header = () => {
                   onMouseEnter={clickEntershowslide4}
                   className={
                     showSlide4
-                      ? "container bg-white w-96 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] py-6 top-12 -right-[25rem] transition-all duration-700"
-                      : "container bg-white w-96 px-5 mx-auto absolute opacity-0 -right-[25rem] -translate-y-[50rem] transition-all duration-700"
+                      ? "container z-10 bg-white w-96 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] py-6 top-12 -right-[25rem] transition-all duration-700"
+                      : "container z-10 bg-white w-96 px-5 mx-auto absolute opacity-0 -right-[25rem] -translate-y-[50rem] transition-all duration-700"
                   }
                 >
                   <p className="pb-3 text-center">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
@@ -534,8 +534,8 @@ const Header = () => {
                 <div
                   className={
                     showSlide5
-                      ? "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2 justify-around w-80 h-28 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] top-10 -right-[22rem] transition-all duration-700"
-                      : "container bg-white 2xl:py-[5.5rem] flex flex-col gap-2  w-80 h-28 px-5 mx-auto absolute opacity-0 -right-[22rem] -translate-y-[50rem] top-10 transition-all duration-700"
+                      ? "container z-10 bg-white 2xl:py-[5.5rem] flex flex-col gap-2 justify-around w-80 h-28 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] top-10 -right-[22rem] transition-all duration-700"
+                      : "container z-10 bg-white 2xl:py-[5.5rem] flex flex-col gap-2  w-80 h-28 px-5 mx-auto absolute opacity-0 -right-[22rem] -translate-y-[50rem] top-10 transition-all duration-700"
                   }
                 >
                   <div className="flex justify-between items-center pt-2">

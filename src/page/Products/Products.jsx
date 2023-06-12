@@ -4,6 +4,7 @@ import Footer from '../../Components/Footer/Footer.js';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.js';
 import Side from '../../Components/Products/Side/Side.jsx';
 import Main from '../../Components/Products/Main/Main.jsx';
+import FixedIcon from '../../Components/FixedIcon/FixedIcon.js';
 
 function Products() {
   return (
@@ -19,6 +20,9 @@ function Products() {
         <div className='w-full flex px-5 lg:flex-row flex-col-reverse'>
             <Side/>
             <Main/>
+        </div>
+        <div>
+        <FixedIcon />
         </div>
         <footer>
           <Footer/>

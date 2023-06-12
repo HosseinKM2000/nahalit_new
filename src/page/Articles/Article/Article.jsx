@@ -30,7 +30,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'react-toastify/dist/ReactToastify.css';
 import Comments from './Comments/Comments';
-
+// import Components
+import Header from '../../../Components/Header/Header';
+import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
+import Footer from '../../../Components/Footer/Footer';
+import FixedIcon from '../../../Components/FixedIcon/FixedIcon';
 
 const Article = () => {
 
@@ -47,6 +51,15 @@ const Article = () => {
   },[])
 
   return (
+    <main>
+          <header>
+    <div className="max-lg:hidden">
+      <Header />
+    </div>
+    <div className="lg:hidden">
+      <ResponseHeader />
+    </div>
+  </header>
     <div className='flex flex-col sm:flex-row mt-5 w-11/12 overflow-x-hidden text-right gap-2 sm:pr-3'>
         {/* right side */}
         <div className='flex flex-col'>
@@ -86,20 +99,20 @@ const Article = () => {
                 <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0 2xl:m-12'/>
                 <div className='flex flex-col sm:flex-row text-white w-full'>
                   <Link to='https://twitter.com/intent/tweet?text=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTwitter className='scale-125 2xl:w-20 2xl:h-20'/>
-                    <span className='text-xs text-center  sm:text-sm  2xl:text-4xl'>اشتراک در توییتر</span> 
+                    <BsTwitter className='scale-125 2xl:w-16 2xl:h-16'/>
+                    <span className='text-xs text-center  sm:text-sm  2xl:text-3xl'>اشتراک در توییتر</span> 
                   </Link>
                   <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-3 px-5 gap-5'  to="https://www.facebook.com/sharer/sharer.php?u=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">
-                    <FaFacebookF className='scale-125 2xl:w-20 2xl:h-20'/>
-                   <span className='text-xs text-center  sm:text-sm 2xl:text-4xl'> اشتراک در فیسبوک</span>
+                    <FaFacebookF className='scale-125 2xl:w-16 2xl:h-16'/>
+                   <span className='text-xs text-center  sm:text-sm 2xl:text-3xl'> اشتراک در فیسبوک</span>
                   </Link>
                   <Link to="https://telegram.me/share/url?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTelegram className='scale-125 2xl:w-20 2xl:h-20'/>
-                   <span className='text-xs text-center  sm:text-sm 2xl:text-4xl'> اشتراک در تلگرام</span>
+                    <BsTelegram className='scale-125 2xl:w-16 2xl:h-16'/>
+                   <span className='text-xs text-center  sm:text-sm 2xl:text-3xl'> اشتراک در تلگرام</span>
                   </Link>
                   <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-20 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
-                    <BsPinterest className='scale-125 2xl:w-20 2xl:h-20'/>
-                    <span  className='text-xs text-center sm:text-sm 2xl:text-4xl'>اشتراک در پینترست</span>
+                    <BsPinterest className='scale-125 2xl:w-16 2xl:h-16'/>
+                    <span  className='text-xs text-center sm:text-sm 2xl:text-3xl'>اشتراک در پینترست</span>
                   </Link>
                 </div>
               </div>
@@ -139,7 +152,7 @@ const Article = () => {
                             <Link to={{pathname:`/articles/article`,search:`?name=${article.title}`}} ><img src={article.img} alt={article.title} className='hover:brightness-125 2xl:w-full cursor-pointer transition-all'/></Link>
                             <h6 className='pt-2 cursor-pointer hover:text-gray-88 pr-2 text-sm suggest-title font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${article.title}`}}>{article.title}</Link></h6>
                             <div className='flex flex-col py-5 text-sm 2xl:text-4xl'>
-                              <p className='h-32 overflow-hidden text-gray-66 leading-5 px-4 suggest-text text-center'>{article.explain}</p>
+                              <p className='line-clamp-4 text-gray-66 leading-5 px-4 suggest-text text-justify mb-3'>{article.explain}</p>
                               <Link className='text-pink hover:text-light-pink mr-2 cursor-pointer font-bold' to={{pathname:`/articles/article`,search:`?name=${article.title}`}}>جزئیات بیشتر</Link>
                             </div>
                             <div className='flex text-sm py-2 2xl:text-4xl 2xl:justify-between border-2 border-for-border flex-row gap-10 sm:gap-2'>
@@ -189,6 +202,13 @@ const Article = () => {
           </div>
         </div>
     </div>
+    <div>
+        <FixedIcon />
+      </div>
+      <footer>
+        <Footer />
+      </footer>
+    </main>
   )
 }
 

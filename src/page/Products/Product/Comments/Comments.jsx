@@ -3,7 +3,7 @@ import './Comments.css';
 import { useState } from 'react';
 import { useSelector , useDispatch} from 'react-redux';
 import {BsPersonCircle} from 'react-icons/bs';
-import { setName , setComment , setEmail , checkForm , nameAnswer , emailAnswer , textAnswer , SetAnswerStatus , SetAnswerAction} from '../../../../features/articleComments/articleCommentsSlice';
+import { setName , setComment , setEmail , checkForm , nameAnswer , emailAnswer , textAnswer , SetAnswerStatus , SetAnswerAction} from '../../../../features/productComments/productCommentsSlice';
 import { ToastContainer} from 'react-toastify';
 
 const Comments = () => {
@@ -95,19 +95,19 @@ const Comments = () => {
                             <span className='font-bold 2xl:text-5xl'>پاسخ به  <bdi>{comment.name}</bdi></span>
                             <span className='text-xs sm:text-sm text-gray-66 2xl:text-3xl'>نشانی ایمیل شما منتشر نخواهد شد. بخش‌های موردنیاز علامت‌گذاری شده‌اند</span>
                           </div>
-                          <button className='text-sm 2xl:text-4xl border-gray-88 border sm:h-fit py-1 sm:px-2 2xl:p-5 hover:text-gray-88 transition-all' onClick={(e)=> {setanswerStatus(false) 
+                          <button className='text-sm 2xl:text-4xl border-gray-88 border sm:h-fit py-1 sm:px-2 2xl:p-5 hover:bg-stone-400 hover:text-white transition-all' onClick={(e)=> {setanswerStatus(false) 
                                                                                                          dispatch(SetAnswerStatus(comment.key))}}
                           >لغو پاسخ</button>
                         </div>
                         <div className='flex flex-col gap-2'>
                           <span className='text-sm 2xl:text-5xl'>دیدگاه</span>
-                          <textarea className='bg-for-border p-2 text-right outline-none text-sm 2xl:text-4xl 2xl:py-12 text-gray-66 placeholder:text-weak-red' name="answer" id="" cols="30" rows="10" onInput={(e) => dispatch(textAnswer(e.target.value))} placeholder={warnAnswer.text}></textarea>
+                          <textarea className='bg-for-border p-2 text-right outline-none text-sm 2xl:text-4xl 2xl:py-12 text-gray-66 placeholder:text-weak-red border-2 border-stone-300' name="answer" id="" cols="30" rows="10" onInput={(e) => dispatch(textAnswer(e.target.value))} placeholder={warnAnswer.text}></textarea>
                           <span className='mt-4 text-sm text-gray-77 2xl:text-5xl'>نام</span>
-                          <input type="text" name='name' className='outline-none  p-1 text-right placeholder:text-weak-red 2xl:text-4xl 2xl:py-12' onInput={(e) => dispatch(nameAnswer(e.target.value))} placeholder={warnAnswer.text}/>
+                          <input type="text" name='name' className='outline-none  p-1 border-2 border-stone-300 text-right placeholder:text-weak-red 2xl:text-4xl 2xl:py-12' onInput={(e) => dispatch(nameAnswer(e.target.value))} placeholder={warnAnswer.text}/>
                           <span  className='mt-4 text-sm text-gray-77 2xl:text-5xl'>ایمیل</span>
-                          <input type="email" name="email" id="" className='outline-none  p-1 text-right 2xl:text-4xl 2xl:py-12 placeholder:text-weak-red' onInput={(e) => dispatch(emailAnswer(e.target.value))} placeholder={warnAnswer.text}/>
+                          <input type="email" name="email" id="" className='outline-none  p-1 text-right 2xl:text-4xl 2xl:py-12 placeholder:text-weak-red border-2 border-stone-300' onInput={(e) => dispatch(emailAnswer(e.target.value))} placeholder={warnAnswer.text}/>
                           <span  className='text-sm text-gray-77 mt-4 2xl:text-5xl'>وب سایت</span>
-                          <input type="url" name="url" id="" className='outline-none 2xl:text-4xl 2xl:py-12  p-1 text-right placeholder:text-weak-red' placeholder={warnAnswer.text}/>
+                          <input type="url" name="url" id="" className='outline-none 2xl:text-4xl 2xl:py-12  p-1 text-right placeholder:text-weak-red border-2 border-stone-300' placeholder={warnAnswer.text}/>
                           <div className='flex items-center 2xl:m-12 gap-2 my-4 2xl:gap-10 text-sm text-gray-66 flex-row'>
                           <input type="checkbox" name="remember" id="checkbox" />
                           <span className='2xl:text-4xl'>ذخیره نام , ایمیل و وب سایت من برای زمانی که دوباره دیدگاهی می نویسم</span>

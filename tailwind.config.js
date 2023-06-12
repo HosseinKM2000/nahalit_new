@@ -49,6 +49,12 @@ module.exports = {
         'gray-bbbb' : '#bbbbbb',
         'gray-b1b1' : '#b1b1b1;',
         'green-teal' : '#159895'
+      },
+      borderWidth:{
+        'border-2':'border-width: 2px'
+      },
+      borderColor:{
+        'border-for-border':'border-color:#DFDFDF'
       }
     },
 

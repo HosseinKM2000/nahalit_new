@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     content : 'categories',
-    articleSwitch:'all',
-    homeSwitch:'mainSlider'
+    articlesSwitch:'all',
+    homeSwitch:'mainSlider',
+    productsSwitch:'all'
 }
 
 
@@ -15,15 +16,22 @@ const dashboardSlice = createSlice({
         setContent : (state,action) => {
             state.content = action.payload
         },
-        setArticleSwitch : (state,action) => {
-            state.articleSwitch = action.payload
+        setSwitch : (state,action) => {
+            let { key , value } = action.payload;
+            switch(key)
+            {
+                case 'articles' : state.articlesSwitch = value;
+                break;
+                case 'products' : state.productsSwitch = value;
+                break;
+                case 'homePage' : state.homeSwitch = value;
+                break;
+                default : console.log('non value')
+            }
         },
-        setHomeSwitch : (state,action) => {
-            state.homeSwitch = action.payload
-        }
     }
 })
 
 
-export const {setContent , setArticleSwitch , setHomeSwitch} = dashboardSlice.actions;
+export const {setContent , setSwitch} = dashboardSlice.actions;
 export default dashboardSlice.reducer;

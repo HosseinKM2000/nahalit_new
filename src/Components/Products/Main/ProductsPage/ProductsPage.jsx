@@ -1,5 +1,4 @@
 import React from 'react';
-import {products} from '../../../../API/data.js';
 import {FaEye} from 'react-icons/fa';
 import {BsCalendar4,BsBag} from 'react-icons/bs';
 import {HiCurrencyDollar} from 'react-icons/hi';

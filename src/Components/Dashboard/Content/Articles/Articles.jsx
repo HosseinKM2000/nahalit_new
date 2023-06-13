@@ -5,8 +5,9 @@ import NewArticle from './NewArticle/NewArticle';
 
 function Articles() {
 
-  const Criterion = useSelector(state=> state.dashboard.articleSwitch)
+  const Criterion = useSelector(state=> state.dashboard.articlesSwitch)
 
+  console.log(Criterion)
   return (
     <div className='w-full p-10'>
       {

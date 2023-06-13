@@ -6,12 +6,9 @@ import { Link } from 'react-router-dom';
 import desImg from '../../../assets/img/IMG_20221129_173915_800-600x837.png';
 import {foundProduct} from '../../../features/products/productSlice';
 // import Icons
-import {FaCalendarDays , FaEye , FaStar} from 'react-icons/fa';
+import { FaEye , FaStar} from 'react-icons/fa';
 import {MdOutlineComputer} from 'react-icons/md';
-import {GoMoveToTop} from 'react-icons/go';
-import {TfiMenuAlt} from 'react-icons/tfi';
 import {MdDateRange , MdShoppingCart,MdModeComment} from 'react-icons/md';
-import {AiOutlineBarChart} from 'react-icons/ai';
 import {BsTags,BsBagFill,BsArrowBarUp} from 'react-icons/bs';
 import {FaFacebookF} from 'react-icons/fa';
 import {BsTwitter} from 'react-icons/bs';
@@ -19,11 +16,11 @@ import {BsTelegram} from 'react-icons/bs';
 import {BsPinterest} from 'react-icons/bs';
 import {HiCurrencyDollar} from 'react-icons/hi';
 import {AiTwotoneFolder} from 'react-icons/ai';
+import {GiBasket} from 'react-icons/gi';
 import gearIMG from '../../../assets/img/product/license.svg';
 import wonderIMG from '../../../assets/img/product/info.svg';
 import cardsIMG from '../../../assets/img/product/shopping-carts.png';
 // import modules
-import { text } from '../../../API/data';
 import { keyWord } from '../../../API/data';
 import {  A11y , Pagination , Navigation } from 'swiper';
 import { Swiper, SwiperSlide} from 'swiper/react';
@@ -49,8 +46,9 @@ function Product() {
     const goalProduct = useSelector(state => state.products.goalProduct);
     const mobile = window.innerWidth <= 425 ? true : false;
     const dispatch = useDispatch();
-    useEffect(()=> {
-      dispatch(foundProduct(params.id))
+    dispatch(foundProduct(params.id))
+    useEffect(()=>{
+     
     },[])
     const mouseMoveHandler = (e) => {
       e.target.style.backgroundSize = '140%';
@@ -73,6 +71,8 @@ function Product() {
     const mouseOutHandler = (e) => {
       e.target.style.backgroundSize = '100%';
     }
+
+    
 
   return (
     <main >
@@ -112,6 +112,8 @@ function Product() {
                     <p className='text-lg 2xl:text-3xl 2xl:leading-[3.5rem] text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
                     <div className='w-full flex flex-col items-center gap-5'>
                       <img className='w-full sm:w-[60%]' src={desImg} alt="property" />
+                      <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-5'>
+                      <span className='font-bold text-xs 2xl:text-3xl lg:text-base text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
                       <iframe
                 title="movie"
                 className="w-[100%] flex Iframe justify-center items-center h-[15rem] 2xl:h-[40rem] sm:h-[25rem] scroll_None"
@@ -120,6 +122,7 @@ function Product() {
                 webkitallowfullscreen={true}
                 mozallowfullscreen={true}
               ></iframe>
+                      </div>
                     </div>
                     <div className='flex flex-col items-start mt-10 2xl:gap-20 gap-5 w-full'>
                 <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0 2xl:m-12'/>
@@ -365,6 +368,10 @@ function Product() {
       <footer>
           <Footer/>
       </footer>
+      <button className='fixed bottom-0 w-full text-white font-bold px-3 py-3 transition-all hover:bg-green-500 2xl:text-2xl 2xl:py-5 flex justify-center gap-2 bg-green-600 z-[49]]'>
+        <GiBasket/>
+        <span>افزودن به سبد خرید</span>
+      </button>
     </main>
   )
 }

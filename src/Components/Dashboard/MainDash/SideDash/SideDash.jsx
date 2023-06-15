@@ -15,6 +15,7 @@ function SideDash() {
   const [aRotate,setARotate] = useState(false);
   const [hRotate,setHRotate] = useState(false);
   const [pRotate,setPRotate] = useState(false);
+  const [cRotate,setCRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
   const hCriterion = useSelector(state => state.dashboard.homeSwitch);
@@ -23,30 +24,35 @@ function SideDash() {
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | pRotate && value !== 'articles')
+    if(aRotate | pRotate | cRotate && value !== 'articles')
     {
       setARotate(false);
-      setPRotate(false)
+      setPRotate(false);
+      setCRotate(false);
     }
-    else if(hRotate | pRotate && value !== 'homePage')
+    else if(hRotate | pRotate | cRotate && value !== 'homePage')
     {
-      setHRotate(false)
-      setPRotate(false)
+      setHRotate(false);
+      setPRotate(false);
+      setCRotate(false);
     }
   }
 console.log(aCriterion)
   return (
     <div className='background-gra-green dashboard_side w-[25%] overflow-y-scroll h-[90%]  z-10 flex justify-center px-1 py-5'>
       <ul className='w-full flex flex-col items-center gap-3'>
-        <div  onClick={()=>listSwitch('categories')} style={{backgroundColor:content==='categories'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+        <div  onClick={()=>{
+          listSwitch('categories')
+        }} style={{backgroundColor:content==='categories'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
          <BiCategory className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
          <li className='text-white font-bold text-xl  text-center'>دسته بندی</li>
-          <div className='w-[1.5rem] h-[1.5rem]'></div>
+         <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div className='w-full flex flex-col items-center'>
          <div onClick={()=>{
           listSwitch('homePage')
           setHRotate(!hRotate)
+          dispatch(setSwitch({key:'homePage',value:'describe'}))
         }}
         style={{backgroundColor:content==='homePage'?'#232c38':''}} 
         className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>

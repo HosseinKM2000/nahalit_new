@@ -209,9 +209,17 @@ p
 {
   animation: opacity 1s ease-out 1 ;
 }
+.scale-motion
+{
+  animation: scale 0.5s ease-out 1 ;
+}
 @keyframes opacity {
   0%{opacity: 0;}
   100%{opacity: 1;}
+}
+@keyframes scale {
+  0%{scale: 0;}
+  100%{scale: 1;}
 }
 
 @media(max-width:640px)

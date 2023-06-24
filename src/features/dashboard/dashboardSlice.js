@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const initialState = {
     content : 'categories',
     articlesSwitch:'all',
+    gallerySwitch:'all',
     homeSwitch:'mainSlider',
     productsSwitch:'all',
     categories :null,
@@ -44,7 +45,9 @@ const dashboardSlice = createSlice({
                 case 'homePage' : state.homeSwitch = value;
                 break;
                 case 'categories' : state.categoriesSwitch = value;
-                break
+                break;
+                case 'gallery' : state.gallerySwitch = value;
+                break;
                 default : console.log('non value')
             }
         },

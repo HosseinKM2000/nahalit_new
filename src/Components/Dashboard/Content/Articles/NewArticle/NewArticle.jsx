@@ -17,14 +17,9 @@ function NewArticle() {
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
-    const [tags,setTags] = useState([]);
-    const tagsRef = useRef();
+    const [imageName,setimageName] = useState('');
     const titleRef = useRef();
-    const posterRef = useRef();
-    const bannerRef = useRef();
     const descRef  = useRef();
-    const dependArticleRef = useRef();
-    const shortLinkRef = useRef();
     const situationRef = useRef();
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -33,35 +28,15 @@ function NewArticle() {
             e.stopPropagation()
         }
     }
-    const addTags = (e) => {
-        const text = tagsRef.current.value;
-        if(e.key === "Enter")
-        {
-            if(text.length >= 2)
-            {
-                setTags([...tags,text])
-                tagsRef.current.value = ''
-            }
-            else
-            {
-               toast.warn('عنوان برچسب کوتاه است')
-            }
-        }
-    }
-    const deleteTag = (indexRemove) => {
-        setTags(tags.filter((tag,index)=> index !== indexRemove))
-    }
     const formSubmiter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
-            poster:posterRef.current.value,
-            banner:bannerRef.current.value,
-            tags:tags,
-            describtion:descRef.current.value,
-            relatedArticle:dependArticleRef.current.value,
-            shortLink:shortLinkRef.current.value,
-            situation:situationRef
+            image:imageName,
+            slug:'',
+            body:descRef.current.value,
+            is_active:situationRef,
+            user_id:''
         }
     }
     const liHandler = (value) => {
@@ -94,88 +69,15 @@ function NewArticle() {
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-            {/* poster */}
+            {/* image */}
             <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>آدرس پوستر</label>
-                <input type="url" className='p-1 outline-[#0ab694] w-full text-left' ref={posterRef} required={true} name='poster'/>
-            </div>
-            {/* banner */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>آدرس بنر</label>
-                <input type="url" className='p-1 outline-[#0ab694] w-full text-left' ref={bannerRef} required={true} name='banner'/>
+                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر پوستر</label>
+                <input onChange={(e)=>setimageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
             </div>
             {/* describe */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
-            {/* tags */}
-            <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="tags" className='font-semibold text-[#2e424a]'>برچسب ها</label>
-                    <input onKeyDown={(e)=>addTags(e)} ref={tagsRef} type="text" name="tags" className="w-full outline-none focus:border p-1 border-[#0ab694]"/>
-                    <div className="flex w-full mt-3 flex-wrap gap-3">
-                        {
-                            tags.length === 0
-                            ? <></>
-                            : tags.map((tag,index) => (
-                                <div className="flex items-center gap-1 p-1 text-white bg-stone-500 rounded-md" key={index}>
-                                    <span>{tag}</span>
-                                    <span onClick={()=>deleteTag(index)} className="text-red-600 transition-all hover:text-yellow-400 w-fit h-fit px-1 flex items-center rounded-md cursor-default">&#x2716;</span>
-                                </div>
-                            ))
-                        }
-                    </div>
-            </div>
-            {/* depended */}
-            <div className='flex flex-col gap-2 w-full'>
-            <label htmlFor="search" className='font-semibold text-[#2e424a]'>مقالات مرتبط</label>
-            <input type="search" name="search" id="" ref={dependArticleRef} className='p-1 outline-[#0ab694] w-full'/>
-            </div>
-            {/* short link */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>لینک کوتاه</label>
-                <input type="url" className='p-1 outline-[#0ab694] w-full text-left' ref={shortLinkRef} name='banner'/>
-            </div>
-                        {/* categories */}
-                        <div className='w-full flex justify-start items-start gap-3'>
-                <div className='flex flex-col gap-2 justify-center items-start'>
-                 <button type='button' onClick={()=>{
-                    setDropCate({status:!dropCate.status,value:dropCate.value})
-                    setChildList(false)
-                 }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
-                 {
-                    dropCate.value !== null
-                    ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
-                    :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
-                 }
-                </div>
-                    <ul className='bg-white px-2 overflow-hidden transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
-                    {
-                        categories.map((cate,i)=>(
-                            <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-yellow-600 hover:font-bold transition-all'
-                            onMouseEnter={(e)=>liHandler(cate.name)}
-                            >
-                                <span>{cate.name}</span>
-                                <MdKeyboardArrowLeft/>
-                            </li>
-                        ))
-                    }
-                </ul>
-                {
-                    goalCate !== null
-                    ? 
-                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 overflow-hidden' style={{height:childList?'fit-content':'0px'}}>
-                    {
-                        goalCate.items.map((item,i)=>(
-                            <li key={i} onClick={(e)=>{
-                                setDropCate({status:false,value:item})
-                                setChildList(false)
-                            }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item}</li>
-                        ))
-                    }
-                </ul>
-                : <></>
-                }
             </div>
             {/* situation */}
             <div className='w-full flex justify-start'>

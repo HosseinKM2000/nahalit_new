@@ -5,6 +5,7 @@ import {FiShoppingBag} from 'react-icons/fi';
 import {ImUsers} from 'react-icons/im';
 import {GiClockwork} from 'react-icons/gi';
 import {FaRegComments} from 'react-icons/fa';
+import {AiOutlinePicture} from 'react-icons/ai';
 import {RiHomeSmileFill} from 'react-icons/ri';
 import {setContent,setSwitch} from '../../../../features/dashboard/dashboardSlice';
 import { useSelector , useDispatch} from 'react-redux';
@@ -16,25 +17,29 @@ function SideDash() {
   const [hRotate,setHRotate] = useState(false);
   const [pRotate,setPRotate] = useState(false);
   const [cRotate,setCRotate] = useState(false);
+  const [gRotate,setGRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
   const hCriterion = useSelector(state => state.dashboard.homeSwitch);
   const pCriterion = useSelector(state => state.dashboard.productsSwitch);
+  const gCriterion = useSelector(state => state.dashboard.gallerySwitch);
   const dispatch = useDispatch();
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | pRotate | cRotate && value !== 'articles')
+    if(aRotate | pRotate | cRotate | gRotate && value !== 'articles')
     {
       setARotate(false);
       setPRotate(false);
       setCRotate(false);
+      setGRotate(false);
     }
-    else if(hRotate | pRotate | cRotate && value !== 'homePage')
+    else if(hRotate | pRotate | cRotate | gRotate && value !== 'homePage')
     {
       setHRotate(false);
       setPRotate(false);
       setCRotate(false);
+      setGRotate(false);
     }
   }
 console.log(aCriterion)
@@ -111,6 +116,21 @@ console.log(aCriterion)
           <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:pRotate?'fit-content':'0px',padding:pRotate?'10px':'0px',overflow:pRotate?'':'hidden',visibility:pRotate?'visible':'hidden',marginTop:pRotate?'1rem':'0px'}} >
             <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'all'}))} style={{backgroundColor:pCriterion === 'all' ? '#ffffff4d' : ''}}>همه محصولات</button>
             <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'new'}))} style={{backgroundColor:pCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
+          </div>
+        </div>
+        <div className='w-full flex flex-col items-center'>
+        <div onClick={()=>{
+          listSwitch('gallery')
+          setGRotate(!gRotate)
+          dispatch(setSwitch({key:'gallery',value:'all'}))
+        }}  style={{backgroundColor:content==='gallery'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+         <AiOutlinePicture className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+         <li className='text-white font-bold text-xl  text-center'>گالری</li>
+         <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:gRotate?'-90deg':'0deg'}}/>
+        </div>
+          <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:gRotate?'fit-content':'0px',padding:gRotate?'10px':'0px',overflow:gRotate?'':'hidden',visibility:gRotate?'visible':'hidden',marginTop:gRotate?'1rem':'0px'}} >
+            <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'all'}))} style={{backgroundColor:gCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
+            <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'new'}))} style={{backgroundColor:gCriterion === 'new' ? '#ffffff4d' : ''}}>جدید</button>
           </div>
         </div>
         <div onClick={()=>listSwitch('users')}  style={{backgroundColor:content==='users'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>

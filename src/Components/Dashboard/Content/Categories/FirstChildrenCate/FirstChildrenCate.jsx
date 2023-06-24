@@ -12,21 +12,20 @@ import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
 
 function FirstChildrenCate() {
 
+  const [newCate,setNewCate] = useState({status:false,value:null});
+  const [edite,setEdite] = useState({oldValue:'',newValue:''});
   const parentTitle = useSelector(state => state.dashboard.categoriesSwitch.title);
   const categories = useSelector(state => state.dashboard.categories);
   const parentId = useSelector(state => state.dashboard.categoriesSwitch.id);
   const Loading = useSelector(state => state.dashboard.categoriesLoading);
-  const [newCate,setNewCate] = useState({status:false,value:null});
   const childrenCategories  = categories.filter(cate => cate.category_id === parentId);
-  const [edite,setEdite] = useState({oldValue:'',newValue:''});
-  const dispatch = useDispatch();
-  const SW = useSelector(state => state.dashboard.categoriesSwitch);
-  console.log(childrenCategories)
   const add = useSelector(state => state.dashboard.addSeccess);
   const Delete = useSelector(state => state.dashboard.deleteSeccess);
   const Edite = useSelector(state => state.dashboard.editeSeccess);
+  const dispatch = useDispatch();
 
   const editeHandler =  (e,key,id,category_id) => {
+
     const exiteItem  = categories.find(cate=> cate.title === edite.newValue)
     if(e.code === 'Enter' || key === 'Tick')
     {
@@ -45,7 +44,9 @@ function FirstChildrenCate() {
       }
     }
   } 
+
   const addCateHandler = (e,key) => {
+
     if(e.code === 'Enter' || key === 'Tick')
     {
       if(newCate.value !== null )
@@ -68,19 +69,21 @@ function FirstChildrenCate() {
       }
     }
   }
+
   const deleteHandler = (e,id) => {
     e.stopPropagation();
     dispatch(deleteParentCategories(id))
   }
-  console.log(SW)
 
   useEffect(()=>{
+
     dispatch(getCategories())
+
   },[add,Delete,Edite])
 
   return (
     <>
-        <ToastContainer 
+    <ToastContainer 
     position='top-center'
     theme='colored'
     autoClose={2500}

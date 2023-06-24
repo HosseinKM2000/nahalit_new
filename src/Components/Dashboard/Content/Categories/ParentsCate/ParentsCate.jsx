@@ -52,7 +52,6 @@ function ParentsCate() {
   const deleteCateHandler = (id) => {
     dispatch(deleteParentCategories(id))
   }
-
   const editeHandler =  (e,key,id) => {
     const exiteItem  = categories.find(cate=> cate.title === isChange.newValue);
     if(e.code === 'Enter' || key === 'Tick')
@@ -69,7 +68,6 @@ function ParentsCate() {
       else
       {
         dispatch(editeParentCategories({id,title:isChange.newValue,category_id:null}));
-        console.log(id,isChange.newValue);
         setIsChange({oldValue:'',newValue:''});
       }
     }
@@ -158,7 +156,28 @@ function ParentsCate() {
          </>
          </>
          :
+         <div className='flex flex-col items-center w-full gap-5'>
          <span className='items-center flex text-white text-xl font-bold' style={{textShadow:'1px 1px 3px orange'}}>دسته بندی وجود ندارد</span>
+         <>
+         {
+                      // add new Category
+                      !newCate.status
+                      ?
+                     <div className='scale-motion w-full h-[3rem] rounded-sm transition-all hover:text-orange-500 hover:border-orange-500 duration-200 items-center gap-1 text-white flex justify-center font-bold border-2 border-white border-dashed cursor-default' onClick={()=>setNewCate({status:true,value:null})}>
+                      <span>افزودن دسته بندی</span>
+                      <FiPlusCircle className='text-2xl'/>
+                     </div>
+                    : 
+                     <div className='w-full scale-motion h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] pr-2'>
+                    <input onKeyDown={(e)=>addCateHandler(e)} onChange={(e)=>setNewCate({status:true,value:e.target.value})} className='w-full z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان دسته بندی'/>
+                    <div className='flex flex-col h-full gap-1 justify-center ml-1'>
+                      <TiTick className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer' onClick={(e)=>addCateHandler(e,'Tick')}/>
+                      <TiDelete className='text-red-600 text-xl transition-all hover:text-red-500 cursor-pointer' onClick={()=>setNewCate({status:false,value:null})}/>
+                    </div>
+                     </div>
+         }
+         </>
+         </div>
         :
         <span className='items-center flex text-white text-xl font-bold' style={{textShadow:'1px 1px 2px red'}}>{getError}</span>
         }

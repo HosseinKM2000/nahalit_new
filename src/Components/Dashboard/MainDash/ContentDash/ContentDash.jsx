@@ -10,6 +10,7 @@ import WorkSample from '../../Content/WorkSample/WorkSample';
 import Projects from '../../Content/Projects/Projects';
 import Categories from '../../Content/Categories/Categories';
 import Home from '../../Content/Home/Home';
+import Gallery from '../../Content/Gallery/Gallery';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -37,6 +38,8 @@ function ContentDash() {
       case 'projects' : setCurrentContent(<Projects/>)
       break
       case 'homePage' : setCurrentContent(<Home/>)
+      break
+      case 'gallery' : setCurrentContent(<Gallery/>)
       break
       default : setCurrentContent('این بخش وجود ندارد')
     }

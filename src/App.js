@@ -43,6 +43,8 @@ import Article from "./page/Articles/Article/Article";
 import Dashboard  from './page/Dashboard/Dashboard.jsx'
 import Products from "./page/Products/Products";
 import Product from "./page/Products/Product/Product";
+import Login from "./page/Authentication/Login/Login";
+import Register from "./page/Authentication/Register/Register";
 
 const App = () => {
   return (
@@ -86,6 +88,8 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path="/shop" element={<Products/>}/>
           <Route path="/shop/product/:id" element={<Product/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </div>
       </>

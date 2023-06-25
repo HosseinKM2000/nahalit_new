@@ -337,16 +337,6 @@ function Product() {
               <span className='text-sm 2xl:text-2xl text-center text-stone-600 font-bold'>پرداخت امن با کلیه کارت های عضو شتاب</span>
               <img src={cardsIMG} alt="cards" className='w-full'/>
             </div>
-            <div className='flex flex-col items-end text-sm'>
-            <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white 2xl:text-4xl rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
-            <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>
-              {
-                keyWord.map(item => (
-                  <span className='text-base 2xl:text-4xl 2xl:leading-normal text-gray-66 px-1 cursor-pointer hover:text-sky-blue'>{item}</span>
-                ))
-              }
-            </div>
-          </div>
           <div className='flex flex-col items-start w-full my-10'>
             <div className='w-full py-3 pr-2 font-bold text-sm 2xl:text-3xl font-[shabnambold] text-stone-700' style={{borderRight:'solid 5px #03A9F4'}}>
               <span>برچسب ها:</span>

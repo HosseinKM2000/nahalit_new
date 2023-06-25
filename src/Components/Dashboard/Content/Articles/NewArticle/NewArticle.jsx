@@ -18,9 +18,11 @@ function NewArticle() {
     const [childList,setChildList] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
     const [imageName,setimageName] = useState('');
+    const [tags,setTags] = useState([]);
     const titleRef = useRef();
     const descRef  = useRef();
     const situationRef = useRef();
+    const tagsRef = useRef();
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -43,6 +45,24 @@ function NewArticle() {
         setChildList(true);
         const item = categories.find(cate => cate.name === value);
         setGoalCate(item)
+    }
+    const add = (e) => {
+        const textTag = tagsRef.current.value;
+        if(e.key === "Enter")
+        {
+            if(textTag.length >= 2 )
+            {
+                setTags([...tags,textTag])
+                tagsRef.current.value = ''
+            }
+            else
+            {
+               toast.warn('عنوان برچسب کوتاه است')
+            }
+        }
+    }
+    const Delete = (indexRemove) => {
+          setTags(tags.filter((tag,index)=> index !== indexRemove))
     }
 
   return (
@@ -78,6 +98,23 @@ function NewArticle() {
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
+            </div>
+                        {/* tags */}
+                        <div className="flex flex-col gap-2 w-full">
+                    <label htmlFor="tags" className='font-semibold text-[#2e424a]'>برچسب ها</label>
+                    <input onKeyDown={(e)=>add(e)} ref={tagsRef} type="text" name="tags" className="w-full outline-none focus:border p-1 border-[#0ab694]"/>
+                    <div className="flex w-full mt-3 flex-wrap gap-3">
+                        {
+                            tags.length === 0
+                            ? <></>
+                            : tags.map((tag,index) => (
+                                <div className="flex items-center gap-1 p-1 text-white bg-stone-500 rounded-md" key={index}>
+                                    <span>{tag}</span>
+                                    <span onClick={()=>Delete(index)} className="text-red-600 transition-all hover:text-yellow-400 w-fit h-fit px-1 flex items-center rounded-md cursor-default">&#x2716;</span>
+                                </div>
+                            ))
+                        }
+                    </div>
             </div>
             {/* situation */}
             <div className='w-full flex justify-start'>

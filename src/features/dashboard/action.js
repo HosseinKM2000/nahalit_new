@@ -35,3 +35,10 @@ export const editeParentCategories = createAsyncThunk('dashboard/editeParentCate
     console.log('edite')
     return Edite;
 })
+
+export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
+
+    const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+
+    return response;
+})

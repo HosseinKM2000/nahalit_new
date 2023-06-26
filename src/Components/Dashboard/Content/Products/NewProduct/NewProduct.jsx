@@ -6,33 +6,33 @@ import { ToastContainer } from 'react-toastify';
 import {MdKeyboardArrowLeft} from 'react-icons/md';
 
 function NewProduct() {
-    const [categories,setCategories] = useState([
-        {
-            id:1,
-            title:'سایت های آماده',
-            category_id:null
-        },
-        {
-            id:2,
-            title:'پلاگین وردپرس',
-            category_id:null
-        },
-        {
-            id:3,
-            title:"پلاگین مدیریتی",
-            category_id:2
-        },
-        {
-            id:4,
-            title:"پلاگین کاربردی",
-            category_id:2
-        },
-        {
-            id:5,
-            title:"سایت آماده لاراول",
-            category_id:1
-        },
-    ])
+    // const [categories,setCategories] = useState([
+    //     {
+    //         id:1,
+    //         title:'سایت های آماده',
+    //         category_id:null
+    //     },
+    //     {
+    //         id:2,
+    //         title:'پلاگین وردپرس',
+    //         category_id:null
+    //     },
+    //     {
+    //         id:3,
+    //         title:"پلاگین مدیریتی",
+    //         category_id:2
+    //     },
+    //     {
+    //         id:4,
+    //         title:"پلاگین کاربردی",
+    //         category_id:2
+    //     },
+    //     {
+    //         id:5,
+    //         title:"سایت آماده لاراول",
+    //         category_id:1
+    //     },
+    // ])
     const [imageName,setImageName] = useState('');
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
@@ -43,7 +43,7 @@ function NewProduct() {
     const categoryRef = useRef();
     const titleRef = useRef();
     const descRef  = useRef();
-    // const categories = useSelector(state => state.dashboard.categories);
+    const categories = useSelector(state => state.dashboard.categories);
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {

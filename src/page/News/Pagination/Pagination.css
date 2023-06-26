@@ -27,6 +27,7 @@
 .nextBtn,.preBtn > a
 {
     font-size:  1rem !important;
+    font-weight: bold;
 }
 .nextBtn,.preBtn:hover
 {

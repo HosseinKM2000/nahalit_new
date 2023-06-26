@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getCategories,
          addParentCategories,
          deleteParentCategories,
-         editeParentCategories} from "./action";
+         editeParentCategories,
+         getProducts} from "./action";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -11,10 +12,13 @@ const initialState = {
     gallerySwitch:'all',
     homeSwitch:'mainSlider',
     productsSwitch:'all',
+    products:null,
+    productsLoading:false,
     categories :null,
     categoriesLoading:false,
     categoriesError:'',
     addSeccess : false,
+    scrollUp:false,
     deleteSeccess : false,
     editeSeccess : false,
     categoriesSwitch:
@@ -61,6 +65,9 @@ const dashboardSlice = createSlice({
             let { key , title_2 , id_2 } = action.payload;
             state.categoriesSwitch = {key,title:state.categoriesSwitch.title,id:state.categoriesSwitch.id,title_2,id_2}
         },
+        setScrollUp: (state,action) => {
+            state.scrollUp = !state.scrollUp
+        }
     },
     extraReducers: (builder) => {
 
@@ -116,6 +123,18 @@ const dashboardSlice = createSlice({
             state.categoriesLoading = false;
             toast.error('خطا در ویرایش دسته بندی')
         })
+        // gat products
+        .addCase(getProducts.fulfilled , (state,action) => {
+            state.productsLoading = false;
+            state.products = action.payload.data;
+        })
+        .addCase(getProducts.pending , (state,action) => {
+            state.productsLoading = true;
+        })
+        .addCase(getProducts.rejected , (state,action) => {
+            state.productsLoading = false;
+            toast.error('خطا در بارگیری اطلاعات')
+        })
     }
 })
 
@@ -123,6 +142,7 @@ const dashboardSlice = createSlice({
 export const { setContent,
                setSwitch,
                setSwitchCategories, 
-               setSwitchCategories_2 } = dashboardSlice.actions;
+               setSwitchCategories_2,
+               setScrollUp } = dashboardSlice.actions;
 
 export default dashboardSlice.reducer;

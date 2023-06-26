@@ -1,4 +1,4 @@
-import { React , useEffect , useState}from 'react';
+import { React , useEffect , useState , useRef }from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../../Content/Articles/Articles';
 import Services from '../../Content/Services/Services';
@@ -15,6 +15,9 @@ import Gallery from '../../Content/Gallery/Gallery';
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
   const content = useSelector(state => state.dashboard.content);
+  const bodyRef = useRef();
+  const scrollUp = useSelector(state => state.dashboard.scrollUp);
+  
 
   useEffect(()=>{
     switch(content)
@@ -44,9 +47,11 @@ function ContentDash() {
       default : setCurrentContent('این بخش وجود ندارد')
     }
   },[content])
-
+  useEffect(() => {
+    bodyRef.current.scrollTop = 0
+  },[scrollUp])
   return (
-    <div className='bg-[#363d4f] scroll-dash-content w-[75%] h-[90%] max-h-screen overflow-y-scroll relative'>
+    <div ref={bodyRef} className='bg-[#363d4f] scroll-dash-content w-[75%] h-[90%] max-h-screen overflow-y-scroll relative'>
         {
           currentContent
         }

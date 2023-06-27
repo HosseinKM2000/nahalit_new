@@ -38,7 +38,7 @@ import ContactUs from "./page/ContactUs/ContactUs";
 import ScrollToTophg from "./Components/ScrollToTop/ScrollToTop";
 import Error from "./page/Error/Error";
 import News from  './page/News/News';
-import Articles from "./page/Articles/Articles";
+import ArticlesPagination from "./page/Articles/ArticlesPagination/ArticlesPagination";
 import Article from "./page/Articles/Article/Article";
 import Dashboard  from './page/Dashboard/Dashboard.jsx'
 import Products from "./page/Products/Products";
@@ -81,7 +81,7 @@ const App = () => {
           <Route path="/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
           <Route path="/خدمات-گرافیک" element={<Sgraphic />} />
           <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/articles" element={<Articles/>}/>
+          <Route path="/articles" element={<ArticlesPagination/>}/>
           <Route path="/articles/article" element={<Article/>}/>
           <Route path="/news" element={<News/>}/>
           <Route path="*" element={<Error/>}/>

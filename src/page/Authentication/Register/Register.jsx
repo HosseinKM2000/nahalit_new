@@ -252,8 +252,7 @@ function Register() {
   {"country":"Yemen","code":"967","iso":"YE"},
   {"country":"Zambia","code":"260","iso":"ZM"},
   {"country":"Zimbabwe","code":"263","iso":"ZW"}];
-  let str = '565456f';
-  console.log(phoneCode)
+
   const registerHandler = () => {
     let name = nameRef.current.value;
     let email = emailRef.current.value;

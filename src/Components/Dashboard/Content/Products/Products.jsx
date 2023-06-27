@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductsPagination from './AllProducts/ProductsPagination/ProductsPagination';
 import NewProduct from './NewProduct/NewProduct';
+import EditeProduct from './EditeProduct/EditeProduct';
+
 
 function Products() {
 
@@ -11,8 +13,18 @@ function Products() {
     <div className='w-full p-10'>
       {
         Criterion === 'all'
-        ? <ProductsPagination/>
-        : <NewProduct/>
+        ? 
+          <ProductsPagination/>
+        : 
+        <>
+          {
+            Criterion === 'edite'
+            ?
+             <EditeProduct/>
+            :
+             <NewProduct/>
+          }
+        </>
       }
     </div>
   )

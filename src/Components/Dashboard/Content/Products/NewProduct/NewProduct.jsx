@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import {MdKeyboardArrowLeft} from 'react-icons/md';
+import { GiCancel } from 'react-icons/gi';
+import { TiTickOutline } from 'react-icons/ti';
 
 function NewProduct() {
     // const [categories,setCategories] = useState([
@@ -43,6 +45,7 @@ function NewProduct() {
     const categoryRef = useRef();
     const titleRef = useRef();
     const descRef  = useRef();
+    const discountRef = useRef();
     const categories = useSelector(state => state.dashboard.categories);
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -87,7 +90,7 @@ function NewProduct() {
     }
 
   return (
-        <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex flex-col w-full opacity-motion'>
              {/* green circles in background */}
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
@@ -181,6 +184,24 @@ function NewProduct() {
             <div className='flex flex-col gap-2 w-full'>
             <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
             <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef} className='p-1 outline-[#0ab694] w-[20%]'/>
+            </div>
+               {/* discount */}
+            <div className='w-full flex flex-col gap-2'>
+              <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
+              <div className='flex gap-1 w-full items-center transition-all duration-300 overflow-hidden'>
+               <input type="text" ref={discountRef} className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
+                  if(e.target.value.search(/\D+/g) !== -1)
+                    {
+                    e.target.value = ''
+                    toast.warn("مقدار قابل قبول نیست")
+                    }
+                  else if(parseInt(e.target.value) > 100)
+                    {
+                    e.target.value = '100';
+                    toast.warn("مقدار قابل قبول نیست")
+                    }
+             }}/>
+              </div>
             </div>
             <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
         </form>

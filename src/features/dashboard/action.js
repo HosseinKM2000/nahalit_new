@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// categories
 export const getCategories = createAsyncThunk('dashboard/getCategories', async () => {
     
     const response = await  axios.get('http://127.0.0.1:8000/api/v1/categories');
@@ -35,10 +36,64 @@ export const editeParentCategories = createAsyncThunk('dashboard/editeParentCate
     console.log('edite')
     return Edite;
 })
-
+// products
 export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
 
     const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+
+    return response;
+})
+
+export const addProduct = createAsyncThunk('dashboard/addProduct', async (data) => {
+
+    const response = await axios.post(`http://127.0.0.1:8000/api/v1/products`,{
+        ...data
+    });
+
+    return response;
+})
+
+export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (id) => {
+
+    const response = await axios.delete(`http://127.0.0.1:8000/api/v1/products/${id}`);
+
+    return response;
+})
+
+export const editeProduct = createAsyncThunk('dashboard/deleteProduct', async (id,newData) => {
+
+    const response = await axios.put(`http://127.0.0.1:8000/api/v1/products/${id}`,{
+        ...newData
+    });
+
+    return response;
+})
+// discount
+export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () => {
+
+    const response = await axios.get(`http://127.0.0.1:8000/api/v1/discounts`);
+
+    return response;
+})
+export const addDiscount = createAsyncThunk('dashboard/addDiscount', async (data) => {
+
+    const response = await axios.post(`http://127.0.0.1:8000/api/v1/discounts`,{
+        ...data
+    });
+
+    return response;
+})
+export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', async (id) => {
+
+    const response = await axios.delete(`http://127.0.0.1:8000/api/v1/discounts/${id}`);
+
+    return response;
+})
+export const editeDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id,}) => {
+
+    const response = await axios.put(`http://127.0.0.1:8000/api/v1/discounts/${id}`,{
+
+    });
 
     return response;
 })

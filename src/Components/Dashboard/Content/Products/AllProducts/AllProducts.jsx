@@ -7,29 +7,16 @@ import { BsCardImage } from 'react-icons/bs';
 import { IoMdPricetags } from 'react-icons/io';
 import { GrMoreVertical } from 'react-icons/gr';
 import { TbBrandCashapp , TbCategory2 } from 'react-icons/tb';
-import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function AllProducts({currentItems}) {
   const dispatch = useDispatch();
   const products = useSelector(state => state.dashboard.products);
-  const getLoading = useSelector(state => state.dashboard.productsLoading);
-  useEffect(()=>{
-    dispatch(getProducts())
-  },[]);
 
   return (
     <div className='flex flex-col w-full'>
-      <span className='w-full text-white font-bold'>تعداد محصولات ( {products.length} )</span>
-      {
-        getLoading
-        ?
-        <div className='h-[10rem] w-[full] flex items-center justify-center'>
-        <img src={loading} alt="loading" className='w-[10%]'/>
-       </div>
-       :
-       <></>
-      }
-      {
+        <span className='w-full text-white font-bold'>تعداد محصولات ( {products !== null ? products.length : 'NaN'} )</span>
+        {
         products !== null
         ?
         <>
@@ -61,7 +48,7 @@ function AllProducts({currentItems}) {
                 <span className='text-[#724cc4] font-[shabnambold] text-sm'>50%</span>
                 <div className='flex flex-col gap-y-2'>
                 <div className='flex items-center gap-x-1 text-sm'>
-                  <button className='text-white p-1 bg-orange-600 rounded-sm transition-all hover:bg-orange-500' type="button">ویرایش</button>
+                  <button className='text-white p-1 bg-orange-600 rounded-sm transition-all hover:bg-orange-500' type="button" onClick={(e)=>dispatch(setSwitch({key:'products',value:'edite',id:product.id}))}>ویرایش</button>
                   <button className='text-white p-1 bg-red-600 rounded-sm transition-all hover:bg-red-500' type="button">حذف</button>
                 </div>
                 <button className='w-full transition-all hover:bg-[#5cc7c0] py-1 text-xl text-white flex items-center justify-center bg-[#47a9a3] rounded-sm'><FaImages/></button>

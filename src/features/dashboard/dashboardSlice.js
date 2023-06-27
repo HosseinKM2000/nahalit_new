@@ -12,6 +12,7 @@ const initialState = {
     gallerySwitch:'all',
     homeSwitch:'mainSlider',
     productsSwitch:'all',
+    productId:null,
     products:null,
     productsLoading:false,
     categories :null,
@@ -39,12 +40,16 @@ const dashboardSlice = createSlice({
             state.content = action.payload
         },
         setSwitch : (state,action) => {
-            let { key , value } = action.payload;
+            let { key , value , id } = action.payload;
             switch(key)
             {
                 case 'articles' : state.articlesSwitch = value;
                 break;
-                case 'products' : state.productsSwitch = value;
+                case 'products' : 
+                {
+                    state.productsSwitch = value
+                    state.productId = id
+                }
                 break;
                 case 'homePage' : state.homeSwitch = value;
                 break;

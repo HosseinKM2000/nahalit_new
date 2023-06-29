@@ -12,9 +12,11 @@ function EditeProduct() {
     const goalProduct = products !== null ? products.find(product => product.id === productId) : '';
     const [imageName,setImageName] = useState('');
     const [editeDiscount,setEditeDiscount] = useState(false);
-    const [dropCate,setDropCate] = useState({status:false,value:'دسته بندی قبلی محصول'})
+    const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
+    const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
+    const [goalChild,setGoalChild] = useState(null);
     const [tags,setTags] = useState([]);
     const priceRef = useRef();
     const tagsRef = useRef();
@@ -24,6 +26,7 @@ function EditeProduct() {
     const discountRef = useRef();
     const dispatch = useDispatch();
     const categories = useSelector(state => state.dashboard.categories);
+    const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -64,6 +67,11 @@ function EditeProduct() {
         setChildList(true);
         const item = categories.filter(cate => cate.category_id === null).find(cate => cate.title === value);
         setGoalCate(item)
+    }
+    const liHandler_2 = (id) => {
+        setChildList_2(true);
+        const item = categories.find(cate => cate.id === id);
+        setGoalChild(item)
     }
 
   return (
@@ -116,48 +124,72 @@ function EditeProduct() {
                    ))
                }
            </div>
-   </div>
-   {/* categories */}
-   <div className='w-full flex justify-start items-start gap-3'>
-       <div className='flex flex-col gap-2 justify-center items-start'>
-        <button type='button' onClick={()=>{
-           setDropCate({status:!dropCate.status,value:dropCate.value})
-           setChildList(false)
-        }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
-        {
-           dropCate.value !== null
-           ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
-           :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
-        }
-       </div>
-           <ul className='bg-white px-2 overflow-hidden transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
-           {
-               categories.filter(cate => cate.category_id === null).map((cate,i)=>(
-                   <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-yellow-600 hover:font-bold transition-all'
-                   onMouseEnter={(e)=>liHandler(cate.title)}
-                   >
-                       <span>{cate.title}</span>
-                       <MdKeyboardArrowLeft/>
-                   </li>
-               ))
-           }
-       </ul>
-       {
-           goalCate !== null
-           ? 
-           <ul className='bg-white px-2 rounded-sm transition-all duration-300 overflow-hidden' style={{height:childList?'fit-content':'0px'}}>
-           {
-               categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
-                   <li key={i} onClick={(e)=>{
-                       setDropCate({status:false,value:item.title})
-                       setChildList(false)
-                   }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
-               ))
-           }
-       </ul>
-       : <></>
-       }
-   </div>
+     </div>
+      {/* categories */}
+    <div className='w-full flex justify-start items-start gap-3'>
+                <div className='flex flex-col gap-3 justify-center items-start'>
+                 <button type='button' onClick={()=>{
+                    setDropCate({status:!dropCate.status,value:dropCate.value})
+                    setChildList(false)
+                    setChildList_2(false)
+                 }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
+                 {
+                    dropCate.value !== null
+                    ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
+                    :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
+                 }
+                </div>
+                    <ul className='bg-white cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll px-2  transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
+                    {
+                        cateList.filter(cate => cate.category_id === null).map((cate,i)=>(
+                            <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
+                            onMouseEnter={(e)=>{
+                                liHandler(cate.title)
+                                setChildList_2(false)
+                            }}
+                            >
+                                <span>{cate.title}</span>
+                                <MdKeyboardArrowLeft/>
+                            </li>
+                        ))
+                    }
+                </ul>
+                {
+                    goalCate !== null
+                    ? 
+                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
+                    {
+                        categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
+                            <li key={i} onMouseEnter={(e)=>{
+                                liHandler_2(item.id)
+                                setChildList_2(true)
+                            }}  className='cursor-pointer hover:text-orange-600 hover:font-bold transition-all flex items-center gap-1'>
+                                <span>{item.title}</span>
+                                <MdKeyboardArrowLeft/>
+                            </li>
+                        ))
+                    }
+                </ul>
+                : <></>
+                }
+                {
+                    goalChild !== null
+                    ?
+                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
+                    {
+                        categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
+                            <li key={i} onClick={(e)=>{
+                                setDropCate({status:false,value:item.title})
+                                setChildList(false)
+                                setChildList_2(false)
+                            }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
+                        ))
+                    }
+                    </ul>
+                    :
+                    <></>
+                }
+    </div>
   {/* price */}
    <div className='flex flex-col gap-2 w-full'>
    <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>

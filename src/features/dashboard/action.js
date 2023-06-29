@@ -60,7 +60,7 @@ export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (
     return response;
 })
 
-export const editeProduct = createAsyncThunk('dashboard/deleteProduct', async (id,newData) => {
+export const editeProduct = createAsyncThunk('dashboard/editeProduct', async (id,newData) => {
 
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/products/${id}`,{
         ...newData
@@ -68,6 +68,7 @@ export const editeProduct = createAsyncThunk('dashboard/deleteProduct', async (i
 
     return response;
 })
+
 // discount
 export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () => {
 
@@ -75,6 +76,7 @@ export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () 
 
     return response;
 })
+
 export const addDiscount = createAsyncThunk('dashboard/addDiscount', async (data) => {
 
     const response = await axios.post(`http://127.0.0.1:8000/api/v1/discounts`,{
@@ -83,15 +85,57 @@ export const addDiscount = createAsyncThunk('dashboard/addDiscount', async (data
 
     return response;
 })
+
 export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', async (id) => {
 
     const response = await axios.delete(`http://127.0.0.1:8000/api/v1/discounts/${id}`);
 
     return response;
 })
+
 export const editeDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id,}) => {
 
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/discounts/${id}`,{
+
+    });
+
+    return response;
+})
+
+// gallery
+export const getGalleries = createAsyncThunk('dashboard/getGalleries', async () => {
+
+    const response = await axios.get(`http://127.0.0.1:8000/api/v1/galleries`);
+
+    return response;
+})
+
+export const addGallery = createAsyncThunk('dashboard/addGalleries', async (data) => {
+
+    const response = await axios.post(`http://127.0.0.1:8000/api/v1/galleries`,{
+        ...data
+    });
+
+    return response;
+})
+
+export const deleteGallery = createAsyncThunk('dashboard/deleteGalleries', async (id) => {
+
+    const response = await axios.delete(`http://127.0.0.1:8000/api/v1/galleries/${id}`);
+
+    return response;
+})
+
+export const getOneGallery = createAsyncThunk('dashboard/getOneGalleries', async ({id,}) => {
+
+    const response = await axios.get(`http://127.0.0.1:8000/api/v1/galleries/${id}`);
+
+    return response;
+})
+
+export const editeGallery = createAsyncThunk('dashboard/getGalleries', async ({id,}) => {
+
+    const response = await axios.put(`http://127.0.0.1:8000/api/v1/galleries/${id}`,{
 
     });
 

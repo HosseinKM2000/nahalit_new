@@ -1,7 +1,6 @@
-import { React , useEffect , useRef } from 'react';
+import { React } from 'react';
 import { FaImages } from 'react-icons/fa';
 import { useDispatch , useSelector } from 'react-redux';
-import { getProducts } from '../../../../../features/dashboard/action';
 import { MdOutlineFormatListNumberedRtl , MdTitle } from 'react-icons/md';
 import { BsCardImage } from 'react-icons/bs';
 import { IoMdPricetags } from 'react-icons/io';
@@ -51,7 +50,7 @@ function AllProducts({currentItems}) {
                   <button className='text-white p-1 bg-orange-600 rounded-sm transition-all hover:bg-orange-500' type="button" onClick={(e)=>dispatch(setSwitch({key:'products',value:'edite',id:product.id}))}>ویرایش</button>
                   <button className='text-white p-1 bg-red-600 rounded-sm transition-all hover:bg-red-500' type="button">حذف</button>
                 </div>
-                <button className='w-full transition-all hover:bg-[#5cc7c0] py-1 text-xl text-white flex items-center justify-center bg-[#47a9a3] rounded-sm'><FaImages/></button>
+                <button className='w-full transition-all hover:bg-[#5cc7c0] py-1 text-xl text-white flex items-center justify-center bg-[#47a9a3] rounded-sm' onClick={(e)=>dispatch(setSwitch({key:'products',value:'gallery',id:product.id}))}><FaImages/></button>
                 </div>
               </div>
               ))

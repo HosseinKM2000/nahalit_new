@@ -2,8 +2,7 @@ import { React , useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
-import { useNavigate} from 'react-router-dom';
-import AllProducts from '../AllProducts';
+import  AllProducts from '../AllProducts';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import { getProducts } from '../../../../../../features/dashboard/action';
 import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
@@ -14,15 +13,14 @@ function ProductsPagination() {
     const products = useSelector(state => state.dashboard.products);
     const getLoading = useSelector(state => state.dashboard.productsLoading);
     const ListProducts = products !== null ? products.slice(0,100) : [{url:'url',title:'',id:1}];
-    const dispatch = useDispatch();
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 11;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = ListProducts.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(ListProducts.length / itemsPerPage);
+    const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(getProducts())
-      console.log(products)
     },[]);
 
     const handlePageClick = (event) => {

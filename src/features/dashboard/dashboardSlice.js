@@ -3,7 +3,8 @@ import { getCategories,
          addParentCategories,
          deleteParentCategories,
          editeParentCategories,
-         getProducts} from "./action";
+         getProducts,
+         addGallery} from "./action";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     homeSwitch:'mainSlider',
     productsSwitch:'all',
     productId:null,
+    galleryId:null,
     products:null,
     productsLoading:false,
     categories :null,
@@ -55,7 +57,10 @@ const dashboardSlice = createSlice({
                 break;
                 case 'categories' : state.categoriesSwitch = value;
                 break;
-                case 'gallery' : state.gallerySwitch = value;
+                case 'gallery' : {
+                    state.gallerySwitch = value;
+                    state.galleryId = id;
+                }
                 break;
                 default : console.log('non value')
             }
@@ -72,7 +77,7 @@ const dashboardSlice = createSlice({
         },
         setScrollUp: (state,action) => {
             state.scrollUp = !state.scrollUp
-        }
+        },
     },
     extraReducers: (builder) => {
 
@@ -128,7 +133,7 @@ const dashboardSlice = createSlice({
             state.categoriesLoading = false;
             toast.error('خطا در ویرایش دسته بندی')
         })
-        // gat products
+        // get products
         .addCase(getProducts.fulfilled , (state,action) => {
             state.productsLoading = false;
             state.products = action.payload.data;
@@ -139,6 +144,16 @@ const dashboardSlice = createSlice({
         .addCase(getProducts.rejected , (state,action) => {
             state.productsLoading = false;
             toast.error('خطا در بارگیری اطلاعات')
+        })
+        // add gallery
+        .addCase(addGallery.fulfilled,(state,action) => {
+            if(action.payload.status === 200)
+            {
+                toast.success('گالری ذخیره شد')
+            }
+        })
+        .addCase(addGallery.rejected, (state,action) => {
+                toast.error("گالری ذخیره نشد")
         })
     }
 })

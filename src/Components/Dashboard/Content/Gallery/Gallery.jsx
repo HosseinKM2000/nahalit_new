@@ -1,7 +1,8 @@
 import { React , useState , useEffect} from 'react';
 import { useSelector } from 'react-redux';
-import All from './All/All';
+import GalleriesPagination from './All/GalleriesPagination/GalleriesPagination';
 import New from './New/New';
+import Edite from './Edite/Edite';
 
 function Gallery() {
   const [innerCommponent,setInnerCommponent] = useState(<></>)
@@ -10,11 +11,15 @@ function Gallery() {
   useEffect(()=>{
     if(Criterion === 'all')
     {
-      setInnerCommponent(<All/>)
+      setInnerCommponent(<GalleriesPagination/>)
     }
     else if(Criterion === 'new')
     {
       setInnerCommponent(<New/>)
+    }
+    else if(Criterion === 'edite')
+    {
+      setInnerCommponent(<Edite/>)
     }
 
   },[Criterion])

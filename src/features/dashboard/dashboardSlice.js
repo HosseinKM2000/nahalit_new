@@ -15,6 +15,7 @@ const initialState = {
     productsSwitch:'all',
     productId:null,
     galleryId:null,
+    productId:null,
     products:null,
     productsLoading:false,
     categories :null,
@@ -45,7 +46,10 @@ const dashboardSlice = createSlice({
             let { key , value , id } = action.payload;
             switch(key)
             {
-                case 'articles' : state.articlesSwitch = value;
+                case 'articles' : {
+                    state.articlesSwitch = value
+                    state.articleId = id
+                }
                 break;
                 case 'products' : 
                 {

@@ -1,19 +1,29 @@
-import React from 'react';
+import { React , useEffect , useState } from 'react';
 import { useSelector } from 'react-redux';
-import AllArticle from './AllArticle/AllArticle';
+import ArticlesPagination  from './AllArticles/ArticlesPagination/ArticlesPagination';
 import NewArticle from './NewArticle/NewArticle';
+import EditeArticle from './EditeArticle/EditeArticle';
 
 function Articles() {
-
+  const [innerCommponent,setInnerCommponent] = useState(<></>);
   const Criterion = useSelector(state=> state.dashboard.articlesSwitch)
+  useEffect(()=>{
+    switch(Criterion)
+    {
+      case "all" : setInnerCommponent(<ArticlesPagination/>);
+      break;
+      case "new" : setInnerCommponent(<NewArticle/>);
+      break;
+      case "edite" : setInnerCommponent(<EditeArticle/>)
+      break;
+      default : setInnerCommponent(<></>); 
+    }
+  },[Criterion])
 
-  console.log(Criterion)
   return (
     <div className='w-full p-10'>
       {
-        Criterion === 'all'
-        ? <AllArticle/>
-        : <NewArticle/>
+        innerCommponent
       }
     </div>
   )

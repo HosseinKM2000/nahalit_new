@@ -9,7 +9,7 @@ import { TiTickOutline } from 'react-icons/ti';
 function EditeProduct() {
     const productId = useSelector(state => state.dashboard.productId);
     const products = useSelector( state => state.dashboard.products);
-    const goalProduct = products !== null ? products.find(product => product.id === productId) : '';
+    const goalProduct = products.find(product => product.id === productId) || {title:'',description:'',price:''};
     const [imageName,setImageName] = useState('');
     const [editeDiscount,setEditeDiscount] = useState(false);
     const [dropCate,setDropCate] = useState({status:false,value:null})

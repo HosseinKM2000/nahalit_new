@@ -1,24 +1,18 @@
 import React from 'react';
 import { useRef , useState } from 'react';
 import { toast } from 'react-toastify';
+import { useDispatch , useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import { MdCancel } from 'react-icons/md';
 
-function NewArticle() {
-    const [categories,setCategories] = useState([
-        {
-            name:'خدمات',
-            items:[
-        'فروش سایت اختصاصی و اقتصادی',
-        'فروش قالب سایت',
-        'طراحی سایت اختصاصی',],
-        }
-    ])
-    const [dropCate,setDropCate] = useState({status:false,value:null})
-    const [childList,setChildList] = useState(false);
-    const [goalCate,setGoalCate] = useState(null);
+function EditeArticle() {
     const [imageName,setimageName] = useState('');
     const [tags,setTags] = useState([]);
+    const dispatch = useDispatch();
+    const articleId = useSelector(state => state.dashboard.articleId);
+    const articles = useSelector(state => state.dashboard.products) || [{title:'',url:'',id:''}]
+    const goalArticle = articles.find((item,index) => index === articleId) ||  {title:'',url:'',id:''}
     const titleRef = useRef();
     const descRef  = useRef();
     const situationRef = useRef();
@@ -56,11 +50,6 @@ function NewArticle() {
             default : console.log('')
         }
     }
-    const liHandler = (value) => {
-        setChildList(true);
-        const item = categories.find(cate => cate.name === value);
-        setGoalCate(item)
-    }
     const add = (e) => {
         const textTag = tagsRef.current.value;
         if(e.key === "Enter")
@@ -95,14 +84,15 @@ function NewArticle() {
               autoClose={2500}
               className='Toast_info'
               />
-        <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>مقاله جدید</h1>
+        <div className='w-full bg-[#C0D9DB] p-2 flex items-center justify-between'>
+            <h1 className='font-semibold text-xl text-stone-800'>ویرایش مقاله</h1>
+            <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>dispatch(setSwitch({key:'articles',value:'all',id:null}))}/>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
            {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
+                <input type="text" defaultValue={goalArticle.title} className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
             {/* image */}
             <div className='flex flex-col gap-2 w-full'>
@@ -152,4 +142,4 @@ function NewArticle() {
   )
 }
 
-export default NewArticle;
+export default EditeArticle

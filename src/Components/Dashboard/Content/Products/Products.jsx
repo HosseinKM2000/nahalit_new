@@ -7,7 +7,7 @@ import ProductGallery from './ProductGallery/ProductGallery';
 
 
 function Products() {
-  const [innerCommponent,setInnerCommponent] = useState(<></>)
+  const [innerCommponent,setInnerCommponent] = useState(<></>);
   const Criterion = useSelector(state=> state.dashboard.productsSwitch);
   
   useEffect(() => {
@@ -23,7 +23,7 @@ function Products() {
       break;
       default : setInnerCommponent(<></>)
     }
-  },[])
+  },[Criterion])
 
   return (
     <div className='w-full p-10'>

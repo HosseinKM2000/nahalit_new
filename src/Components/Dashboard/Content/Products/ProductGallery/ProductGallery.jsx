@@ -8,8 +8,6 @@ function ProductGallery() {
 
     const dispatch = useDispatch();
     const picturs = useSelector(state => state.dashboard.productId);
-    
-    console.log(picturs);
 
   return (
     <div className='flex flex-col w-full opacity-motion'>

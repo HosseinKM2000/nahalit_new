@@ -136,8 +136,14 @@ export const getOneGallery = createAsyncThunk('dashboard/getOneGalleries', async
 export const editeGallery = createAsyncThunk('dashboard/getGalleries', async ({id,}) => {
 
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/galleries/${id}`,{
-
+   
     });
 
     return response;
+})
+// roles
+export const addRole = createAsyncThunk('dashboard/addRole', async ({formData}) => {
+    const response = await axios.post(``)
+    
+    return response
 })

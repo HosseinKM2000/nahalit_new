@@ -1,7 +1,6 @@
 import { React , useEffect , useState , useRef }from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../../Content/Articles/Articles';
-import Services from '../../Content/Services/Services';
 import Products from '../../Content/Products/Products';
 import Orders from '../../Content/Orders/Orders';
 import Users from '../../Content/Users/Users';
@@ -9,8 +8,8 @@ import Commentes from '../../Content/Comments/Comments';
 import WorkSample from '../../Content/WorkSample/WorkSample';
 import Projects from '../../Content/Projects/Projects';
 import Categories from '../../Content/Categories/Categories';
-import Home from '../../Content/Home/Home';
 import Gallery from '../../Content/Gallery/Gallery';
+import Roles from '../../Content/Roles/Roles';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -26,8 +25,6 @@ function ContentDash() {
       break
       case 'articles' : setCurrentContent(<Articles/>)
       break
-      case 'services' : setCurrentContent(<Services/>)
-      break
       case 'products' : setCurrentContent(<Products/>)
       break
       case 'orders' : setCurrentContent(<Orders/>)
@@ -40,10 +37,10 @@ function ContentDash() {
       break
       case 'projects' : setCurrentContent(<Projects/>)
       break
-      case 'homePage' : setCurrentContent(<Home/>)
-      break
       case 'gallery' : setCurrentContent(<Gallery/>)
       break
+      case 'roles' : setCurrentContent(<Roles/>)
+      break;
       default : setCurrentContent('این بخش وجود ندارد')
     }
   },[content])

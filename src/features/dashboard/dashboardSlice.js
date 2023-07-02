@@ -13,6 +13,7 @@ const initialState = {
     gallerySwitch:'all',
     homeSwitch:'mainSlider',
     productsSwitch:'all',
+    rolesSwitch:'all',
     productId:null,
     galleryId:null,
     productId:null,
@@ -65,6 +66,8 @@ const dashboardSlice = createSlice({
                     state.gallerySwitch = value;
                     state.galleryId = id;
                 }
+                break;
+                case 'roles' : state.rolesSwitch = value;
                 break;
                 default : console.log('non value')
             }

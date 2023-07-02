@@ -1,12 +1,11 @@
 import {React , useState} from 'react';
-import {BiCategory} from 'react-icons/bi';
-import {MdOutlineArrowLeft , MdOutlineArticle , MdShoppingCart , MdRoomService , MdWorkspaces} from 'react-icons/md';
+import { BiCategory , BiSolidMask} from 'react-icons/bi';
+import {MdOutlineArrowLeft , MdOutlineArticle , MdShoppingCart  , MdWorkspaces} from 'react-icons/md';
 import {FiShoppingBag} from 'react-icons/fi';
 import {ImUsers} from 'react-icons/im';
 import {GiClockwork} from 'react-icons/gi';
 import {FaRegComments} from 'react-icons/fa';
 import {AiOutlinePicture} from 'react-icons/ai';
-import {RiHomeSmileFill} from 'react-icons/ri';
 import {setContent,setSwitch} from '../../../../features/dashboard/dashboardSlice';
 import { useSelector , useDispatch} from 'react-redux';
 
@@ -14,32 +13,32 @@ function SideDash() {
 
   // const [cRotate,setCRotate] = useState(false);
   const [aRotate,setARotate] = useState(false);
-  const [hRotate,setHRotate] = useState(false);
   const [pRotate,setPRotate] = useState(false);
   const [cRotate,setCRotate] = useState(false);
   const [gRotate,setGRotate] = useState(false);
+  const [rRotate,setRRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
-  const hCriterion = useSelector(state => state.dashboard.homeSwitch);
   const pCriterion = useSelector(state => state.dashboard.productsSwitch);
   const gCriterion = useSelector(state => state.dashboard.gallerySwitch);
+  const rCriterion = useSelector(state => state.dashboard.rolesSwitch);
   const dispatch = useDispatch();
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | pRotate | cRotate | gRotate && value !== 'articles')
+    if(aRotate | cRotate | gRotate | rRotate && value !== 'articles')
     {
-      setARotate(false);
       setPRotate(false);
       setCRotate(false);
       setGRotate(false);
+      setRRotate(false);
     }
-    else if(hRotate | pRotate | cRotate | gRotate && value !== 'homePage')
+    else if( pRotate | cRotate | gRotate | rRotate && value !== 'products')
     {
-      setHRotate(false);
-      setPRotate(false);
+      setARotate(false)
       setCRotate(false);
       setGRotate(false);
+      setRRotate(false);
     }
   }
 console.log(aCriterion)
@@ -52,29 +51,6 @@ console.log(aCriterion)
          <BiCategory className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
          <li className='text-white font-bold text-xl  text-center'>دسته بندی</li>
          <div className='w-[1.5rem] h-[1.5rem]'></div>
-        </div>
-        <div className='w-full flex flex-col items-center'>
-         <div onClick={()=>{
-          listSwitch('homePage')
-          setHRotate(!hRotate)
-          dispatch(setSwitch({key:'homePage',value:'describe'}))
-        }}
-        style={{backgroundColor:content==='homePage'?'#232c38':''}} 
-        className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-         <RiHomeSmileFill className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-         <li className='text-white font-bold text-xl  text-center'>صفحه اصلی</li>
-         <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:hRotate?'-90deg':'0deg'}}/>
-         </div>
-         <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:hRotate?'fit-content':'0px',padding:hRotate?'10px':'0px',overflow:hRotate?'':'hidden',visibility:hRotate?'visible':'hidden',marginTop:hRotate?'1rem':'0px'}} >
-         <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'describe'}))} style={{backgroundColor:hCriterion === 'describe' ? '#ffffff4d' : ''}}>توضیحات</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'services'}))} style={{backgroundColor:hCriterion === 'services' ? '#ffffff4d' : ''}}>خدمات</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'mainSlider'}))} style={{backgroundColor:hCriterion === 'mainSlider' ? '#ffffff4d' : ''}}>اسلایدر اصلی</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'secondSlider'}))} style={{backgroundColor:hCriterion === 'secondSlider' ? '#ffffff4d' : ''}}>اسلایدر دوم</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'thirdSlider'}))} style={{backgroundColor:hCriterion === 'thirdSlider' ? '#ffffff4d' : ''}}>اسلایدر سوم</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'plans'}))} style={{backgroundColor:hCriterion === 'plans' ? '#ffffff4d' : ''}}>پلن ها</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'property'}))} style={{backgroundColor:hCriterion === 'property' ? '#ffffff4d' : ''}}>ویژگی ها</button>
-          <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'homePage',value:'lastArticles'}))} style={{backgroundColor:hCriterion === 'lastArticles' ? '#ffffff4d' : ''}}>آخرین مقالات</button>
-         </div>
         </div>
         <div className='w-full flex flex-col items-center'>
          <div onClick={()=>{
@@ -92,11 +68,6 @@ console.log(aCriterion)
           <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'all',id:null}))} style={{backgroundColor:aCriterion === 'all' || aCriterion === 'edite' ? '#ffffff4d' : ''}}>همه مقالات</button>
           <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'new',id:null}))} style={{backgroundColor:aCriterion === 'new' ? '#ffffff4d' : ''}}>مقاله جدید</button>
          </div>
-        </div>
-        <div onClick={()=>listSwitch('services')}  style={{backgroundColor:content==='services'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-         <MdRoomService className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-         <li className='text-white font-bold text-xl  text-center'>خدمات</li>
-         <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div onClick={()=>listSwitch('workSample')}  style={{backgroundColor:content==='workSample'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
          <MdWorkspaces className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
@@ -153,6 +124,22 @@ console.log(aCriterion)
          <li className='text-white font-bold text-xl  text-center'>نظرات</li>
          <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
+        <div className='w-full flex flex-col items-center'>
+          <div onClick={()=>{
+            listSwitch('roles')
+            setRRotate(!rRotate)
+            dispatch(setSwitch({key:'roles',value:'all'}))
+          }}  style={{backgroundColor:content==='roles'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+            <BiSolidMask className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+            <li className='text-white font-bold text-xl  text-center'>نقش ها</li>
+            <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:rRotate?'-90deg':'0deg'}}/>
+            </div>
+            <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:rRotate?'fit-content':'0px',padding:rRotate?'10px':'0px',overflow:rRotate?'':'hidden',visibility:rRotate?'visible':'hidden',marginTop:rRotate?'1rem':'0px'}} >
+               <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'all'}))} style={{backgroundColor:rCriterion === 'all' || gCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
+               <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'new'}))} style={{backgroundColor:rCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
+            </div>
+        </div>
+        <hr className='w-full h-[3rem] py-1 border-none'/>
       </ul>
     </div>
   )

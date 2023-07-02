@@ -2,21 +2,9 @@ import React from 'react';
 import { useRef , useState } from 'react';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
 
 function NewArticle() {
-    const [categories,setCategories] = useState([
-        {
-            name:'خدمات',
-            items:[
-        'فروش سایت اختصاصی و اقتصادی',
-        'فروش قالب سایت',
-        'طراحی سایت اختصاصی',],
-        }
-    ])
-    const [dropCate,setDropCate] = useState({status:false,value:null})
-    const [childList,setChildList] = useState(false);
-    const [goalCate,setGoalCate] = useState(null);
+
     const [imageName,setimageName] = useState('');
     const [tags,setTags] = useState([]);
     const titleRef = useRef();
@@ -55,11 +43,6 @@ function NewArticle() {
             break;
             default : console.log('')
         }
-    }
-    const liHandler = (value) => {
-        setChildList(true);
-        const item = categories.find(cate => cate.name === value);
-        setGoalCate(item)
     }
     const add = (e) => {
         const textTag = tagsRef.current.value;

@@ -86,7 +86,7 @@ function NewRole() {
          <div className='flex items-center flex-wrap gap-x-5 gap-y-8'>
             {
                 permissions.map((item,index) => (
-                    <InteractiveButton key={index} text={`نقش${item}`} setPermission={addPermission}/>
+                    <InteractiveButton key={index} text={`permission${item}`} setPermission={addPermission}/>
                 ))
             }
          </div>

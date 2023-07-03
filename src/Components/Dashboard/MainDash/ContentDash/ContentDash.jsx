@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Articles from '../../Content/Articles/Articles';
 import Products from '../../Content/Products/Products';
 import Orders from '../../Content/Orders/Orders';
-import Users from '../../Content/Users/Users';
+import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
 import Commentes from '../../Content/Comments/Comments';
 import WorkSample from '../../Content/WorkSample/WorkSample';
 import Projects from '../../Content/Projects/Projects';
@@ -29,7 +29,7 @@ function ContentDash() {
       break
       case 'orders' : setCurrentContent(<Orders/>)
       break
-      case 'users' : setCurrentContent(<Users/>)
+      case 'users' : setCurrentContent(<UsersPagination/>)
       break
       case 'commentes' : setCurrentContent(<Commentes/>)
       break

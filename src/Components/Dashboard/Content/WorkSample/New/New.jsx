@@ -7,47 +7,17 @@ import {MdKeyboardArrowLeft} from 'react-icons/md';
 import { GiCancel } from 'react-icons/gi';
 import { TiTickOutline } from 'react-icons/ti';
 
-function NewProduct() {
-    // const [categories,setCategories] = useState([
-    //     {
-    //         id:1,
-    //         title:'سایت های آماده',
-    //         category_id:null
-    //     },
-    //     {
-    //         id:2,
-    //         title:'پلاگین وردپرس',
-    //         category_id:null
-    //     },
-    //     {
-    //         id:3,
-    //         title:"پلاگین مدیریتی",
-    //         category_id:2
-    //     },
-    //     {
-    //         id:4,
-    //         title:"پلاگین کاربردی",
-    //         category_id:2
-    //     },
-    //     {
-    //         id:5,
-    //         title:"سایت آماده لاراول",
-    //         category_id:1
-    //     },
-    // ])
-    const [imageName,setImageName] = useState('');
+function New() {
+
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
-    const [tags,setTags] = useState([]);
-    const priceRef = useRef();
-    const tagsRef = useRef();
     const categoryRef = useRef();
     const titleRef = useRef();
     const descRef  = useRef();
-    const discountRef = useRef();
+    const managerRef = useRef();
     const categories = useSelector(state => state.dashboard.categories);
     const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const formKeyNotSuber = (e) => {
@@ -57,32 +27,11 @@ function NewProduct() {
             e.stopPropagation()
         }
     }
-    const add = (e) => {
-        const textTag = tagsRef.current.value;
-        if(e.key === "Enter")
-        {
-            if(textTag.length >= 2 )
-            {
-                setTags([...tags,textTag])
-                tagsRef.current.value = ''
-            }
-            else
-            {
-               toast.warn('عنوان برچسب کوتاه است')
-            }
-        }
-    }
-    const Delete = (indexRemove) => {
-          setTags(tags.filter((tag,index)=> index !== indexRemove))
-    }
     const formSubmiter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
-            image:imageName,
             category_id:categoryRef,
-            tags:tags,
-            price:priceRef,
             description:descRef.current.value,
         }
     }
@@ -112,7 +61,7 @@ function NewProduct() {
               className='Toast_info'
               />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>محصول جدید</h1>
+            <h1 className='font-semibold text-xl text-stone-800'>افزودن نمونه کار</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
             {/* title */}
@@ -120,32 +69,15 @@ function NewProduct() {
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-           {/* image */}
+            {/* manager */}
             <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
+                <label htmlFor="manager" className='font-semibold text-[#2e424a]'>مدیر</label>
+                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={managerRef} required={true} name='manager'/>
             </div>
            {/* describe */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
-            {/* tags */}
-            <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="tags" className='font-semibold text-[#2e424a]'>برچسب ها</label>
-                    <input onKeyDown={(e)=>add(e)} ref={tagsRef} type="text" name="tags" className="w-full outline-none focus:border p-1 border-[#0ab694]"/>
-                    <div className="flex w-full mt-3 flex-wrap gap-3">
-                        {
-                            tags.length === 0
-                            ? <></>
-                            : tags.map((tag,index) => (
-                                <div className="flex items-center gap-1 p-1 text-white bg-stone-500 rounded-md" key={index}>
-                                    <span>{tag}</span>
-                                    <span onClick={()=>Delete(index)} className="text-red-600 transition-all hover:text-yellow-400 w-fit h-fit px-1 flex items-center rounded-md cursor-default">&#x2716;</span>
-                                </div>
-                            ))
-                        }
-                    </div>
             </div>
             {/* categories */}
             <div className='w-full flex justify-start items-start gap-3'>
@@ -212,35 +144,12 @@ function NewProduct() {
                     <></>
                 }
             </div>
-           {/* price */}
-            <div className='flex flex-col gap-2 w-full'>
-            <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
-            <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef} className='p-1 outline-[#0ab694] w-[20%]'/>
-            </div>
-               {/* discount */}
-            <div className='w-full flex flex-col gap-2'>
-              <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
-              <div className='flex gap-1 w-full items-center transition-all duration-300 overflow-hidden'>
-               <input type="text" ref={discountRef} className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
-                  if(e.target.value.search(/\D+/g) !== -1)
-                    {
-                    e.target.value = ''
-                    toast.warn("مقدار قابل قبول نیست")
-                    }
-                  else if(parseInt(e.target.value) > 100)
-                    {
-                    e.target.value = '100';
-                    toast.warn("مقدار قابل قبول نیست")
-                    }
-             }}/>
-              </div>
-            </div>
             <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
         </form>
     </div>
   )
 }
 
-export default NewProduct;
+export default New;
 
 

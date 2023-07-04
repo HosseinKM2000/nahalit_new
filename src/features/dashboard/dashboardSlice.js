@@ -14,6 +14,7 @@ const initialState = {
     homeSwitch:'mainSlider',
     productsSwitch:'all',
     rolesSwitch:'all',
+    workSampleSwitch:'all',
     productId:null,
     galleryId:null,
     productId:null,
@@ -68,6 +69,8 @@ const dashboardSlice = createSlice({
                 }
                 break;
                 case 'roles' : state.rolesSwitch = value;
+                break;
+                case 'workSample' : state.workSampleSwitch = value;
                 break;
                 default : console.log('non value')
             }

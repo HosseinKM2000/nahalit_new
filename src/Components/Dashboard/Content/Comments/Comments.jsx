@@ -24,7 +24,7 @@ function Commentes({ setShowDetails , currentItems }) {
             <div onClick={()=>{
               console.log('details')
               setShowDetails({status:true,item})
-            }} className={classNames('absolute top-0 right-0 w-full h-full rounded-lg bg-[#088395] flex items-center justify-center text-xl font-bold text-white opacity-0 transition-all duration-500',{
+            }} style={{backgroundColor:`#${item.colorCode}`}} className={classNames('absolute top-0 right-0 w-full h-full rounded-lg flex items-center justify-center text-xl font-bold text-white opacity-0 transition-all duration-500',{
               'opacity-90':hover.status && hover.key === index
             })}>
               <span>نمایش</span>

@@ -13,7 +13,7 @@ function CommentsPagination() {
   })
     const [itemOffset, setItemOffset] = useState(0);
     const mobile = window.innerWidth <= 425 ? true : false;
-    const itemsPerPage = 20;
+    const itemsPerPage = 21;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = comments.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(comments.length / itemsPerPage);

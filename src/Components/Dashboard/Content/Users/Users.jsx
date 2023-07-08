@@ -32,7 +32,7 @@ function Users({ currentItems }) {
               <span className='text-sm font-bold'>کاربر معمولی</span>
               <span className='text-sm font-bold'>1401/05/26</span>
               <div className='flex items-center gap-3'>
-                <MdDeleteSweep className='scale-[1.5] hover:text-[#374356] transition-all'/>
+                <MdDeleteSweep className='scale-[1.5] hover:text-red-600 text-red-700 transition-all'/>
               </div>
             </div>
           ))

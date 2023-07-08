@@ -16,7 +16,6 @@ const initialState = {
     workSampleSwitch:'all',
     projectSwitch:'all',
     productId:null,
-    galleryId:null,
     productId:null,
     products:null,
     productsLoading:false,

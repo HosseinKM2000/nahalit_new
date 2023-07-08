@@ -3,59 +3,81 @@ import ReactPaginate from 'react-paginate';
 import { useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import All from '../All';
+import Show from '../../Show/Show';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import { getProducts } from '../../../../../../features/dashboard/action';
 import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
 
 function GalleriesPagination() {
 
+    const [show,setShow] = useState({status:false,value:''});
     const [itemOffset, setItemOffset] = useState(0);
-    const getLoading = useSelector(state => state.dashboard.productsLoading);
-    const list = useSelector(state => state.dashboard.products);
-    const photos = list !== null ? list.slice(0,100) : [{url:'',title:'title'}];
+    const galleries = [];
+    for (let i = 1; i <= 20; i++) {
+      galleries.push({
+        productTitle: i <= 5 ? 'محصول_1' : i > 5 && i <= 10 ? 'محصول_2' : i > 10 && i <= 15 ? 'محصول_3' : 'محصول_4',
+        title: `Title ${i}`,
+        imageUrl: `https://example.com/image${i}.jpg`,
+        colorCode:Math.floor(Math.random()*16777215).toString(16)
+      });
+    }
+
+    const groupeGalleries = galleries.reduce((groups, gallery) => {
+      const productTitle = gallery.productTitle;
+      if (!groups[productTitle]) {
+        groups[productTitle] = [];
+      }
+      groups[productTitle].push(gallery);
+      return groups;
+    }, {});
+    const sortedGalleries = Object.values(groupeGalleries)
+    
+    useEffect(()=>{
+      console.log(sortedGalleries)
+  },[]);
+
     const dispatch = useDispatch();
     const mobile = window.innerWidth <= 425 ? true : false;
-    const itemsPerPage = 30;
+    const itemsPerPage = 10;
     const endOffset = itemOffset + itemsPerPage;
-    const currentItems = photos.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(photos.length / itemsPerPage);
-    useEffect(()=>{
-        dispatch(getProducts())
-    },[]);
+    const currentItems = sortedGalleries.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(sortedGalleries.length / itemsPerPage);
 
     const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % photos.length;
-        dispatch(setScrollUp());
-        setItemOffset(newOffset)
-      };
+      const newOffset = (event.selected * itemsPerPage) % sortedGalleries.length;
+      dispatch(setScrollUp());
+      setItemOffset(newOffset)
+    };
 
+    
+    
+
+   
   return (
     <>
-        {
-getLoading
-    ?
-    <div className='h-[10rem] w-[full] flex items-center justify-center'>
-    <img src={loading} alt="loading" className='w-[10%]'/>
-    </div>
-    :
-    <>
-    <All currentItems={currentItems} />
-    <ReactPaginate
-    breakLabel="..."
-    nextLabel={mobile ? '>>' : "برگه بعدی >>"}
-    onPageChange={handlePageClick}
-    pageRangeDisplayed={5}
-    pageCount={pageCount}
-    previousLabel={mobile ? '<<' : "<< برگه قبلی"}
-    renderOnZeroPageCount={null}
-    className='pagination'
-    activeClassName='active'
-    previousClassName='preBtn'
-    nextClassName='nextBtn'
-    />
-    </>
+    {
+      !show.status
+      ?
+      <>
+      <All currentItems={currentItems} setShow={setShow}/>
+      <ReactPaginate
+      breakLabel="..."
+      nextLabel={mobile ? '>>' : "برگه بعدی >>"}
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={5}
+      pageCount={pageCount}
+      previousLabel={mobile ? '<<' : "<< برگه قبلی"}
+      renderOnZeroPageCount={null}
+      className='pagination'
+      activeClassName='active'
+      previousClassName='preBtn'
+      nextClassName='nextBtn'
+      />
+      </>
+      :
+      <Show array={show.value} setShow={setShow}/>
     }
-  </>
+    </>
   )
 }
 

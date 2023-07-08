@@ -5,29 +5,30 @@ import { MdDeleteForever } from 'react-icons/md';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 
-function All({currentItems}) {
-  const [hover,setHover] = useState({status:false,key:''});
-  const dispatch = useDispatch();
+function All({ currentItems , setShow}) {
 
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    console.log(currentItems)
+  },[currentItems])
   return (
-    <div className='flex items-center flex-wrap justify-center gap-5'>
-      {
-       currentItems.map((item,index) => (
-          <div onMouseEnter={()=>setHover({status:true,key:index})} onMouseLeave={()=>setHover({status:false,key:''})} key={index} className='w-[30%] flex flex-col rounded-3xl overflow-hidden cursor-default transition-all duration-500 hover:translate-y-[-0.2rem] hover:brightness-125' style={{boxShadow:'0px 15px 18px -3px #00000073'}}>
-            <div className='h-[9rem]' style={{backgroundImage:`url(${item.url})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}></div>
-            <div className='flex flex-col bg-[#ffff] py-3 text-sm font-[shabnambold] px-3 gap-1'>
-              <span className='line-clamp-1'>{item.title}</span>
-              <div className='w-fill flex items-center justify-between'>
-               <span className='text-stone-600'>1401/10/13</span>
-                <div className={ hover.status && hover.key === index ? 'flex items-center gap-1' :'hidden items-center gap-1'}>
-                <FaEdit className='text-orange-600 text-base cursor-pointer transition-all hover:text-orange-500' onClick={()=>dispatch(setSwitch({key:'gallery',value:'edite',id:index}))}/>
-                <MdDeleteForever className='text-red-600 text-xl cursor-pointer transition-all hover:text-red-500'/>
-               </div>
-              </div>
+    <div className='flex items-center justify-center flex-wrap gap-8'>
+        {
+         currentItems.map((array,index) => (
+          <div key={index} className='relative items-end p-2 w-[30%] flex h-[15rem]'>
+            {
+              array.map((item,i) => (
+                <div className='h-[100%] w-[100%] absolute z-0' style={{backgroundImage:`url(${item.imageUrl})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundColor:`#${item.colorCode}`,right:`-${i}px`,rotate:`${i}deg`}}></div>
+              ))
+            }
+            <div onClick={()=>setShow({status:true,value:array})} className='flex w-full text-sm transition-all cursor-default hover:text-white hover:bg-[#00b490] bg-white z-10 justify-center py-3 font-bold' style={{boxShadow:'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px'}}>
+              {
+                array[0].productTitle
+              }
             </div>
           </div>
-        ))
-      }
+          ))
+        }
     </div>
   )
 }

@@ -28,6 +28,7 @@ function Users({ currentItems }) {
               <HiUserCircle className='scale-[2.5]'/>
               <h1 className='text-xl font-[shabnambold]'>کاربر {user}</h1>
               <span>userUser@gmail.com</span>
+              <span className='text-sm font-bold'>کاربر معمولی</span>
               <span className='text-sm font-bold'>1401/05/26</span>
               <div className='flex items-center gap-3'>
                 <MdDeleteSweep className='scale-[1.5] hover:text-[#374356] transition-all'/>

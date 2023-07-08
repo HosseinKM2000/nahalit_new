@@ -10,8 +10,10 @@ function Commentes({ setShowDetails , currentItems }) {
       {
         currentItems.map((item,index) => (
           <div onMouseEnter={()=>sethover({status:true,key:index})} onMouseLeave={()=>sethover({status:false,key:''})} key={index} className='flex cursor-default relative w-[31%] gap-3 transition-all duration-500 bg-white flex-col items-center rounded-lg p-2 shadow-[0px_3px_10px_1px_rgba(0,0,0,0.5)]'>
-            <div className='text-[#ffff] relative transition-all duration-300 text-2xl p-2 rounded-lg shadow-[0px_3px_5px_1px_rgba(0,0,0,0.3)]' style={{backgroundColor:`#${item.colorCode}`,bottom:hover.status && hover.key === index?'0rem':'2rem'}}>
-             <BiMessageDetail/>
+            <div className='relative transition-all duration-300 overflow-hidden rounded-lg shadow-[0px_3px_5px_1px_rgba(0,0,0,0.3)] bg-[#000]' style={{bottom:hover.status && hover.key === index?'0rem':'2rem'}}>
+                <div className='text-[#ffff]  text-2xl p-2' style={{backgroundColor:`#${item.colorCode}`}}>
+                <BiMessageDetail/>
+                </div>
             </div>
             <div className='flex flex-col items-center gap-3'>
               <span className='font-[shabnambold]'>کاربر {item.name}</span>

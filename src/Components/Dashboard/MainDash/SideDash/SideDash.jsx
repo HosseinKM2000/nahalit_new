@@ -14,6 +14,7 @@ function SideDash() {
   // const [cRotate,setCRotate] = useState(false);
   const [aRotate,setARotate] = useState(false);
   const [pRotate,setPRotate] = useState(false);
+  const [prRotate,setPRRotate] = useState(false);
   const [cRotate,setCRotate] = useState(false);
   const [gRotate,setGRotate] = useState(false);
   const [rRotate,setRRotate] = useState(false);
@@ -24,25 +25,28 @@ function SideDash() {
   const gCriterion = useSelector(state => state.dashboard.gallerySwitch);
   const rCriterion = useSelector(state => state.dashboard.rolesSwitch);
   const wCriterion = useSelector(state => state.dashboard.workSampleSwitch);
+  const prCriterion = useSelector(state => state.dashboard.projectSwitch);
   const dispatch = useDispatch();
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | cRotate | gRotate | rRotate | wRotate && value !== 'articles')
+    if(aRotate | cRotate | gRotate | rRotate | prRotate | wRotate && value !== 'articles')
     {
       setCRotate(false);
       setGRotate(false);
       setRRotate(false);
       setWRotate(false);
       setARotate(false);
+      setPRRotate(false);
     }
-    else if( pRotate | cRotate | gRotate | rRotate | wRotate && value !== 'products')
+    else if( pRotate | cRotate | gRotate | rRotate | prRotate | wRotate && value !== 'products')
     {
       setCRotate(false);
       setGRotate(false);
       setRRotate(false);
       setWRotate(false);
       setPRotate(false);
+      setPRRotate(false);
     }
   }
 console.log(aCriterion)
@@ -126,10 +130,20 @@ console.log(aCriterion)
             <li className='text-white font-bold text-xl  text-center'>سفارش ها</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
-        <div onClick={()=>listSwitch('projects')}  style={{backgroundColor:content==='projects'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-            <GiClockwork className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>پروژه ها</li>
-            <div className='w-[1.5rem] h-[1.5rem]'></div>
+        <div className='w-full flex flex-col items-center'>
+            <div onClick={()=>{
+              listSwitch('projects');
+              setPRRotate(!prRotate)
+              dispatch(setSwitch({key:'projects',value:'all'}))
+          }} style={{backgroundColor:content==='projects'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+                <GiClockwork className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+                <li className='text-white font-bold text-xl  text-center'>پروژه ها</li>
+                <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:prRotate?'-90deg':'0deg'}}/>
+            </div>
+            <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:prRotate?'fit-content':'0px',padding:prRotate?'10px':'0px',overflow:prRotate?'':'hidden',visibility:prRotate?'visible':'hidden',marginTop:prRotate?'1rem':'0px'}} >
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'all'}))} style={{backgroundColor:prCriterion === 'all' || prCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'new'}))} style={{backgroundColor:prCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
+            </div>
         </div>
         <div onClick={()=>listSwitch('commentes')}  style={{backgroundColor:content==='commentes'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <FaRegComments className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>

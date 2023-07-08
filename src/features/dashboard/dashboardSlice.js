@@ -11,10 +11,10 @@ const initialState = {
     content : 'categories',
     articlesSwitch:'all',
     gallerySwitch:'all',
-    homeSwitch:'mainSlider',
     productsSwitch:'all',
     rolesSwitch:'all',
     workSampleSwitch:'all',
+    projectSwitch:'all',
     productId:null,
     galleryId:null,
     productId:null,
@@ -59,8 +59,6 @@ const dashboardSlice = createSlice({
                     state.productId = id
                 }
                 break;
-                case 'homePage' : state.homeSwitch = value;
-                break;
                 case 'categories' : state.categoriesSwitch = value;
                 break;
                 case 'gallery' : {
@@ -71,6 +69,8 @@ const dashboardSlice = createSlice({
                 case 'roles' : state.rolesSwitch = value;
                 break;
                 case 'workSample' : state.workSampleSwitch = value;
+                break;
+                case 'projects' : state.projectSwitch = value;
                 break;
                 default : console.log('non value')
             }

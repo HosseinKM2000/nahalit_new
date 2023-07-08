@@ -124,10 +124,10 @@ function EditeProduct() {
                    ))
                }
            </div>
-     </div>
-      {/* categories */}
-    <div className='w-full flex justify-start items-start gap-3'>
-                <div className='flex flex-col gap-3 justify-center items-start'>
+           </div>
+            {/* categories */}
+            <div className='w-full flex justify-start items-start gap-3'>
+                        <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
                     setChildList(false)
@@ -189,43 +189,43 @@ function EditeProduct() {
                     :
                     <></>
                 }
-    </div>
-  {/* price */}
-   <div className='flex flex-col gap-2 w-full'>
-   <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
-   <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]' onChange={(e)=>{                        
-    if(e.target.value.search(/\D+/g) !== -1)
-                        {
-                          e.target.value = ''
-                          toast.warn("مقدار قابل قبول نیست")
-                        }}}/>
-   </div>
-   {/* discount */}
-   <div className='w-full flex flex-col gap-2'>
-     <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
-     <div className='flex w-[10%]'>
-       <button className='px-2 py-1 border-2 border-[#ffffffa2] rounded-sm hover:bg-purple-500 transition-all text-white font-bold bg-purple-600' type='button' onClick={(e)=>setEditeDiscount(true)}>5%</button>
-       <button className='px-2 py-1 rounded-sm border-y-2 border-[#ffffffa2] border-l-2 hover:bg-rose-500 transition-all text-white font-bold bg-rose-600'>حذف</button>
-     </div>
-     <div className={editeDiscount ? 'flex gap-1 w-full items-center mr-1 transition-all h-fit duration-300 overflow-hidden' : 'h-0 p-0 mr-1 flex overflow-hidden'}>
-        <input ref={discountRef} type="text" className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
-            if(e.target.value.search(/\D+/g) !== -1)
-                {
-                    e.target.value = ''
-                    toast.warn("مقدار قابل قبول نیست")
-                }
-            else if(parseInt(e.target.value) > 100)
-            {
-                e.target.value = '100';
-                toast.warn("مقدار قابل قبول نیست")
-            }
-          }}/>
-        <div className='flex flex-col gap-1 items-center'>
-            <TiTickOutline className='text-green-800 text-xl transition-all hover:text-green-700'/>
-            <GiCancel className='text-red-600 transition-all hover:text-red-500' onClick={(e)=>setEditeDiscount(false)}/>
-        </div>
-     </div>
-   </div>
+                </div>
+                {/* price */}
+                <div className='flex flex-col gap-2 w-full'>
+                <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
+                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]' onChange={(e)=>{                        
+                    if(e.target.value.search(/\D+/g) !== -1)
+                                        {
+                                        e.target.value = ''
+                                        toast.warn("مقدار قابل قبول نیست")
+                                        }}}/>
+                </div>
+                {/* discount */}
+                <div className='w-full flex flex-col gap-2'>
+                        <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
+                        <div className='flex w-[10%]'>
+                        <button className='px-2 py-1 border-2 border-[#ffffffa2] rounded-sm hover:bg-purple-500 transition-all text-white font-bold bg-purple-600' type='button' onClick={(e)=>setEditeDiscount(true)}>5%</button>
+                        <button className='px-2 py-1 rounded-sm border-y-2 border-[#ffffffa2] border-l-2 hover:bg-rose-500 transition-all text-white font-bold bg-rose-600'>حذف</button>
+                        </div>
+                        <div className={editeDiscount ? 'flex gap-1 w-full items-center mr-1 transition-all h-fit duration-300 overflow-hidden' : 'h-0 p-0 mr-1 flex overflow-hidden'}>
+                            <input ref={discountRef} type="text" className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
+                                if(e.target.value.search(/\D+/g) !== -1)
+                                    {
+                                        e.target.value = ''
+                                        toast.warn("مقدار قابل قبول نیست")
+                                    }
+                                else if(parseInt(e.target.value) > 100)
+                                {
+                                    e.target.value = '100';
+                                    toast.warn("مقدار قابل قبول نیست")
+                                }
+                            }}/>
+                            <div className='flex flex-col gap-1 items-center'>
+                                <TiTickOutline className='text-green-800 text-xl transition-all hover:text-green-700'/>
+                                <GiCancel className='text-red-600 transition-all hover:text-red-500' onClick={(e)=>setEditeDiscount(false)}/>
+                            </div>
+                        </div>
+                </div>
    <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
 </form>
     </div>

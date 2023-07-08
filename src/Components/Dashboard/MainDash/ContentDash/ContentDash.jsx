@@ -2,7 +2,7 @@ import { React , useEffect , useState , useRef }from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../../Content/Articles/Articles';
 import Products from '../../Content/Products/Products';
-import Orders from '../../Content/Orders/Orders';
+import OredersPagination from '../../Content/Orders/OrdersPagination/OredersPagination';
 import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
 import CommentsPagination from '../../Content/Comments/CommentsPagination/CommentsPagination';
 import WorkSample from '../../Content/WorkSample/WorkSample';
@@ -27,7 +27,7 @@ function ContentDash() {
       break
       case 'products' : setCurrentContent(<Products/>)
       break
-      case 'orders' : setCurrentContent(<Orders/>)
+      case 'orders' : setCurrentContent(<OredersPagination/>)
       break
       case 'users' : setCurrentContent(<UsersPagination/>)
       break

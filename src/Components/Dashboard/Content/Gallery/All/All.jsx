@@ -15,13 +15,13 @@ function All({ currentItems , setShow}) {
     <div className='flex items-center justify-center flex-wrap gap-8'>
         {
          currentItems.map((array,index) => (
-          <div key={index} className='relative items-end p-2 w-[30%] flex h-[15rem]'>
+          <div key={index} className='relative items-end justify-center w-[30%] flex h-[15rem] overflow-y-hidden'>
             {
               array.map((item,i) => (
-                <div className='h-[100%] w-[100%] absolute z-0' style={{backgroundImage:`url(${item.imageUrl})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundColor:`#${item.colorCode}`,right:`-${i}px`,rotate:`${i}deg`}}></div>
+                <div className='h-[80%] w-[80%] absolute z-0' style={{backgroundImage:`url(${item.imageUrl})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundColor:`#${item.colorCode}`,rotate: index % 2 === 0 ? `${array.length-i}deg` : `-${array.length-i}deg`}}></div>
               ))
             }
-            <div onClick={()=>setShow({status:true,value:array})} className='flex w-full text-sm transition-all cursor-default hover:text-white hover:bg-[#00b490] bg-white z-10 justify-center py-3 font-bold' style={{boxShadow:'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px'}}>
+            <div onClick={()=>setShow({status:true,value:array})} className='flex w-[90%] text-sm transition-all cursor-default hover:text-white hover:bg-[#00b490] bg-white z-10 justify-center py-3 font-bold'>
               {
                 array[0].productTitle
               }

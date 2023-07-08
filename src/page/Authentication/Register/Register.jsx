@@ -2,6 +2,7 @@ import { React , useState , useRef } from 'react';
 import {BsPersonFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { toast , ToastContainer } from 'react-toastify';
+import HomeButton from '../HomeButton/HomeButton';
 
 function Register() {
   const [Switch,setSwitch] = useState(false);
@@ -265,6 +266,10 @@ function Register() {
       break;
       case name.search(/\D+/g) === -1 : toast.warn('نام قابل قبول نیست');
       break;
+      case email.length === 0 : toast.warn('ایمیل را وارد کنید');
+      break;
+      case email.length < 5 : toast.warn('ایمیل کوتاه است');
+      break;
       case !email.includes('@') : toast.warn('ایمیل صحیح نیست');
       break;
       case email.indexOf('@') < 1 : toast.warn('ایمیل صحیح نیست');
@@ -290,7 +295,8 @@ function Register() {
     autoClose={2500}
     className='Toast_info'
     />
-    <div className='w-full min-h-screen bg-gray-600 login-gradient flex justify-center font-[shabnamMedium] items-center'>
+    <div className='w-full relative min-h-screen bg-gray-600 login-gradient flex justify-center font-[shabnamMedium] items-center'>
+        <HomeButton/>
         <div className='flex flex-col w-[90%] my-5  sm:w-[50%] 2xl:w-[60%] overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
             <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
                 <div className='flex flex-col gap-1 2xl:gap-3 items-center'>

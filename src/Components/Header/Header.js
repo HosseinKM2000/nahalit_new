@@ -497,7 +497,7 @@ const Header = () => {
                 <FaSpa className="text-xl" />
               </div>
               <div className="flex flex-row-reverse items-center justify-center py-3 px-1 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2">
-                <Link>
+                <Link to={'/login'}>
                   <p className="text-md font-[shabnamMedium] tracking-tight">ورود و عضویت</p>
                 </Link>
                 <BsPerson className="text-xl" />

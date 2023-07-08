@@ -6,7 +6,9 @@ function Commentes({ setShowDetails , currentItems }) {
   const [hover,sethover] = useState({status:false,key:''});
   
   return (
-      <div className='w-full p-10 flex flex-wrap gap-x-5 gap-y-10'>
+    <div className='flex flex-col gap-8 w-full p-10'>
+      <span className='w-full text-white font-bold'>نظرات ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
+      <div className='w-full flex flex-wrap gap-x-5 gap-y-10'>
       {
         currentItems.map((item,index) => (
           <div onMouseEnter={()=>sethover({status:true,key:index})} onMouseLeave={()=>sethover({status:false,key:''})} key={index} className='flex cursor-default relative w-[31%] gap-3 transition-all duration-500 bg-white flex-col items-center rounded-lg p-2 shadow-[0px_3px_10px_1px_rgba(0,0,0,0.5)]'>
@@ -34,6 +36,7 @@ function Commentes({ setShowDetails , currentItems }) {
           </div>
         ))
       }
+     </div>
     </div>
   )
 }

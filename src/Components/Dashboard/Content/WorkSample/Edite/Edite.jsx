@@ -161,6 +161,7 @@ function Edite({ details , setShowDetails }) {
              <button type='button' className='w-[49%] bg-[#e5bc27] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fdc702] text-white font-bold text-xl py-1 rounded-sm'>ویرایش</button>
              <button type='button' className='w-[49%] bg-[#29c3b9] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>گالری</button>
              </div>
+             <button type='button' className='w-[50%] bg-red-600 transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-red-600 text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center'>حذف</button>
              <button type='button' className='w-[50%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
                 setShowDetails({status:false,value:''});
                 dispatch(setScrollUp())

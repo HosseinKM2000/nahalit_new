@@ -10,6 +10,7 @@ function All({ currentItems , setShowDetails }) {
     const dispatch = useDispatch();
   return (
     <div className='w-full flex flex-col gap-5'>
+         <span className='w-full text-white font-bold'>نمونه کارها ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
         <div className='flex items-center bg-[#ffffff69] w-full p-5 text-white text-2xl justify-between'>
             <TbNumbers/>
             <MdOutlineSupervisorAccount/>

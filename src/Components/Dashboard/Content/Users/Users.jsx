@@ -14,6 +14,7 @@ function Users({ currentItems }) {
   
   return (
     <div className='w-full p-10 flex flex-col gap-5'>
+      <span className='w-full text-white font-bold'>تعداد کاربر ها ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
       <div className='flex items-center bg-[#ffffff69] w-full p-5 text-white text-2xl justify-between'>
         <FaUsers/>
         <TbAlphabetLatin/>

@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSite = () => {
   return (
-    <div className="flex-col w-[50%] sm:w-[80%] lg:w-full sm:flex-row flex-wrap flex lg:gap-1 gap-10   items-center justify-between max-lg:flex-wrap max-lg:gap-12 max-lg:whitespace-nowrap max-lg:justify-center bg-[#f3f3f5] py-4 container  mx-auto rounded-lg">
+    <div className="flex-col w-[80%] sm:w-[80%] lg:w-[70%] sm:flex-row flex-wrap flex lg:gap-1 gap-10   items-center justify-between max-lg:gap-12  bg-[#f3f3f5] py-10 rounded-lg">
         <div className="flex w-fit sm:w-[40%] 2xl:text-2xl lg:w-[24%] justify-between sm:justify-center items-center gap-2">
         <img alt="aboutSite" src="https://nahalit.com/wp-content/themes/Sigma/assets/img/s1.png" />
         <div className="flex flex-col items-start gap-1 justify-center">

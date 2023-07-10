@@ -1,7 +1,6 @@
 import React from "react";
 import AboutSite from "../../Components/AboutSite/AboutSite";
 import CustomSlider from "../../Components/CustomSlider/CustomSlider";
-import CustomSlider2 from "../../Components/CustomSlider2/CustomSlider2";
 import Details from "../../Components/Details/Details";
 import Header from "../../Components/Header/Header";
 import LotteryHomePage from "../../Components/LotteryHomePage/LotteryHomePage";
@@ -39,17 +38,17 @@ const Home = () => {
         <section className="mt-14">
           <ServicesHomePage />
         </section>
-        <section className="mt-14">
+        <section className="mt-[8rem]">
           <CustomSlider />
         </section>
-        <section className="mt-8 flex justify-center items-center">
+        <section className="my-[8rem] flex justify-center items-center">
           <AboutSite />
         </section>
-        <section className="mt-32">
+        <section className="my-32">
           <OurProuduct />
         </section>
         <section className="mt-14">
-          <CustomSlider2 />
+          <CustomSlider />
         </section>
         <section className="mt-24">
           <News />

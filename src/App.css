@@ -160,6 +160,13 @@ p
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
 }
+.line-clamp-7
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+}
 .footer-border
 {
   border-top: solid rgb(0, 221, 88) 5px;
@@ -317,13 +324,13 @@ p
     .Toast_info
     {
         width:30% !important;
-        font-size: 1.5rem !important;
+        font-size: 1.1rem !important;
         padding: 2rem !important;
     }
     .Toastify__toast
     {
         padding: 2rem !important;
-        gap: 2rem !important;
+        gap: 1rem !important;
     }
     .Toastify__close-button
     {
@@ -331,6 +338,6 @@ p
     }
     .Toastify--animate-icon
     {
-        transform: scale(2) !important;
+        transform: scale(1.5) !important;
     }
 }

@@ -50,7 +50,7 @@ function Login() {
     />
     <div className='w-full relative min-h-screen bg-gray-600 login-gradient flex justify-center font-[shabnamMedium] items-center'>
       <HomeButton/>
-      <div className='flex flex-col w-[80%] 2xl:w-[50%]  my-5 sm:m-0 sm:w-[50%] overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
+      <div className='flex flex-col w-[80%] 2xl:w-[50%] 2xl:my-10 my-5 sm:m-0 sm:w-[50%] overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
         <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
             <div className='flex flex-col gap-1 items-center'>
                     <div className='bg-[#464c56] rounded-[50%] 2xl:h-[6rem] 2xl:w-[6rem] w-[4rem] 2xl:p-3 h-[4rem] 2xl:text-7xl text-5xl flex justify-center items-center'>
@@ -73,13 +73,13 @@ function Login() {
                     <label htmlFor="remember" className='text-sm font-thin text-stone-500 2xl:text-xl'>مرا به خاطر بسپار</label>
                   </div>
                   <div className='w-full flex flex-col items-center text-sm sm:text-base justify-center gap-3'>
-              <button type="button" onClick={()=>loginHandler()} className='bg-green-600 2xl:text-2xl 2xl:py-3 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'>ورود</button>
-                    <Link to={'/register'} className='bg-blue-600 2xl:text-2xl 2xl:py-3 hover:bg-blue-500 text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'><button type="button">عضویت</button></Link>
+              <button type="button" onClick={()=>loginHandler()} className='bg-green-600 2xl:text-2xl 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'>ورود</button>
+                    <Link to={'/register'} className='bg-blue-600 2xl:text-2xl 2xl:py-2 hover:bg-blue-500 text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'><button type="button">عضویت</button></Link>
                   </div>
                   <span className='w-full  text-left text-sm text-stone-600 cursor-pointer hover:text-blue-500 transition-all 2xl:text-xl'>گذرواژه خود را فراموش کرده اید؟</span>
                   <span className='w-full text-center text-stone-500 font-bold 2xl:text-2xl'>یا</span>
                   <div className='w-full flex flex-col items-center justify-center'>
-                   <Link className='bg-[#54a733] 2xl:text-2xl text-sm sm:text-base 2xl:py-3 hover:bg-[#70c64e] text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'><button type="button">ورود با کد یکبار مصرف</button></Link>
+                   <Link className='bg-[#54a733] 2xl:text-2xl text-sm sm:text-base 2xl:py-2 hover:bg-[#70c64e] text-center transition-all duration-300 text-white rounded-md py-1 w-[80%] sm:w-[60%]'><button type="button">ورود با کد یکبار مصرف</button></Link>
                   </div>
         </form>
       </div>

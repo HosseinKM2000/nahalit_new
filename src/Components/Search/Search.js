@@ -2,21 +2,21 @@ import React from "react";
 
 const Search = () => {
   return (
-    <div className="px-48 max-lg:px-14 max-sm:px-3 max-[390px]:px-1 mx-auto my-10 2xl:text-2xl">
-      <form className="flex flex-row border-2 border-solid border-[#07B235] py-2 px-2 rounded-full">
-        <select className="appearance-none 2xl:text-xl py-2 px-2 mr-5  max-[500px]:mr-0 max-[500px]:scale-90 border-l-2 border-solid border-[#07B235] outline-none">
-          <option>محصولات</option>
-          <option>نوشته ها</option>
-          <option>محصولات و مطالب</option>
+    <div className="w-[100%] flex items-center justify-center my-10">
+      <form className="flex md:w-[60%] 2xl:w-[30%] w-[90%] flex-row border-2 border-solid border-[#07B235] py-1 px-2 rounded-full">
+        <select className="appearance-none text-stone-500 2xl:text-sm py-1 px-1 font-bold w-fit border-l-2 border-solid border-[#07B235] outline-none">
+          <option className="px-1 text-center">محصولات</option>
+          <option className="px-1 text-center">نوشته ها</option>
+          <option className="px-1 text-center">محصولات و مطالب</option>
         </select>
         <input
           type="text"
           placeholder="دنبال چی میگردی؟"
-          className="w-full py-1 px-4 text outline-0 placeholder:text-black max-[540px]:placeholder:text-sm max-[540px]:placeholder:tracking-tighter focus:placeholder:text-white transition-all  duration-500"
+          className="w-full py-1 px-5 text outline-0 placeholder:text-black placeholder:text-xs md:placeholder:text-md focus:placeholder:text-white transition-all  duration-500"
         />
         <button
           type="button"
-          className="flex items-center justify-center whitespace-nowrap px-14 max-lg:px-16 max-md:px-14 max-sm:px-2 py-2 bg-[#07B235] hover:bg-[#2ac954] transition-all duration-300 rounded-full text-white"
+          className="flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm  md:text-md md:px-8 bg-[#07B235] hover:bg-[#2ac954] transition-all duration-300 rounded-full text-white"
         >
           جستجو
         </button>

@@ -4,7 +4,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 const OurProuduct = () => {
   return (
     <div className="flex items-center justify-center gap-[6rem] flex-wrap w-full">
-      <div className="w-[21rem]  min-h-fit sm:w-[30rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
+      <div className="w-[21rem]  min-h-fit sm:w-[28rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
         <div className="flex flex-col w-full items-center bg-[#8E8C8C] text-white py-4 px-2 gap-1">
           <p className="font-[shabnamBold] text-2xl tracking-tighter">پلن کسب و کار خانگی</p>
           <p className="font-semibold">برای بیزینس های کوچک و خانگی</p>
@@ -43,7 +43,7 @@ const OurProuduct = () => {
           </div>
         </div>
       </div>
-      <div className="w-[21rem]  min-h-fit sm:w-[30rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
+      <div className="w-[21rem]  min-h-fit sm:w-[28rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
         <div className="flex flex-col w-full items-center bg-[#8E8C8C] text-white py-4 px-2 gap-1">
           <p className="font-[shabnamBold] text-2xl tracking-tighter">پلن کسب و کار نوپا</p>
           <p className="font-bold">برای بیزینس های تازه تاسیس</p>
@@ -82,7 +82,7 @@ const OurProuduct = () => {
           </div>
         </div>
       </div>
-      <div className="w-[21rem]  min-h-fit sm:w-[30rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
+      <div className="w-[21rem]  min-h-fit sm:w-[28rem] flex pb-5 flex-col items-center justify-between h-[33rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
         <div className="flex flex-col w-full items-center bg-[#8E8C8C] text-white py-4 px-2 gap-1">
           <p className="font-[shabnamBold] text-2xl tracking-tighter">پلن کسب و کار حرفه ای</p>
           <p className="font-bold">برای بیزینس های تجاری و حرفه ای</p>

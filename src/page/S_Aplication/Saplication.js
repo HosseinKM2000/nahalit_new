@@ -33,7 +33,7 @@ function Saplication() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='MobileApplication-content flex flex-col items-center gap-10 mb-10 mt-2'>
+      <div className='MobileApplication-content Services-style flex flex-col items-center gap-10 mb-10'>
         <img src={HeadImg} alt="img" className='w-full sm:h-auto h-96'/>
         <div className='flex flex-col gap-10 px-1'>
             <div className='flex flex-col-reverse sm:flex-row items-center'>
@@ -46,7 +46,7 @@ function Saplication() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}>این نرم‌افزارها از قابلیت اجرای اغلب خدمات کامپیوتر مانند پخش ویدئو برخوردار هستند.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}>App ها معمولا دارای حجم کم و عملکرد محدود هستند.</motion.p>
                 </div>
-                <motion.img src={img_1} alt="application or softwar" className='w-full sm:w-1/2 sm:h-80 h-40Rem' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}/>
+                <motion.img src={img_1} alt="application or softwar" className='w-[15rem] sm:w-[25rem] sm:h-[15rem] h-[10rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}/>
             </div>
             <div>
                 <motion.h2 className='text-green-08A' whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اهمیت ساخت اپلیکیشن موبایل</motion.h2>
@@ -71,7 +71,7 @@ function Saplication() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>افزایش حفظ و نگهداری مشتریان</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>با داشتن یک اپلیکیشن اختصاصی برای کسب و کار خود باعث رشد و پیشرفت هر چه بیشتر کسب و کارتان شوید.</motion.p>
                 </div>
-                <motion.img src={img_2} alt="benifits-exclusive-application" className='w-full sm:w-1/2 2xl:w-2/5' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+                <motion.img src={img_2} alt="benifits-exclusive-application" className='w-[15rem] sm:w-[25rem] sm:h-[15rem] h-[10rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
             </div>
             <div>
                 <motion.h5 className='text-green-08A text-center' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن موبایل چیست؟</motion.h5>
@@ -79,14 +79,14 @@ function Saplication() {
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-around items-center'>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-justify sm:w-2/4 w-full'>برای دنبال کردن برنامه های تلویزیونی ممکن است از اپلیکیشن اندروید پخش زنده استفاده نمائید. همچنین برخی کاربران که از طریق فروشگاه اینترنتی به خرید میپردازند ممکن است از اپلیکیشن سایت های مانند اپلیکیشن موبایل دیجی کالا و یا اپلیکیشن موبایل بامیلو استفاده نمایند. همچنین برای مثال ممکن است اپلیکیشن بازی خاصی هم برای PC ارائه شود و هم به صورت اپلیکیشن موبایل ارائه گردد که در این صورت توسعه دهنده نرم افزار سعی میکند این بازی را بر پایه دستگاه های دیجیتال تولید نماید. برای مثال اپلیکیشن م وبایل clash of clans از مواردی است که برای انجام بازی برنامه نویسی شده است. یا بازی angry birds یکی دیگر از موارد اپلیکیشن موبایل می باشد. تمامی این ابزارها که در دسترس شما قرار گرفته اند اپلیکیشن موبایل نام دارند که ممکن است براساس نوع سیستم عامل یک گوشی همراه، برای اجرا نیازمند بستر و سیستم عامل مورد نیاز خود باشند مربوط به خود باشند. یک اپلیکیشن موبایل ممکن است بر پایه سیستم عامل اندروید باشد که به در این حالت به این نرم افزار اصطلاحاً اپلیکیشن اندروید می گویند. یا ممکن است سیستم عالی که این نرم افزار را مدیریت میکند برپایه IOS باشد که در این حالت به آن اپلیکیشن IOS یا اپلیکیشن اپل می گویند. برای دیگر سیستم عامل ها همانند ویندوز فون، بلک بری، جاوا، سیمبین و غیره نیز اپلیکیشن هایی بسته به نوع بستر سیستم عامل طراحی شده است. توسعه دهندگان اپلیکیشن موبایل، همانطور که سعی کرده اند براساس دستگاه های مختلف ورژن های متفاوتی از نرم افزار را ارائه دهند، برای سیستم عامل های مختلفی که ممکن است بر روی موبایل به کار رود نیز سعی میکنند به ساخت و طراحی ورژن های مختلفی از یک اپلیکیشن موبایل بپردازند.</motion.p>
-                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_3} alt="img" className='w-80 2xl:w-2/5'/>
+                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_3} alt="img" className='w-[15rem] 2xl:w-[25rem]'/>
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-around items-center'>
                 <div className='w-full sm:w-2/4'>
                     <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}   className='text-green-08A'>اپلیکیشن اندروید</motion.h6>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='text-justify '>Android به زبان ساده سیستم عاملی است برای دستگاه های موبایل و گوشی های هوشمند که توسط بیش از 30 کمپانی معروف پشتیبانی می شود. اندروید اوپن سورس است و توسعه دهندگان می توانند با استفاده از Android SDK انواع اپلیکیشن اندروید را برای این سیستم عامل بنویسند. در واقع اندروید بستری را فراهم می کند تا برنامه نویسان اپلیکیشن اندروید بتوانند هرچه سریعتر و بهتر برنامه هایی بسازند که از تمام ویژگی های یک گوشی هوشمند استفاده کند. اندروید به معنای واقعی “ باز” (Open) است، یعنی برنامه نویس می تواند از تمام قدرت یک تلفن همراه استفاده کند. اندروید امکان استفاده از توابع داخلی گوشی موبایل همچون شماره گیری، فرستادن SMS یا استفاده از دوربین گوشی را به برنامه نویسان می دهد تا بتوانند اپلیکیشن اندروید قدرتمند و کاربردی برای کاربران بسازند.</motion.p>
                 </div>
-                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  src={img_4} alt="android-application" className='w-96 2xl:w-2/5'/>
+                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  src={img_4} alt="android-application" className='w-[20rem] 2xl:w-[25rem]'/>
             </div>
             <div className='flex flex-col-reverse sm:flex-row items-center justify-around'>
                 <div className='flex flex-col  sm:items-start items-center w-full sm:w-2/4 text-justify'>
@@ -95,30 +95,30 @@ function Saplication() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='mt-5'><b>Java</b> یکی از زبان های برنامه نویسی سطح بالا می باشد که مبتنی بر کلاس و شی گرا است و به صورت رایگان در اختیار برنامه نویسان قرار می گیرد و با آن می توان برنامه های مختلفی ساخت. زبان برنامه نویسی Java بیشتر در ساخت نرم افزار اندروید مورد استفاده قرار می گیرد و کاربرد دارد.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>جاوا پر کاربــرد ترین پلت فرم براي گوشي هاي بدون سیستم عامل است ما میتوانیم یک اپلیکیشن فوق العاده با استفاده از جاوا برای شما بسازیم.</motion.p>
                 </div>
-                <motion.img src={img_5} alt="java-application" className='w-80 2xl:w-2/5' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+                <motion.img src={img_5} alt="java-application" className='w-[15rem] 2xl:w-[25rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
             </div>
             <div className='flex flex-col-reverse sm:flex-row items-center justify-around'>
                 <div className='w-full sm:w-2/4'>
                     <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A'>اپلیکیشن ios</motion.h6>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-justify'>شرکت نهال آی تی علاوه بر طراحی اپلیکیشن های اندرویدی به ساخت وطراحی اپلیکیشن ios نیز می پردازد و طبق خواسته مشتری هریک از این اپ ها را به صورت اختصاصی و حرفه تولید و طراحی کرده و در اختیار شما عزیزان قرار خواهد داد، البته لازم به ذکر است که نهال آی تی با استفاده از فریم ورک های حرفه ای برنامه نویسی اپلیکیشن ها را به گونه ای طراحی می کند که هم در پلتفرم اندروید و هم در ios سازگار باشد، برای اطلاعات بیشتر در زمینه طراحی اپلیکیشن موبایل با مشاورین نهال آی تی در تماس باشید.</motion.p>
                 </div>
-                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_6} alt="ios-appliacation" className='w-80 2xl:w-2/5'/>
+                <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_6} alt="ios-appliacation" className='w-[15rem] 2xl:w-[20rem]'/>
             </div>
             <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='gap-5 sm:gap-2 2xl:mt-10'>
                 <h6 className='text-green-137 text-center'>خدمات طراحی اپلیکیشن موبایل</h6>
                 <div className='flex flex-col sm:flex-row gap-5 design-mobile-application'>
                     <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
-                        <img src={img_7} alt="andriod" className='w-24 2xl:w-44'/>
+                        <img src={img_7} alt="andriod" className='w-[3rem] 2xl:w-[5rem]'/>
                         <b>طراحی اپلیکیشن اندروید</b>
                         <span className='text-center'>از مزایای داشتن اپلیکیشن اندروید، می توان به موارد زیر اشاره کرد: فروش شما را افزایش می‌دهد و مخاطبانتان را زیاد میکند و همچنین میتوانید همیشه در دسترس مشتریانتان باشید</span>
                     </div>
                     <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
-                        <img src={img_8} alt="apple"className='w-24 2xl:w-44'/>
+                        <img src={img_8} alt="apple"className='w-[3rem] 2xl:w-[5rem]'/>
                         <b>طراحی اپلیکیشن IOS</b>
                         <span className='text-center'>از مزایای داشتن اپلیکیشن IOS، می توان به موارد زیر اشاره کرد: فروش شما را افزایش می‌دهد و مخاطبانتان را زیاد میکند و همچنین میتوانید همیشه در دسترس مشتریانتان باشید.</span>
                     </div>
                     <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
-                        <img src={img_9} alt="java" className='w-24 2xl:w-44'/>
+                        <img src={img_9} alt="java" className='w-[3rem] 2xl:w-[5rem]'/>
                         <b>طراحی اپلیکیشن جاوا </b>
                         <span className='text-center'>جاوا پر کاربــرد ترین پلت فرم براي گوشي هاي بدون سیستم عامل است ما در تیم نهال آی تی میتوانیم یک اپلیکیشن فوق العاده با استفاده از جاوا برای شما بسازیم.</span>
                     </div>
@@ -126,15 +126,16 @@ function Saplication() {
             </motion.div>
             <div className='flex flex-col gap-5 2xl:gap-10 2xl:mt-20'>
                 <h6 className='text-center text-gray-4444'>تعرفه خدمات اپلیکیشن موبایل تیم نهال آی تی</h6>
-                <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row justify-evenly'>
-                    <img src={img_10} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4 md:w-60'/>
-                    <img src={img_11} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4 md:w-60'/>
-                    <img src={img_12} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4 md:w-60'/>
+                <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row justify-evenly items-center'>
+                    <img src={img_10} alt="tarrif" className='w-[15rem] sm:w-[25%] 2xl:w-[25rem] md:w-[28%]'/>
+                    <img src={img_11} alt="tarrif" className='w-[15rem] sm:w-[25%] 2xl:w-[25rem] md:w-[28%]'/>
+                    <img src={img_12} alt="tarrif" className='w-[15rem] sm:w-[25%] 2xl:w-[25rem] md:w-[28%]'/>
                     
                 </div>
             </div>
         </div>
-        <div className='flex flex-col w-full'>
+    </div>
+    <div className='flex flex-col w-full sm:my-[3rem] m-0'>
             <motion.div className='flex flex-row end-box items-center bg-green-d5 px-1 py-5' whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>
               <div className='flex flex-col items-end gap-5'>
                <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه  اپلیکیشن موبایل ، میتوانید به صورت رایگان ، با شماره <b className='text-gray3030 font-bold'>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
@@ -150,7 +151,6 @@ function Saplication() {
            <img src={front_2} alt="front" className='w-80'/>
           </motion.div>
         </div>
-    </div>
       <div>
         <FixedIcon />
       </div>

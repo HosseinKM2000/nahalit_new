@@ -248,8 +248,131 @@ p
 {
   background: radial-gradient(#82CD47,#379237);
 }
+.Services-style > div > h1,h2,h3,h4,h5,h6,
+.Services-style > div > div > h1,h2,h3,h4,h5,h6,
+.Services-style > div > div > div > h1,h2,h3,h4,h5,h6
+{
+    font-weight: bolder;
+    margin-bottom: 1rem;
+    font-family: IranSans-b;
+    font-size:1.3rem !important;
+}
+.Services-style > div > p,
+.Services-style > div > div > p,
+.Services-style > div > div > div > p
+{
+    font-size:1rem;
+    color: #636363;
+    line-height: 2.5rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+} 
+b
+{
+    color: #404040;
+    font-weight: bolder;
+    font-family: IranSans-b;
+}
+.SocalMedia-importance
+{
+    font-family: IranSans-r;
+}
+.socalMedia-services > div
+{
+    width: 30%;
+}
+.socalMedia-services > div > span
+{
+    font-family: IranSans-b;
+    color: #444444;
+}
+.socalMedia-services > div > p
+{
+    font-family: IranSans-r;
+    text-align: center;
+    color:#7A7A7A;
+    line-height: 1.8;
+}
+.sound-editing-Services  > div > span
+{
+    font-family: IranSans-r !important;
+    font-weight: 100;
+    font-size: 0.8rem;
+    line-height: 2rem;
+    color: rgb(87, 87, 87);
+}
+.sound-editing-Services > div
+{
+    width: 30%;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+}
+li
+{
+    font-size:0.9rem;
+    color: #4a4a4a;
+    line-height: 2.1rem;
+}
+.editing-video-Services > div > span
+{
+    font-family: IranSans-r !important;
+    font-weight: 100;
+    font-size: 0.8rem;
+    line-height: 2rem;
+    color: rgb(87, 87, 87);
+}
+.graphic-services > div > img
+{
+    width: 8rem;
+}
+.graphic-services > div > p
+{
+    font-family: IranSans-r;
+    color: gray;
+    font-size: 0.8rem;
+    line-height: 2rem;
+}
+img[alt='characterIcon']
+{
+    width: 8rem !important;
+}
+.design-mobile-application > div > span
+{
+    font-family: IranSans-r !important;
+    font-weight: 100;
+    font-size: 0.89999rem;
+    line-height: 2rem;
+    color: rgb(87, 87, 87);
+}
+.store-text,
+.service-text
+{
+    font-size: 1rem;
+    text-align: center !important;
+    color: rgb(108, 108, 108);
+    line-height: 2rem;
+}
+
+
+
+
+
+
+/* media query */
 @media(max-width:640px)
 {
+  .graphic-services > div
+{
+    width: 95%;
+    margin-bottom: 5rem;
+    justify-content: space-between;
+}
+  .Services-style
+  {
+      direction: center;
+      overflow: hidden;
+      text-align: center;
+  } 
     .end-box
     {
         align-items: center;
@@ -282,7 +405,142 @@ p
     {
       line-height: 2rem;
     }
+        .Services-style > div
+    {
+        width: 100%;
+    }
+    b
+    {
+        text-align: center;
+        line-height: 2rem;
+    }
+    .Services-style > div > h1,h2,h3,h4,h5,h6,
+    .Services-style > div > div > h1,h2,h3,h4,h5,h6,
+    .Services-style > div > div > div > h1,h2,h3,h4,h5,h6
+    {
+      text-align: center;
+      line-height: 2rem;
+    }
+    .Services-style > div
+{
+    margin-right: 0rem;
+    margin-left: 0rem;
 }
+.store-text,
+.service-text
+{
+  width: 90%;
+}
+.sound-editing-Services > div
+{
+    width: 90%;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+}
+.socalMedia-services > div 
+{
+  width: 90%;
+}
+.editing-video-Services > div
+{
+    width: 90%;
+    justify-content:flex-start;
+    margin-bottom: 5rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:640px)
+{
+  .Services-style
+{
+    direction: rtl;
+    overflow: hidden;
+    text-align: right;
+} 
+    .store-text,
+    .service-text
+    {
+        width: 100%;
+    }
+    li
+    {
+        font-size:0.9rem;
+        line-height: 2.1rem;
+    }
+    .Services-style > div
+{
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+.span
+{
+  line-height: 2rem; 
+  font-size: 0.9rem;
+}
+.editing-video-Services > div
+{
+    width: 30%;
+    justify-content:flex-start;
+    margin-bottom: 5rem;
+}
+.motionImg
+{
+    width: 30rem;
+    height: 20rem
+}
+.motionImg2
+{
+    width: 25rem;
+    height: 15rem
+}
+.graphic-services > div
+{
+    width: 30%;
+    margin-bottom: 5rem;
+    justify-content: space-between;
+}
+}
+
+
+
+
+@media(max-width:1700px)
+{
+  .Services-style > div
+  {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+@media(min-width:1700px)
+{
+  .Services-style > div
+  {
+    padding: 0 5rem;
+  }
+}
+
+
+@media(min-width:2000px)
+{
+  .Services-style > div
+{
+  padding:0 15rem;
+}
+}
+
 
 @media(min-width:1536px)
 {
@@ -292,12 +550,12 @@ p
     }
     .end-box
     {
-        justify-content: space-between;
+        justify-content:space-around;
         align-items: center;
     }
     .end-box > img
     {
-        width: 50rem;
+        width: 30rem;
     }
     .end-box > div
     {
@@ -305,22 +563,17 @@ p
     }
     .end-box > div > span
     {
-        font-size: 2rem;
+        font-size: 1.2rem;
         line-height: 5rem;
     }
     .end-box > div > button
     {
-        font-size: 1.5rem;
+        font-size: 1rem;
         line-height: 1rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
         width: 60%;
     } 
-    .span
-    {
-        line-height: 3rem;
-        font-size: 1.5rem;
-    }
     .Toast_info
     {
         width:30% !important;
@@ -340,4 +593,65 @@ p
     {
         transform: scale(1.5) !important;
     }
+    .h-45
+    {
+    height: 45rem;
+    }
+    .linkdin_img
+    {
+        width: 40%;
+        height: 50%;
+    }
+    li
+    {
+        
+    font-size: 1.5rem !important;
+    line-height: 4rem !important;
+
+    }
+    b
+    {
+        color: #404040;
+        font-weight: bolder;
+        font-family: IranSans-b;
+        font-size: 1.1rem;
+    }
+img[alt='stopmotion']
+{
+    width: 25rem;
+    height: 15rem;
+}
+.graphic-services > div > b
+{
+    font-size: 2rem;
+} 
+.graphic-services > div > img
+{
+    width: 30rem;
+}
+img[alt='characterIcon']
+{
+    width: 20rem !important;
+}
+.h-40Rem
+{
+    height: 40rem;
+}
+.design-mobile-application > div > span
+{
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+.store-text,
+.service-text
+{
+    width: 100%;
+    font-size: 2rem;
+    line-height: 5rem;
+
+}
+.span
+{
+  padding: 0 8rem;
+}
 }

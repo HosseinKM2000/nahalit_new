@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import headImg from "../../assets/img/PremierEditing/خدمات-فیلم-1024x576.jpg";
 import img_1 from "../../assets/img/PremierEditing/youtube-creator-awards-1024x683.png";
 import img_2 from "../../assets/img/PremierEditing/man-watching-online-video-1024x1024.png";
-import img_3 from "../../assets/img/PremierEditing/movie.png";
+import img_3 from "../../assets/img/PremierEditing/youtube.png";
 import img_4 from "../../assets/img/PremierEditing/sharing-and-video-marketing-concept-with-loud-speaker-image.png";
 import img_5 from "../../assets/img/PremierEditing/concept-of-man-got-success-and-achieving-goal.png";
 import img_6 from "../../assets/img/PremierEditing/speech.png";
@@ -18,6 +18,8 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
 
 function Spremier() {
   return (
@@ -30,7 +32,7 @@ function Spremier() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='premierEditing-content flex flex-col items-center gap-10 mb-10 mt-2'>
+      <div className='premierEditing-content Services-style flex flex-col items-center gap-10 mb-10'>
         <img src={headImg} alt="header" className='w-full h-96 sm:h-auto'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
@@ -51,7 +53,7 @@ function Spremier() {
                         <li>تبلیغات را تدوین می توان به ویدئو اضافه کرد</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_1} alt="youtube" className='w-96 2xl:w-2/4' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+                <motion.img src={img_1} alt="youtube" className='w-[15rem] 2xl:w-[30rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>
                 <p>تدوین ویدیو اثر مستقیم بر میزان دیدن شدن ویدئوی شما دارد. تدوین ویدیو مثل جلد کتاب است، چیزی که شما در ابتدای کار جذب یک کتاب می کند، صرفا نام کتاب و طراحی روی جلد کتاب است. سپس شما آن کتاب را انتخاب میکنید تا از سرفصل های آن آگاه شوید. همان طوری که کتاب با طرح جلد زیباتر، احتمال فروشش بالا میرود، می توانیم بگوییم ویدئوها با تدوین ویدیوی حرفه ایی تر امکان دیدن شدن بیشتری پیدا می کنند.</p>
@@ -72,38 +74,38 @@ function Spremier() {
                         <li>تدوین ویدیو برای هدف شما</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_2} alt="youtube" className='w-96 2xl:w-2/4' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+                <motion.img src={img_2} alt="youtube" className='w-[15rem] 2xl:w-[25rem]' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
             </div>
-            <div>
-                <motion.h4 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-137 text-center'>خدمات تدوین ویدیو</motion.h4>
-                <div className='editing-video-Services flex flex-col sm:flex-row flex-wrap justify-around'>
-                    <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-col gap-3 mt-10 items-center'>
-                        <img src={img_3} alt="" className='w-16 2xl:w-52'/>
-                        <b className='mt-10'>تدوین ویدیو یوتیوب</b>
+            <div className="flex flex-col items-center sm:gap-10 gap-0">
+                <motion.h4 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-137 text-center my-5'>خدمات تدوین ویدیو</motion.h4>
+                <div className='editing-video-Services flex flex-col sm:flex-row flex-wrap justify-around items-center'>
+                    <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
+                        <img src={img_3} alt="" className='w-[4rem] 2xl:w-[5rem]'/>
+                        <b>تدوین ویدیو یوتیوب</b>
                         <span className='text-center'>امروزه یوتیوب یکی از بزرگترین بسترهای تولید محتوا در جهان است که بسیاری از کاربران همه روزه با آن مشغول به فعالیت هستند. تولید محتوای باکیفیت نقش مهمی در جذب کاربران دارد. با نهال آی تی ویدیو متفاوت برای خود بسازید</span>
                     </motion.div>
                     <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
-                        <img src={img_4} alt="" className='w-24 2xl:w-80'/>
+                        <img src={img_4} alt="" className='w-24 2xl:w-[8rem]'/>
                         <b>تدوین تیزر تبلیغاتی</b>
                         <span className='text-center'>تیزر های تبلیغاتی نقش بسیار مهمی در تبلیغ محصولات و خدمات دارند به طوری که یک تیزر تبلیغاتی با کیفیت میتواند مشتریان بسیاری را با خود به همراه آورد</span>
                     </motion.div>
                     <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
-                        <img src={img_5} alt="" className='w-24 2xl:w-80'/>
+                        <img src={img_5} alt="" className='w-24 2xl:w-[8rem]'/>
                         <b>تدوین ویدیو انگیزشی</b>
                         <span className='text-center'>یک ویدیو انگیزشی مناسب میتواند شما را در قدم برداشتن در مسیر زندگی تان هدایت کند. با نهال آی تی فیلم های انگیزشی تان را متفاوت بسازید</span>
                     </motion.div>
                     <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
-                        <img src={img_6} alt="" className='w-24 2xl:w-80'/>
+                        <img src={img_6} alt="" className='w-24 2xl:w-[8rem]'/>
                         <b>تدوین سخنرانی</b>
                         <span className='text-center'>تدوین ویدیوهای سخنرانی تاثیر بسیار مهمی در انتشار هر چه بیشتر آن ها در فضای مجازی دارد. تدوین انواع ویدیوهای سخنرانی، مداحی و مذهبی توسط تیم حرفه ای نهال آی تی انجام میگیرد</span>
                     </motion.div>
                     <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
-                        <img src={img_7} alt="" className='w-24 2xl:w-80'/>
+                        <img src={img_7} alt="" className='w-24 2xl:w-[8rem]'/>
                         <b>تدیون تولید محتوا</b>
                         <span className='text-center'>در حال حاضر تولید محتوا یکی مشاغل پر درامد در دنیای تکنولوژی است، طبیعتا با افزایش کاربران فعال در این عرصه رقابت هم بیشتر میشود. با نهال آی تی همیشه خود را متفاوت نگه دارید</span>
                     </motion.div>
                     <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 items-center'>
-                        <img src={img_8} alt="" className='w-24 2xl:w-80'/>
+                        <img src={img_8} alt="" className='w-24 2xl:w-[8rem]'/>
                         <b>تدوین برند</b>
                         <span className='text-center'>برند یک سازمان انعکاس کننده تمامی خدمات و محصولات آن سازمان است. داشتن یک ویدیو برند معرفی میتواند نقش مهمی در جذب مشتریان شما داشته باشد</span>
                     </motion.div>
@@ -111,26 +113,14 @@ function Spremier() {
             </div>
             <div className='flex flex-col gap-3 items-center'>
                 <h5 className='text-gray3030'>تعرفه های تدوین فیلم تیم نهال آی تی</h5>
-                <img src={img_9} alt="tarrif" className='w-full sm:w-3/5'/>
+                <img src={img_9} alt="tarrif" className='w-[20rem] sm:w-[30rem]'/>
             </div>
-        </div>
-        <div className='flex flex-col w-full'>
-            <motion.div whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='flex flex-row end-box items-center bg-green-d5 px-1 py-5'>
-              <div className='flex flex-col items-end gap-5'>
-               <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه  پریمیر و تدوین فیلم ، میتوانید به صورت رایگان ، با شماره <b className='text-gray3030 font-bold'>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-               <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md text-sm'>سفارش پروژه پریمیر و تدوین فیلم</button>
-            </div>
-              <img src={front_1} alt="front" className='w-80'/>
-            </motion.div>
-            <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}} className='flex end-box flex-row-reverse items-center bg-green-72 px-2 py-10'>
-            <div className='flex flex-col items-start gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت مشاهده نمونه کارهای  پریمیر و تدوین فیلم  توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</span>
-            <button className='text-white bg-green-57C w-11/12 py-2 rounded-md text-sm hover:brightness-105 transition-all'>مشاهده نمونه کار پریمیر و تدوین فیلم</button>
-           </div>
-           <img src={front_2} alt="front" className='w-80'/>
-          </motion.div>
         </div>
     </div>
+        <div className='flex flex-col w-full sm:my-[5rem] my-[1rem]'>
+          <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه پریمیر و تدوین فیلم ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه پریمیر و تدوین فیلم',}}/>
+          <EndBox2 content={{img:front_2,p:'جهت مشاهده نمونه کارهای پریمیر و تدوین فیلم توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار پریمیر و تدوین فیلم',}}/>
+        </div>
       <div>
         <FixedIcon />
       </div>

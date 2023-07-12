@@ -1,13 +1,16 @@
 import React from "react";
 import "./EecoSaleWeb.css";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
+
 // import images
 import headImg from "../../assets/img/Ec_Ex_Website/فروش-سایت-اختصاصی۱-1024x595.jpg";
 import djangoImg from "../../assets/img/Ec_Ex_Website/python-django-min.png";
 import phpImg from "../../assets/img/Ec_Ex_Website/PHP-logo.svg-min-1024x553.png";
 import laravelImg from "../../assets/img/Ec_Ex_Website/VPFCsW8yTV3x0SmlRLtu8phgnxa607YetR6UmHPA-min.png";
 import wordpressImg from "../../assets/img/Ec_Ex_Website/turquoise-logo-wordpress-cms-png-7-min.png";
-import storeImg from "../../assets/img/Ec_Ex_Website/121-min-270x270.png";
 import serviceImg from "../../assets/img/Ec_Ex_Website/خدمات-کامپیوتر.png";
+import storeImg from "../../assets/img/Ec_Ex_Website/121-min-270x270.png";
 //import motion
 import { motion } from "framer-motion";
 import Footer from "../../Components/Footer/Footer";
@@ -26,7 +29,7 @@ function EecoSaleWeb() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='flex flex-col gap-7 ExEcWebsite-content mb-10 mt-2'>
+      <div className='flex flex-col gap-7 Services-style ExEcWebsite-content mb-10'>
         <img src={headImg} alt="headImg" className='w-full max-sm:h-80'/>
         <div className='px-1 flex justify-center items-center'>
         </div>
@@ -62,7 +65,7 @@ function EecoSaleWeb() {
             <p>جنگو یک فریمورک وب مبتنی بر زبان برنامه نویسی پایتون و زبان سطح بالا می باشد که امکان طراحی سایت فروشگاهی و توسعه سریع وب سایت‌ های ایمن را فراهم می‌کند.</p>
             <p>جنگو توسط توسعه دهندگان باتجربه ساخته شده و از بسیاری از مشکلات هنگام تولید وب سایت پیشگیری می‌کند. این برنامه رایگان و منبع باز (Open Source) است، همچنین دارای یک انجمن پرکاربرد و فعال، مستندات عالی و گزینه‌های زیادی برای پشتیبانی رایگان و غیر رایگان می‌ باشد.</p>
           </motion.div>
-          <motion.img initial={{translateX:-50}} viewport={{once:true}} whileInView={{translateX:0}} transition={{duration:1}}  src={djangoImg} alt="django" className='w-80 2xl:w-[40%]'/>
+          <motion.img initial={{translateX:-50}} viewport={{once:true}} whileInView={{translateX:0}} transition={{duration:1}}  src={djangoImg} alt="django" className='w-[50%] sm:w-[30%] 2xl:w-[40%]'/>
         </div>
         <motion.div
          initial={{translateY:-100,opacity:0}}
@@ -87,7 +90,7 @@ function EecoSaleWeb() {
             <p>اگر بخواهیم ریزتر به سوال PHP چیست؟ پاسخ دهیم، باید بگوییم که PHP کارهای پشت صحنه را در صفحات وب انجام میدهد. به این معنا که شما با استفاده از PHP نمیتوانید ظاهر سایت را تغییر دهید. PHP یک زبان برنامه</p>
             <p>نویسی است که تاثیر مستقیمی روی ظاهر سایت ندارد. با استفاده از PHP شما میتوانید اطلاعات مختلف را از پایگاه داده بگیرید و به کاربر نشان دهید.</p>
           </motion.div>
-          <motion.img initial={{translateX:500, opacity:0}} viewport={{once:true}}  whileInView={{translateX:0,opacity:1}} transition={{duration:1}} src={phpImg} alt="php" className='w-80 mr-2 h-52 2xl:w-[40%] 2xl:h-96'/>
+          <motion.img initial={{translateX:500, opacity:0}} viewport={{once:true}}  whileInView={{translateX:0,opacity:1}} transition={{duration:1}} src={phpImg} alt="php" className='w-[50%] mr-2 h-[5rem] sm:h-[8rem] 2xl:w-[40%] 2xl:h-96'/>
         </div>
         <motion.div initial={{translateX:0,opacity:1}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateX:[5,-5,5,-5,5,-5,5,-5,0],opacity:1}} >
           <h1 className='text-green-00'>داینامیک و استاتیک یعنی چی؟</h1>
@@ -123,27 +126,14 @@ function EecoSaleWeb() {
             <motion.h1 initial={{translateX:100,opacity:0}} viewport={{once:true}} whileInView={{translateX:0,opacity:1}} className='text-green-0E'>وردپرس چیست ؟</motion.h1>
             <motion.p initial={{scale:0}} viewport={{once:true}} transition={{duration:1}} whileInView={{scale:1}}>اگر بخواهیم به زبان ساده به معرفی وردپرس بپردازیم، وردپرس عبارت است از یک سیستم مدیریت محتوای سایت ساز که با استفاده از آن قادر خواهید بود تا به راه اندازی انواع گوناگونی از وبسایت و وبلاگ بپردازید. با اطمینان بر اساس تجربیات شخصی و نمونه های  مشاهده شده به جرأت می توانم این اطمینان را به شما بدهم به دلیل انعطاف بالایی که سیستم مدیریت محتوای وردپرس دارد با استفاده از آن قادر خواهید بود تا اقدام به راه اندازی هر نوع وبسایت با وردپرس کنید.</motion.p>
           </div>
-          <motion.img initial={{translateY:-200}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}} src={wordpressImg} alt="wordpress" className='w-80 2xl:w-[40%]'/>
+          <motion.img initial={{translateY:-200}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}} src={wordpressImg} alt="wordpress" className='w-[50%] sm:w-[20%] 2xl:w-[40%]'/>
         </div>
         <div>
           <motion.p initial={{translateY:100}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}}>وردپرس، یک سیستم سایت ساز و پکیج راه انداز وب‌سایت، فروشگاه اینترنتی و وبلاگ (از هر نوع و هر مدل است) است که به صورت رایگان شما می‌توانید آن را از طریق وب‌سایت رسمی وردپرس (فارسی یا انگلیسی) دانلود کرده و بر روی فضای اینترنتی خود نصب کنید. فضای اینترنتی همان فضایی است که سایت شما و محتویات آن بر روی آن فضا قرار می‌گیرد و سپس وب‌سایت خود را به طور کامل با جزئیات و امکانات متفاوت و طرح دلخواه بر روی آن راه اندازی کرده و مطالب و بخش‌های مختلف سایت را خودتان مدیریت کنید.</motion.p>
         </div>
         <div className='flex flex-col w-full'>
-        <motion.div initial={{translateY:200,opacity:0}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0,opacity:1}} className='bg-blue-db py-10 px-3 flex flex-col sm:flex-row items-center justify-around'>
-          <img src={storeImg} alt="store" className='w-60 2xl:w-1/4'/>
-          <div className='w-8/12 flex flex-col items-center gap-5 2xl:gap-32'>
-            <p className='store-text'>
-           جهت مشاهده ی تمامی قالب های آماده به فروش (وردپرس (WordPress) و HTML و CSS و قالب جنگو (DJango)) و ثبت سفارش ، می توانید از طریق لینک زیر اقدام کنید.</p>
-          <button className='text-white bg-green-57C  w-72 2xl:text-3xl 2xl:p-8 2xl:w-fit sm:w-full py-2 rounded-md hover:brightness-105 transition-all'>مشاهده انواع قالب ها و ثبت سفارش</button>
-          </div>
-        </motion.div>
-        <motion.div initial={{translateY:200,opacity:0}} viewport={{once:true}} transition={{duration:1,delay:0.1}} whileInView={{translateY:0,opacity:1}} className='bg-green-72 py-10 px-3 flex flex-col sm:flex-row-reverse items-center justify-around'>
-          <img src={serviceImg} alt="Service" className='w-80 2xl:w-1/3'/>
-          <div className='w-8/12 flex flex-col items-center gap-5 2xl:gap-32'>
-            <p className='service-text'>برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</p>
-            <button className='text-white bg-green-57C sm:w-full 2xl:text-3xl 2xl:p-8 2xl:w-fit w-72 py-2 rounded-md hover:brightness-105 transition-all'>مشاهده وب سایت و قالب های آماده</button>
-          </div>
-        </motion.div>
+          <EndBox1 text={{img:storeImg,p:' جهت مشاهده ی تمامی قالب های آماده به فروش (وردپرس (WordPress) و HTML و CSS و قالب جنگو (DJango)) و ثبت سفارش ، می توانید از طریق لینک زیر اقدام کنید.',b:'مشاهده انواع قالب ها و ثبت سفارش'}}/>
+          <EndBox2 text={{img:serviceImg,p:'برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده وب سایت و قالب های آماده '}}/>
         </div>
     </div>
       <div>

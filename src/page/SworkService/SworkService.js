@@ -1,6 +1,7 @@
 import React from "react";
 import "./SworkService.css";
 import { motion } from "framer-motion";
+import EndBox3 from "../../Components/EndBox3/EndBox3";
 // import images
 import HeadImg from "../../assets/img/Business/کسب-و-کار-1024x576.jpg";
 import brandImg from "../../assets/img/Business/branding-matters-1-min.png";
@@ -16,6 +17,7 @@ import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
+
 function SworkService() {
   return (
     <main>
@@ -27,7 +29,7 @@ function SworkService() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='Business-content flex flex-col items-center gap-10 2xl:gap-20 mb-10 mt-2'>
+      <div className='Business-content Services-style flex flex-col items-center gap-10 2xl:gap-20 mb-10'>
         <img src={HeadImg} alt="header" className='w-full sm:h-auto h-96'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
@@ -69,40 +71,34 @@ function SworkService() {
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>یکی از سریع ترین، موثرترین و ارزان ترین روش تبلیغات، ارسال پیامک و ارسال ایمیل تبلیغاتی می باشد با استفاده از امکانات قدرتمندی که پنل اس ام اس و ایمیل در اختیار شما قرار میدهد میتوانید متن تاثیر گذار خود را در کمترین زمان ممکن به مخاطبان خود برسانید و با استفاده از دیگر امکانات پنل پیامک و ایمیل ، محصول و کار خود را تبلیغ نمایید و از این طریق مشتریان خود را افزایش دهید.</motion.p>
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>استفاده از پنل پیامک و ایمیل یکی از بهترین و آسانترین راه ها برای اطلاع رسانی و ارتباط مستمر با مشتریان می باشد.</motion.p>
               </div>
-              <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-80 2xl:w-1/4 2xl:h-96'/>
+              <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-80 2xl:w-[20rem] 2xl:h-[15rem]'/>
             </div>
             <motion.div className='flex flex-col gap-3 2xl:mt-20' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}}>
                 <h5 className='text-green-137 text-center'>خدمات کسب و کار</h5>
                 <div className='flex sm:flex-row flex-col gap-6'>
-                    <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
-                        <img src={Img_1} alt="img-1" className='w-24 2xl:w-60'/>
-                        <span className='font-bold 2xl:text-4xl text-gray-66'>ثبت برند</span>
+                    <div className='flex flex-col items-center gap-3 2xl:gap-2 justify-between'>
+                        <img src={Img_1} alt="img-1" className='w-24 2xl:w-[8rem]'/>
+                        <span className='font-bold text-gray-66'>ثبت برند</span>
                         <p className='text-center span text-gray-77'>اصطلاح برند به مفهومی در تجارت و بازاریابی اشاره دارد که یک شرکت، محصول یا فرد را از سایر همسان ها تمایز می دهد. تفاوت را با نهال آی تی تجربه کنید.</p>
                     </div>
-                    <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
+                    <div className='flex flex-col items-center gap-3 2xl:gap-2 justify-between'>
                      <img src={Img_2} alt="img-2" className='w-32 2xl:w-72'/>
-                        <span className='font-bold 2xl:text-4xl text-gray-66'>ثبت لوگو</span>
+                        <span className='font-bold text-gray-66'>ثبت لوگو</span>
                         <p className='text-center span text-gray-77'>لوگو یک هویت تصویری برای رساندن مفهوم خدمت ، نشان دادن هویت یک سازمان بزرگ و یا کوچک می باشد. طراحی انواع لوگو های گرافیکی در تیم نهال آی تی</p>
                     </div>
-                    <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
+                    <div className='flex flex-col items-center gap-3 2xl:gap-2 justify-between'>
                     <img src={Img_3} alt="img-3" className='w-32 2xl:w-72'/>
-                        <span className='font-bold 2xl:text-4xl text-gray-66'>ارسال پیامک و ایمیل انبوه</span>
+                        <span className='font-bold text-gray-66'>ارسال پیامک و ایمیل انبوه</span>
                         <p className='text-center span text-gray-77'>یکی از موثرترین روش تبلیغات، ارسال پیامک و ایمیل تبلیغاتی می باشد. استفاده از پنل پیامک و ایمیل یکی از بهترین راه برای اطلاع رسانی و ارتباط با مشتریان می باشد.</p>
                     </div>
                 </div>   
             </motion.div> 
                <div className='w-full flex flex-col items-center mt-3 2xl:mt-20 2xl:gap-5'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات کسب و کار تیم نهال آی تی</h6>
-                <img src={tarrif} alt="tarrif" className='w-7/12 sm:w-5/12'/>
+                <img src={tarrif} alt="tarrif" className='w-7/12 sm:w-[17rem]'/>
                </div>
         </div>
-        <motion.div className='flex flex-row items-center w-full end-box bg-green-d5 px-1 py-5'  whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>
-            <div className='flex flex-col items-end gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه خدمات کسب و کار، میتوانید به صورت رایگان ، با شماره <b>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-            <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md text-sm'>سفارش خدمات کسب و کار</button>
-             </div>
-             <img src={front_1} alt="front" className='w-80'/>
-        </motion.div>
+        <EndBox3 content={{img:front_1,p:'جهت سفارش انواع پروژه خدمات کسب و کار، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات کسب و کار'}}/>
     </div>
       <div>
         <FixedIcon />

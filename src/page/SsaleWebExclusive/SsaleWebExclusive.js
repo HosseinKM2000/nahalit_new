@@ -20,6 +20,8 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
 
 function SsaleWebExclusive() {
   return (
@@ -32,7 +34,7 @@ function SsaleWebExclusive() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='ExWebDesign-content flex flex-col items-center gap-10 mb-10 mt-2'>
+      <div className='ExWebDesign-content Services-style flex flex-col items-center gap-10 mb-10'>
         <img src={HeadImg} alt="header" className='w-full max-sm:h-80'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
@@ -51,10 +53,10 @@ function SsaleWebExclusive() {
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>هر کسی دوست دارد بدون خروج از منزل یا محل کار، سریعا وارد سایت یک فروشگاه اینترنتی شده و محصول خود را خریداری کند. بنابراین توجه به مسئله ساخت سایت فروشگاهی برای کسب و کارهای سنتی، افزایش یافته است.</motion.p>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>استفاده از خدمات طراحی سایت فروشگاهی حرفه ای این امکان را به شما خواهد داد که بتوانید بازار هدف خود را که شامل مشتریان یک محله و شهر خاصی هستند را توسعه داده و در سطح کلان کشوری آنها را جذب کنید. این کار باعث دیده شدن بیشتر خدمات و محصولات شما شده و خواهید توانست به راحتی بازار بزرگی از مشتریان را به خود جذب کنید.</motion.p>
               </div>
-              <motion.img  whileInView={{x:[-500,20,-20,0]}} transition={{duration:1}} viewport={{once:true}} src={Img_1} alt="Img_1" className='w-80 2xl:w-2/6'/>
+              <motion.img  whileInView={{x:[-500,20,-20,0]}} transition={{duration:1}} viewport={{once:true}} src={Img_1} alt="Img_1" className='w-[12rem] 2xl:w-[20rem]'/>
             </div>
             <div className='flex flex-col sm:flex-row justify-center items-center'>
-              <motion.img src={Img_2} alt="Img_2" className='w-80 2xl:w-2/6' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+              <motion.img src={Img_2} alt="Img_2" className='w-[12rem] 2xl:w-[20rem]' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
               <div>
                 <motion.h3 className='text-green-137' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>طراحی وب سایت خبری</motion.h3>
                   <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>افراد عاشق شنیدن خبر های تازه هستند . اما از آن جایی که بسیاری از مردم این روزها به دنیای اینترنت رو آورده اند، بسیاری از اخبار را از طریق وب سایت های خبری دنبال می کنند. به همین علت طراحی وبسایت خبری از تقاضای بالایی در تهران و دیگر شهرستان ها برخوردار شده است . وب سایت نهال آی تی به شما کمک می کند تا با آسودگی خاطر اقدام به سفارش طراحی وب سایت کنید.</motion.p>
@@ -68,10 +70,10 @@ function SsaleWebExclusive() {
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>در پروژه های طراحی سایت شرکت نهال آی تی ، علاوه بر زیبایی نمای بصری و گرافیکی وب سایت در طرح های اختصاصی، نیاز و سلیقه شما در دیزاین لحاظ شده و همچنین اصول اولیه افزایش رتبه وب سایت و سئو نیز بر اساس نوع فعالیت شما به نحو شایسته ای در سایت طراحی شده پیاده سازی می‌ شود.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>علاوه بر آن امکانات خاص مد نظر شما در طراحی سایت شرکت با انتخاب طراحی وب سایت اختصاصی قابلیت توسعه بیشتری خواهد داشت.‎</motion.p>
               </div>
-              <motion.img src={Img_3} alt="Img_3" className='w-80 2xl:w-2/6'  whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+              <motion.img src={Img_3} alt="Img_3" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <div className='flex gap-3 flex-col sm:flex-row justify-center items-center'>
-              <motion.img src={Img_4} alt="Img_4" className='w-80 2xl:w-2/6'  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+              <motion.img src={Img_4} alt="Img_4" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
               <div>
                 <motion.h5 className='text-green-137' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>طراحی وب سایت اشتراک گذاری عکس و فیلم</motion.h5>
                 <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>پنل مدیریت وب سایت به اشتراک گذاری ویدئو و اشتراک گذاری عکس یکی از cms های دست نویس تیم نهال آی تی می باشد و از هیچ گونه سیستم های آماده همانند وردپرس و جوملا و … استفاده نشده است و به زبان php نوشته شده است.</motion.p>
@@ -80,7 +82,7 @@ function SsaleWebExclusive() {
             </div>
             <motion.div  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>
               <h6 className='text-center text-green-137 2xl:mb-5 2xl:mt-10'>طراحی وب سایت حرفه ای</h6>
-              <div className='flex flex-col sm:flex-row gap-2'>
+              <div className='flex flex-col items-center sm:flex-row gap-2 gap-y-8'>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
                   <img src={domain} alt="domain" className='w-28 2xl:w-64'/>
                   <span className='font-bold 2xl:text-3xl text-gray-66'>ثبت دامنه ی اختصاصی</span>
@@ -100,31 +102,19 @@ function SsaleWebExclusive() {
             </motion.div>
             <div className='mb-32 2xl:mt-20'>
                 <h6 className='text-gray-66 text-center'>تعرفه خدمات طراحی وب سایت</h6>
-                <div className='flex flex-col items-center sm:flex-row gap-5 sm:gap-2'>
-                  <img className='w-11/12 sm:w-60 2xl:w-1/4' src={tarrif_laravel} alt="laravel" />
-                  <img className='w-11/12 sm:w-60 2xl:w-1/4' src={tarrif_jango} alt="jango" />
-                  <img className='w-11/12 sm:w-60 2xl:w-1/4' src={tarrif_php} alt="php" />
-                  <img className='w-11/12 sm:w-60 2xl:w-1/4' src={tarrif_wordpress} alt="wordpress" />
+                <div className='flex flex-col justify-center flex-wrap items-center sm:flex-row gap-5 sm:gap-2'>
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_laravel} alt="laravel" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_jango} alt="jango" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_php} alt="php" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_wordpress} alt="wordpress" />
                 </div>
             </div>
         </div>
-        <div className='flex flex-col w-full'>
-            <motion.div whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='flex flex-row items-center end-box bg-green-d5 px-1 py-5 end-box'>
-              <div className='flex flex-col items-end gap-5'>
-               <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه طراحی وب سایت ، میتوانید به صورت رایگان ، با شماره <b className='text-gray3030 font-bold'>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-               <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md text-sm'>سفارش پروژه طراحی انواع وب سایت</button>
-            </div>
-              <img src={front_1} alt="front" className='w-80'/>
-            </motion.div>
-            <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}} className='flex flex-row-reverse end-box items-center bg-green-72 px-2 py-10 end-box'>
-            <div className='flex flex-col items-start gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</span>
-            <button className='text-white bg-green-57C w-[90%] sm:w-[70%] lg:w-[50%] py-2 2xl:text-lg rounded-md text-sm hover:brightness-105 transition-all'>مشاهده وب سایت ها و قالب های آماده</button>
-           </div>
-           <img src={front_2} alt="front" className='w-80'/>
-          </motion.div>
-     </div>
     </div>
+    <div className='flex flex-col w-full my-[1rem] sm:my-[5rem]'>
+          <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه طراحی وب سایت ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت'}}/>
+          <EndBox2 content={{img:front_2,p:'برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده وب سایت ها و قالب های آماده'}}/>
+     </div>
       <div>
         <FixedIcon />
       </div>

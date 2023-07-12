@@ -19,6 +19,8 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
 
 function Sseo() {
   return (
@@ -31,9 +33,9 @@ function Sseo() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='Seo-content flex flex-col items-center gap-10 mb-10 mt-2'>
+      <div className='Seo-content Services-style flex flex-col items-center gap-5 mb-10'>
         <img src={HeadImg} alt="header" className='w-full sm:h-auto h-96'/>
-        <div className='flex flex-col gap-10 px-1 2xl:gap-20'>
+        <div className='flex flex-col gap-10 px-1 2xl:gap-16'>
             <div>
                 <motion.h1 whileInView={{x:[10,-10,10,-10,10,0]}} transition={{duration:1}} viewport={{once:true}} className='text-center text-green-02'>خدمات سئو وب سایت</motion.h1>
                 <p>یکی از خدمات اصلی سایت که برای بهبود فروش و شناخته شدن شما و افزایش بازدید سایت شما می باشد ، خدمات سئو سایت می باشد. با این خدمات شما می توانید در صفحه گوگل در جایگاه بالاتر قرار بگیرید.</p>
@@ -46,7 +48,7 @@ function Sseo() {
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>سئو چیست؟ امروزه همان سوالی است که در تمامی زیرشاخه های کسب و کارهای اینترنتی و دیجیتال مارکتینگ، مطرح می شود.</motion.p>
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>به طور خلاصه می توان گفت بهینه سازی وب سایت یا همان سئو ، موجب می شود یک سایت توسط موتورهای جستجو نظیر گوگل، یعنی در صفحه سرچ آن ها به افرادی که کلمات مربوط به آن وب سایت ها را جستجو می کنند، در جایگاه بالاتری نمایش داده شود و آن افراد جذب وب سایت ها شوند.</motion.p>
                 </div>
-                <motion.img src={Img_1} alt="roocket" className='w-80 2xl:w-[40%] 2xl:h-[20rem]' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_1} alt="roocket" className='w-80 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>تاریخچه سئو، به دهه ۹۰ میلادی و ظهور موتورهای جستجو برمی‌گردد.</p>
@@ -61,7 +63,7 @@ function Sseo() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتورهای جستجوی در نحوه رتبه بندی وب سایت‌ ها در هنگام جستجوی کلید واژه‌های مختلف توسط کاربران، عملکرد متفاوتی دارند. این تفاوت رتبه دهی ناشی از هوش مصنوعی مورد استفاده در موتورهای جستجو است.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>گوگل نتایج بهتری در هنگام جستجو به کاربران نشان ‌می‌ دهد و فرایند جستجو در اینترنت را برای کاربران در مقایسه با سایر موتورهای جستجو در گوگل دلپذیرتر است. به همین دلیل گوگل تبدیل به پرطرفدارترین موتور جستجو در اینترنت شده‌ است.</motion.p>
                 </div>
-                <motion.img src={Img_2} alt="search-engine" className='w-80 h-60 2xl:w-[40%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_2} alt="search-engine" className='w-64 h-50 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <h4 className='text-green-137'>موتور جستجو چگونه کار می‌کند ؟</h4>
@@ -70,16 +72,16 @@ function Sseo() {
                 <p><b>1- خزش (Crawling) :</b> مشاهده و بررسی صفحات وب سایت‌ ها که اصطلاحا به آن کراولینگ یا خزیدن می‌ گویند.</p>
                 <p><b>2- فهرست کردن (Indexing) :</b> فهرست کردن صفحات مشاهده شده در پایگاه داده</p>
                 <p><b>3- رتبه بندی صفحات (Ranking) :</b> رتبه‌بندی (رنکینگ) نتایج بر اساس کلمه کلیدی وارد شده توسط کاربر و فاکتورهای رتبه‌ دهی</p>
-                <b>4- نمایش نتایج به کاربر در صفحه نتایج جستجو </b>
+                <p><b>4- نمایش نتایج به کاربر در صفحه نتایج جستجو </b></p>
                 <p>الگوریتم‌ های موتورهای جستجو برای نمایش صفحات معتبر و مرتبط در هنگام جستجوی یک کلیدواژه طراحی شده‌ اند تا تجربه‌ی گشت و گذاری کارآمد و دلچسب در فضای وب را در اختیار کاربرانشان قرار ‌دهند. سئو و بهینه سازی محتوای صفحات، می‌ تواند به شما در کسب رتبه‌ بالاتر در نتایج جستجو کمک کند.</p>
             </motion.div>
-            <div className='flex sm:flex-row flex-col items-center'>
+            <div className='flex sm:flex-row flex-col items-center justify-between'>
                 <div>
                   <motion.h5  whileInView={{opacity:[0,1],scale:[0,1],x:[-50,0],y:[-30,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>رتبه بندی در SERP ها چیست ؟</motion.h5>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>حالا که شما فهمیده اید که سئو چیست و چه معنا و مفهومی دارد، می خواهیم کمی جلوتر برویم. یکی دیگر از سوالات رایج که می شنویم این است :</motion.p>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>رتبه بندی سایت در گوگل چیست؟</motion.p>
                 </div>
-                <motion.img src={Img_3} alt="SERP" className='w-80 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_3} alt="SERP" className='w-64 2xl:w-[30%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div  whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>SERP (Search Engine Result Page) به معنی صفحه نتایج موتور جستجو می باشد. رتبه بندی سایت در گوگل شرکت شما یعنی جایگاه سایت شما در SERP گوگل.</p>
@@ -103,45 +105,33 @@ function Sseo() {
                 <h6 className='text-center text-green-137'>خدمات وب سایت</h6>
                 <div className='flex sm:flex-row flex-col items-center justify-center gap-1'>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
-                        <img src={Img_5} alt="seo" className='w-24 2xl:w-2/5'/>
-                        <span className='font-bold 2xl:text-5xl text-black'>سئو حرفه ای وب سایت</span>
+                        <img src={Img_5} alt="seo" className='w-24 2xl:w-[30%]'/>
+                        <span className='font-bold text-black'>سئو حرفه ای وب سایت</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>سئو حرفه ای انواع وب سایت ها و افزایش رتبه سایت و افزایش فروش ، با استفاده از جدید ترین روش های سئو وب سایت</p>
                     </div>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
                         <img src={Img_6} alt="head-visit-website" className='w-32 2xl:w-2/5'/>
-                        <span className='font-bold 2xl:text-5xl text-black'>افزایش بازدید سایت</span>
+                        <span className='font-bold text-black'>افزایش بازدید سایت</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>افزایش بازدید سایت بعد از سئو، مهم ترین اصل برای افزایش فروش و برندسازی هر کسب و کار است که با تیم زبده نهال آی تی، این امکان برای شما فراهم خواهد شد.</p>
                     </div>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
                         <img src={Img_7} alt="seo-service" className='w-32 2xl:w-2/5'/>
-                        <span className='font-bold 2xl:text-5xl  text-black'>رسیدن به صفحه اول گوگل</span>
+                        <span className='font-bold  text-black'>رسیدن به صفحه اول گوگل</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>افزایش رتبه وب سایت شما و رسیدن به صفحات بالاتر و رسیدن به صفحه اول گوگل، که منجر به افزایش مشتریان شما و افزایش فروش شما می شود.</p>
                     </div>
                 </div>
             </motion.div>
             <div className='flex flex-col gap-2 2xl:gap-10'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات وبسایت و سئو وبسایت تیم نهال آی تی</h6>
-                <div className=' flex-col sm:flex-row flex items-center justify-between gap-5 sm:gap-0'>
-                    <img src={Img_8} alt="tarrif" className='w-11/12 sm:w-[30%]  2xl:w-1/4'/>
-                    <img src={Img_9} alt="tarrif" className='w-11/12 sm:w-[30%]  2xl:w-1/4'/>
-                    <img src={Img_10} alt="tarrif" className='w-11/12 sm:w-[30%] 2xl:w-1/4'/>
+                <div className=' flex-col sm:flex-row flex items-center justify-between lg:justify-evenly gap-5 sm:gap-0'>
+                    <img src={Img_8} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
+                    <img src={Img_9} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
+                    <img src={Img_10} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
                 </div>
             </div>
             <div className='flex flex-col w-full'>
-            <motion.div whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-row end-box items-center bg-green-d5 px-1 py-5'>
-                 <div className='flex flex-col items-end gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه طراحی وب سایت و سئو، میتوانید به صورت رایگان ، با شماره <b>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-            <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md sm:text-sm'>سفارش پروژه طراحی انواع وب سایت و سئو</button>
-             </div>
-             <img src={front_1} alt="front" className='w-80'/>
-             </motion.div>
-             <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}} className='flex end-box flex-row-reverse items-center bg-green-72 px-2 py-10'>
-              <div className='flex flex-col items-start gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت مشاهده نمونه کار های سئو سایت توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید </span>
-            <button className='text-white bg-green-57C w-11/12 py-2 rounded-md text-sm hover:brightness-105 transition-all'>مشاهده نمونه کار سئو</button>
-           </div>
-            <img src={front_2} alt="front" className='w-80'/>
-            </motion.div>
+              <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه طراحی وب سایت و سئو، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت و سئو'}}/>
+              <EndBox2 content={{img:front_2,p:'جهت مشاهده نمونه کار های سئو سایت توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار سئو'}}/>
            </div>
         </div>
     </div>

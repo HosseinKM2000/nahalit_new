@@ -22,7 +22,7 @@ const Footer = () => {
     setFooter(false);
   };
   return (
-    <div className="text-[#ccc] footer-border border-black 2xl:justify-center mt-7 sm:mt-10 xl:mt-10 left-0 bg-[#223621] whitespace-nowrap px-48 max-xl:px-0 mx-auto pt-5 -z-10 pb-8">
+    <div className="text-[#ccc] footer-border border-black 2xl:justify-center left-0 bg-[#223621] whitespace-nowrap px-48 max-xl:px-0 mx-auto pt-5 -z-10 pb-8">
       <div className="container flex-wrap gap-12 mb-10 mx-auto 2xl:gap-11 2xl:justify-between 2xl:w-full flex items-start justify-center 2xl:text-2xl text-sm mt-24 max-xl:gap-y-12 tracking-tight">
         <div className="flex flex-col justify-center items-start gap-y-4">
           <RiSendBackward className="text-5xl text-white" />

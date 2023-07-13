@@ -14,7 +14,7 @@ function ArticlesPagination() {
     const [itemOffset, setItemOffset] = useState(0);
     const articles = useSelector(state => state.articles.articles);
     const mobile = window.innerWidth <= 425 ? true : false;
-    const itemsPerPage = 3;
+    const itemsPerPage = 6;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = articles.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(articles.length / itemsPerPage);

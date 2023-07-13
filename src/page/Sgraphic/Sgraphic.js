@@ -1,5 +1,4 @@
 import React from "react";
-import "./Sgraphic.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/Graphic/خدمات-گرافیک-1024x576.jpg";

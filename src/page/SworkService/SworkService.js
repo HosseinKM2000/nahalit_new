@@ -1,5 +1,4 @@
 import React from "react";
-import "./SworkService.css";
 import { motion } from "framer-motion";
 import EndBox3 from "../../Components/EndBox3/EndBox3";
 // import images

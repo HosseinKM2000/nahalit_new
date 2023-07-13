@@ -1,5 +1,4 @@
 import React from "react";
-import "./SmotionGhraphic.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/MotionGraphic/خدمات-موشن-گرافی-1024x576.jpg";

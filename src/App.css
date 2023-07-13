@@ -125,6 +125,10 @@ p
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+.Toastify__toast-body > div:last-child
+{
+  font-size: 0.8rem !important;
+}
 .line-clamp-2
 {
   overflow: hidden;
@@ -361,6 +365,12 @@ img[alt='characterIcon']
 /* media query */
 @media(max-width:640px)
 {
+  .Toastify__toast
+  {
+      width: 15rem;
+      right: 10px;
+      top: 10px;
+  }
   .graphic-services > div
 {
     width: 95%;
@@ -584,6 +594,7 @@ img[alt='characterIcon']
     {
         padding: 2rem !important;
         gap: 1rem !important;
+        width: 30rem;
     }
     .Toastify__close-button
     {
@@ -601,13 +612,6 @@ img[alt='characterIcon']
     {
         width: 40%;
         height: 50%;
-    }
-    li
-    {
-        
-    font-size: 1.5rem !important;
-    line-height: 4rem !important;
-
     }
     b
     {
@@ -653,5 +657,12 @@ img[alt='characterIcon']
 .span
 {
   padding: 0 8rem;
+}
+.xl-line-clamp-2
+{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 }

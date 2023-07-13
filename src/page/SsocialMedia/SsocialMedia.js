@@ -1,5 +1,4 @@
 import React from "react";
-import "./SsocialMedia.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/SocalMedia/خدمات-شبکه-های-اجتماعی-1024x576.jpg";

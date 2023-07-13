@@ -1,5 +1,4 @@
 import React from "react";
-import "./EecoSaleWeb.css";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
 

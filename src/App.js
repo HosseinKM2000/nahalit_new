@@ -50,7 +50,7 @@ const App = () => {
   return (
       <>
       <ScrollToTophg />
-      <div className="app">
+      <div className="app w-full">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/order" element={<Order />} />
@@ -73,7 +73,7 @@ const App = () => {
           <Route path="/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
           <Route path="/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
           <Route path="/فروش-قالب-سایت" element={<SsaleWeb />} />
-          <Route path="خدمات-سئو" element={<Sseo />} />
+          <Route path="/خدمات-سئو" element={<Sseo />} />
           <Route path="/خدمات-کسب-و-کار" element={<SworkService />} />
           <Route path="/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
           <Route path="/خدمات-موشن-گرافیک" element={<SmotionGhraphic />} />

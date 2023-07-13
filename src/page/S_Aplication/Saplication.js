@@ -1,5 +1,4 @@
 import React from "react";
-import "./Saplication.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/MobileApplication/خدمات-اپلیکیشن-موبایل-1024x576.jpg";

@@ -23,7 +23,7 @@ function CategoriesP() {
     <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-8'>
        <span className='px-3 py-3 text-sm 2xl:text-2xl font-[vasirbold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
        <div style={{border:'solid 1px #AAAAC8'}} className='flex px-2 2xl:px-5 2xl:py-3 justify-between items-center w-[80%]'>
-       <input onKeyDown={(e)=>searchHandler(e)} ref={searchRef} type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm 2xl:text-2xl font-bold text-stone-600 outline-none w-[90%]'/>
+       <input onKeyDown={(e)=>searchHandler(e)} ref={searchRef} type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-bold text-stone-600 outline-none w-[90%]'/>
        <SlMagnifier onClick={(e)=>searchHandler(e,'search')} className='rounded-sm font-bold p-1 hover:bg-[#57C053] transition-all hover:text-white scale-150 2xl:scale-[4]'/>
        </div>
        <div>
@@ -146,11 +146,11 @@ function CategoriesP() {
           </div>
         </section>
         <div className='flex flex-col items-end text-sm'>
-            <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white 2xl:text-2xl rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
+            <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
             <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>
               {
                 keyWord.map(item => (
-                  <span className='text-base 2xl:text-2xl 2xl:leading-normal text-gray-66 px-1 cursor-pointer hover:text-sky-blue'>{item}</span>
+                  <span className='text-base 2xl:leading-normal text-gray-66 px-1 cursor-pointer hover:text-sky-blue'>{item}</span>
                 ))
               }
             </div>

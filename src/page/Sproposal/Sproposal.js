@@ -1,5 +1,4 @@
 import React from "react";
-import "./Sproposal.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/Proposal/تدوین-پروپوزال-1024x576.jpg";

@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useSelector , useDispatch} from 'react-redux';
 import { useSearchParams  , useNavigate} from 'react-router-dom';
 import NewsPages from '../NewsPages/NewsPages';
-
 import { setPageQuery } from '../../../features/news/newsSlice';
 
 function Pagination() {

@@ -11,7 +11,7 @@ function ProductsPage({currentItems}) {
                 {
             currentItems.map((product,index) => (
                 <>
-                <div key={index} className='w-full 2xl:w-[23%] z-0 2xl:h-[60rem] sm:w-[45%] md:w-[30%] lg:w-[31%] flex justify-between flex-col sm:gap-1 xl:h-[45rem] h-fit relative sm:h-[40rem] lg:h-[35rem] bg-stone-200 rounded-md overflow-hidden'>
+                <div key={index} className='w-full 2xl:w-[23%] z-0 2xl:h-[50rem] sm:w-[45%] md:w-[30%] lg:w-[31%] flex justify-between flex-col sm:gap-1 xl:h-[45rem] h-fit relative sm:h-[40rem] lg:h-[35rem] bg-stone-200 rounded-md overflow-hidden'>
                     <div className='absolute flex items-center gap-1 bg-[#F19B1E] text-white text-xs 2xl:text-lg font-bold py-1 px-3 rounded-2xl left-1 top-3'>
                      <span>{17}%</span>
                      <span>تخفیف</span>
@@ -24,11 +24,11 @@ function ProductsPage({currentItems}) {
                     <div className='px-1 py-2 flex items-center gap-3'>
                         {
                             product.tags.map((tag,index) => (
-                                <Link to={''} key={index} className='text-[0.7rem] 2xl:text-lg bg-stone-400 font-bold text-white p-1 rounded-lg'>{tag}</Link>
+                                <Link to={''} key={index} className='text-[0.7rem] bg-stone-400 font-bold text-white p-1 rounded-lg'>{tag}</Link>
                             ))
                         }
                     </div>
-                    <p className='line-clamp-4 2xl:text-lg text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2'>{product.explain}</p>
+                    <p className='line-clamp-4 2xl:text-lg text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2 xl-line-clamp-2'>{product.explain}</p>
                     <div className='w-full flex items-center justify-between text-stone-500 2xl:text-lg text-xs p-1'>
                         <div className='flex items-center gap-1'>
                           <BsCalendar4/>

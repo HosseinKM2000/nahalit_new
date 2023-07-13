@@ -1,5 +1,4 @@
 import React from "react";
-import "./Spremier.css";
 import { motion } from "framer-motion";
 // import images
 import headImg from "../../assets/img/PremierEditing/خدمات-فیلم-1024x576.jpg";

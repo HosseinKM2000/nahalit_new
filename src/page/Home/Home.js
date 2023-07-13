@@ -15,7 +15,7 @@ import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-[100vw]">
       <header>
         <div className="max-lg:hidden">
         <Header />
@@ -28,8 +28,7 @@ const Home = () => {
         <section className="w-full">
           <SliderSwiper />
         </section>
-        <section className="mt-5">
-          {/* problem in responsive */}
+        <section className="mt-5 max-lg:hidden">
           <Search />
         </section>
         <section className="mt-14">
@@ -59,10 +58,10 @@ const Home = () => {
         <div>
           <FixedIcon />
         </div>
-        <footer className="mt-5">
+      </main>
+      <footer className="mt-5 w-full">
           <Footer />
         </footer>
-      </main>
     </div>
   );
 };

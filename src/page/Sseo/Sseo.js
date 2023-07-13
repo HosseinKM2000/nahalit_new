@@ -1,5 +1,4 @@
 import React from "react";
-import "./Sseo.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/Seo/سئو-سایت-1024x576.jpg";

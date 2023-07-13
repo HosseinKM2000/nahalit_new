@@ -1,5 +1,4 @@
 import React from "react";
-import "./SsaleWebExclusive.css";
 import { motion } from "framer-motion";
 // import images
 import HeadImg from "../../assets/img/ExWebDesign/طراحی-سایت-اختصاصی-1024x576.jpg";

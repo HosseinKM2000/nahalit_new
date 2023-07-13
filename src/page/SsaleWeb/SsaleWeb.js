@@ -1,5 +1,4 @@
 import React from "react";
-import "./SsaleWeb.css";
 import { motion } from "framer-motion";
 // import images
 import headImg from "../../assets/img/SaleReadyTemplate/طراحی-قالب-سایت1-1024x576.jpg";

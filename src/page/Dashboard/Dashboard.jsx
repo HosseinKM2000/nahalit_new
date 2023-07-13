@@ -5,7 +5,7 @@ import UpperDash from '../../Components/Dashboard/MainDash/UpperDash/UpperDash';
 
 function Dashboard() {
   return (
-    <div className='flex flex-wrap w-full h-screen min-h-screen'>
+    <div className='flex flex-wrap w-full overflow-hidden h-screen w-screen'>
       <UpperDash/>
       <SideDash/>
       <ContentDash/>

@@ -7,31 +7,22 @@
     100%{transform: rotate(10000deg)}
 }
 
-@media (max-width:425px)
+@media(min-width:2000px)
 {
     .new
     {
-        width: 100%;
+        width: 18%;
     }
 }
-@media (min-width:425px)
+
+@media(min-width:2100px)
 {
     .new
     {
-        width: calc(50% - 1rem);
+        width: 13%;
     }
-}
-@media (min-width:700px)
-{
-    .new
+    .news
     {
-        width: calc(33.333% - 1rem);
-    }
-}
-@media (min-width:1440px)
-{
-    .new
-    {
-        width: calc(25% - 1rem);
+        gap:5rem 1rem ;
     }
 }

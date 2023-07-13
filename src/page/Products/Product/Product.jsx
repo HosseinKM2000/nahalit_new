@@ -21,7 +21,6 @@ import gearIMG from '../../../assets/img/product/license.svg';
 import wonderIMG from '../../../assets/img/product/info.svg';
 import cardsIMG from '../../../assets/img/product/shopping-carts.png';
 // import modules
-import { keyWord } from '../../../API/data';
 import {  A11y , Pagination , Navigation } from 'swiper';
 import { Swiper, SwiperSlide} from 'swiper/react';
 // import styles
@@ -108,12 +107,12 @@ function Product() {
                   !Switch
                   ? 
                   <div className='flex flex-col my-5 gap-5 w-full'>
-                    <span className='text-xl font-bold 2xl:text-3xl text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
-                    <p className='text-lg 2xl:text-2xl 2xl:leading-[3.5rem] text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
+                    <span className='text-[1.2rem] font-bold text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
+                    <p className='text-[0.9rem] text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
                     <div className='w-full flex flex-col items-center gap-5'>
-                      <img className='w-full sm:w-[60%]' src={desImg} alt="property" />
+                      <img className='w-[90%] sm:w-[60%]' src={desImg} alt="property" />
                       <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-5'>
-                      <span className='font-bold text-xs 2xl:text-3xl lg:text-base text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
+                      <span className='font-bold text-xs text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
                       <iframe
                 title="movie"
                 className="w-[100%] flex Iframe justify-center items-center h-[15rem] 2xl:h-[40rem] sm:h-[25rem] scroll_None"

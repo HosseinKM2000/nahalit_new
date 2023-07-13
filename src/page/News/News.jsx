@@ -6,7 +6,9 @@ import Pagination from './Pagination/Pagination';
 import { useEffect } from 'react';
 import {getAllNews} from '../../features/news/action';
 import Loading from '../Loading/Loading';
-
+import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header';
+import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
 
 function News() {
 
@@ -29,8 +31,15 @@ function News() {
   return (
       loading ? <Loading/>
       :
+      <div className='w-[100vw] flex flex-col'>
+      <header className='max-lg:hidden'>
+        <Header/>
+      </header>
+      <div className="lg:hidden">
+          <ResponseHeader />
+      </div>
       <div className='flex flex-col w-full px-5 sm:px-14 py-5'>
-        <div className='flex flex-row justify-start gap-10 text-sm 2xl:text-4xl'>
+        <div className='flex flex-row justify-start gap-10 text-sm'>
           <Link to='/' className='text-gray-66 hover:text-sky-blue transition-all'>صفحه اصلی</Link>
           <Link to='/news' className='text-gray-88 hover:text-sky-blue transition-all'>اخبار سایت</Link>
           {
@@ -39,7 +48,7 @@ function News() {
             : <></>
           }
         </div>
-        <div className='flex flex-row py-10 text-sm 2xl:text-4xl gap-1 text-gray-66'>
+        <div className='flex flex-row py-10 text-sm  gap-1 text-gray-66'>
           <span>دسته:</span>
           <span>اخبارسایت</span>
         </div>
@@ -48,6 +57,10 @@ function News() {
           <span className='text-gray-66'>اخبار سایت</span>
           <p className='text-gray-77'>دسته‌ها برخلاف برچسب‌ها می‌توانند سلسله مراتب داشته باشند. به طور مثال شما می‌توانید یک دسته به نام موسیقی داشته باشید و برای آن دسته، زیر دسته‌هایی مانند موسیقی ایرانی و یا موسیقی غربی تعریف کنید.</p>
         </div>
+      </div>
+      <footer>
+        <Footer/> 
+      </footer>
       </div>
   )
 }

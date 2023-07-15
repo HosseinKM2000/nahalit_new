@@ -86,7 +86,7 @@ function SecondChildrenCate() {
     },[add,Delete,Edite])
 
   return (
-    <div>
+    <div className='w-full 2xl:w-[60%]'>
     <>
         <ToastContainer 
     position='top-center'
@@ -94,7 +94,7 @@ function SecondChildrenCate() {
     autoClose={2500}
     className='Toast_info'
     />
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center w-full'>
       <div className='flex w-full items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
         <div className='flex items-center'>
           <span className='text-white font-bold'>{parentTitle} / {firstChildrenTitle}</span>

@@ -48,7 +48,7 @@ function ContentDash() {
     bodyRef.current.scrollTop = 0
   },[scrollUp])
   return (
-    <div ref={bodyRef} className='bg-[#363d4f] scroll-dash-content w-[75%] h-[90%] max-h-screen overflow-y-scroll relative'>
+    <div ref={bodyRef} className='bg-[#363d4f] scroll-dash-content w-full lg:w-[75%] xl:w-[80%] 2xl:w-[85%] h-[90%] max-h-screen overflow-y-scroll relative'>
         {
           currentContent
         }

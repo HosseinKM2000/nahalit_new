@@ -81,11 +81,11 @@ function ParentsCate() {
     autoClose={2500}
     className='Toast_info'
     />
-    <div className='flex flex-wrap w-full gap-x-10 gap-y-10 justify-center'>
+    <div className='flex flex-col md:flex-row flex-wrap sm:w-[60%] md:w-full w-full gap-x-10 gap-y-10 justify-center'>
       {
         Loading
         ?
-          <div className='h-[4rem] w-[27%] flex items-center justify-center'>
+          <div className='h-[4rem] w-full lg:w-[27%] flex items-center justify-center'>
            <img src={loading} alt="loading" className='w-[30%]'/>
           </div>
         :
@@ -103,15 +103,15 @@ function ParentsCate() {
                                 {
                        isChange.oldValue !== cate.title
                       ?
-                      <div className='min-w-[27%] scale-motion h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
+                      <div className='min-w-[27%] 2xl:min-w-[20%] scale-motion h-[3rem]  lg:h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
                       <div onClick={(e)=>{
                         dispatch(setSwitchCategories({key:'FIRSTCHILDREN',title:cate.title,id:cate.id}))
-                      }} className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
+                      }} className='w-full z-40 relative 2xl:min-w-[20%] h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
                       <div className=
                       {
                         mouseHover === cate.title 
-                        ? 'absolute h-full top-0 z-0 left-[-1.5rem]  flex flex-col bg-[#cdd2d8] duration-500 justify-between px-1 py-2 pr-12'
-                        : 'absolute h-full top-0 z-0 left-[1rem]  flex flex-col bg-[#cdd2d8] duration-500 justify-between px-1 py-2 pr-12'
+                        ? 'absolute h-full top-0 z-0 left-[-1.5rem] hidden lg:flex flex-col bg-[#cdd2d8] duration-500 justify-between px-1 py-2 pr-12'
+                        : 'absolute h-full top-0 z-0 left-[1rem] hidden lg:flex flex-col bg-[#cdd2d8] duration-500 justify-between px-1 py-2 pr-12'
                       }
                         onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
                         <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={()=>deleteCateHandler(cate.id)}/>
@@ -119,10 +119,14 @@ function ParentsCate() {
                           setIsChange({oldValue:cate.title,newValue:''})
                         }}/>
                       </div>
+                      <div className='absolute h-full top-0 z-[100] left-0  flex lg:hidden flex-col bg-[#cdd2d8] duration-500 justify-between px-1 py-1 gap-2'>
+                        <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={()=>deleteCateHandler(cate.id)}/>
+                        <BsPencilFill className='text-purple-700 hover:text-purple-500 transition-all cursor-pointer' onClick={(e)=>{setIsChange({oldValue:cate.title,newValue:''})}}/>
+                      </div>
                       </div>
                       :
-                      <div className='w-[27%] scale-motion h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
-                     <input onKeyDown={(e)=>editeHandler(e,'',cate.id)}  onChange={(e)=>setIsChange({oldValue:cate.title,newValue:e.target.value})} defaultValue={isChange.oldValue}  className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
+                      <div className='w-full 2xl:w-[20%] md:w-[27%] scale-motion h-[3rem]  lg:h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
+                     <input onKeyDown={(e)=>editeHandler(e,'',cate.id)}  onChange={(e)=>setIsChange({oldValue:cate.title,newValue:e.target.value})} defaultValue={isChange.oldValue}  className='w-[90%] md:w-[80%] 2xl:w-[90%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
                      <div className='flex flex-col h-full gap-1 justify-center ml-1'>
                        <TiTick onClick={(e)=>{editeHandler(e,'Tick',cate.id)}} className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer'/>
                        <TiDelete className='text-red-600 text-xl transition-all hover:text-red-500 cursor-pointer' onClick={()=>{
@@ -140,14 +144,14 @@ function ParentsCate() {
                       // add new Category
                       !newCate.status
                       ?
-                     <div className='scale-motion w-[27%] h-[4rem] rounded-sm transition-all hover:text-orange-500 hover:border-orange-500 duration-200 items-center gap-1 text-white flex justify-center font-bold border-2 border-white border-dashed cursor-default' onClick={()=>setNewCate({status:true,value:null})}>
+                     <div className='scale-motion 2xl:w-[20%]  md:w-[27%] h-[3rem] md:h-[3rem] lg:h-[4rem] rounded-sm transition-all hover:text-orange-500 hover:border-orange-500 duration-200 items-center gap-1 text-white flex justify-center font-bold border-2 border-white border-dashed cursor-default' onClick={()=>setNewCate({status:true,value:null})}>
                       <span>افزودن دسته بندی</span>
                       <FiPlusCircle className='text-2xl'/>
                      </div>
                     : 
-                     <div className='w-[27%] scale-motion h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
-                    <input onKeyDown={(e)=>addCateHandler(e)} onChange={(e)=>setNewCate({status:true,value:e.target.value})} className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان دسته بندی'/>
-                    <div className='flex flex-col h-full gap-1 justify-center ml-1'>
+                     <div className='w-full 2xl:w-[20%] md:w-[27%] scale-motion h-[3rem] lg:h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
+                    <input onKeyDown={(e)=>addCateHandler(e)} onChange={(e)=>setNewCate({status:true,value:e.target.value})} className='w-[90%] md:w-[80%] 2xl:w-[90%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان دسته بندی'/>
+                    <div className='flex flex-col h-full gap-[0.2rem] lg:gap-1 justify-center ml-1'>
                       <TiTick className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer' onClick={(e)=>addCateHandler(e,'Tick')}/>
                       <TiDelete className='text-red-600 text-xl transition-all hover:text-red-500 cursor-pointer' onClick={()=>setNewCate({status:false,value:null})}/>
                     </div>

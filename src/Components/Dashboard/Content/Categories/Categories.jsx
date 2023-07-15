@@ -27,7 +27,7 @@ function Categories() {
 
 
   return (
-    <div className='w-full p-10'>
+    <div className='w-full p-10 flex justify-center lg:block' >
       {
         innerCommponent
       }

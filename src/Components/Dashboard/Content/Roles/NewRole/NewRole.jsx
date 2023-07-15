@@ -55,7 +55,8 @@ function NewRole() {
     },[activePermissions])
 
   return (
-        <div className='flex flex-col w-full opacity-motion'>
+    <div className='w-full h-full flex-col justify-center items-center'>
+              <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
         {/* green circles in background */}
        <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
        <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[10rem] left-[1rem] z-0'></div>
@@ -94,9 +95,10 @@ function NewRole() {
 
          </div>
        </div>
-       <button onClick={(e)=>formSubmiter()} type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+       <button onClick={(e)=>formSubmiter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
    </form>
-</div>
+        </div>
+    </div>
   )
 }
 

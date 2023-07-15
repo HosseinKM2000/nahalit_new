@@ -47,12 +47,10 @@ function New() {
     }
 
   return (
-    <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
              {/* green circles in background */}
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] right-[1rem] z-0'></div>
+                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-8rem] md:bottom-[1rem] left-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -80,7 +78,7 @@ function New() {
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
             {/* categories */}
-            <div className='w-full flex justify-start items-start gap-3'>
+            <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
@@ -144,7 +142,7 @@ function New() {
                     <></>
                 }
             </div>
-            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+            <button type='submit' className='w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
         </form>
     </div>
   )

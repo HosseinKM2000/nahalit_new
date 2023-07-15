@@ -49,12 +49,10 @@ function Edite({ details , setShowDetails }) {
     }
 
   return (
-    <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex flex-col 2xl:w-[70%] w-full opacity-motion'>
              {/* green circles in background */}
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] right-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -77,7 +75,7 @@ function Edite({ details , setShowDetails }) {
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
             {/* categories */}
-            <div className='w-full flex justify-start items-start gap-3'>
+            <div className='w-full flex flex-col sm:flex-row  justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
@@ -104,7 +102,7 @@ function Edite({ details , setShowDetails }) {
                             </li>
                         ))
                     }
-                </ul>
+                    </ul>
                 {
                     goalCate !== null
                     ? 
@@ -120,7 +118,7 @@ function Edite({ details , setShowDetails }) {
                             </li>
                         ))
                     }
-                </ul>
+                    </ul>
                 : <></>
                 }
                 {
@@ -157,12 +155,12 @@ function Edite({ details , setShowDetails }) {
              <span>{details.start_date}</span>
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
-             <div className='flex items-center w-[50%] justify-between'>
+             <div className='flex items-center 2xl:w-[30%] w-[90%] md:w-[50%] justify-between'>
              <button type='button' className='w-[49%] bg-[#e5bc27] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fdc702] text-white font-bold text-xl py-1 rounded-sm'>ویرایش</button>
              <button type='button' className='w-[49%] bg-[#29c3b9] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>گالری</button>
              </div>
-             <button type='button' className='w-[50%] bg-red-600 transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-red-600 text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center'>حذف</button>
-             <button type='button' className='w-[50%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
+             <button type='button' className='2xl:w-[30%] w-[90%] md:w-[50%] bg-red-600 transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-red-600 text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center'>حذف</button>
+             <button type='button' className='2xl:w-[30%] w-[90%] md:w-[50%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
                 setShowDetails({status:false,value:''});
                 dispatch(setScrollUp())
              }}><BiSolidChevronsRight/></button>

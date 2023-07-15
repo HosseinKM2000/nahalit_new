@@ -12,6 +12,7 @@ function NewArticle() {
     const situationRef = useRef();
     const tagsRef = useRef();
     const slugRef = useRef();
+    const mobile = window.innerWidth > 425 ? true : false;
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -65,12 +66,7 @@ function NewArticle() {
 
   return (
     
-    <div className='flex flex-col w-full opacity-motion'>
-                   {/* green circles in background */}
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] right-[1rem] z-0'></div>
+    <div className='flex flex-col w-[93%] sm:w-full opacity-motion 2xl:w-[70%]'>
              {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -95,7 +91,7 @@ function NewArticle() {
             {/* describe */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
+                <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
                 {/* title */}
             <div className='flex flex-col gap-2 w-full'>
@@ -129,7 +125,7 @@ function NewArticle() {
                     </select>
                 </div>
             </div>
-            <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+            <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[80%] md:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
         </form>
     </div>
   )

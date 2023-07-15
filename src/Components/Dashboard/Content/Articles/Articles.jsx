@@ -21,7 +21,7 @@ function Articles() {
   },[Criterion])
 
   return (
-    <div className='w-full p-10'>
+    <div className='w-full p-3 md:p-10 flex justify-center flex-col items-center'>
       {
         innerCommponent
       }

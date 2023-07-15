@@ -34,7 +34,7 @@ function ArticlesPagination() {
       getLoading
       ?
       <div className='h-[10rem] w-[full] flex items-center justify-center'>
-      <img src={loading} alt="loading" className='w-[10%]'/>
+      <img src={loading} alt="loading" className='w-[30%] md:w-[10%]'/>
      </div>
      :
      <>

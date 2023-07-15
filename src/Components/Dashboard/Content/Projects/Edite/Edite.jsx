@@ -13,6 +13,7 @@ function Edite({ details , setShowDetails}) {
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
+    const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
     const categoryRef = useRef();
     const titleRef = useRef();
@@ -50,12 +51,10 @@ function Edite({ details , setShowDetails}) {
     }
 
   return (
-    <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
              {/* green circles in background */}
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] right-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -80,10 +79,10 @@ function Edite({ details , setShowDetails}) {
            {/* describe */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
+                <textarea name="describe" id="" cols={mobile ? "20" : "30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
             {/* categories */}
-            <div className='w-full flex justify-start items-start gap-3'>
+            <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
@@ -154,7 +153,7 @@ function Edite({ details , setShowDetails}) {
                 {/* status */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="status" className='font-semibold text-[#2e424a]'>وضعیت</label>
-                <select name="status" id="" ref={statusRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]'>
+                <select name="status" id="" ref={statusRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
                     <option value="doing">در حال انجام</option>
                     <option value="completed">کامل شد</option>
                     <option value="canceled">لغو شد</option>
@@ -163,7 +162,7 @@ function Edite({ details , setShowDetails}) {
                 {/* progress */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="persent" className='font-semibold text-[#2e424a]'>پیشرفت</label>
-                <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]' onChange={(e)=>{                        
+                <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
                     if(e.target.value.search(/\D+/g) !== -1)
                         {
                         e.target.value = ''
@@ -179,7 +178,7 @@ function Edite({ details , setShowDetails}) {
                 {/* price */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="price" className='font-semibold text-[#2e424a]'>مبلغ</label>
-                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]' onChange={(e)=>{                        
+                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
                     if(e.target.value.search(/\D+/g) !== -1)
                         {
                         e.target.value = ''
@@ -197,10 +196,10 @@ function Edite({ details , setShowDetails}) {
              <span>{details.start_date}</span>
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
-             <div className='flex items-center w-[50%] justify-between'>
+             <div className='flex items-center 2xl:w-[30%] w-[80%] sm:w-[50%] justify-between'>
              <button type='button' className='w-[100%] bg-[#e5bc27] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fdc702] text-white font-bold text-xl py-1 rounded-sm'>ویرایش</button>
              </div>
-             <button type='button' className='w-[50%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
+             <button type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
                 setShowDetails({status:false,value:''});
                 dispatch(setScrollUp())
              }}><BiSolidChevronsRight/></button>

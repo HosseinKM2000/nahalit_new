@@ -25,7 +25,7 @@ function Gallery() {
   },[Criterion])
 
   return (
-    <div className='w-full p-10'>
+    <div className='w-full p-3 md:p-10 flex flex-col items-center'>
       {
         innerCommponent
       }

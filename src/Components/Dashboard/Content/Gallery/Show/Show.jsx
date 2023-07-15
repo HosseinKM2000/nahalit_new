@@ -11,8 +11,8 @@ function Show({ array , setShow }) {
      {
         !edite.status
         ?
-        <div className='flex w-full flex-col gap-5'>
-            <div className='flex w-full items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
+        <div className='flex w-full flex-col gap-5 items-center 2xl:gap-10'>
+            <div className='flex w-full 2xl:w-[80%] items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
              <RiDeleteBack2Fill onClick={()=>setShow({status:false,value:''})} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
             </div>
             <div className='w-full flex items-center justify-center gap-6 flex-wrap'>

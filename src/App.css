@@ -227,6 +227,10 @@ p
 {
   overflow: hidden !important;
 }
+.scroll_zero::-webkit-scrollbar
+{
+  width: 0px;
+}
 .s
 .span
 {

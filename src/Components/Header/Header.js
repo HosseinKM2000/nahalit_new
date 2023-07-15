@@ -141,16 +141,16 @@ const Header = () => {
         </div>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
           <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-evenly px-3">
-            <ul className="flex justify-start items-center gap-x-5 2xl:gap-x-10 lg:whitespace-nowrap">
+            <ul className="flex justify-start items-baseline gap-x-5 2xl:gap-x-10 lg:whitespace-nowrap">
               <li>
-                <Link to="/" className="2xl:text-base text-[#171717] text-sm">صفحه اصلی</Link>
+                <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>
               </li>
               <li
                 className="flex items-center gap-x-1 relative"
                 onMouseEnter={clickEntershowslide}
                 onMouseLeave={clickoutshowslide}
               >
-                <li><Link className="2xl:text-base text-[#171717] text-sm">محصولات</Link></li>
+                <li><Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">محصولات</Link></li>
                 <RiArrowDownSLine/>
                 <div
                   onMouseEnter={clickEntershowslide}
@@ -179,7 +179,7 @@ const Header = () => {
                               : "absolute bg-white -left-[19rem] -top-4 px-7 py-3 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
                           }
                         >
-                          <Link className="2xl:text-base text-[#171717] text-sm">سایت آماده لاراول</Link>
+                          <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
                         </div>
                       </div>
                       <MdKeyboardArrowLeft />
@@ -189,7 +189,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide7}
                       onMouseLeave={clickoutshowslide7}
                     >
-                      <Link className="2xl:text-base text-[#171717] text-sm">پلاگین وردپرس</Link>
+                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide7}
@@ -215,7 +215,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide8}
                       onMouseLeave={clickoutshowslide8}
                     >
-                      <Link className="2xl:text-base text-[#171717] text-sm">قالب html</Link>
+                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب html</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide8}
@@ -244,7 +244,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide9}
                       onMouseLeave={clickoutshowslide9}
                     >
-                      <Link className="2xl:text-base text-[#171717] text-sm">اپلیکیشن موبایل</Link>
+                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide9}
@@ -264,7 +264,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide10}
                       onMouseLeave={clickoutshowslide10}
                     >
-                      <Link className="2xl:text-base text-[#171717] text-sm">اسکریپت ها</Link>
+                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اسکریپت ها</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide10}
@@ -283,10 +283,10 @@ const Header = () => {
                 </div>
               </li>
               <li>
-                <Link to="/order" className="2xl:text-base text-[#171717] text-sm">ثبت سفارش</Link>
+                <Link to="/order" className="2xl:text-base font-[shabnamMedium] text-[#171717] text-sm">ثبت سفارش</Link>
               </li>
               <li>
-                <Link className="2xl:text-base text-[#171717] text-sm">بلاگ</Link>
+                <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">بلاگ</Link>
               </li>
 
               <li
@@ -294,7 +294,7 @@ const Header = () => {
                 onMouseEnter={clickEntershowslide2}
                 onMouseLeave={clickoutshowslide2}
               >
-                <Link to="/" className="2xl:text-base text-[#171717] text-sm">نمونه کارها</Link>
+                <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کارها</Link>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide2}
@@ -311,7 +311,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide11}
                       onMouseLeave={clickoutshowslide11}
                     >
-                      <Link to="/" className="2xl:text-base text-[#171717] text-sm">نمونه کار گرافیک</Link>
+                      <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار گرافیک</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide11}
@@ -390,17 +390,17 @@ const Header = () => {
                 </div>
               </li>
               <li>
-                <Link to="/LoginLearn" className="2xl:text-base text-[#171717] text-sm">آموزش ورود</Link>
+                <Link to="/LoginLearn" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">آموزش ورود</Link>
               </li>
               <li>
-                <Link to="/recruitment" className="2xl:text-base text-[#171717] text-sm">استخدام</Link>
+                <Link to="/recruitment" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">استخدام</Link>
               </li>
               <li
                 className="flex items-center gap-x-1 relative"
                 onMouseEnter={clickEntershowslide3}
                 onMouseLeave={clickoutshowslide3}
               >
-                <Link className="2xl:text-base text-[#171717] text-sm">خدمات ما</Link>
+                <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات ما</Link>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide3}
@@ -467,7 +467,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide13}
                         onMouseLeave={clickoutshowslide13}
                       >
-                        <span className="2xl:text-base text-[#171717] text-sm">خدمات تدوین صدا و صداگذاری</span>
+                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide13}

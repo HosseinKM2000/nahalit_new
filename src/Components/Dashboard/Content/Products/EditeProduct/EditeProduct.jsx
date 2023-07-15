@@ -18,6 +18,7 @@ function EditeProduct() {
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
     const [tags,setTags] = useState([]);
+    const mobile = window.innerWidth > 425 ? true : false;
     const priceRef = useRef();
     const tagsRef = useRef();
     const categoryRef = useRef();
@@ -75,12 +76,10 @@ function EditeProduct() {
     }
 
   return (
-    <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex w-full sm:w-[90%] md:w-full 2xl:w-[70%] flex-col opacity-motion'>
     {/* green circles in background */}
             <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
             <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-            <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-35rem] left-[1rem] z-0'></div>
-            <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-35rem] right-[1rem] z-0'></div>
    {/* toaster */}
     <ToastContainer 
      position='top-center'
@@ -88,7 +87,7 @@ function EditeProduct() {
      autoClose={2500}
      className='Toast_info'
      />
-<div className='w-full bg-[#C0D9DB] p-2 flex items-center justify-between'>
+<div className='bg-[#C0D9DB] p-2 flex items-center justify-between'>
    <h1 className='font-semibold text-xl text-stone-800'>ویرایش محصول</h1>
    <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>dispatch(setSwitch({key:'products',value:'all',id:null}))}/>
 </div>
@@ -126,7 +125,7 @@ function EditeProduct() {
            </div>
            </div>
             {/* categories */}
-            <div className='w-full flex justify-start items-start gap-3'>
+            <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                         <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
@@ -193,7 +192,7 @@ function EditeProduct() {
                 {/* price */}
                 <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
-                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[20%]' onChange={(e)=>{                        
+                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[40%] sm:w-[20%] md:w-[20%]' onChange={(e)=>{                        
                     if(e.target.value.search(/\D+/g) !== -1)
                                         {
                                         e.target.value = ''
@@ -208,7 +207,7 @@ function EditeProduct() {
                         <button className='px-2 py-1 rounded-sm border-y-2 border-[#ffffffa2] border-l-2 hover:bg-rose-500 transition-all text-white font-bold bg-rose-600'>حذف</button>
                         </div>
                         <div className={editeDiscount ? 'flex gap-1 w-full items-center mr-1 transition-all h-fit duration-300 overflow-hidden' : 'h-0 p-0 mr-1 flex overflow-hidden'}>
-                            <input ref={discountRef} type="text" className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
+                            <input ref={discountRef} type="text" className='w-[20%] sm:w-[10%] md:w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
                                 if(e.target.value.search(/\D+/g) !== -1)
                                     {
                                         e.target.value = ''
@@ -226,7 +225,7 @@ function EditeProduct() {
                             </div>
                         </div>
                 </div>
-   <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+   <button type='submit' className=' w-[80%] 2xl:w-[30%] md:w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
 </form>
     </div>
   )

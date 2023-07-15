@@ -98,12 +98,10 @@ function NewProduct() {
     }
 
   return (
-    <div className='flex flex-col w-full opacity-motion'>
+    <div className='flex flex-col sm:w-[90%] md:w-full 2xl:w-[70%] w-full opacity-motion'>
              {/* green circles in background */}
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
                      <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] left-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-40rem] right-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'

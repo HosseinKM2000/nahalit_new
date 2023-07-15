@@ -8,10 +8,10 @@ function Commentes({ setShowDetails , currentItems }) {
   return (
     <div className='flex flex-col gap-8 w-full p-10'>
       <span className='w-full text-white font-bold'>نظرات ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
-      <div className='w-full flex flex-wrap gap-x-5 gap-y-10'>
+      <div className='w-full flex flex-wrap justify-center gap-x-5 gap-y-10'>
       {
         currentItems.map((item,index) => (
-          <div onMouseEnter={()=>sethover({status:true,key:index})} onMouseLeave={()=>sethover({status:false,key:''})} key={index} className='flex cursor-default relative w-[31%] gap-3 transition-all duration-500 bg-white flex-col items-center rounded-lg p-2 shadow-[0px_3px_10px_1px_rgba(0,0,0,0.5)]'>
+          <div onMouseEnter={()=>sethover({status:true,key:index})} onMouseLeave={()=>sethover({status:false,key:''})} key={index} className='flex cursor-default relative w-[15rem] gap-3 transition-all duration-500 bg-white flex-col items-center rounded-lg p-2 shadow-[0px_3px_10px_1px_rgba(0,0,0,0.5)]'>
             <div className='relative transition-all duration-300 overflow-hidden rounded-lg shadow-[0px_3px_5px_1px_rgba(0,0,0,0.3)] bg-[#000]' style={{bottom:hover.status && hover.key === index?'0rem':'2rem'}}>
                 <div className='text-[#ffff]  text-2xl p-2' style={{backgroundColor:`#${item.colorCode}`}}>
                 <BiMessageDetail/>

@@ -13,19 +13,19 @@ function Users({ currentItems }) {
   },[])
   
   return (
-    <div className='w-full p-10 flex flex-col gap-5'>
+    <div className='w-full p-10 flex items-center 2xl:w-[70%] flex-col gap-5'>
       <span className='w-full text-white font-bold'>تعداد کاربر ها ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
-      <div className='flex items-center bg-[#ffffff69] w-full p-5 text-white text-2xl justify-between'>
+      <div className='hidden md:flex bg-[#ffffff69] w-full p-5 text-white text-2xl justify-between'>
         <FaUsers/>
         <TbAlphabetLatin/>
         <MdOutlineAlternateEmail/>
         <CgCalendarDates/>
         <TbListDetails/>
       </div>
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col gap-5 items-center w-full'>
         {
           currentItems.map((user,index) => (
-            <div className={`w-full flex items-center bg-white text-[#171e28] justify-between px-5 py-4 rounded-xl`}>
+            <div className={`w-[15rem] md:w-full flex flex-col md:flex-row gap-y-3 items-center bg-white text-[#171e28] justify-between px-5 py-4 rounded-xl`}>
               <HiUserCircle className='scale-[2.5]'/>
               <h1 className='text-xl font-[shabnambold]'>کاربر {user}</h1>
               <span>userUser@gmail.com</span>

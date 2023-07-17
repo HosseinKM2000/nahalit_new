@@ -56,30 +56,30 @@ const App = () => {
           <Route path="/order" element={<Order />} />
           <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/LoginLearn" element={<LoginLearn />} />
-          <Route path="/MotionGraphics" element={<MotionGraphics />} />
-          <Route path="/UI_UX" element={<UI_UX />} />
-          <Route path="/Brochure" element={<Brochure />} />
-          <Route path="/Poster" element={<Poster />} />
-          <Route path="/Catalog" element={<Catalog />} />
-          <Route path="/BusinessCard" element={<BusinessCard />} />
-          <Route path="/Logo" element={<Logo />} />
-          <Route path="/Premiere" element={<Premiere />} />
-          <Route path="/WebsiteDesignPortfolio" element={<WebsiteDesignPortfolio />} />
-          <Route path="/Aplication" element={<Aplication />} />
-          <Route path="/Seo" element={<Seo />} />
-          <Route path="/Voicing" element={<Voicing />} />
-          <Route path="/خدمات-اپلیکیشن-موبایل" element={<Saplication />} />
-          <Route path="/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SsoundEditing />} />
-          <Route path="/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
-          <Route path="/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
-          <Route path="/فروش-قالب-سایت" element={<SsaleWeb />} />
-          <Route path="/خدمات-سئو" element={<Sseo />} />
-          <Route path="/خدمات-کسب-و-کار" element={<SworkService />} />
-          <Route path="/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
-          <Route path="/خدمات-موشن-گرافیک" element={<SmotionGhraphic />} />
-          <Route path="/تدوین-پروپوزال" element={<Sproposal />} />
-          <Route path="/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
-          <Route path="/خدمات-گرافیک" element={<Sgraphic />} />
+          <Route path="/workSamples/graphic/MotionGraphics" element={<MotionGraphics />} />
+          <Route path="/workSamples/graphic/UI_UX" element={<UI_UX />} />
+          <Route path="/workSamples/graphic/Brochure" element={<Brochure />} />
+          <Route path="/workSamples/graphic/Poster" element={<Poster />} />
+          <Route path="/workSamples/graphic/Catalog" element={<Catalog />} />
+          <Route path="/workSamples/graphic/BusinessCard" element={<BusinessCard />} />
+          <Route path="/workSamples/graphic/Logo" element={<Logo />} />
+          <Route path="/workSamples/Premiere" element={<Premiere />} />
+          <Route path="/workSamples/web/WebsiteDesignPortfolio" element={<WebsiteDesignPortfolio />} />
+          <Route path="/workSamples/Aplication" element={<Aplication />} />
+          <Route path="/workSamples/Seo" element={<Seo />} />
+          <Route path="/workSamples/Voicing" element={<Voicing />} />
+          <Route path="/services/اپلیکیشن-موبایل" element={<Saplication />} />
+          <Route path="/services/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SsoundEditing />} />
+          <Route path="/services/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
+          <Route path="/services/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
+          <Route path="/services/فروش-قالب-سایت" element={<SsaleWeb />} />
+          <Route path="/services/خدمات-سئو-وب-سایت" element={<Sseo />} />
+          <Route path="/services/خدمات-کسب-و-کار" element={<SworkService />} />
+          <Route path="/services/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
+          <Route path="/services/موشن-گرافیک" element={<SmotionGhraphic />} />
+          <Route path="/services/تدوین-پروپوزال" element={<Sproposal />} />
+          <Route path="/services/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
+          <Route path="/services/خدمات-گرافیک" element={<Sgraphic />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/articles" element={<ArticlesPagination/>}/>
           <Route path="/articles/article" element={<Article/>}/>

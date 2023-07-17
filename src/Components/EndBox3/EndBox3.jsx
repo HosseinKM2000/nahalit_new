@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
 
 function EndBox3({ content }) {
   return (
@@ -9,7 +9,7 @@ function EndBox3({ content }) {
         <span className='px-3 leading-10 font-thin text-gray-66 text-center'>{content.p}</span>
         <button className='text-white font-bold hover:brightness-105 transition-all bg-green-57C w-[80%] py-2 rounded-md text-sm'>{content.b}</button>
         </div>
-        <img src={content.img} alt="front" className='w-[20rem]'/>
+        <img src={front_1} alt="front" className='w-[20rem]'/>
     </motion.div>
   )
 }

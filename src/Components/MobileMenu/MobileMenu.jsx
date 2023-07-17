@@ -7,10 +7,10 @@ import clearIcon from '../../assets/img/clear.png';
 function MobileMenu({ dropMenu , setDropMenu }) {
 
   const itemsMenu = [
-    {id:0,title:'صفحه اصلی',cateId:null,beList:false},
-    {id:1,title:"محصولات",cateId:null,beList:true},
+    {id:0,title:'صفحه اصلی',cateId:null,beList:false,link:'/'},
+    {id:1,title:"محصولات",cateId:null,beList:true,link:'/shop'},
     {id:2,title:"ثبت سفارش",cateId:null,beList:false},
-    {id:3,title:"بلاگ",cateId:null,beList:false},
+    {id:3,title:"بلاگ",cateId:null,beList:false,link:'/articles'},
     {id:4,title:"نمونه کارها",cateId:null,beList:true},
     {id:5,title:"آموزش ورود",cateId:null,beList:false},
     {id:6,title:"استخدام",cateId:null,beList:false},
@@ -20,23 +20,23 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     {id:10,title:"قالب html",cateId:1,beList:true},
     {id:11,title:"اپلیکیشن موبایل",cateId:1,beList:true},
     {id:12,title:"اسکریپت ها",cateId:1,beList:true},
-    {id:13,title:"نمونه کار گرافیک",cateId:4,beList:true},
-    {id:14,title:"نمونه کار پریمیر",cateId:4,beList:false},
-    {id:15,title:"نمونه کار طراحی سایت",cateId:4,beList:true},
-    {id:16,title:"نمونه کار اپلیکیشن",cateId:4,beList:false},
-    {id:17,title:"نمونه کار سئو",cateId:4,beList:false},
-    {id:18,title:"نمونه کار تدوین و صدا گذاری",cateId:4,beList:false},
-    {id:19,title:"فروش سایت اختصاصی و اقتصادی",cateId:7,beList:false},
-    {id:20,title:"فروش قالب سایت",cateId:7,beList:false},
-    {id:21,title:"طراحی سایت اختصاصی",cateId:7,beList:false},
-    {id:22,title:"خدمات وب سایت و سئو وب سایت",cateId:7,beList:false},
-    {id:23,title:"خدمات کسب و کار",cateId:7,beList:false},
-    {id:24,title:"خدمات شبکه های اجتماعی",cateId:7,beList:false},
-    {id:25,title:"موشن گرافیک",cateId:7,beList:false},
-    {id:26,title:"تدوین پروپوزال",cateId:7,beList:false},
-    {id:27,title:"اپلیکیشن موبایل",cateId:7,beList:false},
-    {id:28,title:"خدمات پریمیر, تدوین فیلم",cateId:7,beList:false},
-    {id:29,title:"خدمات تدوین صدا و صداگذاری",cateId:7,beList:true},
+    {id:13,title:"نمونه کار گرافیک",cateId:4,beList:true,},
+    {id:14,title:"نمونه کار پریمیر",cateId:4,beList:false,link:"/workSamples/Premiere"},
+    {id:15,title:"نمونه کار طراحی سایت",cateId:4,beList:true,},
+    {id:16,title:"نمونه کار اپلیکیشن",cateId:4,beList:false,link:"/workSamples/Aplication"},
+    {id:17,title:"نمونه کار سئو",cateId:4,beList:false,link:"/workSamples/Seo"},
+    {id:18,title:"نمونه کار تدوین و صدا گذاری",cateId:4,beList:false,link:"/workSamples/Voicing"},
+    {id:19,title:"فروش سایت اختصاصی و اقتصادی",cateId:7,beList:false,link:"/services/فروش-سایت-اختصاصی-و-اقتصادی"},
+    {id:20,title:"فروش قالب سایت",cateId:7,beList:false,link:"/services/فروش-قالب-سایت"},
+    {id:21,title:"طراحی سایت اختصاصی",cateId:7,beList:false,link:"/services/طراحی-سایت-اختصاصی"},
+    {id:22,title:"خدمات وب سایت و سئو وب سایت",cateId:7,beList:false,link:"/services/خدمات-سئو-وب-سایت"},
+    {id:23,title:"خدمات کسب و کار",cateId:7,beList:false,link:"/services/خدمات-کسب-و-کار"},
+    {id:24,title:"خدمات شبکه های اجتماعی",cateId:7,beList:false,link:"/services/خدمات-شبکه-های-اجتماعی"},
+    {id:25,title:"موشن گرافیک",cateId:7,beList:false,link:"/services/موشن-گرافیک"},
+    {id:26,title:"تدوین پروپوزال",cateId:7,beList:false,link:"/services/تدوین-پروپوزال"},
+    {id:27,title:"اپلیکیشن موبایل",cateId:7,beList:false,link:'/services/اپلیکیشن-موبایل'},
+    {id:28,title:"خدمات پریمیر, تدوین فیلم",cateId:7,beList:false,link:"/services/خدمات-پریمیر-و-تدوین-فیلم"},
+    {id:29,title:"خدمات تدوین صدا و صداگذاری",cateId:7,beList:false,link:"/services/خدمات-تدوین-صدا-و-صدا-گذاری"},
     {id:30,title:"سایت آماده لاراول",cateId:8,beList:false},
     {id:31,title:"پلاگین امنیتی",cateId:9,beList:false},
     {id:32,title:"پلاگین مدیریتی",cateId:9,beList:false},
@@ -47,15 +47,15 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     {id:37,title:"قالب خبری",cateId:10,beList:false},
     {id:38,title:"اپلیکیشن اندروید",cateId:11,beList:false},
     {id:39,title:"اسکریپت لاراول",cateId:12,beList:false},
-    {id:40,title:"نمونه کار موشن گرافیک",cateId:13,beList:false},
-    {id:41,title:"نمونه کار UI/UX",cateId:13,beList:false},
-    {id:42,title:"نمونه کار بروشور",cateId:13,beList:false},
-    {id:43,title:"نمونه کار پوستر",cateId:13,beList:false},
-    {id:44,title:"نمونه کار کاتالوگ",cateId:13,beList:false},
-    {id:45,title:"نمونه کار کارت ویزیت",cateId:13,beList:false},
-    {id:46,title:"نمونه کار لوگو",cateId:13,beList:false},
-    {id:47,title:"PHP(Laravel)",cateId:15,beList:false},
-    {id:48,title:"خدمات گرافیکی",cateId:29,beList:false},
+    {id:40,title:"نمونه کار موشن گرافیک",cateId:13,beList:false,link:"/workSamples/graphic/MotionGraphics"},
+    {id:41,title:"نمونه کار UI/UX",cateId:13,beList:false,link:"/workSamples/graphic/UI_UX"},
+    {id:42,title:"نمونه کار بروشور",cateId:13,beList:false,link:"/workSamples/graphic/Brochure"},
+    {id:43,title:"نمونه کار پوستر",cateId:13,beList:false,link:"/workSamples/graphic/Poster"},
+    {id:44,title:"نمونه کار کاتالوگ",cateId:13,beList:false,link:"/workSamples/graphic/Catalog"},
+    {id:45,title:"نمونه کار کارت ویزیت",cateId:13,beList:false,link:"/workSamples/graphic/BusinessCard"},
+    {id:46,title:"نمونه کار لوگو",cateId:13,beList:false,link:"/workSamples/graphic/Logo"},
+    {id:47,title:"PHP(Laravel)",cateId:15,beList:false,link:"/workSamples/web/WebsiteDesignPortfolio"},
+    {id:48,title:"خدمات گرافیک",cateId:7,beList:false,link:'/services/خدمات-گرافیک'},
   ]
   const [keyList,setKeyList] = useState({key:'',cateId:''});
   const [stepList,setStepList] = useState(1);
@@ -104,18 +104,18 @@ function MobileMenu({ dropMenu , setDropMenu }) {
           {
           itemsMenu.filter(item => item.cateId === keyList.cateId).map(item => (
                   item.beList === true
-                  ? <li key={item.id} className='flex items-center text-inherit justify-center gap-1 text-[1.1rem] hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center' onClick={() => {
+                  ? <li key={item.id} className='flex items-center text-inherit justify-center gap-1 text-[1rem] hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center' onClick={() => {
                     setKeyList({key:item.title,cateId:item.id})
                     setStepList(3)
                    }}><span className='font-[shabnamBold]'>{item.title}</span><RiArrowLeftSLine className='font-[shabnamBold]'/></li>
-                  : <li key={item.id} className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>{item.title}</Link></li>
+                  : <li key={item.id} className='text-[1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link to={item.link} className='font-[shabnamBold]'>{item.title}</Link></li>
           ))
          }
         </ul>
         <ul className={ stepList !== 3 ?  'flex flex-col text-[#5ECF93] opacity-0 transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[30rem]' : 'flex text-white flex-col transition-all duration-300 absolute py-3 opacity-100 right-0 top-2 items-center w-full h-full overflow-y-scroll scroll_zero gap-5'}>
         {
            itemsMenu.filter(item => item.cateId === keyList.cateId).map(item => (
-              <li key={item.id} className='text-[1.1rem]  text-inherit hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>{item.title}</Link></li>
+            <li key={item.id} className='text-[1rem]  text-inherit hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]' to={item.link}>{item.title}</Link></li>
            ))
         }
         </ul>
@@ -135,21 +135,3 @@ export default MobileMenu;
 
 
 
-
-
-
-
-
-        {/* <ul className={ keyList.key === '' ? 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5' : 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[-30rem]'}>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link to={'/'} className='font-[shabnamBold]'>صفحه اصلی</Link></li>
-            <li className='flex items-center justify-center gap-1 text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center' onClick={() => setKeyList({key:'products',})}><span className='font-[shabnamBold]'>محصولات</span><RiArrowLeftSLine className='font-[shabnamBold]'/></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>ثبت سفارش</Link></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>بلاگ</Link></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center flex items-center justify-center gap-1' onClick={() => setKeyList('worksSimple')}><span className='font-[shabnamBold]'>نمونه کارها</span><RiArrowLeftSLine className='font-[shabnamBold]'/></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>آموزش ورود</Link></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center flex items-center justify-center gap-1' onClick={() => setKeyList('servises')}><span className='font-[shabnamBold]'>خدمات ما</span><RiArrowLeftSLine className='font-[shabnamBold]'/></li>
-            <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>استخدام</Link></li>
-        </ul> */}
-        {/* <ul className={keyList.key === 'products' ? 'flex flex-col items-center w-full h-full overflow-y-scroll scroll_zero gap-5 transition-all duration-300' : 'flex flex-col absolute left-[-10rem] items-center w-full h-full overflow-y-scroll scroll_zero gap-5 transition-all duration-300'}>
-
-        </ul> */}

@@ -8,8 +8,6 @@ import vueImg from "../../assets/img/SaleReadyTemplate/ndsmpb4j2hvj-transformed-
 import hyperImg from "../../assets/img/SaleReadyTemplate/swlmhhhghszz-min.png";
 import tariff from "../../assets/img/SaleReadyTemplate/تعرفه-فروش-قالب-html-600x800.jpg";
 import jsImg from "../../assets/img/SaleReadyTemplate/jawa-askrypt-chyst-transformed-min.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -138,8 +136,8 @@ function SsaleWeb() {
      </div>
     </div>
     <div className='flex flex-col w-full my-[1rem] sm:my-[5rem]'>
-      <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه طراحی وب سایت ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت'}}/>
-      <EndBox2 content={{img:front_2,p:'برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده وب سایت ها و قالب های آماده'}}/>
+      <EndBox1 content={{p:'جهت سفارش انواع پروژه طراحی وب سایت ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت'}}/>
+      <EndBox2 content={{p:'برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده وب سایت ها و قالب های آماده'}}/>
      </div>
       <div>
         <FixedIcon />

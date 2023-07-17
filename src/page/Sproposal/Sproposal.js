@@ -5,7 +5,6 @@ import HeadImg from "../../assets/img/Proposal/تدوین-پروپوزال-1024x
 import Img_1 from "../../assets/img/Proposal/images.jpg";
 import Img_2 from "../../assets/img/Proposal/building.jpg";
 import Img_3 from "../../assets/img/Proposal/planing.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -85,7 +84,7 @@ function Sproposal() {
             </motion.div>
         </div>
     </div>
-    <EndBox3 content={{img:front_1,p:"جهت سفارش انواع پروژه تدوین پروپوزال ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.",b:'سفارش پروژه تدوین پروپوزال'}}/>
+    <EndBox3 content={{p:"جهت سفارش انواع پروژه تدوین پروپوزال ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.",b:'سفارش پروژه تدوین پروپوزال'}}/>
       <div>
         <FixedIcon />
       </div>

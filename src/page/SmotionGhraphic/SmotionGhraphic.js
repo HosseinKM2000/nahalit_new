@@ -7,8 +7,6 @@ import Imge_2 from "../../assets/img/MotionGraphic/13038-removebg-preview-1.png"
 import Imge_3 from "../../assets/img/MotionGraphic/4-removebg-preview-min.png";
 import Imge_4 from "../../assets/img/MotionGraphic/5-removebg-preview.png";
 import Imge_5 from "../../assets/img/MotionGraphic/تعرفه-موشن2-1024x1024.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -109,8 +107,8 @@ function SmotionGhraphic() {
         </div>
     </div>
     <div className='flex flex-col w-full sm:py-[3rem] py-0'>
-      <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه طراحی موشن گرافیک ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه موشن گرافیک'}}/>
-      <EndBox2 content={{img:front_2,p:'جهت مشاهده نمونه کارهای موشن گرافیک توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار موشن گرافیک'}}/>
+      <EndBox1 content={{p:'جهت سفارش انواع پروژه طراحی موشن گرافیک ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه موشن گرافیک'}}/>
+      <EndBox2 content={{p:'جهت مشاهده نمونه کارهای موشن گرافیک توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار موشن گرافیک'}}/>
      </div>
       <div>
         <FixedIcon />

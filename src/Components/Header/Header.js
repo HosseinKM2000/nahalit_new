@@ -24,7 +24,7 @@ const Header = () => {
   const [showSlide10, setShowSlide10] = useState(false);
   const [showSlide11, setShowSlide11] = useState(false);
   const [showSlide12, setShowSlide12] = useState(false);
-  const [showSlide13, setShowSlide13] = useState(false);
+
   const clickEntershowslide = () => {
     setShowSlide(true);
   };
@@ -96,12 +96,6 @@ const Header = () => {
   };
   const clickoutshowslide12 = () => {
     setShowSlide12(false);
-  };
-  const clickEntershowslide13 = () => {
-    setShowSlide13(true);
-  };
-  const clickoutshowslide13 = () => {
-    setShowSlide13(false);
   };
   return (
     <>
@@ -411,78 +405,66 @@ const Header = () => {
                   }
                 >
                   <ul className="px-5 py-3 bg-white  w-fit flex shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex-col items-start gap-2" style={{borderTop:'2px solid #57C053'}}>
-                    <Link to="/EecoSaleWeb">
+                    <Link to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">فروش سایت اختصاصی و اقتصادی</p>
                       </li>
                     </Link>
-                    <Link to="/SsaleWeb">
+                    <Link to="/services/فروش-قالب-سایت">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">فروش قالب سایت</p>
                       </li>
                     </Link>
-                    <Link to="/SsaleWebExclusive">
+                    <Link to="/services/طراحی-سایت-اختصاصی">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">طراحی سایت اختصاصی</p>
                       </li>
                     </Link>
-                    <Link to="/Sseo">
+                    <Link to="/services/خدمات-سئو-وب-سایت">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات وبسایت و سئو وب سایت</p>
                       </li>
                     </Link>
-                    <Link to="/SworkService">
+                    <Link to="/services/خدمات-کسب-و-کار">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات کسب و کار</p>
                       </li>
                     </Link>
-                    <Link to="/SsocialMedia">
+                    <Link to="/services/خدمات-شبکه-های-اجتماعی">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات شبکه های اجتماعی</p>
                       </li>
                     </Link>
-                    <Link to="/SmotionGhraphic">
+                    <Link to="/services/موشن-گرافیک">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">موشن گرافیک</p>
                       </li>
                     </Link>
-                    <Link to="/Sproposal">
+                    <Link to="/services/تدوین-پروپوزال">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">تدوین پروپوزال</p>
                       </li>
                     </Link>
-                    <Link to="/S_Aplication">
+                    <Link to="/services/اپلیکیشن-موبایل">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</p>
                       </li>
                     </Link>
-                    <Link to="/Spremier">
+                    <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">
                       <li className="flex items-center justify-start py-1">
                         <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات پریمیر، تدوین فیلم</p>
                       </li>
                     </Link>
-                    <div>
-                      <li
-                        className="flex items-center justify-between py-1 relative"
-                        onMouseEnter={clickEntershowslide13}
-                        onMouseLeave={clickoutshowslide13}
-                      >
-                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
-                        <MdKeyboardArrowLeft />
-                        <div
-                          onMouseEnter={clickEntershowslide13}
-                          className={
-                            showSlide13
-                              ? "absolute bg-white -left-[12.5rem] -top-2 px-7 py-1 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center transition-all duration-500"
-                              : "absolute bg-white -left-[12.5rem] -top-2 px-7 py-1 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                          }
-                        >
-                          <Link to="/Sgraphic" className="px-4 py-1">
-                            <p className="2xl:text-base font-[shabnamMedium] text-[#171717] text-sm">خدمات گرافیکی</p>
-                          </Link>
-                        </div>
+                    <Link to='/services/خدمات-گرافیک'>
+                      <li className="flex items-center justify-between py-1 relative">
+                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات گرافیک</span>
                       </li>
-                    </div>
+                    </Link>
+                    <Link to='/services/خدمات-تدوین-صدا-و-صدا-گذاری'>
+                      <li className="flex items-center justify-between py-1 relative">
+                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
+                      </li>
+                    </Link>
                   </ul>
                 </div>
               </li>
@@ -514,7 +496,7 @@ const Header = () => {
                       : "container z-10 bg-white w-96 px-5 mx-auto absolute opacity-0 -right-[25rem] -translate-y-[50rem] transition-all duration-700"
                   }
                 >
-                  <p className="pb-3 text-center font-bold">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
+                  <p className="pb-3 text-center text-[0.9rem]">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
                   <Link>
                     <p className="bg-[#50BCB1] text-white tracking-tighter font-bold px-3 py-1 text-center rounded-md">
                       مشاهده محصولات فروشگاه
@@ -544,7 +526,7 @@ const Header = () => {
                       </p>
                     </Link>
                   </div>
-                  <div className="text-center pb-1">هیچ محصولی در سبد خرید نیست.</div>
+                  <div className="text-center py-3">هیچ محصولی در سبد خرید نیست.</div>
                 </div>
               </div>
             </div>

@@ -12,8 +12,6 @@ import Img_7 from "../../assets/img/Seo/seo-services-min.png";
 import Img_8 from "../../assets/img/Seo/تعرفه-خدمات-سئو.png";
 import Img_9 from "../../assets/img/Seo/تعرفه-خدمات-سئو-حرفه-ای.png";
 import Img_10 from "../../assets/img/Seo/تعرفه-اپلیکیشن-خدمات-سئو-ویژه.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -55,14 +53,14 @@ function Sseo() {
                 <p>اصطلاحاتی مثل سئو کردن سایت، بهبود سئو، افزایش سئو سایت و سئوسازی عباراتی هستند که کاربران فارسی زبان برای جستجو درباره سئو استفاده می‌کنند.</p>
                 <p>با بهبود سئو سایت، جایگاه صفحات وب سایت و محتوای شما در نتایج موتورهای جستجو ساده ارتقاء پیدا می کند. هر چه وبسایت شما از نظر موتورهای جستجو بهتر باشد و از آن ها امتیاز بیشتری بگیرد، یعنی مطابق با فاکتور ها و معیارهای آن ها باشد، احتمال این که آن ها شما را در جستجوهای مربوطه برای کلمات کلیدی مرتبط با محصولات یا سرویس های شما توسط کاربران، ارائه کنند بیشتر می شود و جایگاه بالاتری نسبت به سایت هایی که مربوط به آن کلمات هستند ولی امتیاز کمتری دارند، کسب خواهید کرد.</p>
             </motion.div>
-            <div className='flex sm:flex-row flex-col items-center'>
+            <div className='flex sm:flex-row flex-col items-center justify-between'>
                 <div>
                     <motion.h3 whileInView={{x:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>موتور جست و جو چیست ؟</motion.h3>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتور جستجو یک ابزار آنلاین است که به افراد برای پیدا کردن اطلاعات مورد نظرشان در اینترنت کمک می‌کند. موتور جستجوی گوگل و موتور جستجوی بینگ مایکروسافت از معروف ترین موتورهای جستجو هستند.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتورهای جستجوی در نحوه رتبه بندی وب سایت‌ ها در هنگام جستجوی کلید واژه‌های مختلف توسط کاربران، عملکرد متفاوتی دارند. این تفاوت رتبه دهی ناشی از هوش مصنوعی مورد استفاده در موتورهای جستجو است.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>گوگل نتایج بهتری در هنگام جستجو به کاربران نشان ‌می‌ دهد و فرایند جستجو در اینترنت را برای کاربران در مقایسه با سایر موتورهای جستجو در گوگل دلپذیرتر است. به همین دلیل گوگل تبدیل به پرطرفدارترین موتور جستجو در اینترنت شده‌ است.</motion.p>
                 </div>
-                <motion.img src={Img_2} alt="search-engine" className='w-64 h-50 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_2} alt="search-engine" className='w-64 h-50 2xl:w-[30rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <h4 className='text-green-137'>موتور جستجو چگونه کار می‌کند ؟</h4>
@@ -80,7 +78,7 @@ function Sseo() {
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>حالا که شما فهمیده اید که سئو چیست و چه معنا و مفهومی دارد، می خواهیم کمی جلوتر برویم. یکی دیگر از سوالات رایج که می شنویم این است :</motion.p>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>رتبه بندی سایت در گوگل چیست؟</motion.p>
                 </div>
-                <motion.img src={Img_3} alt="SERP" className='w-64 2xl:w-[30%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_3} alt="SERP" className='w-64 2xl:w-[20rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div  whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>SERP (Search Engine Result Page) به معنی صفحه نتایج موتور جستجو می باشد. رتبه بندی سایت در گوگل شرکت شما یعنی جایگاه سایت شما در SERP گوگل.</p>
@@ -93,14 +91,14 @@ function Sseo() {
                     <p>افزایش بازدید سایت یکی از اصلی ترین کارهایی است که هر صاحب سایتی باید به آن اهمیت دهد. در واقع اگر شما صاحب هر کسب و کار آنلاینی هستید باید در صدد بالا بردن بازدید سایت خود باشید. فرقی نمی کند چه خدمات و محصولاتی را ارائه می کنید، در هر صورت باید به فکر بالا بردن بازدید سایت تان باشید. کاملا مشخص است که ترافیک هر سایتی جزئی از سرمایه آن است.</p>
                     <p>هر چقدر که وب سایت شما از هر لحاظی عالی باشد تا زمانی که نتوانید ترافیک واقعی دریافت کنید بی فایده است و هیچ سودی برای شما نخواهد داشت.</p>
                 </div>
-                <img src={Img_4} alt="seooo" className='w-80 2xl:w-[50%] 2xl:h-[30rem]'/>
+                <img src={Img_4} alt="seooo" className='w-80 2xl:w-[30rem] 2xl:h-[30rem]'/>
             </div>
             <motion.div whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>دلیل عمده بسیاری از کسب و کارهای آنلاینی هم که موفق نیستند نداشتن ترافیک کافی است. همین حالا وب سایت هایی وجود دارند که از هر لحاظی با کیفیت هستند ولی مشکل اصلی آن ها دیده شدن است. در واقع مدیران این سایت ها در بالا بردن ترافیک سایت شان ناتوان هستند و نمی توانند به خوبی روزانه ترافیک واقعی و هدفمندی را روانه سایت خود کنند.</p>
                 <p>در ضمن، این فقط کاربران اینترنتی نیستند که ترافیک سایت شما را افزایش می‌دهند؛ بلکه ربات‌ ها و ابزارهای آنلاین دیگری هم هستند که چنین بازدیدهایی رقم می‌ زنند. این تعریف بسیار ساده با ظاهر فریبنده‌ ای که دارد باعث شده تا اشتباهی بسیار رایج گریبان‌ گیر وب‌ مسترهای امروزی شود. اغلب این افراد حتی افراد باتجربه‌ تر، تمام تمرکز و انرژی خود را به منظور “کسب بازدید” می‌ گذارند. اما همانطور که ما بارها و بارها گفتیم، در بحث بازاریابی آنلاین، هیچ‌وقت کمیت بر کیفیت اولویت نخواهد داشت. این طرز فکری که اکثر وب‌ مسترها با آن درگیر هستند، فقط بحث جذب “بازدید” است نه “بازدیدکننده واقعی” و همین مسئله باعث می‌ شود تا تلاش‌ های مستمر این افراد آنطور که باید نتیجه نداشته باشد.</p>
                 <p>با این توضیحات باید گفت که تمرکز اصلی شما نباید فقط روی تعداد بازدیدهای کسب شده باشد، بلکه باید روی مسئله نرخ تبدیل تمرکز کنید. مسلماً هرچه بازدیدهای کسب شده بیشتر باشد، شانس افزایش نرخ تبدیل نیز بیشتر می‌ شود.</p>
             </motion.div>
-            <motion.div whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 2xl:gap-10'>
+            <motion.div whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 2xl:gap-3'>
                 <h6 className='text-center text-green-137'>خدمات وب سایت</h6>
                 <div className='flex sm:flex-row flex-col items-center justify-center gap-1'>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
@@ -123,16 +121,16 @@ function Sseo() {
             <div className='flex flex-col gap-2 2xl:gap-10'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات وبسایت و سئو وبسایت تیم نهال آی تی</h6>
                 <div className=' flex-col sm:flex-row flex items-center justify-between lg:justify-evenly gap-5 sm:gap-0'>
-                    <img src={Img_8} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
-                    <img src={Img_9} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
-                    <img src={Img_10} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[50%]'/>
+                    <img src={Img_8} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
+                    <img src={Img_9} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
+                    <img src={Img_10} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
                 </div>
             </div>
-            <div className='flex flex-col w-full'>
-              <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه طراحی وب سایت و سئو، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت و سئو'}}/>
-              <EndBox2 content={{img:front_2,p:'جهت مشاهده نمونه کار های سئو سایت توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار سئو'}}/>
-           </div>
         </div>
+    </div>
+    <div className='flex flex-col w-full sm:mb-5'>
+              <EndBox1 content={{p:'جهت سفارش انواع پروژه طراحی وب سایت و سئو، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه طراحی انواع وب سایت و سئو'}}/>
+              <EndBox2 content={{p:'جهت مشاهده نمونه کار های سئو سایت توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار سئو'}}/>
     </div>
       <div>
         <FixedIcon />

@@ -11,7 +11,6 @@ import img_5 from "../../assets/img/SoundEditing/آموزش-ساخت-تیزر-ت
 import img_6 from "../../assets/img/SoundEditing/4674029-scaled-transformed-min.png";
 import img_7 from "../../assets/img/SoundEditing/1398090309273659318951144-transformed-min.png";
 import img_8 from "../../assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -71,7 +70,7 @@ function SsoundEditing() {
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>شرکت سونی نه تنها در زمینه صنعت فیلم سازی دستی دارد، بلکه نرم افزاری را در زمینه میکس، مونتاژ و ویرایش فیلم تهیه کرده است که بسیار قدرتمند می باشد. هر چند این نرم افزار به سیستم بسیار قوی نیاز دارد و کمی پیچیده است.</motion.p>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>استفاده از نهایت کیفیت در صداها و تصاویر خروجی که نهایت لذت را برای ببینده به همراه دارد یکی از مهم ترین خصوصیاتی است که در Sony Vegas Pro به چشم می خورد. انواعی از افکت ها در این ابزار گنجانده شده اند تا کاربران حرفه ای به راحتی با کنار هم قرار دادن تصاویر و همین افکت ها به جذاب تر شدن کار خود کمک کنند.</motion.p>
                 </div>
-                <motion.img src={img_2} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-4/12' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
+                <motion.img src={img_2} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-[15rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
             </div>
             <div className='flex gap-10 sm:gap-0 p-0 lg:pl-10 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
@@ -86,7 +85,7 @@ function SsoundEditing() {
                         <li>و …</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_3} alt="cyberlink audio director" className='sm:w-[10rem] w-[5rem] 2xl:w-7/12' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={img_3} alt="cyberlink audio director" className='sm:w-[10rem] w-[5rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <div className='flex p-0 lg:pl-10 gap-8 sm:gap-0 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
@@ -100,23 +99,23 @@ function SsoundEditing() {
                         <li>از این پلتفرم می توان برای ایجاد پادکست های جذاب استفاده کرد.</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_4} alt="Adobe Audition" className='w-[5rem] sm:w-[10rem] 2xl:w-3/12' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={img_4} alt="Adobe Audition" className='w-[5rem] sm:w-[10rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='flex flex-col gap-5'>
                 <h6 className='text-green-137 text-center'>خدمات صداگذاری و تدوین صدا</h6>
                 <div className='flex flex-col sm:flex-row items-center justify-around sound-editing-Services '>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_5} alt="img" className='2xl:w-9/12 w-36'/>
+                        <img src={img_5} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>تهیه تیزر تبلیغاتی</b>
                         <span className='text-center'>با گستردگی روزافزون مخاطبان شبکه مجازی یکی از بهترین تبلیغات در این بخش ساخت ویدئوهای ویژه کوتاه، برای نمایش در صفحات شبکه های اجتماعی و بستر های مختلف است.</span>
                     </div>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_6} alt="img" className='2xl:w-9/12 w-36'/>
+                        <img src={img_6} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>خدمات نریشن</b>
                         <span className='text-center'>نریشن، هنر تبدیل متون مختلف به کلام تاثیرگذار است. در بسیاری از موارد مخاطبان ما علاقه ایی به خواندن متون از خود نشان نمیدهند و این امر ممکن است باعث شود بسیاری از مطالب مهم، از نظرشان پنهان بماند.</span>
                     </div>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_7} alt="img" className='2xl:w-9/12 w-36'/>
+                        <img src={img_7} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>گویندگی و دوبله</b>
                         <span className='text-center'>درواقع گویندگی ،اثرگذاری یک موضوع را چندین برابر میکند و باعث میشود که متون به کلامی دلنشین ، اثرگذار و زیبا تبدیل شود. از هنر گویندگی در رادیو ، تلوزیون، فیلم، تئاتر، انیمیشن، تبلیغاتی، و … استفاده می شود .</span>
                     </div>
@@ -126,7 +125,7 @@ function SsoundEditing() {
                 <h6 className='text-gray3030'>تعرفه های تیم نهال آی تی در حوزه تدوین و صداگذاری</h6>
                 <img src={img_8} alt="tarrif" className='w-[100%] sm:w-[40%]'/>
             </div>
-            <EndBox3 content={{img:front_1,p:'جهت سفارش انواع خدمات صدا ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات صدا گذاری'}}/>
+            <EndBox3 content={{p:'جهت سفارش انواع خدمات صدا ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات صدا گذاری'}}/>
         </div>
     </div>
       <div>

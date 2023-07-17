@@ -10,7 +10,6 @@ import Img_1 from "../../assets/img/Business/brand-registration1-transformed-min
 import Img_2 from "../../assets/img/Business/Business-Logo-Design-Best-Qualitytrahy-lwgw-ksb-w-kar_1609095951-transformed-min.png";
 import Img_3 from "../../assets/img/Business/sms-anboh-transformed-1-min.png";
 import tarrif from "../../assets/img/Business/تعرفه-خدمات-کسب-و-کار-600x831.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -70,7 +69,7 @@ function SworkService() {
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>یکی از سریع ترین، موثرترین و ارزان ترین روش تبلیغات، ارسال پیامک و ارسال ایمیل تبلیغاتی می باشد با استفاده از امکانات قدرتمندی که پنل اس ام اس و ایمیل در اختیار شما قرار میدهد میتوانید متن تاثیر گذار خود را در کمترین زمان ممکن به مخاطبان خود برسانید و با استفاده از دیگر امکانات پنل پیامک و ایمیل ، محصول و کار خود را تبلیغ نمایید و از این طریق مشتریان خود را افزایش دهید.</motion.p>
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>استفاده از پنل پیامک و ایمیل یکی از بهترین و آسانترین راه ها برای اطلاع رسانی و ارتباط مستمر با مشتریان می باشد.</motion.p>
               </div>
-              <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-80 2xl:w-[20rem] 2xl:h-[15rem]'/>
+              <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-[10rem] 2xl:w-[20rem] 2xl:h-[15rem]'/>
             </div>
             <motion.div className='flex flex-col gap-3 2xl:mt-20' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}}>
                 <h5 className='text-green-137 text-center'>خدمات کسب و کار</h5>
@@ -97,7 +96,7 @@ function SworkService() {
                 <img src={tarrif} alt="tarrif" className='w-7/12 sm:w-[17rem]'/>
                </div>
         </div>
-        <EndBox3 content={{img:front_1,p:'جهت سفارش انواع پروژه خدمات کسب و کار، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات کسب و کار'}}/>
+        <EndBox3 content={{p:'جهت سفارش انواع پروژه خدمات کسب و کار، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات کسب و کار'}}/>
     </div>
       <div>
         <FixedIcon />

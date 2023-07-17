@@ -295,7 +295,7 @@ function Register() {
     autoClose={2500}
     className='Toast_info'
     />
-    <div className='w-full relative min-h-screen bg-gray-600 login-gradient flex justify-center font-[shabnamMedium] items-center'>
+    <div className='w-screen relative min-h-screen bg-gray-600 login-gradient flex justify-center font-[shabnamMedium] items-center'>
         <HomeButton/>
         <div className='flex flex-col w-[90%] my-5  sm:w-[50%] 2xl:w-[60%] overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
             <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>

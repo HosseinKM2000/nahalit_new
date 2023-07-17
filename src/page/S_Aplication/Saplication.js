@@ -14,12 +14,12 @@ import img_9 from "../../assets/img/MobileApplication/java.png";
 import img_10 from "../../assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-اقتصادی-min.png";
 import img_11 from "../../assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-حرفه-ای-min.png";
 import img_12 from "../../assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-ویژه-min.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
 
 function Saplication() {
   return (
@@ -134,21 +134,9 @@ function Saplication() {
             </div>
         </div>
     </div>
-    <div className='flex flex-col w-full sm:my-[3rem] m-0'>
-            <motion.div className='flex flex-row end-box items-center bg-green-d5 px-1 py-5' whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>
-              <div className='flex flex-col items-end gap-5'>
-               <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه  اپلیکیشن موبایل ، میتوانید به صورت رایگان ، با شماره <b className='text-gray3030 font-bold'>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-               <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md text-sm'>سفارش پروژه اپلیکیشن موبایل</button>
-            </div>
-              <img src={front_1} alt="front" className='w-80'/>
-            </motion.div>
-            <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}  className='flex flex-row-reverse items-center end-box bg-green-72 px-2 py-10'>
-            <div className='flex flex-col  items-start gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت مشاهده نمونه کارهای  اپلیکیشن موبایل  توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</span>
-            <button className='text-white bg-green-57C w-11/12 py-2 rounded-md text-sm hover:brightness-105 transition-all'>مشاهده نمونه کار اپلیکیشن موبایل</button>
-           </div>
-           <img src={front_2} alt="front" className='w-80'/>
-          </motion.div>
+        <div className='flex flex-col w-full sm:my-[3rem] m-0'>
+            <EndBox1 content={{p:'جهت سفارش انواع پروژه  اپلیکیشن موبایل ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه اپلیکیشن موبایل'}}/>
+            <EndBox2  content={{p:'جهت مشاهده نمونه کارهای  اپلیکیشن موبایل  توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار اپلیکیشن موبایل'}}/>
         </div>
       <div>
         <FixedIcon />

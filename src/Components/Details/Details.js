@@ -15,7 +15,7 @@ const Details = () => {
         <div className="absolute w-full flex justify-center h-full items-center">
          <div className="flex flex-col bg-white justify-between rounded-sm gap-2 px-3 py-3  2xl:py-8 w-[90%] h-[80%] lg:h-[75%] lg:w-[80%] overflow-hidden">
           <div className="flex flex-col gap-1">
-            <div className="flex gap-1 items-center text-sm 2xl:text-base">
+            <div className="flex gap-1 items-center text-sm">
               <BiTimeFive/>
               <span>3 اسفند</span>
             </div>
@@ -23,11 +23,11 @@ const Details = () => {
           </div>
           <p className="line-clamp-4 2xl:text-[1rem] text-justify leading-7 text-sm px-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
           <div className="w-full flex justify-center mt-2">
-           <Link to="./"><button type="button" className="text-white px-3 py-2 rounded-md 2xl:text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
+           <Link to="./"><button type="button" className="text-white px-3 py-1 flex rounded-md text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
           </div>
          </div>
         </div>
-        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 2xl:text-[0.9rem]">
+        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 text-[0.8rem]">
           <div className="flex gap-1 items-center">
             <BsEyeFill/>
             <span>4</span>
@@ -43,7 +43,7 @@ const Details = () => {
         <div className="absolute w-full flex justify-center h-full items-center">
          <div className="flex flex-col bg-white justify-between rounded-sm gap-2 px-3 py-3  2xl:py-8 w-[90%] h-[80%] lg:h-[75%] lg:w-[80%] overflow-hidden">
           <div className="flex flex-col gap-1">
-            <div className="flex gap-1 items-center text-sm 2xl:text-base">
+            <div className="flex gap-1 items-center text-sm">
               <BiTimeFive/>
               <span>3 اسفند</span>
             </div>
@@ -51,11 +51,11 @@ const Details = () => {
           </div>
           <p className="line-clamp-4 2xl:text-[1rem] text-justify leading-7 text-sm px-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
           <div className="w-full flex justify-center mt-2">
-           <Link to="./"><button type="button" className="text-white px-3 py-2 rounded-md 2xl:text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
+           <Link to="./"><button type="button" className="text-white px-3 py-1 rounded-md text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
           </div>
          </div>
         </div>
-        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 2xl:text-[0.9rem]">
+        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 text-[0.8rem]">
           <div className="flex gap-1 items-center">
             <BsEyeFill/>
             <span>4</span>
@@ -71,7 +71,7 @@ const Details = () => {
         <div className="absolute w-full flex justify-center h-full items-center">
          <div className="flex flex-col bg-white justify-between rounded-sm gap-2 px-3 py-3  2xl:py-8 w-[90%] h-[80%] lg:h-[75%] lg:w-[80%] overflow-hidden">
           <div className="flex flex-col gap-1">
-            <div className="flex gap-1 items-center text-sm 2xl:text-base">
+            <div className="flex gap-1 items-center text-sm">
               <BiTimeFive/>
               <span>3 اسفند</span>
             </div>
@@ -79,11 +79,11 @@ const Details = () => {
           </div>
           <p className="line-clamp-4 2xl:text-[1rem] text-justify leading-7 text-sm px-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
           <div className="w-full flex justify-center mt-2">
-           <Link to="./"><button type="button" className="text-white px-3 py-2 rounded-md 2xl:text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
+           <Link to="./"><button type="button" className="text-white px-3 py-1 rounded-md text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
           </div>
          </div>
         </div>
-        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 2xl:text-[0.9rem]">
+        <div className="flex w-full px-3 pb-3 gap-3 z-10 text-stone-700 text-[0.8rem]">
           <div className="flex gap-1 items-center">
             <BsEyeFill/>
             <span>4</span>

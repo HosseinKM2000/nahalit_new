@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { RiShoppingCartLine } from "react-icons/ri";
-import "./CustomSlider.css";
 
 const CustomSlider = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -17,7 +16,7 @@ const CustomSlider = () => {
     <div className="mx-auto w-[90%] sm:w-[95%] 2xl:w-[80%]  py-5 bg-[#f3f3f5] rounded-xl p-3">
       <div className="flex items-center sm:gap-0 justify-between">
         <div className="border-r-4 text-[#868686] border-[#07B235] font-bold border-solid">
-          <span className="py-2 pr-2 text-2xl font-[shabnambold]">قالب های ویژه HTML</span>
+          <span className="py-2 pr-2 text-xl font-[shabnambold]">قالب های ویژه HTML</span>
         </div>
         <div className="flex justify-end items-center w-fit sm:w-[15rem]">
           <div className="flex gap-x-4 text-2xl">
@@ -129,7 +128,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -156,7 +155,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -183,7 +182,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -210,7 +209,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -237,7 +236,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -264,7 +263,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -291,7 +290,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -318,7 +317,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
@@ -345,7 +344,7 @@ const CustomSlider = () => {
                   <div className="flex items-center gap-2">
                     <p className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">قالب HTML</p>
                   </div>
-                  <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">قالب html مارکت پلیس وب استور</span>
+                  <span className="text-[#656666] font-[shabnambold] text-[1rem] mb-6">قالب html مارکت پلیس وب استور</span>
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">

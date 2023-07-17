@@ -11,8 +11,6 @@ import img_6 from "../../assets/img/PremierEditing/speech.png";
 import img_7 from "../../assets/img/PremierEditing/facebook-advertisement-tutorial.png";
 import img_8 from "../../assets/img/PremierEditing/announcement.png";
 import img_9 from "../../assets/img/PremierEditing/تعرفه-تدوین-فیلم2-min-600x600.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
@@ -117,8 +115,8 @@ function Spremier() {
         </div>
     </div>
         <div className='flex flex-col w-full sm:my-[5rem] my-[1rem]'>
-          <EndBox1 content={{img:front_1,p:'جهت سفارش انواع پروژه پریمیر و تدوین فیلم ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه پریمیر و تدوین فیلم',}}/>
-          <EndBox2 content={{img:front_2,p:'جهت مشاهده نمونه کارهای پریمیر و تدوین فیلم توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار پریمیر و تدوین فیلم',}}/>
+          <EndBox1 content={{p:'جهت سفارش انواع پروژه پریمیر و تدوین فیلم ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه پریمیر و تدوین فیلم',}}/>
+          <EndBox2 content={{p:'جهت مشاهده نمونه کارهای پریمیر و تدوین فیلم توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار پریمیر و تدوین فیلم',}}/>
         </div>
       <div>
         <FixedIcon />

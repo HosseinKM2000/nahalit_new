@@ -57,7 +57,7 @@ function SideDash({ dropMenu , setDropMenu }) {
         </div>
         <div  onClick={()=>{listSwitch('categories')}} style={{backgroundColor:content==='categories'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <BiCategory className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>دسته بندی</li>
+            <li className='text-white font-bold text-lg  text-center'>دسته بندی</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div className='w-full flex flex-col items-center'>
@@ -69,7 +69,7 @@ function SideDash({ dropMenu , setDropMenu }) {
             style={{backgroundColor:content==='articles'?'#232c38':''}} 
             className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <MdOutlineArticle className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>مقالات</li>
+            <li className='text-white font-bold text-lg  text-center'>مقالات</li>
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:aRotate?'-90deg':'0deg'}}/>
             </div>
             <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:aRotate?'fit-content':'0px',padding:aRotate?'10px':'0px',overflow:aRotate?'':'hidden',visibility:aRotate?'visible':'hidden',marginTop:aRotate?'1rem':'0px'}} >
@@ -84,7 +84,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               dispatch(setSwitch({key:'workSample',value:'all'}))
               }}  style={{backgroundColor:content==='workSample'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <MdWorkspaces className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>نمونه کار ها</li>
+            <li className='text-white font-bold text-lg  text-center'>نمونه کار ها</li>
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:wRotate?'-90deg':'0deg'}}/>
             </div>
             <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:wRotate?'fit-content':'0px',padding:wRotate?'10px':'0px',overflow:wRotate?'':'hidden',visibility:wRotate?'visible':'hidden',marginTop:wRotate?'1rem':'0px'}} >
@@ -99,7 +99,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               dispatch(setSwitch({key:'products',value:'all',id:null}))
             }}  style={{backgroundColor:content==='products'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <FiShoppingBag className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>محصولات</li>
+            <li className='text-white font-bold text-lg  text-center'>محصولات</li>
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:pRotate?'-90deg':'0deg'}}/>
             </div>
               <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:pRotate?'fit-content':'0px',padding:pRotate?'10px':'0px',overflow:pRotate?'':'hidden',visibility:pRotate?'visible':'hidden',marginTop:pRotate?'1rem':'0px'}} >
@@ -114,7 +114,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               dispatch(setSwitch({key:'gallery',value:'all'}))
             }}  style={{backgroundColor:content==='gallery'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <AiOutlinePicture className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>گالری</li>
+            <li className='text-white font-bold text-lg  text-center'>گالری</li>
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:gRotate?'-90deg':'0deg'}}/>
             </div>
               <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:gRotate?'fit-content':'0px',padding:gRotate?'10px':'0px',overflow:gRotate?'':'hidden',visibility:gRotate?'visible':'hidden',marginTop:gRotate?'1rem':'0px'}} >
@@ -124,12 +124,12 @@ function SideDash({ dropMenu , setDropMenu }) {
         </div>
         <div onClick={()=>listSwitch('users')}  style={{backgroundColor:content==='users'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <ImUsers className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>کاربران</li>
+            <li className='text-white font-bold text-lg  text-center'>کاربران</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div onClick={()=>listSwitch('orders')}  style={{backgroundColor:content==='orders'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <MdShoppingCart className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>سفارش ها</li>
+            <li className='text-white font-bold text-lg  text-center'>سفارش ها</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div className='w-full flex flex-col items-center'>
@@ -139,7 +139,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               dispatch(setSwitch({key:'projects',value:'all'}))
           }} style={{backgroundColor:content==='projects'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
                 <GiClockwork className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-                <li className='text-white font-bold text-xl  text-center'>پروژه ها</li>
+                <li className='text-white font-bold text-lg  text-center'>پروژه ها</li>
                 <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:prRotate?'-90deg':'0deg'}}/>
             </div>
             <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:prRotate?'fit-content':'0px',padding:prRotate?'10px':'0px',overflow:prRotate?'':'hidden',visibility:prRotate?'visible':'hidden',marginTop:prRotate?'1rem':'0px'}} >
@@ -149,7 +149,7 @@ function SideDash({ dropMenu , setDropMenu }) {
         </div>
         <div onClick={()=>listSwitch('commentes')}  style={{backgroundColor:content==='commentes'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <FaRegComments className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-            <li className='text-white font-bold text-xl  text-center'>نظرات</li>
+            <li className='text-white font-bold text-lg  text-center'>نظرات</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
         </div>
         <div className='w-full flex flex-col items-center'>
@@ -159,7 +159,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               dispatch(setSwitch({key:'roles',value:'all'}))
             }}  style={{backgroundColor:content==='roles'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
               <BiSolidMask className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-              <li className='text-white font-bold text-xl  text-center'>نقش ها</li>
+              <li className='text-white font-bold text-lg  text-center'>نقش ها</li>
               <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:rRotate?'-90deg':'0deg'}}/>
               </div>
               <div className='flex flex-col text-white gap-5 bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:rRotate?'fit-content':'0px',padding:rRotate?'10px':'0px',overflow:rRotate?'':'hidden',visibility:rRotate?'visible':'hidden',marginTop:rRotate?'1rem':'0px'}} >

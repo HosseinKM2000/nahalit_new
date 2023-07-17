@@ -30,12 +30,12 @@ import Img_25 from "../../assets/img/Graphic/9710403-preview-min.jpg";
 import Img_26 from "../../assets/img/Graphic/brochure-template-with-hexagonal-shapes_1017-8667-transformed-min.png";
 import Img_27 from "../../assets/img/Graphic/HQUoCr8dMVC4oVgcCl87wAmpOltlD2dlBxldH4aLjpeg_512X512X70-transformed-min.png";
 import Img_28 from "../../assets/img/Graphic/تعرفه-طراحی-گرافیک2-min-600x841.png";
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
-import front_2 from "../../assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import EndBox1 from "../../Components/EndBox1/EndBox1";
+import EndBox2 from "../../Components/EndBox2/EndBox2";
 
 function Sgraphic() {
   return (
@@ -274,23 +274,11 @@ function Sgraphic() {
                 <img src={Img_28} alt="tarrif" className='2xl:w-5/12 w-[15rem] sm:w-[20rem]'/>
             </div>
             </div>
-            <div className='flex flex-col w-full'>
-            <motion.div whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='flex flex-row end-box items-center bg-green-d5 px-1 py-5'>
-              <div className='flex flex-col items-end gap-5'>
-               <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت سفارش انواع پروژه  گرافیک ، میتوانید به صورت رایگان ، با شماره <b className='text-gray3030 font-bold'>09927674217</b> تماس بگیرید و یا از طریق لینک زیر اقدام کنید.</span>
-               <button className='text-white hover:brightness-105 transition-all bg-green-57C w-11/12 py-2 rounded-md text-sm'>سفارش پروژه گرافیک</button>
-            </div>
-              <img src={front_1} alt="front" className='w-80'/>
-            </motion.div>
-            <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}} className='flex end-box flex-row-reverse items-center bg-green-72 px-2 py-10'>
-            <div className='flex flex-col items-start gap-5'>
-            <span className='text-xl leading-10 font-thin text-gray-66 text-center'>جهت مشاهده نمونه کارهای  گرافیک  توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</span>
-            <button className='text-white bg-green-57C w-11/12 py-2 rounded-md text-sm hover:brightness-105 transition-all'>مشاهده نمونه کار  گرافیک</button>
-           </div>
-           <img src={front_2} alt="front" className='w-80'/>
-          </motion.div>
-     </div>
     </div>
+      <div className='flex flex-col w-full'>
+          <EndBox1 content={{p:'جهت سفارش انواع پروژه  گرافیک ، میتوانید به صورت رایگان ، با شماره09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش پروژه گرافیک'}}/>
+          <EndBox2 content={{p:'جهت مشاهده نمونه کارهای  گرافیک  توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید',b:'مشاهده نمونه کار  گرافیک'}}/>
+      </div>
       <div>
         <FixedIcon />
       </div>

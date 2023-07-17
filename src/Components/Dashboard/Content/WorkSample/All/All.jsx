@@ -1,10 +1,8 @@
 import React from 'react';
-import { CgDetailsMore } from 'react-icons/cg';
-import { useDispatch } from 'react-redux';
-import { TbNumbers , TbCategory2 } from 'react-icons/tb';
-import { MdOutlineSupervisorAccount, MdOutlineDateRange , MdOutlineDescription } from 'react-icons/md';
 import { BsTicketDetailedFill } from 'react-icons/bs';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import { MdOutlineDateRange, MdOutlineDescription, MdOutlineSupervisorAccount } from 'react-icons/md';
+import { TbCategory2, TbNumbers } from 'react-icons/tb';
+import { useDispatch } from 'react-redux';
 
 function All({ currentItems , setShowDetails }) {
     const dispatch = useDispatch();

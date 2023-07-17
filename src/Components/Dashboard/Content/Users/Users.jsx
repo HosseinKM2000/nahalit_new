@@ -1,11 +1,9 @@
-import React , { useState , useEffect } from 'react';
-import { FaUsers } from 'react-icons/fa';
-import { TbAlphabetLatin } from 'react-icons/tb';
-import { MdOutlineAlternateEmail , MdDeleteSweep } from 'react-icons/md';
+import React, { useEffect } from 'react';
 import { CgCalendarDates } from 'react-icons/cg';
-import { TbListDetails } from 'react-icons/tb';
+import { FaUsers } from 'react-icons/fa';
 import { HiUserCircle } from 'react-icons/hi';
-import { BiSolidMessageSquareEdit } from 'react-icons/bi';
+import { MdDeleteSweep, MdOutlineAlternateEmail } from 'react-icons/md';
+import { TbAlphabetLatin, TbListDetails } from 'react-icons/tb';
 
 function Users({ currentItems }) {
 

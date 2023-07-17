@@ -1,13 +1,13 @@
-import {React , useState} from 'react';
-import { BiCategory , BiSolidMask} from 'react-icons/bi';
-import {MdOutlineArrowLeft , MdOutlineArticle , MdShoppingCart  , MdWorkspaces} from 'react-icons/md';
-import {FiShoppingBag} from 'react-icons/fi';
-import {ImUsers} from 'react-icons/im';
-import {GiClockwork} from 'react-icons/gi';
-import {FaRegComments , FaWindowClose} from 'react-icons/fa';
-import {AiOutlinePicture} from 'react-icons/ai';
-import {setContent,setSwitch} from '../../../../features/dashboard/dashboardSlice';
-import { useSelector , useDispatch} from 'react-redux';
+import { React, useState } from 'react';
+import { AiOutlinePicture } from 'react-icons/ai';
+import { BiCategory, BiSolidMask } from 'react-icons/bi';
+import { FaRegComments, FaWindowClose } from 'react-icons/fa';
+import { FiShoppingBag } from 'react-icons/fi';
+import { GiClockwork } from 'react-icons/gi';
+import { ImUsers } from 'react-icons/im';
+import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart, MdWorkspaces } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { setContent, setSwitch } from '../../../../features/dashboard/dashboardSlice';
 
 function SideDash({ dropMenu , setDropMenu }) {
 

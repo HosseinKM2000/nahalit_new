@@ -1,12 +1,8 @@
-import React from 'react';
-import { useRef , useState } from 'react';
-import { useSelector , useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import React, { useRef, useState } from 'react';
+import { BiSolidChevronsRight } from 'react-icons/bi';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
-import { BiSolidChevronsRight  } from 'react-icons/bi';
-import { GiCancel } from 'react-icons/gi';
-import { TiTickOutline } from 'react-icons/ti';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 
 function Edite({ details , setShowDetails }) {

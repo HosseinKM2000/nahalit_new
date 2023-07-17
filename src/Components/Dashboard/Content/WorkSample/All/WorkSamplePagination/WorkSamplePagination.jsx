@@ -1,11 +1,9 @@
-import { React , useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
-import { useSelector , useDispatch } from 'react-redux';
-import All from '../All';
-import Edite from '../../Edite/Edite';
+import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
-import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
+import Edite from '../../Edite/Edite';
+import All from '../All';
 
 function WorkSamplePagination() {
     const workSample = [

@@ -1,11 +1,7 @@
-import React from 'react';
-import { useRef , useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
-import { GiCancel } from 'react-icons/gi';
-import { TiTickOutline } from 'react-icons/ti';
 
 function New() {
 

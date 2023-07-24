@@ -7,7 +7,10 @@ const initialState = {
     productsSwitch:'all',
     categoriesSwitch:{
         key:'PARENT',
-        value:''
+        value:'',
+        index:'',
+        value_2:'',
+        index_2:''
     },
     categories :[
         {
@@ -113,13 +116,7 @@ const dashboardSlice = createSlice({
             let cate =   
               {
                 title:action.payload,
-                children:[
-                    {
-                        title:'',
-                        children:[]
-                    },
-                    
-                ]
+                children:[]
             }
             state.categories = [...state.categories,cate]
         },
@@ -131,12 +128,44 @@ const dashboardSlice = createSlice({
             state.categories[index].title = value;
         },
         setSwitchCategories: (state,action) => {
-            let { key , value } = action.payload;
-            state.categoriesSwitch = {key,value};
-        }
+            let { key , value , index } = action.payload;
+            state.categoriesSwitch = {key,value,index};
+        },
+        setSwitchCategories_2: (state,action) => {
+            let { key , value_2 , index_2 } = action.payload;
+            state.categoriesSwitch = {key,value:state.categoriesSwitch.value,index:state.categoriesSwitch.index,value_2,index_2}
+        },
+        editeChildren_1Category: (state,action) => {
+            let {index , value } = action.payload;
+            state.categories[state.categoriesSwitch.index].children[index].title = value;
+        },
+        deleteChildren_1Category: (state,action) => {
+           state.categories[state.categoriesSwitch.index].children = state.categories[state.categoriesSwitch.index].children.filter((cate,index) => index !== action.payload)
+        },
+        addChildren_1Category: (state,action) => {
+            let cate = {
+                        title:action.payload,
+                        children:[]
+                    }
+                    
+
+            state.categories[state.categoriesSwitch.index].children = [...state.categories[state.categoriesSwitch.index].children,cate]
+        },
+        addChildren_2Category: (state,action) => {
+            let cate = action.payload
+                    
+            state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children = [...state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children,cate]
+        },
+        deleteChildren_2Category: (state,action) => {
+            state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children = state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children.filter((cate,index) => index !== action.payload)
+         },
+         editeChildren_2Category: (state,action) => {
+            let {index , value } = action.payload;
+            state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children[index] = value;
+        },
     }
 })
 
 
-export const {setContent , setSwitch , addParentCategory , deleteParentCategory , editeParentCategory , setSwitchCategories} = dashboardSlice.actions;
+export const {setContent , setSwitch , addParentCategory , deleteParentCategory , addChildren_2Category , deleteChildren_2Category , editeChildren_2Category , editeParentCategory , setSwitchCategories , deleteChildren_1Category , editeChildren_1Category , addChildren_1Category , setSwitchCategories_2} = dashboardSlice.actions;
 export default dashboardSlice.reducer;

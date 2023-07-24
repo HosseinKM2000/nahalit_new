@@ -1,7 +1,8 @@
 import {Raect , useState , useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import ParentsCate from './ParentsCate/ParentsCate';
-import ChildrenCate from './ChildrenCate/ChildrenCate';
+import FirstChildrenCate from './FirstChildrenCate/FirstChildrenCate';
+import SecondChildrenCate from './SecondChildrenCate/SecondChildrenCate';
 
 function Categories() {
 
@@ -13,10 +14,15 @@ function Categories() {
     {
       setInnerCommponent(<ParentsCate/>)
     }
-    else if(Criterion === 'CHILDREN_1')
+    else if(Criterion === 'FIRSTCHILDREN')
     {
-      setInnerCommponent(<ChildrenCate/>)
+      setInnerCommponent(<FirstChildrenCate/>)
     }
+    else if(Criterion === 'SECONDCHILDREN')
+    {                      
+      setInnerCommponent(<SecondChildrenCate/>)
+    }
+    console.log(Criterion)
   },[Criterion])
 
 

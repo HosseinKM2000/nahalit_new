@@ -6,8 +6,7 @@ import {FiPlusCircle} from 'react-icons/fi';
 import {TiTick,TiDelete} from 'react-icons/ti';
 import { useDispatch } from 'react-redux';
 import { addParentCategory , deleteParentCategory, setSwitchCategories  ,editeParentCategory } from '../../../../../features/dashboard/dashboardSlice';
-import { ToastContainer} from 'react-toastify';
-import { toast } from "react-toastify";
+import { ToastContainer , toast} from 'react-toastify';
 
 
 function ParentsCate() {
@@ -18,7 +17,6 @@ function ParentsCate() {
   const [isChange,setIsChange] = useState({oldValue:'',newValue:''});
   const dispatch = useDispatch();
   useEffect(()=>{
-    console.log(isChange)
   },[isChange])
   const addCateHandler = (e,key) => {
     if(e.code === 'Enter' || key === 'Tick')
@@ -45,23 +43,24 @@ function ParentsCate() {
   const deleteCateHandler = (index) => {
     dispatch(deleteParentCategory(index))
   }
-  const editeHandler =  (index) => {
+  const editeHandler =  (e,key,index) => {
     const exiteItem  = categories.find(cate=> cate.title === isChange.newValue)
+    if(e.code === 'Enter' || key === 'Tick')
+    {
+      if(exiteItem)
+      {
+        toast.error('!این عنوان موجود است')
+      }
+      else if(isChange.newValue === '')
+      {
   
-    if(exiteItem)
-    {
-      toast.error('!این عنوان موجود است')
+        toast.info('لطفا عنوان جدید را وارد کنید')
+      }
+      else
+      {
+        dispatch(editeParentCategory({index,value:isChange.newValue}))
+      }
     }
-    else if(isChange.newValue === '')
-    {
-
-      toast.info('لطفا عنوان جدید را وارد کنید')
-    }
-    else
-    {
-      dispatch(editeParentCategory({index,value:isChange.newValue}))
-    }
-    console.log(isChange.newValue , isChange.oldValue)
   } 
 
   return (
@@ -79,8 +78,8 @@ function ParentsCate() {
             {
                isChange.oldValue !== cate.title
               ?
-              <div onClick={(e)=>dispatch(setSwitchCategories({key:'CHILDREN_1',value:cate.title}))} className='min-w-[27%] scale-motion h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
-              <div className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
+              <div className='min-w-[27%] scale-motion h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
+              <div onClick={(e)=>dispatch(setSwitchCategories({key:'FIRSTCHILDREN',value:cate.title,index}))} className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
               <div className=
               {
                 mouseHover === cate.title 
@@ -97,12 +96,11 @@ function ParentsCate() {
              </div>
              :
              <div className='w-[27%] scale-motion h-[4rem] bg-white flex justify-end rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
-             <input onChange={(e)=>setIsChange({oldValue:cate.title,newValue:e.target.value})} defaultValue={isChange.oldValue}  className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
+             <input onKeyDown={(e)=>editeHandler(e,'',index)}  onChange={(e)=>setIsChange({oldValue:cate.title,newValue:e.target.value})} defaultValue={isChange.oldValue}  className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
              <div className='flex flex-col h-full gap-1 justify-center ml-1'>
-               <TiTick onClick={(e)=>{editeHandler(index)}} className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer'/>
+               <TiTick onClick={(e)=>{editeHandler(e,'Tick',index)}} className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer'/>
                <TiDelete className='text-red-600 text-xl transition-all hover:text-red-500 cursor-pointer' onClick={()=>{
                 setIsChange({oldValue:'',newValue:''})
-                console.log('ok')
                }}/>
              </div>
             </div>

@@ -122,11 +122,11 @@ img[alt='comment']
     }
     .tagsIcon
     {
-        transform: scale(5);
+        transform: scale(3);
     }
     .documentImg
     {
-        transform: scale(5);
+        transform: scale(3);
     }
     .linkImg
     {

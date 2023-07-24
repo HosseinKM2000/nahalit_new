@@ -1,20 +1,20 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 import EndBox3 from "../../Components/EndBox3/EndBox3";
 // import images
-import headImg from "../../assets/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg";
-import img_1 from "../../assets/img/SoundEditing/saxophonist-playing-saxophone-wearing-golden-glasses-1024x1024.png";
-import img_2 from "../../assets/img/SoundEditing/kisspng-vegas-pro-portable-network-graphics-computer-icons-iconos-sony-vegas-9-pro-5b7b7f843fec75.0596849215348202282618-removebg-preview.png";
-import img_3 from "../../assets/img/SoundEditing/productIcon_v2_20200705203105080.png";
-import img_4 from "../../assets/img/SoundEditing/Adobe_Audition_CC_icon_2020.svg-1024x1000.png";
-import img_5 from "../../assets/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png";
-import img_6 from "../../assets/img/SoundEditing/4674029-scaled-transformed-min.png";
-import img_7 from "../../assets/img/SoundEditing/1398090309273659318951144-transformed-min.png";
-import img_8 from "../../assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import img_7 from "../../assets/img/SoundEditing/1398090309273659318951144-transformed-min.png";
+import img_6 from "../../assets/img/SoundEditing/4674029-scaled-transformed-min.png";
+import img_4 from "../../assets/img/SoundEditing/Adobe_Audition_CC_icon_2020.svg-1024x1000.png";
+import img_2 from "../../assets/img/SoundEditing/kisspng-vegas-pro-portable-network-graphics-computer-icons-iconos-sony-vegas-9-pro-5b7b7f843fec75.0596849215348202282618-removebg-preview.png";
+import img_3 from "../../assets/img/SoundEditing/productIcon_v2_20200705203105080.png";
+import img_1 from "../../assets/img/SoundEditing/saxophonist-playing-saxophone-wearing-golden-glasses-1024x1024.png";
+import img_5 from "../../assets/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png";
+import img_8 from "../../assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png";
+import headImg from "../../assets/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg";
 
 
 function SsoundEditing() {
@@ -70,7 +70,7 @@ function SsoundEditing() {
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>شرکت سونی نه تنها در زمینه صنعت فیلم سازی دستی دارد، بلکه نرم افزاری را در زمینه میکس، مونتاژ و ویرایش فیلم تهیه کرده است که بسیار قدرتمند می باشد. هر چند این نرم افزار به سیستم بسیار قوی نیاز دارد و کمی پیچیده است.</motion.p>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>استفاده از نهایت کیفیت در صداها و تصاویر خروجی که نهایت لذت را برای ببینده به همراه دارد یکی از مهم ترین خصوصیاتی است که در Sony Vegas Pro به چشم می خورد. انواعی از افکت ها در این ابزار گنجانده شده اند تا کاربران حرفه ای به راحتی با کنار هم قرار دادن تصاویر و همین افکت ها به جذاب تر شدن کار خود کمک کنند.</motion.p>
                 </div>
-                <motion.img src={img_2} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-[15rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
+                <motion.img src={img_2} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-[rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
             </div>
             <div className='flex gap-10 sm:gap-0 p-0 lg:pl-10 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>

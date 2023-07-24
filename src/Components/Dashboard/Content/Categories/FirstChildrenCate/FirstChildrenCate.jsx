@@ -1,14 +1,14 @@
-import {React , useState , useEffect} from 'react'
-import {RiDeleteBack2Fill} from 'react-icons/ri';
-import { useSelector , useDispatch } from 'react-redux';
-import {AiTwotoneDelete} from 'react-icons/ai';
-import {BsPencilFill} from 'react-icons/bs';
-import {FiPlusCircle} from 'react-icons/fi';
-import { TiTick , TiDelete } from 'react-icons/ti';
-import { setSwitchCategories , addChildren_1Category ,editeChildren_1Category , deleteChildren_1Category , setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
-import { ToastContainer , toast} from 'react-toastify';
-import { getCategories , addParentCategories , deleteParentCategories , editeParentCategories } from '../../../../../features/dashboard/action';
+import { React, useEffect, useState } from 'react';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { BsPencilFill } from 'react-icons/bs';
+import { FiPlusCircle } from 'react-icons/fi';
+import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { TiDelete, TiTick } from 'react-icons/ti';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import { addParentCategories, deleteParentCategories, editeParentCategories, getCategories } from '../../../../../features/dashboard/action';
+import { setSwitchCategories, setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
 
 function FirstChildrenCate() {
 
@@ -25,28 +25,27 @@ function FirstChildrenCate() {
   const dispatch = useDispatch();
 
   const editeHandler =  (e,key,id,category_id) => {
+    const exiteItem  = categories.find(cate=> cate.title === edite.newValue);
 
-    const exiteItem  = categories.find(cate=> cate.title === edite.newValue)
     if(e.code === 'Enter' || key === 'Tick')
     {
-      if(exiteItem)
-      {
-        toast.error('!این عنوان موجود است')
-      }
-      else if(edite.newValue === '')
-      {
-  
-        toast.info('لطفا عنوان جدید را وارد کنید')
-      }
-      else
-      {
-        dispatch(editeParentCategories({id,title:edite.newValue,category_id}))
-      }
+        if(exiteItem)
+        {
+          toast.error('!این عنوان موجود است')
+        }
+        else if(edite.newValue === '')
+        {
+    
+          toast.info('لطفا عنوان جدید را وارد کنید')
+        }
+        else
+        {
+          dispatch(editeParentCategories({id,title:edite.newValue,category_id}))
+        }
     }
   } 
 
   const addCateHandler = (e,key) => {
-
     if(e.code === 'Enter' || key === 'Tick')
     {
       if(newCate.value !== null )
@@ -75,28 +74,26 @@ function FirstChildrenCate() {
     dispatch(deleteParentCategories(id))
   }
 
-  useEffect(()=>{
-
+   useEffect(()=>{
     dispatch(getCategories())
-
-  },[add,Delete,Edite])
+    },[add,Delete,Edite])
 
   return (
     <>
-    <ToastContainer 
-    position='top-center'
-    theme='colored'
-    autoClose={2500}
-    className='Toast_info'
-    />
-    <div className='flex flex-col items-center w-full 2xl:w-[60%]'>
-      <div className='flex w-full items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
-        <div className='flex items-center'>
-          <span className='text-white font-bold'>{parentTitle} /</span>
-        </div>
-        <RiDeleteBack2Fill onClick={()=>dispatch(setSwitchCategories({key:'PARENT',title:parentTitle}))} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
-      </div>
-      {
+            <ToastContainer 
+            position='top-center'
+            theme='colored'
+            autoClose={2500}
+            className='Toast_info'
+            />
+            <div className='flex flex-col items-center w-full 2xl:w-[60%]'>
+              <div className='flex w-full items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
+                <div className='flex items-center'>
+                  <span className='text-white font-bold'>{parentTitle} /</span>
+                </div>
+                <RiDeleteBack2Fill onClick={()=>dispatch(setSwitchCategories({key:'PARENT',title:parentTitle}))} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
+              </div>
+              {
                Loading 
                 ?
                 <div className='h-[4rem] w-[30%] flex items-center justify-center mt-10'>
@@ -180,7 +177,7 @@ function FirstChildrenCate() {
                 }
               </div>
               }
-    </div>
+            </div>
     </>
   )
 }

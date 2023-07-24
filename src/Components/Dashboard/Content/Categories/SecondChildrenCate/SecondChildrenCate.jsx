@@ -1,17 +1,19 @@
-import {React , useState , useEffect} from 'react'
-import {RiDeleteBack2Fill} from 'react-icons/ri';
-import { useSelector , useDispatch } from 'react-redux';
-import {AiTwotoneDelete} from 'react-icons/ai';
-import {BsPencilFill} from 'react-icons/bs';
-import {FiPlusCircle} from 'react-icons/fi';
-import { TiTick , TiDelete } from 'react-icons/ti';
-import { setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
-import { ToastContainer , toast} from 'react-toastify';
-import { getCategories,
-         deleteParentCategories, 
-         editeParentCategories,
-         addParentCategories } from '../../../../../features/dashboard/action';
+import { React, useEffect, useState } from 'react';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { BsPencilFill } from 'react-icons/bs';
+import { FiPlusCircle } from 'react-icons/fi';
+import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { TiDelete, TiTick } from 'react-icons/ti';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import {
+  addParentCategories,
+  deleteParentCategories,
+  editeParentCategories,
+  getCategories
+} from '../../../../../features/dashboard/action';
+import { setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
 
 function SecondChildrenCate() {
 
@@ -54,31 +56,33 @@ function SecondChildrenCate() {
         }
       }
     } 
+
     const deleteHandler = (e,id) => {
-      e.stopPropagation();
-      dispatch(deleteParentCategories(id))
+        e.stopPropagation();
+        dispatch(deleteParentCategories(id))
     }
+
     const editeHandler =  (e,key,id,category_id) => {
 
-      e.stopPropagation();
-      const exiteItem  = categories.find(cate=> cate.title === edite.newValue)
+          e.stopPropagation();
+          const exiteItem  = categories.find(cate=> cate.title === edite.newValue)
 
-      if(e.code === 'Enter' || key === 'Tick')
-      {
-        if(exiteItem)
-        {
-          toast.error('!این عنوان موجود است')
-        }
-        else if(edite.newValue === '')
-        {
-    
-          toast.info('لطفا عنوان جدید را وارد کنید')
-        }
-        else
-        {
-           dispatch(editeParentCategories({id:id,title:edite.newValue,category_id:category_id}))
-        }
-      }
+          if(e.code === 'Enter' || key === 'Tick')
+          {
+            if(exiteItem)
+            {
+              toast.error('!این عنوان موجود است')
+            }
+            else if(edite.newValue === '')
+            {
+        
+              toast.info('لطفا عنوان جدید را وارد کنید')
+            }
+            else
+            {
+              dispatch(editeParentCategories({id:id,title:edite.newValue,category_id:category_id}))
+            }
+          }
     } 
     
     useEffect(()=>{

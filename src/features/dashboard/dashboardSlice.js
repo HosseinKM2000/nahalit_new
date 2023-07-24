@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategories,
-         addParentCategories,
-         deleteParentCategories,
-         editeParentCategories,
-         getProducts,
-         addGallery} from "./action";
 import { toast } from "react-toastify";
+import {
+    addGallery,
+    addParentCategories,
+    deleteParentCategories,
+    editeParentCategories,
+    getCategories,
+    getProducts
+} from "./action";
 
 const initialState = {
     content : 'categories',
@@ -101,7 +103,7 @@ const dashboardSlice = createSlice({
         .addCase(getCategories.rejected, (state) => {
             state.categories = null
             state.categoriesLoading = false;
-            state.categoriesError = 'error in get categories';
+            state.categoriesError = 'خطا در دریافت دسته بندی ها';
         })
         //  add parent
         .addCase(addParentCategories.fulfilled , (state,action) => {

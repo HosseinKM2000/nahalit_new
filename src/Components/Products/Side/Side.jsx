@@ -1,17 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
-import {MdArrowLeft} from 'react-icons/md';
-import PriceRange  from './components/PriceRange';
+import React, { useRef, useState } from 'react';
+import { MdArrowLeft } from 'react-icons/md';
 import CategoriesP from './CategoriesP/CategoriesP';
-import { useRef } from 'react';
+import PriceRange from './components/PriceRange';
 
 function Side() {
 
     const [fRotate,setFRotate] = useState(false);
     const [minPrice,setMinPrice] = useState(0);
     const [maxPrice,setMaxPrice] = useState(5000);
-    const [minValue,setMinValue] = useState(20);
-    const [maxValue,setMaxValue] = useState(300);
+    const [minValue,setMinValue] = useState(0);
+    const [maxValue,setMaxValue] = useState(5000);
     const filterSelectRef = useRef();
     const selectHandle = (e) => {
     }
@@ -43,7 +41,7 @@ function Side() {
              <option value="cheap">مرتب سازی بر اساس ارزان ترین</option>
              <option value="expensive">مرتب سازی بر اساس گرانترین</option>
         </select>
-        <PriceRange minPoint={minPrice} maxPoint={maxPrice} minValue={minValue} maxValue={maxValue} steps={1} setMin={changeMinValue} setMax={changeMaxValue} />
+        <PriceRange minPoint={minPrice} maxPoint={maxPrice} minValue={minValue} maxValue={maxValue} steps={500} setMin={changeMinValue} setMax={changeMaxValue} />
         <CategoriesP/>
     </div>
   )

@@ -1,17 +1,27 @@
-import { React , useState , useRef } from 'react';
-import {BsPersonFill} from 'react-icons/bs';
+import { React, useRef, useState } from 'react';
+import { BsPersonFill } from 'react-icons/bs';
+import { MdOutlineRemoveRedEye } from 'react-icons/md';
+import { PiEyeClosedBold } from 'react-icons/pi';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toast , ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import { register } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
 
 function Register() {
   const [Switch,setSwitch] = useState(false);
+  const [showpassword,setShowpassword] = useState(false);
   const [phoneCode,setPhoneCode] = useState(98);
   const [acceptCode,setAcceptCode] = useState(false);
   const nameRef = useRef();
+  const familyRef = useRef();
+  const usernameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
   const codeRef = useRef();
+  const passwordRef = useRef();
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.authentication.loading);
 
   const ListOfCountryCodes =  [{"country":"Afghanistan","code":"93","iso":"AF"},
   {"country":"Albania","code":"355","iso":"AL"},
@@ -255,16 +265,31 @@ function Register() {
   {"country":"Zimbabwe","code":"263","iso":"ZW"}];
 
   const registerHandler = () => {
-    let name = nameRef.current.value;
+    let first_name = nameRef.current.value;
+    let last_name = familyRef.current.value;
+    let username = usernameRef.current.value;
     let email = emailRef.current.value;
-    let phone = phoneRef.current.value;
+    let mobile = phoneRef.current.value;
+    let password = passwordRef.current.value;
     switch(true)
     {
-      case name.length < 5 && name.length !== 0 : toast.warn('!نام کوتاه است');
+      case first_name.length < 2 && first_name.length !== 0 : toast.warn('!نام کوتاه است');
       break;
-      case name.length === 0 : toast.warning('نام را وارد کنید');
+      case first_name.length === 0 : toast.warning('نام را وارد کنید');
       break;
-      case name.search(/\D+/g) === -1 : toast.warn('نام قابل قبول نیست');
+      case first_name.search(/\D+/g) === -1 : toast.warn('نام قابل قبول نیست');
+      break;
+      case last_name.length < 3 && last_name.length !== 0 : toast.warn('!نام خانوادگی کوتاه است');
+      break;
+      case last_name.length === 0 : toast.warning('نام خانوادگی را وارد کنید');
+      break;
+      case last_name.search(/\D+/g) === -1 : toast.warn('نام خانوادگی قابل قبول نیست');
+      break;
+      case username.length < 5 && username.length !== 0 : toast.warn('!نام کاربری کوتاه است');
+      break;
+      case username.length === 0 : toast.warning('نام کاربری را وارد کنید');
+      break;
+      case username.search(/\D+/g) === -1 : toast.warn('نام کاربری قابل قبول نیست');
       break;
       case email.length === 0 : toast.warn('ایمیل را وارد کنید');
       break;
@@ -274,17 +299,23 @@ function Register() {
       break;
       case email.indexOf('@') < 1 : toast.warn('ایمیل صحیح نیست');
       break;
-      case phone.length === 0 : toast.warn('شماره تلفن را وارد کنید');
+      case mobile.length === 0 : toast.warn('شماره تلفن را وارد کنید');
       break;
-      case phone.length < 6 : toast.warn('شماره تلفن کوتاه است');
+      case mobile.length < 6 : toast.warn('شماره تلفن کوتاه است');
       break;
-      case phone.indexOf('0') === 0 : toast.warn('کد پیش شماره را حذف کنید');
+      case mobile.indexOf('0') === 0 : toast.warn('کد پیش شماره تلفن را حذف کنید');
       break;
-      default : formSubmiter();
+      case password.length === 0 : toast.warn('رمز عبور را وارد کنید');
+      break;
+      case password.length < 8 : toast.warn('رمز عبور کوتاه است');
+      break;
+      case password.search(/\D+/g) === -1 || password.search(/\d+/g) === -1 : toast.warn('رمز عبور باید ترکیبی از اعداد و حروف باشد')
+      break; 
+      default : formSubmiter({first_name,last_name,username,mobile,email,password});
     }
   }
-  const formSubmiter = () => {
-    console.log(phoneCode+phoneRef.current.value)
+  const formSubmiter = (dataObj) => {
+    dispatch(register(dataObj))
     setAcceptCode(!acceptCode)
   }
   return (
@@ -310,6 +341,14 @@ function Register() {
                 <div className='flex flex-col 2xl:text-2xl items-end gap-2 w-full text-sm  sm:text-base'>
                   <label className='text-stone-600 w-full' htmlFor="name">نام:</label>
                   <input ref={nameRef} type="text" className='bg-[#c3cad2] text-left outline-none border-none w-[100%] 2xl:w-[80%] sm:w-[90%] p-1' name='name'/>
+                </div>
+                <div className='flex flex-col 2xl:text-2xl items-end gap-2 w-full text-sm  sm:text-base'>
+                  <label className='text-stone-600 w-full' htmlFor="family">نام خانوادگی:</label>
+                  <input ref={familyRef} type="text" className='bg-[#c3cad2] text-left outline-none border-none w-[100%] 2xl:w-[80%] sm:w-[90%] p-1' name='family'/>
+                </div>
+                <div className='flex flex-col 2xl:text-2xl items-end gap-2 w-full text-sm  sm:text-base'>
+                  <label className='text-stone-600 w-full' htmlFor="username">نام کاربری:</label>
+                  <input ref={usernameRef} type="text" className='bg-[#c3cad2] text-left outline-none border-none w-[100%] 2xl:w-[80%] sm:w-[90%] p-1' name='username'/>
                 </div>
                 <div className='flex flex-col items-end 2xl:text-2xl gap-2 w-full text-sm  sm:text-base'>
                     <label className='text-stone-600 w-full' htmlFor="email">ایمیل:</label>
@@ -346,6 +385,19 @@ function Register() {
                         }
                       </select>
                     </div>
+                </div>
+                <div className='flex flex-col items-end 2xl:text-2xl gap-2 w-full text-sm  sm:text-base'>
+                  <label htmlFor="password" className='text-stone-600 w-full'>رمز عبور</label>
+                  <div className='w-full flex items-center justify-end gap-3'>
+                  {
+                    !showpassword
+                    ?
+                    <MdOutlineRemoveRedEye onClick={()=>setShowpassword(true)}/>
+                    :
+                    <PiEyeClosedBold onClick={()=>setShowpassword(false)}/>
+                  }
+                  <input type={showpassword?'text':'password'} minLength={'8'} ref={passwordRef} name="password" id="password" className='bg-[#c3cad2] outline-none text-left border-none w-[100%] sm:w-[90%] 2xl:w-[80%] p-1'/>
+                  </div>
                 </div>
                 {
                   acceptCode 

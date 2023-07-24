@@ -37,15 +37,15 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
       } else {
         priceInput[0].value = minVal;
         priceInput[1].value = maxVal;
-        range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        range.style.right = ((minVal / rangeInput[0].max) * 100) + "%";
+        range.style.left = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
       }
     });
   });
 
   return (
     <>
-      <div className="price-input">
+      <div className="price-input" dir="rtl">
         <div className="field">
           <span>از</span>
           <input

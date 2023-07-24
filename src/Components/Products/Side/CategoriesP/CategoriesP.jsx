@@ -1,10 +1,9 @@
-import React from 'react';
-import { useRef } from 'react';
-import {TbDiscount2} from 'react-icons/tb';
-import {MdLocalGroceryStore} from 'react-icons/md';
-import {RiRestartFill} from 'react-icons/ri';
+import React, { useRef } from 'react';
+import { MdLocalGroceryStore } from 'react-icons/md';
+import { RiRestartFill } from 'react-icons/ri';
+import { SlMagnifier } from 'react-icons/sl';
+import { TbDiscount2 } from 'react-icons/tb';
 import { keyWord } from '../../../../API/data';
-import {SlMagnifier} from 'react-icons/sl';
 
 function CategoriesP() {
 
@@ -150,7 +149,7 @@ function CategoriesP() {
             <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>
               {
                 keyWord.map(item => (
-                  <span className='text-base 2xl:leading-normal text-gray-66 px-1 cursor-pointer hover:text-sky-blue'>{item}</span>
+                  <span className='text-sm text-gray-66 px-1 cursor-pointer hover:text-sky-blue'>{item}</span>
                 ))
               }
             </div>

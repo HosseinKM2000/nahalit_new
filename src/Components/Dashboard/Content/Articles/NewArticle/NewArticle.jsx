@@ -1,7 +1,5 @@
-import React from 'react';
-import { useRef , useState } from 'react';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
+import React, { useRef, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 function NewArticle() {
 
@@ -11,7 +9,6 @@ function NewArticle() {
     const descRef  = useRef();
     const situationRef = useRef();
     const tagsRef = useRef();
-    const slugRef = useRef();
     const mobile = window.innerWidth > 425 ? true : false;
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -25,7 +22,6 @@ function NewArticle() {
         const formData = {
             title:titleRef.current.value,
             image:imageName,
-            slug:slugRef,
             body:descRef.current.value,
             is_active:situationRef,
             user_id:''
@@ -37,8 +33,6 @@ function NewArticle() {
             case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
             case formData.image === '' : toast.warn("تصویر را وارد کنید");
-            break;
-            case formData.slug === '' : toast.warn("اسلاگ را وارد کنید");
             break;
             case formData.body === '' : toast.warn("توصیحات را وارد کنید");
             break;
@@ -92,11 +86,6 @@ function NewArticle() {
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
-                {/* title */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="slug" className='font-semibold text-[#2e424a]'>اسلاگ</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={slugRef} required={true} name='slug'/>
             </div>
                 {/* tags */}
             <div className="flex flex-col gap-2 w-full">

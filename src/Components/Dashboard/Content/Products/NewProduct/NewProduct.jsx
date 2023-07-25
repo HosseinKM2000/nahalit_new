@@ -1,11 +1,7 @@
-import React from 'react';
-import { useRef , useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
-import { GiCancel } from 'react-icons/gi';
-import { TiTickOutline } from 'react-icons/ti';
+import { ToastContainer, toast } from 'react-toastify';
 
 function NewProduct() {
     // const [categories,setCategories] = useState([
@@ -42,6 +38,7 @@ function NewProduct() {
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
     const [tags,setTags] = useState([]);
+    const [priceValue,setPriceValue] = useState(0);
     const priceRef = useRef();
     const tagsRef = useRef();
     const categoryRef = useRef();
@@ -50,6 +47,7 @@ function NewProduct() {
     const discountRef = useRef();
     const categories = useSelector(state => state.dashboard.categories);
     const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
+   
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -57,6 +55,25 @@ function NewProduct() {
             e.stopPropagation()
         }
     }
+
+    function separateByCommas(number) {
+        let numberString = String(number);
+        
+        let separatedNumber = '';
+        let counter = 0;
+        
+        for (let i = numberString.length - 1; i >= 0; i--) {
+          if (counter === 3) {
+            separatedNumber = ',' + separatedNumber;
+            counter = 0;
+          }
+          separatedNumber = numberString.charAt(i) + separatedNumber;
+          counter++;
+        }
+        
+        setPriceValue(separatedNumber)
+      }
+
     const add = (e) => {
         const textTag = tagsRef.current.value;
         if(e.key === "Enter")
@@ -72,9 +89,11 @@ function NewProduct() {
             }
         }
     }
+
     const Delete = (indexRemove) => {
           setTags(tags.filter((tag,index)=> index !== indexRemove))
     }
+
     const formSubmiter = (e) => {
         e.preventDefault()
         const formData = {
@@ -86,11 +105,13 @@ function NewProduct() {
             description:descRef.current.value,
         }
     }
+
     const liHandler = (value) => {
         setChildList(true);
         const item = categories.filter(cate => cate.category_id === null).find(cate => cate.title === value);
         setGoalCate(item)
     }
+
     const liHandler_2 = (id) => {
         setChildList_2(true);
         const item = categories.find(cate => cate.id === id);
@@ -213,13 +234,15 @@ function NewProduct() {
            {/* price */}
             <div className='flex flex-col gap-2 w-full'>
             <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
-            <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef} className='p-1 outline-[#0ab694] w-[20%]'/>
+            <input type="text" name="price" id="" onChange={(e)=>{
+                !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
+            }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] w-[20%] text-left' style={{direction:'ltr'}}/>
             </div>
                {/* discount */}
             <div className='w-full flex flex-col gap-2'>
               <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
               <div className='flex gap-1 w-full items-center transition-all duration-300 overflow-hidden'>
-               <input type="text" ref={discountRef} className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
+               <input type="text" ref={discountRef} className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 placeholder:text-xs placeholder:text-stone-300 text-[#000] font-[shabnambold]' placeholder='درصد...' onChange={(e)=>{
                   if(e.target.value.search(/\D+/g) !== -1)
                     {
                     e.target.value = ''

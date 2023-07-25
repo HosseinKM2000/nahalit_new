@@ -1,50 +1,51 @@
 import React from "react";
-import Home from "./page/Home/Home";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import "swiper/css";
+import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/effect-cards";
-import { Route, Routes } from "react-router-dom";
-import Order from "./page/Order/Order";
-import Recruitment from "./page/Recruitment/Recruitment";
-import LoginLearn from "./page/LoginLearn/LoginLearn";
-import MotionGraphics from "./page/MotionGraphics/MotionGraphics";
-import UI_UX from "./page/UI_UX/UI_UX";
-import Brochure from "./page/Brochure/Brochure";
-import Poster from "./page/Poster/Poster";
-import Catalog from "./page/Catalog/Catalog";
-import BusinessCard from "./page/Business_Card/BusinessCard";
-import Logo from "./page/Logo/Logo";
-import Premiere from "./page/Premiere/Premiere";
-import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
-import Aplication from "./page/Aplication/Aplication";
-import Seo from "./page/Seo/Seo";
-import Voicing from "./page/Voicing/Voicing";
-import Saplication from "./page/S_Aplication/Saplication";
-import SsoundEditing from "./page/SsoundEditing/SsoundEditing";
-import EecoSaleWeb from "./page/EecoSaleWeb/EecoSaleWeb";
-import SsaleWebExclusive from "./page/SsaleWebExclusive/SsaleWebExclusive";
-import SsaleWeb from "./page/SsaleWeb/SsaleWeb";
-import Sseo from "./page/Sseo/Sseo";
-import SworkService from "./page/SworkService/SworkService";
-import SsocialMedia from "./page/SsocialMedia/SsocialMedia";
-import SmotionGhraphic from "./page/SmotionGhraphic/SmotionGhraphic";
-import Sproposal from "./page/Sproposal/Sproposal";
-import Spremier from "./page/Spremier/Spremier";
-import Sgraphic from "./page/Sgraphic/Sgraphic";
-import ContactUs from "./page/ContactUs/ContactUs";
+import "./App.css";
 import ScrollToTophg from "./Components/ScrollToTop/ScrollToTop";
-import Error from "./page/Error/Error";
-import News from  './page/News/News';
-import ArticlesPagination from "./page/Articles/ArticlesPagination/ArticlesPagination";
+import Aplication from "./page/Aplication/Aplication";
 import Article from "./page/Articles/Article/Article";
-import Dashboard  from './page/Dashboard/Dashboard.jsx'
-import Products from "./page/Products/Products";
-import Product from "./page/Products/Product/Product";
+import ArticlesPagination from "./page/Articles/ArticlesPagination/ArticlesPagination";
 import Login from "./page/Authentication/Login/Login";
 import Register from "./page/Authentication/Register/Register";
+import Brochure from "./page/Brochure/Brochure";
+import BusinessCard from "./page/Business_Card/BusinessCard";
+import Cart from "./page/Cart/Cart";
+import Catalog from "./page/Catalog/Catalog";
+import ContactUs from "./page/ContactUs/ContactUs";
+import Dashboard from './page/Dashboard/Dashboard.jsx';
+import EecoSaleWeb from "./page/EecoSaleWeb/EecoSaleWeb";
+import Error from "./page/Error/Error";
+import Home from "./page/Home/Home";
+import LoginLearn from "./page/LoginLearn/LoginLearn";
+import Logo from "./page/Logo/Logo";
+import MotionGraphics from "./page/MotionGraphics/MotionGraphics";
+import News from './page/News/News';
+import Order from "./page/Order/Order";
+import Poster from "./page/Poster/Poster";
+import Premiere from "./page/Premiere/Premiere";
+import Product from "./page/Products/Product/Product";
+import Products from "./page/Products/Products";
+import Recruitment from "./page/Recruitment/Recruitment";
+import Saplication from "./page/S_Aplication/Saplication";
+import Seo from "./page/Seo/Seo";
+import Sgraphic from "./page/Sgraphic/Sgraphic";
+import SmotionGhraphic from "./page/SmotionGhraphic/SmotionGhraphic";
+import Spremier from "./page/Spremier/Spremier";
+import Sproposal from "./page/Sproposal/Sproposal";
+import SsaleWeb from "./page/SsaleWeb/SsaleWeb";
+import SsaleWebExclusive from "./page/SsaleWebExclusive/SsaleWebExclusive";
+import Sseo from "./page/Sseo/Sseo";
+import SsocialMedia from "./page/SsocialMedia/SsocialMedia";
+import SsoundEditing from "./page/SsoundEditing/SsoundEditing";
+import SworkService from "./page/SworkService/SworkService";
+import UI_UX from "./page/UI_UX/UI_UX";
+import Voicing from "./page/Voicing/Voicing";
+import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
 
 const App = () => {
   return (
@@ -90,6 +91,7 @@ const App = () => {
           <Route path="/shop/product/:id" element={<Product/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </div>
       </>

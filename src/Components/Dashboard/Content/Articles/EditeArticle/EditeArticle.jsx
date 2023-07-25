@@ -1,10 +1,8 @@
-import React from 'react';
-import { useRef , useState } from 'react';
-import { toast } from 'react-toastify';
-import { useDispatch , useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import React, { useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function EditeArticle() {
     const [imageName,setimageName] = useState('');
@@ -18,7 +16,6 @@ function EditeArticle() {
     const descRef  = useRef();
     const situationRef = useRef();
     const tagsRef = useRef();
-    const slugRef = useRef();
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -31,7 +28,6 @@ function EditeArticle() {
         const formData = {
             title:titleRef.current.value,
             image:imageName,
-            slug:slugRef,
             body:descRef.current.value,
             is_active:situationRef,
             user_id:''
@@ -43,8 +39,6 @@ function EditeArticle() {
             case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
             case formData.image === '' : toast.warn("تصویر را وارد کنید");
-            break;
-            case formData.slug === '' : toast.warn("اسلاگ را وارد کنید");
             break;
             case formData.body === '' : toast.warn("توصیحات را وارد کنید");
             break;
@@ -102,11 +96,6 @@ function EditeArticle() {
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
-                {/* title */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="slug" className='font-semibold text-[#2e424a]'>اسلاگ</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={slugRef} required={true} name='slug'/>
             </div>
                 {/* tags */}
             <div className="flex flex-col gap-2 w-full">

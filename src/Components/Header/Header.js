@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { BsWordpress } from "react-icons/bs";
-import { AiFillHtml5 } from "react-icons/ai";
-import { FaAndroid  } from "react-icons/fa";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { RiWordpressFill } from "react-icons/ri";
-import { FaSpa } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
+import { BsPerson, BsWordpress } from "react-icons/bs";
+import { FaAndroid, FaSpa } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { BsPerson } from "react-icons/bs";
 import { MdKeyboardArrowLeft } from "react-icons/md";
+import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+ 
   const [showSlide, setShowSlide] = useState(false);
   const [showSlide2, setShowSlide2] = useState(false);
   const [showSlide3, setShowSlide3] = useState(false);

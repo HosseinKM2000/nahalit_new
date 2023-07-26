@@ -87,7 +87,7 @@ function Product() {
       <div className='flex flex-col lg:flex-row mt-5 w-full justify-between overflow-x-hidden text-right px-5'>
                      {/* right side */}
       <div className='flex flex-col w-full lg:w-[70%] p-0 sm:pr-5'>
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-full'>
             <ul className='flex flex-row flex-wrap border-y-2 text-xs border-for-border gap-x-2 sm:gap-x-5 py-3 justify-start'>
                 <li><Link to='/' className='hover:text-sky-blue text-stone-800'>صفحه اصلی</Link></li>
                 <li><Link to='/shop' className='hover:text-sky-blue text-stone-800'>سایت های آماده</Link></li>
@@ -95,8 +95,8 @@ function Product() {
                 <li className='text-gray-88'>{goalProduct.title}</li>
             </ul>
             <div  className='flex flex-col mt-10 2xl:gap-20 items-start'>
-              <h1 className='text-lg font-bold 2xl:text-4xl text-stone-700 mb-5'>{goalProduct.title}</h1>
-              <div className='w-full h-[20rem] bg-no-repeat sm:h-[40rem] 2xl:h-[90rem] cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct.img})`}}></div>
+              <h1 className='text-lg font-bold 2xl:text-3xl text-stone-700 mb-5'>{goalProduct.title}</h1>
+              <div className='w-full h-[20rem] bg-no-repeat sm:h-[40rem] 2xl:h-[50rem] cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct.img})`}}></div>
               <div className='flex gap-5 text-white text-sm 2xl:text-2xl font-bold my-5 '>
                 <span onClick={()=>setSwitch(false)} className='bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>توضیحات</span>
                 <div onClick={()=>setSwitch(true)} className='flex gap-1 items-center bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>
@@ -107,9 +107,9 @@ function Product() {
               {
                   !Switch
                   ? 
-                  <div className='flex flex-col my-5 gap-5'>
-                    <span className='text-xl font-bold 2xl:text-6xl text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
-                    <p className='text-lg 2xl:text-3xl 2xl:leading-[3.5rem] text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
+                  <div className='flex flex-col my-5 gap-5 w-full'>
+                    <span className='text-xl font-bold 2xl:text-3xl text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
+                    <p className='text-lg 2xl:text-2xl 2xl:leading-[3.5rem] text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
                     <div className='w-full flex flex-col items-center gap-5'>
                       <img className='w-full sm:w-[60%]' src={desImg} alt="property" />
                       <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-5'>
@@ -128,34 +128,34 @@ function Product() {
                 <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0 2xl:m-12'/>
                 <div className='flex flex-col sm:flex-row text-white w-full'>
                   <Link to='https://twitter.com/intent/tweet?text=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTwitter className='scale-125 2xl:w-16 2xl:h-16'/>
-                    <span className='text-xs text-center  sm:text-sm  2xl:text-3xl'>اشتراک در توییتر</span> 
+                    <BsTwitter className='scale-125 2xl:w-12 2xl:h-12'/>
+                    <span className='text-xs text-center  sm:text-sm  2xl:text-2xl'>اشتراک در توییتر</span> 
                   </Link>
                   <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-3 px-5 gap-5'  to="https://www.facebook.com/sharer/sharer.php?u=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">
-                    <FaFacebookF className='scale-125 2xl:w-16 2xl:h-16'/>
-                   <span className='text-xs text-center  sm:text-sm 2xl:text-3xl'> اشتراک در فیسبوک</span>
+                    <FaFacebookF className='scale-125 2xl:w-12 2xl:h-12'/>
+                   <span className='text-xs text-center  sm:text-sm 2xl:text-2xl'> اشتراک در فیسبوک</span>
                   </Link>
                   <Link to="https://telegram.me/share/url?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTelegram className='scale-125 2xl:w-16 2xl:h-16'/>
-                   <span className='text-xs text-center  sm:text-sm 2xl:text-3xl'> اشتراک در تلگرام</span>
+                    <BsTelegram className='scale-125 2xl:w-12 2xl:h-12'/>
+                   <span className='text-xs text-center  sm:text-sm 2xl:text-2xl'> اشتراک در تلگرام</span>
                   </Link>
-                  <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-20 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
-                    <BsPinterest className='scale-125 2xl:w-16 2xl:h-16'/>
-                    <span  className='text-xs text-center sm:text-sm 2xl:text-3xl'>اشتراک در پینترست</span>
+                  <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-12 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
+                    <BsPinterest className='scale-125 2xl:w-12 2xl:h-12'/>
+                    <span  className='text-xs text-center sm:text-sm 2xl:text-2xl'>اشتراک در پینترست</span>
                   </Link>
                 </div>
               </div>
                             {/* junction-path */}
               <div className='flex flex-col sm:flex-row w-full sm:w-auto  items-center 2xl:p-12 justify-between gap-y-3 py-5 px-4 my-10 text-white bg-light-blue'>
-               <span className='text-xs sm:text-sm flex items-center text-center sm:text-start 2xl:text-3xl'>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
-               <button className='border-2 2xl:text-3xl 2xl:py-6 2xl:px-4 border-white px-2 py-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
+               <span className='text-xs sm:text-sm flex items-center text-center sm:text-start 2xl:text-2xl'>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
+               <button className='border-2 2xl:text-2xl 2xl:py-4 2xl:px-4 border-white px-2 py-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
               </div>
                             {/* Suggested-contents */}
                 <div className='flex flex-col gap-2 items-center w-full'>
                 <div className='flex justify-start w-full border-r-4 2xl: 2xl:py-8 border-light-orang py-2  my-5' style={{borderRight:'solid 5px #00BDAF'}}>
-                  <span className='font-bold text-gray-77 text-lg 2xl:text-5xl m-0 pr-3'>محصولات مرتبط</span>
+                  <span className='font-bold text-gray-77 text-lg 2xl:text-3xl m-0 pr-3'>محصولات مرتبط</span>
                 </div>
-                <div className='flex carsoule-parent'> 
+                <div className='flex carsoule-parent z-0'> 
                     <Swiper
                     modules={[Navigation, Pagination, A11y]}
                     spaceBetween={mobile ? 0 : 20 }
@@ -170,11 +170,11 @@ function Product() {
                     {
                       products.map(product => (
                         <SwiperSlide className='SwiperSlide'>
-                          <div className='flex flex-col 2xl:mb-10 mb-8 gap-1 2xl:gap-16 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
-                            <Link to={{pathname:`/shop/product`,search:`?name=${product.title}`}} ><img src={product.img} alt={product.title} className='hover:brightness-125 2xl:w-full cursor-pointer transition-all'/></Link>
+                          <div className='flex flex-col 2xl:mb-10 mb-8 gap-1 2xl:gap-1 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
+                            <Link to={{pathname:`/shop/product`,search:`?name=${product.title}`}} className='z-10'><img src={product.img} alt={product.title} className='hover:brightness-125 z-10 2xl:w-full cursor-pointer transition-all'/></Link>
                             <h6 className='pt-2 cursor-pointer hover:text-gray-88 pr-2 text-sm suggest-title font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${product.title}`}}>{product.title}</Link></h6>
-                            <div className='flex flex-col py-2 text-sm 2xl:text-4xl'>
-                              <p className='line-clamp-4 text-gray-66 leading-5 px-2 suggest-text text-justify mb-1'>{product.explain}</p>
+                            <div className='flex flex-col py-2 text-sm 2xl:text-2xl'>
+                              <p className='line-clamp-4  text-gray-66 leading-5 px-2 suggest-text text-justify mb-1'>{product.explain}</p>
                             </div>
                             <div className='flex flex-col'>
                             <HiCurrencyDollar className='text-yellow-600 scale-[1.5] mr-3'/>

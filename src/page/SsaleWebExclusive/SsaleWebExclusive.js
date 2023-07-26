@@ -79,26 +79,26 @@ function SsaleWebExclusive() {
               </div>
             </div>
             <motion.div  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>
-              <h6 className='text-center text-green-137'>طراحی وب سایت حرفه ای</h6>
+              <h6 className='text-center text-green-137 2xl:mb-5 2xl:mt-10'>طراحی وب سایت حرفه ای</h6>
               <div className='flex flex-col sm:flex-row gap-2'>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={domain} alt="domain" className='w-28 2xl:w-96'/>
-                  <span className='font-bold 2xl:text-5xl text-gray-66'>ثبت دامنه ی اختصاصی</span>
+                  <img src={domain} alt="domain" className='w-28 2xl:w-64'/>
+                  <span className='font-bold 2xl:text-3xl text-gray-66'>ثبت دامنه ی اختصاصی</span>
                   <p className='text-gray-66 text-center span 2xl:text-4xl leading-8 text-sm'>دوست دارید آدرس وب‌ سایت شما چه باشد؟ شما می‌ توانید خیلی سریع دامنه مورد نظرتان را ثبت کنید یا دامنه‌ قبلی خود را به سایت متصل نمایید.</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={Img_5} alt="Img_5" className='w-28 2xl:w-96'/>
-                  <span className='font-bold  2xl:text-5xl text-gray-66'>قالب‌ های مناسب و جذاب</span>
+                  <img src={Img_5} alt="Img_5" className='w-28 2xl:w-64'/>
+                  <span className='font-bold  2xl:text-3xl text-gray-66'>قالب‌ های مناسب و جذاب</span>
                   <p className='text-gray-66 text-center span  2xl:text-4xl leading-8 text-sm'>طراحی انواع قالب های گرافیکی زیبا و همچنین بهینه سازی انواع قالب ها متناسب با سلیقه کاربر به همراه پشتیبانی از سایت</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={Img_6} alt="Img_6" className='w-28 2xl:w-96'/>
-                  <span className='font-bold  2xl:text-5xl  text-gray-66'>ایجاد پنل برای مدیریت آسان سایت</span>
+                  <img src={Img_6} alt="Img_6" className='w-28 2xl:w-64'/>
+                  <span className='font-bold  2xl:text-3xl  text-gray-66'>ایجاد پنل برای مدیریت آسان سایت</span>
                   <p className='text-gray-66 text-center span 2xl:text-2xl leading-8 text-sm'>کار با پنل مدیریت سایت واقعاً ساده است و هر کسی از پس مدیریت آن بر خواهد آمد. بنابراین در آینده به هیچ مشکلی برخورد نمی‌کنید.</p>
                 </div>
               </div>
             </motion.div>
-            <div className='mb-32'>
+            <div className='mb-32 2xl:mt-20'>
                 <h6 className='text-gray-66 text-center'>تعرفه خدمات طراحی وب سایت</h6>
                 <div className='flex flex-col items-center sm:flex-row gap-5 sm:gap-2'>
                   <img className='w-11/12 sm:w-60 2xl:w-1/4' src={tarrif_laravel} alt="laravel" />
@@ -119,7 +119,7 @@ function SsaleWebExclusive() {
             <motion.div whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}} className='flex flex-row-reverse end-box items-center bg-green-72 px-2 py-10 end-box'>
             <div className='flex flex-col items-start gap-5'>
             <span className='text-xl leading-10 font-thin text-gray-66 text-center'>برای مشاهده و سفارش قالب ها و سایت های آماده ی طراحی شده توسط تیم نهال آی تی از طریق لینک زیر اقدام کنید</span>
-            <button className='text-white bg-green-57C w-11/12 py-2 rounded-md text-sm hover:brightness-105 transition-all'>مشاهده وب سایت ها و قالب های آماده</button>
+            <button className='text-white bg-green-57C w-[90%] sm:w-[70%] lg:w-[50%] py-2 2xl:text-lg rounded-md text-sm hover:brightness-105 transition-all'>مشاهده وب سایت ها و قالب های آماده</button>
            </div>
            <img src={front_2} alt="front" className='w-80'/>
           </motion.div>

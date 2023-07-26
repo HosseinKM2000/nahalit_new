@@ -88,15 +88,15 @@ b
     .Seo-content > div > div > div > h1,h2,h3,h4,h5,h6
     {
         text-align: right;
-        font-size: 4rem !important;
+        font-size: 2.5rem !important;
     }
     .Seo-content > div > p,
     .Seo-content > div > div > p,
     .Seo-content > div > div > div > p
     {
         text-align: right;
-        line-height: 6rem;
-        font-size: 2.5rem;
+        line-height: 5rem;
+        font-size: 1.5rem;
     }  
     .h-45
     {

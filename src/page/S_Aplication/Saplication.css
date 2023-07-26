@@ -90,15 +90,15 @@ b
     .MobileApplication-content > div > div > div > h1,h2,h3,h4,h5,h6
     {
         text-align: right;
-        font-size: 4rem !important;
+        font-size: 2.5rem !important;
     }
     .MobileApplication-content > div > p,
     .MobileApplication-content > div > div > p,
     .MobileApplication-content > div > div > div > p
     {
         text-align: right;
-        line-height: 6rem;
-        font-size: 2.5rem;
+        line-height: 5rem;
+        font-size: 1.5rem;
     } 
     .h-40Rem
     {
@@ -106,11 +106,11 @@ b
     }
     .design-mobile-application > div > span
     {
-        font-size: 3rem;
-        line-height: 4rem;
+        font-size: 1.5rem;
+        line-height: 3rem;
     }
     .design-mobile-application > div > b
     {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }

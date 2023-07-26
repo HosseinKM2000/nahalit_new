@@ -109,21 +109,21 @@ li
     .premierEditing-content > div > div > div > h1,h2,h3,h4,h5,h6
     {
         text-align: right;
-        font-size: 4rem !important;
+        font-size: 2.5rem !important;
     }
     .premierEditing-content > div > p,
     .premierEditing-content > div > div > p,
     .premierEditing-content > div > div > div > p
     {
         text-align: right;
-        line-height: 6rem;
-        font-size: 2.5rem;
+        line-height: 5rem;
+        font-size: 1.5rem;
     } 
     li
     {
         
-    font-size: 2.5rem !important;
-    line-height: 6rem !important;
+    font-size: 1.5rem !important;
+    line-height: 4rem !important;
 
     }
     b
@@ -131,7 +131,7 @@ li
         color: #404040;
         font-weight: bolder;
         font-family: IranSans-b;
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .editing-video-Services > div > span
     {
@@ -141,4 +141,12 @@ li
         line-height: 6rem;
         color: rgb(87, 87, 87);
     }
+    .editing-video-Services > div > span
+{
+    font-family: IranSans-r !important;
+    font-weight: 100;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: rgb(87, 87, 87);
+}
 }

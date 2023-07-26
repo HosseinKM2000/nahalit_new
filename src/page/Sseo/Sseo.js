@@ -46,7 +46,7 @@ function Sseo() {
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>سئو چیست؟ امروزه همان سوالی است که در تمامی زیرشاخه های کسب و کارهای اینترنتی و دیجیتال مارکتینگ، مطرح می شود.</motion.p>
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>به طور خلاصه می توان گفت بهینه سازی وب سایت یا همان سئو ، موجب می شود یک سایت توسط موتورهای جستجو نظیر گوگل، یعنی در صفحه سرچ آن ها به افرادی که کلمات مربوط به آن وب سایت ها را جستجو می کنند، در جایگاه بالاتری نمایش داده شود و آن افراد جذب وب سایت ها شوند.</motion.p>
                 </div>
-                <motion.img src={Img_1} alt="roocket" className='w-80 2xl:w-2/6 h-45' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_1} alt="roocket" className='w-80 2xl:w-[40%] 2xl:h-[20rem]' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>تاریخچه سئو، به دهه ۹۰ میلادی و ظهور موتورهای جستجو برمی‌گردد.</p>
@@ -61,7 +61,7 @@ function Sseo() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتورهای جستجوی در نحوه رتبه بندی وب سایت‌ ها در هنگام جستجوی کلید واژه‌های مختلف توسط کاربران، عملکرد متفاوتی دارند. این تفاوت رتبه دهی ناشی از هوش مصنوعی مورد استفاده در موتورهای جستجو است.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>گوگل نتایج بهتری در هنگام جستجو به کاربران نشان ‌می‌ دهد و فرایند جستجو در اینترنت را برای کاربران در مقایسه با سایر موتورهای جستجو در گوگل دلپذیرتر است. به همین دلیل گوگل تبدیل به پرطرفدارترین موتور جستجو در اینترنت شده‌ است.</motion.p>
                 </div>
-                <motion.img src={Img_2} alt="search-engine" className='w-80 h-60 2xl:w-2/6 h-45' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_2} alt="search-engine" className='w-80 h-60 2xl:w-[40%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <h4 className='text-green-137'>موتور جستجو چگونه کار می‌کند ؟</h4>
@@ -79,7 +79,7 @@ function Sseo() {
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>حالا که شما فهمیده اید که سئو چیست و چه معنا و مفهومی دارد، می خواهیم کمی جلوتر برویم. یکی دیگر از سوالات رایج که می شنویم این است :</motion.p>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>رتبه بندی سایت در گوگل چیست؟</motion.p>
                 </div>
-                <motion.img src={Img_3} alt="SERP" className='w-80 2xl:w-2/6 h-45' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={Img_3} alt="SERP" className='w-80 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div  whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>SERP (Search Engine Result Page) به معنی صفحه نتایج موتور جستجو می باشد. رتبه بندی سایت در گوگل شرکت شما یعنی جایگاه سایت شما در SERP گوگل.</p>
@@ -92,7 +92,7 @@ function Sseo() {
                     <p>افزایش بازدید سایت یکی از اصلی ترین کارهایی است که هر صاحب سایتی باید به آن اهمیت دهد. در واقع اگر شما صاحب هر کسب و کار آنلاینی هستید باید در صدد بالا بردن بازدید سایت خود باشید. فرقی نمی کند چه خدمات و محصولاتی را ارائه می کنید، در هر صورت باید به فکر بالا بردن بازدید سایت تان باشید. کاملا مشخص است که ترافیک هر سایتی جزئی از سرمایه آن است.</p>
                     <p>هر چقدر که وب سایت شما از هر لحاظی عالی باشد تا زمانی که نتوانید ترافیک واقعی دریافت کنید بی فایده است و هیچ سودی برای شما نخواهد داشت.</p>
                 </div>
-                <img src={Img_4} alt="seooo" className='w-80 2xl:w-2/6 h-45'/>
+                <img src={Img_4} alt="seooo" className='w-80 2xl:w-[50%] 2xl:h-[30rem]'/>
             </div>
             <motion.div whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>دلیل عمده بسیاری از کسب و کارهای آنلاینی هم که موفق نیستند نداشتن ترافیک کافی است. همین حالا وب سایت هایی وجود دارند که از هر لحاظی با کیفیت هستند ولی مشکل اصلی آن ها دیده شدن است. در واقع مدیران این سایت ها در بالا بردن ترافیک سایت شان ناتوان هستند و نمی توانند به خوبی روزانه ترافیک واقعی و هدفمندی را روانه سایت خود کنند.</p>

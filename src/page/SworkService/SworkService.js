@@ -56,7 +56,7 @@ function SworkService() {
                  <motion.h3 whileInView={{scale:[0,1],y:[200,0],x:[-200,0],opacity:[0,1]}} transition={{duration:0.5}} viewport={{once:true}} className='text-green-137'>خدمات ثبت لوگو</motion.h3>
                  <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>لوگو یک هویت تصویری برای رساندن مفهوم خدمت ، نشان دادن هویت یک سازمان بزرگ و یا کوچک ، به مفهوم رسانی یک وضعیت ، نشانه گذاری یک محصول به وسیله شرکت‌های تجاری، تولیدی و صنعتی و هم‌چنین کسب وکارهای کوچک استفاده می‌ شود تا از این طریق نوع خدمات ، اهداف مورد نظر و محصولات را با بکارگیری از خلاقیت به مخاطب معرفی کنند.</motion.p>
                </div>
-               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-1/4 2xl:h-96' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
+               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-[30%] 2xl:h-96' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div>
                 <p>اولین و موثرترین گام برای معرفی یک برند می باشد. که سایر پروسه های هویت سازی یک برند (نظیر بسته بندی، طراحی لیبل و …) را تحت تاثیر خود قرار می دهد. یک آرم و لوگو موفق و صحیح به راحتی می تواند گام های یک مجموعه را به خاطر ثبات بصری خود محکم و هدفمند سازد. اعتماد، شناخت و موفقیت در بازار سه بخش اصلی است که به پشتوانه طراحی برندینگ صحیح ، بجا و مناسب در روند گسترش یک مجموعه کمک بسزا می کند.</p>
@@ -71,27 +71,27 @@ function SworkService() {
               </div>
               <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-80 2xl:w-1/4 2xl:h-96'/>
             </div>
-            <motion.div className='flex flex-col gap-3' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}}>
+            <motion.div className='flex flex-col gap-3 2xl:mt-20' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}}>
                 <h5 className='text-green-137 text-center'>خدمات کسب و کار</h5>
                 <div className='flex sm:flex-row flex-col gap-6'>
                     <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
-                        <img src={Img_1} alt="img-1" className='w-24 2xl:w-96'/>
-                        <span className='font-bold 2xl:text-5xl text-gray-66'>ثبت برند</span>
+                        <img src={Img_1} alt="img-1" className='w-24 2xl:w-60'/>
+                        <span className='font-bold 2xl:text-4xl text-gray-66'>ثبت برند</span>
                         <p className='text-center span text-gray-77'>اصطلاح برند به مفهومی در تجارت و بازاریابی اشاره دارد که یک شرکت، محصول یا فرد را از سایر همسان ها تمایز می دهد. تفاوت را با نهال آی تی تجربه کنید.</p>
                     </div>
                     <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
-                     <img src={Img_2} alt="img-2" className='w-32 2xl:w-96'/>
-                        <span className='font-bold 2xl:text-5xl text-gray-66'>ثبت لوگو</span>
+                     <img src={Img_2} alt="img-2" className='w-32 2xl:w-72'/>
+                        <span className='font-bold 2xl:text-4xl text-gray-66'>ثبت لوگو</span>
                         <p className='text-center span text-gray-77'>لوگو یک هویت تصویری برای رساندن مفهوم خدمت ، نشان دادن هویت یک سازمان بزرگ و یا کوچک می باشد. طراحی انواع لوگو های گرافیکی در تیم نهال آی تی</p>
                     </div>
                     <div className='flex flex-col items-center gap-3 2xl:gap-7 justify-between'>
-                    <img src={Img_3} alt="img-3" className='w-32 2xl:w-96'/>
-                        <span className='font-bold 2xl:text-5xl text-gray-66'>ارسال پیامک و ایمیل انبوه</span>
+                    <img src={Img_3} alt="img-3" className='w-32 2xl:w-72'/>
+                        <span className='font-bold 2xl:text-4xl text-gray-66'>ارسال پیامک و ایمیل انبوه</span>
                         <p className='text-center span text-gray-77'>یکی از موثرترین روش تبلیغات، ارسال پیامک و ایمیل تبلیغاتی می باشد. استفاده از پنل پیامک و ایمیل یکی از بهترین راه برای اطلاع رسانی و ارتباط با مشتریان می باشد.</p>
                     </div>
                 </div>   
             </motion.div> 
-               <div className='w-full flex flex-col items-center mt-3'>
+               <div className='w-full flex flex-col items-center mt-3 2xl:mt-20 2xl:gap-5'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات کسب و کار تیم نهال آی تی</h6>
                 <img src={tarrif} alt="tarrif" className='w-7/12 sm:w-5/12'/>
                </div>

@@ -30,7 +30,7 @@ function SmotionGhraphic() {
          <img src={HeadImg} alt="header" className='w-full sm:h-auto h-96'/>
         <div className='flex flex-col gap-6 px-1'>
             <div>
-                <motion.h1 whileInView={{y:[-50,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-137 text-center'>موشن گرافیک یا موشن گرافی چیست؟</motion.h1>
+                <motion.h1 whileInView={{y:[-50,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-137 text-center 2xl:text-center'>موشن گرافیک یا موشن گرافی چیست؟</motion.h1>
                 <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>متحرک سازی تصاویر و صداگذاری روی آنها را موشن گرافیک می گویند. به عبارت دیگر وکتورهای تصاویر انیمیشنی را با نرم افزارهای گرافیکی براساس سناریو خاص، متحرک سازی انجام می دهند و سپس صداگذاری توسط گوینده روی موشن گرافیک انجام می شود تا مفاهیم بصورت کامل منتقل شود.</motion.p>
             </div>
             <div>

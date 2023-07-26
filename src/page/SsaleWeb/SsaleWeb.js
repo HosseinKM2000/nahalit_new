@@ -54,7 +54,7 @@ function SsaleWeb() {
             <motion.p whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:2,delay:1}} viewport={{once:true}}>زبان HTML هیچ ظاهری ندارد و به کمک مکمل خود یعنی CSS ظاهر و شکل و شمایل می گیرد.</motion.p>
             <motion.p whileInView={{y:[200,0],opacity:[0,1]}} transition={{duration:2,delay:1}} viewport={{once:true}}>هم HTML و هم CSS ساده ترین زبان های کامپیوتری و نشانه گذاری هستند.</motion.p>
         </div>
-        <motion.img src={hyperImg} alt="html-css" className='w-80 2xl:w-10/12' whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+        <motion.img src={hyperImg} alt="html-css" className='w-80 2xl:w-[40%]' whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
      </div>
      <motion.div whileInView={{x:[-1000,0]}} transition={{duration:2}} viewport={{once:true}}>
         <p>اگر شما هم طراح وب باشید و به این مقوله علاقه داشته باشید و فعالیت در این زمینه و یادگیری بیشتر یکی از اهداف شما باشد، از جمله بدیهی ترین اطلاعاتی که لازم است به آن تسلط پیدا کنید؛ مفاهیم مرتبط با اچ تی ام ال (HTML) و سی اس اس (CSS) می باشد.</p>
@@ -70,7 +70,7 @@ function SsaleWeb() {
             <motion.p whileInView={{y:[-200,0],opacity:[0,1]}} transition={{duration:2,delay:1}} viewport={{once:true}}>JavaScript که به اختصار JS نیز نامیده می‌ شود، یکی از محبوب ترین زبان‌ های برنامه نویسی است. جاوا اسکریپت زبانی سطح بالا، داینامیک، شی‌گرا و تفسیری است که از شیوه‌ های مختلف برنامه نویسی پشتیبانی می‌ کند.</motion.p>
             <motion.p whileInView={{y:[-200,0],opacity:[0,1]}} transition={{duration:2,delay:1}} viewport={{once:true}}>از این زبان می‌ توان برای برنامه نویسی سمت سرور (Server Side)، اپلیکیشن‌ های موبایل، بازی و اپلیکیشن‌ های دسکتاپ استفاده کرد. بنابراین می‌ توان اینگونه برداشت کرد که زبان برنامه نویسی جاوا اسکریپت ، یک زبان همه فن حریف است.</motion.p>
         </div>
-        <motion.img src={jsImg} alt="js" className='w-96 2xl:w-10/12' whileInView={{x:[-300,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
+        <motion.img src={jsImg} alt="js" className='w-96 2xl:w-[40%]' whileInView={{x:[-300,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
      </div>
      <motion.div whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>
         <h1 className='text-green-02'>کاربرد های جاوا اسکریپت</h1>
@@ -89,7 +89,7 @@ function SsaleWeb() {
             <motion.p whileInView={{y:[-200,0],opacity:[0,1]}} transition={{duration:1,delay:1}} viewport={{once:true}}>ری اکت یکی از کتابخانه های اوپن سورس (متن باز) جاوا اسکریپت هست که برای ساخت رابط های کاربری وب سایت ها مورد استفاده قرار می گیرد.</motion.p>
             <motion.p whileInView={{y:[-200,0],opacity:[0,1]}} transition={{duration:1,delay:1}} viewport={{once:true}}>کتابخانه ری اکت توسط جامعه ای از توسعه دهندگان فیس بوک ارائه شد. ریکت ابتدا در سال 2011 با هدف استفاده توسط خود فیسبوک ایجاد شد اما بعد ها با توسعه بیشتر و تکمیل شدنش در سال 2013 به یک کتابخانه عمومی برای استفاده همه برنامه نویس ها تبدیل شد.</motion.p>
         </div>
-        <motion.img src={reactImg} alt="react" className='w-80 2xl:w-10/12' whileInView={{opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
+        <motion.img src={reactImg} alt="react" className='w-80 2xl:w-[40%]' whileInView={{opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
      </div>
      <div>
         <p>کتابخانه ری اکت جی اس به برنامه نویسان و توسعه دهندگان این امکان را خواهد داد تا با استفاده از انواع مختلف واسط های کاربری اپلیکیشن های مناسبی را با کامپوننت ها ایجاد نمایند و در این زمینه کمک بسیار شایانی را به برنامه نویسان ارائه می نماید. در حالت کلی کامپوننت از جاوا اسکریپت و html تشکیل می شود و منطقی که در کامپیوتر وجود دارد این موضوع می باشد که قسمت کوچکی از یک واسط کاربری بزرگتر خود را به نمایش بگذارد.</p>
@@ -105,7 +105,7 @@ function SsaleWeb() {
             <motion.p whileInView={{x:[1000,0]}} transition={{duration:1,delay:1}} viewport={{once:true}}>vue.js یا ویو جی اس یک فریمورک برای زبان برنامه نویسی جاوا اسکریپت است و با استفاده از این فریمورک شما میتوانید فرانت اند یک وب سایت را هرچه سریعتر و زیباتر و کاراتر بسازید .</motion.p>
             <motion.p whileInView={{x:[1000,0]}} transition={{duration:1,delay:1}} viewport={{once:true}}>با وجود فریمورک Vue.js شما میتوانید از فریمورک ها یا کتابخانه های دیگر جاوا اسکریپت هم بهره بگیرید ولی vue.js تقریبا یک فریمورک کامل سمت کلاینت یا فرانت اند وب سایت است .</motion.p>
         </div>
-        <motion.img src={vueImg} alt="Vue" className='w-80 2xl:w-10/12' whileInView={{scale:[0,1],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
+        <motion.img src={vueImg} alt="Vue" className='w-80 2xl:w-[40%]' whileInView={{scale:[0,1],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}/>
      </div>
      <motion.div whileInView={{x:[0,-10,10,-10,10,-10,10,-10,10,-10,10,0]}} transition={{duration:1}} viewport={{once:true}}>
         <h1 className='text-green-02'>فریمورک Vue.js ، بطور دیوانه کننده ای سریع است</h1>
@@ -124,7 +124,7 @@ function SsaleWeb() {
             <motion.h1 whileInView={{x:[300,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-02'>نود جی اس (Node.js) چیست ؟</motion.h1>
             <motion.p whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>Node.js یک پلتفرم ایجاد شده بر پایه موتور جاوا اسکریپت گوگل کروم است که باعث سهولت ایجاد و مقیاس‌ پذیری برنامه‌ های تحت شبکه می‌ شود. این پلتفرم از یک مدل I/O رویداد محور استفاده می‌ کند که مسدود نشونده (non-blocking) است و همین امر باعث کاهش فشار موجود بر روی سرور و افزایش کارآیی می‌ شود و این امر برای اجرای برنامه‌ های مبتنی بر داده که بصورت بلادرنگ (Real-Time) بر روی سرورهای نامتمرکز استفاده می‌ شوند بسیار مناسب است.</motion.p>
         </div>
-        <motion.img whileInView={{x:[-200,0],opacity:[0,1],scale:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}} src={nodeImg} alt="node" className='w-80 2xl:w-10/12'/>
+        <motion.img whileInView={{x:[-200,0],opacity:[0,1],scale:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}} src={nodeImg} alt="node" className='w-80 2xl:w-[40%]'/>
      </div>
      <motion.div  whileInView={{x:[800,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>
         <p>همانطور که می دانید جاوا اسکریپ یکی از برترین و محبوب ترین زبان های برنامه نویسی می باشد که در سرتاسر جهان مورد استفاده قرار می گیرn.Node.js درواقع پلتفرمی است که سمت سرور کار می کند و بر پایه جاوا اسکریپ بنیان گذاری شده است.</p>
@@ -132,7 +132,7 @@ function SsaleWeb() {
         <p>در حقیقت Node js بود که به زبان جاوا اسکریپت این قدرت را داد که بتواند کد های خود را در محیط سرور اجرا کند و تا قبل از آن تمامی کد ها داخل مرورگر اجرا می شد. به کمک Node.js شما می توانید برنامه های گسترده و قابل گسترش بسازید که هیچ محدودیتی ندارند!</p>
      </motion.div>
      <div className='w-full flex justify-center'>
-        <img src={tariff} alt="node"  className='2xl:w-1/2'/>
+        <img src={tariff} alt="tarrif"  className='2xl:w-1/2'/>
      </div>
      </div>
      <div className='flex flex-col w-full'>

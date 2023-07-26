@@ -87,21 +87,21 @@ b
     .ExEcWebsite-content > div > div > h1,h2,h3,h4,h5,h6
     {
         text-align: right;
-        font-size: 4rem;
+        font-size: 2.5rem;
     }
     .ExEcWebsite-content > div > p,
     .ExEcWebsite-content > div > div > p
     {
         text-align: right;
-        line-height: 6rem;
-        font-size: 2.5rem;
+        line-height: 5rem;
+        font-size: 1.5rem;
     }
     .store-text,
     .service-text
     {
         width: 100%;
-        font-size: 2.5rem;
-        line-height: 6rem;
+        font-size: 2rem;
+        line-height: 5rem;
 
     }
 }

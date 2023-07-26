@@ -68,19 +68,19 @@ img[alt='comment']
 {
     .article-text
     {
-        font-size: 2rem;
-        line-height: 5rem;
+        font-size: 1.5rem;
+        line-height: 4rem;
     }
     img[alt='comment']
     {
-        right: 60rem;
-        top: -6rem;
-        width: 50rem;
+        right: 40rem !important;
+        top: -3rem !important;
+        width: 30rem !important;
     }
     img[alt='postIMg']
     {
-        width: 40rem;
-        height: 40rem;
+        width: 30rem;
+        height: 30rem;
     }
     .carsoule-parent
     {
@@ -88,25 +88,24 @@ img[alt='comment']
     }
     .suggest-title
     {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
         color: #464646;
         line-height: 4rem;
     }
     .suggest-text
     {
         line-height: 3rem;
-        height: 20rem;
     }
     .swiper-button-next::after
     {
-        font-size:  4rem !important;
-        margin-left: 5rem;
+        font-size:  3rem !important;
+        margin-left: 2rem;
         padding: 1rem;
     }
     .swiper-button-prev::after
     {
-        font-size:  4rem !important;
-        margin-right: 5rem;
+        font-size:  3rem !important;
+        margin-right: 2rem;
         padding: 1rem;
     }
     .rulls > li::marker
@@ -115,14 +114,14 @@ img[alt='comment']
     }
     .tagsIcon
     {
-        transform: scale(5);
+        transform: scale(3) !important;
     }
     .documentImg
     {
-        transform: scale(5);
+        transform: scale(1) !important;
     }
     .linkImg
     {
-        transform: scale(4);
+        transform: scale(1.5) !important;
     }
 }

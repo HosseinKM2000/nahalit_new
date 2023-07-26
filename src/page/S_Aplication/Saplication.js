@@ -104,27 +104,27 @@ function Saplication() {
                 </div>
                 <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_6} alt="ios-appliacation" className='w-80 2xl:w-2/5'/>
             </div>
-            <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='gap-5 sm:gap-2'>
+            <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='gap-5 sm:gap-2 2xl:mt-10'>
                 <h6 className='text-green-137 text-center'>خدمات طراحی اپلیکیشن موبایل</h6>
                 <div className='flex flex-col sm:flex-row gap-5 design-mobile-application'>
-                    <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_7} alt="andriod" className='w-24 2xl:w-60'/>
+                    <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
+                        <img src={img_7} alt="andriod" className='w-24 2xl:w-44'/>
                         <b>طراحی اپلیکیشن اندروید</b>
                         <span className='text-center'>از مزایای داشتن اپلیکیشن اندروید، می توان به موارد زیر اشاره کرد: فروش شما را افزایش می‌دهد و مخاطبانتان را زیاد میکند و همچنین میتوانید همیشه در دسترس مشتریانتان باشید</span>
                     </div>
-                    <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_8} alt="apple"className='w-24 2xl:w-60'/>
+                    <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
+                        <img src={img_8} alt="apple"className='w-24 2xl:w-44'/>
                         <b>طراحی اپلیکیشن IOS</b>
                         <span className='text-center'>از مزایای داشتن اپلیکیشن IOS، می توان به موارد زیر اشاره کرد: فروش شما را افزایش می‌دهد و مخاطبانتان را زیاد میکند و همچنین میتوانید همیشه در دسترس مشتریانتان باشید.</span>
                     </div>
-                    <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_9} alt="java" className='w-24 2xl:w-60'/>
+                    <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
+                        <img src={img_9} alt="java" className='w-24 2xl:w-44'/>
                         <b>طراحی اپلیکیشن جاوا </b>
                         <span className='text-center'>جاوا پر کاربــرد ترین پلت فرم براي گوشي هاي بدون سیستم عامل است ما در تیم نهال آی تی میتوانیم یک اپلیکیشن فوق العاده با استفاده از جاوا برای شما بسازیم.</span>
                     </div>
                 </div>
             </motion.div>
-            <div className='flex flex-col gap-5'>
+            <div className='flex flex-col gap-5 2xl:gap-10 2xl:mt-20'>
                 <h6 className='text-center text-gray-4444'>تعرفه خدمات اپلیکیشن موبایل تیم نهال آی تی</h6>
                 <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row justify-evenly'>
                     <img src={img_10} alt="tarrif" className='w-11/12 sm:w-80 2xl:w-1/4 md:w-60'/>

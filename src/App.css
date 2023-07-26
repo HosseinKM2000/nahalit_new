@@ -270,7 +270,7 @@ p
     }
     .end-box > img
     {
-        width: 80rem;
+        width: 50rem;
     }
     .end-box > div
     {
@@ -278,39 +278,39 @@ p
     }
     .end-box > div > span
     {
-        font-size: 3rem;
-        line-height: 6rem;
+        font-size: 2rem;
+        line-height: 5rem;
     }
     .end-box > div > button
     {
-        font-size: 2.5rem;
-        line-height: 1.25rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        width: 70%;
+        font-size: 1.5rem;
+        line-height: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 60%;
     } 
     .span
     {
-        line-height: 4rem;
-        font-size: 2.5rem;
+        line-height: 3rem;
+        font-size: 1.5rem;
     }
     .Toast_info
     {
-        width: 40% !important;
-        font-size: 3rem !important;
+        width:30% !important;
+        font-size: 1.5rem !important;
         padding: 2rem !important;
     }
     .Toastify__toast
     {
-        padding: 3rem !important;
-        gap: 3rem !important;
+        padding: 2rem !important;
+        gap: 2rem !important;
     }
     .Toastify__close-button
     {
-        transform: scale(4) !important;
+        transform: scale(2) !important;
     }
     .Toastify--animate-icon
     {
-        transform: scale(4) !important;
+        transform: scale(2) !important;
     }
 }

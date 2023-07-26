@@ -80,15 +80,15 @@ b
     .motionGraphic-content > div > div > div > h1,h2,h3,h4,h5,h6
     {
         text-align: right;
-        font-size: 4rem !important;
+        font-size: 2.5rem !important;
     }
     .motionGraphic-content > div > p,
     .motionGraphic-content > div > div > p,
     .motionGraphic-content > div > div > div > p
     {
         text-align: right;
-        line-height: 6rem;
-        font-size: 2.5rem;
+        line-height: 4rem;
+        font-size: 1.5rem;
     }  
     .h-45
     {
@@ -101,7 +101,7 @@ b
     }
     .motionImg
     {
-        width: 50rem;
-        height: 40rem
+        width: 40rem;
+        height: 30rem
     }
 }

@@ -1,11 +1,10 @@
-import React from 'react';
 import { Circle } from 'rc-progress';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import React from 'react';
 
 function All({  currentItems , setShowDetails }) {
   const mobile = window.innerWidth < 768 ? true : false;
   return (
-    <div className='w-full flex 2xl:w-[70%] flex-col gap-5'>
+    <div className='w-full flex 2xl:w-[70%] flex-col gap-5 mb-5'>
             <span className='w-full text-white font-bold'>تعداد پروژه ها ( {currentItems !== null ? currentItems.length : 'NaN'} )</span>
             <div className='w-full flex flex-row flex-wrap justify-center md:justify-start md:flex-col items-center gap-10 md:gap-3'>
                 {

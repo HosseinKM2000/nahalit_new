@@ -1,12 +1,9 @@
-import { React , useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
-import { useSelector , useDispatch } from 'react-redux';
-import All from '../All';
-import Show from '../../Show/Show';
+import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
-import { getProducts } from '../../../../../../features/dashboard/action';
-import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
+import Show from '../../Show/Show';
+import All from '../All';
 
 function GalleriesPagination() {
 

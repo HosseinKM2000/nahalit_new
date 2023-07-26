@@ -1,8 +1,5 @@
-import { React , useEffect , useState } from 'react';
-import { useSelector , useDispatch } from 'react-redux';
-import { FaEdit } from 'react-icons/fa';
-import { MdDeleteForever } from 'react-icons/md';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import { React, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 
 function All({ currentItems , setShow}) {
@@ -12,7 +9,7 @@ function All({ currentItems , setShow}) {
     console.log(currentItems)
   },[currentItems])
   return (
-    <div className='flex items-center justify-center flex-wrap gap-8'>
+    <div className='flex items-center justify-center flex-wrap gap-8 mb-5'>
         {
          currentItems.map((array,index) => (
           <div key={index} className='relative items-end justify-center w-[15rem] xl:w-[20rem] flex h-[15rem] xl:h-[20rem] overflow-y-hidden'>

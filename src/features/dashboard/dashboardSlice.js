@@ -4,6 +4,7 @@ import { getCategories,
          deleteParentCategories,
          editeParentCategories,
          addChildrenCategories,} from "./action";
+import { toast } from "react-toastify";
 
 const initialState = {
     content : 'categories',
@@ -17,88 +18,12 @@ const initialState = {
         value_2:'',
         index_2:''
     },
-    categories :[
-        {
-            title:'محصولات',
-            children:[
-                {
-                    title:'سایت های آماده',
-                    children:["سایت آماده لاراول"]
-                },
-                {
-                    title:'اسکریپت ها',
-                    children:["اسکرپیت لاراول"]
-                },
-                
-            ]
-        },
-        {
-            title:'ثبت سفارش',
-            children:[]
-        },
-        {
-            title:'بلاگ',
-            children:[]
-        },
-        {
-            title:'نمونه کارها',
-            children:[
-                {
-                    title:'نمونه کار پریمیر',
-                    children:[]
-                },
-                {
-                    title:'نمونه کار طراحی سایت',
-                    children:[]
-                },
-                {
-                    title:'نمونه کار گرافیک',
-                    children:["نمونه کار موشن گرافیک","نمونه کار لوگو","نمونه کار بروشور"]
-                }
-            ]
-        },
-        {
-            title:'آموزش ورود',
-            children:[]
-        },
-        {
-            title:'استخدام',
-            children:[]
-        },
-        {
-            title:'خدمات ما',
-            children:[
-                {
-                    title:'فروش قالب سایت',
-                    children:[]
-                },
-                {
-                    title:'موشن گرافیک',
-                    children:[]
-                },
-                {
-                    title:'خدمات گرافیک',
-                    children:[]
-                },
-                {
-                    title:'اپلیکیشن موبایل',
-                    children:[]
-                }
-            ]
-        },
-        {
-            title:'تماس با ما',
-            children:[]
-        }
-    ],
+    categories :null,
     categoriesLoading:false,
     categoriesError:'',
-    addPCategoriesLoading:false,
-    addPCategoriesError:'',
-    deletePCategoriesLoading:false,
-    deletePCategoriesError:'',
-    editePCategoriesLoading:false,
-    editePCategoriesError:'',
+    addSeccess : false,
+    deleteSeccess : false,
+    editeSeccess : false,
 }
 
 
@@ -184,55 +109,65 @@ const dashboardSlice = createSlice({
         builder
         .addCase(getCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            console.log(action.payload.categories)
+            state.categories = action.payload.data.categories;
         })
-        .addCase(getCategories.pending, (state,action) => {
+        .addCase(getCategories.pending, (state) => {
             state.categoriesLoading = true;
         })
-        .addCase(getCategories.rejected, (state,action) => {
-            state.categoriesError = action.payload;
+        .addCase(getCategories.rejected, (state) => {
+            state.categories = null
+            state.categoriesLoading = false;
+            state.categoriesError = 'error in get categories';
         })
+        //  add parent
         .addCase(addParentCategories.fulfilled , (state,action) => {
-            state.addPCategoriesLoading = false;
-            console.log(action.payload)
+            state.categoriesLoading = false;
+            if(action.payload.status === 200)
+            {
+                toast.success('دسته بندی با موفقیت اضافه شد')
+            }
+            state.addSeccess = !state.addSeccess;
         })
         .addCase(addParentCategories.pending, (state,action) => {
-            state.addPCategoriesLoading = true;
         })
         .addCase(addParentCategories.rejected, (state,action) => {
-            state.addPCategoriesError = action.payload;
+            toast.error('خطا در اضفه کردن دسته بندی')
+            state.categoriesLoading = false;
         })
+        //  delte parent
         .addCase(deleteParentCategories.fulfilled , (state,action) => {
-            state.deletePCategoriesLoading = false;
-            console.log(action.payload)
+            state.categoriesLoading = false;
+            toast.success(action.payload.data.massage)
+            state.deleteSeccess = !state.deleteSeccess;
         })
         .addCase(deleteParentCategories.pending, (state,action) => {
-            state.deletePCategoriesLoading = true;
         })
         .addCase(deleteParentCategories.rejected, (state,action) => {
-            state.deletePCategoriesError = action.payload;
+            state.categoriesLoading = false;
         })
+        // edite parent
         .addCase(editeParentCategories.fulfilled , (state,action) => {
-            state.editePCategoriesLoading = false;
-            console.log(action.payload)
+            state.categoriesLoading = false;
+            toast.success(action.payload.data.massage)
+            state.editeSeccess = !state.editeSeccess;
         })
         .addCase(editeParentCategories.pending, (state,action) => {
-            state.editePCategoriesLoading = true;
         })
         .addCase(editeParentCategories.rejected, (state,action) => {
-            state.editePCategoriesError = action.payload;
+            state.categoriesLoading = false;
+            toast.error('خطا در ویرایش دسته بندی')
         })
         // first children method
-        .addCase(addChildrenCategories.fulfilled , (state,action) => {
-            state.addPCategoriesLoading = false;
-            console.log(action.payload)
-        })
-        .addCase(addChildrenCategories.pending, (state,action) => {
-            state.addPCategoriesLoading = true;
-        })
-        .addCase(addChildrenCategories.rejected, (state,action) => {
-            state.addPCategoriesError = action.payload;
-        })
+        // .addCase(addChildrenCategories.fulfilled , (state,action) => {
+        //     state.addPCategoriesLoading = false;
+        //     console.log(action.payload)
+        // })
+        // .addCase(addChildrenCategories.pending, (state,action) => {
+        //     state.addPCategoriesLoading = true;
+        // })
+        // .addCase(addChildrenCategories.rejected, (state,action) => {
+        //     state.addPCategoriesError = action.payload;
+        // })
         // .addCase(deleteFirstChildrenCategories.fulfilled , (state,action) => {
         //     state.deletePCategoriesLoading = false;
         //     console.log(action.payload)

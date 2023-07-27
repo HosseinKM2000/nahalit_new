@@ -7,6 +7,7 @@ import {FiPlusCircle} from 'react-icons/fi';
 import { TiTick , TiDelete } from 'react-icons/ti';
 import { setSwitchCategories_2 , addChildren_2Category ,editeChildren_2Category , deleteChildren_2Category } from '../../../../../features/dashboard/dashboardSlice';
 import { ToastContainer , toast} from 'react-toastify';
+import { addChildrenCategories , deleteParentCategories , editeParentCategories } from '../../../../../features/dashboard/action';
 
 function SecondChildrenCate() {
 
@@ -18,6 +19,7 @@ function SecondChildrenCate() {
     const [newCate,setNewCate] = useState({status:false,value:null});
     const goalCategory = categories.find(cate => cate.title === parentTitle);
     const goalChildren = goalCategory.children.find(cate => cate.title === firstChildrenTitle)
+    // const childrenCategories  = categories.filter(cate => cate.category_id === firstChildrenIndex);
     const [edite,setEdite] = useState({oldValue:'',newValue:''});
     const dispatch = useDispatch();
     console.log(firstChildrenTitle,goalChildren)
@@ -39,6 +41,7 @@ function SecondChildrenCate() {
         else
         {
           dispatch(editeChildren_2Category({index,value:edite.newValue}))
+           // dispatch(editeParentCategories({id,title:edite.newValue}))
         }
       }
     } 
@@ -57,6 +60,7 @@ function SecondChildrenCate() {
           {
             dispatch(addChildren_2Category(newCate.value))
             setNewCate({status:false,value:null})
+            // dispatch(addSecondChildrenCategories(newCate.value))
           }
         }
         else
@@ -65,6 +69,11 @@ function SecondChildrenCate() {
         }
       }
     } 
+    const deleteHandler = (e,index) => {
+      e.stopPropagation();
+      dispatch(deleteChildren_2Category(index))
+      // dispatch(deleteParentCategories(id))
+    }
     console.log(parentIndex,'ll')
 
   return (
@@ -97,10 +106,7 @@ function SecondChildrenCate() {
                 <div key={index}   className='h-[4rem] bg-[#ffffffaa] rounded-md justify-between flex items-center pr-3 pl-2 cursor-default transition-all hover:bg-[#ffffffd4] font-bold'>
                 <span>{child}</span>
                 <div className='flex flex-col gap-2'>
-                  <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={(e)=>{
-                    e.stopPropagation();
-                    dispatch(deleteChildren_2Category(index))
-                  }}/>
+                  <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={(e)=>deleteHandler(e,index)}/>
                   <BsPencilFill className='text-purple-700 hover:text-purple-500 transition-all cursor-pointer' onClick={(e)=>{
                     e.stopPropagation()
                     setEdite({oldValue:child,newValue:''})

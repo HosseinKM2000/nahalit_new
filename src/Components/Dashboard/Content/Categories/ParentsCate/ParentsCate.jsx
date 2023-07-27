@@ -7,6 +7,7 @@ import {TiTick,TiDelete} from 'react-icons/ti';
 import { useDispatch } from 'react-redux';
 import { addParentCategory , deleteParentCategory, setSwitchCategories  ,editeParentCategory } from '../../../../../features/dashboard/dashboardSlice';
 import { ToastContainer , toast} from 'react-toastify';
+import { getCategories , addParentCategories , deleteParentCategories , editeParentCategories } from '../../../../../features/dashboard/action';
 
 
 function ParentsCate() {
@@ -17,13 +18,15 @@ function ParentsCate() {
   const [isChange,setIsChange] = useState({oldValue:'',newValue:''});
   const dispatch = useDispatch();
   useEffect(()=>{
-  },[isChange])
+    dispatch(getCategories())
+  },[])
+
   const addCateHandler = (e,key) => {
     if(e.code === 'Enter' || key === 'Tick')
     {
       if(newCate.value !== null )
       {
-        const exiteItem  = categories.find(cate=> cate.title === newCate.value)
+        const exiteItem  = categories.find(cate=> cate.title === newCate.value);
         if(exiteItem)
         {
           toast.error('!این عنوان موجود است')
@@ -32,6 +35,7 @@ function ParentsCate() {
         {
           dispatch(addParentCategory(newCate.value))
           setNewCate({status:false,value:null})
+          // dispatch(addParentCategories(newCate.value))
         }
       }
       else
@@ -42,9 +46,11 @@ function ParentsCate() {
   }
   const deleteCateHandler = (index) => {
     dispatch(deleteParentCategory(index))
+    // dispatch(deleteParentCategories(id))
   }
   const editeHandler =  (e,key,index) => {
-    const exiteItem  = categories.find(cate=> cate.title === isChange.newValue)
+    const exiteItem  = categories.find(cate=> cate.title === isChange.newValue);
+    // const exiteItem  = categories.find(cate=> cate.title === isChange.newValue);
     if(e.code === 'Enter' || key === 'Tick')
     {
       if(exiteItem)
@@ -59,6 +65,7 @@ function ParentsCate() {
       else
       {
         dispatch(editeParentCategory({index,value:isChange.newValue}))
+        // dispatch(editeParentCategories({id,title:isChange.newValue}))
       }
     }
   } 
@@ -79,7 +86,9 @@ function ParentsCate() {
                isChange.oldValue !== cate.title
               ?
               <div className='min-w-[27%] scale-motion h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
-              <div onClick={(e)=>dispatch(setSwitchCategories({key:'FIRSTCHILDREN',value:cate.title,index}))} className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
+              <div onClick={(e)=>{
+                dispatch(setSwitchCategories({key:'FIRSTCHILDREN',value:cate.title,index}))
+              }} className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
               <div className=
               {
                 mouseHover === cate.title 

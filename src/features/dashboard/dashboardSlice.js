@@ -1,4 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCategories,
+         addParentCategories,
+         deleteParentCategories,
+         editeParentCategories,
+         addChildrenCategories,} from "./action";
 
 const initialState = {
     content : 'categories',
@@ -85,7 +90,15 @@ const initialState = {
             title:'تماس با ما',
             children:[]
         }
-    ]
+    ],
+    categoriesLoading:false,
+    categoriesError:'',
+    addPCategoriesLoading:false,
+    addPCategoriesError:'',
+    deletePCategoriesLoading:false,
+    deletePCategoriesError:'',
+    editePCategoriesLoading:false,
+    editePCategoriesError:'',
 }
 
 
@@ -129,7 +142,9 @@ const dashboardSlice = createSlice({
         },
         setSwitchCategories: (state,action) => {
             let { key , value , index } = action.payload;
+            // let { key , title , id } = action.payload;
             state.categoriesSwitch = {key,value,index};
+            // state.categoriesSwitch = {key,title,id};
         },
         setSwitchCategories_2: (state,action) => {
             let { key , value_2 , index_2 } = action.payload;
@@ -163,6 +178,81 @@ const dashboardSlice = createSlice({
             let {index , value } = action.payload;
             state.categories[state.categoriesSwitch.index].children[state.categoriesSwitch.index_2].children[index] = value;
         },
+    },
+    extraReducers: (builder) => {
+
+        builder
+        .addCase(getCategories.fulfilled , (state,action) => {
+            state.categoriesLoading = false;
+            console.log(action.payload.categories)
+        })
+        .addCase(getCategories.pending, (state,action) => {
+            state.categoriesLoading = true;
+        })
+        .addCase(getCategories.rejected, (state,action) => {
+            state.categoriesError = action.payload;
+        })
+        .addCase(addParentCategories.fulfilled , (state,action) => {
+            state.addPCategoriesLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(addParentCategories.pending, (state,action) => {
+            state.addPCategoriesLoading = true;
+        })
+        .addCase(addParentCategories.rejected, (state,action) => {
+            state.addPCategoriesError = action.payload;
+        })
+        .addCase(deleteParentCategories.fulfilled , (state,action) => {
+            state.deletePCategoriesLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(deleteParentCategories.pending, (state,action) => {
+            state.deletePCategoriesLoading = true;
+        })
+        .addCase(deleteParentCategories.rejected, (state,action) => {
+            state.deletePCategoriesError = action.payload;
+        })
+        .addCase(editeParentCategories.fulfilled , (state,action) => {
+            state.editePCategoriesLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(editeParentCategories.pending, (state,action) => {
+            state.editePCategoriesLoading = true;
+        })
+        .addCase(editeParentCategories.rejected, (state,action) => {
+            state.editePCategoriesError = action.payload;
+        })
+        // first children method
+        .addCase(addChildrenCategories.fulfilled , (state,action) => {
+            state.addPCategoriesLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(addChildrenCategories.pending, (state,action) => {
+            state.addPCategoriesLoading = true;
+        })
+        .addCase(addChildrenCategories.rejected, (state,action) => {
+            state.addPCategoriesError = action.payload;
+        })
+        // .addCase(deleteFirstChildrenCategories.fulfilled , (state,action) => {
+        //     state.deletePCategoriesLoading = false;
+        //     console.log(action.payload)
+        // })
+        // .addCase(deleteFirstChildrenCategories.pending, (state,action) => {
+        //     state.deletePCategoriesLoading = true;
+        // })
+        // .addCase(deleteFirstChildrenCategories.rejected, (state,action) => {
+        //     state.deletePCategoriesError = action.payload;
+        // })
+        // .addCase(editeFirstChildrenCategories.fulfilled , (state,action) => {
+        //     state.editePCategoriesLoading = false;
+        //     console.log(action.payload)
+        // })
+        // .addCase(editeFirstChildrenCategories.pending, (state,action) => {
+        //     state.editePCategoriesLoading = true;
+        // })
+        // .addCase(editeFirstChildrenCategories.rejected, (state,action) => {
+        //     state.editePCategoriesError = action.payload;
+        // })
     }
 })
 

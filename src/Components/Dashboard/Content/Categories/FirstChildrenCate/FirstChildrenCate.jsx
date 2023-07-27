@@ -7,6 +7,7 @@ import {FiPlusCircle} from 'react-icons/fi';
 import { TiTick , TiDelete } from 'react-icons/ti';
 import { setSwitchCategories , addChildren_1Category ,editeChildren_1Category , deleteChildren_1Category , setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
 import { ToastContainer , toast} from 'react-toastify';
+import { addChildrenCategories , deleteParentCategories , editeParentCategories } from '../../../../../features/dashboard/action';
 
 function FirstChildrenCate() {
 
@@ -15,9 +16,11 @@ function FirstChildrenCate() {
   const parentIndex = useSelector(state => state.dashboard.categoriesSwitch.index);
   const [newCate,setNewCate] = useState({status:false,value:null});
   const goalCategory = categories.find(cate => cate.title === parentTitle);
+  // const childrenCategories  = categories.filter(cate => cate.category_id === parentIndex);
   const [edite,setEdite] = useState({oldValue:'',newValue:''});
   const dispatch = useDispatch();
   const SW = useSelector(state => state.dashboard.categoriesSwitch);
+
   const editeHandler =  (e,key,index) => {
     const exiteItem  = categories[parentIndex].children.find(cate=> cate.title === edite.newValue)
     if(e.code === 'Enter' || key === 'Tick')
@@ -34,6 +37,7 @@ function FirstChildrenCate() {
       else
       {
         dispatch(editeChildren_1Category({index,value:edite.newValue}))
+         // dispatch(editeParentCategories({id,title:edite.newValue}))
       }
     }
   } 
@@ -51,6 +55,8 @@ function FirstChildrenCate() {
         {
           dispatch(addChildren_1Category(newCate.value))
           setNewCate({status:false,value:null})
+          // dispatch(addFirstChildrenCategories(newCate.value))
+          
         }
       }
       else
@@ -58,6 +64,11 @@ function FirstChildrenCate() {
         toast.info('عنوان دسته بندی را وارد کنید')
       }
     }
+  }
+  const deleteHandler = (e,index) => {
+    e.stopPropagation();
+    dispatch(deleteChildren_1Category(index))
+    // dispatch(deleteParentCategories(id))
   }
   console.log(SW)
   return (
@@ -73,7 +84,7 @@ function FirstChildrenCate() {
         <div className='flex items-center'>
           <span className='text-white font-bold'>{parentTitle}/</span>
         </div>
-        <RiDeleteBack2Fill onClick={()=>dispatch(setSwitchCategories({key:'PARENT',value:goalCategory.title}))} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
+        <RiDeleteBack2Fill onClick={()=>dispatch(setSwitchCategories({key:'PARENT',value:parentTitle}))} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
       </div>
       <div>
         {
@@ -89,10 +100,7 @@ function FirstChildrenCate() {
                 <div key={index} onClick={(e)=>dispatch(setSwitchCategories_2({key:'SECONDCHILDREN',value_2:child.title,index_2:index}))}  className='h-[4rem] bg-[#ffffffaa] rounded-md justify-between flex items-center pr-3 pl-2 cursor-default transition-all hover:bg-[#ffffffd4] font-bold'>
                 <span>{child.title}</span>                                          
                 <div className='flex flex-col gap-2'>
-                  <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={(e)=>{
-                    e.stopPropagation();
-                    dispatch(deleteChildren_1Category(index))
-                  }}/>
+                  <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={(e)=>{deleteHandler(e,index)}}/>
                   <BsPencilFill className='text-purple-700 hover:text-purple-500 transition-all cursor-pointer' onClick={(e)=>{
                     e.stopPropagation();
                     setEdite({oldValue:child.title,newValue:''})

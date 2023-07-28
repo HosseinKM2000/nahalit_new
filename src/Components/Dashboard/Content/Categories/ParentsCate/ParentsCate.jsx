@@ -39,7 +39,7 @@ function ParentsCate() {
         }
         else
         {
-           dispatch(addParentCategories(newCate.value))
+           dispatch(addParentCategories({title:newCate.value,category_id:null}))
            setNewCate({status:false,value:null})
         }
       }
@@ -68,7 +68,7 @@ function ParentsCate() {
       }
       else
       {
-        dispatch(editeParentCategories({id,title:isChange.newValue}));
+        dispatch(editeParentCategories({id,title:isChange.newValue,category_id:null}));
         console.log(id,isChange.newValue);
         setIsChange({oldValue:'',newValue:''});
       }
@@ -100,14 +100,14 @@ function ParentsCate() {
         <>
         <>
         {
-          categories.map((cate,index) => (
+          categories.filter(cate => cate.category_id === null).map((cate,index) => (
             <>
                                 {
                        isChange.oldValue !== cate.title
                       ?
                       <div className='min-w-[27%] scale-motion h-[4rem] flex justify-center items-center relative hover:scale-[1.05] transition-all' onMouseEnter={()=>setMouseHover(cate.title)} onMouseLeave={()=>setMouseHover(null)}>
                       <div onClick={(e)=>{
-                        dispatch(setSwitchCategories({key:'FIRSTCHILDREN',value:cate.title}))
+                        dispatch(setSwitchCategories({key:'FIRSTCHILDREN',title:cate.title,id:cate.id}))
                       }} className='w-full z-40 relative h-full  hover:shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)] shadow-[2px_2px_5px_2px_rgba(0,0,0,0.5)] font-bold cursor-default text-[#363D4F] transition-all hover:text-[#af4b08] bg-slate-200 flex justify-center items-center rounded-sm'>{cate.title}</div>
                       <div className=
                       {

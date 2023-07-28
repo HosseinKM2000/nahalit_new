@@ -9,11 +9,11 @@ export const getCategories = createAsyncThunk('dashboard/getCategories', async (
 
 })
 
-export const addParentCategories = createAsyncThunk('dashboard/addParentCategories', async (title) => {
+export const addParentCategories = createAsyncThunk('dashboard/addParentCategories', async ({title,category_id}) => {
 
     const post = await axios.post('http://127.0.0.1:8000/api/v1/categories',{
         title,
-        category_id : null,
+        category_id ,
     })
     
     return post;
@@ -26,32 +26,12 @@ export const deleteParentCategories = createAsyncThunk('dashboard/deleteParentCa
     return Delete;
 })
 
-export const editeParentCategories = createAsyncThunk('dashboard/editeParentCategories', async ({id,title}) => {
+export const editeParentCategories = createAsyncThunk('dashboard/editeParentCategories', async ({id,title,category_id}) => {
 
     const Edite = await axios.put(`http://127.0.0.1:8000/api/v1/categories/${id}`,{
         title,
-        category_id:null
+        category_id
     });
     console.log('edite')
     return Edite;
 })
-
-// export const addFirstChildrenCategories = createAsyncThunk('dashboard/addFirstChildrenCategories', async (title,category_id) => {
-
-//     const post = await axios.post('http://127.0.0.1:8000/api/v1/categories',{
-//         title,
-//         category_id,
-//     });
-    
-//     return post;
-// })
-
-// export const addChildrenCategories = createAsyncThunk('dashboard/addChildrenCategories', async (title,category_id) => {
-
-//     const post = await axios.post('http://127.0.0.1:8000/api/v1/categories',{
-//         title,
-//         category_id,
-//     });
-    
-//     return post;
-// })

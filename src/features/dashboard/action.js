@@ -93,7 +93,7 @@ export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', asy
     return response;
 })
 
-export const editeDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id,}) => {
+export const editeDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id}) => {
 
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/discounts/${id}`,{
 

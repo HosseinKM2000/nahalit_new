@@ -89,7 +89,7 @@ function ParentsCate() {
               :
               <>
               {
-              categories !== null
+              categories !== null && categories !== undefined
               ?
               categories.length !== 0
               ?

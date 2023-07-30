@@ -1,8 +1,7 @@
 import React from 'react';
-import {FaEye} from 'react-icons/fa';
-import {BsCalendar4,BsBag} from 'react-icons/bs';
-import {HiCurrencyDollar} from 'react-icons/hi';
-import {FaShoppingBag} from 'react-icons/fa';
+import { BsBag, BsCalendar4 } from 'react-icons/bs';
+import { FaEye, FaShoppingBag } from 'react-icons/fa';
+import { HiCurrencyDollar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 function ProductsPage({currentItems}) {
@@ -28,7 +27,7 @@ function ProductsPage({currentItems}) {
                             ))
                         }
                     </div>
-                    <p className='line-clamp-4 2xl:text-lg text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2 xl-line-clamp-2'>{product.explain}</p>
+                    <p className='line-clamp-3 2xl:text-lg text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2 xl-line-clamp-2'>{product.explain}</p>
                     <div className='w-full flex items-center justify-between text-stone-500 2xl:text-lg text-xs p-1'>
                         <div className='flex items-center gap-1'>
                           <BsCalendar4/>

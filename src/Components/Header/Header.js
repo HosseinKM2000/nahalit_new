@@ -5,10 +5,11 @@ import { FaAndroid, FaSpa } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
- 
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
   const [showSlide, setShowSlide] = useState(false);
   const [showSlide2, setShowSlide2] = useState(false);
   const [showSlide3, setShowSlide3] = useState(false);
@@ -473,12 +474,18 @@ const Header = () => {
                 </Link>
                 <FaSpa className="text-base" />
               </div>
-              <div className="flex flex-row-reverse items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+              {
+                loginStatus
+                ?
+                <></>
+                :
+                <div className="flex flex-row-reverse items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link to={'/login'}>
                   <p className="text-sm font-[shabnamMedium] tracking-tight">ورود و عضویت</p>
                 </Link>
                 <BsPerson className="text-base" />
               </div>
+              }
             </div>
             <div className="flex items-center justify-center flex-row gap-2">
               <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>

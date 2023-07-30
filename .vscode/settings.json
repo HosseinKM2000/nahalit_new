@@ -1,3 +1,8 @@
 {
-    "mocha.subdirectory": "C:\\G:\\offical-project\\nahalIt-master\\src\\Components\\Products\\Side\\pCategories"
+    "mocha.subdirectory": "C:\\G:\\offical-project\\nahalIt-master\\src\\Components\\Products\\Side\\pCategories",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#0F3428",
+        "titleBar.activeBackground": "#144837",
+        "titleBar.activeForeground": "#F3FCF9"
+    }
 }

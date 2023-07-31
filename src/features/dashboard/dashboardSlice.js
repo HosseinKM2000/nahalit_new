@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import {
+    addBlog,
     addGallery,
     addParentCategories,
+    addProduct,
+    deleteBlog,
     deleteParentCategories,
+    editBlog,
+    editProduct,
     editeParentCategories,
+    getBlogs,
     getCategories,
     getProducts
 } from "./action";
@@ -18,16 +24,19 @@ const initialState = {
     workSampleSwitch:'all',
     projectSwitch:'all',
     productId:null,
-    productId:null,
     products:null,
     productsLoading:false,
+    blogsLoading : false,
+    blogsDeleteLoading : false,
     categories :null,
+    blogs:[],
     categoriesLoading:false,
     categoriesError:'',
     addSeccess : false,
     scrollUp:false,
     deleteSeccess : false,
     editeSeccess : false,
+    articleLoading:false,
     categoriesSwitch:
     {
         key:'PARENT',
@@ -89,10 +98,11 @@ const dashboardSlice = createSlice({
         setScrollUp: (state,action) => {
             state.scrollUp = !state.scrollUp
         },
-    },
+      },
     extraReducers: (builder) => {
 
         builder
+        // get categories
         .addCase(getCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
             state.categories = action.payload.data.categories;
@@ -120,7 +130,7 @@ const dashboardSlice = createSlice({
             toast.error('خطا در اضافه کردن دسته بندی')
             state.categoriesLoading = false;
         })
-        //  delte parent
+        //  delete parent
         .addCase(deleteParentCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
             toast.success(action.payload.data.massage)
@@ -156,6 +166,30 @@ const dashboardSlice = createSlice({
             state.productsLoading = false;
             toast.error('خطا در بارگیری اطلاعات')
         })
+        // add product
+        .addCase(addProduct.fulfilled, (state,action) => {
+            state.productsLoading = false;
+            toast.success('محصول با موفقیت ذخیره شد')
+        })
+        .addCase(addProduct.pending, (state,action) => {
+            state.productsLoading = true;
+        })
+        .addCase(addProduct.rejected, (state,action) => {
+            state.productsLoading = false;
+            toast.error("خطا در ذخیره محصول")
+        })
+        // edit product
+        .addCase(editProduct.fulfilled,(state,action) => {
+            state.productsLoading = false;
+            toast.success('ویرایش محصول با موفقیت انجام شد')
+        })
+        .addCase(editProduct.pending,(state,action) => {
+            state.productsLoading = true;
+        })
+        .addCase(editProduct.rejected,(state,action) => {
+            state.productsLoading = false;
+            toast.error("خطا در ویرایش محصول")
+        })
         // add gallery
         .addCase(addGallery.fulfilled,(state,action) => {
             if(action.payload.status === 200)
@@ -165,6 +199,54 @@ const dashboardSlice = createSlice({
         })
         .addCase(addGallery.rejected, (state,action) => {
                 toast.error("گالری ذخیره نشد")
+        })
+        // get blogs
+        .addCase(getBlogs.fulfilled,(state,action) => {
+            state.blogsLoading = false;
+            state.blogs = action.payload.data
+        })
+        .addCase(getBlogs.pending,(state,action) => {
+            state.blogsLoading = true;
+        })
+        .addCase(getBlogs.rejected,(state,action) => {
+            state.blogsLoading = false;
+            toast.error("خطا در بارگیری مقاله ها")
+        })
+        // add blog
+        .addCase(addBlog.fulfilled,(state,action) => {
+            state.blogsLoading = false;
+            toast.success('مقاله با موفقیت ذخیره شد')
+        })
+        .addCase(addBlog.pending,(state,action) => {
+            state.blogsLoading = true;
+        })
+        .addCase(addBlog.rejected,(state,action) => {
+            state.blogsLoading = false;
+            toast.error('خطا در ذخیره مقاله')
+        })
+        // edit blog
+        .addCase(editBlog.fulfilled,(state,action) => {
+            state.blogsLoading = false;
+            toast.success('مقاله با موفقیت ویرایش شد')
+        })
+        .addCase(editBlog.pending,(state,action) => {
+            state.blogsLoading = true;
+        })
+        .addCase(editBlog.rejected,(state,action) => {
+            state.blogsLoading = false;
+            toast.error('خطا در ویرایش مقاله')
+        })
+        // delete blog
+        .addCase(deleteBlog.fulfilled,(state,action) => {
+            state.blogsDeleteLoading = false;
+            toast.success('مقاله با موفقیت حذف شد')
+        })
+        .addCase(deleteBlog.pending,(state,action) => {
+            state.blogsDeleteLoading = true;
+        })
+        .addCase(deleteBlog.rejected,(state,action) => {
+            state.blogsDeleteLoading = false;
+            toast.error('خطا در حذف مقاله')
         })
     }
 })

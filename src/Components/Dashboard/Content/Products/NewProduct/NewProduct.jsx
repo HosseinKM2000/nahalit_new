@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
+import { addProduct } from '../../../../../features/dashboard/action';
 
 function NewProduct() {
     // const [categories,setCategories] = useState([
@@ -37,16 +39,14 @@ function NewProduct() {
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
-    const [tags,setTags] = useState([]);
     const [priceValue,setPriceValue] = useState(0);
-    const priceRef = useRef();
-    const tagsRef = useRef();
-    const categoryRef = useRef();
     const titleRef = useRef();
     const descRef  = useRef();
     const discountRef = useRef();
+    const dispatch = useDispatch();
+    const loading = useSelector(state => state.dashboard.productLoading);
     const categories = useSelector(state => state.dashboard.categories);
-    const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
+    const cateList = categories !== null && categories !== undefined ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
    
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -74,36 +74,35 @@ function NewProduct() {
         setPriceValue(separatedNumber)
       }
 
-    const add = (e) => {
-        const textTag = tagsRef.current.value;
-        if(e.key === "Enter")
-        {
-            if(textTag.length >= 2 )
-            {
-                setTags([...tags,textTag])
-                tagsRef.current.value = ''
-            }
-            else
-            {
-               toast.warn('عنوان برچسب کوتاه است')
-            }
-        }
-    }
-
-    const Delete = (indexRemove) => {
-          setTags(tags.filter((tag,index)=> index !== indexRemove))
-    }
-
     const formSubmiter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
             image:imageName,
-            category_id:categoryRef,
-            tags:tags,
-            price:priceRef,
+            category_id:dropCate.value,
+            price:priceValue,
             description:descRef.current.value,
+            seller_id:1,
         }
+        switch(true)
+        {
+            case formData.title.length === 0 : toast.warn("عنوان را وارد کنید");
+            break;
+            case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
+            break;
+            case formData.image === '' : toast.warn('فایل تصویر را وارد کنید');
+            break;
+            case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
+            break;
+            // case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
+            // break;
+            default : sendProduct(formData)
+        }
+    }
+
+    const sendProduct = (dataObj) => {
+        console.log(dataObj)
+        dispatch(addProduct(dataObj))
     }
 
     const liHandler = (value) => {
@@ -120,18 +119,15 @@ function NewProduct() {
 
   return (
     <div className='flex flex-col sm:w-[90%] md:w-full 2xl:w-[70%] w-full opacity-motion'>
-             {/* green circles in background */}
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
-            {/* toaster */}
-             <ToastContainer 
-              position='top-center'
-              theme='colored'
-              autoClose={2500}
-              className='Toast_info'
-              />
+          {/* toaster */}
+        <ToastContainer 
+        position='top-center'
+        theme='colored'
+        autoClose={2500}
+        className='Toast_info'
+        />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>محصول جدید</h1>
+            <h1 className='font-semibold text-lg text-stone-800'>محصول جدید</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
             {/* title */}
@@ -149,23 +145,6 @@ function NewProduct() {
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
-            {/* tags */}
-            <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="tags" className='font-semibold text-[#2e424a]'>برچسب ها</label>
-                    <input onKeyDown={(e)=>add(e)} ref={tagsRef} type="text" name="tags" className="w-full outline-none focus:border p-1 border-[#0ab694]"/>
-                    <div className="flex w-full mt-3 flex-wrap gap-3">
-                        {
-                            tags.length === 0
-                            ? <></>
-                            : tags.map((tag,index) => (
-                                <div className="flex items-center gap-1 p-1 text-white bg-stone-500 rounded-md" key={index}>
-                                    <span>{tag}</span>
-                                    <span onClick={()=>Delete(index)} className="text-red-600 transition-all hover:text-yellow-400 w-fit h-fit px-1 flex items-center rounded-md cursor-default">&#x2716;</span>
-                                </div>
-                            ))
-                        }
-                    </div>
-            </div>
             {/* categories */}
             <div className='w-full flex justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
@@ -180,7 +159,7 @@ function NewProduct() {
                     :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
                  }
                 </div>
-                    <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
+                <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
                     {
                         cateList.filter(cate => cate.category_id === null).map((cate,i)=>(
                             <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
@@ -198,7 +177,7 @@ function NewProduct() {
                 {
                     goalCate !== null
                     ? 
-                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
+                <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
                     {
                         categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
                             <li key={i} onMouseEnter={(e)=>{
@@ -214,21 +193,21 @@ function NewProduct() {
                 : <></>
                 }
                 {
-                    goalChild !== null
-                    ?
-                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
-                    {
-                        categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
-                            <li key={i} onClick={(e)=>{
-                                setDropCate({status:false,value:item.title})
-                                setChildList(false)
-                                setChildList_2(false)
-                            }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
-                        ))
-                    }
-                    </ul>
-                    :
-                    <></>
+                goalChild !== null
+                ?
+                <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
+                {
+                    categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
+                        <li key={i} onClick={(e)=>{
+                            setDropCate({status:false,value:item.title})
+                            setChildList(false)
+                            setChildList_2(false)
+                        }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
+                    ))
+                }
+                </ul>
+                :
+                <></>
                 }
             </div>
            {/* price */}
@@ -236,7 +215,7 @@ function NewProduct() {
             <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
             <input type="text" name="price" id="" onChange={(e)=>{
                 !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
-            }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] w-[20%] text-left' style={{direction:'ltr'}}/>
+            }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] font-[shabnambold] w-[20%] text-left' style={{direction:'ltr'}}/>
             </div>
                {/* discount */}
             <div className='w-full flex flex-col gap-2'>
@@ -256,7 +235,13 @@ function NewProduct() {
              }}/>
               </div>
             </div>
-            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+            <button type='submit' onClick={(e)=>formSubmiter(e)} className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
+                {
+                    loading
+                    ? <img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                    :<span>ثبت محصول</span>
+                }
+            </button>
         </form>
     </div>
   )

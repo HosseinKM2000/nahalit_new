@@ -14,8 +14,8 @@ function New() {
     const titleRef = useRef();
     const descRef  = useRef();
     const managerRef = useRef();
-    const categories = useSelector(state => state.dashboard.categories);
-    const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
+    const categories = useSelector(state => state.dashboard.categories)
+    const cateList = categories !== null && categories !== undefined ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -44,9 +44,6 @@ function New() {
 
   return (
     <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
-             {/* green circles in background */}
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[-8rem] md:bottom-[1rem] left-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -55,7 +52,7 @@ function New() {
               className='Toast_info'
               />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>افزودن نمونه کار</h1>
+            <h1 className='font-semibold text-lg text-stone-800'>افزودن نمونه کار</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
             {/* title */}

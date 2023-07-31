@@ -44,11 +44,9 @@ export const getProducts = createAsyncThunk('dashboard/getProducts', async () =>
     return response;
 })
 
-export const addProduct = createAsyncThunk('dashboard/addProduct', async (data) => {
+export const addProduct = createAsyncThunk('dashboard/addProduct', async (dataObj) => {
 
-    const response = await axios.post(`http://127.0.0.1:8000/api/v1/products`,{
-        ...data
-    });
+    const response = await axios.post(`http://127.0.0.1:8000/api/v1/products`,dataObj);
 
     return response;
 })
@@ -60,11 +58,9 @@ export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (
     return response;
 })
 
-export const editeProduct = createAsyncThunk('dashboard/editeProduct', async (id,newData) => {
+export const editProduct = createAsyncThunk('dashboard/editProduct', async (id,newData) => {
 
-    const response = await axios.put(`http://127.0.0.1:8000/api/v1/products/${id}`,{
-        ...newData
-    });
+    const response = await axios.put(`http://127.0.0.1:8000/api/v1/products/${id}`,newData);
 
     return response;
 })
@@ -141,9 +137,30 @@ export const editeGallery = createAsyncThunk('dashboard/getGalleries', async ({i
 
     return response;
 })
+
 // roles
 export const addRole = createAsyncThunk('dashboard/addRole', async ({formData}) => {
     const response = await axios.post(``)
-    
     return response
+})
+
+// blogs
+export const getBlogs = createAsyncThunk('dashboard/getBlogs' , async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/v1/blogs');
+    return response;
+})
+
+export const addBlog = createAsyncThunk('dashboard/addBlog' , async (dataObj) => {
+    const response = await axios.post('http://127.0.0.1:8000/api/v1/blogs',dataObj);
+    return response;
+})
+
+export const editBlog = createAsyncThunk('dashboard/editBlog' , async (id,dataObj) => {
+    const response = await axios.put(`http://127.0.0.1:8000/api/v1/blogs/${id}`,dataObj);
+    return response;
+})
+
+export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) => {
+    const response = await axios.delete(`http://127.0.0.1:8000/api/v1/blogs/${id}`);
+    return response;
 })

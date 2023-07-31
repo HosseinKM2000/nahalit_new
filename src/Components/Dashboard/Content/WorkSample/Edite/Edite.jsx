@@ -46,9 +46,6 @@ function Edite({ details , setShowDetails }) {
 
   return (
     <div className='flex flex-col 2xl:w-[70%] w-full opacity-motion'>
-             {/* green circles in background */}
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -57,7 +54,7 @@ function Edite({ details , setShowDetails }) {
               className='Toast_info'
               />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>جزئیات</h1>
+            <h1 className='font-semibold text-lg text-stone-800'>جزئیات</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
             {/* title */}

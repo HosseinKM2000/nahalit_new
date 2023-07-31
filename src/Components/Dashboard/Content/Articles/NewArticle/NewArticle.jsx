@@ -1,15 +1,18 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 
 function NewArticle() {
 
     const [imageName,setimageName] = useState('');
-    const [tags,setTags] = useState([]);
     const titleRef = useRef();
     const descRef  = useRef();
     const situationRef = useRef();
-    const tagsRef = useRef();
+    const dispatch = useDispatch();
+    const loading = useSelector(state => state.dashboard.blogsLoading);
     const mobile = window.innerWidth > 425 ? true : false;
+
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -17,14 +20,15 @@ function NewArticle() {
             e.stopPropagation()
         }
     }
+
     const formSubmiter = (e) => {
         e.preventDefault()
         const formData = {
-            title:titleRef.current.value,
-            image:imageName,
-            body:descRef.current.value,
-            is_active:situationRef,
-            user_id:''
+            title: titleRef.current.value,
+            image: imageName,
+            body: descRef.current.value,
+            is_active: situationRef,
+            user_id: JSON.parse(localStorage.getItem('user')).id
         }
         switch(true)
         {
@@ -36,40 +40,26 @@ function NewArticle() {
             break;
             case formData.body === '' : toast.warn("توصیحات را وارد کنید");
             break;
-            default : console.log('')
+            default : submitArticle(formData)
         }
-    }
-    const add = (e) => {
-        const textTag = tagsRef.current.value;
-        if(e.key === "Enter")
-        {
-            if(textTag.length >= 2 )
-            {
-                setTags([...tags,textTag])
-                tagsRef.current.value = ''
-            }
-            else
-            {
-               toast.warn('عنوان برچسب کوتاه است')
-            }
-        }
-    }
-    const Delete = (indexRemove) => {
-          setTags(tags.filter((tag,index)=> index !== indexRemove))
     }
 
-  return (
+    const submitArticle = (dataObj) => {
+        console.log(dataObj)
+    }
+
+    return (
     
     <div className='flex flex-col w-[93%] sm:w-full opacity-motion 2xl:w-[70%]'>
-             {/* toaster */}
-             <ToastContainer 
-              position='top-center'
-              theme='colored'
-              autoClose={2500}
-              className='Toast_info'
-              />
+        {/* toaster */}
+        <ToastContainer 
+        position='top-center'
+        theme='colored'
+        autoClose={2500}
+        className='Toast_info'
+        />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>مقاله جدید</h1>
+            <h1 className='font-semibold text-lg text-stone-800'>مقاله جدید</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
            {/* title */}
@@ -87,23 +77,6 @@ function NewArticle() {
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
                 <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
-                {/* tags */}
-            <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="tags" className='font-semibold text-[#2e424a]'>برچسب ها</label>
-                    <input onKeyDown={(e)=>add(e)} ref={tagsRef} type="text" name="tags" className="w-full outline-none focus:border p-1 border-[#0ab694]"/>
-                    <div className="flex w-full mt-3 flex-wrap gap-3">
-                        {
-                            tags.length === 0
-                            ? <></>
-                            : tags.map((tag,index) => (
-                                <div className="flex items-center gap-1 p-1 text-white bg-stone-500 rounded-md" key={index}>
-                                    <span>{tag}</span>
-                                    <span onClick={()=>Delete(index)} className="text-red-600 transition-all hover:text-yellow-400 w-fit h-fit px-1 flex items-center rounded-md cursor-default">&#x2716;</span>
-                                </div>
-                            ))
-                        }
-                    </div>
-            </div>
             {/* situation */}
             <div className='w-full flex justify-start'>
             <div className="w-fit flex flex-col gap-2">
@@ -114,7 +87,13 @@ function NewArticle() {
                     </select>
                 </div>
             </div>
-            <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[80%] md:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+            <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[80%] md:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
+                {
+                    loading
+                    ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                    :<span>ثبت</span>
+                }
+            </button>
         </form>
     </div>
   )

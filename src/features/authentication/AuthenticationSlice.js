@@ -16,7 +16,7 @@ const authenticationSlice = createSlice({
         .addCase(register.fulfilled,(state,action) => {
             state.loading = false;
             toast.success(action.payload.data.massage)
-            localStorage.setItem("user",action.payload.data.user)
+            localStorage.setItem("user",JSON.stringify(action.payload.data.user))
             localStorage.setItem("access_token",action.payload.data.token)
         })
         .addCase(register.pending,(state) => {
@@ -30,7 +30,7 @@ const authenticationSlice = createSlice({
             state.loading = false;
             toast.success(action.payload.data.massage)
             localStorage.setItem("access_token",action.payload.data.token)
-            localStorage.setItem("user",action.payload.data.user)
+            localStorage.setItem("user",JSON.stringify(action.payload.data.user))
             state.loginStatus = true;
         })
         .addCase(login.pending,(state) => {

@@ -1,11 +1,7 @@
-import React from 'react';
-import { useRef , useState } from 'react';
-import { useSelector , useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
-import {MdKeyboardArrowLeft} from 'react-icons/md';
-import { BiSolidChevronsRight  } from 'react-icons/bi';
-import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
+import React, { useRef, useState } from 'react';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 
 function New() {
 
@@ -53,9 +49,6 @@ function New() {
 
   return (
     <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
-             {/* green circles in background */}
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute top-[1rem] right-[1rem] z-0'></div>
-                     <div className='w-[15rem] h-[15rem] rounded-full bg-[#6FEDD6] blur-[12rem] absolute bottom-[1rem] left-[1rem] z-0'></div>
             {/* toaster */}
              <ToastContainer 
               position='top-center'
@@ -64,7 +57,7 @@ function New() {
               className='Toast_info'
               />
         <div className='w-full bg-[#C0D9DB] p-2'>
-            <h1 className='font-semibold text-xl text-stone-800'>افزودن</h1>
+            <h1 className='font-semibold text-lg text-stone-800'>افزودن</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
             {/* title */}

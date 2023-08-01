@@ -10,13 +10,13 @@ function New() {
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
+    const [fileName,setFileName] = useState('');
+    const [priceValue,setPriceValue] = useState(0);
     const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
-    const categoryRef = useRef();
     const titleRef = useRef();
     const descRef  = useRef();
     const supervisorRef = useRef();
-    const priceRef  = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
     const categories = useSelector(state => state.dashboard.categories);
@@ -32,20 +32,67 @@ function New() {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
-            category_id:categoryRef,
+            category_id:1,
             description:descRef.current.value,
+            file:fileName,
+            supervisor_id:1,
+            price:priceValue,
+            status:statusRef.current.value,
+            progress:progressRef.current.value,
+        }
+        switch(true)
+        {
+            case formData.title.length === 0 : toast.warn("عنوان را وارد کنید");
+            break;
+            case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
+            break;
+            case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
+            break;
+            case formData.file === '' : toast.warn('فایل را وارد کنید');
+            break;
+            case formData.price === '' : toast.warn('قیمت را وارد کنید');
+            break;
+            case formData.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
+            break;
+            // case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
+            // break;
+            default : sendProduct(formData)
         }
     }
+
+    const sendProduct = (dataObj) => {
+        console.log(dataObj)
+    }
+
     const liHandler = (value) => {
         setChildList(true);
         const item = categories.filter(cate => cate.category_id === null).find(cate => cate.title === value);
         setGoalCate(item)
     }
+
     const liHandler_2 = (id) => {
         setChildList_2(true);
         const item = categories.find(cate => cate.id === id);
         setGoalChild(item)
     }
+
+    function separateByCommas(number) {
+        let numberString = String(number);
+        
+        let separatedNumber = '';
+        let counter = 0;
+        
+        for (let i = numberString.length - 1; i >= 0; i--) {
+          if (counter === 3) {
+            separatedNumber = ',' + separatedNumber;
+            counter = 0;
+          }
+          separatedNumber = numberString.charAt(i) + separatedNumber;
+          counter++;
+        }
+        
+        setPriceValue(separatedNumber)
+      }
 
   return (
     <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
@@ -140,9 +187,10 @@ function New() {
                     <></>
                 }
             </div>
+            {/* file */}
             <div className='flex items-start flex-col gap-2 w-full'>
                 <label htmlFor="file" className='font-semibold text-[#2e424a]'>فایل</label>
-                <input type="file" name="file" id="" />
+                <input onChange={(e)=>setFileName(e.target.files[0].name)} type="file" name="file" id="" />
             </div>
                 {/* status */}
             <div className='flex flex-col gap-2 w-full'>
@@ -172,16 +220,13 @@ function New() {
                 {/* price */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="price" className='font-semibold text-[#2e424a]'>مبلغ</label>
-                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
-                    if(e.target.value.search(/\D+/g) !== -1)
-                        {
-                        e.target.value = ''
-                        toast.warn("مقدار قابل قبول نیست")
-                        }}}/>
+                <input type="text" name="price" id="" placeholder='به تومان...' value={priceValue}   className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
+                            !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
+                        }}/>
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
              <div className='flex items-center w-[80%] sm:w-[50%] 2xl:w-[30%] justify-between'>
-             <button type='button' className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+             <button type='button' onClick={(e) => formSubmiter(e)} className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
              </div>
            </div>
         </form>

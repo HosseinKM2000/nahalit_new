@@ -16,8 +16,8 @@ function EditeArticle() {
     const deleteLoading = useSelector(state => state.dashboard.blogsDeleteLoading);
     const mobile = window.innerWidth > 425 ? true : false;
     const articleId = useSelector(state => state.dashboard.articleId);
-    const articles = useSelector(state => state.dashboard.products) || [{title:'',url:'',id:''}]
-    const goalArticle = articles.find((item,index) => index === articleId) ||  {title:'',url:'',id:''}
+    const articles = useSelector(state => state.dashboard.blogs) || [{title:'',url:'',id:''}]
+    const goalArticle = articles.find((item) => item.id === articleId) ||  {title:'',url:'',id:''}
 
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -51,12 +51,12 @@ function EditeArticle() {
     }
 
     const EditArticle = (dataObj) => {
-        dispatch(editBlog(1,dataObj))
+        dispatch(editBlog({id:goalArticle.id,dataObj}))
     }
 
     const articleDelete = (e) => {
         e.preventDefault();
-        dispatch(deleteBlog(1))
+        dispatch(deleteBlog(goalArticle.id))
     }
 
   return (
@@ -82,32 +82,43 @@ function EditeArticle() {
             {/* image */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر پوستر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
+                <input onChange={(e)=>setImageName(e.target.files[0].name)}  type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
             </div>
             {/* describe */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
+                <textarea name="describe" id="" defaultValue={goalArticle.body} cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
             </div>
             {/* situation */}
             <div className='w-full flex justify-start'>
             <div className="w-fit flex flex-col gap-2">
                     <label htmlFor="published" className='font-semibold text-[#2e424a]'>وضعیت مقاله</label>
                     <select  name="published" id="" className="outline-none" ref={situationRef}>
-                        <option value={true}>روشن</option>
-                        <option value={false}>خاموش</option>
+                        {
+                            goalArticle.is_active === 1
+                            ?
+                            <>
+                                <option value={true}>روشن</option>
+                                <option value={false}>خاموش</option>
+                            </>
+                            :
+                            <>
+                                <option value={false}>خاموش</option>
+                                <option value={true}>روشن</option>
+                            </>
+                        }
                     </select>
                 </div>
             </div>
             <div className='flex flex-col w-full items-center mt-3 gap-2'>
-                <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[50%] 2xl:w-[30%] bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
+                <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[50%] 2xl:w-[30%] bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
                     {
                         loading
                         ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
-                        :<span>ثبت</span>
+                        :<span>ویرایش</span>
                     }
                 </button>
-                <button type='button' onClick={(e)=>articleDelete(e)}  className='w-[50%] 2xl:w-[30%] bg-[#d91e0a] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fb250d] text-white font-bold text-xl py-1 rounded-sm'>
+                <button type='button' onClick={(e)=>articleDelete(e)}  className='w-[50%] 2xl:w-[30%] bg-[#d91e0a] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fb250d] text-white font-bold text-lg py-1 rounded-sm'>
                     {
                         deleteLoading
                         ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>

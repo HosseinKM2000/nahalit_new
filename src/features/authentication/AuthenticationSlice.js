@@ -5,7 +5,7 @@ import { login, register } from "./action";
 const initialState = {
     loading:false,
     message:'',
-    loginStatus:false,
+    loginStatus:localStorage.getItem('access_token') === null ? false : true,
 }
 
 const authenticationSlice = createSlice({
@@ -31,7 +31,6 @@ const authenticationSlice = createSlice({
             toast.success(action.payload.data.massage)
             localStorage.setItem("access_token",action.payload.data.token)
             localStorage.setItem("user",JSON.stringify(action.payload.data.user))
-            state.loginStatus = true;
         })
         .addCase(login.pending,(state) => {
             state.loading = true;

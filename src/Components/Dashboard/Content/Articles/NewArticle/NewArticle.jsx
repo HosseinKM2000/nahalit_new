@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
+import { addBlog } from '../../../../../features/dashboard/action';
 
 function NewArticle() {
 
@@ -27,8 +28,9 @@ function NewArticle() {
             title: titleRef.current.value,
             image: imageName,
             body: descRef.current.value,
-            is_active: situationRef,
-            user_id: JSON.parse(localStorage.getItem('user')).id
+            is_active: JSON.parse(situationRef.current.value),
+            user_id: JSON.parse(localStorage.getItem('user')).id,
+            slug:'test_slug'
         }
         switch(true)
         {
@@ -46,6 +48,7 @@ function NewArticle() {
 
     const submitArticle = (dataObj) => {
         console.log(dataObj)
+        dispatch(addBlog(dataObj))
     }
 
     return (

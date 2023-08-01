@@ -1,2 +1,1 @@
-price-range;
-persianing number;
+delet slug in blogs

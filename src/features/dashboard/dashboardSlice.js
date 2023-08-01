@@ -105,7 +105,8 @@ const dashboardSlice = createSlice({
         // get categories
         .addCase(getCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            state.categories = action.payload.data.categories;
+            state.categories = action.payload.data.category === undefined ? null : [{id:1,category_id:null,title:"محصولات"},{id:2,category_id:null,title:"خدمات"},{id:3,category_id:null,title:"نمونه کارها"},{id:4,category_id:null,title:"مقالات"}];
+            console.log(action.payload.data.category)
         })
         .addCase(getCategories.pending, (state) => {
             state.categoriesLoading = true;
@@ -164,7 +165,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(getProducts.rejected , (state,action) => {
             state.productsLoading = false;
-            toast.error('خطا در بارگیری اطلاعات')
+            toast.error('خطا در بارگیری محصولات')
         })
         // add product
         .addCase(addProduct.fulfilled, (state,action) => {
@@ -203,7 +204,7 @@ const dashboardSlice = createSlice({
         // get blogs
         .addCase(getBlogs.fulfilled,(state,action) => {
             state.blogsLoading = false;
-            state.blogs = action.payload.data
+            state.blogs = action.payload.data.data
         })
         .addCase(getBlogs.pending,(state,action) => {
             state.blogsLoading = true;
@@ -239,6 +240,7 @@ const dashboardSlice = createSlice({
         // delete blog
         .addCase(deleteBlog.fulfilled,(state,action) => {
             state.blogsDeleteLoading = false;
+            state.articlesSwitch = 'all'
             toast.success('مقاله با موفقیت حذف شد')
         })
         .addCase(deleteBlog.pending,(state,action) => {

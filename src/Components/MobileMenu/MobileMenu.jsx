@@ -1,7 +1,7 @@
-import React , { useState  , useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { RiArrowLeftSLine } from 'react-icons/ri';
+import React, { useEffect, useState } from 'react';
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import { RiArrowLeftSLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 import clearIcon from '../../assets/img/clear.png';
 
 function MobileMenu({ dropMenu , setDropMenu }) {
@@ -59,10 +59,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   ]
   const [keyList,setKeyList] = useState({key:'',cateId:''});
   const [stepList,setStepList] = useState(1);
-  useEffect(()=>{
-    console.log(keyList)
-    console.log(stepList)
-  },[keyList,stepList])
+
   useEffect(() => {
     if(stepList === 1)
     {

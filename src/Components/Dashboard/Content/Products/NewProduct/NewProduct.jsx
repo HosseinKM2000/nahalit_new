@@ -79,7 +79,7 @@ function NewProduct() {
         const formData = {
             title:titleRef.current.value,
             image:imageName,
-            category_id:dropCate.value,
+            category_id:1,
             price:priceValue,
             description:descRef.current.value,
             seller_id:1,

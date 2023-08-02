@@ -7,6 +7,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import ScrollTop from "../ScrollTop/ScrollTop";
 
 const Header = () => {
   const loginStatus = useSelector(state => state.authentication.loginStatus);
@@ -97,7 +98,8 @@ const Header = () => {
   };
   return (
     <>
-      <div className="bg-[#07B235] h-1"></div>
+      <div className="bg-[#07B235] h-1" id="UP"></div>
+      <ScrollTop/>
       <div className="min-w-full">
         <div className="flex justify-between w-full text-center px-5 py-1">
           <p className="font-[shabnamLight]  leading-10 text-[#707070] text-[0.9rem]">

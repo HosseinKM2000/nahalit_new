@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import { RiSendBackward } from "react-icons/ri";
-import { BsFillBriefcaseFill } from "react-icons/bs";
-import { FaSeedling } from "react-icons/fa";
-import { BsHeart } from "react-icons/bs";
-import { FaTelegramPlane } from "react-icons/fa";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { BsYoutube } from "react-icons/bs";
-import { SiAparat } from "react-icons/si";
-import { FaServer } from "react-icons/fa";
+import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { BsFillBriefcaseFill, BsHeart, BsYoutube } from "react-icons/bs";
+import { FaSeedling, FaServer, FaTelegramPlane } from "react-icons/fa";
 import { HiCode } from "react-icons/hi";
-import trustLogo from '../../assets/img/trustlogo.png';
+import { RiSendBackward } from "react-icons/ri";
+import { SiAparat } from "react-icons/si";
 import { Link } from "react-router-dom";
+import trustLogo from '../../assets/img/trustlogo.png';
 
 const Footer = () => {
   const [Footer, setFooter] = useState(false);

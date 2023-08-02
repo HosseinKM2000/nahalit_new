@@ -1,9 +1,9 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
-import { addProduct } from '../../../../../features/dashboard/action';
 
 function NewProduct() {
     // const [categories,setCategories] = useState([
@@ -76,33 +76,59 @@ function NewProduct() {
 
     const formSubmiter = (e) => {
         e.preventDefault()
-        const formData = {
+        const form = {
             title:titleRef.current.value,
-            image:imageName,
+            image:e.target.elements['image'].files[0],
             category_id:1,
-            price:priceValue,
+            price:JSON.parse(priceValue.replaceAll(',','')),
             description:descRef.current.value,
             seller_id:1,
         }
+
         switch(true)
         {
-            case formData.title.length === 0 : toast.warn("عنوان را وارد کنید");
+            case form.title.length === 0 : toast.warn("عنوان را وارد کنید");
             break;
-            case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
+            case form.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
-            case formData.image === '' : toast.warn('فایل تصویر را وارد کنید');
+            case imageName === '' : toast.warn('فایل تصویر را وارد کنید');
             break;
-            case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
+            case form.description.length === 0 : toast.warn("توضیح را وارد کنید");
             break;
             // case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
             // break;
-            default : sendProduct(formData)
+            default : sendProduct(form)
         }
+
     }
 
-    const sendProduct = (dataObj) => {
-        console.log(dataObj)
-        dispatch(addProduct(dataObj))
+    const sendProduct = (form) => {
+        // let formData = new FormData();
+        // Object.entries(form).forEach(([key,value]) => {
+        //     formData.append(key,value)
+        // })
+        // const data = Object.fromEntries(formData.entries()); 
+        let formData = new FormData();
+        formData.append('title','title-test')
+        formData.append('description','hdhdhdhdhdhdhdhdhdhdhdhdhhdhd')
+        formData.append('image',form.image)
+        formData.append('category_id',1)
+        formData.append('seller_id',1)
+        formData.append('price',20000)
+        axios({
+            method:"post",
+            body:formData,
+            url:'http://127.0.0.1:8000/api/v1/products',
+            headers:{
+                Authorization:`Bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+        .then(res => console.log(res))
+        .catch(err => console.error(err))
+        const data = Object.fromEntries(formData.entries())
+        console.log(data)
+        // console.log(form);
+        // dispatch(addProduct(form))
     }
 
     const liHandler = (value) => {
@@ -129,7 +155,7 @@ function NewProduct() {
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>محصول جدید</h1>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
+        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)} onSubmit={(e)=>formSubmiter(e)}>
             {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
@@ -235,7 +261,7 @@ function NewProduct() {
              }}/>
               </div>
             </div>
-            <button type='submit' onClick={(e)=>formSubmiter(e)} className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
+            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
                 {
                     loading
                     ? <img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>

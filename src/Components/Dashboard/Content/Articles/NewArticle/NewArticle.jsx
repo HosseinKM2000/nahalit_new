@@ -30,7 +30,6 @@ function NewArticle() {
             body: descRef.current.value,
             is_active: JSON.parse(situationRef.current.value),
             user_id: JSON.parse(localStorage.getItem('user')).id,
-            slug:'test_slug'
         }
         switch(true)
         {

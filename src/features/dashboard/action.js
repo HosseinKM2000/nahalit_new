@@ -38,15 +38,13 @@ export const editeParentCategories = createAsyncThunk('dashboard/editeParentCate
 // products
 export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
 
-    const response = await instance.get('https://jsonplaceholder.typicode.com/photos');
+    const response = await instance.get('/products');
 
     return response;
 })
 
-export const addProduct = createAsyncThunk('dashboard/addProduct', async (dataObj) => {
-
-    const response = await instance.post(`/products`,dataObj);
-
+export const addProduct = createAsyncThunk('dashboard/addProduct', async (formData) => {
+    const response = await instance.post('/products',formData);
     return response;
 })
 

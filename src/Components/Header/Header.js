@@ -132,7 +132,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
-          <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-evenly px-3">
+          <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
             <ul className="flex justify-start items-baseline gap-x-5 2xl:gap-x-10 lg:whitespace-nowrap">
               <li>
                 <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>

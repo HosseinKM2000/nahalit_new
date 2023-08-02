@@ -1,11 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { MdArrowLeft } from 'react-icons/md';
 import CategoriesP from './CategoriesP/CategoriesP';
 import PriceRange from './components/PriceRange';
 
 function Side() {
-
-    const [fRotate,setFRotate] = useState(false);
     const [minPrice,setMinPrice] = useState(0);
     const [maxPrice,setMaxPrice] = useState(5000);
     const [minValue,setMinValue] = useState(0);
@@ -17,23 +14,8 @@ function Side() {
    const changeMaxValue = (value) => { setMaxValue(value) }
 
   return (
-    <div className='flex w-full md:w-[50%] lg:w-[25%] flex-col pt-5 gap-5 2xl:gap-10'>
-        <div className='flex flex-col gap-8  w-full items-start relative'>
-        <div onClick={()=>setFRotate(!fRotate)} className='flex text-lg z-10 text-rose-950 bg-white items-center font-bold cursor-pointer hover:text-blue-500 transition-all'>
-            <MdArrowLeft className='transition-all duration-300' style={{rotate:fRotate?'-90deg':''}}/>
-            <span className='font-[vasirbold]'>فیلتر محصول</span>
-            <div className='flex text-gray-600 text-base gap-1 mr-1'>
-              <span>/نتایج:</span>
-              <span>22</span>
-              <span>محصول</span>
-            </div>
-        </div>
-        <div className='flex items-center transition-all duration-300 z-0 gap-1 text-gray-600 absolute' style={{top:!fRotate?'0px':'2rem'}}>
-            <span className='hover:text-blue-500 transition-all cursor-default 2xl:scale-150'>&#10006;</span>
-            <span className='text-sm 2xl:text-xl font-extrabold'>پلاگین کاربردی</span>
-        </div>
-        </div>
-        <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm font-[shabnamMedium] text-stone-600 outline-none mt-3 p-1' style={{border:'solid 1px #DBDCDD'}}>
+    <div className='flex w-full pb-5 px-3 2xl:px-10 bg-[#f2f2f2] lg:w-[25%] flex-col pt-5 gap-5 2xl:gap-10'>
+        <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm font-[shabnamMedium] text-stone-600 lg:w-[100%] w-full sm:w-[50%] outline-none mt-3 p-1 2xl:w-[70%]' style={{border:'solid 1px #DBDCDD'}}>
              <option value="">مرتب سازی پیش فرض</option>
              <option value="popular">مرتب سازی بر اساس محبوبیت</option>
              <option value="rate">مرتب سازی بر اساس امتیاز</option>

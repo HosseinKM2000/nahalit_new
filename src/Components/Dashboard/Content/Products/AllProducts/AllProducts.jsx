@@ -1,11 +1,11 @@
 import { React } from 'react';
-import { FaImages } from 'react-icons/fa';
-import { useDispatch , useSelector } from 'react-redux';
-import { MdOutlineFormatListNumberedRtl , MdTitle } from 'react-icons/md';
 import { BsCardImage } from 'react-icons/bs';
-import { IoMdPricetags } from 'react-icons/io';
+import { FaImages } from 'react-icons/fa';
 import { GrMoreVertical } from 'react-icons/gr';
-import { TbBrandCashapp , TbCategory2 } from 'react-icons/tb';
+import { IoMdPricetags } from 'react-icons/io';
+import { MdOutlineFormatListNumberedRtl, MdTitle } from 'react-icons/md';
+import { TbBrandCashapp, TbCategory2 } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function AllProducts({currentItems}) {
@@ -58,11 +58,11 @@ function AllProducts({currentItems}) {
         </div>
         </div>
           :
-          <span>محصولی وجود ندارد</span>
+          <span className='w-full text-center text-orange-500 font-bold text-lg'>محصولی وجود ندارد</span>
         }
         </>
         :
-        <span>didnt resived produtcs</span>
+        <span>خطا در بارگیری محصولات</span>
       }
     </div>
   )

@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
-import { useSelector , useDispatch} from 'react-redux';
-import { useSearchParams  , useNavigate} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import FixedIcon from '../../../Components/FixedIcon/FixedIcon';
+import Footer from '../../../Components/Footer/Footer';
 import Header from '../../../Components/Header/Header';
 import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
-import Footer from '../../../Components/Footer/Footer';
-import FixedIcon from '../../../Components/FixedIcon/FixedIcon';
 import Articles from '../Articles';
 
 function ArticlesPagination() {
@@ -14,7 +12,7 @@ function ArticlesPagination() {
     const [itemOffset, setItemOffset] = useState(0);
     const articles = useSelector(state => state.articles.articles);
     const mobile = window.innerWidth <= 425 ? true : false;
-    const itemsPerPage = 6;
+    const itemsPerPage = 12;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = articles.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(articles.length / itemsPerPage);

@@ -158,7 +158,8 @@ const dashboardSlice = createSlice({
         // get products
         .addCase(getProducts.fulfilled , (state,action) => {
             state.productsLoading = false;
-            state.products = action.payload.data;
+            // state.products = action.payload.data.data;
+            state.products = [];
         })
         .addCase(getProducts.pending , (state,action) => {
             state.productsLoading = true;
@@ -177,6 +178,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(addProduct.rejected, (state,action) => {
             state.productsLoading = false;
+            console.log(action.payload)
             toast.error("خطا در ذخیره محصول")
         })
         // edit product

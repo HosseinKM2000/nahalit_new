@@ -44,7 +44,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
   });
 
   return (
-    <>
+    <div className="w-full sm:w-[50%] lg:w-[90%]">
       <div className="price-input" dir="rtl">
         <div className="field">
           <span>از</span>
@@ -54,6 +54,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
             value={minValue}
             onChange={event => setMin(event.target.value)}
           />
+          <span>تومان</span>
         </div>
         <div className="separator">-</div>
         <div className="field">
@@ -64,6 +65,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
             value={maxValue}
             onChange={event => setMax(event.target.value)}
           />
+          <span>تومان</span>
         </div>
       </div>
       <div className="slider">
@@ -89,7 +91,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
           step={steps}
         />
       </div>
-    </>
+    </div>
   );
 }
 

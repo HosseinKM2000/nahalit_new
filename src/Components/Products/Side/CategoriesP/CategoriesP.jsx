@@ -20,13 +20,13 @@ function CategoriesP() {
 
   return (
     <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-8'>
-       <span className='px-3 py-3 text-sm 2xl:text-2xl font-[vasirbold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
-       <div style={{border:'solid 1px #AAAAC8'}} className='flex px-2 2xl:px-5 2xl:py-3 justify-between items-center w-[80%]'>
+       <span className='px-3 py-3 text-sm  font-[vasirbold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
+       <div style={{border:'solid 1px #AAAAC8'}} className='flex bg-[#ffffff] px-2 justify-between items-center w-full sm:w-[50%] lg:w-full 2xl:w-[70%]'>
        <input onKeyDown={(e)=>searchHandler(e)} ref={searchRef} type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-bold text-stone-600 outline-none w-[90%]'/>
-       <SlMagnifier onClick={(e)=>searchHandler(e,'search')} className='rounded-sm font-bold p-1 hover:bg-[#57C053] transition-all hover:text-white scale-150 2xl:scale-[4]'/>
+       <SlMagnifier onClick={(e)=>searchHandler(e,'search')} className='rounded-sm font-bold p-1 hover:bg-[#57C053] transition-all hover:text-white scale-150'/>
        </div>
        <div>
-        <fieldset className='text-xs 2xl:text-2xl font-bold flex flex-col gap-5'>
+        <fieldset className='text-xs  font-bold flex flex-col gap-5'>
           <div className='flex flex-col items-start  gap-2'>
             <div className='flex items-center gap-1'>
             <input type="radio" name="cate" id="mobileApp" />
@@ -133,18 +133,18 @@ function CategoriesP() {
         <section className='flex flex-col gap-5 my-10'>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <TbDiscount2 className='scale-150'/>
-            <span className='text-xs 2xl:text-2xl font-bold' onClick={(e)=>filterHandler('justSale')}>فقط نمایش محصولات حراجی</span>
+            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('justSale')}>فقط نمایش محصولات حراجی</span>
           </div>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <MdLocalGroceryStore className='scale-150'/>
-            <span className='text-xs 2xl:text-2xl font-bold' onClick={(e)=>filterHandler('justExist')}>فقط موجود</span>
+            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('justExist')}>فقط موجود</span>
           </div>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <RiRestartFill className='scale-150'/>
-            <span className='text-xs 2xl:text-2xl font-bold' onClick={(e)=>filterHandler('cleanFilter')}>پاکسازی فیلتر</span>
+            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('cleanFilter')}>پاکسازی فیلتر</span>
           </div>
         </section>
-        <div className='flex flex-col items-end text-sm'>
+        <div className='flex flex-col items-start text-sm w-full sm:w-[50%] lg:w-[100%] 2xl:w-[70%]'>
             <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
             <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>
               {

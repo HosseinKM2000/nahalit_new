@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
+import { AiFillDashboard, AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
 import { BsPerson, BsWordpress } from "react-icons/bs";
 import { FaAndroid, FaSpa } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ScrollTop from "../ScrollTop/ScrollTop";
 
 const Header = () => {
@@ -23,6 +23,9 @@ const Header = () => {
   const [showSlide10, setShowSlide10] = useState(false);
   const [showSlide11, setShowSlide11] = useState(false);
   const [showSlide12, setShowSlide12] = useState(false);
+  const userId = JSON.parse(localStorage.getItem('user')).id;
+  const location = useLocation();
+  const urlPath = location.pathname;
 
   const clickEntershowslide = () => {
     setShowSlide(true);
@@ -137,14 +140,14 @@ const Header = () => {
           <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
             <ul className="flex justify-start items-baseline gap-x-5 2xl:gap-x-10 lg:whitespace-nowrap">
               <li>
-                <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>
+                <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>
               </li>
               <li
                 className="flex items-center gap-x-1 relative"
                 onMouseEnter={clickEntershowslide}
                 onMouseLeave={clickoutshowslide}
               >
-                <li><Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">محصولات</Link></li>
+                <li><Link className="text-[#171717] font-[shabnamMedium] text-sm">محصولات</Link></li>
                 <RiArrowDownSLine/>
                 <div
                   onMouseEnter={clickEntershowslide}
@@ -163,7 +166,7 @@ const Header = () => {
                     >
                       <div className="relative">
                         <Link>
-                          <p className="2xl:text-base text-[#171717] text-sm font-[shabnamMedium]">سایت های آماده</p>
+                          <p className="text-[#171717] text-sm font-[shabnamMedium]">سایت های آماده</p>
                         </Link>
                         <div
                           onMouseEnter={clickEntershowslide6}
@@ -173,7 +176,7 @@ const Header = () => {
                               : "absolute bg-white -left-[19rem] -top-4 px-7 py-3 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
                           }
                         >
-                          <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
+                          <Link className="text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
                         </div>
                       </div>
                       <MdKeyboardArrowLeft />
@@ -183,7 +186,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide7}
                       onMouseLeave={clickoutshowslide7}
                     >
-                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</Link>
+                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide7}
@@ -194,13 +197,13 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">پلاگین امنیتی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین امنیتی</p>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">پلاگین مدیریتی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین مدیریتی</p>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">پلاگین کاربردی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین کاربردی</p>
                         </Link>
                       </div>
                     </li>
@@ -209,7 +212,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide8}
                       onMouseLeave={clickoutshowslide8}
                     >
-                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب html</Link>
+                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">قالب html</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide8}
@@ -220,16 +223,16 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب شخصی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب شخصی</p>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب شرکتی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب شرکتی</p>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب فروشگاهی</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب فروشگاهی</p>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">قالب خبری</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب خبری</p>
                         </Link>
                       </div>
                     </li>
@@ -238,7 +241,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide9}
                       onMouseLeave={clickoutshowslide9}
                     >
-                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</Link>
+                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide9}
@@ -249,7 +252,7 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن اندروید</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن اندروید</p>
                         </Link>
                       </div>
                     </li>
@@ -258,7 +261,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide10}
                       onMouseLeave={clickoutshowslide10}
                     >
-                      <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اسکریپت ها</Link>
+                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">اسکریپت ها</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide10}
@@ -269,18 +272,21 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="2xl:text-base font-[shabnamMedium] text-[#171717] text-sm">اسکریپت لاراول</p>
+                          <p className="font-[shabnamMedium] text-[#171717] text-sm">اسکریپت لاراول</p>
                         </Link>
                       </div>
+                    </li>
+                    <li>
+                      <Link to={'/shop'} className="text-[#171717] font-[shabnamMedium] text-sm">همه محصولات</Link>
                     </li>
                   </ul>
                 </div>
               </li>
               <li>
-                <Link to="/order" className="2xl:text-base font-[shabnamMedium] text-[#171717] text-sm">ثبت سفارش</Link>
+                <Link to="/order" className="font-[shabnamMedium] text-[#171717] text-sm">ثبت سفارش</Link>
               </li>
               <li>
-                <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">بلاگ</Link>
+                <Link className="text-[#171717] font-[shabnamMedium] text-sm">بلاگ</Link>
               </li>
 
               <li
@@ -288,7 +294,7 @@ const Header = () => {
                 onMouseEnter={clickEntershowslide2}
                 onMouseLeave={clickoutshowslide2}
               >
-                <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کارها</Link>
+                <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کارها</Link>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide2}
@@ -305,7 +311,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide11}
                       onMouseLeave={clickoutshowslide11}
                     >
-                      <Link to="/" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار گرافیک</Link>
+                      <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار گرافیک</Link>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide11}
@@ -316,31 +322,31 @@ const Header = () => {
                         }
                       >
                         <Link to="/MotionGraphics" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار موشن گرافیک</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار موشن گرافیک</p>
                         </Link>
                         <Link to="/UI_UX" className="px-4 py-1">
-                          <p className="2xl:text-base font-[shabnamMedium] text-[#171717] text-sm">نمونه کار UI/UX</p>
+                          <p className="font-[shabnamMedium] text-[#171717] text-sm">نمونه کار UI/UX</p>
                         </Link>
                         <Link to="/Brochure" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار بروشور</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار بروشور</p>
                         </Link>
                         <Link to="/Poster" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار پوستر</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار پوستر</p>
                         </Link>
                         <Link to="/Catalog" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار کاتالوگ</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار کاتالوگ</p>
                         </Link>
                         <Link to="/BusinessCard" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار کارت ویزیت</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار کارت ویزیت</p>
                         </Link>
                         <Link to="/Logo" className="px-4 py-1">
-                          <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار لوگو</p>
+                          <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار لوگو</p>
                         </Link>
                       </div>
                     </li>
                     <Link to="/Premiere">
                       <li className="flex items-center justify-start py-3">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار پریمیر</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار پریمیر</p>
                       </li>
                     </Link>
                     <Link>
@@ -349,7 +355,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide12}
                         onMouseLeave={clickoutshowslide12}
                       >
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار طراحی سایت</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار طراحی سایت</p>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide12}
@@ -360,41 +366,41 @@ const Header = () => {
                           }
                         >
                           <Link className="px-4 py-1" to="/WebsiteDesignPortfolio">
-                            <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">PHP (Laravel)</p>
+                            <p className="text-[#171717] font-[shabnamMedium] text-sm">PHP (Laravel)</p>
                           </Link>
                         </div>
                       </li>
                     </Link>
                     <Link to="/Aplication">
                       <li className="flex items-center justify-between py-3">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار اپلیکیشن</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار اپلیکیشن</p>
                       </li>
                     </Link>
                     <Link to="/Seo">
                       <li className="flex items-center justify-between py-3">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار سئو</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار سئو</p>
                       </li>
                     </Link>
                     <Link to="/Voicing">
                       <li className="flex items-center justify-between py-3">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">نمونه کار تدوین و صدا گذاری</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار تدوین و صدا گذاری</p>
                       </li>
                     </Link>
                   </ul>
                 </div>
               </li>
               <li>
-                <Link to="/LoginLearn" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">آموزش ورود</Link>
+                <Link to="/LoginLearn" className="text-[#171717] font-[shabnamMedium] text-sm">آموزش ورود</Link>
               </li>
               <li>
-                <Link to="/recruitment" className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">استخدام</Link>
+                <Link to="/recruitment" className="text-[#171717] font-[shabnamMedium] text-sm">استخدام</Link>
               </li>
               <li
                 className="flex items-center gap-x-1 relative"
                 onMouseEnter={clickEntershowslide3}
                 onMouseLeave={clickoutshowslide3}
               >
-                <Link className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات ما</Link>
+                <Link className="text-[#171717] font-[shabnamMedium] text-sm">خدمات ما</Link>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide3}
@@ -407,62 +413,62 @@ const Header = () => {
                   <ul className="px-5 py-3 bg-white  w-fit flex shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex-col items-start gap-2" style={{borderTop:'2px solid #57C053'}}>
                     <Link to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">فروش سایت اختصاصی و اقتصادی</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">فروش سایت اختصاصی و اقتصادی</p>
                       </li>
                     </Link>
                     <Link to="/services/فروش-قالب-سایت">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">فروش قالب سایت</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">فروش قالب سایت</p>
                       </li>
                     </Link>
                     <Link to="/services/طراحی-سایت-اختصاصی">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">طراحی سایت اختصاصی</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">طراحی سایت اختصاصی</p>
                       </li>
                     </Link>
                     <Link to="/services/خدمات-سئو-وب-سایت">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات وبسایت و سئو وب سایت</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات وبسایت و سئو وب سایت</p>
                       </li>
                     </Link>
                     <Link to="/services/خدمات-کسب-و-کار">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات کسب و کار</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات کسب و کار</p>
                       </li>
                     </Link>
                     <Link to="/services/خدمات-شبکه-های-اجتماعی">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات شبکه های اجتماعی</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات شبکه های اجتماعی</p>
                       </li>
                     </Link>
                     <Link to="/services/موشن-گرافیک">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">موشن گرافیک</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">موشن گرافیک</p>
                       </li>
                     </Link>
                     <Link to="/services/تدوین-پروپوزال">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">تدوین پروپوزال</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">تدوین پروپوزال</p>
                       </li>
                     </Link>
                     <Link to="/services/اپلیکیشن-موبایل">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</p>
                       </li>
                     </Link>
                     <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">
                       <li className="flex items-center justify-start py-1">
-                        <p className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات پریمیر، تدوین فیلم</p>
+                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات پریمیر، تدوین فیلم</p>
                       </li>
                     </Link>
                     <Link to='/services/خدمات-گرافیک'>
                       <li className="flex items-center justify-between py-1 relative">
-                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات گرافیک</span>
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات گرافیک</span>
                       </li>
                     </Link>
                     <Link to='/services/خدمات-تدوین-صدا-و-صدا-گذاری'>
                       <li className="flex items-center justify-between py-1 relative">
-                        <span className="2xl:text-base text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
                       </li>
                     </Link>
                   </ul>
@@ -488,6 +494,18 @@ const Header = () => {
                 <BsPerson className="text-base" />
               </div>
               }
+              {
+                userId !== undefined && userId === 1
+                ?
+                <div className="flex flex-row-reverse w-[7rem] items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+                <Link to={'/dashboard'}>
+                  <p className="text-sm font-[shabnamMedium] tracking-tight">پنل مدیریت</p>
+                </Link>
+                <AiFillDashboard className="text-lg" />
+              </div>
+              :
+              <></>
+              }
             </div>
             <div className="flex items-center justify-center flex-row gap-2">
               <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>
@@ -511,12 +529,20 @@ const Header = () => {
                 </div>
               </div>
               <div className="flex relative" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}>
-                <Link>
-                  <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
-                </Link>
-                <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
-                  0
-                </span>
+                {
+                  urlPath === '/cart'
+                  ?
+                  <></>
+                  :
+                  <>
+                    <Link>
+                      <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
+                    </Link>
+                    <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
+                      0
+                    </span>
+                  </>
+                }
                 <div
                   className={
                     showSlide5
@@ -526,7 +552,7 @@ const Header = () => {
                 >
                   <div className="flex justify-between items-center pt-2">
                     <p>0 مورد</p>
-                    <Link>
+                    <Link to={'/cart'}>
                       <p className="bg-[#22A6F2] text-white tracking-tighter font-bold text-sm px-3 py-1 text-center rounded-sm">
                         مشاهده سبد خرید
                       </p>

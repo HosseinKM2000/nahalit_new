@@ -9,7 +9,7 @@ function ScrollTop() {
         setScrollTop(window.scrollY)
     })
   return (
-    <Link smooth={false} to='UP' className={scrollTop > 1500 ? 'text-white bottom-5 fixed rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[2rem] flex w-fit h-fit' : 'text-white bottom-5 hidden rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[2rem]  w-fit h-fit'}><TbHandFinger className='m-1'/></Link>
+    <Link smooth={false} to='UP' className={scrollTop > 1500 ? 'text-white bottom-5 z-[100] fixed rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[1.8rem] sm:text-[2rem] flex w-fit h-fit' : 'text-white bottom-5 hidden rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[2rem]  w-fit h-fit'}><TbHandFinger className='m-1'/></Link>
   )
 }
 

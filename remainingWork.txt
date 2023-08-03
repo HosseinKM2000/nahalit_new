@@ -1,1 +1,1 @@
-delet slug in blogs
+check scroll button in phone

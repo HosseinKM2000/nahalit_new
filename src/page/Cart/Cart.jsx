@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import DiscountForm from "../../Components/DiscountForm/DiscountForm";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Table from '../../Components/Table/Table';
 import UpdateCartButton from '../../Components/UpdateCartButton/UpdateCartButton';
 
@@ -20,6 +23,15 @@ const Cart = () => {
 
   return (
     <div className="w-full">
+      <header>
+        <div className="max-lg:hidden">
+        <Header />
+        </div>
+        <div className="lg:hidden">
+          <ResponseHeader/>
+        </div>
+      </header>
+      <div className="w-full">
       {
         cart.length > 0 ?
           <section className="container mx-auto bg-white shadow-black/5 p-7 my-10 shadow-xl">
@@ -52,6 +64,10 @@ const Cart = () => {
               فروشگاه</Link>
           </section>
       }
+    </div>
+      <footer className="mt-5 w-full">
+          <Footer />
+      </footer>
     </div>
   );
 };

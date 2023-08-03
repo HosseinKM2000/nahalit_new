@@ -68,8 +68,8 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   },[stepList])
   return (
 
-    <div className={!dropMenu ? "w-[100vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[35vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
-    <div className="flex items-center w-full justify-between px-4 flex-row-reverse h-[10%]" style={{borderBottom:'1px solid #fff'}}>
+    <div className={!dropMenu ? "w-[100vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[50vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
+    <div className="flex items-center w-full justify-between px-4 flex-row-reverse py-3 h-fit" style={{borderBottom:'1px solid #fff'}}>
       <img src={clearIcon} alt="close" className="w-[20px] h-[20px]" onClick={()=>{
         setKeyList({key:'',cateId:''})
         setStepList(1)
@@ -85,7 +85,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
       }
     </div>
     <menu className='w-full relative h-[90%] p-5 flex overflow-x-hidden overflow-y-scroll items-center scroll_zero'>   
-        <ul className={ stepList === 1 ? 'flex flex-col transition-all duration-300 absolute justify-between right-0 top-0 py-3 items-center w-full h-full overflow-y-scroll scroll_zero gap-y-5' : 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[-30rem]'}>
+        <ul className={ stepList === 1 ? 'flex flex-col transition-all duration-300 absolute justify-start right-0 top-0 py-3 items-center w-full h-full overflow-y-scroll scroll_zero gap-y-10' : 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[-30rem]'}>
             {
               itemsMenu.filter(item => item.cateId === null).map(item => (
                 item.beList === true
@@ -93,7 +93,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
                   setKeyList({key:item.title,cateId:item.id})
                   setStepList(2)
                 }}><span className='font-[shabnamBold]'>{item.title}</span><RiArrowLeftSLine className='font-[shabnamBold]'/></li>
-                : <li key={item.id} className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link className='font-[shabnamBold]'>{item.title}</Link></li>
+                : <li key={item.id} className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center'><Link to={item.link} className='font-[shabnamBold]'>{item.title}</Link></li>
               ))
             }
         </ul>
@@ -117,7 +117,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
         }
         </ul>
     </menu>
-  </div>
+    </div>
 
   )
 }

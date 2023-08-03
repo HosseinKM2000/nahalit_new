@@ -28,7 +28,7 @@ function SsoundEditing() {
           <ResponseHeader />
         </div>
       </header>
-      <div className='soundEditing-content Services-style flex flex-col items-center gap-10 mb-10 mt-2'>
+      <div className='soundEditing-content Services-style flex flex-col items-center gap-10 mb-10'>
         <img src={headImg} alt="header" className='w-full h-96 sm:h-auto'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
@@ -42,7 +42,7 @@ function SsoundEditing() {
             <div className='flex p-0 lg:pl-10 gap-10 sm:gap-0 flex-col-reverse sm:flex-row justify-between items-center'>
                 <div>
                     <motion.h3 whileInView={{x:[700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}  className='text-green-1c'>موارد استفاده تدوین صدا</motion.h3>
-                    <motion.ul whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}  className='flex flex-col gap-5 mr-10'>
+                    <motion.ul whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}  className='flex flex-col gap-5 mr-0 sm:mr-10'>
                         <li>برنامه های تلویزیونی</li>
                         <li>فیلم ها</li>
                         <li>مستند ها</li>

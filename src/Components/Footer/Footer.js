@@ -130,14 +130,14 @@ const Footer = () => {
             <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">فروشگاه</Link>
           </li>
         </ul>
-        <div className="flex items-center justify-center gap-x-1">
+        <div className="flex items-center justify-center mt-3 sm:mt-0 gap-x-1 mr-10">
           <HiCode
             onMouseEnter={SiteCreateOnEnterMouse}
             onMouseLeave={SiteCreateOnOutMouse}
             className={
               Footer
-                ? "bg-[#57C053] text-white w-9 h-9 p-1 rounded-lg translate-x-12 transition-all duration-500"
-                : "bg-[#57C053] text-white w-9 h-9 p-1 rounded-lg transition-all duration-500"
+                ? "bg-[#57C053] text-white w-8 h-8 p-1 rounded-lg translate-x-12 transition-all duration-500"
+                : "bg-[#57C053] text-white w-8 h-8 p-1 rounded-lg transition-all duration-500"
             }
           />
           <p

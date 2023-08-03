@@ -476,7 +476,7 @@ const Header = () => {
               </li>
             </ul>
             <div className="flex items-center justify-center xl:gap-x-3 lg:gap-x-3">
-              <div className="bg-[#57C053] hover:bg-[#62d15e] transition-all duration-300 xl:px-3 text-white flex flex-row-reverse px-1 py-2 rounded-md items-center justify-center gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+              <div className="bg-[#57C053] min-w-fit hover:bg-[#62d15e] transition-all duration-300 xl:px-3 text-white flex flex-row-reverse px-1 py-2 rounded-md items-center justify-center gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link>
                   <p className="text-sm font-[shabnamMedium] tracking-tight">فروشنده باشید</p>
                 </Link>
@@ -497,7 +497,7 @@ const Header = () => {
               {
                 userId !== undefined && userId === 1
                 ?
-                <div className="flex flex-row-reverse w-[7rem] items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+                <div className="flex flex-row-reverse w-[7rem] min-w-fit items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link to={'/dashboard'}>
                   <p className="text-sm font-[shabnamMedium] tracking-tight">پنل مدیریت</p>
                 </Link>

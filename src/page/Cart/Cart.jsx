@@ -22,7 +22,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full font-[shabnamThin]">
       <header>
         <div className="max-lg:hidden">
         <Header />
@@ -34,7 +34,7 @@ const Cart = () => {
       <div className="w-full">
       {
         cart.length > 0 ?
-          <section className="container mx-auto bg-white shadow-black/5 p-7 my-10 shadow-xl">
+          <section className="container w-[90%] mx-auto bg-white p-7 my-10" style={{boxShadow:'0px 0px 3px 0px grey'}}>
             <Table/>
             <div className="sm:flex flex-row gap-4 items-center justify-between w-full mt-4">
               <UpdateCartButton/>

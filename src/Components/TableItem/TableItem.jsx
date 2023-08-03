@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { setCart } from '../../features/cart/cartSlice';
@@ -13,33 +14,25 @@ const TableItem = ({cartItem}) => {
   }
 
   return (
-    <tr className="border hover:bg-gray-50 text-gray-600 text-center">
+    <tr className="border flex flex-col w-[99%] sm:w-[45%] lg:flex-row lg:w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#eaeaea] bg-[#f4f4f4] text-gray-600 text-center">
       <td className="p-4">
-        <div className="flex gap-10 items-center text-start">
-          <div>
-            <button
-              onClick={() => dispatch(setCart(cart.filter(cart => cart.id !== cartItem.id)))}
-              className="bg-red-500 hover:bg-red-600 py-1 px-3 text-white rounded"
-              title="حذف"
-            >
-              x
-            </button>
-          </div>
-          <div className="flex items-center gap-6">
+        <div className="flex gap-10 items-center justify-center text-start">
+          <div className="flex flex-col lg:flex-row  items-center gap-6">
             <Link to={"#"}>
               <img
                 src={cartItem.thumbnail}
-                className="h-auto max-w-[50px] hover:opacity-70"
+                className="h-auto w-[100px] lg:w-[50px] hover:opacity-70"
                 alt={cartItem.title}
               />
             </Link>
-            <div>
-              <Link className="block text-gray-600 hover:text-blue-600" to={"#"}>{cartItem.title}</Link>
-              {cartItem.seller && <span>فروشنده: {cartItem.seller.trim()}</span>}
+            <div className='flex flex-col items-center lg:items-start w-full'>
+              <Link className="block text-gray-600 line-clamp-2 text-center lg:text-start hover:text-blue-600" to={"#"}>{cartItem.title}</Link>
+              {cartItem.seller && <span className='font-[shabnambold] mt-3'>فروشنده: {cartItem.seller.trim()}</span>}
             </div>
           </div>
         </div>
       </td>
+      <div className='flex items-center flex-col lg:flex-row'>
       <td className="p-4">
         <span>{addSignToMoney(cartItem.price)}</span>
       </td>
@@ -60,6 +53,17 @@ const TableItem = ({cartItem}) => {
       <td className="p-4">
         <span>{addSignToMoney(cartItem.quantity * cartItem.price)}</span>
       </td>
+      <div>
+            <button
+              onClick={() => dispatch(setCart(cart.filter(cart => cart.id !== cartItem.id)))}
+              className="bg-red-500 hover:bg-red-600 h-fit w-fit p-1 text-white rounded"
+              title="حذف"
+            >
+              <MdOutlineClose className='hidden lg:block'/>
+              <span className='mx-3 block lg:hidden'>حذف از سبد خرید</span>
+            </button>
+      </div>
+      </div>
     </tr>
   );
 };

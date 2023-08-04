@@ -39,9 +39,15 @@ const ResponseHeader = () => {
         :
         <></>
         }
-        <Link>
-          <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
-        </Link>
+        {
+          urlPath === '/favorites'
+          ?
+          <></>
+          :
+          <Link to={'/favorites'}>
+            <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
+          </Link>
+        }
         <Link>
           <BsSearch className="text-xl text-[#8E8C8C]" onClick={()=>setDropSearchBox(true)}/>
         </Link>

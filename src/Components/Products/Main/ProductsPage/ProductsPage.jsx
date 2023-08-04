@@ -1,10 +1,26 @@
-import React from 'react';
+import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsBag, BsCalendar4 } from 'react-icons/bs';
 import { FaEye, FaShoppingBag } from 'react-icons/fa';
 import { HiCurrencyDollar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 function ProductsPage({currentItems}) {
+    const [isFavorites,setIsFavorites] = useState([])
+
+    useEffect(()=>{
+        Cookies.set('favProducts',isFavorites.join(','))
+    },[isFavorites]);
+
+    const addToFavorite = (id) => {
+        setIsFavorites(isFavorites.concat(id));
+    }
+
+    const deleteFromFavorites = (id) => {
+        setIsFavorites(isFavorites.filter(key => key !== id));
+    }
+
   return (
     <div className='w-full flex flex-wrap gap-5 justify-center py-5 px-3'>
                 {
@@ -33,9 +49,14 @@ function ProductsPage({currentItems}) {
                           <BsCalendar4/>
                           <span>{product.date}</span>
                         </div>
-                        <div className='flex items-center gap-2 font-[shabnamMedium]'>
-                            <BsBag className='text-lime-500 scale-150'/>
-                            <span>0</span>
+                        <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
+                             <AiOutlineHeart className={ isFavorites.includes(index) ? 'hidden' : 'block scale-[1.5]' } onClick={()=>{
+                              addToFavorite(index)
+                             }}/>
+                             <AiFillHeart className={ isFavorites.includes(index) ? 'block text-red-600 scale-[1.5] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                              deleteFromFavorites(index)
+                             }}/>
+                             <BsBag className='text-lime-500 scale-150'/>
                         </div>
                     </div>
                     <div className='w-full flex items-center font-bold px-2 text-xs my-3 gap-1'>

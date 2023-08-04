@@ -1,10 +1,11 @@
+import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import desImg from '../../../assets/img/IMG_20221129_173915_800-600x837.png';
 import { foundProduct } from '../../../features/products/productSlice';
 // import Icons
-import { AiTwotoneFolder } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart, AiTwotoneFolder } from 'react-icons/ai';
 import { BsArrowBarUp, BsBagFill, BsPinterest, BsTags, BsTelegram, BsTwitter } from 'react-icons/bs';
 import { FaEye, FaFacebookF, FaStar } from 'react-icons/fa';
 import { GiBasket } from 'react-icons/gi';
@@ -33,15 +34,16 @@ import Comments from './Comments/Comments';
 function Product() {
     const params = useParams();
     const [Switch,setSwitch] = useState(false)
-    const [inform,setInform] = useState(false);
+    const [isFavorites,setIsFavorites] = useState([])
     const products = useSelector(state => state.products.products);
     const goalProduct = useSelector(state => state.products.goalProduct);
     const mobile = window.innerWidth <= 425 ? true : false;
     const dispatch = useDispatch();
     dispatch(foundProduct(params.id))
     useEffect(()=>{
-     
-    },[])
+          Cookies.set('favProducts',isFavorites.join(','))
+    },[isFavorites]);
+
     const mouseMoveHandler = (e) => {
       e.target.style.backgroundSize = '140%';
       const targ = e.target
@@ -59,11 +61,19 @@ function Product() {
         })}else{
             console.log('not zoom')
         }
-    }
+    };
+
     const mouseOutHandler = (e) => {
       e.target.style.backgroundSize = '100%';
+    };
+
+    const addToFavorite = (id) => {
+        setIsFavorites(isFavorites.concat(id));
     }
 
+    const deleteFromFavorites = (id) => {
+        setIsFavorites(isFavorites.filter(key => key !== id));
+    }
     
 
   return (
@@ -160,27 +170,35 @@ function Product() {
                     initialSlide={0}
                   >
                     {
-                      products.map(product => (
+                      products.map((product,index) => (
                         <SwiperSlide className='SwiperSlide'>
-                          <div className='flex flex-col 2xl:mb-10 mb-8 gap-1 2xl:gap-1 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
+                          <div className='flex flex-col bg-[#f8f8f8] 2xl:mb-10 mb-8 gap-1 2xl:gap-1 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
                             <Link to={{pathname:`/shop/product`,search:`?name=${product.title}`}} className='z-10'><img src={product.img} alt={product.title} className='hover:brightness-125 z-10 2xl:w-full cursor-pointer transition-all'/></Link>
                             <span className='pt-2 cursor-pointer hover:text-gray-88 pr-2 text-sm suggest-title font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${product.title}`}}>{product.title}</Link></span>
                             <div className='flex flex-col py-2 text-sm '>
                               <p className='line-clamp-4  text-gray-66 leading-5 px-2 suggest-text text-justify mb-1'>{product.explain}</p>
                             </div>
                             <div className='flex flex-col'>
-                            <HiCurrencyDollar className='text-yellow-600 scale-[1.5] mr-3'/>
-                        <div className='w-full flex items-center 2xl:text-lg font-bold px-2 text-xs my-3 gap-1'>
-                        <del className='flex gap-1 items-center text-red-600'>
-                          <span>8,800,000</span>
-                          <span>تومان</span>
-                        </del>
-                        <span>-</span>
-                    <div className='flex gap-1 items-center text-stone-500'>
-                        <span>8,000,000</span>
-                        <span>تومان</span>
-                    </div>
-                    </div>
+                            <div className='flex items-center justify-between px-3'>
+                             <HiCurrencyDollar className='text-yellow-600 scale-[1.5]'/>
+                             <AiOutlineHeart className={ isFavorites.includes(index) ? 'hidden' : 'block' } onClick={()=>{
+                              addToFavorite(index)
+                             }}/>
+                             <AiFillHeart className={ isFavorites.includes(index) ? 'block text-red-600 hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                              deleteFromFavorites(index)
+                             }}/>
+                            </div>
+                            <div className='w-full flex items-center 2xl:text-lg font-bold px-2 text-xs my-3 gap-1'>
+                                <del className='flex gap-1 items-center text-red-600'>
+                                  <span>8,800,000</span>
+                                  <span>تومان</span>
+                                </del>
+                                <span>-</span>
+                                <div className='flex gap-1 items-center text-stone-500'>
+                                    <span>8,000,000</span>
+                                    <span>تومان</span>
+                                </div>
+                            </div>
                             </div>
                             <div className='flex text-sm p-2 2xl:text-4xl 2xl:justify-between flex-row gap-10 sm:gap-1'>
                               <AiTwotoneFolder className='text-stone-600'/>
@@ -193,7 +211,7 @@ function Product() {
                               </div>
                             </div>
                             <Link>
-                              <button className='flex gap-1 w-full bg-sky-600 text-white py-2 justify-center hover:bg-sky-500 transition-all'>
+                              <button className='flex gap-1 w-full items-center bg-sky-600 text-white py-2 justify-center hover:bg-sky-500 transition-all'>
                               <BsBagFill/>
                               <span>خرید محصول</span>
                               </button>

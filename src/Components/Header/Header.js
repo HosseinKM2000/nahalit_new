@@ -508,7 +508,12 @@ const Header = () => {
               }
             </div>
             <div className="flex items-center justify-center flex-row gap-2">
-              <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>
+              {
+                urlPath === '/favorites'
+                ?
+                <></>
+                :
+                <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>
                 <Link>
                   <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
                 </Link>
@@ -521,13 +526,14 @@ const Header = () => {
                   }
                 >
                   <p className="pb-3 text-center text-[0.9rem]">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
-                  <Link>
+                  <Link to={'/favorites'}>
                     <p className="bg-[#50BCB1] text-white tracking-tighter font-bold px-3 py-1 text-center rounded-md">
-                      مشاهده محصولات فروشگاه
+                      مشاهده علاقه مندی ها
                     </p>
                   </Link>
                 </div>
               </div>
+              }
               <div className="flex relative" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}>
                 {
                   urlPath === '/cart'

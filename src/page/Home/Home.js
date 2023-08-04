@@ -2,16 +2,16 @@ import React from "react";
 import AboutSite from "../../Components/AboutSite/AboutSite";
 import CustomSlider from "../../Components/CustomSlider/CustomSlider";
 import Details from "../../Components/Details/Details";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
+import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import LotteryHomePage from "../../Components/LotteryHomePage/LotteryHomePage";
 import News from "../../Components/News/News";
 import OurProuduct from "../../Components/OurProuduct/OurProuduct";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
 import ServicesHomePage from "../../Components/ServicesHomePage/ServicesHomePage";
 import SliderSwiper from "../../Components/SliderSwiper/SliderSwiper";
-import Footer from "../../Components/Footer/Footer";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 const Home = () => {
   return (
@@ -61,7 +61,7 @@ const Home = () => {
       </main>
       <footer className="mt-5 w-full">
           <Footer />
-        </footer>
+      </footer>
     </div>
   );
 };

@@ -20,6 +20,7 @@ import ContactUs from "./page/ContactUs/ContactUs";
 import Dashboard from './page/Dashboard/Dashboard.jsx';
 import EecoSaleWeb from "./page/EecoSaleWeb/EecoSaleWeb";
 import Error from "./page/Error/Error";
+import Favorites from "./page/Favorites/Favorites";
 import Home from "./page/Home/Home";
 import LoginLearn from "./page/LoginLearn/LoginLearn";
 import Logo from "./page/Logo/Logo";
@@ -92,6 +93,7 @@ const App = () => {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
+          <Route path="/favorites" element={<Favorites/>}/>
         </Routes>
       </div>
       </>

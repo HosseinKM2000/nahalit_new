@@ -4,9 +4,11 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
+import Editor from '../../../../Editor/Editor';
 
 function Edite({ details , setShowDetails}) {
     const [dropCate,setDropCate] = useState({status:false,value:null})
+    const [desc,setDesc] = useState('');
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
@@ -15,7 +17,6 @@ function Edite({ details , setShowDetails}) {
     const dispatch = useDispatch();
     const categoryRef = useRef();
     const titleRef = useRef();
-    const descRef  = useRef();
     const supervisorRef = useRef();
     const priceRef  = useRef();
     const statusRef  = useRef();
@@ -34,7 +35,7 @@ function Edite({ details , setShowDetails}) {
         const formData = {
             title:titleRef.current.value,
             category_id:categoryRef,
-            description:descRef.current.value,
+            description:desc,
         }
     }
     const liHandler = (value) => {
@@ -72,10 +73,7 @@ function Edite({ details , setShowDetails}) {
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={supervisorRef} required={true} name='title'/>
             </div>
            {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols={mobile ? "20" : "30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
+            <Editor setDesc={setDesc}/>
             {/* categories */}
             <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>

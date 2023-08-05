@@ -37,9 +37,7 @@ export const editeParentCategories = createAsyncThunk('dashboard/editeParentCate
 })
 // products
 export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
-
     const response = await instance.get('/products');
-
     return response;
 })
 
@@ -161,3 +159,25 @@ export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) =
     const response = await instance.delete(`http://127.0.0.1:8000/api/v1/blogs/${id}`);
     return response;
 })
+// projects
+// products
+export const getProjects = createAsyncThunk('dashboard/getProjects', async () => {
+    const response = await instance.get('/projects');
+    return response;
+})
+
+export const addProject = createAsyncThunk('dashboard/addProject', async (formData) => {
+    const response = await instance.post('/projects',formData);
+    return response;
+})
+
+export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (id) => {
+    const response = await instance.delete(`projects/${id}`);
+    return response;
+})
+
+export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
+    const response = await instance.put(`/projects/${id}`,newData);
+    return response;
+})
+

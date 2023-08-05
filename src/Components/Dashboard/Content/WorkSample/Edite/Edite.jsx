@@ -4,18 +4,19 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
+import Editor from '../../../../Editor/Editor';
 
 function Edite({ details , setShowDetails }) {
  
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
+    const [desc,setDesc] = useState('');
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
     const dispatch = useDispatch();
     const categoryRef = useRef();
     const titleRef = useRef();
-    const descRef  = useRef();
     const categories = useSelector(state => state.dashboard.categories);
     const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const formKeyNotSuber = (e) => {
@@ -30,7 +31,7 @@ function Edite({ details , setShowDetails }) {
         const formData = {
             title:titleRef.current.value,
             category_id:categoryRef,
-            description:descRef.current.value,
+            description:desc,
         }
     }
     const liHandler = (value) => {
@@ -63,10 +64,7 @@ function Edite({ details , setShowDetails }) {
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title' defaultValue={details.title}/>
             </div>
            {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
+            <Editor setDesc={setDesc}/>
             {/* categories */}
             <div className='w-full flex flex-col sm:flex-row  justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>

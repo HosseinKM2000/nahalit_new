@@ -1,39 +1,14 @@
-import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
+import { addProduct } from '../../../../../features/dashboard/action';
+import Editor from '../../../../Editor/Editor';
 
 function NewProduct() {
-    // const [categories,setCategories] = useState([
-    //     {
-    //         id:1,
-    //         title:'سایت های آماده',
-    //         category_id:null
-    //     },
-    //     {
-    //         id:2,
-    //         title:'پلاگین وردپرس',
-    //         category_id:null
-    //     },
-    //     {
-    //         id:3,
-    //         title:"پلاگین مدیریتی",
-    //         category_id:2
-    //     },
-    //     {
-    //         id:4,
-    //         title:"پلاگین کاربردی",
-    //         category_id:2
-    //     },
-    //     {
-    //         id:5,
-    //         title:"سایت آماده لاراول",
-    //         category_id:1
-    //     },
-    // ])
     const [imageName,setImageName] = useState('');
+    const [desc,setDesc] = useState('');
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
@@ -41,13 +16,17 @@ function NewProduct() {
     const [goalChild,setGoalChild] = useState(null);
     const [priceValue,setPriceValue] = useState(0);
     const titleRef = useRef();
-    const descRef  = useRef();
+    const imageRef = useRef()
     const discountRef = useRef();
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.productLoading);
     const categories = useSelector(state => state.dashboard.categories);
     const cateList = categories !== null && categories !== undefined ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
-   
+    const [text, setText] = useState('');
+
+    function handleChange(value) {
+      setText(value); 
+    }
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -71,20 +50,20 @@ function NewProduct() {
           counter++;
         }
         
-        setPriceValue(separatedNumber)
+        setPriceValue(separatedNumber);
       }
 
     const formSubmiter = (e) => {
         e.preventDefault()
         const form = {
             title:titleRef.current.value,
-            image:e.target.elements['image'].files[0],
+            image:imageName,
             category_id:1,
             price:JSON.parse(priceValue.replaceAll(',','')),
-            description:descRef.current.value,
+            description:desc,
             seller_id:1,
         }
-
+      
         switch(true)
         {
             case form.title.length === 0 : toast.warn("عنوان را وارد کنید");
@@ -103,32 +82,14 @@ function NewProduct() {
     }
 
     const sendProduct = (form) => {
-        // let formData = new FormData();
-        // Object.entries(form).forEach(([key,value]) => {
-        //     formData.append(key,value)
-        // })
-        // const data = Object.fromEntries(formData.entries()); 
-        let formData = new FormData();
-        formData.append('title','title-test')
-        formData.append('description','hdhdhdhdhdhdhdhdhdhdhdhdhhdhd')
-        formData.append('image',form.image)
-        formData.append('category_id',1)
-        formData.append('seller_id',1)
-        formData.append('price',20000)
-        axios({
-            method:"post",
-            body:formData,
-            url:'http://127.0.0.1:8000/api/v1/products',
-            headers:{
-                Authorization:`Bearer ${localStorage.getItem('access_token')}`
-            }
-        })
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
-        const data = Object.fromEntries(formData.entries())
-        console.log(data)
-        // console.log(form);
-        // dispatch(addProduct(form))
+        let formdata = new FormData();
+            formdata.append("title", form.title);
+            formdata.append("description", form.description);
+            formdata.append("category_id", "1");
+            formdata.append("seller_id", "1");
+            formdata.append("price", form.price);
+            formdata.append("image", form.image , `${imageRef.current.value}`);
+            dispatch(addProduct(formdata))
     }
 
     const liHandler = (value) => {
@@ -156,22 +117,22 @@ function NewProduct() {
             <h1 className='font-semibold text-lg text-stone-800'>محصول جدید</h1>
         </div>
         <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)} onSubmit={(e)=>formSubmiter(e)}>
-            {/* title */}
+               {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-           {/* image */}
+               {/* image */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
+                <input onChange={(e)=>{
+                    setImageName(e.target.files[0])
+                    console.log(e.target.files[0])
+                }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
-           {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
-            {/* categories */}
+               {/* describe */}
+            <Editor setDesc={setDesc}/>
+               {/* categories */}
             <div className='w-full flex justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
                  <button type='button' onClick={()=>{
@@ -236,7 +197,7 @@ function NewProduct() {
                 <></>
                 }
             </div>
-           {/* price */}
+               {/* price */}
             <div className='flex flex-col gap-2 w-full'>
             <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>
             <input type="text" name="price" id="" onChange={(e)=>{

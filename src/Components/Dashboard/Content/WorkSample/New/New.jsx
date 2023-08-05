@@ -2,17 +2,18 @@ import React, { useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
+import Editor from '../../../../Editor/Editor';
 
 function New() {
 
     const [dropCate,setDropCate] = useState({status:false,value:null})
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
+    const [desc,setDesc] = useState('');
     const [goalCate,setGoalCate] = useState(null);
     const [goalChild,setGoalChild] = useState(null);
     const categoryRef = useRef();
     const titleRef = useRef();
-    const descRef  = useRef();
     const managerRef = useRef();
     const categories = useSelector(state => state.dashboard.categories)
     const cateList = categories !== null && categories !== undefined ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
@@ -28,7 +29,7 @@ function New() {
         const formData = {
             title:titleRef.current.value,
             category_id:categoryRef,
-            description:descRef.current.value,
+            description:desc,
         }
     }
     const liHandler = (value) => {
@@ -66,10 +67,7 @@ function New() {
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={managerRef} required={true} name='manager'/>
             </div>
            {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols="30" rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
+           <Editor setDesc={setDesc}/>
             {/* categories */}
             <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>

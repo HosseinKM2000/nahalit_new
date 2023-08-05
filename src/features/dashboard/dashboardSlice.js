@@ -5,14 +5,17 @@ import {
     addGallery,
     addParentCategories,
     addProduct,
+    addProject,
     deleteBlog,
     deleteParentCategories,
     editBlog,
     editProduct,
+    editProject,
     editeParentCategories,
     getBlogs,
     getCategories,
-    getProducts
+    getProducts,
+    getProjects
 } from "./action";
 
 const initialState = {
@@ -26,6 +29,7 @@ const initialState = {
     productId:null,
     products:null,
     productsLoading:false,
+    projectsLoading:false,
     blogsLoading : false,
     blogsDeleteLoading : false,
     categories :null,
@@ -192,6 +196,44 @@ const dashboardSlice = createSlice({
         .addCase(editProduct.rejected,(state,action) => {
             state.productsLoading = false;
             toast.error("خطا در ویرایش محصول")
+        })
+        // get projects
+        .addCase(getProjects.fulfilled , (state,action) => {
+            state.projectsLoading = false;
+            // state.products = action.payload.data.data;
+            state.products = [];
+        })
+        .addCase(getProjects.pending , (state,action) => {
+            state.projectsLoading = true;
+        })
+        .addCase(getProjects.rejected , (state,action) => {
+            state.projectsLoading = false;
+            toast.error('خطا در بارگیری پروژه ها')
+        })
+        // add projects
+        .addCase(addProject.fulfilled, (state,action) => {
+            state.projectsLoading = false;
+            toast.success('پروژه با موفقیت ذخیره شد')
+        })
+        .addCase(addProject.pending, (state,action) => {
+            state.projectsLoading = true;
+        })
+        .addCase(addProject.rejected, (state,action) => {
+            state.projectsLoading = false;
+            console.log(action.payload)
+            toast.error("خطا در ذخیره پروژه")
+        })
+        // edit projects
+        .addCase(editProject.fulfilled,(state,action) => {
+            state.projectsLoading = false;
+            toast.success('ویرایش پروژه با موفقیت انجام شد')
+        })
+        .addCase(editProject.pending,(state,action) => {
+            state.projectsLoading = true;
+        })
+        .addCase(editProject.rejected,(state,action) => {
+            state.projectsLoading = false;
+            toast.error("خطا در ویرایش پروژه")
         })
         // add gallery
         .addCase(addGallery.fulfilled,(state,action) => {

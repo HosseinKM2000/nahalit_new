@@ -373,6 +373,13 @@ img[alt='characterIcon']
     color: rgb(108, 108, 108);
     line-height: 2rem;
 }
+.ck-content
+{
+  height: 20rem;
+}
+.cke_button__about_icon {
+  display: none;
+  }
 
 
 

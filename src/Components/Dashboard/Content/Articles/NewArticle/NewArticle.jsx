@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addBlog } from '../../../../../features/dashboard/action';
+import Editor from '../../../../Editor/Editor';
 
 function NewArticle() {
 
     const [imageName,setimageName] = useState('');
+    const [desc,setDesc] = useState('');
     const titleRef = useRef();
-    const descRef  = useRef();
     const situationRef = useRef();
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.blogsLoading);
@@ -27,7 +28,7 @@ function NewArticle() {
         const formData = {
             title: titleRef.current.value,
             image: imageName,
-            body: descRef.current.value,
+            body: desc,
             is_active: JSON.parse(situationRef.current.value),
             user_id: JSON.parse(localStorage.getItem('user')).id,
         }
@@ -75,10 +76,7 @@ function NewArticle() {
                 <input onChange={(e)=>setimageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
             </div>
             {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols={mobile ? "20" :"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
+            <Editor setDesc={setDesc}/>
             {/* situation */}
             <div className='w-full flex justify-start'>
             <div className="w-fit flex flex-col gap-2">

@@ -6,7 +6,7 @@ import { MdPersonPin } from 'react-icons/md';
 function Details({ details , setShowDetails }) {
   return (
     <div className='w-full p-3 md:p-10 flex justify-center items-center h-full gap-1'>
-      <div className='flex flex-col md:flex-row relative w-[95%] md:w-[90%] h-fit md:h-[50%] lg:h-[70%] 2xl:h-[50%] 2xl:w-[50%] bg-[#ffffff49] items-center py-3 md:py-10 px-5 rounded-lg' style={{border:'1px solid #ffffffb0'}}>
+      <div className='flex flex-col md:flex-row relative w-[95%] md:w-[90%] h-fit md:h-[50%] lg:h-[90%] 2xl:h-[50%] 2xl:w-[50%] bg-[#ffffff49] items-center py-3 md:py-10 px-5 rounded-lg' style={{border:'1px solid #ffffffb0'}}>
         <div className='flex flex-col items-center w-full md:items-start gap-3 p-0 md:pl-3'>
           <MdPersonPin className='text-[4rem]' style={{color:`#${details.colorCode}`}}/>
           <span className='font-[shabnambold] text-[#1f2433]'>{details.name} محمد بیگی</span>

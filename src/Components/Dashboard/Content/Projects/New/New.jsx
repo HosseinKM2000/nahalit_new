@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import Editor from '../../../../Editor/Editor';
 
 function New() {
 
@@ -9,13 +10,13 @@ function New() {
     const [childList,setChildList] = useState(false);
     const [childList_2,setChildList_2] = useState(false);
     const [goalCate,setGoalCate] = useState(null);
+    const [desc,setDesc] = useState('');
     const [goalChild,setGoalChild] = useState(null);
     const [fileName,setFileName] = useState('');
     const [priceValue,setPriceValue] = useState(0);
     const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
     const titleRef = useRef();
-    const descRef  = useRef();
     const supervisorRef = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
@@ -33,7 +34,7 @@ function New() {
         const formData = {
             title:titleRef.current.value,
             category_id:1,
-            description:descRef.current.value,
+            description:desc,
             file:fileName,
             supervisor_id:1,
             price:priceValue,
@@ -50,7 +51,7 @@ function New() {
             break;
             case formData.file === '' : toast.warn('فایل را وارد کنید');
             break;
-            case formData.price === '' : toast.warn('قیمت را وارد کنید');
+            case formData.price === 0 : toast.warn('قیمت را وارد کنید');
             break;
             case formData.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
             break;
@@ -118,10 +119,7 @@ function New() {
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={supervisorRef} required={true} name='title'/>
             </div>
            {/* describe */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="describe" className='font-semibold text-[#2e424a]'>توضیحات</label>
-                <textarea name="describe" id="" cols={mobile?"20":"30"} rows="20" className='p-2 outline-[#0ab694] w-full' ref={descRef} required={true}></textarea>
-            </div>
+            <Editor setDesc={setDesc}/>
             {/* categories */}
             <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>

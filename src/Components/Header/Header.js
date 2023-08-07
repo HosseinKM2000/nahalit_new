@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { AiFillDashboard, AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
 import { BsPerson, BsWordpress } from "react-icons/bs";
@@ -6,7 +7,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ScrollTop from "../ScrollTop/ScrollTop";
 
 const Header = () => {
@@ -23,9 +24,11 @@ const Header = () => {
   const [showSlide10, setShowSlide10] = useState(false);
   const [showSlide11, setShowSlide11] = useState(false);
   const [showSlide12, setShowSlide12] = useState(false);
-  const userId = JSON.parse(localStorage.getItem('user')).id;
+  const userId = loginStatus ? JSON.parse(Cookies.get('user')).id : '' 
   const location = useLocation();
+  const navigate = useNavigate();
   const urlPath = location.pathname;
+
 
   const clickEntershowslide = () => {
     setShowSlide(true);
@@ -111,30 +114,30 @@ const Header = () => {
           <p className="font-[shabnamLight] leading-10 text-[#707070] text-[0.9rem]">پشتیبانی 24 ساعته : 02188867940 – 09927674217</p>
         </div>
         <div className="flex justify-center mt-10">
-          <Link>
+          <div>
             <div className="border-l-2 gap-1 border-dotted border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
               <BsWordpress className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
               <p className="text-[#191919] text-[0.9rem] font-[shabnamthin] tracking-tighter">قالب وردپرس</p>
             </div>
-          </Link>
-          <Link>
+          </div>
+          <div>
             <div className="border-l-2 gap-1 border-dotted border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
               <AiFillHtml5 className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
               <p className="text-[#191919] text-[0.9rem] font-[shabnamThin] tracking-tighter">قالب html</p>
             </div>
-          </Link>
-          <Link>
+          </div>
+          <div>
             <div className="border-l-2 gap-1 border-dotted border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
               <RiWordpressFill className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
               <p className="text-[#191919] text-[0.9rem] font-[shabnamThin] tracking-tighter">پلاگین وردپرس</p>
             </div>
-          </Link>
-          <Link>
+          </div>
+          <div>
             <div className="px-4 py-3 flex gap-1 flex-col items-center justify-center">
               <FaAndroid className="text-[2rem] text-[#57C053]  hover:text-[#6ade66] transition-all duration-300" />
               <p className="text-[#191919] text-[0.9rem] font-[shabnamThin] tracking-tighter">محصولات اپلیکیشن</p>
             </div>
-          </Link>
+          </div>
         </div>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
           <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
@@ -166,7 +169,7 @@ const Header = () => {
                     >
                       <div className="relative">
                         <Link>
-                          <p className="text-[#171717] text-sm font-[shabnamMedium]">سایت های آماده</p>
+                          <span className="text-[#171717] text-sm font-[shabnamMedium]">سایت های آماده</span>
                         </Link>
                         <div
                           onMouseEnter={clickEntershowslide6}
@@ -186,7 +189,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide7}
                       onMouseLeave={clickoutshowslide7}
                     >
-                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</Link>
+                      <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</span>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide7}
@@ -197,13 +200,13 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین امنیتی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین امنیتی</span>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین مدیریتی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین مدیریتی</span>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین کاربردی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین کاربردی</span>
                         </Link>
                       </div>
                     </li>
@@ -212,7 +215,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide8}
                       onMouseLeave={clickoutshowslide8}
                     >
-                      <Link className="text-[#171717] font-[shabnamMedium] text-sm">قالب html</Link>
+                      <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب html</span>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide8}
@@ -223,16 +226,16 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب شخصی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب شخصی</span>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب شرکتی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب شرکتی</span>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب فروشگاهی</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب فروشگاهی</span>
                         </Link>
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">قالب خبری</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب خبری</span>
                         </Link>
                       </div>
                     </li>
@@ -252,7 +255,7 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن اندروید</p>
+                          <span className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن اندروید</span>
                         </Link>
                       </div>
                     </li>
@@ -272,7 +275,7 @@ const Header = () => {
                         }
                       >
                         <Link className="px-4 py-1">
-                          <p className="font-[shabnamMedium] text-[#171717] text-sm">اسکریپت لاراول</p>
+                          <span className="font-[shabnamMedium] text-[#171717] text-sm">اسکریپت لاراول</span>
                         </Link>
                       </div>
                     </li>
@@ -411,66 +414,66 @@ const Header = () => {
                   }
                 >
                   <ul className="px-5 py-3 bg-white  w-fit flex shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex-col items-start gap-2" style={{borderTop:'2px solid #57C053'}}>
-                    <Link to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">فروش سایت اختصاصی و اقتصادی</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/فروش-قالب-سایت">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">فروش قالب سایت</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/طراحی-سایت-اختصاصی">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">طراحی سایت اختصاصی</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/خدمات-سئو-وب-سایت">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات وبسایت و سئو وب سایت</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/خدمات-کسب-و-کار">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات کسب و کار</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/خدمات-شبکه-های-اجتماعی">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات شبکه های اجتماعی</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/موشن-گرافیک">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">موشن گرافیک</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/تدوین-پروپوزال">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">تدوین پروپوزال</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/اپلیکیشن-موبایل">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</p>
-                      </li>
-                    </Link>
-                    <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">
-                      <li className="flex items-center justify-start py-1">
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">خدمات پریمیر، تدوین فیلم</p>
-                      </li>
-                    </Link>
-                    <Link to='/services/خدمات-گرافیک'>
-                      <li className="flex items-center justify-between py-1 relative">
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">فروش سایت اختصاصی و اقتصادی</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/فروش-قالب-سایت">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">فروش قالب سایت</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/طراحی-سایت-اختصاصی">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">طراحی سایت اختصاصی</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/خدمات-سئو-وب-سایت">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات وب سایت و سئو وب سایت</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/خدمات-کسب-و-کار">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات کسب و کار</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/خدمات-شبکه-های-اجتماعی">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات شبکه های اجتماعی</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/موشن-گرافیک">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">موشن گرافیک</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/تدوین-پروپوزال">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">تدوین پروپوزال</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/اپلیکیشن-موبایل">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات پریمیر و ندوین فیلم</span>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to='/services/خدمات-گرافیک'>
                         <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات گرافیک</span>
-                      </li>
-                    </Link>
-                    <Link to='/services/خدمات-تدوین-صدا-و-صدا-گذاری'>
-                      <li className="flex items-center justify-between py-1 relative">
-                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صداگذاری</span>
-                      </li>
-                    </Link>
+                     </Link>
+                    </li>
+                    <li className="flex items-center justify-start py-1">
+                     <Link to='/services/خدمات-تدوین-صدا-و-صدا-گذاری'>
+                        <span className="text-[#171717] font-[shabnamMedium] text-sm">خدمات تدوین صدا و صدا گذاری</span>
+                     </Link>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -478,7 +481,7 @@ const Header = () => {
             <div className="flex items-center justify-center xl:gap-x-3 lg:gap-x-3">
               <div className="bg-[#57C053] min-w-fit hover:bg-[#62d15e] transition-all duration-300 xl:px-3 text-white flex flex-row-reverse px-1 py-2 rounded-md items-center justify-center gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link>
-                  <p className="text-sm font-[shabnamMedium] tracking-tight">فروشنده باشید</p>
+                  <span className="text-sm font-[shabnamMedium] tracking-tight">فروشنده باشید</span>
                 </Link>
                 <FaSpa className="text-base" />
               </div>
@@ -489,17 +492,17 @@ const Header = () => {
                 :
                 <div className="flex flex-row-reverse items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link to={'/login'}>
-                  <p className="text-sm font-[shabnamMedium] tracking-tight">ورود و عضویت</p>
+                  <span className="text-sm font-[shabnamMedium] tracking-tight">ورود و عضویت</span>
                 </Link>
                 <BsPerson className="text-base" />
               </div>
               }
               {
-                userId !== undefined && userId === 1
+                userId !== '' && userId === 1
                 ?
                 <div className="flex flex-row-reverse w-[7rem] min-w-fit items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                 <Link to={'/dashboard'}>
-                  <p className="text-sm font-[shabnamMedium] tracking-tight">پنل مدیریت</p>
+                  <span className="text-sm font-[shabnamMedium] tracking-tight">پنل مدیریت</span>
                 </Link>
                 <AiFillDashboard className="text-lg" />
               </div>
@@ -527,9 +530,9 @@ const Header = () => {
                 >
                   <p className="pb-3 text-center text-[0.9rem]">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
                   <Link to={'/favorites'}>
-                    <p className="bg-[#50BCB1] text-white tracking-tighter font-bold px-3 py-1 text-center rounded-md">
+                    <span className="bg-[#50BCB1] text-white tracking-tighter font-bold px-3 py-1 text-center rounded-md">
                       مشاهده علاقه مندی ها
-                    </p>
+                    </span>
                   </Link>
                 </div>
               </div>
@@ -559,9 +562,9 @@ const Header = () => {
                   <div className="flex justify-between items-center pt-2">
                     <p>0 مورد</p>
                     <Link to={'/cart'}>
-                      <p className="bg-[#22A6F2] text-white tracking-tighter font-bold text-sm px-3 py-1 text-center rounded-sm">
+                      <span className="bg-[#22A6F2] text-white tracking-tighter font-bold text-sm px-3 py-1 text-center rounded-sm">
                         مشاهده سبد خرید
-                      </p>
+                      </span>
                     </Link>
                   </div>
                   <div className="text-center py-3">هیچ محصولی در سبد خرید نیست.</div>

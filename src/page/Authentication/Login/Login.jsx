@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { React, useEffect, useRef, useState } from 'react';
 import { HiOutlineLogin } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,31 +7,27 @@ import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../assets/img/Rolling-0.8s-200px.svg';
 import { login } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
+import { changeRedirect } from '../../../features/authentication/AuthenticationSlice';
 
 function Login() {
-  const [isVerified, setIsVerified] = useState(false);
-  const [csrf_token,setCsrf_token] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loading = useSelector(state => state.authentication.loading);
+  const redirect = useSelector(state => state.authentication.redirect);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
   const phoneRef = useRef();
   const passwordRef = useRef();
-  
+  console.log()
   useEffect(() => {
-    if(loginStatus)
+    if(redirect)
     {
      setTimeout(() => {
       navigate('/')
+      dispatch(changeRedirect())
      }, 1000);
     }
-  },[loginStatus])
-  const handleVerify = () => {
-    setIsVerified(true);
-  };
-  const handleExpire = () => {
-    setIsVerified(false);
-  };
+  },[redirect])
+
   const loginHandler = () => {
     let phone = phoneRef.current.value;
     let password = passwordRef.current.value;

@@ -160,7 +160,6 @@ export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) =
     return response;
 })
 // projects
-// products
 export const getProjects = createAsyncThunk('dashboard/getProjects', async () => {
     const response = await instance.get('/projects');
     return response;
@@ -178,6 +177,11 @@ export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (
 
 export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
     const response = await instance.put(`/projects/${id}`,newData);
+    return response;
+})
+// permissions
+export const getPermissions = createAsyncThunk('dashboard/getPermissions', async () => {
+    const response = await instance.get('/permissions');
     return response;
 })
 

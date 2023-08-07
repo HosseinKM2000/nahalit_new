@@ -11,10 +11,10 @@ import ScrollTop from "../ScrollTop/ScrollTop";
 const ResponseHeader = () => {
   const [dropMenu,setDropMenu] = useState(false);
   const [dropSearchBox,setDropSearchBox] = useState(false);
-  const userId = JSON.parse(localStorage.getItem('user')).id;
+  const userId = ''
   const location = useLocation();
   const urlPath = location.pathname;
-
+ 
   return (
     <div  className="flex flex-row-reverse relative items-center justify-between p-4" style={{borderBottom:'1px solid #c3c3c3'}}>
       <Link id="UP" to="/">
@@ -31,7 +31,7 @@ const ResponseHeader = () => {
           </Link>
         }
         {
-          userId !== undefined && userId === 1
+          userId !== '' && userId === 1
           ?
           <Link to={'/dashboard'}>
            <RiDashboard3Line className="text-2xl text-[#8E8C8C] font-thin" />

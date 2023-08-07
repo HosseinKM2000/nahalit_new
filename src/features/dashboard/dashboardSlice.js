@@ -14,6 +14,7 @@ import {
     editeParentCategories,
     getBlogs,
     getCategories,
+    getPermissions,
     getProducts,
     getProjects
 } from "./action";
@@ -31,6 +32,7 @@ const initialState = {
     productsLoading:false,
     projectsLoading:false,
     blogsLoading : false,
+    permissionsLoading : false,
     blogsDeleteLoading : false,
     categories :null,
     blogs:[],
@@ -293,6 +295,19 @@ const dashboardSlice = createSlice({
         .addCase(deleteBlog.rejected,(state,action) => {
             state.blogsDeleteLoading = false;
             toast.error('خطا در حذف مقاله')
+        })
+        // get permissions
+        .addCase(getPermissions.fulfilled,(state,action) => {
+            state.permissionsLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(getPermissions.pending,(state,action) => {
+            state.permissionsLoading = true;
+        })
+        .addCase(getPermissions.rejected,(state,action) => {
+            state.permissionsLoading = false;
+            toast.error('خطا در بارگیری وظایف')
+            console.log(action)
         })
     }
 })

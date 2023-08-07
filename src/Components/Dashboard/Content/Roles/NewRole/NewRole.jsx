@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import InteractiveButton from './InteractiveButton/InteractiveButton';
+import { getPermissions } from '../../../../../features/dashboard/action';
 
 function NewRole() {
     const [activePermissions,setActivePermissions] = useState([]);
     const permissions = [1,2,3,4,5,6,7,8,9];
     const titleRef = useRef();
     const pathRef = useRef();
+    const dispatch = useDispatch();
     
     const addPermission = (permission) => {
 
@@ -21,38 +24,38 @@ function NewRole() {
     }
     
     const formKeyNotSuber = (e) => {
-    if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
-    {
-        e.preventDefault();
-        e.stopPropagation()
-    }
+        if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
+        {
+            e.preventDefault();
+            e.stopPropagation()
+        }
     }
 
     const formSubmiter = () => {
-      const formData = {
-        title:titleRef.current.value,
-        path:pathRef.current.value,
-        permissions:activePermissions
-      }
-      switch(true)
-      {
-        case formData.title.length === 0 : toast.warn('عنوان را وارد کنید');
-        break;
-        case formData.title.length < 3 : toast.warn('عنوان کوتاه است');
-        break;
-        case formData.path.length === 0 : toast.warn('مسیر را وارد کنید');
-        break;
-        case formData.path.length < 3 : toast.warn('مسیر کوتاه است');
-        break;
-        case formData.permissions.length === 0 : toast.warn('دسترسی را مشخص کنید');
-        break;
-        default : console.log('sendData')
-      }
+        const formData = {
+          title:titleRef.current.value,
+          path:pathRef.current.value,
+          permissions:activePermissions
+        }
+        switch(true)
+        {
+          case formData.title.length === 0 : toast.warn('عنوان را وارد کنید');
+          break;
+          case formData.title.length < 3 : toast.warn('عنوان کوتاه است');
+          break;
+          case formData.path.length === 0 : toast.warn('مسیر را وارد کنید');
+          break;
+          case formData.path.length < 3 : toast.warn('مسیر کوتاه است');
+          break;
+          case formData.permissions.length === 0 : toast.warn('دسترسی را مشخص کنید');
+          break;
+          default : console.log('sendData')
+        }
     }
 
     useEffect(() => {
-      console.log(activePermissions)
-    },[activePermissions])
+      dispatch(getPermissions())
+    },[])
 
   return (
     <div className='w-full h-full flex-col justify-center items-center'>

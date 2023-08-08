@@ -5,6 +5,7 @@ import { FaRegComments, FaWindowClose } from 'react-icons/fa';
 import { FiShoppingBag } from 'react-icons/fi';
 import { GiClockwork } from 'react-icons/gi';
 import { ImUsers } from 'react-icons/im';
+import { TbDiscountCheckFilled } from 'react-icons/tb';
 import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart, MdWorkspaces } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContent, setSwitch } from '../../../../features/dashboard/dashboardSlice';
@@ -19,6 +20,7 @@ function SideDash({ dropMenu , setDropMenu }) {
   const [gRotate,setGRotate] = useState(false);
   const [rRotate,setRRotate] = useState(false);
   const [wRotate,setWRotate] = useState(false);
+  const [dRotate,setDRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
   const pCriterion = useSelector(state => state.dashboard.productsSwitch);
@@ -26,11 +28,12 @@ function SideDash({ dropMenu , setDropMenu }) {
   const rCriterion = useSelector(state => state.dashboard.rolesSwitch);
   const wCriterion = useSelector(state => state.dashboard.workSampleSwitch);
   const prCriterion = useSelector(state => state.dashboard.projectSwitch);
+  const dCriterion = useSelector(state => state.dashboard.discountSwitch);
   const dispatch = useDispatch();
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | cRotate | gRotate | rRotate | prRotate | wRotate && value !== 'articles')
+    if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate && value !== 'articles')
     {
       setCRotate(false);
       setGRotate(false);
@@ -38,8 +41,9 @@ function SideDash({ dropMenu , setDropMenu }) {
       setWRotate(false);
       setARotate(false);
       setPRRotate(false);
+      setDRotate(false);
     }
-    else if( pRotate | cRotate | gRotate | rRotate | prRotate | wRotate && value !== 'products')
+    else if( pRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate && value !== 'products')
     {
       setCRotate(false);
       setGRotate(false);
@@ -47,6 +51,7 @@ function SideDash({ dropMenu , setDropMenu }) {
       setWRotate(false);
       setPRotate(false);
       setPRRotate(false);
+      setDRotate(false);
     }
   }
   return (
@@ -165,6 +170,21 @@ function SideDash({ dropMenu , setDropMenu }) {
               <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:rRotate?'fit-content':'0px',padding:rRotate?'10px':'0px',overflow:rRotate?'':'hidden',visibility:rRotate?'visible':'hidden',marginTop:rRotate?'1rem':'0px'}} >
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'all'}))} style={{backgroundColor:rCriterion === 'all' || gCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'new'}))} style={{backgroundColor:rCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
+              </div>
+        </div>
+        <div className='w-full flex flex-col items-center'>
+            <div onClick={()=>{
+              listSwitch('discount')
+              setDRotate(!dRotate)
+              dispatch(setSwitch({key:'discount',value:'all'}))
+            }}  style={{backgroundColor:content==='discount'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+              <TbDiscountCheckFilled className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+              <li className='text-white font-bold text-lg  text-center'>تخفیف</li>
+              <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:dRotate?'-90deg':'0deg'}}/>
+              </div>
+              <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:dRotate?'fit-content':'0px',padding:dRotate?'10px':'0px',overflow:dRotate?'':'hidden',visibility:dRotate?'visible':'hidden',marginTop:dRotate?'1rem':'0px'}} >
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'discount',value:'all'}))} style={{backgroundColor:dCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'discount',value:'new'}))} style={{backgroundColor:dCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
               </div>
         </div>
         <hr className='w-full h-[3rem] py-1 border-none'/>

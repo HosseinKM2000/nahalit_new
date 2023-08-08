@@ -26,6 +26,7 @@ const authenticationSlice = createSlice({
             toast.success(action.payload.data.massage)
             Cookies.set("user",JSON.stringify(action.payload.data.user))
             localStorage.setItem("access_token",action.payload.data.token)
+            state.loginStatus = true;
         })
         .addCase(register.pending,(state) => {
             state.loading = true;
@@ -41,6 +42,7 @@ const authenticationSlice = createSlice({
             toast.success(action.payload.data.massage)
             localStorage.setItem("access_token",action.payload.data.token)
             Cookies.set("user",JSON.stringify(action.payload.data.user))
+            state.loginStatus = true;
         })
         .addCase(login.pending,(state) => {
             state.loading = true;

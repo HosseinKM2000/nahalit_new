@@ -8,7 +8,7 @@ function NewRole() {
     const [activePermissions,setActivePermissions] = useState([]);
     const permissions = [1,2,3,4,5,6,7,8,9];
     const titleRef = useRef();
-    const pathRef = useRef();
+    // const pathRef = useRef();
     const dispatch = useDispatch();
     
     const addPermission = (permission) => {
@@ -34,7 +34,7 @@ function NewRole() {
     const formSubmiter = () => {
         const formData = {
           title:titleRef.current.value,
-          path:pathRef.current.value,
+          // path:pathRef.current.value,
           permissions:activePermissions
         }
         switch(true)
@@ -43,10 +43,10 @@ function NewRole() {
           break;
           case formData.title.length < 3 : toast.warn('عنوان کوتاه است');
           break;
-          case formData.path.length === 0 : toast.warn('مسیر را وارد کنید');
-          break;
-          case formData.path.length < 3 : toast.warn('مسیر کوتاه است');
-          break;
+          // case formData.path.length === 0 : toast.warn('مسیر را وارد کنید');
+          // break;
+          // case formData.path.length < 3 : toast.warn('مسیر کوتاه است');
+          // break;
           case formData.permissions.length === 0 : toast.warn('دسترسی را مشخص کنید');
           break;
           default : console.log('sendData')
@@ -77,10 +77,10 @@ function NewRole() {
            <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
        </div>
                {/* path */}
-       <div className='flex flex-col gap-2 w-full'>
+       {/* <div className='flex flex-col gap-2 w-full'>
            <label htmlFor="path" className='font-semibold text-[#2e424a]'>مسیر</label>
            <input type="text" className='p-1  outline-[#0ab694] w-full' ref={pathRef} required={true} name='path'/>
-       </div>
+       </div> */}
          {/* permissions */}
        <div className='flex flex-col gap-5 w-full'>
          <label htmlFor="permissions" className='font-semibold text-[#2e424a]'>وظایف</label>

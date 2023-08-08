@@ -27,6 +27,7 @@ const initialState = {
     rolesSwitch:'all',
     workSampleSwitch:'all',
     projectSwitch:'all',
+    discountSwitch:'all',
     productId:null,
     products:null,
     productsLoading:false,
@@ -87,6 +88,8 @@ const dashboardSlice = createSlice({
                 case 'workSample' : state.workSampleSwitch = value;
                 break;
                 case 'projects' : state.projectSwitch = value;
+                break;
+                case 'discount' : state.discountSwitch = value;
                 break;
                 default : console.log('non value')
             }

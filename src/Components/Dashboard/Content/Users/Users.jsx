@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CgCalendarDates } from 'react-icons/cg';
 import { FaUsers } from 'react-icons/fa';
 import { HiUserCircle } from 'react-icons/hi';
@@ -6,7 +6,7 @@ import { MdDeleteSweep, MdOutlineAlternateEmail } from 'react-icons/md';
 import { TbAlphabetLatin, TbListDetails } from 'react-icons/tb';
 
 function Users({ currentItems }) {
-
+  const [roleValue,setRoleValue] = useState('کاربر معمولی')
   useEffect(() => {
   },[])
   
@@ -27,7 +27,7 @@ function Users({ currentItems }) {
               <HiUserCircle className='scale-[2.5]'/>
               <h1 className='text-xl font-[shabnambold]'>کاربر {user}</h1>
               <span>userUser@gmail.com</span>
-              <span className='text-sm font-bold'>کاربر معمولی</span>
+              <input type='text'  defaultValue={roleValue} className='text-sm font-bold text-black w-fit outline-slate-300 p-1 bg-slate-200'/>
               <span className='text-sm font-bold'>1401/05/26</span>
               <div className='flex items-center gap-3'>
                 <MdDeleteSweep className='scale-[1.5] hover:text-red-600 text-red-700 transition-all'/>

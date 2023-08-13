@@ -47,6 +47,8 @@ import SworkService from "./page/SworkService/SworkService";
 import UI_UX from "./page/UI_UX/UI_UX";
 import Voicing from "./page/Voicing/Voicing";
 import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
+import UserPage from "./page/UserPanel/UserPage";
+import UserProfilePage from "./page/UserPanel/UserProfilePage";
 
 const App = () => {
   return (
@@ -94,6 +96,11 @@ const App = () => {
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/favorites" element={<Favorites/>}/>
+          <Route path="/userPage" element={<UserPage/>}>
+            <Route path="profile" element={<UserProfilePage/>}/>
+            <Route path="cart" element={<Cart/>}/>
+            <Route path="favorites" element={<Favorites/>}/>
+          </Route>
         </Routes>
       </div>
       </>

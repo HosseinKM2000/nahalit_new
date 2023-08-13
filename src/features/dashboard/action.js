@@ -184,4 +184,12 @@ export const getPermissions = createAsyncThunk('dashboard/getPermissions', async
     const response = await instance.get('/permissions');
     return response;
 })
-
+// users
+export const getUsers = createAsyncThunk('dashboard/getUsers', async () => {
+    const response = await instance.get('/users');
+    return response;
+})
+export const deleteUser = createAsyncThunk('dashboard/deleteUser', async (id) => {
+    const response = await instance.delete(`/users/${id}`);
+    return response;
+})

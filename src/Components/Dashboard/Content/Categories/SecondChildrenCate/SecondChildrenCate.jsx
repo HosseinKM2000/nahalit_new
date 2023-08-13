@@ -153,7 +153,7 @@ function SecondChildrenCate() {
         !newCate.status
         ?
         <div className='w-[100%] h-[3rem] rounded-sm transition-all hover:text-orange-500 hover:border-orange-500 duration-200 items-center gap-1 text-white flex justify-center font-bold border-2 border-white border-dashed cursor-default' onClick={()=>setNewCate({status:true,value:null})}>
-        <span>افزودن دسته بندی</span>
+        <span>افزودن دسته بندی به بخش {firstChildrenTitle}</span>
         <FiPlusCircle className='text-2xl'/>
       </div>
       : 
@@ -173,7 +173,7 @@ function SecondChildrenCate() {
             !newCate.status
             ?
             <div className='w-[100%] h-[3rem] rounded-sm transition-all hover:text-orange-500 hover:border-orange-500 duration-200 items-center gap-1 text-white flex justify-center font-bold border-2 border-white border-dashed cursor-default' onClick={()=>setNewCate({status:true,value:null})}>
-            <span>افزودن دسته بندی</span>
+            <span>افزودن دسته بندی به بخش {firstChildrenTitle}</span>
             <FiPlusCircle className='text-2xl'/>
           </div>
           : 

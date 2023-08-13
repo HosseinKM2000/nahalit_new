@@ -109,7 +109,7 @@ const Footer = () => {
       </div>
       <div className="w-[80%] h-[1px] bg-[#949494] mx-auto mt-10"></div>
       <div className="container mx-auto mt-10 tracking-tighter flex justify-around flex-wrap items-center">
-        <ul className="flex items-center justify-start flex-wrap">
+        <ul className="flex items-center justify-start flex-wrap px-3">
           <li>
             <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">درباره ما</Link>
           </li>

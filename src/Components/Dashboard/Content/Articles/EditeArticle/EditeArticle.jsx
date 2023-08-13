@@ -6,6 +6,7 @@ import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import Editor from '../../../../Editor/Editor';
+import Cookies from 'js-cookie';
 
 function EditeArticle() {
     const [imageName,setImageName] = useState('');
@@ -34,8 +35,8 @@ function EditeArticle() {
             title:titleRef.current.value,
             image:imageName,
             body:desc,
-            is_active:situationRef,
-            user_id:''
+            is_active:situationRef.current.value,
+            user_id:JSON.parse(Cookies.get('user')).id
         }
         switch(true)
         {
@@ -53,6 +54,7 @@ function EditeArticle() {
 
     const EditArticle = (dataObj) => {
         dispatch(editBlog({id:goalArticle.id,dataObj}))
+        console.log(goalArticle.id,dataObj)
     }
 
     const articleDelete = (e) => {

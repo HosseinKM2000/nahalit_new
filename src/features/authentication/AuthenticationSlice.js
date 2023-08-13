@@ -7,7 +7,7 @@ const initialState = {
     loading:false,
     message:'',
     redirect:false,
-    loginStatus: Cookies.get('user') === undefined || Cookies.get('user') === 'null' ? false : true,
+    loginStatus: Cookies.get('user') === undefined ? false : true,
 }
 
 const authenticationSlice = createSlice({
@@ -33,7 +33,6 @@ const authenticationSlice = createSlice({
         })
         .addCase(register.rejected,(state,action) => {
             state.loading = false;
-            Cookies.set("user",'null')
             toast.error("متاسفانه ثبت نام با خطا مواجه شد")
         })
         .addCase(login.fulfilled,(state,action) => {
@@ -49,7 +48,6 @@ const authenticationSlice = createSlice({
         })
         .addCase(login.rejected,(state,action) => {
             state.loading = false;
-            Cookies.set("user",'null')
             toast.error('متاسفانه خطایی در ورود پیش آمده است')
         })
     }

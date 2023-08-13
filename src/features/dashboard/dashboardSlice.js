@@ -16,7 +16,9 @@ import {
     getCategories,
     getPermissions,
     getProducts,
-    getProjects
+    getProjects,
+    getUsers,
+    deleteUser
 } from "./action";
 
 const initialState = {
@@ -29,13 +31,16 @@ const initialState = {
     projectSwitch:'all',
     discountSwitch:'all',
     productId:null,
-    products:null,
+    products:[],
+    projects:[],
     productsLoading:false,
+    usersLoading:false,
+    users:[],
     projectsLoading:false,
     blogsLoading : false,
     permissionsLoading : false,
     blogsDeleteLoading : false,
-    categories :null,
+    categories :[],
     blogs:[],
     categoriesLoading:false,
     categoriesError:'',
@@ -114,8 +119,8 @@ const dashboardSlice = createSlice({
         // get categories
         .addCase(getCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            state.categories = action.payload.data.category === undefined ? null : [{id:1,category_id:null,title:"محصولات"},{id:2,category_id:null,title:"خدمات"},{id:3,category_id:null,title:"نمونه کارها"},{id:4,category_id:null,title:"مقالات"}];
-            console.log(action.payload.data.category)
+            state.categories = action.payload.data.categories;
+            console.log(action.payload.data.categories)
         })
         .addCase(getCategories.pending, (state) => {
             state.categoriesLoading = true;
@@ -167,8 +172,7 @@ const dashboardSlice = createSlice({
         // get products
         .addCase(getProducts.fulfilled , (state,action) => {
             state.productsLoading = false;
-            // state.products = action.payload.data.data;
-            state.products = [];
+            state.products = action.payload.data.data;
         })
         .addCase(getProducts.pending , (state,action) => {
             state.productsLoading = true;
@@ -205,8 +209,7 @@ const dashboardSlice = createSlice({
         // get projects
         .addCase(getProjects.fulfilled , (state,action) => {
             state.projectsLoading = false;
-            // state.products = action.payload.data.data;
-            state.products = [];
+            state.projects = action.payload.data.data;
         })
         .addCase(getProjects.pending , (state,action) => {
             state.projectsLoading = true;
@@ -285,6 +288,7 @@ const dashboardSlice = createSlice({
         .addCase(editBlog.rejected,(state,action) => {
             state.blogsLoading = false;
             toast.error('خطا در ویرایش مقاله')
+            console.log(action)
         })
         // delete blog
         .addCase(deleteBlog.fulfilled,(state,action) => {
@@ -310,6 +314,32 @@ const dashboardSlice = createSlice({
         .addCase(getPermissions.rejected,(state,action) => {
             state.permissionsLoading = false;
             toast.error('خطا در بارگیری وظایف')
+            console.log(action)
+        })
+        // get users
+        .addCase(getUsers.fulfilled,(state,action) => {
+            state.usersLoading = false;
+            state.users = action.payload.data.users;
+        })
+        .addCase(getUsers.pending,(state,action) => {
+            state.usersLoading = true;
+        })
+        .addCase(getUsers.rejected,(state,action) => {
+            state.usersLoading = false;
+            toast.error('خطا در بارگیری کاربران')
+            console.log(action)
+        })
+        // delete user
+        .addCase(deleteUser.fulfilled,(state,action) => {
+            state.usersLoading = false;
+            toast.success("کاربر با موفقیت حذف شد")
+        })
+        .addCase(deleteUser.pending,(state,action) => {
+            state.usersLoading = true;
+        })
+        .addCase(deleteUser.rejected,(state,action) => {
+            state.usersLoading = false;
+            toast.error("خطا در حذف کاربر")
             console.log(action)
         })
     }

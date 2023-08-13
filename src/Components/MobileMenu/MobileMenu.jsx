@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import clearIcon from '../../assets/img/clear.png';
 
 function MobileMenu({ dropMenu , setDropMenu }) {
 
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
   const itemsMenu = [
     {id:0,title:'صفحه اصلی',cateId:null,beList:false,link:'/'},
     {id:1,title:"محصولات",cateId:null,beList:true,link:'/shop'},
@@ -86,6 +88,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     </div>
     <menu className='w-full relative h-[90%] p-5 flex overflow-x-hidden overflow-y-scroll items-center scroll_zero'>   
         <ul className={ stepList === 1 ? 'flex flex-col transition-all duration-300 absolute justify-start right-0 top-0 py-3 items-center w-full h-full overflow-y-scroll scroll_zero gap-y-10' : 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[-30rem]'}>
+            {loginStatus ? <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center sm:hidden'><Link to={'/userPage/profile'} className='font-[shabnamBold]'>پنل کاربری</Link></li> : <></>}
             {
               itemsMenu.filter(item => item.cateId === null).map(item => (
                 item.beList === true

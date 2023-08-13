@@ -4,8 +4,11 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { useSelector } from "react-redux";
+import NotLogined from "../../Components/NotLogined/NotLogined";
 
 const Recruitment = () => {
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
   return (
     <div>
       <header>
@@ -16,11 +19,14 @@ const Recruitment = () => {
           <ResponseHeader />
         </div>
       </header>
-      <div className="bg-[#f5f5f9] mt-2 pb-32">
+      {
+        loginStatus
+        ?
+        <div className="bg-[#f5f5f9] mt-2 pb-32">
         <div className="px-48 max-lg:px-16 max-md:px-5 max-sm:px-2 mx-auto pt-12 flex max-xl:flex-wrap max-lg:justify-center justify-between items-start gap-x-12">
           <div className="flex flex-col max-xl:mb-8">
-            <h3 className="font-[shabnamBold]">شرابط استخدام :</h3>
-            <p className="text-[1.1rem] leading-6">
+            <h3 className="font-[shabnamBold]">شرایط استخدام :</h3>
+            <p className="text-[1rem] leading-7">
               اولین سایت فریلنسری به نام <span className="font-[shabnamBold]">نهال آی تی</span> که به صورت پکیجی می باشد و از تمام
               متخصصان در حوزه آی تی دعوت به عمل می آورد. خواهشمند است از تمام متخصصان در حوزه آی تی اگر نمونه کار در زمینه وب
               سایت،اپلیکیشن و فتوشاپ،بنر،پوستر و موشن گرافیک… دارند می توانند پروژه های خود را به صورت رایگان در سایت نهال آی تی
@@ -204,6 +210,9 @@ const Recruitment = () => {
           </div>
         </div>
       </div>
+      :
+      <NotLogined/>
+      }
       <div>
         <FixedIcon />
       </div>

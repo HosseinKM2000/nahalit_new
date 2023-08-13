@@ -7,18 +7,30 @@ import { HiCurrencyDollar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 function ProductsPage({currentItems}) {
-    const [isFavorites,setIsFavorites] = useState([])
+    const [criterion,setCriterion] = useState(true);
+    const [favorites,setFavorites] = useState([]);
 
-    useEffect(()=>{
-        Cookies.set('favProducts',isFavorites.join(','))
-    },[isFavorites]);
+    useEffect(() => {
+        const list = JSON.parse(localStorage.getItem('favProducts'));
+        if(list) {
+          setFavorites(list); 
+        }
+      },[])
+
+      useEffect(() => {
+        if(criterion) {
+            setCriterion(false);
+            return;
+        }
+        localStorage.setItem('favProducts', JSON.stringify(favorites))
+      },[favorites])
 
     const addToFavorite = (id) => {
-        setIsFavorites(isFavorites.concat(id));
+        setFavorites(favorites.concat(id));
     }
 
     const deleteFromFavorites = (id) => {
-        setIsFavorites(isFavorites.filter(key => key !== id));
+        setFavorites(favorites.filter(key => key !== id));
     }
 
   return (
@@ -50,10 +62,10 @@ function ProductsPage({currentItems}) {
                           <span>{product.date}</span>
                         </div>
                         <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
-                             <AiOutlineHeart className={ isFavorites.includes(index) ? 'hidden' : 'block scale-[1.5]' } onClick={()=>{
+                             <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block scale-[1.5]' } onClick={()=>{
                               addToFavorite(index)
                              }}/>
-                             <AiFillHeart className={ isFavorites.includes(index) ? 'block text-red-600 scale-[1.5] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                             <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 scale-[1.5] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
                               deleteFromFavorites(index)
                              }}/>
                              <BsBag className='text-lime-500 scale-150'/>

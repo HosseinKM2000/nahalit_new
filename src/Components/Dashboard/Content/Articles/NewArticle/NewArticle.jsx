@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addBlog } from '../../../../../features/dashboard/action';
 import Editor from '../../../../Editor/Editor';
+import Cookies from 'js-cookie';
 
 function NewArticle() {
 
@@ -14,7 +15,6 @@ function NewArticle() {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.blogsLoading);
     const mobile = window.innerWidth > 425 ? true : false;
-
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -29,8 +29,8 @@ function NewArticle() {
             title: titleRef.current.value,
             image: imageName,
             body: desc,
-            is_active: JSON.parse(situationRef.current.value),
-            user_id: JSON.parse(localStorage.getItem('user')).id,
+            is_active: situationRef.current.value,
+            user_id: JSON.parse(Cookies.get('user')).id,
         }
         switch(true)
         {

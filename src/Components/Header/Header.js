@@ -9,6 +9,7 @@ import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ScrollTop from "../ScrollTop/ScrollTop";
+import UserAvatarIcon from "../UserAvatar/UserAvatar";
 
 const Header = () => {
   const loginStatus = useSelector(state => state.authentication.loginStatus);
@@ -26,9 +27,7 @@ const Header = () => {
   const [showSlide12, setShowSlide12] = useState(false);
   const userId = loginStatus ? JSON.parse(Cookies.get('user')).id : '' 
   const location = useLocation();
-  const navigate = useNavigate();
   const urlPath = location.pathname;
-
 
   const clickEntershowslide = () => {
     setShowSlide(true);
@@ -141,6 +140,15 @@ const Header = () => {
         </div>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
           <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
+                 {
+                  loginStatus 
+                  ?
+                  <Link to={'/userPage/profile'}>
+                    <UserAvatarIcon/>
+                  </Link>
+                  :
+                  <></>
+                }
             <ul className="flex justify-start items-baseline gap-x-5 2xl:gap-x-10 lg:whitespace-nowrap">
               <li>
                 <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>
@@ -289,7 +297,7 @@ const Header = () => {
                 <Link to="/order" className="font-[shabnamMedium] text-[#171717] text-sm">ثبت سفارش</Link>
               </li>
               <li>
-                <Link className="text-[#171717] font-[shabnamMedium] text-sm">بلاگ</Link>
+                <Link to={'/articles'} className="text-[#171717] font-[shabnamMedium] text-sm">بلاگ</Link>
               </li>
 
               <li
@@ -517,25 +525,13 @@ const Header = () => {
                 <></>
                 :
                 <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>
-                <Link>
-                  <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
-                </Link>
-                <div
-                  onMouseEnter={clickEntershowslide4}
-                  className={
-                    showSlide4
-                      ? "container z-10 bg-white w-96 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] py-6 top-12 -right-[25rem] transition-all duration-700"
-                      : "container z-10 bg-white w-96 px-5 mx-auto absolute opacity-0 -right-[25rem] -translate-y-[50rem] transition-all duration-700"
-                  }
-                >
-                  <p className="pb-3 text-center text-[0.9rem]">برای مشاهده لیست علاقه مندی ها وارد شوید</p>
-                  <Link to={'/favorites'}>
-                    <span className="bg-[#50BCB1] text-white tracking-tighter font-bold px-3 py-1 text-center rounded-md">
-                      مشاهده علاقه مندی ها
-                    </span>
+                  <Link to={"/favorites"}>
+                    <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
                   </Link>
+                  <div class={showSlide4 ? "box arrow-top" : "box arrow-top opacity-0 transition-all duration-300"}>
+                    مشاهده علاقه مندی ها
+                  </div>
                 </div>
-              </div>
               }
               <div className="flex relative" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}>
                 {
@@ -544,7 +540,7 @@ const Header = () => {
                   <></>
                   :
                   <>
-                    <Link>
+                    <Link to={"/cart"}>
                       <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
                     </Link>
                     <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
@@ -552,22 +548,8 @@ const Header = () => {
                     </span>
                   </>
                 }
-                <div
-                  className={
-                    showSlide5
-                      ? "container z-10 bg-white 2xl:py-[2rem] flex flex-col gap-3 justify-around w-80 h-28 px-5 mx-auto absolute shadow-[1px_1px_10px_rgba(0,0,0,.25)] top-10 -right-[22rem] transition-all duration-700"
-                      : "container z-10 bg-white 2xl:py-[2rem] flex flex-col gap-3  w-80 h-28 px-5 mx-auto absolute opacity-0 -right-[22rem] -translate-y-[50rem] top-10 transition-all duration-700"
-                  }
-                >
-                  <div className="flex justify-between items-center pt-2">
-                    <p>0 مورد</p>
-                    <Link to={'/cart'}>
-                      <span className="bg-[#22A6F2] text-white tracking-tighter font-bold text-sm px-3 py-1 text-center rounded-sm">
-                        مشاهده سبد خرید
-                      </span>
-                    </Link>
-                  </div>
-                  <div className="text-center py-3">هیچ محصولی در سبد خرید نیست.</div>
+                <div class={showSlide5 ? "box arrow-bottom transition-all duration-300" : "box arrow-bottom opacity-0 transition-all duration-300"}>
+                  مشاهده سبد خرید
                 </div>
               </div>
             </div>

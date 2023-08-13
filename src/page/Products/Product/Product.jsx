@@ -32,18 +32,39 @@ import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
 import Comments from './Comments/Comments';
 
 function Product() {
-    const params = useParams();
+    const [criterion,setCriterion] = useState(true);
+    const [favorites,setFavorites] = useState([]);
     const [Switch,setSwitch] = useState(false)
-    const [isFavorites,setIsFavorites] = useState([])
+    const params = useParams();
     const products = useSelector(state => state.products.products);
     const goalProduct = useSelector(state => state.products.goalProduct);
     const mobile = window.innerWidth <= 425 ? true : false;
     const dispatch = useDispatch();
     dispatch(foundProduct(params.id))
-    useEffect(()=>{
-          Cookies.set('favProducts',isFavorites.join(','))
-    },[isFavorites]);
 
+    useEffect(() => {
+        const list = JSON.parse(localStorage.getItem('favProducts'));
+        if(list) {
+          setFavorites(list); 
+        }
+      },[])
+
+      useEffect(() => {
+        if(criterion) {
+            setCriterion(false);
+            return;
+        }
+        localStorage.setItem('favProducts', JSON.stringify(favorites))
+      },[favorites])
+
+    const addToFavorite = (id) => {
+        setFavorites(favorites.concat(id));
+    }
+
+    const deleteFromFavorites = (id) => {
+        setFavorites(favorites.filter(key => key !== id));
+    }
+    
     const mouseMoveHandler = (e) => {
       e.target.style.backgroundSize = '140%';
       const targ = e.target
@@ -66,15 +87,6 @@ function Product() {
     const mouseOutHandler = (e) => {
       e.target.style.backgroundSize = '100%';
     };
-
-    const addToFavorite = (id) => {
-        setIsFavorites(isFavorites.concat(id));
-    }
-
-    const deleteFromFavorites = (id) => {
-        setIsFavorites(isFavorites.filter(key => key !== id));
-    }
-    
 
   return (
     <main >
@@ -181,10 +193,10 @@ function Product() {
                             <div className='flex flex-col'>
                             <div className='flex items-center justify-between px-3'>
                              <HiCurrencyDollar className='text-yellow-600 scale-[1.5]'/>
-                             <AiOutlineHeart className={ isFavorites.includes(index) ? 'hidden' : 'block' } onClick={()=>{
+                             <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block' } onClick={()=>{
                               addToFavorite(index)
                              }}/>
-                             <AiFillHeart className={ isFavorites.includes(index) ? 'block text-red-600 hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                             <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
                               deleteFromFavorites(index)
                              }}/>
                             </div>

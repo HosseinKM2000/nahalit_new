@@ -5,6 +5,7 @@ import Header from '../../Components/Header/Header.js';
 import Main from '../../Components/Products/Main/Main.jsx';
 import Side from '../../Components/Products/Side/Side.jsx';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.js';
+import Cookies from 'js-cookie';
 
 function Products() {
   return (

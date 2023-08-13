@@ -1,12 +1,15 @@
 import React , { useEffect , useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import ReactPaginate from 'react-paginate';
 import Users from '../Users';
+import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import { getUsers } from '../../../../../features/dashboard/action';
 
 function UsersPagination() {
 
-  const users = ["آرش", "آرمین", "آتوسا", "آذر", "آریا", "آیدین", "آرتین", "آرشام", "آرتا", "آرشیا", "آریانا", "آزاده", "آرزو", "آسیه", "آتنا", "آناهیتا", "آنوشا", "آریان", "آیدا", "آرشاد", "آرشنا", "آتوش", "آفرین", "آترین", "آروین", "آرتمیس", "آرتام", "آرمان", "آرتاش", "آرتامین", "آریو", "آمنه", "آراد", "آرتور", "آهو", "آسمان", "آرین", "آنا", "آنیتا", "آنیا", "آسمین", "آمیتیس", "آیلین", "آبانو", "آریوباک", "آریون", "آرینا", "آسما", "آکین", "آریندا", "آنیتا", "آرینوش", "آرم", "آریوش", "آرتورو", "آرزو", "آریاز", "آزین", "آناهی", "آریاندخت", "آریاوش", "آریانو", "آرتینا", "آرشمند", "آتوشا", "آینده", "آرمون", "آرینجان", "آناهید", "آرتینو", "آرشک", "آریوان", "آرتاز", "آمیر", "آریال", "آیناز", "آرتو", "آرمینا", "آریاشاد", "آرتینوش", "آریامن", "آریاک", "آرینک", "آریوز", "آرتیا", "آزرم", "آهویار", "آریازاد", "آریامنش", "آریناس", "آرینو", "آروینا", "آریناز", "آرشیان", "آرتابان", "آرشاد", "آرینی", "آرشکا", "آریام", "آرتاک", "آریاپور", "آرتیناز", "آریامین", "آریامهر", "آریاکوش", "آریاناز",]
+  const users = useSelector(state => state.dashboard.users);
+    const isLoading = useSelector(state => state.dashboard.usersLoading);
     const [itemOffset, setItemOffset] = useState(0);
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 20;
@@ -14,8 +17,9 @@ function UsersPagination() {
     const currentItems = users.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(users.length / itemsPerPage);
     const dispatch = useDispatch();
-
+    console.log(users)
     useEffect(()=>{
+      dispatch(getUsers())
     },[]);
 
     const handlePageClick = (event) => {
@@ -27,21 +31,31 @@ function UsersPagination() {
 
   return (
     <>
-      <Users currentItems={currentItems} />
-      <ReactPaginate
-      breakLabel="..."
-      nextLabel={mobile ? '>>' : "برگه بعدی >>"}
-      onPageChange={handlePageClick}
-      pageRangeDisplayed={5}
-      pageCount={pageCount}
-      previousLabel={mobile ? '<<' : "<< برگه قبلی"}
-      renderOnZeroPageCount={null}
-      className='pagination'
-      activeClassName='active'
-      previousClassName='preBtn'
-      nextClassName='nextBtn'
-    />
-    </>
+      {
+        isLoading 
+        ?
+        <div className='h-[10rem] w-[full] flex items-center justify-center'>
+           <img src={loading} alt="loading" className='w-[30%]'/>
+        </div>
+        :
+        <>
+        <Users currentItems={currentItems} />
+        <ReactPaginate
+        breakLabel="..."
+        nextLabel={mobile ? '>>' : "برگه بعدی >>"}
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel={mobile ? '<<' : "<< برگه قبلی"}
+        renderOnZeroPageCount={null}
+        className='pagination'
+        activeClassName='active'
+        previousClassName='preBtn'
+        nextClassName='nextBtn'
+      />
+      </>
+      }
+  </>
   )
 }
 

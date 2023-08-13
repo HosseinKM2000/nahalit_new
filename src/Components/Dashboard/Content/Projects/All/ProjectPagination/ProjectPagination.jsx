@@ -5,25 +5,15 @@ import All from '../All';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import Edite from '../../Edite/Edite';
 import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
+import { getProjects } from '../../../../../../features/dashboard/action';
 
 function ProjectPagination() {
 
     const [showDetails,setShowDetails] = useState({status:false,value:''});
     const [itemOffset, setItemOffset] = useState(0);
-    const categories = ["تحقیقاتی", "صنعتی", "تجاری"];
-    const projects = [];
-    for (let i = 0; i < 50; i++) {
-        const project = {
-            "عنوان": `پروژه ${i+1}`,
-            "سرپرست": `سرپرست پروژه ${i+1}`,
-            "قیمت": Math.floor(Math.random() * 4900000) + 100000,
-            "درصد پیشرفت": Math.floor(Math.random() * 101), // تغییر اعمال شده است
-            "دسته بندی": categories[Math.floor(Math.random() * categories.length)],
-            colorCode:Math.floor(Math.random()*16777215).toString(16)
-            
-        };
-        projects.push(project);
-    }
+    const isLoading = useSelector(state => state.dashboard.projectsLoading);
+    const projects = useSelector(state => state.dashboard.projects) || [];
+ 
     const dispatch = useDispatch();
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 20;
@@ -35,30 +25,43 @@ function ProjectPagination() {
         dispatch(setScrollUp());
         setItemOffset(newOffset)
       };     
+    useEffect(()=> {
+        dispatch(getProjects())
+    },[])
     
   return (
     <>
     {
-        !showDetails.status
+        isLoading
         ?
-        <>
-        <All currentItems={currentItems} setShowDetails={setShowDetails} />
-        <ReactPaginate
-        breakLabel="..."
-        nextLabel={mobile ? '>>' : "برگه بعدی >>"}
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel={mobile ? '<<' : "<< برگه قبلی"}
-        renderOnZeroPageCount={null}
-        className='pagination'
-        activeClassName='active'
-        previousClassName='preBtn'
-        nextClassName='nextBtn'
-        />
-        </>
+        <div className='h-[4rem] w-full lg:w-[27%] flex items-center justify-center'>
+          <img src={loading} alt="loading" className='w-[30%]'/>
+        </div>
         :
-        <Edite details={showDetails.value} setShowDetails={setShowDetails}/>
+        <>
+        {
+            !showDetails.status
+            ?
+            <>
+            <All currentItems={currentItems} setShowDetails={setShowDetails} />
+            <ReactPaginate
+            breakLabel="..."
+            nextLabel={mobile ? '>>' : "برگه بعدی >>"}
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel={mobile ? '<<' : "<< برگه قبلی"}
+            renderOnZeroPageCount={null}
+            className='pagination'
+            activeClassName='active'
+            previousClassName='preBtn'
+            nextClassName='nextBtn'
+            />
+            </>
+            :
+            <Edite details={showDetails.value} setShowDetails={setShowDetails}/>
+        }
+        </>
     }
     </>
   )

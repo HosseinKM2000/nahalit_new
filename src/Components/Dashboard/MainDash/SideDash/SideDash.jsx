@@ -55,7 +55,7 @@ function SideDash({ dropMenu , setDropMenu }) {
     }
   }
   return (
-    <div className={dropMenu ? 'background-gra-green dashboard_side absolute lg:static top-0 right-0 w-[70vw] sm:w-[60vw] md:w-[50vw] z-[100] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%]  lg:z-10 flex transition-all duration-300 justify-center px-1 py-5' : 'background-gra-green dashboard_side absolute lg:static top-0 right-[-35rem] w-[70vw] sm:w-[60vw] md:w-[50vw] z-[100] 2xl:w-[15%] xl:w-[20%] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%] transition-all duration-300  lg:z-10 flex justify-center px-1 py-5'}>
+    <div className={dropMenu ? 'background-gra-green dashboard_side absolute lg:static top-0 right-0 w-[80vw] sm:w-[60vw] md:w-[50vw] z-[101] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%]  lg:z-10 flex transition-all duration-300 justify-center px-1 py-5' : 'background-gra-green dashboard_side absolute lg:static top-0 right-[-35rem] w-[70vw] sm:w-[60vw] md:w-[50vw] z-[100] 2xl:w-[15%] xl:w-[20%] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%] transition-all duration-300  lg:z-10 flex justify-center px-1 py-5'}>
       <ul className='w-full flex flex-col items-center gap-3'>
         <div className='w-full flex items-center justify-end px-3 py-1 lg:hidden'>
          <FaWindowClose className='text-[#2dbaa5] text-xl' onClick={()=>setDropMenu(false)}/>

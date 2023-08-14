@@ -19,6 +19,9 @@ const productsSlice = createSlice({
             let title = action.payload;
             const target = state.products.find(item => item.title === title);
            state.goalProduct = target;
+        },
+        sortByLatest : (state,action) => {
+            let products = state.products;
         }
     }
 })

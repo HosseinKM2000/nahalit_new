@@ -104,7 +104,7 @@ function FirstChildrenCate() {
                 {
                  childrenCategories.length !== 0
                   ?
-                  <div className='flex flex-col w-full p-5 gap-3'>
+                  <div className='flex flex-col w-full py-5 gap-3'>
                    {
                     childrenCategories.map((child,index) => (
                       <>

@@ -451,6 +451,7 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
   font-family: shabnambold;
   font-size: 0.8rem;
   border-radius: 2px;
+  text-shadow: 1px 1px 2px rgb(60, 60, 60);
 }
 .box.arrow-top {
     left: -1.8rem;
@@ -477,7 +478,7 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
   position: absolute;
   left: 30px;
   bottom: -15px;
-  border-top: 15px solid #9fe89c;
+  border-top: 16px solid #9fe89c;
   border-right: 15px solid transparent;
   border-left: 15px solid transparent;
   border-bottom: none;

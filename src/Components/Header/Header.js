@@ -524,16 +524,16 @@ const Header = () => {
                 ?
                 <></>
                 :
-                <div className="relative" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}>
+                <div className="relative">
                   <Link to={"/favorites"}>
-                    <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
+                    <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}/>
                   </Link>
                   <div class={showSlide4 ? "box arrow-top" : "box arrow-top opacity-0 transition-all duration-300"}>
                     مشاهده علاقه مندی ها
                   </div>
                 </div>
               }
-              <div className="flex relative" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}>
+              <div className="flex relative">
                 {
                   urlPath === '/cart'
                   ?
@@ -541,7 +541,7 @@ const Header = () => {
                   :
                   <>
                     <Link to={"/cart"}>
-                      <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" />
+                      <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}/>
                     </Link>
                     <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
                       0

@@ -76,7 +76,7 @@ function New() {
                 <input  onChange={(e)=>setimageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
             </div>
                 {/* products categories */}
-                <div className='w-full flex justify-start items-start gap-3'>
+                <div className='w-full flex-col sm:flex-row flex justify-start items-start gap-3'>
                 <div className='flex flex-col gap-3 justify-center items-start'>
                 <button type='button' onClick={()=>{
                     setDropCate({status:!dropCate.status,value:dropCate.value})
@@ -101,7 +101,7 @@ function New() {
                     }
                 </ul>
                 </div>
-            <button onClick={(e)=>addGalleryHandle()} type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+            <button onClick={(e)=>addGalleryHandle()} type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
         </form>
     </div>
   )

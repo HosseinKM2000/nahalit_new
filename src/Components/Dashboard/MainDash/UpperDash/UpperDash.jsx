@@ -7,7 +7,7 @@ function UpperDash({ dropMenu , setDropMenu }) {
     <div className='w-full h-[10%] bg-[#242e3b] border_b_g z-10'>
       <div className='w-full flex items-center px-5 h-full justify-between'>
         <Buttons dropMenu={dropMenu} setDropMenu={setDropMenu}/>
-        <Search/>
+        {/* <Search/> */}
       </div>
     </div>
   )

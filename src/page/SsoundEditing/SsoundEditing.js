@@ -15,11 +15,15 @@ import img_1 from "../../assets/img/SoundEditing/saxophonist-playing-saxophone-w
 import img_5 from "../../assets/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png";
 import img_8 from "../../assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png";
 import headImg from "../../assets/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg";
+import { Helmet } from "react-helmet";
 
 
 function SsoundEditing() {
   return (
     <main className="w-full">
+        <Helmet>
+            <title>نهال آی تی | خدمات تدوین صدا</title>
+        </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -53,7 +57,7 @@ function SsoundEditing() {
                         <li>و …</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_1} alt="soundEditing" className='w-[15rem] sm:w-[20rem] 2xl:w-1/3 2xl:ml-5 px-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} />
+                <motion.img src={img_1} alt="soundEditing" className='w-[15rem] sm:w-[20rem] 2xl:w-[400px] 2xl:ml-5 px-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} />
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} >
                 <h4 className='text-green-1c'>تفاوت صداگذاری و تدوین صدا</h4>
@@ -125,9 +129,9 @@ function SsoundEditing() {
                 <h6 className='text-gray3030'>تعرفه های تیم نهال آی تی در حوزه تدوین و صداگذاری</h6>
                 <img src={img_8} alt="tarrif" className='w-[100%] sm:w-[40%]'/>
             </div>
-            <EndBox3 content={{p:'جهت سفارش انواع خدمات صدا ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات صدا گذاری'}}/>
         </div>
     </div>
+    <EndBox3 content={{p:'جهت سفارش انواع خدمات صدا ، میتوانید به صورت رایگان ، با شماره 09927674217 تماس بگیرید و یا از طریق لینک زیر اقدام کنید.',b:'سفارش خدمات صدا گذاری'}}/>
       <div>
         <FixedIcon />
       </div>

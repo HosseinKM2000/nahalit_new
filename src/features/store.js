@@ -7,6 +7,7 @@ import dashboardReducer from "./dashboard/dashboardSlice";
 import newsSliceReducer from "./news/newsSlice";
 import productReducer from "./products/productSlice";
 import searchReducer from "./search/searchSlice";
+import loadingReducer from "./loading/loadingSlice";
 
 const store = configureStore({
     reducer:{
@@ -17,7 +18,8 @@ const store = configureStore({
         products:productReducer,
         authentication:authenticationReducer,
         cart:cartReducer,
-        search:searchReducer
+        search:searchReducer,
+        loading:loadingReducer
     }
 })
 

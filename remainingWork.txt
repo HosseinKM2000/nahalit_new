@@ -1,1 +1,2 @@
 check scroll button in phone
+links in footer

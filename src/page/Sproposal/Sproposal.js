@@ -10,10 +10,14 @@ import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import EndBox3 from "../../Components/EndBox3/EndBox3";
+import { Helmet } from "react-helmet";
 
 function Sproposal() {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | خدمات پروپوزال</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />

@@ -3,10 +3,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const Poster = () => (
   <main>
     <header>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار پوستر</title>
+      </Helmet>
       <div className="max-lg:hidden">
         <Header />
       </div>

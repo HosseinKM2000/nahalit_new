@@ -4,10 +4,14 @@ import Header from "../../Components/Header/Header";
 import { TfiFaceSad } from "react-icons/tfi";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const Voicing = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار تدوین صدا</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />

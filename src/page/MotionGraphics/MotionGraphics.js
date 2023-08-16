@@ -3,10 +3,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const MotionGraphics = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار موشن گرافیک</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -15,8 +19,9 @@ const MotionGraphics = () => {
           <ResponseHeader />
         </div>
       </header>
-      <div className="bg-[#f5f5f9] z-0">
-        <div className="px-52 max-lg:px-20 max-md:px-16 max-sm:px-0 mx-auto pt-14 mt-1 pb-24">
+      <div className="bg-[#f5f5f9] w-full">
+      <div className="z-0 container mx-auto">
+        <div className="px-52 max-lg:px-20 w-full max-md:px-16 max-sm:px-0 mx-auto pt-14 mt-1 pb-24">
           <h2 className="font-[shabnamBold] text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">نمونه کار موشن گرافیک</h2>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-12 max-sm:gap-y-4">
             <div>
@@ -35,10 +40,10 @@ const MotionGraphics = () => {
             <div className="w-[22rem] flex justify-center items-center">
               <video src="https://nahalit.com/wp-content/uploads/2022/10/VID-20221010-WA0000.mp4" controls />
             </div>
-            <div className="w-[33.5rem]">
+            <div className="w-[33.5rem] flex justify-center items-center">
               <video width={550} src="https://nahalit.com/wp-content/uploads/2022/10/VID-20221009-WA0000.mp4" controls />
             </div>
-            <div className="w-[33.5rem]">
+            <div className="w-[33.5rem] flex justify-center items-center">
               <video width={550} src="https://nahalit.com/wp-content/uploads/2022/10/VID-20221009-WA0001.mp4" controls />
             </div>
             <div className="w-[22rem] flex justify-center items-center">
@@ -652,6 +657,7 @@ const MotionGraphics = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
       <div>
         <FixedIcon />

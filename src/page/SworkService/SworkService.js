@@ -14,11 +14,15 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 
 function SworkService() {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | خدمات کسب و کار</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -56,7 +60,7 @@ function SworkService() {
                  <motion.h3 whileInView={{scale:[0,1],y:[200,0],x:[-200,0],opacity:[0,1]}} transition={{duration:0.5}} viewport={{once:true}} className='text-green-137'>خدمات ثبت لوگو</motion.h3>
                  <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>لوگو یک هویت تصویری برای رساندن مفهوم خدمت ، نشان دادن هویت یک سازمان بزرگ و یا کوچک ، به مفهوم رسانی یک وضعیت ، نشانه گذاری یک محصول به وسیله شرکت‌های تجاری، تولیدی و صنعتی و هم‌چنین کسب وکارهای کوچک استفاده می‌ شود تا از این طریق نوع خدمات ، اهداف مورد نظر و محصولات را با بکارگیری از خلاقیت به مخاطب معرفی کنند.</motion.p>
                </div>
-               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-[30%] 2xl:h-96' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
+               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-[600px] 2xl:h-96' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div>
                 <p>اولین و موثرترین گام برای معرفی یک برند می باشد. که سایر پروسه های هویت سازی یک برند (نظیر بسته بندی، طراحی لیبل و …) را تحت تاثیر خود قرار می دهد. یک آرم و لوگو موفق و صحیح به راحتی می تواند گام های یک مجموعه را به خاطر ثبات بصری خود محکم و هدفمند سازد. اعتماد، شناخت و موفقیت در بازار سه بخش اصلی است که به پشتوانه طراحی برندینگ صحیح ، بجا و مناسب در روند گسترش یک مجموعه کمک بسزا می کند.</p>

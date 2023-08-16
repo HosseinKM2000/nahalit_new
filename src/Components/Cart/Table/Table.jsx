@@ -18,9 +18,11 @@ const Table = () => {
           </div>
         </tr>
         </thead>
-        <tbody className="flex flex-wrap lg:flex-col justify-start h-fit gap-y-8 py-3 w-full">
-        {cart.map(cartItem => <TableItem key={cartItem.id} cartItem={cartItem}/>)}
-        </tbody>
+        <div>
+          <tbody className="flex flex-wrap lg:flex-col justify-start h-fit gap-y-4 py-3 w-full">
+            {cart.map(cartItem => <TableItem key={cartItem.id} cartItem={cartItem}/>)}
+          </tbody>
+        </div>
       </table>
     </div>
   );

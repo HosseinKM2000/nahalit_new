@@ -49,6 +49,7 @@ import Voicing from "./page/Voicing/Voicing";
 import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
 import UserPage from "./page/UserPanel/UserPage";
 import UserProfilePage from "./page/UserPanel/UserProfilePage";
+import ApiLoading from "./Components/ApiLoading/ApiLoading";
 
 const App = () => {
   return (
@@ -103,6 +104,7 @@ const App = () => {
           </Route>
         </Routes>
       </div>
+      <ApiLoading/>
       </>
   );
 };

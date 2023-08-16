@@ -5,9 +5,12 @@ import Header from '../../Components/Header/Header.js';
 import Main from '../../Components/Products/Main/Main.jsx';
 import Side from '../../Components/Products/Side/Side.jsx';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.js';
-import Cookies from 'js-cookie';
+import { useSelector } from 'react-redux';
+import NotLogined from '../../Components/NotLogined/NotLogined.jsx';
 
 function Products() {
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
+
   return (
     <main className='w-full flex flex-col'>
         <header>
@@ -18,10 +21,16 @@ function Products() {
             <ResponseHeader />
           </div>
         </header>
-        <div className='w-full flex lg:pr-0 lg:pl-5 lg:flex-row flex-col-reverse'>
+        {
+          loginStatus 
+          ?
+          <div className='w-full flex lg:pr-0 lg:pl-5 lg:flex-row flex-col-reverse'>
             <Side/>
             <Main/>
-        </div>
+          </div>
+          :
+          <NotLogined/>
+        }
         <div>
         <FixedIcon />
         </div>

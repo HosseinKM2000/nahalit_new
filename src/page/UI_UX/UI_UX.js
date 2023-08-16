@@ -3,10 +3,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const UI_UX = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار UI-UX</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -15,8 +19,8 @@ const UI_UX = () => {
           <ResponseHeader />
         </div>
       </header>
-      <div className="bg-[#f5f5f9] pb-10">
-        <div className="container px-48 max-lg:px-20 max-md:px-10 max-sm:px-2 mx-auto">
+       <div className="bg-[#f5f5f9] pb-10">
+        <div className=" px-48 max-lg:px-20 max-md:px-10 max-sm:px-2 mx-auto">
           <h2 className="font-[shabnamBold] max-lg:text-3xl max-md:text-2xl max-sm:text-lg whitespace-nowrap tracking-tighter pt-8 mt-1  text-2xl sm:text-4xl text-center text-green-137 px-0 pb-10 sm:px-12">
             نمونه کار های UI/UX نهال آی تی
           </h2>

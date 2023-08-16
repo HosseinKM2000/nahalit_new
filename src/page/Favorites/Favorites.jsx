@@ -7,6 +7,7 @@ import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
 import Main from './Main/Main';
 import NotLogined from '../../Components/NotLogined/NotLogined';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function Favorites() {
   const login = useSelector(state => state.authentication.loginStatus);
@@ -14,43 +15,48 @@ function Favorites() {
   const urlPath = location.pathname;
 
   return (
-    <div className={ urlPath === '/userPage/favorites' ? "w-[100%]" : "w-[100vw]"}>
-      {
-        urlPath === '/userPage/favorites'
-        ?
-        <></>
-        :
-        <header>
-            <div className="max-lg:hidden">
-              <Header />
-            </div>
-            <div className="lg:hidden">
-              <ResponseHeader/>
-            </div>
-        </header>
-      }
-      <main>
-            {
-              login
-              ?<Main/>
-              :<NotLogined/>
-            }
-      </main>
-      {
-        urlPath === '/userPage/favorites'
-        ?
-        <></>
-        :
-        <>
-        <div>
-            <FixedIcon />
-        </div>
-        <footer className="mt-5 w-full">
-            <Footer />
-        </footer>
-        </>
-      }
-    </div>
+    <>
+      <Helmet>
+        <title>نهال آی تی | علاقه مندی ها</title>
+      </Helmet>
+      <div className={ urlPath === '/userPage/favorites' ? "w-[100%]" : "w-[100vw]"}>
+    {
+      urlPath === '/userPage/favorites'
+      ?
+      <></>
+      :
+      <header>
+          <div className="max-lg:hidden">
+            <Header />
+          </div>
+          <div className="lg:hidden">
+            <ResponseHeader/>
+          </div>
+      </header>
+    }
+    <main>
+          {
+            login
+            ?<Main/>
+            :<NotLogined/>
+          }
+    </main>
+    {
+      urlPath === '/userPage/favorites'
+      ?
+      <></>
+      :
+      <>
+      <div>
+          <FixedIcon />
+      </div>
+      <footer className="mt-5 w-full">
+          <Footer />
+      </footer>
+      </>
+    }
+      </div>
+    </>
   )
 }
 

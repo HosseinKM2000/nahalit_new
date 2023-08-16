@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import CategoriesP from './CategoriesP/CategoriesP';
 import PriceRange from './components/PriceRange';
+import { sortByLatest , sortByCheapest , sortByExpensive } from '../../../features/products/productSlice';
+import { useDispatch } from 'react-redux';
 
 function Side() {
     const [minPrice,setMinPrice] = useState(0);
@@ -8,7 +10,17 @@ function Side() {
     const [minValue,setMinValue] = useState(0);
     const [maxValue,setMaxValue] = useState(5000);
     const filterSelectRef = useRef();
+    const dispatch = useDispatch();
     const selectHandle = (e) => {
+      switch(filterSelectRef.current.value) {
+        case "latest" : dispatch(sortByLatest())
+        break;
+        case "cheapest" : dispatch(sortByCheapest())
+        break;
+        case "expensive" : dispatch(sortByExpensive())
+        break;
+        default : console.log()
+      }
     }
    const changeMinValue = (value) => { setMinValue(value) }
    const changeMaxValue = (value) => { setMaxValue(value) }
@@ -18,7 +30,7 @@ function Side() {
         <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm font-[shabnamMedium] text-stone-600 lg:w-[100%] w-full sm:w-[50%] outline-none mt-3 p-1 2xl:w-[70%]' style={{border:'solid 1px #DBDCDD'}}>
              <option value="" className='font-[shabnamMedium]'>مرتب سازی پیش فرض</option>
              <option value="latest" className='font-[shabnamMedium]'>مرتب سازی بر اساس آخرین</option>
-             <option value="cheap" className='font-[shabnamMedium]'>مرتب سازی بر اساس ارزان ترین</option>
+             <option value="cheapest" className='font-[shabnamMedium]'>مرتب سازی بر اساس ارزان ترین</option>
              <option value="expensive" className='font-[shabnamMedium]'>مرتب سازی بر اساس گرانترین</option>
         </select>
         <PriceRange minPoint={minPrice} maxPoint={maxPrice} minValue={minValue} maxValue={maxValue} steps={500} setMin={changeMinValue} setMax={changeMaxValue} />

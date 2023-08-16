@@ -6,7 +6,7 @@ const initialState =
 {
     articles:articles,
     goalArticle:'',
-    shortLink:'https://nahalit.com/?p=8120',
+    shortLink:window.location.href,
 }
 
 function foundArticleAction(state,action)

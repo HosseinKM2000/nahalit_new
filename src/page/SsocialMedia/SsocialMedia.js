@@ -22,11 +22,15 @@ import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import EndBox3 from "../../Components/EndBox3/EndBox3";
+import { Helmet } from "react-helmet";
 
 
 function SsocialMedia() {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | خدمات شبکه های اجتماعی</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -94,7 +98,7 @@ function SsocialMedia() {
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>لینکدین در واقع یک شبکه اجتماعی حرفه ای است که اساسا برای بهبود کسب و کارهای مختلف و آشنا کردن دیگران با آن ها طراحی شده است. با این حال، استفاده از لینکدین تنها به این موضوع محدود نمی شود و کاربران این شبکه اجتماعی می توانند از طریق آن، با افراد دیگری که در حوزه کاری شان فعالیت می کنند، آشنا شوند و با آن ها ارتباط برقرار کنند.</motion.p>
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>همچنین می توان از این سیستم برای پیدا کردن کار یا استخدام افراد نیز استفاده کرد. این موضوع چندان مسئله عجیبی نیست؛ کافیست سری به صفحات اشخاص یا شرکت های مختف بزنید تا از این مسئله با خبر شوید. علاوه بر این، محدود به داشتن یک حساب کاربری نیستید و می توانید با در اختیار داشتن چند اکانت مختلف، استفاده های متعددی از لینکدین داشته باشید. کار کردن با این پلفترم نیز بسیار راحت تر از چیزیست که فکرش را می کنید.</motion.p>
                 </div>
-                <motion.img src={linkedin} alt="linkedin" className='w-80 h-60 2xl:h-96 2xl:w-1/4 linking-img' whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={linkedin} alt="linkedin" className='w-80 h-60 2xl:h-96 2xl:w-[500px] linking-img' whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div className='flex flex-col sm:flex-row items-center'>
                 <motion.img src={twitter} alt="twitter" className='w-80 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],scale:[0,1],rotate:[270,0]}} transition={{duration:2}} viewport={{once:true}}/>

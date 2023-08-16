@@ -3,10 +3,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const Premiere = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار پریمیر</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />

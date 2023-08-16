@@ -4,10 +4,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const WebsiteDesignPortfolio = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار طراحی سایت</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -17,13 +21,13 @@ const WebsiteDesignPortfolio = () => {
         </div>
       </header>
       <div className="flex flex-col flex-wrap max-lg:items-center items-center justify-center py-10 container mx-auto px-48 max-lg:px-20 max-md:px-12 max-sm:px-5">
-        <h2 className="font-[shabnamBold] flex items-center justify-center text-xl tracking-tighter text-[#4c4c4c] mb-2">
+        <h2 className="font-[shabnamBold] flex items-center justify-center text-xl text-[#4c4c4c] mb-10">
           نمونه کارها
         </h2>
         <div className="flex flex-wrap items-center justify-between max-lg:justify-center max-lg:mt-8">
-          <div>
-            <Link className="text-[#00750A] font-[shabnamBold] tracking-tighter text-lg">سایت کفش توپ</Link>
-            <p className="text-lg tracking-tighter">این سایت با موضوع خرید کفش و کتونی با نام کفش توپ می باشد .</p>
+          <div className="w-full flex flex-col items-center">
+            <Link className="text-[#00750A] font-[shabnamBold] text-lg">سایت کفش توپ</Link>
+            <p className="text-base">این سایت با موضوع خرید کفش و کتونی با نام کفش توپ می باشد .</p>
           </div>
           <Link className="flex items-center justify-center">
             <img

@@ -4,10 +4,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 const Aplication = () => {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | نمونه کار اپلیکیشن</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -36,7 +40,7 @@ const Aplication = () => {
             <p className="mt-1">سرویس نوبت دهی نهال آی تی</p>
             <button
               type="button"
-              className="bg-[#367B1D] mt-6 hover:bg-[#459b26] transition-all duration-200 text-white px-7 py-3 font-bold rounded-lg tracking-tighter"
+              className="bg-[#367B1D] mt-6 hover:bg-[#459b26] text-sm transition-all duration-200 text-white px-7 py-2 font-bold rounded-lg tracking-tighter"
             >
               برای مشاهده روی اینجا کلیک کنید
             </button>
@@ -56,7 +60,7 @@ const Aplication = () => {
             <p className="mt-1">سرویس خدمات بانکی راهرو</p>
             <button
               type="button"
-              className="bg-[#367B1D] mt-6 hover:bg-[#459b26] transition-all duration-200 text-white px-7 py-3 font-bold rounded-lg tracking-tighter"
+              className="bg-[#367B1D] text-sm mt-6 hover:bg-[#459b26] transition-all duration-200 text-white px-7 py-2 font-bold rounded-lg tracking-tighter"
             >
               برای مشاهده روی اینجا کلیک کنید
             </button>

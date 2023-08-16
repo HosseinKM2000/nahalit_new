@@ -20,10 +20,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
+import { Helmet } from "react-helmet";
 
 function Saplication() {
   return (
     <main>
+        <Helmet>
+            <title>نهال آی تی | خدمات اپلیکیشن موبایل</title>
+        </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />

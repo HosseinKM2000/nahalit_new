@@ -1,14 +1,24 @@
-import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { BsBag, BsCalendar4 } from 'react-icons/bs';
+import { BsBag, BsCalendar4, BsFillBagFill } from 'react-icons/bs';
 import { FaEye, FaShoppingBag } from 'react-icons/fa';
 import { HiCurrencyDollar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { useSelector , useDispatch } from 'react-redux';
+import { addBasket , deleteBasket } from '../../../../features/cart/action';
+import Cookies from 'js-cookie';
+import loadingSvg from '../../../../assets/img/Pulse-1.2s-229px.svg';
 
 function ProductsPage({currentItems}) {
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]);
+    const [keyLoading,setKeyLoading] = useState();
+    const userId = JSON.parse(Cookies.get('user')).id;
+    const dispatch = useDispatch();
+    const baskets = useSelector(state => state.cart.baskets);
+    const LoadingStatus = useSelector(state => state.cart.loading);
+    const userBasketItems = baskets.length !== 0 ? baskets.filter(item => item.user_id === userId ) : []
+    const goalIds = userBasketItems.map(item => item.product_id);
 
     useEffect(() => {
         const list = JSON.parse(localStorage.getItem('favProducts'));
@@ -17,13 +27,13 @@ function ProductsPage({currentItems}) {
         }
       },[])
 
-      useEffect(() => {
+    useEffect(() => {
         if(criterion) {
             setCriterion(false);
             return;
         }
         localStorage.setItem('favProducts', JSON.stringify(favorites))
-      },[favorites])
+    },[favorites])
 
     const addToFavorite = (id) => {
         setFavorites(favorites.concat(id));
@@ -31,6 +41,13 @@ function ProductsPage({currentItems}) {
 
     const deleteFromFavorites = (id) => {
         setFavorites(favorites.filter(key => key !== id));
+    }
+
+    const addToBasket = (id) => {
+        dispatch(addBasket({user_id:userId,product_id:id}))
+    }
+
+    const deleteFromBasket = (id) => {
     }
 
   return (
@@ -59,7 +76,7 @@ function ProductsPage({currentItems}) {
                     <div className='w-full flex items-center justify-between text-stone-500 text-xs p-1'>
                         <div className='flex items-center gap-1'>
                           <BsCalendar4/>
-                          <span>{product.date}</span>
+                          <span className='font-[shabnambold]'>{product.date}</span>
                         </div>
                         <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
                              <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block scale-[1.5]' } onClick={()=>{
@@ -68,18 +85,30 @@ function ProductsPage({currentItems}) {
                              <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 scale-[1.5] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
                               deleteFromFavorites(index)
                              }}/>
-                             <BsBag className='text-lime-500 scale-150'/>
+                             {
+                                LoadingStatus && keyLoading === index
+                                ?
+                                 <img src={loadingSvg} alt="loading" className='w-[1rem]'/>
+                                :
+                                <>
+                                 <BsBag className={ goalIds.length !== 0 && goalIds.includes(index) ? 'hidden' : 'text-lime-500 scale-150 block' } onClick={()=>{
+                                    addToBasket(index)
+                                    setKeyLoading(index)
+                                 }}/>
+                                 <BsFillBagFill className={ goalIds.length !== 0 && goalIds.includes(index) ? 'text-lime-500 scale-150 block' : 'hidden' } onClick={()=>deleteFromBasket(index)}/>
+                                </>
+                             }
                         </div>
                     </div>
                     <div className='w-full flex items-center font-bold px-2 text-xs my-3 gap-1'>
                         <HiCurrencyDollar className='text-yellow-600 scale-150'/>
                         <del className='flex gap-1 items-center text-red-600'>
-                          <span>8,800,000</span>
+                          <span>{product.price}</span>
                           <span>تومان</span>
                         </del>
                         <span>-</span>
                     <div className='flex gap-1 items-center text-stone-500'>
-                        <span>8,000,000</span>
+                        <span>{product.price}</span>
                         <span>تومان</span>
                     </div>
                     </div>

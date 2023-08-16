@@ -14,10 +14,14 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { Helmet } from "react-helmet";
 
 function EecoSaleWeb() {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | فروش سایت اختصاصی و اقتصادی</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />

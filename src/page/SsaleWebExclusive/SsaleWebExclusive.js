@@ -19,10 +19,14 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
+import { Helmet } from "react-helmet";
 
 function SsaleWebExclusive() {
   return (
     <main>
+      <Helmet>
+        <title>نهال آی تی | طراحی وب سایت اختصاصی</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
           <Header />
@@ -43,7 +47,7 @@ function SsaleWebExclusive() {
               <p>قطعا طراحی سایت لازمه ی کار هست اما برای اینکه شاهد نتیجه گرفتن ازش باشیم، باید به مخاطبانی که متقاضی دریافت محصولات یا خدمات ما هستن، اعلام کنیم که سایتمون رو ایجاد کردیم و  ازشون دعوت کنیم که از سایت ما بازدید کنن که این دعوت به بازدید از سایت در دنیای دیجیتال از راه های مختلفی مثل سئو و خدمات دیگه رقم میخوره که تو بخش <span className='text-soft-red'>خدمات وب سایت و سئو وب سایت</span> کامل توضیح دادیم براتون.</p>
               <p>در ادامه ، با انواع وب سایت ها آشنا خواهید شد.</p>
             </div>
-            <div className='flex flex-col sm:flex-row justify-center items-center'>
+            <div className='flex flex-col-reverse sm:flex-row justify-center items-center'>
               <div>
                 <motion.h2 whileInView={{x:[500,-20,20,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>طراحی وب سایت فروشگاهی</motion.h2>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>با توجه به فراهم شدن بستر استفاده از پرداخت اینترنتی و از سوی دیگر مشکلاتی مانند ترافیک، ازدحام جمعیت و نداشتن وقت کافی برای خرید حضوری، این روزها تمایل افراد برای خرید کالا به صورت اینترنتی رو به افزایش است.</motion.p>
@@ -60,7 +64,7 @@ function SsaleWebExclusive() {
                   <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>اگر با حوزه تولید محتوا آشنا باشید، می‌دانید که اگر تولید محتوای مناسب و جذابی داشته باشید، روزانه هزاران کاربر را به سمت خود می‌کشانید. همین ویژگی افزایش بازدید در طی ماه‌ها و سال‌ها موجب شده تا درآمد سایت‌های خبری تا حد زیادی افزایش یابد.</motion.p>
               </div>
             </div>
-            <div className='flex flex-col sm:flex-row justify-center items-center'>
+            <div className='flex flex-col-reverse sm:flex-row justify-center items-center'>
               <div>
                 <motion.h4 whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>طراحی وب سایت شرکتی</motion.h4>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اگر هدف شما از طراحی سایت شرکتی، ورود به عرصه رقابت با وب سایت ها و شرکت های رقیب که فعالیتی مشابه شما دارند است، حتما طراحی وب سایت شرکتی اختصاصی لازمه موفقیت کار شماست.</motion.p>
@@ -82,18 +86,18 @@ function SsaleWebExclusive() {
               <div className='flex flex-col items-center sm:flex-row gap-2 gap-y-8'>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
                   <img src={domain} alt="domain" className='w-28 2xl:w-64'/>
-                  <span className='font-bold 2xl:text-3xl text-gray-66'>ثبت دامنه ی اختصاصی</span>
-                  <p className='text-gray-66 text-center span 2xl:text-4xl leading-8 text-sm'>دوست دارید آدرس وب‌ سایت شما چه باشد؟ شما می‌ توانید خیلی سریع دامنه مورد نظرتان را ثبت کنید یا دامنه‌ قبلی خود را به سایت متصل نمایید.</p>
+                  <span className='font-bold text-gray-66'>ثبت دامنه ی اختصاصی</span>
+                  <p className='text-gray-66 text-center span  leading-8 text-sm'>دوست دارید آدرس وب‌ سایت شما چه باشد؟ شما می‌ توانید خیلی سریع دامنه مورد نظرتان را ثبت کنید یا دامنه‌ قبلی خود را به سایت متصل نمایید.</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
                   <img src={Img_5} alt="Img_5" className='w-28 2xl:w-64'/>
-                  <span className='font-bold  2xl:text-3xl text-gray-66'>قالب‌ های مناسب و جذاب</span>
-                  <p className='text-gray-66 text-center span  2xl:text-4xl leading-8 text-sm'>طراحی انواع قالب های گرافیکی زیبا و همچنین بهینه سازی انواع قالب ها متناسب با سلیقه کاربر به همراه پشتیبانی از سایت</p>
+                  <span className='font-bold text-gray-66'>قالب‌ های مناسب و جذاب</span>
+                  <p className='text-gray-66 text-center span   leading-8 text-sm'>طراحی انواع قالب های گرافیکی زیبا و همچنین بهینه سازی انواع قالب ها متناسب با سلیقه کاربر به همراه پشتیبانی از سایت</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
                   <img src={Img_6} alt="Img_6" className='w-28 2xl:w-64'/>
-                  <span className='font-bold  2xl:text-3xl  text-gray-66'>ایجاد پنل برای مدیریت آسان سایت</span>
-                  <p className='text-gray-66 text-center span 2xl:text-2xl leading-8 text-sm'>کار با پنل مدیریت سایت واقعاً ساده است و هر کسی از پس مدیریت آن بر خواهد آمد. بنابراین در آینده به هیچ مشکلی برخورد نمی‌کنید.</p>
+                  <span className='font-bold  text-gray-66'>ایجاد پنل برای مدیریت آسان سایت</span>
+                  <p className='text-gray-66 text-center span leading-8 text-sm'>کار با پنل مدیریت سایت واقعاً ساده است و هر کسی از پس مدیریت آن بر خواهد آمد. بنابراین در آینده به هیچ مشکلی برخورد نمی‌کنید.</p>
                 </div>
               </div>
             </motion.div>

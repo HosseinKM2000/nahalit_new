@@ -58,15 +58,15 @@ img[alt='comment']
     }
     .swiper-button-next::after
     {
-        font-size:  3rem !important;
+        font-size:  1rem !important;
         margin-left: 2rem;
-        padding: 1rem;
+        padding: 0.5rem;
     }
     .swiper-button-prev::after
     {
-        font-size:  3rem !important;
+        font-size:  1rem !important;
         margin-right: 2rem;
-        padding: 1rem;
+        padding: 0.5rem;
     }
     .rulls > li::marker
     {

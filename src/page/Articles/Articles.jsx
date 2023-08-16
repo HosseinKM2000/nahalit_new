@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineHeart , AiFillHeart } from 'react-icons/ai';
 import './Articles.css';
+import { Helmet } from 'react-helmet';
 
 const Articles = ({currentItems}) => {
 
@@ -38,12 +39,17 @@ const Articles = ({currentItems}) => {
     }
 
   return (
-    <div className='flex justify-center items-start w-full min-h-screen text-right articles-content'>
-      <div className='flex flex-col p-2 2xl:w-[85%] sm:w-11/12 justify-center items-start'>
-        <div className='flex w-full flex-row justify-evenly mb-5 border-2 bg-gray_99 p-1 border-white-e9 text-gray-88 mt-10'>
-            <span className='font-bold text-gray-500 text-xs sm:text-sm '>آخرین مطالب نهال آی تی</span>
-            <span className='text-gray-500 text-xs sm:text-sm'>Latest Posts Blog</span>
-        </div>
+    <>
+      <Helmet>
+        <title>نهال آی تی | مقالات</title>
+      </Helmet>
+      <div className='flex justify-center items-start w-full min-h-screen text-right articles-content'>
+  <div className='flex flex-col p-2 2xl:w-[85%] sm:w-11/12 justify-center items-start'>
+    <div className='flex w-full flex-row justify-evenly mb-5 border-2 bg-gray_99 p-1 border-white-e9 text-gray-88 mt-10'>
+        <span className='font-bold text-gray-500 text-xs sm:text-sm '>آخرین مطالب نهال آی تی</span>
+        <span className='text-gray-500 text-xs sm:text-sm'>Latest Posts Blog</span>
+    </div>
+    <div className='container mx-auto'>
         <div className='flex sm:flex-wrap flex-col sm:flex-row justify-center gap-3 sm:gap-3 items-center'>
             {
                 currentItems.map((article , index) => (
@@ -61,12 +67,12 @@ const Articles = ({currentItems}) => {
                                 <span>0</span>
                             </div>
                             <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
-                             <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block scale-[1.1]' } onClick={()=>{
+                            <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block scale-[1.1]' } onClick={()=>{
                               addToFavorite(index)
-                             }}/>
-                             <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 scale-[1.1] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                            }}/>
+                            <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 scale-[1.1] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
                               deleteFromFavorites(index)
-                             }}/>
+                            }}/>
                         </div>
                         </div>
                         <button className='flex gap-1 cursor-pointer flex-row w-full text-white  bg-green-bt py-2 px-2 justify-center items-center hover:bg-sky-blue transition-all'>
@@ -77,8 +83,10 @@ const Articles = ({currentItems}) => {
                 ))
             }
         </div>
-      </div>
     </div>
+  </div>
+      </div>
+    </>
   )
 }
 

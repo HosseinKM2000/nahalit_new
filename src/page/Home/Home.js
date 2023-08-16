@@ -12,10 +12,14 @@ import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
 import ServicesHomePage from "../../Components/ServicesHomePage/ServicesHomePage";
 import SliderSwiper from "../../Components/SliderSwiper/SliderSwiper";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
     <div className="w-[100vw]">
+      <Helmet>
+        <title>نهال آی تی | صفحه اصلی</title>
+      </Helmet>
       <header>
         <div className="max-lg:hidden">
         <Header />

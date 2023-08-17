@@ -1,4 +1,4 @@
-import "./customStyle.css";
+import "./PriceRange.css";
 
 const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setMax}) => {
 
@@ -44,24 +44,23 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
   });
 
   return (
-    <div className="w-full sm:w-[50%] lg:w-[90%]">
+    <div className="w-full sm:w-[50%] lg:w-[90%] font-[shabnamMedium]">
       <div className="price-input" dir="rtl">
         <div className="field">
           <span>از</span>
           <input
             type="number"
-            className="input-min"
+            className="input-min font-[shabnamBold]"
             value={minValue}
             onChange={event => setMin(event.target.value)}
           />
           <span>تومان</span>
         </div>
-        <div className="separator">-</div>
         <div className="field">
-          <span>تا</span>
+          <span className="pr-2">تا</span>
           <input
             type="number"
-            className="input-max"
+            className="input-max font-[shabnamBold]"
             value={maxValue}
             onChange={event => setMax(event.target.value)}
           />

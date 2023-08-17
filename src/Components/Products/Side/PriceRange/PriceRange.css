@@ -28,19 +28,21 @@ header p{
     width: 100%;
     display: flex;
     margin: 30px 0 35px;
+    overflow: hidden;
 }
 .price-input .field{
     display: flex;
-    width: 100%;
+    width: 50%;
     height: 45px;
     align-items: center;
+    gap: 5px;
 }
 .field input{
-    width: 70%;
-    height: 70%;
+    padding: 1px;
     outline: none;
-    font-size: 1rem;
-    margin:0 10px;
+    font-size: 0.9rem;
+    margin:0;
+    width: 70%;
     border-radius: 5px;
     text-align: center;
     border: 1px solid #999;
@@ -48,7 +50,7 @@ header p{
 }
 .field span
 {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: rgb(57, 57, 57);
 }

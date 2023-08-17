@@ -1,17 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
 
 function New() {
 
     const [dropCate,setDropCate] = useState({status:false,value:null})
-    const [childList,setChildList] = useState(false);
-    const [childList_2,setChildList_2] = useState(false);
-    const [goalCate,setGoalCate] = useState(null);
     const [desc,setDesc] = useState('');
-    const [goalChild,setGoalChild] = useState(null);
     const [fileName,setFileName] = useState('');
     const [priceValue,setPriceValue] = useState(0);
     const mobile = window.innerWidth < 425 ? true : false;
@@ -20,8 +16,6 @@ function New() {
     const supervisorRef = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
-    const categories = useSelector(state => state.dashboard.categories);
-    const cateList = categories !== null ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const formKeyNotSuber = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -63,18 +57,6 @@ function New() {
 
     const sendProduct = (dataObj) => {
         console.log(dataObj)
-    }
-
-    const liHandler = (value) => {
-        setChildList(true);
-        const item = categories.filter(cate => cate.category_id === null).find(cate => cate.title === value);
-        setGoalCate(item)
-    }
-
-    const liHandler_2 = (id) => {
-        setChildList_2(true);
-        const item = categories.find(cate => cate.id === id);
-        setGoalChild(item)
     }
 
     function separateByCommas(number) {
@@ -121,70 +103,7 @@ function New() {
            {/* describe */}
             <Editor setDesc={setDesc}/>
             {/* categories */}
-            <div className='w-full flex flex-col sm:flex-row justify-start items-start gap-3'>
-                <div className='flex flex-col gap-3 justify-center items-start'>
-                 <button type='button' onClick={()=>{
-                    setDropCate({status:!dropCate.status,value:dropCate.value})
-                    setChildList(false)
-                    setChildList_2(false)
-                 }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
-                 {
-                    dropCate.value !== null
-                    ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
-                    :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
-                 }
-                </div>
-                    <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
-                    {
-                        cateList.filter(cate => cate.category_id === null).map((cate,i)=>(
-                            <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
-                            onMouseEnter={(e)=>{
-                                liHandler(cate.title)
-                                setChildList_2(false)
-                            }}
-                            >
-                                <span>{cate.title}</span>
-                                <MdKeyboardArrowLeft/>
-                            </li>
-                        ))
-                    }
-                </ul>
-                {
-                    goalCate !== null
-                    ? 
-                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
-                    {
-                        categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
-                            <li key={i} onMouseEnter={(e)=>{
-                                liHandler_2(item.id)
-                                setChildList_2(true)
-                            }}  className='cursor-pointer hover:text-orange-600 hover:font-bold transition-all flex items-center gap-1'>
-                                <span>{item.title}</span>
-                                <MdKeyboardArrowLeft/>
-                            </li>
-                        ))
-                    }
-                </ul>
-                : <></>
-                }
-                {
-                    goalChild !== null
-                    ?
-                    <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
-                    {
-                        categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
-                            <li key={i} onClick={(e)=>{
-                                setDropCate({status:false,value:item.title})
-                                setChildList(false)
-                                setChildList_2(false)
-                            }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
-                        ))
-                    }
-                    </ul>
-                    :
-                    <></>
-                }
-            </div>
+            <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
             {/* file */}
             <div className='flex items-start flex-col gap-2 w-full'>
                 <label htmlFor="file" className='font-semibold text-[#2e424a]'>فایل</label>

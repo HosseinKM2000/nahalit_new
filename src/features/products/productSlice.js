@@ -3,7 +3,8 @@ import { products } from "../../API/data";
 
 const initialState = {
     products : products,
-    goalProduct:''
+    goalProduct:'',
+    FilteredProducts: products
 }
 
 
@@ -20,6 +21,9 @@ const productsSlice = createSlice({
             const target = state.products.find(item => item.title === title);
            state.goalProduct = target;
         },
+        sortByAll : (state) => {
+            state.FilteredProducts = state.products;
+        },
         sortByLatest : (state) => {
             let newList = state.products.sort((a,b) => {
                 let dateA = a.date.split('/');
@@ -30,22 +34,52 @@ const productsSlice = createSlice({
 
                 return dateB - dateA;
             });
-            state.products = newList;
+            state.FilteredProducts = newList;
         },
         sortByCheapest : (state) => {
             let newList = state.products.sort((a,b) => {
                 return a.price - b.price;
             })
-            state.products = newList;
+            state.FilteredProducts = newList;
         },
         sortByExpensive : (state) => {
             let newList = state.products.sort((a,b) => {
                 return b.price - a.price;
             })
-            state.products = newList;
+            state.FilteredProducts = newList;
+        },
+        sortByPriceRange : (state,action) => {
+            let { minValue : minPrice , maxValue : maxPrice }  = action.payload;
+            let newList = state.products.filter(product => {
+                return product.price >= minPrice && product.price <= maxPrice
+            });
+            state.FilteredProducts = newList; 
+        },
+        sortByName : (state,action) => {
+            let value = action.payload;
+            if(value !== ''){
+                let newList = state.products.filter(product => {
+                    return product.title.includes(value)
+                })
+                state.FilteredProducts = newList;
+            }else {
+                state.FilteredProducts = state.products
+            }
+        },
+        sortByCategory : (state,action) => {
+            let ID = action.payload;
+            let newList = state.products.filter(product => product.category_id === ID);
+            state.FilteredProducts = newList
         }
     }
 })
 
-export const { foundProduct , sortByLatest , sortByCheapest , sortByExpensive } = productsSlice.actions;
+export const { foundProduct,
+               sortByAll,
+               sortByLatest,
+               sortByCheapest,
+               sortByExpensive,
+               sortByPriceRange,
+               sortByCategory,
+               sortByName } = productsSlice.actions;
 export default productsSlice.reducer;

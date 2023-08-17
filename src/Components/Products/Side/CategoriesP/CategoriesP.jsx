@@ -4,132 +4,70 @@ import { RiRestartFill } from 'react-icons/ri';
 import { SlMagnifier } from 'react-icons/sl';
 import { TbDiscount2 } from 'react-icons/tb';
 import { keyWord } from '../../../../API/data';
+import { useDispatch, useSelector } from 'react-redux';
+import { sortByCategory, sortByName } from '../../../../features/products/productSlice';
+import { getCategories } from '../../../../features/dashboard/action';
+import { useEffect } from 'react';
 
 function CategoriesP() {
-
+  const categories = useSelector(state => state.dashboard.categories);
+  const isBeProducts = categories.find(cate => cate.title === "محصولات") === undefined ? false : true;
+  const dispatch = useDispatch();
   const searchRef = useRef();
+
+  useEffect(()=> {
+    dispatch(getCategories())
+    console.log(categories)
+  },[])
+
   const searchHandler = (e,value) => {
+    let searchValue = searchRef.current.value;
     if(e.key === 'Enter' || value === 'search')
     {
-      
+      dispatch(sortByName(searchValue))
     }
   }
-  const filterHandler = (value) => {
-    console.log(value)
-  } 
 
+  const filterHandler = (value) => {
+    let ID = JSON.parse(value);
+    dispatch(sortByCategory(ID))
+  } 
+  
   return (
     <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-8'>
        <span className='px-3 py-3 text-sm  font-[vasirbold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
        <div style={{border:'solid 1px #AAAAC8'}} className='flex bg-[#ffffff] px-2 justify-between items-center w-full sm:w-[50%] lg:w-full 2xl:w-[70%]'>
-       <input onKeyDown={(e)=>searchHandler(e)} ref={searchRef} type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-bold text-stone-600 outline-none w-[90%]'/>
+       <input onKeyDown={(e)=>searchHandler(e)} onChange={(e)=>e.target.value === '' ? dispatch(sortByName('')) : null} ref={searchRef}  type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-bold text-stone-600 outline-none w-[90%]'/>
        <SlMagnifier onClick={(e)=>searchHandler(e,'search')} className='rounded-sm font-bold p-1 hover:bg-[#57C053] transition-all hover:text-white scale-150'/>
        </div>
        <div>
-        <fieldset className='text-xs  font-bold flex flex-col gap-5'>
-          <div className='flex flex-col items-start  gap-2'>
-            <div className='flex items-center gap-1'>
-            <input type="radio" name="cate" id="mobileApp" />
-            <label htmlFor="mobileApp">اپلیکیشن موبایل</label>
-            </div>
-            <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="andriodApp" />
-                <label htmlFor="andriodApp">اپلیکیشن اندروید</label>
+        {
+          isBeProducts
+          ?
+          <fieldset className='text-xs  font-bold flex flex-col gap-5' onChange={(e)=>filterHandler(e.target.id)}>
+          {
+            categories.filter(cate => cate.category_id ===  categories.find(cate => cate.title === "محصولات").id).map(item => (
+              <div key={item.id} className='flex flex-col items-start  gap-2'>
+                <div className='flex items-center gap-1 text-stone-600 text-sm'>
+                  <span>{ item.title }</span>
+                </div>
+                <div className='flex flex-col gap-1 pr-3'>
+                  {
+                    categories.filter(Case => Case.category_id === item.id).map(Instance => (
+                      <div className='flex items-center gap-1 text-stone-600'>
+                        <input type="radio" name="cate" id={Instance.id} />
+                        <label htmlFor="readyLaravel">{Instance.title}</label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
-          </div>
-          <div className='flex flex-col items-start  gap-2'>
-          <div className='flex items-center gap-1'>
-            <input type="radio" name="cate" id="scrypts"/>
-            <label htmlFor="scrypts">اسکریپت ها</label>
-          </div>
-          <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="ExScrypt" />
-                <label htmlFor="ExScrypt">اسکریپت اختصاصی سیستم</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="laravelScrypt" />
-                <label htmlFor="laravelScrypt">اسکریپت لاراول</label>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col items-start  gap-2'>
-          <div className='flex items-center gap-1'>
-            <input type="radio" name="cate" id=""/>
-            <label htmlFor="">سایت های آماده</label>
-          </div>
-          <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="readyLaravel" />
-                <label htmlFor="readyLaravel">سایت آماده لاراول</label>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col items-start  gap-2'>
-          <div className='flex items-center gap-1'>
-            <input type="radio" name="cate" id=""/>
-            <label htmlFor="">قالب HTML</label>
-          </div>
-          <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="packForm" />
-                <label htmlFor="packForm">پک فرم</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="userPanel" />
-                <label htmlFor="userPanel">پنل کاربری</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="newsTemplate" />
-                <label htmlFor="newsTemplate">قالب خبری</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="personTemplate" />
-                <label htmlFor="personTemplate">قالب شخصی</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="corporate" />
-                <label htmlFor="corporate">قالب شرکتی</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="storeTemplate" />
-                <label htmlFor="storeTemplate">قالب فروشگاهی</label>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col items-start  gap-2'>
-          <div className='flex items-center gap-1'>
-            <input type="radio" name="cate" id=""/>
-            <label htmlFor="">قالب و پلاگین</label>
-          </div>
-          <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="wordpressPlugin" />
-                <label htmlFor="wordpressPlugin">پلاگین های وردپرس</label>
-              </div>
-              <div className='flex flex-col pr-3 gap-1'>
-              <div className='flex items-center gap-1 text-stone-500'>
-                <input type="radio" name="cate" id="securityPlugin" />
-                <label htmlFor="securityPlugin">پلاگین امنیتی</label>
-              </div>
-              <div className='flex items-center gap-1 text-stone-500'>
-                <input type="radio" name="cate" id="practicalPlugin" />
-                <label htmlFor="practicalPlugin">پلاگین کاربردی</label>
-              </div>
-              </div>
-            </div>
-            <div className='flex flex-col gap-1 pr-3'>
-              <div className='flex items-center gap-1 text-stone-600'>
-                <input type="radio" name="cate" id="newsWordpressPlugin" />
-                <label htmlFor="newsWordpressPlugin">قالب خبری</label>
-              </div>
-              <div className='flex flex-col'>
-              </div>
-              </div>
-          </div>
-        </fieldset>
+            ))
+          }
+          </fieldset>
+          :
+          <></>
+        }
         <section className='flex flex-col gap-5 my-10'>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <TbDiscount2 className='scale-150'/>

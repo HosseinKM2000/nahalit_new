@@ -1,27 +1,21 @@
 import React, { useRef, useState } from 'react';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addProduct } from '../../../../../features/dashboard/action';
 import Editor from '../../../../Editor/Editor';
+import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 
 function NewProduct() {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
-    const [dropCate,setDropCate] = useState({status:false,value:null})
-    const [childList,setChildList] = useState(false);
-    const [childList_2,setChildList_2] = useState(false);
-    const [goalCate,setGoalCate] = useState(null);
-    const [goalChild,setGoalChild] = useState(null);
     const [priceValue,setPriceValue] = useState(0);
+    const [dropCate,setDropCate] = useState({status:false,value:null})
     const titleRef = useRef();
     const imageRef = useRef()
     const discountRef = useRef();
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.productLoading);
-    const categories = useSelector(state => state.dashboard.categories);
-    const cateList = categories !== null && categories !== undefined ? categories : [{title:'دسته بندی بار گیری نشده است!',category_id:null,}]
     const [text, setText] = useState('');
 
     function handleChange(value) {
@@ -92,17 +86,7 @@ function NewProduct() {
             dispatch(addProduct(formdata))
     }
 
-    const liHandler = (value) => {
-        setChildList(true);
-        const item = categories.filter(cate => cate.category_id === null).find(cate => cate.title === value);
-        setGoalCate(item)
-    }
 
-    const liHandler_2 = (id) => {
-        setChildList_2(true);
-        const item = categories.find(cate => cate.id === id);
-        setGoalChild(item)
-    }
 
   return (
     <div className='flex flex-col sm:w-[90%] md:w-full 2xl:w-[70%] w-full opacity-motion'>
@@ -133,70 +117,7 @@ function NewProduct() {
                {/* describe */}
             <Editor setDesc={setDesc}/>
                {/* categories */}
-            <div className='w-full flex justify-start items-start gap-3'>
-                <div className='flex flex-col gap-3 justify-center items-start'>
-                 <button type='button' onClick={()=>{
-                    setDropCate({status:!dropCate.status,value:dropCate.value})
-                    setChildList(false)
-                    setChildList_2(false)
-                 }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
-                 {
-                    dropCate.value !== null
-                    ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
-                    :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
-                 }
-                </div>
-                <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
-                    {
-                        cateList.filter(cate => cate.category_id === null).map((cate,i)=>(
-                            <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
-                            onMouseEnter={(e)=>{
-                                liHandler(cate.title)
-                                setChildList_2(false)
-                            }}
-                            >
-                                <span>{cate.title}</span>
-                                <MdKeyboardArrowLeft/>
-                            </li>
-                        ))
-                    }
-                </ul>
-                {
-                    goalCate !== null
-                    ? 
-                <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
-                    {
-                        categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
-                            <li key={i} onMouseEnter={(e)=>{
-                                liHandler_2(item.id)
-                                setChildList_2(true)
-                            }}  className='cursor-pointer hover:text-orange-600 hover:font-bold transition-all flex items-center gap-1'>
-                                <span>{item.title}</span>
-                                <MdKeyboardArrowLeft/>
-                            </li>
-                        ))
-                    }
-                </ul>
-                : <></>
-                }
-                {
-                goalChild !== null
-                ?
-                <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
-                {
-                    categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
-                        <li key={i} onClick={(e)=>{
-                            setDropCate({status:false,value:item.title})
-                            setChildList(false)
-                            setChildList_2(false)
-                        }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>
-                    ))
-                }
-                </ul>
-                :
-                <></>
-                }
-            </div>
+            <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
                {/* price */}
             <div className='flex flex-col gap-2 w-full'>
             <label htmlFor="price" className='font-semibold text-[#2e424a]'>قیمت محصول</label>

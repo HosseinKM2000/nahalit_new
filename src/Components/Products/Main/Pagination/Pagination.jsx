@@ -16,7 +16,7 @@ function Pagination() {
     const navigate = useNavigate()
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
-    const products = useSelector(state => state.products.products);
+    const products = useSelector(state => state.products.FilteredProducts);
     const baskets = useSelector(state => state.cart.baskets);
     const LoadingStatus = useSelector(state => state.cart.loading);
     const endOffset = itemOffset + itemsPerPage;

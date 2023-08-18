@@ -49,6 +49,7 @@ const authenticationSlice = createSlice({
         .addCase(login.rejected,(state,action) => {
             state.loading = false;
             toast.error('متاسفانه خطایی در ورود پیش آمده است')
+            console.log(action)
         })
     }
 })

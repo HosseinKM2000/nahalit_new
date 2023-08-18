@@ -10,7 +10,7 @@ const SideBarLink = ({link, text}) => {
             "p-2 flex text-gray-900 rounded-lg hover:bg-gray-100"
         }
       >
-        <span className="ml-3">{text}</span>
+        <span className="ml-3 font font-[shabnamBold]">{text}</span>
       </NavLink>
     </li>
   );

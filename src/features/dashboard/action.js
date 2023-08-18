@@ -128,6 +128,10 @@ export const editeGallery = createAsyncThunk('dashboard/getGalleries', async ({i
 })
 
 // roles
+export const getRoles = createAsyncThunk('dashboard/getRole', async () => {
+    const response = await instance.get('/roles')
+    return response
+})
 export const addRole = createAsyncThunk('dashboard/addRole', async ({formData}) => {
     const response = await axios.post(``)
     return response
@@ -171,11 +175,6 @@ export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (
 
 export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
     const response = await instance.put(`/projects/${id}`,newData);
-    return response;
-})
-// permissions
-export const getPermissions = createAsyncThunk('dashboard/getPermissions', async () => {
-    const response = await instance.get('/permissions');
     return response;
 })
 // users

@@ -99,35 +99,35 @@ function Product() {
         </div>
       </header>
       <div className='flex flex-col lg:flex-row mt-5 w-full justify-between overflow-x-hidden text-right px-5'>
-                     {/* right side */}
+        {/* right side */}
       <div className='flex flex-col w-full lg:w-[70%] p-0 sm:pr-5'>
         <div className='flex flex-col w-full'>
             <ul className='flex flex-row flex-wrap border-y-2 text-xs border-for-border gap-x-2 sm:gap-x-5 py-3 justify-start'>
-                <li><Link to='/' className='hover:text-sky-blue text-stone-800'>صفحه اصلی</Link></li>
-                <li><Link to='/shop' className='hover:text-sky-blue text-stone-800'>سایت های آماده</Link></li>
-                <li><Link to='/shop' className='hover:text-sky-blue text-stone-800'>سایت آماده لاراول</Link></li>
-                <li className='text-gray-88'>{goalProduct.title}</li>
+                <li><Link to='/' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>صفحه اصلی</Link></li>
+                <li><Link to='/shop' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>سایت های آماده</Link></li>
+                <li><Link to='/shop' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>سایت آماده لاراول</Link></li>
+                <li className='text-gray-88 font-[shabnamThin]'>{goalProduct.title}</li>
             </ul>
             <div  className='flex flex-col mt-10 2xl:gap-20 items-start'>
-              <h1 className='text-lg font-bold text-stone-700 mb-5'>{goalProduct.title}</h1>
+              <h1 className='text-lg font-[shabnamBold] text-stone-700 mb-5'>{goalProduct.title}</h1>
               <div className='w-full h-[30rem] bg-no-repeat sm:h-[40rem] xl:w-[70rem] xl:h-[70rem] max-w-full overflow-hidden cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct.img})`,backgroundSize:'cover'}}></div>
-              <div className='flex gap-5 text-white text-sm  font-bold my-5 '>
+              {/* <div className='flex gap-5 text-white text-sm  font-bold my-5 '>
                 <span onClick={()=>setSwitch(false)} className='bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>توضیحات</span>
                 <div onClick={()=>setSwitch(true)} className='flex gap-1 items-center bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>
                   <span>نظرات</span>
                   <span>0</span>
                 </div>
-              </div>
+              </div> */}
               {
                   !Switch
                   ? 
                   <div className='flex flex-col my-5 gap-5 w-full'>
                     <span className='text-[1.2rem] font-bold text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
-                    <p className='text-[0.9rem]  text-justify mb-5 leading-8 text-stone-600'>{goalProduct.explain}</p>
+                    <p className='text-[0.9rem]  text-justify mb-5 font-[shabnamLight] leading-8 text-stone-600'>{goalProduct.explain}</p>
                     <div className='w-full flex flex-col items-center gap-5'>
                       <img className='w-[25rem] xl:w-[40rem]' src={desImg} alt="property" />
                       <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-5'>
-                      <span className='font-bold text-xs text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
+                      <span className='font-bold text-xs font-[shabnamLight] text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
                       <iframe
                 title="movie"
                 className="w-[100%] flex Iframe justify-center items-center h-[15rem] 2xl:h-[40rem] sm:h-[25rem] scroll_None"
@@ -143,19 +143,19 @@ function Product() {
                 <div className='flex flex-col sm:flex-row text-white w-full'>
                   <Link to='https://twitter.com/intent/tweet?text=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
                     <BsTwitter className='scale-125 2xl:w-12 2xl:h-12'/>
-                    <span className='text-xs text-center  sm:text-sm  '>اشتراک در توییتر</span> 
+                    <span className='text-xs text-center  sm:text-sm  font-[vasirBold]'>اشتراک در توییتر</span> 
                   </Link>
                   <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-3 px-5 gap-5'  to="https://www.facebook.com/sharer/sharer.php?u=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">
                     <FaFacebookF className='scale-125 2xl:w-12 2xl:h-12'/>
-                   <span className='text-xs text-center  sm:text-sm '> اشتراک در فیسبوک</span>
+                   <span className='text-xs text-center  sm:text-sm font-[vasirBold]'> اشتراک در فیسبوک</span>
                   </Link>
                   <Link to="https://telegram.me/share/url?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
                     <BsTelegram className='scale-125 2xl:w-12 2xl:h-12'/>
-                   <span className='text-xs text-center  sm:text-sm '> اشتراک در تلگرام</span>
+                   <span className='text-xs text-center  sm:text-sm font-[vasirBold]'> اشتراک در تلگرام</span>
                   </Link>
                   <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-12 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
                     <BsPinterest className='scale-125 2xl:w-12 2xl:h-12'/>
-                    <span  className='text-xs text-center sm:text-sm '>اشتراک در پینترست</span>
+                    <span  className='text-xs text-center sm:text-sm font-[vasirBold]'>اشتراک در پینترست</span>
                   </Link>
                 </div>
               </div>
@@ -271,23 +271,21 @@ function Product() {
                         <span>تومان</span>
                     </div>
             </div>
-            <input type="number" name="" id="" className='outline-none border-2 w-full 2xl-px-3 border-stone-300 px-1 font-bold'/>
-            <Link className='w-full'>
-            <button className='text-white my-5 font-bold rounded-sm gap-2 text-sm transition-all hover:bg-sky-400 py-2 2xl:py-2 w-full bg-sky-500 border-b-2 border-sky-800 flex justify-center items-center'>
+            <div className='w-full'>
+            <button className='text-white my-1 font-bold rounded-sm gap-2 text-sm transition-all hover:bg-sky-400 py-2 2xl:py-2 w-full bg-sky-500 border-b-2 border-sky-800 flex justify-center items-center'>
               <BsBagFill/>
               <span>افزودن به سبد خرید</span>
             </button>
-            </Link>
+            </div>
             <div className='flex flex-col w-full gap-1 2xl:gap-5'>
-              <input type="text" placeholder='شماره موبایل' className='outline-none 2xl-px-3 border-2 border-stone-300 px-1 text-left font-bold text-sm' readOnly/>
               <Link className='w-full'>
-            <button className='text-white font-bold my-5 2xl:py-2 rounded-sm gap-2 text-sm transition-all hover:bg-lime-500 py-2 w-full bg-lime-600 border-b-2 border-lime-800 flex justify-center items-center'>
+            <button className='text-white font-bold my-1 2xl:py-2 rounded-sm gap-2 text-sm transition-all hover:bg-lime-500 py-2 w-full bg-lime-600 border-b-2 border-lime-800 flex justify-center items-center'>
               <BsBagFill/>
               <span>پیشنمایش محصول</span>
             </button>
             </Link>
             </div>
-            <div className='flex w-full flex-col gap-5 p-3 text-sm font-bold text-stone-700' style={{border:'2px dotted #BABCBE'}}>
+            <div className='flex w-full flex-col gap-5 p-3 my-3 text-sm font-bold text-stone-700' style={{border:'2px dotted #BABCBE'}}>
               <div className='flex items-center w-full justify-between'>
                 <div className='flex gap-1 items-center'>
                   <MdDateRange/>
@@ -342,7 +340,7 @@ function Product() {
               <span className='text-sm  text-center text-stone-600 font-bold'>پرداخت امن با کلیه کارت های عضو شتاب</span>
               <img src={cardsIMG} alt="cards" className='w-full 2xl:w-[80%]'/>
             </div>
-          <div className='flex flex-col items-start w-full my-10'>
+          {/* <div className='flex flex-col items-start w-full my-10'>
             <div className='w-full py-3 2xl:py-1 pr-2 font-bold text-sm font-[shabnambold] text-stone-700' style={{borderRight:'solid 5px #03A9F4'}}>
               <span>برچسب ها:</span>
             </div>
@@ -353,7 +351,7 @@ function Product() {
                 ))
               }
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
       </div>

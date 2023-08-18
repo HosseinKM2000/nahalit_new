@@ -31,6 +31,10 @@
   src: url("./fonts/Vasir/Vazirmatn-Light.woff2");
 }
 @font-face {
+  font-family: vasirMedium;
+  src: url("./fonts/Vasir/Vazirmatn-Medium.woff2");
+}
+@font-face {
   font-family: vasirBlack;
   src: url("./fonts/Vasir/Vazirmatn-ExtraBold.woff2");
 }
@@ -624,11 +628,6 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
     .service-text
     {
         width: 100%;
-    }
-    li
-    {
-        font-size:0.9rem;
-        line-height: 2.1rem;
     }
     .Services-style > div
 {

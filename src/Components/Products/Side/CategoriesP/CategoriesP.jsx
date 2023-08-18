@@ -1,13 +1,10 @@
-import React, { useRef } from 'react';
-import { MdLocalGroceryStore } from 'react-icons/md';
+import React, { useEffect, useRef } from 'react';
 import { RiRestartFill } from 'react-icons/ri';
 import { SlMagnifier } from 'react-icons/sl';
-import { TbDiscount2 } from 'react-icons/tb';
-import { keyWord } from '../../../../API/data';
 import { useDispatch, useSelector } from 'react-redux';
-import { sortByCategory, sortByName } from '../../../../features/products/productSlice';
+import { keyWord } from '../../../../API/data';
 import { getCategories } from '../../../../features/dashboard/action';
-import { useEffect } from 'react';
+import { sortByCategory, sortByName , deleteAllFilters } from '../../../../features/products/productSlice';
 
 function CategoriesP() {
   const categories = useSelector(state => state.dashboard.categories);
@@ -17,7 +14,6 @@ function CategoriesP() {
 
   useEffect(()=> {
     dispatch(getCategories())
-    console.log(categories)
   },[])
 
   const searchHandler = (e,value) => {
@@ -68,21 +64,13 @@ function CategoriesP() {
           :
           <></>
         }
-        <section className='flex flex-col gap-5 my-10'>
-          <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
-            <TbDiscount2 className='scale-150'/>
-            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('justSale')}>فقط نمایش محصولات حراجی</span>
-          </div>
-          <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
-            <MdLocalGroceryStore className='scale-150'/>
-            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('justExist')}>فقط موجود</span>
-          </div>
+        <section className='flex flex-col gap-5 my-5'>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <RiRestartFill className='scale-150'/>
-            <span className='text-xs  font-bold' onClick={(e)=>filterHandler('cleanFilter')}>پاکسازی فیلتر</span>
+            <span className='text-xs  font-bold' onClick={(e)=>dispatch(deleteAllFilters())}>پاکسازی فیلتر</span>
           </div>
         </section>
-        <div className='flex flex-col items-start text-sm w-full sm:w-[50%] lg:w-[100%] 2xl:w-[70%]'>
+        {/* <div className='flex flex-col items-start text-sm w-full sm:w-[50%] lg:w-[100%] 2xl:w-[70%]'>
             <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
             <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>
               {
@@ -91,7 +79,7 @@ function CategoriesP() {
                 ))
               }
             </div>
-          </div>
+        </div> */}
        </div>
     </div>
   )

@@ -14,7 +14,7 @@ import {
     editeParentCategories,
     getBlogs,
     getCategories,
-    getPermissions,
+    getRoles,
     getProducts,
     getProjects,
     getUsers,
@@ -38,7 +38,7 @@ const initialState = {
     users:[],
     projectsLoading:false,
     blogsLoading : false,
-    permissionsLoading : false,
+    rolesLoading : false,
     blogsDeleteLoading : false,
     categories :[],
     blogs:[],
@@ -49,6 +49,8 @@ const initialState = {
     deleteSeccess : false,
     editeSeccess : false,
     articleLoading:false,
+    roles:[],
+    permissions:[],
     categoriesSwitch:
     {
         key:'PARENT',
@@ -303,17 +305,18 @@ const dashboardSlice = createSlice({
             state.blogsDeleteLoading = false;
             toast.error('خطا در حذف مقاله')
         })
-        // get permissions
-        .addCase(getPermissions.fulfilled,(state,action) => {
-            state.permissionsLoading = false;
-            console.log(action.payload)
+        // get roles
+        .addCase(getRoles.fulfilled,(state,action) => {
+            state.rolesLoading = false;
+            state.roles = action.payload.data.roles
+            state.permissions = action.payload.data.permissions
         })
-        .addCase(getPermissions.pending,(state,action) => {
-            state.permissionsLoading = true;
+        .addCase(getRoles.pending,(state,action) => {
+            state.rolesLoading = true;
         })
-        .addCase(getPermissions.rejected,(state,action) => {
-            state.permissionsLoading = false;
-            toast.error('خطا در بارگیری وظایف')
+        .addCase(getRoles.rejected,(state,action) => {
+            state.rolesLoading = false;
+            toast.error('خطا در بارگیری نقش ها')
             console.log(action)
         })
         // get users

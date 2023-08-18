@@ -70,6 +70,9 @@ const productsSlice = createSlice({
             let ID = action.payload;
             let newList = state.products.filter(product => product.category_id === ID);
             state.FilteredProducts = newList
+        },
+        deleteAllFilters : (state) => {
+            state.FilteredProducts = state.products;
         }
     }
 })
@@ -81,5 +84,6 @@ export const { foundProduct,
                sortByExpensive,
                sortByPriceRange,
                sortByCategory,
+               deleteAllFilters,
                sortByName } = productsSlice.actions;
 export default productsSlice.reducer;

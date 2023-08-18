@@ -82,7 +82,7 @@ function Login() {
                     </div>
                     <div className='flex items-center gap-1 2xl:gap-3'>
                       <input type="checkbox" name="remember" id="remember" className='2xl:scale-150'/>
-                      <label htmlFor="remember" className='text-sm font-thin text-stone-500'>مرا به خاطر بسپار</label>
+                      <label htmlFor="remember" className='text-sm font-[shabnamLight] text-stone-500'>مرا به خاطر بسپار</label>
                     </div>
                     <div className='w-full flex flex-col items-center text-sm justify-center gap-3'>
                 <button type="button" onClick={()=>loginHandler()} className='bg-green-600 font-bold w-full items-center 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1  flex justify-center'>
@@ -94,7 +94,7 @@ function Login() {
                 </button>
                       <Link to={'/register'} className='bg-blue-600 2xl:py-2 hover:bg-blue-500 text-center transition-all duration-300 text-white rounded-md py-1 w-full font-bold'><button type="button">عضویت</button></Link>
                     </div>
-                    <span className='w-full  text-center text-xs text-stone-600 cursor-pointer hover:text-blue-500 transition-all'>گذرواژه خود را فراموش کرده اید؟</span>
+                    <span className='w-full  text-center text-xs text-stone-400 cursor-pointer font-[shabnamBold] hover:text-blue-500 transition-all'>گذرواژه خود را فراموش کرده اید؟</span>
                     <span className='w-full text-center text-stone-500 font-bold'>یا</span>
                     <div className='w-full flex flex-col items-center justify-center'>
                     <Link className='bg-[#54a733] w-full text-sm 2xl:py-2 hover:bg-[#70c64e] font-bold text-center transition-all duration-300 text-white rounded-md py-1'><button type="button">ورود با کد یکبار مصرف</button></Link>

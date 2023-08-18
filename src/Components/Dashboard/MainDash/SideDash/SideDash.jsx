@@ -5,10 +5,10 @@ import { FaRegComments, FaWindowClose } from 'react-icons/fa';
 import { FiShoppingBag } from 'react-icons/fi';
 import { GiClockwork } from 'react-icons/gi';
 import { ImUsers } from 'react-icons/im';
-import { TbDiscountCheckFilled } from 'react-icons/tb';
 import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart, MdWorkspaces } from 'react-icons/md';
+import { TbDiscountCheckFilled } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
-import { setContent, setSwitch } from '../../../../features/dashboard/dashboardSlice';
+import { setContent, setSwitch, setSwitchCategories } from '../../../../features/dashboard/dashboardSlice';
 
 function SideDash({ dropMenu , setDropMenu }) {
 
@@ -60,7 +60,10 @@ function SideDash({ dropMenu , setDropMenu }) {
         <div className='w-full flex items-center justify-end px-3 py-1 lg:hidden'>
          <FaWindowClose className='text-[#2dbaa5] text-xl' onClick={()=>setDropMenu(false)}/>
         </div>
-        <div  onClick={()=>{listSwitch('categories')}} style={{backgroundColor:content==='categories'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+        <div  onClick={()=>{
+          listSwitch('categories')
+          dispatch(setSwitchCategories({key:'PARENT',title:''}))
+          }} style={{backgroundColor:content==='categories'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <BiCategory className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
             <li className='text-white font-bold text-lg  text-center'>دسته بندی</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>

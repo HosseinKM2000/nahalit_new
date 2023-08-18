@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { getRoles } from '../../../../../features/dashboard/action';
 import InteractiveButton from './InteractiveButton/InteractiveButton';
-import { getPermissions } from '../../../../../features/dashboard/action';
+
 
 function NewRole() {
     const [activePermissions,setActivePermissions] = useState([]);
-    const permissions = [1,2,3,4,5,6,7,8,9];
+    const permissions = useSelector(state => state.dashboard.permissions);
     const titleRef = useRef();
-    // const pathRef = useRef();
     const dispatch = useDispatch();
     
     const addPermission = (permission) => {
@@ -34,7 +34,6 @@ function NewRole() {
     const formSubmiter = () => {
         const formData = {
           title:titleRef.current.value,
-          // path:pathRef.current.value,
           permissions:activePermissions
         }
         switch(true)
@@ -43,10 +42,6 @@ function NewRole() {
           break;
           case formData.title.length < 3 : toast.warn('عنوان کوتاه است');
           break;
-          // case formData.path.length === 0 : toast.warn('مسیر را وارد کنید');
-          // break;
-          // case formData.path.length < 3 : toast.warn('مسیر کوتاه است');
-          // break;
           case formData.permissions.length === 0 : toast.warn('دسترسی را مشخص کنید');
           break;
           default : console.log('sendData')
@@ -54,7 +49,7 @@ function NewRole() {
     }
 
     useEffect(() => {
-      dispatch(getPermissions())
+      dispatch(getRoles())
     },[])
 
   return (
@@ -76,18 +71,13 @@ function NewRole() {
            <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
            <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
        </div>
-               {/* path */}
-       {/* <div className='flex flex-col gap-2 w-full'>
-           <label htmlFor="path" className='font-semibold text-[#2e424a]'>مسیر</label>
-           <input type="text" className='p-1  outline-[#0ab694] w-full' ref={pathRef} required={true} name='path'/>
-       </div> */}
          {/* permissions */}
        <div className='flex flex-col gap-5 w-full'>
          <label htmlFor="permissions" className='font-semibold text-[#2e424a]'>وظایف</label>
-         <div className='flex items-center flex-wrap gap-x-5 gap-y-8'>
+         <div className='flex items-center flex-wrap gap-x-10 gap-y-10'>
             {
-                permissions.map((item,index) => (
-                    <InteractiveButton key={index} text={`permission${item}`} setPermission={addPermission}/>
+                permissions.map(item => (
+                    <InteractiveButton key={item.id} item={item} setPermission={addPermission}/>
                 ))
             }
          </div>
@@ -95,7 +85,7 @@ function NewRole() {
 
          </div>
        </div>
-       <button onClick={(e)=>formSubmiter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+       <button onClick={(e)=>formSubmiter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
    </form>
         </div>
     </div>

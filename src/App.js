@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./App.css";
+import ApiLoading from "./Components/ApiLoading/ApiLoading";
 import ScrollToTophg from "./Components/ScrollToTop/ScrollToTop";
 import Aplication from "./page/Aplication/Aplication";
 import Article from "./page/Articles/Article/Article";
@@ -45,11 +46,11 @@ import SsocialMedia from "./page/SsocialMedia/SsocialMedia";
 import SsoundEditing from "./page/SsoundEditing/SsoundEditing";
 import SworkService from "./page/SworkService/SworkService";
 import UI_UX from "./page/UI_UX/UI_UX";
+import EditeUserProfile from "./page/UserPanel/EditeUserProfile";
+import UserPage from "./page/UserPanel/UserPage";
+import UserProfile from "./page/UserPanel/UserProfile";
 import Voicing from "./page/Voicing/Voicing";
 import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
-import UserPage from "./page/UserPanel/UserPage";
-import UserProfilePage from "./page/UserPanel/UserProfilePage";
-import ApiLoading from "./Components/ApiLoading/ApiLoading";
 
 const App = () => {
   return (
@@ -98,9 +99,10 @@ const App = () => {
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/favorites" element={<Favorites/>}/>
           <Route path="/userPage" element={<UserPage/>}>
-            <Route path="profile" element={<UserProfilePage/>}/>
+            <Route path="editeProfile" element={<EditeUserProfile/>}/>
             <Route path="cart" element={<Cart/>}/>
             <Route path="favorites" element={<Favorites/>}/>
+            <Route path="userProfile" element={<UserProfile/>}/>
           </Route>
         </Routes>
       </div>

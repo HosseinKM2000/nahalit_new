@@ -2,7 +2,8 @@ import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { AiFillDashboard, AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
 import { BsPerson, BsWordpress } from "react-icons/bs";
-import { FaAndroid, FaSpa } from "react-icons/fa";
+import { FaAndroid, FaSpa , FaUserCircle } from "react-icons/fa";
+import { BiSolidUserCircle } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
@@ -102,6 +103,7 @@ const Header = () => {
   const clickoutshowslide12 = () => {
     setShowSlide12(false);
   };
+
   return (
     <>
       <div className="bg-[#07B235] h-1" id="UP"></div>
@@ -145,7 +147,7 @@ const Header = () => {
               loginStatus && userId === 1
               ?
               <div className="relative">
-                <Link to={'/userPage/profile'} onMouseEnter={()=>setShowSlide13(true)} onMouseLeave={()=>setShowSlide13(false)}>
+                <Link to={'/userPage/userProfile'} onMouseEnter={()=>setShowSlide13(true)} onMouseLeave={()=>setShowSlide13(false)}>
                   <UserAvatarIcon/>
                 </Link>
                 <div class={showSlide13 ? "box arrow-avatar" : "box arrow-avatar opacity-0 transition-all duration-300"}>
@@ -164,7 +166,7 @@ const Header = () => {
                 onMouseEnter={clickEntershowslide}
                 onMouseLeave={clickoutshowslide}
               >
-                <li><Link className="text-[#171717] font-[shabnamMedium] text-sm">محصولات</Link></li>
+                <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">محصولات</span>
                 <RiArrowDownSLine/>
                 <div
                   onMouseEnter={clickEntershowslide}
@@ -177,14 +179,12 @@ const Header = () => {
                   <div className="bg-[#07B235] h-[2px] absolute top-0 right-0 left-0 text-center"></div>
                     <ul className="px-3 py-1 bg-white">
                       <li
-                        className="flex items-center justify-between py-3"
+                        className="flex items-center relative justify-between py-3"
                         onMouseEnter={clickEntershowslide6}
                         onMouseLeave={clickoutshowslide6}
                       >
                         <div className="relative">
-                          <Link>
-                            <span className="text-[#171717] text-sm font-[shabnamMedium]">سایت های آماده</span>
-                          </Link>
+                            <span className="text-[#171717] cursor-default text-sm font-[shabnamMedium]">سایت های آماده</span>
                           <div
                             onMouseEnter={clickEntershowslide6}
                             className={
@@ -193,7 +193,7 @@ const Header = () => {
                                 : "absolute bg-white -left-[20rem] -top-4 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
                             }
                           >
-                            <Link className="text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
+                              <Link className="text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
                           </div>
                         </div>
                         <MdKeyboardArrowLeft />
@@ -203,7 +203,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide7}
                         onMouseLeave={clickoutshowslide7}
                       >
-                        <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین وردپرس</span>
+                        <span className="text-[#171717] font-[shabnamMedium] cursor-default text-sm">پلاگین وردپرس</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide7}
@@ -229,7 +229,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide8}
                         onMouseLeave={clickoutshowslide8}
                       >
-                        <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب html</span>
+                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">قالب html</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide8}
@@ -258,7 +258,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide9}
                         onMouseLeave={clickoutshowslide9}
                       >
-                        <Link className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن موبایل</Link>
+                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">اپلیکیشن موبایل</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide9}
@@ -278,7 +278,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide10}
                         onMouseLeave={clickoutshowslide10}
                       >
-                        <Link className="text-[#171717] font-[shabnamMedium] text-sm">اسکریپت ها</Link>
+                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">اسکریپت ها</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide10}
@@ -310,7 +310,7 @@ const Header = () => {
                 onMouseEnter={clickEntershowslide2}
                 onMouseLeave={clickoutshowslide2}
               >
-                <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کارها</Link>
+                <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">نمونه کارها</span>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide2}
@@ -327,7 +327,7 @@ const Header = () => {
                       onMouseEnter={clickEntershowslide11}
                       onMouseLeave={clickoutshowslide11}
                     >
-                      <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار گرافیک</Link>
+                      <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">نمونه کار گرافیک</span>
                       <MdKeyboardArrowLeft />
                       <div
                         onMouseEnter={clickEntershowslide11}
@@ -370,7 +370,7 @@ const Header = () => {
                         onMouseEnter={clickEntershowslide12}
                         onMouseLeave={clickoutshowslide12}
                       >
-                        <p className="text-[#171717] font-[shabnamMedium] text-sm">نمونه کار طراحی سایت</p>
+                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">نمونه کار طراحی سایت</span>
                         <MdKeyboardArrowLeft />
                         <div
                           onMouseEnter={clickEntershowslide12}
@@ -414,7 +414,7 @@ const Header = () => {
                 onMouseEnter={clickEntershowslide3}
                 onMouseLeave={clickoutshowslide3}
               >
-                <Link className="text-[#171717] font-[shabnamMedium] text-sm">خدمات ما</Link>
+                <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">خدمات ما</span>
                 <RiArrowDownSLine />
                 <div
                   onMouseEnter={clickEntershowslide3}
@@ -512,6 +512,16 @@ const Header = () => {
                 <Link to={'/dashboard'} className="flex flex-row-reverse w-[7rem] min-w-fit items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
                   <span className="text-sm font-[shabnamMedium] tracking-tight">پنل مدیریت</span>
                   <AiFillDashboard className="text-lg" />
+                </Link>
+              :
+              <></>
+              }
+              {
+                userId !== '' && userId !== 1
+                ?
+                <Link to={'/userPage/userProfile'} className="flex flex-row-reverse w-[7rem] min-w-fit items-center justify-center py-2 px-1 xl:px-3 rounded-md bg-[#57C053] hover:bg-[#62d15e] text-white gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+                  <span className="text-sm font-[shabnamMedium] tracking-tight">پنل کاربری</span>
+                  <FaUserCircle className="text-lg" />
                 </Link>
               :
               <></>

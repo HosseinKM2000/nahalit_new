@@ -64,7 +64,7 @@ const cartSlice = createSlice({
       })
       .addCase(addBasket.rejected, (state,action) => {
         state.loading = false;
-        toast.error("خطا در اضافه کردن محصول , لطفا کمی بعد تلاش کنید")
+        toast.error("خطا در اضافه کردن محصول به سبد خرید")
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {
         toast.success("محصول با موفقیت حذف شد")

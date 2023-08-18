@@ -8,9 +8,11 @@ import UserSideBar from "./UserSideBar";
 const UserPage = () => {
   const [dropMenu,setDropMenu] = useState(false);
   const navigate = useNavigate();
+  
   const logOutHandle = () => {
     navigate("/login")
-    Cookies.remove("user")
+    Cookies.remove("user");
+    localStorage.removeItem("access_token")
   }
 
   return (

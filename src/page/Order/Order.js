@@ -23,7 +23,7 @@ const Order = () => {
         loginStatus
         ?
         <>
-          <section className="bg-[#f5f5f9] mt-1">
+          <section className="bg-[#f5f5f9]">
             <div className="container px-56 max-lg:px-20 max-md:px-10 max-sm:px-4 mx-auto">
               <h2 className="font-[shabnamBold] text-lg pt-5 tracking-tight">سفارش طراحی</h2>
               <div>

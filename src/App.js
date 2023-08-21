@@ -53,6 +53,8 @@ import Voicing from "./page/Voicing/Voicing";
 import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
 import About_us from "./page/About_us/About_us";
 import BeSeller from "./page/BeSeller/BeSeller";
+import CreateContent from "./page/CreateContent/CreateContent";
+import SocialMediaBot from "./page/SocialMediaBot/SocialMediaBot";
 
 const App = () => {
   return (
@@ -108,6 +110,8 @@ const App = () => {
           </Route>
           <Route path="/about_us" element={<About_us/>}/>
           <Route path="/be_seller" element={<BeSeller/>}/>
+          <Route path="/create_content" element={<CreateContent/>}/>
+          <Route path="/SocialMediaBot" element={<SocialMediaBot/>}/>
         </Routes>
       </div>
       <ApiLoading/>

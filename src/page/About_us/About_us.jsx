@@ -1,24 +1,23 @@
 import React from 'react';
-import Header from '../../Components/Header/Header';
-import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
+import { Helmet } from 'react-helmet';
+import AboutCart from '../../Components/AboutCart/AboutCart';
 import FixedIcon from '../../Components/FixedIcon/FixedIcon';
 import Footer from '../../Components/Footer/Footer';
-import { Helmet } from 'react-helmet';
-import about_us_jpg from '../../assets/img/about_us-bg-png.png';
+import Header from '../../Components/Header/Header';
+import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
+import alexa_logo from '../../assets/img/members/Screen-Shot-2563-04-27-at-21.23.27.png';
 import member_1 from '../../assets/img/members/photo5630286681.jpg';
 import member_2 from '../../assets/img/members/photo5630286814-1.jpg';
-import shahrad_img from '../../assets/img/members/شهراد.jpg';
-import saeed_img from '../../assets/img/members/سعید.jpg';
-import melica_img from '../../assets/img/members/ملیکا.jpg';
-import nima_img from '../../assets/img/members/نیما-1.jpg';
+import nahalIT_logo from '../../assets/img/members/photo_2022-09-21_19-42-20-removebg-preview.png';
+import aReza_img from '../../assets/img/members/امیر-رضا-1.jpg';
 import aHosesein_img from '../../assets/img/members/امیرحسین-1-1.jpg';
 import hReza_img from '../../assets/img/members/زنگویی-1.jpg';
+import saeed_img from '../../assets/img/members/سعید.jpg';
+import shahrad_img from '../../assets/img/members/شهراد.jpg';
 import mAmir_img from '../../assets/img/members/محمد-1.jpg';
+import melica_img from '../../assets/img/members/ملیکا.jpg';
 import mahdi_img from '../../assets/img/members/مهدی-1.jpg';
-import aReza_img from '../../assets/img/members/امیر-رضا-1.jpg';
-import AboutCart from '../../Components/AboutCart/AboutCart';
-import alexa_logo from '../../assets/img/members/Screen-Shot-2563-04-27-at-21.23.27.png';
-import nahalIT_logo from '../../assets/img/members/photo_2022-09-21_19-42-20-removebg-preview.png';
+import nima_img from '../../assets/img/members/نیما-1.jpg';
 
 function About_us() {
   return (

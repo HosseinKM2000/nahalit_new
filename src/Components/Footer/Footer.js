@@ -43,8 +43,8 @@ const Footer = () => {
             ایمیل مارکتینگ
           </Link>
           <Link to="/">پیامک انبوه</Link>
-          <Link to="/">تولید محتوا</Link>
-          <Link to="/">ربات شبکه های اجتماعی</Link>
+          <Link to="/create_content">تولید محتوا</Link>
+          <Link to="/SocialMediaBot">ربات شبکه های اجتماعی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <FaSeedling className="text-5xl text-white" />
@@ -52,29 +52,29 @@ const Footer = () => {
             خدمات تیم نهال آی تی
           </Link>
           <div className="w-full h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/">
+          <Link className="mt-5 tracking-tighter" to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
             فروش سایت اختصاصی و اقتصادی
           </Link>
-          <Link to="/">فروش قالب سایت</Link>
-          <Link to="/">طراحی سایت اختصاصی</Link>
-          <Link to="/">خدمات وبسایت و سئو وب سایت</Link>
-          <Link to="/">خدمات کسب و کار</Link>
-          <Link to="/">خدمات شبکه های اجتماعی</Link>
-          <Link to="/">خدمات موشن گرافیک</Link>
+          <Link to="/services/فروش-قالب-سایت">فروش قالب سایت</Link>
+          <Link to="/services/طراحی-سایت-اختصاصی">طراحی سایت اختصاصی</Link>
+          <Link to="/services/خدمات-سئو-وب-سایت">خدمات وبسایت و سئو وب سایت</Link>
+          <Link to="/services/خدمات-کسب-و-کار">خدمات کسب و کار</Link>
+          <Link to="/services/خدمات-شبکه-های-اجتماعی" >خدمات شبکه های اجتماعی</Link>
+          <Link to="/services/موشن-گرافیک">خدمات موشن گرافیک</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <FaSeedling className="text-5xl text-white" />
-          <Link className="font-[shabnamMedium] text-base" to="/">
+          <span className="font-[shabnamMedium] text-base">
             خدمات تیم نهال آی تی
-          </Link>
+          </span>
           <div className="w-[100%] h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/">
+          <Link className="mt-5 tracking-tighter" to="/services/خدمات-گرافیک">
             خدمات گرافیک
           </Link>
-          <Link to="/">تدوین پروپوزال و بیزنس پلن</Link>
-          <Link to="/">خدمات اپلیکیشن موبایل</Link>
-          <Link to="/">خدمات پریمیر و تدوین فیلم</Link>
-          <Link to="/">خدمات تدوین صدا و صدا گذاری</Link>
+          <Link to="/services/تدوین-پروپوزال">تدوین پروپوزال و بیزنس پلن</Link>
+          <Link to="/services/اپلیکیشن-موبایل">خدمات اپلیکیشن موبایل</Link>
+          <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">خدمات پریمیر و تدوین فیلم</Link>
+          <Link to="/services/خدمات-تدوین-صدا-و-صدا-گذاری">خدمات تدوین صدا و صدا گذاری</Link>
         </div>
         <div className="flex flex-col justify-center items-center gap-y-4">
           <BsHeart className="text-5xl text-white" />
@@ -104,14 +104,14 @@ const Footer = () => {
         </div>
         <div className="flex items-center justify-center gap-x-2">
           <FaServer className="text-[#57C053]" />
-          <Link className="tracking-tighter">توسعه و پشتیبانی : بهینه سازان سرزمین هوشمند</Link>
+          <Link to={"https://sarzaminhooshmand.com/"} className="tracking-tighter">توسعه و پشتیبانی : بهینه سازان سرزمین هوشمند</Link>
         </div>
       </div>
       <div className="w-[80%] h-[1px] bg-[#949494] mx-auto mt-10"></div>
       <div className="container mx-auto mt-10 tracking-tighter flex justify-around flex-wrap items-center">
         <ul className="flex items-center justify-start flex-wrap px-3">
           <li>
-            <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">درباره ما</Link>
+            <Link to={"/about_us"} className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">درباره ما</Link>
           </li>
           <li>
             <Link to="/ContactUs" className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">
@@ -119,15 +119,10 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">وبلاگ</Link>
+            <Link to={"/articles"} className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">وبلاگ</Link>
           </li>
           <li>
-            <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">
-              حساب کاربری من
-            </Link>
-          </li>
-          <li>
-            <Link className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">فروشگاه</Link>
+            <Link to={"/shop"} className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">فروشگاه</Link>
           </li>
         </ul>
         <div className="flex items-center justify-center mt-3 sm:mt-0 gap-x-1 mr-10">
@@ -145,7 +140,7 @@ const Footer = () => {
             onMouseLeave={SiteCreateOnOutMouse}
             className={Footer ? "translate-x-12 transition-all duration-500" : "opacity-0  transition-all duration-500"}
           >
-            توسعه : سرزمین هوشمند
+          <Link to={"https://sarzaminhooshmand.com/"}>توسعه : سرزمین هوشمند </Link>
           </p>
         </div>
       </div>

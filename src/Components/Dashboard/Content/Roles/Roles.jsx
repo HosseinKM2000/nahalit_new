@@ -1,26 +1,26 @@
-import { React , useState , useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import AllRoles from './AllRoles/AllRoles';
 import NewRole from './NewRole/NewRole';
 
 function Roles() {
-    const [innerCommponent,setInnerCommponent] = useState(<></>);
+    const [innerComponent,setInnerComponent] = useState(<></>);
     const Criterion = useSelector(state=> state.dashboard.rolesSwitch);
     useEffect(()=>{
         switch(Criterion)
         {
-            case 'all' : setInnerCommponent(<AllRoles/>);
+            case 'all' : setInnerComponent(<AllRoles/>);
             break;
-            case 'new' : setInnerCommponent(<NewRole/>)
+            case 'new' : setInnerComponent(<NewRole/>)
             break;
-            default : setInnerCommponent(<></>)
+            default : setInnerComponent(<></>)
         }
     },[Criterion])
 
   return (
     <div className='w-full h-full p-3 md:p-10'>
         {
-            innerCommponent
+            innerComponent
         }
     </div>
   )

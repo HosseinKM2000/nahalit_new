@@ -128,9 +128,9 @@ const UserProfilePage = () => {
             <hr/>
             <h2 className="mb-6 mt-4 font-bold text-xl">تغییر رمز عبور</h2>
             <div className="grid gap-6">
-              <ProfileInput name={"password"} type={"password"} label={"رمز عبور قبلی"} placeholder={"•••••••••"} data={data.password} setData={handleInputChange}/>
-              <ProfileInput name={"new_password"} type={"password"} label={"رمز عبور جدید"} placeholder={"•••••••••"} data={data.newPassword} setData={handleInputChange}/>
-              <ProfileInput name={"confirm_new_password"} type={"password"} label={"تکرار رمز عبور جدید"} placeholder={"•••••••••"} data={data.password_confirmation} setData={handleInputChange}/>
+              <ProfileInput name={"password"} type={"password"} label={"رمز عبور قبلی"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password} setData={handleInputChange}/>
+              <ProfileInput name={"new_password"} type={"password"} label={"رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.newPassword} setData={handleInputChange}/>
+              <ProfileInput name={"confirm_new_password"} type={"password"} label={"تکرار رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password_confirmation} setData={handleInputChange}/>
               <button type="submit"
                       className="text-white bg-green-600 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm w-full 2xl:w-[80%] 2xl:mx-auto sm:w-auto px-5 py-2.5 text-center">
                 ذخیره

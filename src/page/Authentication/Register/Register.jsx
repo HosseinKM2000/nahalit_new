@@ -25,14 +25,15 @@ function Register() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.authentication.loading);
 
-  const registerHandler = () => {
-    let first_name = nameRef.current.value;
-    let last_name = familyRef.current.value;
-    let username = usernameRef.current.value;
-    let email = emailRef.current.value;
-    let mobile = phoneRef.current.value;
-    let password = passwordRef.current.value;
-    let password_confirmation = passwordConfirmationRef.current.value;
+  const registerHandler = (e) => {
+    e.preventDefault()
+    let first_name = nameRef.current.value || "javad";
+    let last_name = familyRef.current.value || "javadi";
+    let username = usernameRef.current.value || "javad12345654";
+    let email = emailRef.current.value || "test1234fddf5@gmail.com";
+    let mobile = phoneRef.current.value || "09123547587";
+    let password = passwordRef.current.value || "012345678lk";
+    let password_confirmation = passwordConfirmationRef.current.value || "012345678lk";
 
     switch(true)
     {
@@ -76,10 +77,10 @@ function Register() {
       break;
       case password !== password_confirmation : toast.warn('تکرار رمز عبور تطابق ندارد');
       break;
-      default : formSubmiter({first_name,last_name,username,mobile,email,password,password_confirmation});
+      default : formSubmitter({first_name,last_name,username,mobile,email,password,password_confirmation});
     }
   }
-  const formSubmiter = (dataObj) => {
+  const formSubmitter = (dataObj) => {
     dispatch(register(dataObj))
     setAcceptCode(!acceptCode)
   }
@@ -95,7 +96,7 @@ function Register() {
     autoClose={2500}
     className='Toast_info'
     />
-    <div className='w-screen relative min-h-screen bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
+    <div className='w-screen relative min-h-[dvh] bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
         <HomeButton/>
         <div className='container mx-auto max-w-[400px]'>
           <div className='flex flex-col my-5 overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
@@ -107,7 +108,7 @@ function Register() {
                       <span className='text-lg'>عضویت</span>
                   </div>
               </div>
-              <form action="" onSubmit={(e)=>e.preventDefault()} className='bg-white flex flex-col 2xl:gap-10 gap-5 text-stone-700 py-5 px-5'>
+              <form onSubmit={(e)=>registerHandler(e)} className='bg-white flex flex-col 2xl:gap-10 gap-5 text-stone-700 py-5 px-5'>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                     <label className='text-stone-600 w-full' htmlFor="name">نام:</label>
                     <input ref={nameRef} type="text" className='bg-gray-200 text-left outline-none border-none w-full p-1' name='name'/>
@@ -170,7 +171,7 @@ function Register() {
                       ?
                       <button type="button" className='bg-green-600  hover:bg-green-500 transition-all font-bold duration-300 text-white rounded-md py-1 w-full'>ثبت کد تایید</button>
                       :
-                      <button onClick={(e)=>registerHandler()} type="button" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md py-1 w-full'>
+                      <button type="submit" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md py-1 w-full'>
                         {
                           loading
                           ?  <img src={loadingSvg} alt="loading" className='w-[1.5rem]'/>

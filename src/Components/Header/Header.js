@@ -150,7 +150,7 @@ const Header = () => {
                 <Link to={'/userPage/userProfile'} onMouseEnter={()=>setShowSlide13(true)} onMouseLeave={()=>setShowSlide13(false)}>
                   <UserAvatarIcon/>
                 </Link>
-                <div class={showSlide13 ? "box arrow-avatar" : "box arrow-avatar opacity-0 transition-all duration-300"}>
+                <div className={showSlide13 ? "box arrow-avatar" : "box arrow-avatar opacity-0 transition-all duration-300"}>
                   پنل کاربری
                 </div>
               </div>
@@ -491,7 +491,7 @@ const Header = () => {
             </ul>
             <div className="flex items-center justify-center xl:gap-x-3 lg:gap-x-3">
               <div className="bg-[#57C053] min-w-fit hover:bg-[#62d15e] transition-all duration-300 xl:px-3 text-white flex flex-row-reverse px-1 py-2 rounded-md items-center justify-center gap-x-2" style={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
-                <Link>
+                <Link to={"/be_seller"}>
                   <span className="text-sm font-[shabnamMedium] tracking-tight">فروشنده باشید</span>
                 </Link>
                 <FaSpa className="text-base" />
@@ -537,7 +537,7 @@ const Header = () => {
                   <Link to={"/favorites"}>
                     <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}/>
                   </Link>
-                  <div class={showSlide4 ? "box arrow-top" : "box arrow-top opacity-0 transition-all duration-300"}>
+                  <div className={showSlide4 ? "box arrow-top" : "box arrow-top opacity-0 transition-all duration-300"}>
                     مشاهده علاقه مندی ها
                   </div>
                 </div>
@@ -557,7 +557,7 @@ const Header = () => {
                     </span>
                   </>
                 }
-                <div class={showSlide5 ? "box arrow-bottom transition-all duration-300" : "box arrow-bottom opacity-0 transition-all duration-300"}>
+                <div className={showSlide5 ? "box arrow-bottom transition-all duration-300" : "box arrow-bottom opacity-0 transition-all duration-300"}>
                   مشاهده سبد خرید
                 </div>
               </div>

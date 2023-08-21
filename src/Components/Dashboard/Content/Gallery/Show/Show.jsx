@@ -15,7 +15,7 @@ function Show({ array , setShow }) {
                         {
                             hover.status && hover.key === index
                             ?
-                            <div onMouseEnter={()=>setHover({status:true,key:index})} onMouseOut={()=>setHover({status:true,key:index})} className='w-full cursor-default  flex justify-between items-center p-2 bg-[#64748bb5] font-[shabnambold]'>
+                            <div onMouseEnter={()=>setHover({status:true,key:index})} onMouseOut={()=>setHover({status:true,key:index})} className='w-full cursor-default  flex justify-between items-center p-2 bg-[#64748bb5] font-[shabnamBold]'>
                             <span className='cursor-default line-clamp-1 text-sm'>{item.title}</span>
                             <div className='flex items-center'>
                                 <RiDeleteBin2Fill className='text-red-600 transition-all hover:text-red-500'/>

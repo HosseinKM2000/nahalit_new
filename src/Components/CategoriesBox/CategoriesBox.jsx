@@ -92,7 +92,7 @@ function CategoriesBox({ dropCate , setDropCate }) {
             {
                 categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
                     <li key={i} onClick={(e)=>{
-                        setDropCate({status:false,value:item.title})
+                        setDropCate({status:false,value:item.id})
                         setChildList(false)
                         setChildList_2(false)
                     }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>

@@ -9,14 +9,15 @@ function New() {
     const [desc,setDesc] = useState('');
     const titleRef = useRef();
     const managerRef = useRef();
-    const formKeyNotSuber = (e) => {
+
+    const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
             e.preventDefault();
             e.stopPropagation()
         }
     }
-    const formSubmiter = (e) => {
+    const formSubmitter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
@@ -37,7 +38,7 @@ function New() {
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>افزودن نمونه کار</h1>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
+        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
             {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>

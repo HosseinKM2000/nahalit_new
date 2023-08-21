@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
-import Edite from '../../Edite/Edite';
+import Edit from '../../Edit/Edit';
 import All from '../All';
 
 function WorkSamplePagination() {
@@ -147,7 +147,7 @@ function WorkSamplePagination() {
          />
        </>
        :
-       <Edite details={showDetails.value} setShowDetails={setShowDetails}/>
+       <Edit details={showDetails.value} setShowDetails={setShowDetails}/>
     }
     </>
   )

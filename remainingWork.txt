@@ -1,2 +1,13 @@
-check scroll button in phone
 links in footer
+handle message for wrong password and another in login and register
+change type image in blogs / name to file
+remove delete user in dashboard
+apply type of fonts
+create forget password page
+login with mobile number
+maximum minimum products filter
+connect cart to api
+seller in dashboard
+discount in dashboard
+remove comment part
+fix products filter with url search query

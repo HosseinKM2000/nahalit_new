@@ -20,12 +20,15 @@ function Login() {
   useEffect(() => {
         if(redirect)
         {
-          navigate('/')
+          setTimeout(()=>{
+            navigate('/')
+          },1000)
           dispatch(changeRedirect())
         }
   },[redirect])
 
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault()
     let phone = phoneRef.current.value;
     let password = passwordRef.current.value;
     switch(true)
@@ -71,7 +74,7 @@ function Login() {
                       <span className='text-lg'>ورود</span>
               </div>
           </div>
-          <form action="" onSubmit={(e)=>e.preventDefault()} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
+          <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
                     <div className='flex flex-col items-center gap-2 w-full lg:items-center text-sm'>
                       <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
                       <input ref={phoneRef} type="text" className='bg-gray-300 font-[shabnambold] text-left outline-none border-none 2xl:p-2 w-full p-1' name='phone'/>
@@ -85,7 +88,7 @@ function Login() {
                       <label htmlFor="remember" className='text-sm font-[shabnamLight] text-stone-500'>مرا به خاطر بسپار</label>
                     </div>
                     <div className='w-full flex flex-col items-center text-sm justify-center gap-3'>
-                <button type="button" onClick={()=>loginHandler()} className='bg-green-600 font-bold w-full items-center 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1  flex justify-center'>
+                <button type="submit" className='bg-green-600 font-bold w-full items-center 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1  flex justify-center'>
                   {
                     loading
                     ? <img src={loadingSvg} alt="loading" className='w-[1.5rem]'/>

@@ -1,27 +1,27 @@
-import React ,{ useState , useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import WorkSamplePagination from '../WorkSample/All/WorkSamplePagination/WorkSamplePagination';
 import New from './New/New';
 
 function WorkSample() {
-  const [innerCommponent,setInnerCommponent] = useState(<></>);
+  const [innerComponent,setInnerComponent] = useState(<></>);
   const Criterion = useSelector(state=> state.dashboard.workSampleSwitch);
 
   useEffect(()=>{
       switch(Criterion)
       {
-          case 'all' : setInnerCommponent(<WorkSamplePagination/>);
+          case 'all' : setInnerComponent(<WorkSamplePagination/>);
           break;
-          case 'new' : setInnerCommponent(<New/>)
+          case 'new' : setInnerComponent(<New/>)
           break;
-          default : setInnerCommponent(<></>)
+          default : setInnerComponent(<></>)
       }
   },[Criterion])
 
   return (
     <div className='w-full p-3 md:p-10 flex flex-col items-center'>
       {
-        innerCommponent
+        innerComponent
       }
     </div>
   )

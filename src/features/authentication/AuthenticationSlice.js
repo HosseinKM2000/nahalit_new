@@ -23,9 +23,9 @@ const authenticationSlice = createSlice({
         .addCase(register.fulfilled,(state,action) => {
             state.loading = false;
             state.redirect = true;
-            toast.success(action.payload.data.massage)
-            Cookies.set("user",JSON.stringify(action.payload.data.user))
-            localStorage.setItem("access_token",action.payload.data.token)
+            toast.success(action.payload.massage)
+            Cookies.set("user",JSON.stringify(action.payload.user))
+            localStorage.setItem("access_token",action.payload.token)
             state.loginStatus = true;
         })
         .addCase(register.pending,(state) => {
@@ -34,6 +34,7 @@ const authenticationSlice = createSlice({
         .addCase(register.rejected,(state,action) => {
             state.loading = false;
             toast.error("متاسفانه ثبت نام با خطا مواجه شد")
+            console.log(action)
         })
         .addCase(login.fulfilled,(state,action) => {
             state.loading = false;

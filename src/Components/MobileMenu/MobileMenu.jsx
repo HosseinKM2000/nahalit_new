@@ -70,7 +70,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   },[stepList])
   return (
 
-    <div className={!dropMenu ? "w-[100vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[50vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
+    <div className={!dropMenu ? "w-[100vw] z-[70] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[50vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
     <div className="flex items-center w-full justify-between px-4 flex-row-reverse py-3 h-fit" style={{borderBottom:'1px solid #fff'}}>
       <img src={clearIcon} alt="close" className="w-[20px] h-[20px]" onClick={()=>{
         setKeyList({key:'',cateId:''})

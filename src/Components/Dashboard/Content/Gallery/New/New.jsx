@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 
 function New() {
-  const [imageName,setimageName] = useState('');
+  const [imageName,setImageName] = useState('');
   const [dropCate,setDropCate] = useState({status:false,value:null});
   const titleRef = useRef();
   const dispatch = useDispatch();
@@ -29,13 +29,14 @@ function New() {
     { id: 19, title: "پروژکتور اپتما مدل EH416" },
     { id: 20, title: "اسکنر پرتابل اچ پی مدل ScanJet Pro 2500 f1" }
 ];
-  const formKeyNotSuber = (e) => {
+  const formKeyNotSubmit = (e) => {
     if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
     {
         e.preventDefault();
         e.stopPropagation()
     }
   }
+  
   const addGalleryHandle =  () => {
     let title = titleRef.current.value;
     switch(true)
@@ -64,7 +65,7 @@ function New() {
             <div className='w-full bg-[#C0D9DB] p-2'>
                 <h1 className='font-semibold text-lg text-stone-800'>ایجاد</h1>
             </div>
-            <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
+            <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
            {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
@@ -73,7 +74,7 @@ function New() {
             {/* image */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر</label>
-                <input  onChange={(e)=>setimageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
+                <input  onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
             </div>
                 {/* products categories */}
                 <div className='w-full flex-col sm:flex-row flex justify-start items-start gap-3'>

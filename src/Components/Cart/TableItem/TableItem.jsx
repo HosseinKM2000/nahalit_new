@@ -14,7 +14,7 @@ const TableItem = ({cartItem}) => {
   }
 
   return (
-    <tr className="border flex flex-col  lg:flex-row w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#eaeaea] bg-[#f4f4f4] text-gray-600 text-center shadow-md">
+    <tr className="border flex flex-col  lg:flex-row w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#f1f1f1] bg-[#f4f4f4] text-gray-600 text-center shadow">
       <td className="py-5 md:py-1  px-4">
         <div className="flex items-center justify-center text-start">
           <div className="flex flex-col lg:flex-row  items-center gap-6">
@@ -33,23 +33,6 @@ const TableItem = ({cartItem}) => {
       <div className='flex items-center flex-col lg:flex-row'>
       <td className="p-4">
         <span>{addSignToMoney(cartItem.price)}</span>
-      </td>
-      <td className="p-4">
-        <input
-          onChange={
-            (event) => {
-              const cartCopy = JSON.parse(JSON.stringify(cart));
-              cartCopy.map(item => item.id === cartItem.id ? item.quantity = parseInt(event.target.value) : item)
-              dispatch(setCart(cartCopy));
-            }
-          }
-          type="number"
-          className="bg-white border border-gray-300 p-2 text-gray-900 text-sm rounded w-[50px]" min={1}
-          value={cartItem.quantity}
-        />
-      </td>
-      <td className="p-4">
-        <span>{addSignToMoney(cartItem.quantity * cartItem.price)}</span>
       </td>
       <div>
             <button

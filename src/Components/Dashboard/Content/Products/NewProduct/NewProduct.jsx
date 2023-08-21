@@ -3,14 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addProduct } from '../../../../../features/dashboard/action';
-import Editor from '../../../../Editor/Editor';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
+import Editor from '../../../../Editor/Editor';
+import Cookies from 'js-cookie';
 
 function NewProduct() {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
     const [priceValue,setPriceValue] = useState(0);
     const [dropCate,setDropCate] = useState({status:false,value:null})
+    const userId = JSON.parse(Cookies.get("user")).id;
     const titleRef = useRef();
     const imageRef = useRef()
     const discountRef = useRef();
@@ -21,7 +23,8 @@ function NewProduct() {
     function handleChange(value) {
       setText(value); 
     }
-    const formKeyNotSuber = (e) => {
+
+    const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
             e.preventDefault();
@@ -47,12 +50,12 @@ function NewProduct() {
         setPriceValue(separatedNumber);
       }
 
-    const formSubmiter = (e) => {
+    const formSubmitter = (e) => {
         e.preventDefault()
         const form = {
             title:titleRef.current.value,
             image:imageName,
-            category_id:1,
+            category_id:dropCate.value,
             price:JSON.parse(priceValue.replaceAll(',','')),
             description:desc,
             seller_id:1,
@@ -68,8 +71,8 @@ function NewProduct() {
             break;
             case form.description.length === 0 : toast.warn("توضیح را وارد کنید");
             break;
-            // case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
-            // break;
+            case form.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
+            break;
             default : sendProduct(form)
         }
 
@@ -79,8 +82,8 @@ function NewProduct() {
         let formdata = new FormData();
             formdata.append("title", form.title);
             formdata.append("description", form.description);
-            formdata.append("category_id", "1");
-            formdata.append("seller_id", "1");
+            formdata.append("category_id", form.category_id);
+            formdata.append("seller_id", userId );
             formdata.append("price", form.price);
             formdata.append("image", form.image , `${imageRef.current.value}`);
             dispatch(addProduct(formdata))
@@ -100,7 +103,7 @@ function NewProduct() {
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>محصول جدید</h1>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)} onSubmit={(e)=>formSubmiter(e)}>
+        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)} onSubmit={(e)=>formSubmitter(e)}>
                {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
@@ -143,7 +146,7 @@ function NewProduct() {
              }}/>
               </div>
             </div>
-            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
+            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
                 {
                     loading
                     ? <img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>

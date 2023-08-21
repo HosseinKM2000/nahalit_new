@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { products } from "../../API/data";
+import { getProducts } from "./action";
 
 const initialState = {
-    products : products,
+    products : [],
     goalProduct:'',
-    FilteredProducts: products
+    isLoading:false,
+    FilteredProducts:[]
 }
 
 
@@ -74,6 +76,22 @@ const productsSlice = createSlice({
         deleteAllFilters : (state) => {
             state.FilteredProducts = state.products;
         }
+    },
+    extraReducers : builder => {
+
+        builder
+        .addCase(getProducts.fulfilled , (state,action) => {
+            state.isLoading = false;
+            state.products = action.payload.data;
+            state.FilteredProducts = action.payload.data;
+        })
+        .addCase(getProducts.pending , (state,action) => {
+            state.isLoading = true;
+        })
+        .addCase(getProducts.rejected , (state,action) => {
+            state.isLoading = false;
+            console.log(action)
+        })
     }
 })
 
@@ -86,4 +104,5 @@ export const { foundProduct,
                sortByCategory,
                deleteAllFilters,
                sortByName } = productsSlice.actions;
+
 export default productsSlice.reducer;

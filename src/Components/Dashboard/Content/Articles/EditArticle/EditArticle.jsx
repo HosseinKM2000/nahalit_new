@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,9 +7,8 @@ import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import Editor from '../../../../Editor/Editor';
-import Cookies from 'js-cookie';
 
-function EditeArticle() {
+function EditArticle() {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
     const titleRef = useRef();
@@ -21,7 +21,7 @@ function EditeArticle() {
     const articles = useSelector(state => state.dashboard.blogs) || [{title:'',url:'',id:''}]
     const goalArticle = articles.find((item) => item.id === articleId) ||  {title:'',url:'',id:''}
 
-    const formKeyNotSuber = (e) => {
+    const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
             e.preventDefault();
@@ -29,7 +29,7 @@ function EditeArticle() {
         }
     }
     
-    const formSubmiter = (e) => {
+    const formSubmitter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
@@ -76,7 +76,7 @@ function EditeArticle() {
             <h1 className='font-semibold text-lg text-stone-800'>ویرایش مقاله</h1>
             <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>dispatch(setSwitch({key:'articles',value:'all',id:null}))}/>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
+        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
            {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
@@ -111,7 +111,7 @@ function EditeArticle() {
                 </div>
             </div>
             <div className='flex flex-col w-full items-center mt-3 gap-2'>
-                <button type='button' onClick={(e)=>formSubmiter(e)}  className='w-[50%] 2xl:w-[30%] bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
+                <button type='button' onClick={(e)=>formSubmitter(e)}  className='w-[50%] 2xl:w-[30%] bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
                     {
                         loading
                         ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
@@ -131,4 +131,4 @@ function EditeArticle() {
   )
 }
 
-export default EditeArticle
+export default EditArticle

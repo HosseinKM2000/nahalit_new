@@ -11,7 +11,6 @@ const initialState = {
           title: "قالب HTML تک صفحه ای شرکتی خدمات نظافتی کلین، Clean",
           seller: "سعید غزلباش",
           price: 340000,
-          quantity: 2
         },
         {
           id: 2,
@@ -19,7 +18,6 @@ const initialState = {
           title: "یواست سئو",
           seller: "حسین معصومی",
           price: 290000,
-          quantity: 3
         },
         {
           id: 3,
@@ -27,7 +25,6 @@ const initialState = {
           title: "افزونه صفحه ساز المنتور",
           seller: "حسین مرادی",
           price: 79000,
-          quantity: 1
         }
       ],
     loading:false,

@@ -1,48 +1,49 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import instance from "../../axios_config/axios";
-// import axiosApi from "../../axios_config/axios";
+
+
 
 // categories
 export const getCategories = createAsyncThunk('dashboard/getCategories', async () => {
-    
     const response = await  instance.get('/categories');
-
-    return response;
-
+    const { data } = response;
+    return data.categories
 })
 
 export const addParentCategories = createAsyncThunk('dashboard/addParentCategories', async (dataObj) => {
-
-    const post = await instance.post('http://127.0.0.1:8000/api/v1/categories',dataObj)
-    
-    return post;
+    const post = await instance.post('http://127.0.0.1:8000/api/v1/categories',dataObj);
+    const { status } = post;
+    return status;
 })
 
 export const deleteParentCategories = createAsyncThunk('dashboard/deleteParentCategories', async (id) => {
-
-    const Delete = await instance.delete(`http://127.0.0.1:8000/api/v1/categories/${id}`)
-    
-    return Delete;
+    const response = await instance.delete(`http://127.0.0.1:8000/api/v1/categories/${id}`) 
+    const { data } = response;
+    return data.massage;
 })
 
-export const editeParentCategories = createAsyncThunk('dashboard/editeParentCategories', async ({id,title,category_id}) => {
-
-    const Edite = await instance.put(`http://127.0.0.1:8000/api/v1/categories/${id}`,{
+export const editParentCategories = createAsyncThunk('dashboard/editParentCategories', async ({id,title,category_id}) => {
+    const Edit = await instance.put(`http://127.0.0.1:8000/api/v1/categories/${id}`,{
         title,
         category_id
     });
-    console.log('edite')
-    return Edite;
+    const { data } = Edit;
+    return data.massage;
 })
+
+
+
 // products
 export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
     const response = await instance.get('/products');
-    return response;
+    const { data } = response;
+    return data.data;
 })
 
 export const addProduct = createAsyncThunk('dashboard/addProduct', async (formData) => {
     const response = await instance.post('/products',formData);
+    const { status } = response;
     return response;
 })
 
@@ -59,6 +60,32 @@ export const editProduct = createAsyncThunk('dashboard/editProduct', async (id,n
 
     return response;
 })
+
+
+
+// projects
+export const getProjects = createAsyncThunk('dashboard/getProjects', async () => {
+    const response = await instance.get('/projects');
+    const { data } = response;
+    return data.data;
+})
+
+export const addProject = createAsyncThunk('dashboard/addProject', async (formData) => {
+    const response = await instance.post('/projects',formData);
+    return response;
+})
+
+export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (id) => {
+    const response = await instance.delete(`projects/${id}`);
+    return response;
+})
+
+export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
+    const response = await instance.put(`/projects/${id}`,newData);
+    return response;
+})
+
+
 
 // discount
 export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () => {
@@ -84,10 +111,12 @@ export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', asy
     return response;
 })
 
-export const editeDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id}) => {
+export const editDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id}) => {
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/discounts/${id}`,{});
     return response;
 })
+
+
 
 // gallery
 export const getGalleries = createAsyncThunk('dashboard/getGalleries', async () => {
@@ -118,24 +147,45 @@ export const getOneGallery = createAsyncThunk('dashboard/getOneGalleries', async
     return response;
 })
 
-export const editeGallery = createAsyncThunk('dashboard/getGalleries', async ({id,}) => {
-
+export const editGallery = createAsyncThunk('dashboard/getGalleries', async ({id,}) => {
     const response = await axios.put(`http://127.0.0.1:8000/api/v1/galleries/${id}`,{
-   
     });
 
     return response;
 })
 
+
+
 // roles
-export const getRoles = createAsyncThunk('dashboard/getRole', async () => {
-    const response = await instance.get('/roles')
-    return response
+export const getRoles = createAsyncThunk('dashboard/getRoles', async () => {
+    const response = await instance.get('/roles');
+    const { data } = response;
+    return data;
 })
-export const addRole = createAsyncThunk('dashboard/addRole', async ({formData}) => {
-    const response = await axios.post(``)
-    return response
+
+export const getRoleById = createAsyncThunk('dashboard/getRoleById', async (id) => {
+    const response = await instance.get(`/roles/${id}`);
+    const { data } = response;
+    return data;
 })
+
+export const addRole = createAsyncThunk('dashboard/addRole', async (formData) => {
+    const response = await instance.post(`/roles`,formData);
+    return response;
+})
+
+export const deleteRole = createAsyncThunk('dashboard/deleteRole', async (id) => {
+    const response = await instance.delete(`/roles/${id}`);
+    const { data } = response;
+    return data.massage;
+})
+
+export const updateRole = createAsyncThunk('dashboard/updateRole', async ({id,formData}) => {
+    const response = await instance.put(`/roles/${id}`,formData);
+    return response;
+})
+
+
 
 // blogs
 export const getBlogs = createAsyncThunk('dashboard/getBlogs' , async () => {
@@ -157,26 +207,9 @@ export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) =
     const response = await instance.delete(`http://127.0.0.1:8000/api/v1/blogs/${id}`);
     return response;
 })
-// projects
-export const getProjects = createAsyncThunk('dashboard/getProjects', async () => {
-    const response = await instance.get('/projects');
-    return response;
-})
 
-export const addProject = createAsyncThunk('dashboard/addProject', async (formData) => {
-    const response = await instance.post('/projects',formData);
-    return response;
-})
 
-export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (id) => {
-    const response = await instance.delete(`projects/${id}`);
-    return response;
-})
 
-export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
-    const response = await instance.put(`/projects/${id}`,newData);
-    return response;
-})
 // users
 export const getUsers = createAsyncThunk('dashboard/getUsers', async () => {
     const response = await instance.get('/users');

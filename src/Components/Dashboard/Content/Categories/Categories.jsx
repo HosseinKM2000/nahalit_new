@@ -1,26 +1,26 @@
-import {Raect , useState , useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import ParentsCate from './ParentsCate/ParentsCate';
 import FirstChildrenCate from './FirstChildrenCate/FirstChildrenCate';
+import ParentsCate from './ParentsCate/ParentsCate';
 import SecondChildrenCate from './SecondChildrenCate/SecondChildrenCate';
 
 function Categories() {
 
-  const [innerCommponent,setInnerCommponent] = useState(<></>)
+  const [innerComponent,setInnerComponent] = useState(<></>)
   const Criterion = useSelector(state => state.dashboard.categoriesSwitch.key);
 
   useEffect(()=>{
     if(Criterion === 'PARENT')
     {
-      setInnerCommponent(<ParentsCate/>)
+      setInnerComponent(<ParentsCate/>)
     }
     else if(Criterion === 'FIRSTCHILDREN')
     {
-      setInnerCommponent(<FirstChildrenCate/>)
+      setInnerComponent(<FirstChildrenCate/>)
     }
     else if(Criterion === 'SECONDCHILDREN')
     {                      
-      setInnerCommponent(<SecondChildrenCate/>)
+      setInnerComponent(<SecondChildrenCate/>)
     }
     console.log(Criterion)
   },[Criterion])
@@ -29,7 +29,7 @@ function Categories() {
   return (
     <div className='w-full p-10 flex justify-center lg:block' >
       {
-        innerCommponent
+        innerComponent
       }
     </div>
   )

@@ -149,8 +149,8 @@ const Article = () => {
                                 <div className='flex flex-col mb-10 sm:mb-3 2xl:mb-10 gap-2 2xl:gap-5 rounded-md overflow-hidden' style={{border:'1px solid #CCCCCC'}}>
                                   <Link to={{pathname:`/articles/article`,search:`?name=${article.title}`}} ><img src={article.img} alt={article.title} className='hover:brightness-125 2xl:w-full cursor-pointer transition-all'/></Link>
                                   <span className='py-2 cursor-pointer hover:text-gray-88 pr-2 text-[1rem] suggest-title line-clamp-1 font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${article.title}`}}>{article.title}</Link></span>
-                                  <div className='flex flex-col text-[0.8rem]'>
-                                    <p className='line-clamp-3 leading-4 text-gray-66 px-4 text-justify'>{article.explain}</p>
+                                  <div className='flex flex-col'>
+                                    <p className='line-clamp-3 leading-4 text-[0.8rem] text-gray-66 px-4 text-justify'>{article.explain}</p>
                                     <Link className='text-pink hover:text-light-pink mr-2 cursor-pointer font-bold 2xl:py-1 text-[0.8rem] shadow-sm w-fit py-1 px-2 my-1' to={{pathname:`/articles/article`,search:`?name=${article.title}`}}>جزئیات بیشتر</Link>
                                   </div>
                                   <div className='flex text-[0.7rem] py-2 2xl:justify-between justify-around flex-row gap-10 sm:gap-2' style={{borderTop:'1px solid #E9E9E9'}}>

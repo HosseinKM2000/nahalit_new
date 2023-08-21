@@ -1,11 +1,11 @@
-import React , { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useSelector , useDispatch } from 'react-redux';
-import All from '../All';
-import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
-import Edite from '../../Edite/Edite';
+import { useDispatch, useSelector } from 'react-redux';
 import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
 import { getProjects } from '../../../../../../features/dashboard/action';
+import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
+import Edit from '../../Edit/Edit';
+import All from '../All';
 
 function ProjectPagination() {
 
@@ -59,7 +59,7 @@ function ProjectPagination() {
             />
             </>
             :
-            <Edite details={showDetails.value} setShowDetails={setShowDetails}/>
+            <Edit details={showDetails.value} setShowDetails={setShowDetails}/>
         }
         </>
     }

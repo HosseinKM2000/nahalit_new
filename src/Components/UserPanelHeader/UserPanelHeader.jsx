@@ -8,7 +8,7 @@ import { useState } from 'react';
 function UserPanelHeader({setDropMenu , dropMenu}) {
   
   return (
-    <div className='w-full flex items-center justify-between bg-slate-200 py-3 px-5 shadow-[0px_5px_10px_-8px_#000]'>
+    <div className='w-full flex items-center justify-between bg-slate-200 py-3 px-5 shadow-[0px_3px_10px_-8px_#000]'>
       {
         dropMenu
         ?

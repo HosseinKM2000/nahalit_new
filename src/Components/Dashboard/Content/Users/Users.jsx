@@ -4,15 +4,15 @@ import { FaUsers } from 'react-icons/fa';
 import { HiUserCircle } from 'react-icons/hi';
 import { MdDeleteSweep, MdOutlineAlternateEmail } from 'react-icons/md';
 import { TbAlphabetLatin, TbListDetails } from 'react-icons/tb';
-import { deleteUser } from '../../../../features/dashboard/action';
 import { useDispatch } from 'react-redux';
+import { deleteUser } from '../../../../features/dashboard/action';
 
 function Users({ currentItems }) {
   const [roleValue,setRoleValue] = useState('کاربر معمولی')
   const dispatch = useDispatch();
   useEffect(() => {
   },[])
-  const userDeleter = (id) => {
+  const userRemoval = (id) => {
     dispatch(deleteUser(id))
   }
   return (
@@ -35,7 +35,7 @@ function Users({ currentItems }) {
               <input type='text'  defaultValue={roleValue} className='text-sm font-bold text-black w-fit outline-slate-300 p-1 bg-slate-200'/>
               <span className='text-sm font-bold'>1401/05/26</span>
               <div className='flex items-center gap-3'>
-                <MdDeleteSweep className='scale-[1.5] hover:text-red-600 text-red-700 transition-all' onClick={()=>userDeleter(user.id)}/>
+                <MdDeleteSweep className='scale-[1.5] hover:text-red-600 text-red-700 transition-all' onClick={()=>userRemoval(user.id)}/>
               </div>
             </div>
           ))

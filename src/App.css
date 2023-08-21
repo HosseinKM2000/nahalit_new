@@ -54,7 +54,7 @@
 
 
 body {
-  font-family: shabnamThin;
+  font-family: shabnam !important;
 }
 html {
   scroll-behavior: smooth;
@@ -451,7 +451,7 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
   font-family: shabnambold;
   font-size: 0.8rem;
   border-radius: 2px;
-  text-shadow: 1px 1px 2px rgb(60, 60, 60);
+  text-shadow: 0px 0px 5px rgb(33, 33, 33);
 }
 .box.arrow-top {
     left: -1.8rem;

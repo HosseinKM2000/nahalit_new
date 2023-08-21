@@ -13,8 +13,6 @@ const Table = () => {
           <th className="p-2">محصول</th>
           <div className="flex items-center gap-3 2xl:gap-16 xl:gap-12 lg:gap-12">
             <th className="p-2">قیمت</th>
-            <th className="p-2">تعداد</th>
-            <th className="p-2">جمع جزء</th>
           </div>
         </tr>
         </thead>

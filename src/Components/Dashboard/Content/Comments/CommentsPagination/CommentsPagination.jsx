@@ -1,9 +1,9 @@
-import React , { useEffect , useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
-import ReactPaginate from 'react-paginate';
+import Comments from '../Comments';
 import Details from '../Details/Details';
-import Commentes from '../Comments';
 
 function CommentsPagination() {
   const [showDetails,setShowDetails] = useState({status:false,item:''});
@@ -36,7 +36,7 @@ function CommentsPagination() {
         !showDetails.status
         ?
         <>
-          <Commentes setShowDetails={setShowDetails} currentItems={currentItems} />
+          <Comments setShowDetails={setShowDetails} currentItems={currentItems} />
           <ReactPaginate
           breakLabel="..."
           nextLabel={mobile ? '>>' : "برگه بعدی >>"}

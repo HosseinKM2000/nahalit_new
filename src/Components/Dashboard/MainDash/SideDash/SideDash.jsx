@@ -81,7 +81,7 @@ function SideDash({ dropMenu , setDropMenu }) {
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:aRotate?'-90deg':'0deg'}}/>
             </div>
             <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:aRotate?'fit-content':'0px',padding:aRotate?'10px':'0px',overflow:aRotate?'':'hidden',visibility:aRotate?'visible':'hidden',marginTop:aRotate?'1rem':'0px'}} >
-              <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'all',id:null}))} style={{backgroundColor:aCriterion === 'all' || aCriterion === 'edite' ? '#ffffff4d' : ''}}>همه مقالات</button>
+              <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'all',id:null}))} style={{backgroundColor:aCriterion === 'all' || aCriterion === 'edit' ? '#ffffff4d' : ''}}>همه مقالات</button>
               <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'new',id:null}))} style={{backgroundColor:aCriterion === 'new' ? '#ffffff4d' : ''}}>مقاله جدید</button>
             </div>
         </div>
@@ -111,7 +111,7 @@ function SideDash({ dropMenu , setDropMenu }) {
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:pRotate?'-90deg':'0deg'}}/>
             </div>
               <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:pRotate?'fit-content':'0px',padding:pRotate?'10px':'0px',overflow:pRotate?'':'hidden',visibility:pRotate?'visible':'hidden',marginTop:pRotate?'1rem':'0px'}} >
-                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'all',id:null}))} style={{backgroundColor:pCriterion === 'all' || pCriterion === 'edite' || pCriterion === 'gallery' ? '#ffffff4d' : ''}}>همه محصولات</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'all',id:null}))} style={{backgroundColor:pCriterion === 'all' || pCriterion === 'edit' || pCriterion === 'gallery' ? '#ffffff4d' : ''}}>همه محصولات</button>
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'new',id:null}))} style={{backgroundColor:pCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
               </div>
         </div>
@@ -126,7 +126,7 @@ function SideDash({ dropMenu , setDropMenu }) {
             <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:gRotate?'-90deg':'0deg'}}/>
             </div>
               <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:gRotate?'fit-content':'0px',padding:gRotate?'10px':'0px',overflow:gRotate?'':'hidden',visibility:gRotate?'visible':'hidden',marginTop:gRotate?'1rem':'0px'}} >
-                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'all'}))} style={{backgroundColor:gCriterion === 'all' || gCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'all'}))} style={{backgroundColor:gCriterion === 'all' || gCriterion === 'edit' ? '#ffffff4d' : ''}}>همه</button>
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'new'}))} style={{backgroundColor:gCriterion === 'new' ? '#ffffff4d' : ''}}>جدید</button>
               </div>
         </div>
@@ -151,11 +151,11 @@ function SideDash({ dropMenu , setDropMenu }) {
                 <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:prRotate?'-90deg':'0deg'}}/>
             </div>
             <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:prRotate?'fit-content':'0px',padding:prRotate?'10px':'0px',overflow:prRotate?'':'hidden',visibility:prRotate?'visible':'hidden',marginTop:prRotate?'1rem':'0px'}} >
-                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'all'}))} style={{backgroundColor:prCriterion === 'all' || prCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'all'}))} style={{backgroundColor:prCriterion === 'all' || prCriterion === 'edit' ? '#ffffff4d' : ''}}>همه</button>
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'new'}))} style={{backgroundColor:prCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
             </div>
         </div>
-        <div onClick={()=>listSwitch('commentes')}  style={{backgroundColor:content==='commentes'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+        <div onClick={()=>listSwitch('comments')}  style={{backgroundColor:content==='comments'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
             <FaRegComments className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
             <li className='text-white font-bold text-lg  text-center'>نظرات</li>
             <div className='w-[1.5rem] h-[1.5rem]'></div>
@@ -171,7 +171,7 @@ function SideDash({ dropMenu , setDropMenu }) {
               <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:rRotate?'-90deg':'0deg'}}/>
               </div>
               <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:rRotate?'fit-content':'0px',padding:rRotate?'10px':'0px',overflow:rRotate?'':'hidden',visibility:rRotate?'visible':'hidden',marginTop:rRotate?'1rem':'0px'}} >
-                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'all'}))} style={{backgroundColor:rCriterion === 'all' || gCriterion === 'edite' ? '#ffffff4d' : ''}}>همه</button>
+                <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'all'}))} style={{backgroundColor:rCriterion === 'all' || gCriterion === 'edit' ? '#ffffff4d' : ''}}>همه</button>
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'roles',value:'new'}))} style={{backgroundColor:rCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
               </div>
         </div>

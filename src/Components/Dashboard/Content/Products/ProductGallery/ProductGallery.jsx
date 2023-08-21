@@ -1,13 +1,13 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import { useDispatch , useSelector } from 'react-redux';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import { MdCancel } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function ProductGallery() {
 
     const dispatch = useDispatch();
-    const picturs = useSelector(state => state.dashboard.productId);
+    const pictures = useSelector(state => state.dashboard.productId);
 
   return (
     <div className='flex flex-col w-full opacity-motion'>

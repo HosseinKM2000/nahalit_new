@@ -46,11 +46,13 @@ import SsocialMedia from "./page/SsocialMedia/SsocialMedia";
 import SsoundEditing from "./page/SsoundEditing/SsoundEditing";
 import SworkService from "./page/SworkService/SworkService";
 import UI_UX from "./page/UI_UX/UI_UX";
-import EditeUserProfile from "./page/UserPanel/EditeUserProfile";
+import EditUserProfile from "./page/UserPanel/EditUserProfile";
 import UserPage from "./page/UserPanel/UserPage";
 import UserProfile from "./page/UserPanel/UserProfile";
 import Voicing from "./page/Voicing/Voicing";
 import WebsiteDesignPortfolio from "./page/WebsiteDesignPortfolio/WebsiteDesignPortfolio";
+import About_us from "./page/About_us/About_us";
+import BeSeller from "./page/BeSeller/BeSeller";
 
 const App = () => {
   return (
@@ -99,11 +101,13 @@ const App = () => {
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/favorites" element={<Favorites/>}/>
           <Route path="/userPage" element={<UserPage/>}>
-            <Route path="editeProfile" element={<EditeUserProfile/>}/>
+            <Route path="editProfile" element={<EditUserProfile/>}/>
             <Route path="cart" element={<Cart/>}/>
             <Route path="favorites" element={<Favorites/>}/>
             <Route path="userProfile" element={<UserProfile/>}/>
           </Route>
+          <Route path="/about_us" element={<About_us/>}/>
+          <Route path="/be_seller" element={<BeSeller/>}/>
         </Routes>
       </div>
       <ApiLoading/>

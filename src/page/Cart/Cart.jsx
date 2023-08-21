@@ -1,13 +1,12 @@
+import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import Table from '../../Components/Cart/Table/Table';
 import DiscountForm from "../../Components/DiscountForm/DiscountForm";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import Table from '../../Components/Cart/Table/Table';
-import UpdateCartButton from '../../Components/Cart/UpdateCartButton/UpdateCartButton';
 import NotLogined from "../../Components/NotLogined/NotLogined";
-import { Helmet } from "react-helmet";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 const Cart = () => {
   const cart = useSelector(state => state.cart.cart);
@@ -22,7 +21,7 @@ const Cart = () => {
 
   const allPrice = (cart) => {
     let allPrice = 0;
-    cart.map(item => allPrice += (item.price * item.quantity));
+    cart.map(item => allPrice += item.price);
     return allPrice;
   }
 
@@ -54,8 +53,7 @@ const Cart = () => {
             cart.length > 0 ?
               <section className={urlPath === '/userPage/cart' ? "container mx-auto bg-white" : "container w-[90%] mx-auto bg-white p-7 my-10"} style={{boxShadow:urlPath === '/userPage/cart' ? '0px 0px 0px 0px' : '0px 0px 3px 0px grey'}}>
                 <Table/>
-                <div className="sm:flex flex-row gap-4 items-center justify-between w-full mt-4">
-                  <UpdateCartButton/>
+                <div className="sm:flex flex-row gap-4 items-center justify-end w-full mt-4">
                   <DiscountForm/>
                 </div>
                 <p className="font-black text-gray-600 mt-12">جمع کل سبد خرید</p>

@@ -4,7 +4,7 @@ import Articles from '../../Content/Articles/Articles';
 import Categories from '../../Content/Categories/Categories';
 import CommentsPagination from '../../Content/Comments/CommentsPagination/CommentsPagination';
 import Gallery from '../../Content/Gallery/Gallery';
-import OredersPagination from '../../Content/Orders/OrdersPagination/OredersPagination';
+import OrdersPagination from '../../Content/Orders/OrdersPagination/OrdersPagination';
 import Products from '../../Content/Products/Products';
 import Projects from '../../Content/Projects/Projects';
 import Roles from '../../Content/Roles/Roles';
@@ -28,11 +28,11 @@ function ContentDash() {
       break
       case 'products' : setCurrentContent(<Products/>)
       break
-      case 'orders' : setCurrentContent(<OredersPagination/>)
+      case 'orders' : setCurrentContent(<OrdersPagination/>)
       break
       case 'users' : setCurrentContent(<UsersPagination/>)
       break
-      case 'commentes' : setCurrentContent(<CommentsPagination/>)
+      case 'comments' : setCurrentContent(<CommentsPagination/>)
       break
       case 'workSample' : setCurrentContent(<WorkSample/>)
       break

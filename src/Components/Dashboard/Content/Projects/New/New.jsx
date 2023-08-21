@@ -16,14 +16,15 @@ function New() {
     const supervisorRef = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
-    const formKeyNotSuber = (e) => {
+
+    const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
             e.preventDefault();
             e.stopPropagation()
         }
     }
-    const formSubmiter = (e) => {
+    const formSubmitter = (e) => {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
@@ -89,7 +90,7 @@ function New() {
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>افزودن</h1>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSuber(e)}>
+        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
             {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
@@ -143,7 +144,7 @@ function New() {
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
              <div className='flex items-center w-[80%] sm:w-[50%] 2xl:w-[30%] justify-between'>
-             <button type='button' onClick={(e) => formSubmiter(e)} className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+             <button type='button' onClick={(e) => formSubmitter(e)} className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
              </div>
            </div>
         </form>

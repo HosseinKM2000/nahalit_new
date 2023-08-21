@@ -28,7 +28,7 @@ const Home = () => {
           <ResponseHeader/>
         </div>
       </header>
-      <main>
+      <main className="container mx-auto">
         <section className="w-full">
           <SliderSwiper />
         </section>

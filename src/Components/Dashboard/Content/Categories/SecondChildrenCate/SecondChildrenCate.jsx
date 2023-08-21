@@ -10,25 +10,34 @@ import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
 import {
   addParentCategories,
   deleteParentCategories,
-  editeParentCategories,
+  editParentCategories,
   getCategories
 } from '../../../../../features/dashboard/action';
 import { setSwitchCategories_2 } from '../../../../../features/dashboard/dashboardSlice';
 
 function SecondChildrenCate() {
 
-    const [edite,setEdite] = useState({oldValue:'',newValue:''});
+    const [edit,setEdit] = useState({oldValue:'',newValue:''});
     const [newCate,setNewCate] = useState({status:false,value:null});
+    const [accessّFetch,setAccessFetch] = useState(false);
     const parentTitle = useSelector(state => state.dashboard.categoriesSwitch.title);
     const firstChildrenTitle = useSelector(state => state.dashboard.categoriesSwitch.title_2)
     const categories = useSelector(state => state.dashboard.categories);
     const Loading = useSelector(state => state.dashboard.categoriesLoading);
     const firstChildrenId = useSelector(state => state.dashboard.categoriesSwitch.id_2);
     const childrenCategories  = categories.filter(cate => cate.category_id === firstChildrenId);
-    const add = useSelector(state => state.dashboard.addSeccess);
-    const Delete = useSelector(state => state.dashboard.deleteSeccess);
-    const Edite = useSelector(state => state.dashboard.editeSeccess);
+    const add = useSelector(state => state.dashboard.addSuccess);
+    const Delete = useSelector(state => state.dashboard.deleteSuccess);
+    const Edit = useSelector(state => state.dashboard.editSuccess);
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+      if(accessّFetch) {
+        dispatch(getCategories())
+        console.log("fetch")
+        }
+        setAccessFetch(true)
+      },[add,Delete,Edit])
 
     const addCateHandler = (e,key) => {
 
@@ -37,9 +46,9 @@ function SecondChildrenCate() {
         if(newCate.value !== null )
         {
 
-          const exiteItem  = categories.find(cate=> cate === newCate.value)
-          console.log(exiteItem)
-          if(exiteItem)
+          const exitItem  = categories.find(cate=> cate === newCate.value)
+          console.log(exitItem)
+          if(exitItem)
           {
             toast.error('!این عنوان موجود است')
           }
@@ -62,32 +71,28 @@ function SecondChildrenCate() {
         dispatch(deleteParentCategories(id))
     }
 
-    const editeHandler =  (e,key,id,category_id) => {
+    const editHandler =  (e,key,id,category_id) => {
 
           e.stopPropagation();
-          const exiteItem  = categories.find(cate=> cate.title === edite.newValue)
+          const exitItem  = categories.find(cate=> cate.title === edit.newValue)
 
           if(e.code === 'Enter' || key === 'Tick')
           {
-            if(exiteItem)
+            if(exitItem)
             {
               toast.error('!این عنوان موجود است')
             }
-            else if(edite.newValue === '')
+            else if(edit.newValue === '')
             {
         
               toast.info('لطفا عنوان جدید را وارد کنید')
             }
             else
             {
-              dispatch(editeParentCategories({id:id,title:edite.newValue,category_id:category_id}))
+              dispatch(editParentCategories({id:id,title:edit.newValue,category_id:category_id}))
             }
           }
     } 
-    
-    useEffect(()=>{
-      dispatch(getCategories())
-    },[add,Delete,Edite])
 
   return (
     <div className='w-full 2xl:w-[60%]'>
@@ -121,7 +126,7 @@ function SecondChildrenCate() {
             childrenCategories.map((child,index) => (
               <>
               {
-                edite.oldValue !== child.title
+                edit.oldValue !== child.title
                 ?
                 <div key={index}   className='h-[4rem] bg-[#ffffffaa] rounded-md justify-between flex items-center pr-3 pl-2 cursor-default transition-all hover:bg-[#ffffffd4] font-bold'>
                 <span>{child.title}</span>
@@ -129,18 +134,18 @@ function SecondChildrenCate() {
                   <AiTwotoneDelete className='text-red-700 hover:text-red-500 transition-all cursor-pointer' onClick={(e)=>deleteHandler(e,child.id)}/>
                   <BsPencilFill className='text-purple-700 hover:text-purple-500 transition-all cursor-pointer' onClick={(e)=>{
                     e.stopPropagation()
-                    setEdite({oldValue:child.title,newValue:''})
+                    setEdit({oldValue:child.title,newValue:''})
                   }}/>
                 </div>
               </div>
               :
               <div className='w-[100%] h-[4rem] bg-white flex justify-between pl-2 pr-3 rounded-sm relative transition-all shadow-[0px_0px_5px_2px_rgba(0,0,0,0.5)]'>
-              <input onKeyDown={(e)=>editeHandler(e,'',child.id,child.category_id)} defaultValue={edite.oldValue} onChange={(e)=>setEdite({oldValue:child.title,newValue:e.target.value})} className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
+              <input onKeyDown={(e)=>editHandler(e,'',child.id,child.category_id)} defaultValue={edit.oldValue} onChange={(e)=>setEdit({oldValue:child.title,newValue:e.target.value})} className='w-[80%] z-40 relative font-bold cursor-default placeholder:text-sm p-0 m-0 h-full text-[#363D4F] outline-none' placeholder='عنوان جدید'/>
               <div className='flex flex-col h-full gap-1 justify-center'>
-                <TiTick className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer' onClick={(e)=>{editeHandler(e,'Tick',child.id,child.category_id)}}/>
+                <TiTick className='text-green-600 text-xl transition-all hover:text-green-500 cursor-pointer' onClick={(e)=>{editHandler(e,'Tick',child.id,child.category_id)}}/>
                 <TiDelete className='text-red-600 text-xl transition-all hover:text-red-500 cursor-pointer' onClick={(e)=>{
                     e.stopPropagation();
-                    setEdite({oldValue:'',newValue:''})
+                    setEdit({oldValue:'',newValue:''})
                 }}/>
               </div>
              </div>

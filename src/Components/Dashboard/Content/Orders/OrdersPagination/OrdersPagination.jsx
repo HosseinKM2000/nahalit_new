@@ -1,12 +1,11 @@
-import React , { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useSelector , useDispatch } from 'react-redux';
-import Orders from '../Orders';
-import Details from '../Details/Details';
+import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
-import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import Details from '../Details/Details';
+import Orders from '../Orders';
 
-function OredersPagination() {
+function OrdersPagination() {
     const [showDetails,setShowDetails] = useState({status:false,value:''});
     const [itemOffset, setItemOffset] = useState(0);
     const dispatch = useDispatch();
@@ -58,4 +57,4 @@ function OredersPagination() {
       )
 }
 
-export default OredersPagination;
+export default OrdersPagination;

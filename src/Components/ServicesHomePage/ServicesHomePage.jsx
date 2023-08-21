@@ -12,7 +12,7 @@ const ServicesHomePage = () => {
       </div>
       <div className="flex items-center flex-wrap justify-center sm:justify-between gap-x-10 gap-y-[8rem] 2xl:text-2xl 2xl:w-full">
         {
-          services.map(service => (
+          services.map((service) => (
             <ServicesPart title={service.title} text={service.text} Icon={service.img} link={service.link}/>
           ))
         }

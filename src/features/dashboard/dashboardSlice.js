@@ -7,18 +7,22 @@ import {
     addProduct,
     addProject,
     deleteBlog,
+    addRole,
     deleteParentCategories,
+    deleteUser,
     editBlog,
+    editParentCategories,
     editProduct,
     editProject,
-    editeParentCategories,
+    deleteRole,
+    updateRole,
     getBlogs,
     getCategories,
-    getRoles,
     getProducts,
     getProjects,
-    getUsers,
-    deleteUser
+    getRoleById,
+    getRoles,
+    getUsers
 } from "./action";
 
 const initialState = {
@@ -44,13 +48,14 @@ const initialState = {
     blogs:[],
     categoriesLoading:false,
     categoriesError:'',
-    addSeccess : false,
+    addSuccess : false,
     scrollUp:false,
-    deleteSeccess : false,
-    editeSeccess : false,
+    deleteSuccess : false,
+    editSuccess : false,
     articleLoading:false,
     roles:[],
     permissions:[],
+    permissionsForEdit:[],
     categoriesSwitch:
     {
         key:'PARENT',
@@ -121,68 +126,85 @@ const dashboardSlice = createSlice({
         // get categories
         .addCase(getCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            state.categories = action.payload.data.categories;
-            console.log(action.payload.data.categories)
+            state.categories = action.payload;
         })
         .addCase(getCategories.pending, (state) => {
             state.categoriesLoading = true;
         })
         .addCase(getCategories.rejected, (state) => {
-            state.categories = null
+            state.categories = [];
             state.categoriesLoading = false;
+            console.error("* error in getting categories *")
             state.categoriesError = 'خطا در دریافت دسته بندی ها';
         })
+
+
         //  add parent
         .addCase(addParentCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            if(action.payload.status === 200)
+            if(action.payload === 200)
             {
                 toast.success('دسته بندی با موفقیت اضافه شد')
             }
-            state.addSeccess = !state.addSeccess;
+            state.addSuccess = !state.addSuccess;
         })
-        .addCase(addParentCategories.pending, (state,action) => {
+        .addCase(addParentCategories.pending, (state) => {
+            state.categoriesLoading = true;
         })
-        .addCase(addParentCategories.rejected, (state,action) => {
+        .addCase(addParentCategories.rejected, (state) => {
             toast.error('خطا در اضافه کردن دسته بندی')
+            console.error("* error in adding category *")
             state.categoriesLoading = false;
         })
+
+
         //  delete parent
         .addCase(deleteParentCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            toast.success(action.payload.data.massage)
-            state.deleteSeccess = !state.deleteSeccess;
+            toast.success(action.payload)
+            state.deleteSuccess = !state.deleteSuccess;
         })
-        .addCase(deleteParentCategories.pending, (state,action) => {
+        .addCase(deleteParentCategories.pending, (state) => {
+            state.categoriesLoading = true;
         })
         .addCase(deleteParentCategories.rejected, (state,action) => {
             state.categoriesLoading = false;
+            console.log("error in deleting category =>",action.payload)
             toast.error('ابتدا باید زیر شاخه ها را حذف کنید')
         })
-        // edite parent
-        .addCase(editeParentCategories.fulfilled , (state,action) => {
+
+
+        // edit parent
+        .addCase(editParentCategories.fulfilled , (state,action) => {
             state.categoriesLoading = false;
-            toast.success(action.payload.data.massage)
-            state.editeSeccess = !state.editeSeccess;
+            toast.success(action.payload)
+            state.editSuccess = !state.editSuccess;
         })
-        .addCase(editeParentCategories.pending, (state,action) => {
+        .addCase(editParentCategories.pending, (state,action) => {
+            state.categoriesLoading = true;
         })
-        .addCase(editeParentCategories.rejected, (state,action) => {
+        .addCase(editParentCategories.rejected, (state,action) => {
             state.categoriesLoading = false;
+            console.error("* error in editing category *")
             toast.error('خطا در ویرایش دسته بندی')
         })
+
+
         // get products
         .addCase(getProducts.fulfilled , (state,action) => {
             state.productsLoading = false;
-            state.products = action.payload.data.data;
+            state.products = action.payload;
         })
         .addCase(getProducts.pending , (state,action) => {
             state.productsLoading = true;
         })
         .addCase(getProducts.rejected , (state,action) => {
             state.productsLoading = false;
+            console.error("* error in getting products *")
             toast.error('خطا در بارگیری محصولات')
         })
+
+
         // add product
         .addCase(addProduct.fulfilled, (state,action) => {
             state.productsLoading = false;
@@ -193,12 +215,15 @@ const dashboardSlice = createSlice({
         })
         .addCase(addProduct.rejected, (state,action) => {
             state.productsLoading = false;
-            console.log(action.payload)
+            console.log("error in adding product with this status =>", action)
             toast.error("خطا در ذخیره محصول")
         })
+
+
         // edit product
         .addCase(editProduct.fulfilled,(state,action) => {
             state.productsLoading = false;
+            console.log(action.payload)
             toast.success('ویرایش محصول با موفقیت انجام شد')
         })
         .addCase(editProduct.pending,(state,action) => {
@@ -208,18 +233,23 @@ const dashboardSlice = createSlice({
             state.productsLoading = false;
             toast.error("خطا در ویرایش محصول")
         })
+
+
         // get projects
         .addCase(getProjects.fulfilled , (state,action) => {
             state.projectsLoading = false;
-            state.projects = action.payload.data.data;
+            state.projects = action.payload;
         })
         .addCase(getProjects.pending , (state,action) => {
             state.projectsLoading = true;
         })
         .addCase(getProjects.rejected , (state,action) => {
             state.projectsLoading = false;
+            console.error('* error in getting project *');
             toast.error('خطا در بارگیری پروژه ها')
         })
+
+
         // add projects
         .addCase(addProject.fulfilled, (state,action) => {
             state.projectsLoading = false;
@@ -233,6 +263,8 @@ const dashboardSlice = createSlice({
             console.log(action.payload)
             toast.error("خطا در ذخیره پروژه")
         })
+
+
         // edit projects
         .addCase(editProject.fulfilled,(state,action) => {
             state.projectsLoading = false;
@@ -245,6 +277,8 @@ const dashboardSlice = createSlice({
             state.projectsLoading = false;
             toast.error("خطا در ویرایش پروژه")
         })
+
+
         // add gallery
         .addCase(addGallery.fulfilled,(state,action) => {
             if(action.payload.status === 200)
@@ -255,6 +289,8 @@ const dashboardSlice = createSlice({
         .addCase(addGallery.rejected, (state,action) => {
                 toast.error("گالری ذخیره نشد")
         })
+
+
         // get blogs
         .addCase(getBlogs.fulfilled,(state,action) => {
             state.blogsLoading = false;
@@ -267,6 +303,8 @@ const dashboardSlice = createSlice({
             state.blogsLoading = false;
             toast.error("خطا در بارگیری مقاله ها")
         })
+
+
         // add blog
         .addCase(addBlog.fulfilled,(state,action) => {
             state.blogsLoading = false;
@@ -279,6 +317,8 @@ const dashboardSlice = createSlice({
             state.blogsLoading = false;
             toast.error('خطا در ذخیره مقاله')
         })
+
+
         // edit blog
         .addCase(editBlog.fulfilled,(state,action) => {
             state.blogsLoading = false;
@@ -292,6 +332,8 @@ const dashboardSlice = createSlice({
             toast.error('خطا در ویرایش مقاله')
             console.log(action)
         })
+
+
         // delete blog
         .addCase(deleteBlog.fulfilled,(state,action) => {
             state.blogsDeleteLoading = false;
@@ -305,20 +347,83 @@ const dashboardSlice = createSlice({
             state.blogsDeleteLoading = false;
             toast.error('خطا در حذف مقاله')
         })
+
+
         // get roles
         .addCase(getRoles.fulfilled,(state,action) => {
             state.rolesLoading = false;
-            state.roles = action.payload.data.roles
-            state.permissions = action.payload.data.permissions
+            state.roles = action.payload.roles
+            state.permissions = action.payload.permissions
         })
         .addCase(getRoles.pending,(state,action) => {
             state.rolesLoading = true;
         })
         .addCase(getRoles.rejected,(state,action) => {
             state.rolesLoading = false;
-            toast.error('خطا در بارگیری نقش ها')
-            console.log(action)
+            console.log("* error in getting roles *")
         })
+
+
+        // add role
+        .addCase(addRole.fulfilled,(state,action) => {
+            state.rolesLoading = false;
+            toast.success("نقش با موفقیت اضافه شد")
+        })
+        .addCase(addRole.pending,(state,action) => {
+            state.rolesLoading = true;
+        })
+        .addCase(addRole.rejected,(state,action) => {
+            state.rolesLoading = false;
+            console.log("* error in getting roles *")
+            toast.error('خطا در افزودن نقش')
+        })
+
+
+        // get roleById
+        .addCase(getRoleById.fulfilled,(state,action) => {
+            state.rolesLoading = false;
+            state.roles = action.payload.roles
+            state.permissionsForEdit = action.payload.permissions
+            console.log(action.payload)
+        })
+        .addCase(getRoleById.pending,(state,action) => {
+            state.rolesLoading = true;
+        })
+        .addCase(getRoleById.rejected,(state,action) => {
+            state.rolesLoading = false;
+            state.permissionsForEdit = action.payload.data.permissions;
+        })
+
+
+        // delete role
+        .addCase(deleteRole.fulfilled,(state,action) => {
+            state.rolesLoading = false;
+            toast.success(action.payload)
+        })
+        .addCase(deleteRole.pending,(state,action) => {
+            state.rolesLoading = true;
+        })
+        .addCase(deleteRole.rejected,(state,action) => {
+            state.rolesLoading = false;
+            toast.error("خطا در حذف نقش")
+        })
+
+
+        // update role
+        .addCase(updateRole.fulfilled,(state,action) => {
+            state.rolesLoading = false;
+            toast.success("نقش با موفقیت ویرایش شد")
+            console.log(action.payload)
+        })
+        .addCase(updateRole.pending,(state,action) => {
+            state.rolesLoading = true;
+        })
+        .addCase(updateRole.rejected,(state,action) => {
+            state.rolesLoading = false;
+            toast.error("خطا در ویرایش نقش")
+        })
+
+
         // get users
         .addCase(getUsers.fulfilled,(state,action) => {
             state.usersLoading = false;
@@ -332,6 +437,8 @@ const dashboardSlice = createSlice({
             toast.error('خطا در بارگیری کاربران')
             console.log(action)
         })
+
+
         // delete user
         .addCase(deleteUser.fulfilled,(state,action) => {
             state.usersLoading = false;

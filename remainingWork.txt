@@ -11,3 +11,5 @@ seller in dashboard
 discount in dashboard
 remove comment part
 fix products filter with url search query
+error in delete categories from server
+get article in FavArticles

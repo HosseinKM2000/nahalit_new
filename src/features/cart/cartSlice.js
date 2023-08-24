@@ -4,29 +4,6 @@ import { toast } from "react-toastify";
 
 const initialState = {
     discount: "",
-    cart: [
-        {
-          id: 1,
-          thumbnail: "https://placehold.co/50",
-          title: "قالب HTML تک صفحه ای شرکتی خدمات نظافتی کلین، Clean",
-          seller: "سعید غزلباش",
-          price: 340000,
-        },
-        {
-          id: 2,
-          thumbnail: "https://placehold.co/50",
-          title: "یواست سئو",
-          seller: "حسین معصومی",
-          price: 290000,
-        },
-        {
-          id: 3,
-          thumbnail: "https://placehold.co/50",
-          title: "افزونه صفحه ساز المنتور",
-          seller: "حسین مرادی",
-          price: 79000,
-        }
-      ],
     loading:false,
     baskets:[],
 }
@@ -38,14 +15,11 @@ const cartSlice = createSlice({
         setDiscount : (state,action) => {
             state.discount = action.payload;
         },
-        setCart : (state,action) => {
-            state.cart = action.payload;
-        }
     },
     extraReducers : (builder) => {
       builder
       .addCase(getBaskets.fulfilled, (state,action) => {
-        state.baskets = action.payload.data.data
+        state.baskets = action.payload;
       })
       .addCase(getBaskets.pending, (state,action) => {
       })
@@ -65,6 +39,7 @@ const cartSlice = createSlice({
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {
         toast.success("محصول با موفقیت حذف شد")
+        console.log(action.payload)
       })
       .addCase(deleteBasket.pending, (state,action) => {
       })

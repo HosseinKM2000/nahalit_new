@@ -68,6 +68,7 @@ function SecondChildrenCate() {
 
     const deleteHandler = (e,id) => {
         e.stopPropagation();
+        console.log(id)
         dispatch(deleteParentCategories(id))
     }
 

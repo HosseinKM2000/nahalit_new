@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { RiRestartFill } from 'react-icons/ri';
 import { SlMagnifier } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
-import { keyWord } from '../../../../API/data';
 import { getCategories } from '../../../../features/dashboard/action';
-import { sortByCategory, sortByName , deleteAllFilters } from '../../../../features/products/productSlice';
+import { deleteAllFilters, sortByCategory, sortByName } from '../../../../features/products/productSlice';
 
 function CategoriesP() {
   const categories = useSelector(state => state.dashboard.categories);

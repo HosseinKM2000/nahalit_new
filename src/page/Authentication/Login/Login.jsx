@@ -16,7 +16,8 @@ function Login() {
   const redirect = useSelector(state => state.authentication.redirect);
   const phoneRef = useRef();
   const passwordRef = useRef();
- 
+
+
   useEffect(() => {
         if(redirect)
         {
@@ -74,7 +75,7 @@ function Login() {
                       <span className='text-lg'>ورود</span>
               </div>
           </div>
-          <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
+           <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
                     <div className='flex flex-col items-center gap-2 w-full lg:items-center text-sm'>
                       <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
                       <input ref={phoneRef} type="text" className='bg-gray-300 font-[shabnambold] text-left outline-none border-none 2xl:p-2 w-full p-1' name='phone'/>
@@ -102,10 +103,10 @@ function Login() {
                     <div className='w-full flex flex-col items-center justify-center'>
                     <Link className='bg-[#54a733] w-full text-sm 2xl:py-2 hover:bg-[#70c64e] font-bold text-center transition-all duration-300 text-white rounded-md py-1'><button type="button">ورود با کد یکبار مصرف</button></Link>
                     </div>
-          </form>
+           </form>
         </div>
       </div>
-    </div>
+     </div>
     </>
   )
 }

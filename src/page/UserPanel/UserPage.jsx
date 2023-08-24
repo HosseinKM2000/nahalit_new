@@ -4,14 +4,18 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import UserPanelHeader from "../../Components/UserPanelHeader/UserPanelHeader";
 import UserSideBar from "./UserSideBar";
+import { useDispatch } from 'react-redux';
+import { changeLoginStatus } from '../../features/authentication/AuthenticationSlice';
 
 const UserPage = () => {
   const [dropMenu,setDropMenu] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   
   const logOutHandle = () => {
     navigate("/login")
     Cookies.remove("user");
+    dispatch(changeLoginStatus())
     localStorage.removeItem("access_token")
   }
 

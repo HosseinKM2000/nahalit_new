@@ -19,7 +19,7 @@ function ContentDash() {
   const scrollUp = useSelector(state => state.dashboard.scrollUp);
   
 
-  useEffect(()=>{
+  useEffect(() => {
     switch(content)
     {
       case 'categories' : setCurrentContent(<Categories/>)
@@ -46,10 +46,12 @@ function ContentDash() {
       break;
       default : setCurrentContent('این بخش وجود ندارد')
     }
-  },[content])
+  },[content]);
+
   useEffect(() => {
     bodyRef.current.scrollTop = 0
-  },[scrollUp])
+  },[scrollUp]);
+
   return (
     <div ref={bodyRef} className='bg-[#363d4f] flex flex-col items-center justify-start scroll-dash-content w-full lg:w-[75%] xl:w-[80%] 2xl:w-[85%] h-[90%] max-h-screen overflow-y-scroll relative'>
         {

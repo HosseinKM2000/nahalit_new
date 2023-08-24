@@ -2,7 +2,7 @@ import React from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { setCart } from '../../../features/cart/cartSlice';
+import { deleteBasket } from '../../../features/cart/action';
 
 const TableItem = ({cartItem}) => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const TableItem = ({cartItem}) => {
     const options = {style: 'decimal'};
     return number.toLocaleString('fa-IR', options) + ' تومان';
   }
+
+  console.log(cartItem)
 
   return (
     <tr className="border flex flex-col  lg:flex-row w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#f1f1f1] bg-[#f4f4f4] text-gray-600 text-center shadow">
@@ -36,7 +38,7 @@ const TableItem = ({cartItem}) => {
       </td>
       <div>
             <button
-              onClick={() => dispatch(setCart(cart.filter(cart => cart.id !== cartItem.id)))}
+              onClick={() => dispatch(deleteBasket(""))}
               className="bg-red-500 hover:bg-red-600 h-fit w-fit p-1 text-white rounded"
               title="حذف"
             >

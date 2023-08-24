@@ -28,9 +28,8 @@ const Footer = () => {
           <Link className="mt-5 tracking-tighter" to="/order">
             ثبت سفارش
           </Link>
-          <Link to="/">فروشنده باشید</Link>
-          <Link to="/">استخدام</Link>
-          <Link to="/">حساب کاربری من</Link>
+          <Link to="/be_seller">فروشنده باشید</Link>
+          <Link to="/recruitment">استخدام</Link>
           <Link to="/">اخبار سایت نهال آی تی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">

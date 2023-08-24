@@ -16,6 +16,7 @@ import {
     editProject,
     deleteRole,
     updateRole,
+    getUserRole,
     getBlogs,
     getCategories,
     getProducts,
@@ -55,6 +56,7 @@ const initialState = {
     articleLoading:false,
     roles:[],
     permissions:[],
+    userPermissions:[],
     permissionsForEdit:[],
     categoriesSwitch:
     {
@@ -382,16 +384,26 @@ const dashboardSlice = createSlice({
         // get roleById
         .addCase(getRoleById.fulfilled,(state,action) => {
             state.rolesLoading = false;
-            state.roles = action.payload.roles
             state.permissionsForEdit = action.payload.permissions
-            console.log(action.payload)
         })
         .addCase(getRoleById.pending,(state,action) => {
             state.rolesLoading = true;
         })
         .addCase(getRoleById.rejected,(state,action) => {
             state.rolesLoading = false;
-            state.permissionsForEdit = action.payload.data.permissions;
+            console.log("error in getting role by id =>",action);
+        })
+
+
+        // get userRole
+        .addCase(getUserRole.fulfilled,(state,action) => {
+            let permissionsIds = action.payload.permissions.map(per => per.id);
+            state.userPermissions =  permissionsIds;
+        })
+        .addCase(getUserRole.pending,(state,action) => {
+        })
+        .addCase(getUserRole.rejected,(state,action) => {
+            console.log("error in getting user role =>",action);
         })
 
 

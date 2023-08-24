@@ -7,7 +7,7 @@ const initialState = {
     loading:false,
     message:'',
     redirect:false,
-    loginStatus: Cookies.get('user') === undefined ? false : true,
+    loginStatus: Cookies.get('user') ? true : false
 }
 
 const authenticationSlice = createSlice({
@@ -16,6 +16,9 @@ const authenticationSlice = createSlice({
     reducers:{
         changeRedirect : (state,action) => {
             state.redirect = false
+        },
+        changeLoginStatus : (state) => {
+            state.loginStatus = false;
         }
     },
     extraReducers:( builder ) => {
@@ -39,9 +42,9 @@ const authenticationSlice = createSlice({
         .addCase(login.fulfilled,(state,action) => {
             state.loading = false;
             state.redirect = true;
-            toast.success(action.payload.data.massage)
-            localStorage.setItem("access_token",action.payload.data.token)
-            Cookies.set("user",JSON.stringify(action.payload.data.user))
+            toast.success(action.payload.massage)
+            localStorage.setItem("access_token",action.payload.token)
+            Cookies.set("user",JSON.stringify(action.payload.user))
             state.loginStatus = true;
         })
         .addCase(login.pending,(state) => {
@@ -55,6 +58,6 @@ const authenticationSlice = createSlice({
     }
 })
 
-export const  { changeRedirect } = authenticationSlice.actions; 
+export const  { changeRedirect , changeLoginStatus } = authenticationSlice.actions; 
 
 export default authenticationSlice.reducer;

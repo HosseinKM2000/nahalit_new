@@ -88,7 +88,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     </div>
     <menu className='w-full relative h-[90%] p-5 flex overflow-x-hidden overflow-y-scroll items-center scroll_zero'>   
         <ul className={ stepList === 1 ? 'flex flex-col transition-all duration-300 absolute justify-start right-0 top-0 py-3 items-center w-full h-full overflow-y-scroll scroll_zero gap-y-10' : 'flex flex-col transition-all duration-300 items-center w-full h-full overflow-y-scroll scroll_zero gap-5 absolute right-[-30rem]'}>
-            {loginStatus ? <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center sm:hidden'><Link to={'/userPage/profile'} className='font-[shabnamBold]'>پنل کاربری</Link></li> : <></>}
+            {loginStatus ? <li className='text-[1.1rem] text-white hover:bg-[#ffffffce] rounded-sm hover:text-[#5ECF93] w-[80%] text-center sm:hidden'><Link to={'/userPage/userProfile'} className='font-[shabnamBold]'>پنل کاربری</Link></li> : <></>}
             {
               itemsMenu.filter(item => item.cateId === null).map(item => (
                 item.beList === true

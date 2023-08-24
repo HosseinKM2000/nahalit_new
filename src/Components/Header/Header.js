@@ -1,42 +1,39 @@
 import Cookies from "js-cookie";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillDashboard, AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
 import { BsPerson, BsWordpress } from "react-icons/bs";
-import { FaAndroid, FaSpa , FaUserCircle } from "react-icons/fa";
-import { BiSolidUserCircle } from "react-icons/bi";
+import { FaAndroid, FaSpa, FaUserCircle } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
-import { useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { getUserRole } from "../../features/dashboard/action";
 import ScrollTop from "../ScrollTop/ScrollTop";
 import UserAvatarIcon from "../UserAvatar/UserAvatar";
 
 const Header = () => {
-  const loginStatus = useSelector(state => state.authentication.loginStatus);
-  const [showSlide, setShowSlide] = useState(false);
+
   const [showSlide2, setShowSlide2] = useState(false);
   const [showSlide3, setShowSlide3] = useState(false);
   const [showSlide4, setShowSlide4] = useState(false);
   const [showSlide5, setShowSlide5] = useState(false);
-  const [showSlide6, setShowSlide6] = useState(false);
-  const [showSlide7, setShowSlide7] = useState(false);
-  const [showSlide8, setShowSlide8] = useState(false);
-  const [showSlide9, setShowSlide9] = useState(false);
-  const [showSlide10, setShowSlide10] = useState(false);
   const [showSlide11, setShowSlide11] = useState(false);
   const [showSlide12, setShowSlide12] = useState(false);
   const [showSlide13, setShowSlide13] = useState(false);
-  const userId = loginStatus ? JSON.parse(Cookies.get('user')).id : '' 
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
+  const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : ''
   const location = useLocation();
   const urlPath = location.pathname;
+  const userPermissions = useSelector(state => state.dashboard.userPermissions);
+  const dispatch = useDispatch(); 
 
-  const clickEntershowslide = () => {
-    setShowSlide(true);
-  };
-  const clickoutshowslide = () => {
-    setShowSlide(false);
-  };
+  useEffect(() => {
+    if(loginStatus){
+      dispatch(getUserRole(userId))
+    }
+  },[loginStatus])
+
   const clickEntershowslide2 = () => {
     setShowSlide2(true);
   };
@@ -60,36 +57,6 @@ const Header = () => {
   };
   const clickoutshowslide5 = () => {
     setShowSlide5(false);
-  };
-  const clickEntershowslide6 = () => {
-    setShowSlide6(true);
-  };
-  const clickoutshowslide6 = () => {
-    setShowSlide6(false);
-  };
-  const clickEntershowslide7 = () => {
-    setShowSlide7(true);
-  };
-  const clickoutshowslide7 = () => {
-    setShowSlide7(false);
-  };
-  const clickEntershowslide8 = () => {
-    setShowSlide8(true);
-  };
-  const clickoutshowslide8 = () => {
-    setShowSlide8(false);
-  };
-  const clickEntershowslide9 = () => {
-    setShowSlide9(true);
-  };
-  const clickoutshowslide9 = () => {
-    setShowSlide9(false);
-  };
-  const clickEntershowslide10 = () => {
-    setShowSlide10(true);
-  };
-  const clickoutshowslide10 = () => {
-    setShowSlide10(false);
   };
   const clickEntershowslide11 = () => {
     setShowSlide11(true);
@@ -161,143 +128,8 @@ const Header = () => {
               <li>
                 <Link to="/" className="text-[#171717] font-[shabnamMedium] text-sm">صفحه اصلی</Link>
               </li>
-              <li
-                className="flex items-center gap-x-1 relative"
-                onMouseEnter={clickEntershowslide}
-                onMouseLeave={clickoutshowslide}
-              >
-                <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">محصولات</span>
-                <RiArrowDownSLine/>
-                <div
-                  onMouseEnter={clickEntershowslide}
-                  className={
-                    showSlide
-                      ? "w-64 absolute z-50 top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] transition-all opacity-100 duration-500"
-                      : "w-64 absolute z-50 top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] opacity-0 -translate-y-[50rem] transition-all duration-500"
-                  }
-                >
-                  <div className="bg-[#07B235] h-[2px] absolute top-0 right-0 left-0 text-center"></div>
-                    <ul className="px-3 py-1 bg-white">
-                      <li
-                        className="flex items-center relative justify-between py-3"
-                        onMouseEnter={clickEntershowslide6}
-                        onMouseLeave={clickoutshowslide6}
-                      >
-                        <div className="relative">
-                            <span className="text-[#171717] cursor-default text-sm font-[shabnamMedium]">سایت های آماده</span>
-                          <div
-                            onMouseEnter={clickEntershowslide6}
-                            className={
-                              showSlide6
-                                ? "absolute bg-white -left-[20rem] -top-4 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex items-center justify-center transition-all duration-500"
-                                : "absolute bg-white -left-[20rem] -top-4 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                            }
-                          >
-                              <Link className="text-[#171717] font-[shabnamMedium] text-sm">سایت آماده لاراول</Link>
-                          </div>
-                        </div>
-                        <MdKeyboardArrowLeft />
-                      </li>
-                      <li
-                        className="flex relative items-center justify-between py-3"
-                        onMouseEnter={clickEntershowslide7}
-                        onMouseLeave={clickoutshowslide7}
-                      >
-                        <span className="text-[#171717] font-[shabnamMedium] cursor-default text-sm">پلاگین وردپرس</span>
-                        <MdKeyboardArrowLeft />
-                        <div
-                          onMouseEnter={clickEntershowslide7}
-                          className={
-                            showSlide7
-                              ? "absolute bg-white -left-[12.5rem] -top-2 px-7  shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center transition-all duration-500"
-                              : "absolute bg-white -left-[12.5rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                          }
-                        >
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین امنیتی</span>
-                          </Link>
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین مدیریتی</span>
-                          </Link>
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">پلاگین کاربردی</span>
-                          </Link>
-                        </div>
-                      </li>
-                      <li
-                        className="flex items-center justify-between py-3 relative"
-                        onMouseEnter={clickEntershowslide8}
-                        onMouseLeave={clickoutshowslide8}
-                      >
-                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">قالب html</span>
-                        <MdKeyboardArrowLeft />
-                        <div
-                          onMouseEnter={clickEntershowslide8}
-                          className={
-                            showSlide8
-                              ? "absolute bg-white -left-[12.7rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center transition-all duration-500"
-                              : "absolute bg-white -left-[12.7rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                          }
-                        >
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب شخصی</span>
-                          </Link>
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب شرکتی</span>
-                          </Link>
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب فروشگاهی</span>
-                          </Link>
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">قالب خبری</span>
-                          </Link>
-                        </div>
-                      </li>
-                      <li
-                        className="flex items-center justify-between py-3 relative"
-                        onMouseEnter={clickEntershowslide9}
-                        onMouseLeave={clickoutshowslide9}
-                      >
-                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">اپلیکیشن موبایل</span>
-                        <MdKeyboardArrowLeft />
-                        <div
-                          onMouseEnter={clickEntershowslide9}
-                          className={
-                            showSlide9
-                              ? "absolute bg-white -left-[13.3rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col  items-center justify-center transition-all duration-500"
-                              : "absolute bg-white -left-[13.3rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col  items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                          }
-                        >
-                          <Link className="px-4 py-1">
-                            <span className="text-[#171717] font-[shabnamMedium] text-sm">اپلیکیشن اندروید</span>
-                          </Link>
-                        </div>
-                      </li>
-                      <li
-                        className="flex items-center justify-between py-3 relative"
-                        onMouseEnter={clickEntershowslide10}
-                        onMouseLeave={clickoutshowslide10}
-                      >
-                        <span className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">اسکریپت ها</span>
-                        <MdKeyboardArrowLeft />
-                        <div
-                          onMouseEnter={clickEntershowslide10}
-                          className={
-                            showSlide10
-                              ? "absolute bg-white -left-[12.5rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center transition-all duration-500"
-                              : "absolute bg-white -left-[12.5rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                          }
-                        >
-                          <Link className="px-4 py-1">
-                            <span className="font-[shabnamMedium] text-[#171717] text-sm">اسکریپت لاراول</span>
-                          </Link>
-                        </div>
-                      </li>
-                      <li>
-                        <Link to={'/shop'} className="text-[#171717] font-[shabnamMedium] text-sm">همه محصولات</Link>
-                      </li>
-                    </ul>
-                </div>
+              <li className="flex items-center gap-x-1 relative">
+                <Link to={"/shop"} className="text-[#171717] cursor-default font-[shabnamMedium] text-sm">محصولات</Link>
               </li>
               <li>
                 <Link to="/order" className="font-[shabnamMedium] text-[#171717] text-sm">ثبت سفارش</Link>

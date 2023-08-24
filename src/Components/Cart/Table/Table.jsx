@@ -1,10 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import TableItem from '../TableItem/TableItem';
 
-const Table = () => {
-  const cart = useSelector(state => state.cart.cart);
-  
+const Table = ({ goalProducts }) => {
+
   return (
     <div className="relative overflow-x-auto w-full">
       <table className="border border-gray-200 text-sm w-full min-w-300 flex flex-col">
@@ -18,7 +16,7 @@ const Table = () => {
         </thead>
         <div>
           <tbody className="flex flex-wrap lg:flex-col justify-start h-fit gap-y-4 py-3 w-full">
-            {cart.map(cartItem => <TableItem key={cartItem.id} cartItem={cartItem}/>)}
+            {goalProducts.map(cartItem => <TableItem cartItem={cartItem}/>)}
           </tbody>
         </div>
       </table>

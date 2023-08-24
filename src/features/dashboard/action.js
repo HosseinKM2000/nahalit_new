@@ -167,6 +167,14 @@ export const getRoleById = createAsyncThunk('dashboard/getRoleById', async (id) 
     const response = await instance.get(`/roles/${id}`);
     const { data } = response;
     return data;
+
+})
+
+export const getUserRole = createAsyncThunk('dashboard/getUserRole', async (id) => {
+    const response = await instance.get(`/roles/${id}`);
+    const { data } = response;
+    return data;
+
 })
 
 export const addRole = createAsyncThunk('dashboard/addRole', async (formData) => {

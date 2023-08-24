@@ -20,9 +20,9 @@ function FirstChildrenCate() {
   const parentId = useSelector(state => state.dashboard.categoriesSwitch.id);
   const Loading = useSelector(state => state.dashboard.categoriesLoading);
   const childrenCategories  = categories.filter(cate => cate.category_id === parentId);
-  const add = useSelector(state => state.dashboard.addSeccess);
-  const Delete = useSelector(state => state.dashboard.deleteSeccess);
-  const Edit = useSelector(state => state.dashboard.editeSeccess);
+  const add = useSelector(state => state.dashboard.addSuccess);
+  const Delete = useSelector(state => state.dashboard.deleteSuccess);
+  const Edit = useSelector(state => state.dashboard.editSuccess);
   const dispatch = useDispatch();
 
   useEffect(()=>{

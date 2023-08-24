@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCart, BsSearch } from "react-icons/bs";
 import { RiDashboard3Line } from "react-icons/ri";
+import { BiLogInCircle } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
@@ -33,31 +34,41 @@ const ResponseHeader = () => {
           <></>
         }
         {
-          urlPath === '/cart'
+          loginStatus
           ?
-          <></>
-          :
-          <Link to={'/cart'}>
-            <BsCart className="text-xl text-[#8E8C8C]" />
-          </Link>
+          <>
+          {
+            urlPath === '/cart'
+            ?
+            <></>
+            :
+            <Link to={'/cart'}>
+              <BsCart className="text-xl text-[#8E8C8C]" />
+            </Link>
+          }
+            </>
+            :
+            <Link to={"/login"}>
+              <BiLogInCircle className="text-2xl text-[#8E8C8C]"/>
+            </Link>
         }
         {
-          userId !== '' && userId === 1
-          ?
-          <Link to={'/dashboard'}>
-           <RiDashboard3Line className="text-2xl text-[#8E8C8C] font-thin" />
-          </Link>
-        :
-        <></>
+            userId !== '' && userId === 1 && loginStatus
+            ?
+            <Link to={'/dashboard'}>
+            <RiDashboard3Line className="text-2xl text-[#8E8C8C] font-thin" />
+            </Link>
+            :
+            <></>
         }
         {
-          urlPath === '/favorites'
-          ?
-          <></>
-          :
-          <Link to={'/favorites'}>
-            <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
-          </Link>
+            urlPath === '/favorites'
+            ?
+            <></>
+            :
+            <Link to={'/favorites'}>
+              <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
+            </Link>
         }
         <Link>
           <BsSearch className="text-xl text-[#8E8C8C]" onClick={()=>setDropSearchBox(true)}/>

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../assets/img/Pulse-1.2s-229px.svg';
-import { addBasket } from '../../../../features/cart/action';
+import { addBasket, getBaskets } from '../../../../features/cart/action';
 import HTMLRenderer from 'react-html-renderer';
 
 
@@ -37,7 +37,7 @@ function ProductsPage({currentItems}) {
         }
         localStorage.setItem('favProducts', JSON.stringify(favorites))
     },[favorites])
-
+    
     const addToFavorite = (id) => {
         setFavorites(favorites.concat(id));
     }
@@ -109,11 +109,11 @@ function ProductsPage({currentItems}) {
                                 <img src={loadingSvg} alt="loading" className='w-[1rem]'/>
                                 :
                                 <>
-                                <BsBag className={ goalIds.length !== 0 && goalIds.includes(product.id) ? 'hidden' : 'text-lime-500 scale-150 block' } onClick={()=>{
+                                <BsBag className={ goalIds.includes(product.id) ? 'hidden' : 'text-lime-500 scale-150 block' } onClick={()=>{
                                     addToBasket(product.id)
                                     setKeyLoading(product.id)
                                 }}/>
-                                <BsFillBagFill className={ goalIds.length !== 0 && goalIds.includes(product.id) ? 'text-lime-500 scale-150 block' : 'hidden' } onClick={()=>toast.info("برای مدیریت محصولات به سبد خرید بروید")}/>
+                                <BsFillBagFill className={ goalIds.includes(product.id) ? 'text-lime-500 scale-150 block' : 'hidden' } onClick={()=>toast.info("برای مدیریت محصولات به سبد خرید بروید")}/>
                                 </>
                             }
                         </div>

@@ -21,9 +21,9 @@ const Footer = () => {
       <div className="container flex-wrap gap-12 mb-10 mx-auto 2xl:gap-11 2xl:justify-between 2xl:w-full flex items-start justify-center 2xl:text-2xl text-sm mt-24 max-xl:gap-y-12 tracking-tight">
         <div className="flex flex-col justify-center items-start gap-y-4">
           <RiSendBackward className="text-5xl text-white" />
-          <Link className="font-[shabnamMedium] text-base" to="/">
+          <span className="font-[shabnamMedium] text-base" to="/">
             لینک های کمکی
-          </Link>
+          </span>
           <div className="w-full h-[2px] bg-white"></div>
           <Link className="mt-5 tracking-tighter" to="/order">
             ثبت سفارش
@@ -34,9 +34,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <BsFillBriefcaseFill className="text-5xl text-white" />
-          <Link className="font-[shabnamMedium] text-base word-spa" to="/">
+          <span className="font-[shabnamMedium] text-base word-spa" to="/">
              خدمات اداری
-          </Link>
+          </span>
           <div className="w-[70%] h-[2px] bg-white"></div>
           <Link className="mt-5 tracking-tighter" to="/">
             ایمیل مارکتینگ
@@ -47,9 +47,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <FaSeedling className="text-5xl text-white" />
-          <Link className="font-[shabnamMedium] text-base" to="/">
+          <span className="font-[shabnamMedium] text-base" to="/">
             خدمات تیم نهال آی تی
-          </Link>
+          </span>
           <div className="w-full h-[2px] bg-white"></div>
           <Link className="mt-5 tracking-tighter" to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
             فروش سایت اختصاصی و اقتصادی

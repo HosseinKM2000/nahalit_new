@@ -3,8 +3,8 @@ import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { getBaskets } from '../../../../features/cart/action';
+import { Active, deActive } from '../../../../features/loading/loadingSlice';
 import { getProducts } from '../../../../features/products/action';
-import { Active , deActive } from '../../../../features/loading/loadingSlice';
 import ProductsPage from '../ProductsPage/ProductsPage';
 import './Pagination.css';
 
@@ -30,7 +30,7 @@ function Pagination() {
     useEffect(()=>{
       isLoading ? dispatch(Active()) : dispatch(deActive());
     },[isLoading])
-
+    
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % products.length;
       window.scrollTo({top:0,behavior:'instant'})

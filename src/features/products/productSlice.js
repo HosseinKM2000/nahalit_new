@@ -6,7 +6,9 @@ const initialState = {
     products : [],
     goalProduct:'',
     isLoading:false,
-    FilteredProducts:[]
+    FilteredProducts:[],
+    maxPrice:0,
+    minPrice:0
 }
 
 
@@ -75,7 +77,7 @@ const productsSlice = createSlice({
         },
         deleteAllFilters : (state) => {
             state.FilteredProducts = state.products;
-        }
+        },
     },
     extraReducers : builder => {
 
@@ -84,6 +86,8 @@ const productsSlice = createSlice({
             state.isLoading = false;
             state.products = action.payload.data;
             state.FilteredProducts = action.payload.data;
+            state.maxPrice = action.payload.data.reduce((max , item) => Math.max(max , item.price), -Infinity)
+            state.minPrice = action.payload.data.reduce((min , item) => Math.min(min , item.price), Infinity)
         })
         .addCase(getProducts.pending , (state,action) => {
             state.isLoading = true;

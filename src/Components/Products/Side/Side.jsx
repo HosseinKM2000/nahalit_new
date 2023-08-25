@@ -1,16 +1,25 @@
 import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sortByAll, sortByCheapest, sortByExpensive, sortByLatest, sortByPriceRange } from '../../../features/products/productSlice';
 import CategoriesP from './CategoriesP/CategoriesP';
 import PriceRange from './PriceRange/PriceRange';
+import { useEffect } from 'react';
 
 function Side() {
-    const [minPrice,setMinPrice] = useState(0);
-    const [maxPrice,setMaxPrice] = useState(1000000);
-    const [minValue,setMinValue] = useState(0);
-    const [maxValue,setMaxValue] = useState(1000000);
+    const MaxPrice = useSelector(state => state.products.maxPrice);
+    const MinPrice = useSelector(state => state.products.minPrice);
+    const [minPrice,setMinPrice] = useState(MinPrice);
+    const [maxPrice,setMaxPrice] = useState(MaxPrice);
+    const [minValue,setMinValue] = useState(MinPrice);
+    const [maxValue,setMaxValue] = useState(MaxPrice);
     const filterSelectRef = useRef();
     const dispatch = useDispatch();
+    useEffect(() => {
+      setMinPrice(MinPrice)
+      setMaxPrice(MaxPrice)
+      setMinValue(MinPrice)
+      setMaxValue(MaxPrice)
+    },[MinPrice,MaxPrice])
 
     const selectHandle = (e) => {
         switch(filterSelectRef.current.value) {

@@ -11,6 +11,7 @@ import Roles from '../../Content/Roles/Roles';
 import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
 import WorkSample from '../../Content/WorkSample/WorkSample';
 import Discount from '../../Content/Discount/Discount';
+import Sellers from '../../Content/Sellers/Sellers';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -43,6 +44,8 @@ function ContentDash() {
       case 'roles' : setCurrentContent(<Roles/>)
       break;
       case 'discount' : setCurrentContent(<Discount/>)
+      break;
+      case 'sellers' : setCurrentContent(<Sellers/>)
       break;
       default : setCurrentContent('این بخش وجود ندارد')
     }

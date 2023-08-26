@@ -3,6 +3,7 @@ import { AiOutlinePicture } from 'react-icons/ai';
 import { BiCategory, BiSolidMask } from 'react-icons/bi';
 import { FaRegComments, FaWindowClose } from 'react-icons/fa';
 import { FiShoppingBag } from 'react-icons/fi';
+import { BsPersonBoundingBox } from 'react-icons/bs';
 import { GiClockwork } from 'react-icons/gi';
 import { ImUsers } from 'react-icons/im';
 import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart, MdWorkspaces } from 'react-icons/md';
@@ -30,7 +31,8 @@ function SideDash({ dropMenu , setDropMenu }) {
   const prCriterion = useSelector(state => state.dashboard.projectSwitch);
   const dCriterion = useSelector(state => state.dashboard.discountSwitch);
   const dispatch = useDispatch();
-  const userPer = useSelector(state => state.dashboard.userPermissions);
+
+
   const listSwitch = (value) => {
     dispatch(setContent(value))
     if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate && value !== 'articles')
@@ -54,7 +56,7 @@ function SideDash({ dropMenu , setDropMenu }) {
       setDRotate(false);
     }
   }
-  console.log(userPer)
+  
 
   return (
     <div className={dropMenu ? 'background-gra-green dashboard_side absolute lg:static top-0 right-0 w-[80vw] sm:w-[60vw] md:w-[50vw] z-[101] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%]  lg:z-10 flex transition-all duration-300 justify-center px-1 py-5' : 'background-gra-green dashboard_side absolute lg:static top-0 right-[-35rem] w-[70vw] sm:w-[60vw] md:w-[50vw] z-[100] 2xl:w-[15%] xl:w-[20%] lg:w-[25%] overflow-y-scroll h-screen lg:h-[90%] transition-all duration-300  lg:z-10 flex justify-center px-1 py-5'}>
@@ -191,6 +193,13 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'discount',value:'all'}))} style={{backgroundColor:dCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'discount',value:'new'}))} style={{backgroundColor:dCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
                 </div>
+          </div>
+          <div  onClick={()=>{
+            listSwitch('sellers')
+            }} style={{backgroundColor:content==='sellers'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+              <BsPersonBoundingBox className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+              <li className='text-white font-bold text-lg  text-center'>فروشنده ها</li>
+              <div className='w-[1.5rem] h-[1.5rem]'></div>
           </div>
           <hr className='w-full h-[3rem] py-1 border-none'/>
         </ul>

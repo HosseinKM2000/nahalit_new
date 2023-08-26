@@ -296,7 +296,7 @@ const dashboardSlice = createSlice({
         // get blogs
         .addCase(getBlogs.fulfilled,(state,action) => {
             state.blogsLoading = false;
-            state.blogs = action.payload.data.data
+            state.blogs = action.payload.data
         })
         .addCase(getBlogs.pending,(state,action) => {
             state.blogsLoading = true;
@@ -439,7 +439,7 @@ const dashboardSlice = createSlice({
         // get users
         .addCase(getUsers.fulfilled,(state,action) => {
             state.usersLoading = false;
-            state.users = action.payload.data.users;
+            state.users = action.payload.users;
         })
         .addCase(getUsers.pending,(state,action) => {
             state.usersLoading = true;

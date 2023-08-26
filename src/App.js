@@ -55,6 +55,7 @@ import About_us from "./page/About_us/About_us";
 import BeSeller from "./page/BeSeller/BeSeller";
 import CreateContent from "./page/CreateContent/CreateContent";
 import SocialMediaBot from "./page/SocialMediaBot/SocialMediaBot";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -113,6 +114,13 @@ const App = () => {
           <Route path="/create_content" element={<CreateContent/>}/>
           <Route path="/SocialMediaBot" element={<SocialMediaBot/>}/>
         </Routes>
+              {/* toaster */}
+          <ToastContainer
+          position='top-center'
+          theme='colored'
+          autoClose={2500}
+          className='Toast_info'
+          />
       </div>
       <ApiLoading/>
       </>

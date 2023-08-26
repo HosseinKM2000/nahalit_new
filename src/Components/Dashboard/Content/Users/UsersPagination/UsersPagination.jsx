@@ -5,19 +5,21 @@ import ReactPaginate from 'react-paginate';
 import Users from '../Users';
 import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
 import { getUsers } from '../../../../../features/dashboard/action';
+import UserDetails from '../UserDetails/UserDetails';
 
 function UsersPagination() {
 
   const users = useSelector(state => state.dashboard.users);
     const isLoading = useSelector(state => state.dashboard.usersLoading);
     const [itemOffset, setItemOffset] = useState(0);
+    const [showDetails,setShowDetails] = useState('');
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 20;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = users.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(users.length / itemsPerPage);
     const dispatch = useDispatch();
-    console.log(users)
+
     useEffect(()=>{
       dispatch(getUsers())
     },[]);
@@ -31,6 +33,12 @@ function UsersPagination() {
 
   return (
     <>
+     {
+      showDetails !== ""
+      ?
+      <UserDetails setShowDetails={setShowDetails} showDetails={showDetails}/>
+      :
+      <>
       {
         isLoading 
         ?
@@ -39,7 +47,7 @@ function UsersPagination() {
         </div>
         :
         <>
-        <Users currentItems={currentItems} />
+        <Users currentItems={currentItems} setShowDetails={setShowDetails}/>
         <ReactPaginate
         breakLabel="..."
         nextLabel={mobile ? '>>' : "برگه بعدی >>"}
@@ -55,7 +63,9 @@ function UsersPagination() {
       />
       </>
       }
-  </>
+      </>
+     }
+    </>
   )
 }
 

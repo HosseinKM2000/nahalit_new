@@ -15,7 +15,7 @@ function NewArticle() {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.blogsLoading);
     const mobile = window.innerWidth > 425 ? true : false;
-
+    const imageRef = useRef();
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -28,10 +28,10 @@ function NewArticle() {
         e.preventDefault()
         const formData = {
             title: titleRef.current.value,
-            image: imageName,
             body: desc,
             is_active: situationRef.current.value,
             user_id: JSON.parse(Cookies.get('user')).id,
+            image:imageName
         }
         switch(true)
         {
@@ -43,13 +43,18 @@ function NewArticle() {
             break;
             case formData.body === '' : toast.warn("توصیحات را وارد کنید");
             break;
-            default : submitArticle(formData)
+            default : sendArticle(formData)
         }
     }
 
-    const submitArticle = (dataObj) => {
-        console.log(dataObj)
-        dispatch(addBlog(dataObj))
+    const sendArticle = (form) => {
+        let formdata = new FormData();
+            formdata.append("title", form.title);
+            formdata.append("body", form.body);
+            formdata.append("user_id", form.user_id );
+            formdata.append("is_active", form.is_active);
+            formdata.append("image", form.image , `${imageRef.current.value}`);
+            dispatch(addBlog(formdata))
     }
 
     return (
@@ -71,10 +76,13 @@ function NewArticle() {
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-            {/* image */}
+               {/* image */}
             <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر پوستر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
+                <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
+                <input onChange={(e)=>{
+                    setImageName(e.target.files[0])
+                    console.log(e.target.files[0])
+                }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
             {/* describe */}
             <Editor setDesc={setDesc}/>
@@ -83,8 +91,8 @@ function NewArticle() {
             <div className="w-fit flex flex-col gap-2">
                     <label htmlFor="published" className='font-semibold text-[#2e424a]'>وضعیت مقاله</label>
                     <select  name="published" id="" className="outline-none" ref={situationRef}>
-                        <option value={true}>روشن</option>
-                        <option value={false}>خاموش</option>
+                        <option value={1}>روشن</option>
+                        <option value={0}>خاموش</option>
                     </select>
                 </div>
             </div>

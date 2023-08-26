@@ -10,7 +10,6 @@ import Editor from '../../../../Editor/Editor';
 
 function EditArticle() {
     const [imageName,setImageName] = useState('');
-    const [desc,setDesc] = useState('');
     const titleRef = useRef();
     const situationRef = useRef();
     const dispatch = useDispatch();
@@ -20,6 +19,8 @@ function EditArticle() {
     const articleId = useSelector(state => state.dashboard.articleId);
     const articles = useSelector(state => state.dashboard.blogs) || [{title:'',url:'',id:''}]
     const goalArticle = articles.find((item) => item.id === articleId) ||  {title:'',url:'',id:''}
+    const [desc,setDesc] = useState(goalArticle.body);
+    const imageRef = useRef();
 
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -48,14 +49,20 @@ function EditArticle() {
             break;
             case formData.body === '' : toast.warn("توضیحات را وارد کنید");
             break;
-            default : EditArticle(formData)
+            default : editArticle(formData)
         }
     }
 
-    const EditArticle = (dataObj) => {
-        dispatch(editBlog({id:goalArticle.id,dataObj}))
-        console.log(goalArticle.id,dataObj)
+    const editArticle = (form) => {
+        let formdata = new FormData();
+            formdata.append("title", form.title);
+            formdata.append("body", form.body);
+            formdata.append("user_id", form.user_id );
+            formdata.append("is_active", form.is_active);
+            formdata.append("image", form.image , `${imageRef.current.value}`);
+            dispatch(editBlog({id:goalArticle.id,formdata}))
     }
+
 
     const articleDelete = (e) => {
         e.preventDefault();
@@ -82,13 +89,16 @@ function EditArticle() {
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" defaultValue={goalArticle.title} className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-            {/* image */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر پوستر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0].name)}  type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
+              {/* image */}
+              <div className='flex flex-col gap-2 w-full'>
+                <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
+                <input onChange={(e)=>{
+                    setImageName(e.target.files[0])
+                    console.log(e.target.files[0])
+                }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
             {/* describe */}
-            <Editor setDesc={setDesc}/>
+            <Editor setDesc={setDesc} desc={ desc }/>
             {/* situation */}
             <div className='w-full flex justify-start'>
             <div className="w-fit flex flex-col gap-2">
@@ -98,13 +108,13 @@ function EditArticle() {
                             goalArticle.is_active === 1
                             ?
                             <>
-                                <option value={true}>روشن</option>
-                                <option value={false}>خاموش</option>
+                                <option value={1}>روشن</option>
+                                <option value={0}>خاموش</option>
                             </>
                             :
                             <>
-                                <option value={false}>خاموش</option>
-                                <option value={true}>روشن</option>
+                                <option value={0}>خاموش</option>
+                                <option value={1}>روشن</option>
                             </>
                         }
                     </select>

@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineHeart , AiFillHeart } from 'react-icons/ai';
 import './Articles.css';
 import { Helmet } from 'react-helmet';
+import HTMLRenderer from 'react-html-renderer';
 
 const Articles = ({currentItems}) => {
 
@@ -56,7 +57,9 @@ const Articles = ({currentItems}) => {
                     <div className='article w-[17rem] sm:w-[45%] md:w-[30%] lg:w-[23%] 2xl:w-[15%] flex flex-col article mb-10' key={index} style={{boxShadow:'0px 0px 5px -2px #000'}}>
                         <img onClick={() => navigate(`/articles/article?name=${article.title}`)} src={article.img} alt={article.title} className='hover:brightness-125 cursor-pointer transition-all' style={{borderBottom:'1px solid #d7d7d7'}}/>
                         <Link to={{pathname:'/articles/article', search:`?name=${article.title}`}} className='py-3 px-1 2xl:pt-5 text-gray-66 font-[shabnamBold]  title hover:text-gray-88 line-clamp-1  transition-all'>{article.title}</Link>
-                        <p className='text-gray-500 px-1 text-stone-500 font-[shabnamLight] text-sm line-clamp-3 xl-line-clamp-2  leading-loose  Description'>{article.explain}</p>
+                        <div className='text-gray-500 px-1 text-stone-500 font-[shabnamLight] text-sm line-clamp-3 xl-line-clamp-2  leading-loose  Description'>
+                            <HTMLRenderer html={article.body}/>
+                        </div>
                         <div className='flex flex-row text-gray-88 justify-start gap-10 py-2 pr-2  whitespace-normal' style={{borderTop:'1px solid #d7d7d7'}}>
                             <div className='flex flex-row items-center text-sm gap-2'>
                                 <AiFillFolder/>

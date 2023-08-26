@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { articles } from "../../API/data";
 import { toast } from "react-toastify";
+import { getArticles } from "./action";
 
 const initialState =
 {
-    articles:articles,
+    articles:[],
     goalArticle:'',
+    isLoading:false,
     shortLink:window.location.href,
 }
 
@@ -30,6 +32,19 @@ const articlesSlice = createSlice({
     reducers:{
         foundArticleAction,
         copyLinkAction,
+    },
+    extraReducers : (builder) => {
+        builder
+        .addCase(getArticles.fulfilled, (state,action) => {
+            state.articles = action.payload.data;
+            state.isLoading = false;
+        })
+        .addCase(getArticles.pending, (state,action) => {
+            state.isLoading = true;
+        })
+        .addCase(getArticles.rejected, (state,action) => {
+            state.isLoading = false;
+        })
     }
 })
 

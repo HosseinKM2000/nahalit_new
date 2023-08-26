@@ -21,7 +21,7 @@ function AllArticles({currentItems}) {
                 </div>
                 <div className='w-full h-fit md:h-full md:w-fit flex flex-row items-center md:flex-col justify-between py-3'>
                   <span className={article.is_active === 1 ? 'rounded-[50%] bg-green-500 p-3' : 'rounded-[50%] bg-red-500 p-3'}></span>
-                  <button className='cursor-default hover:scale-110 transition-all  rounded-[50%] text-center bg-[#529b9f] text-white p-1 text-xl' onClick={()=>dispatch(setSwitch({key:'articles',value:'edite',id:article.id}))}>
+                  <button className='cursor-default hover:scale-110 transition-all  rounded-[50%] text-center bg-[#529b9f] text-white p-1 text-xl' onClick={()=>dispatch(setSwitch({key:'articles',value:'edit',id:article.id}))}>
                     <IoIosArrowBack/>
                   </button>
                 </div>

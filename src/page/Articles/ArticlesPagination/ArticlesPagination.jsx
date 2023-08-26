@@ -1,27 +1,46 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FixedIcon from '../../../Components/FixedIcon/FixedIcon';
 import Footer from '../../../Components/Footer/Footer';
 import Header from '../../../Components/Header/Header';
 import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
 import Articles from '../Articles';
+import { useEffect } from 'react';
+import { getArticles } from '../../../features/article/action';
+import { Active, deActive } from '../../../features/loading/loadingSlice';
 
 function ArticlesPagination() {
 
     const [itemOffset, setItemOffset] = useState(0);
     const articles = useSelector(state => state.articles.articles);
+    const isLoading = useSelector(state => state.articles.isLoading);
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = articles.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(articles.length / itemsPerPage);
+    const dispatch = useDispatch();
     const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % articles.length;
       window.scrollTo({top:0,behavior:'instant'})
       setItemOffset(newOffset);
     };
 
+    useEffect(() => {
+      dispatch(getArticles());
+    },[])
+
+    useEffect(() => {
+      if(isLoading)
+      {
+        dispatch(Active())
+      }
+      else
+      {
+        dispatch(deActive())
+      }
+    },[isLoading])
 
   return (
     <main>

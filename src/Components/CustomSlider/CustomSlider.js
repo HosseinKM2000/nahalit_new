@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
-import { HiOutlineChevronRight } from "react-icons/hi";
-import { HiOutlineChevronLeft } from "react-icons/hi";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { products } from "../../API/data";
 
 const CustomSlider = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   
   const sliderRef = useRef();
   const swiperCustome = (data) => {

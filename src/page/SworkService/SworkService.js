@@ -43,7 +43,7 @@ function SworkService() {
             </div>
             <div className='flex flex-col items-center sm:flex-row'>
                 <div>
-                    <motion.h2 whileInView={{x:[500,0] , opacity:[0,1]}} transition={{duration:1,delay:1}} viewport={{once:true}} className='text-green-137'>خدمات ثبت برند</motion.h2>
+                    <motion.h2 whileInView={{x:[500,0] , opacity:[0,1]}} transition={{duration:1,delay:1}} viewport={{once:true}} className='text-green-137 py-3'>خدمات ثبت برند</motion.h2>
                     <motion.p whileInView={{x:[1000,0] , opacity:[0,1]}} transition={{duration:1,delay:1.5}} viewport={{once:true}}>اصطلاح برند به مفهومی در تجارت و بازاریابی اشاره دارد که یک شرکت، محصول یا فرد را از سایر همسان ها تمایز می دهد. برندها قابل لمس نیستند و بیشتر به عنوان یک حس و شناخت نسبت به یک شرکت، فرد، یا محصول شناخته می شود.</motion.p>
                     <motion.p whileInView={{x:[1000,0] , opacity:[0,1]}} transition={{duration:1,delay:1.5}} viewport={{once:true}}>در واقع می توان گفت هویتی است که شامل ایده ها، ارزش ها، باورها، نگرشها، استاندارد، کیفیت، حسن نیت و اعتماد در کسب و کار و مجموعه ای از این برداشتها و انتظارات در ذهن مصرف کنندگان است که معمولا از طریق تبلیغات مداوم، بازاریابی، روابط عمومی و ارتباطات، همچنین صرف هزینه های بسیار و از طریق واکنش ها و بازخوردهای مصرف کننده و مخاطب موفقیت خود را بدست می آورد و به مرور زمان نیز به تکامل می رسد.</motion.p>
                 </div>
@@ -57,10 +57,10 @@ function SworkService() {
             </motion.div>
             <div className='flex flex-col items-center sm:flex-row'>
                <div>
-                 <motion.h3 whileInView={{scale:[0,1],y:[200,0],x:[-200,0],opacity:[0,1]}} transition={{duration:0.5}} viewport={{once:true}} className='text-green-137'>خدمات ثبت لوگو</motion.h3>
+                 <motion.h3 whileInView={{scale:[0,1],y:[200,0],x:[-200,0],opacity:[0,1]}} transition={{duration:0.5}} viewport={{once:true}} className='text-green-137 py-3'>خدمات ثبت لوگو</motion.h3>
                  <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>لوگو یک هویت تصویری برای رساندن مفهوم خدمت ، نشان دادن هویت یک سازمان بزرگ و یا کوچک ، به مفهوم رسانی یک وضعیت ، نشانه گذاری یک محصول به وسیله شرکت‌های تجاری، تولیدی و صنعتی و هم‌چنین کسب وکارهای کوچک استفاده می‌ شود تا از این طریق نوع خدمات ، اهداف مورد نظر و محصولات را با بکارگیری از خلاقیت به مخاطب معرفی کنند.</motion.p>
                </div>
-               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-[600px] 2xl:h-96' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
+               <motion.img src={logoImg} alt="logo"  className='w-80 2xl:w-[600px] 2xl:h-96 py-3' whileInView={{scale:[1.2,0.8,1,0.8,1,0.8,1]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div>
                 <p>اولین و موثرترین گام برای معرفی یک برند می باشد. که سایر پروسه های هویت سازی یک برند (نظیر بسته بندی، طراحی لیبل و …) را تحت تاثیر خود قرار می دهد. یک آرم و لوگو موفق و صحیح به راحتی می تواند گام های یک مجموعه را به خاطر ثبات بصری خود محکم و هدفمند سازد. اعتماد، شناخت و موفقیت در بازار سه بخش اصلی است که به پشتوانه طراحی برندینگ صحیح ، بجا و مناسب در روند گسترش یک مجموعه کمک بسزا می کند.</p>
@@ -69,14 +69,14 @@ function SworkService() {
             </div>
             <div className='flex flex-col items-center sm:flex-row'>
               <div>
-                <motion.h4 whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}className='text-green-137'>ارسال پیامک انبوه و ارسال ایمیل انبوه</motion.h4>
+                <motion.h4 whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}className='text-green-137 py-3'>ارسال پیامک انبوه و ارسال ایمیل انبوه</motion.h4>
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>یکی از سریع ترین، موثرترین و ارزان ترین روش تبلیغات، ارسال پیامک و ارسال ایمیل تبلیغاتی می باشد با استفاده از امکانات قدرتمندی که پنل اس ام اس و ایمیل در اختیار شما قرار میدهد میتوانید متن تاثیر گذار خود را در کمترین زمان ممکن به مخاطبان خود برسانید و با استفاده از دیگر امکانات پنل پیامک و ایمیل ، محصول و کار خود را تبلیغ نمایید و از این طریق مشتریان خود را افزایش دهید.</motion.p>
                 <motion.p whileInView={{y:[300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>استفاده از پنل پیامک و ایمیل یکی از بهترین و آسانترین راه ها برای اطلاع رسانی و ارتباط مستمر با مشتریان می باشد.</motion.p>
               </div>
               <motion.img whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} src={smsImg} alt="sms"  className='w-[10rem] 2xl:w-[20rem] 2xl:h-[15rem]'/>
             </div>
             <motion.div className='flex flex-col gap-3 2xl:mt-20' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:1}} viewport={{once:true}}>
-                <h5 className='text-green-137 text-center'>خدمات کسب و کار</h5>
+                <h5 className='text-green-137 text-center py-3'>خدمات کسب و کار</h5>
                 <div className='flex sm:flex-row flex-col gap-6'>
                     <div className='flex flex-col items-center gap-3 2xl:gap-2 justify-between'>
                         <img src={Img_1} alt="img-1" className='w-24 2xl:w-[8rem]'/>
@@ -96,7 +96,7 @@ function SworkService() {
                 </div>   
             </motion.div> 
                <div className='w-full flex flex-col items-center mt-3 2xl:mt-20 2xl:gap-5'>
-                <h6 className='text-center text-gray-66'>تعرفه خدمات کسب و کار تیم نهال آی تی</h6>
+                <h6 className='text-center text-gray-66 py-3'>تعرفه خدمات کسب و کار تیم نهال آی تی</h6>
                 <img src={tarrif} alt="tarrif" className='w-7/12 sm:w-[17rem]'/>
                </div>
         </div>

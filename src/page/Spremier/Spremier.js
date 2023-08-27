@@ -44,7 +44,7 @@ function Spremier() {
             </div>
             <div className='flex flex-col-reverse sm:flex-row items-center gap-5 justify-between'>
                 <div>
-                    <motion.h2 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A'>فواید تدوین ویدیوی حرفه ایی :</motion.h2>
+                    <motion.h2 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A py-3'>فواید تدوین ویدیوی حرفه ایی :</motion.h2>
                     <motion.ul whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>
                         <li>موجب افزایش نرخ کلیک می شود</li>
                         <li>در طول نمایش ویدئو باعث ایجاد تمرکز بیشتر می شود</li>
@@ -63,7 +63,7 @@ function Spremier() {
             </motion.div>
             <div className='flex flex-col-reverse sm:flex-row justify-between items-center'>
                 <div>
-                    <motion.h3 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A'>مخاطبین تدوین ویدیو :</motion.h3>
+                    <motion.h3 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A py-3'>مخاطبین تدوین ویدیو :</motion.h3>
                     <motion.ul whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>
                         <li>تدوین ویدیو برای یوتویوبرها</li>
                         <li>تدوین ویدیو برای مدرسین</li>

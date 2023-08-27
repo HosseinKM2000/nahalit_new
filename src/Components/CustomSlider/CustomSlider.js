@@ -38,7 +38,7 @@ const CustomSlider = () => {
         </div>
       </div>
       <div ref={sliderRef} className="sliderContainer overflow-x-scroll">
-        <div className="flex items-center justify-start gap-10 py-8">
+        <div className="flex items-center justify-start gap-5 py-8">
           {
             products.map((product,index) => (
               <div key={`product-slide${index}`} className="sliderItem">
@@ -59,7 +59,7 @@ const CustomSlider = () => {
                         ))
                       }
                     </div>
-                    <span className="text-[#656666] font-[shabnambold] 2xl:text-[1rem] text-[1.1rem] mb-6">{product.title}</span>
+                    <span className="text-[#656666] font-[shabnambold] line-clamp-1 2xl:text-[1rem] text-[1.1rem] mb-6">{product.title}</span>
                   </div>
                   <div className="flex items-center justify-between w-full">
                     <div className="flex items-center justify-end w-full gap-x-2">

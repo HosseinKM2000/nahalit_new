@@ -29,9 +29,6 @@ function GalleriesPagination() {
     }, {});
     const sortedGalleries = Object.values(groupeGalleries)
     
-    useEffect(()=>{
-      console.log(sortedGalleries)
-  },[]);
 
     const dispatch = useDispatch();
     const mobile = window.innerWidth <= 425 ? true : false;

@@ -64,7 +64,7 @@ function SsocialMedia() {
             </motion.div>
             <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-0'>
                 <div>
-                    <motion.h2  whileInView={{x:[-300,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}} className='text-green-1c'>اینستاگرام چیست ؟</motion.h2>
+                    <motion.h2  whileInView={{x:[-300,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}} className='text-green-1c py-3'>اینستاگرام چیست ؟</motion.h2>
                     <motion.p  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>اینستاگرام (Instagram) سرویسی برای اشتراک تصاویر و برقراری تعاملات اجتماعی است. کاربران عکس یا ویدئوهای کوتاه و یا بلند می‌گیرند و با دنبال‌کنندگان (Followers) خود به اشتراک می‌ گذارند.</motion.p>
                     <motion.p  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>برخلاف فیس بوک و توییتر که بیش تر بر پایه محتوای متنی بنا شده اند، اینستاگرام با اولویت عکس و فیلم و محتوای تصویری فعالیت می‌ کند. ولی با این حال امکان قرار دادن محتوای متنی نیز در قسمت کپشن پست ها و هچنین استوری ها وجود دارد.</motion.p>
                     <motion.p  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>اگر بخواهیم یک تعریف به زبان عامیانه از اینستاگرام ارائه دهیم، می‌ توان گفت این شبکه اجتماعی محبوب، برای انجام فعالیت های گوناگون از فعالیت های سیاسی و اجتماعی تا تفریحی و یا ایجاد یک کسب و کار موفق ، محل بسیار مناسبی است.</motion.p>
@@ -80,21 +80,21 @@ function SsocialMedia() {
             <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row items-center'>
                 <motion.img src={telegram} alt="telegram" className='w-[10rem] sm:w-[15rem] 2xl:w-[15rem]' whileInView={{x:[300,0], opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
                 <div>
-                    <motion.h3 className='text-green-1c' whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>تلگرام چیست ؟</motion.h3>
+                    <motion.h3 className='text-green-1c py-3' whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>تلگرام چیست ؟</motion.h3>
                     <motion.p whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:2}} viewport={{once:true}}>در میان انبوه اپلیکیشن های پیام رسانی که این روزها در موبایل ها می بینیم، شکی نیست که تلگرام یکی از محبوب ترین آنهاست. این اپلیکیشن که توسط دو برادر برنامه نویس روس طراحی شده است.</motion.p>
                     <motion.p whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:2}} viewport={{once:true}}>تلگرام هم اکنون یکی از محبوب‌ ترین اپلیکیشن‌ ها یا برنامه های پیام رسان موجود به شمار می‌ رود که قابلیت‌ های بسیار متعددی را در اختیار کاربران قرار داده و استفاده از تمام سرویس‌ های آن رایگان است.</motion.p>
                     <motion.p whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:2}} viewport={{once:true}}>تلگرام ویژگی‌ های متعددی دارد که آن را از سایر اپلیکیشن‌ های پیام رسان متمایز می‌ کند. به عنوان مثال تلگرام از سیستم رمزنگاری سر تا سری بهره می‌برد و به هیچ عنوان اجازه دسترسی سایر افراد به حریم خصوصی کاربران را نمی‌ دهد.</motion.p>
                 </div>
             </div>
             <motion.div whileInView={{opacity:[0,1],scale:[0,1],x:[-100,0],y:[100,0]}} transition={{duration:0.5}} viewport={{once:true}}>
-                <h4 className='text-green-1c text-center'>ویژگی های اصلی تلگرام</h4>
+                <h4 className='text-green-1c text-center py-3'>ویژگی های اصلی تلگرام</h4>
                 <p>تلگرام مجموعه‌ ای از ویژگی‌ ها و قابلیت‌ های مختلف را در اختیار کاربران قرار می‌ دهد. این موضوع سبب شده که برنامه تلگرام بسیار محبوب شود. مطمئنا در یک پاراگراف کوتاه قادر به شر تمام قابلیت‌ های تلگرام نیستیم، بنابراین مجبوریم از بسیاری موارد صرف نظر کنیم. یکی از اصلی‌ ترین ویژگی‌ های تلگرام مربوط به امنیت بالای آن می‌ شود. تلگرام از سیستم رمزگذاری سر تا سری (End to End Encryption) بهره‌ مند است و به این صورت از حریم خصوصی کاربران حفاظت می‌ کند.</p>
                 <p>سرعت عملکرد تلگرام بسیار بالاست و تیم توسعه دهنده آن به شدت در تلاش هستند تا عملکرد آن را بهبود بخشند. از اینرو هر روز قابلیت‌ های جدیدی به این برنامه اضافه می‌ شود. تلگرام امکان ساخت ربات و تعامل با سایر برنامه‌ ها نظیر اینستاگرام را از طریق دستورات IFTT فراهم می‌کند.</p>
                 <p>تلگرام همچنین به صورت تحت وب قابل اجراست. این موضوع به آن معناست که شما می‌ توانید تلگرام را از طریق مرورگر و بدون نیاز به نصب هیچ برنامه یا اپلیکیشن جانبی در کامپیوتر، لپ‌تاپ و غیره اجرا کنید.</p>
             </motion.div>
             <div className='flex flex-col-reverse sm:flex-row items-center'>
                 <div>
-                    <motion.h5 className='text-green-1c' whileInView={{opacity:[0,1],x:[300,0]}} transition={{duration:1}} viewport={{once:true}}>لینکدین چیست ؟</motion.h5>
+                    <motion.h5 className='text-green-1c py-3' whileInView={{opacity:[0,1],x:[300,0]}} transition={{duration:1}} viewport={{once:true}}>لینکدین چیست ؟</motion.h5>
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>لینکدین در واقع یک شبکه اجتماعی حرفه ای است که اساسا برای بهبود کسب و کارهای مختلف و آشنا کردن دیگران با آن ها طراحی شده است. با این حال، استفاده از لینکدین تنها به این موضوع محدود نمی شود و کاربران این شبکه اجتماعی می توانند از طریق آن، با افراد دیگری که در حوزه کاری شان فعالیت می کنند، آشنا شوند و با آن ها ارتباط برقرار کنند.</motion.p>
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>همچنین می توان از این سیستم برای پیدا کردن کار یا استخدام افراد نیز استفاده کرد. این موضوع چندان مسئله عجیبی نیست؛ کافیست سری به صفحات اشخاص یا شرکت های مختف بزنید تا از این مسئله با خبر شوید. علاوه بر این، محدود به داشتن یک حساب کاربری نیستید و می توانید با در اختیار داشتن چند اکانت مختلف، استفاده های متعددی از لینکدین داشته باشید. کار کردن با این پلفترم نیز بسیار راحت تر از چیزیست که فکرش را می کنید.</motion.p>
                 </div>
@@ -103,7 +103,7 @@ function SsocialMedia() {
             <div className='flex flex-col sm:flex-row items-center'>
                 <motion.img src={twitter} alt="twitter" className='w-80 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],scale:[0,1],rotate:[270,0]}} transition={{duration:2}} viewport={{once:true}}/>
                 <motion.div whileInView={{opacity:[0,1],x:[-1000,0]}} transition={{duration:1}} viewport={{once:true}}>
-                    <h6 className='text-green-1c'>توییتر چیست ؟</h6>
+                    <h6 className='text-green-1c py-3'>توییتر چیست ؟</h6>
                     <p>توییتر یک سرویس میکروبلاگینگ است. یعنی در شبکه اجتماعی توییتر، وبلاگ نویسی در 280 کارکتر یا حرف فراهم شده است. این یعنی می توان خبر، دیدگاه یا جملات خود را با جملات کوتاه به مخاطبان منتقل کرد.</p>
                     <p>توییتر با بیش از 1/3 میلیارد حساب کاربری، ماهانه 330 میلیون کاربر فعال و 145 میلیون کاربر روزانه، یک شبکه اجتماعی مهم برای افزایش فروش کسب کارها و افراد محسوب می شود.</p>
                     <p>داشتن بازدید ویدیو، لایک و کامنت بالا و همچنین فالوور های معتبر، از جمله مواردی است که در الگوریتم توئیتر تاثیرگذار بوده و نهال آی تی نیز این خدمت را در اختیار شما قرار می دهد.</p>
@@ -111,7 +111,7 @@ function SsocialMedia() {
             </div>
             <div className='flex flex-col-reverse gap-5 sm:gap-0 sm:flex-row items-center'>
                 <motion.div whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>
-                    <h6 className='text-green-1c'>فیسبوک چیست ؟</h6>
+                    <h6 className='text-green-1c py-3'>فیسبوک چیست ؟</h6>
                     <p>یس بوک (facebook) اگر چه در میان شبکه های اجتماعی قدیمی ترین نیست، اما بی شک مطرح ترین است. در نیمه سال 2018 تعداد کاربران فعال فیس بوک از 1/7 میلیارد نفر گذشت و در فصل سوم سال 2018، تعداد کاربران فعال ماهانه فیسبوک، 2/27 میلیارد نفر اعلام شد.</p>
                     <p>فعالیت در فیسبوک از سال های دور بین کاربران ایرانی رواج داشته و از این شبکه اجتماعی برای تبادل اطلاعات، اشتراک گذاری عکس و ویدیو و مواردی از این دست استفاده می شود.</p>
                     <p>داشتن بازدید و لایک بالا در فیسبوک، می تواند برای افرادی که در این شبکه اجتماعی فعال هستند، جزو مواردی باشد که اعتبار پیج را افزایش می دهد. همچنین به دلیل اهمیت بالای فیسبوک برای گوگل و سایر شبکه های اجتماعی، داشتن سیگنال بالا از این شبکه اجتماعی می تواند برای سئوی سایت نیز موثر باشد.</p>
@@ -120,7 +120,7 @@ function SsocialMedia() {
             </div>
             <div className='flex flex-col-reverse gap-5 sm:gap-0 sm:flex-row items-center'>
                 <div>
-                    <h6 className='text-green-1c'>آپارات چیست ؟</h6>
+                    <h6 className='text-green-1c py-3'>آپارات چیست ؟</h6>
                     <motion.p whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>امروزه با گسترش دنیای وب، سایت هایی مانند وب سایت آپارات به عنوان معتبرترین و بزرگترین سایت ایران که بهترین رتبه الکسا را در بین سایت های ایرانی دارد، بستری مناسب را با رابط کاربری جذاب در اختیار همه افراد قرار داده تا به راحتی بتوانند ویدیوی خود را آپلود کرده و کسب و کار خود را تبلیغ کنند.</motion.p>
                     <motion.p whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>هر چه ویدیوهای یک کاربر از بازدید بالاتری برخوردار باشد، اعتبار بیشتری نزد کاربران و بازدیدکنندگان یافته و تاثیر بیشتری در ذهن آنان می گذارد.</motion.p>
                     <motion.p whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>ضمنا به دلیل اینکه سایت آپارات از سئو و ارزش دامنه بالایی برخوردار است، امکان بهبود جایگاه ویدیوی شما در نتایج گوگل نیز وجود دارد.</motion.p>
@@ -130,13 +130,13 @@ function SsocialMedia() {
             <div className='flex flex-col sm:flex-row items-center'>
                 <motion.img src={youtube} alt="youtube" className='w-80 h-48 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2}} viewport={{once:true}}/>
                 <div>
-                    <h6 className='text-green-1c'>یوتیوب چیست ؟</h6>
+                    <h6 className='text-green-1c py-3'>یوتیوب چیست ؟</h6>
                     <p>یوتیوب به عنوان یکی از زیرمجموعه های بزرگ کمپانی گوگل، معتبرترین سایت جهان در زمینه اشتراک ویدیو محسوب می شود و بسیاری از کاربران اینترنت از سراسر جهان، ویدیوهای خود را در آن به اشتراک گذاشته و از آن کسب درآمد می کنند. یکی از شروط لازم برای کسب درآمد از یوتیوب این است که ویدیوهای کانال شما حداقل 4 هزار ساعت بازدید داشته باشند.</p>
                     <p>مجموعه کلیک اول، امکان افزایش بازدید یوتیوب را به صورت کاملا اختصاصی فراهم آورده تا کاربران بتوانند همانند آپارات، بازدید ویدیوی خود را در یوتیوب نیز افزایش دهند و ضمن کسب اعتبار بیشتر نزد کاربران، جایگاه بهتری را در گوگل و یوتیوب به دست آورند. نکته مهمی که باید بدان توجه کنید این است که مدت زمان بازدید ویدیو یکی از عوامل موثر در نحوه نمایش آمار در یوتیوب می باشد.</p>
                 </div>
             </div>
             <div className='flex flex-col gap-3 2xl:gap-8 my-1'>
-                <h6 className='text-center text-green-137'>خدمات شبکه های اجتماعی</h6>
+                <h6 className='text-center text-green-137 py-3'>خدمات شبکه های اجتماعی</h6>
                 <div className='flex flex-col sm:flex-row items-center flex-wrap gap-[5rem] socalMedia-services sm:justify-center  lg:justify-between'>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
                         <img src={instagram} alt="instagram" className='w-[4rem] 2xl:w-[6rem]'/>
@@ -180,7 +180,7 @@ function SsocialMedia() {
                 </div>
             </motion.div>
             <div>
-                <h6 className='text-gray-66 text-center 2xl:mt-20 2xl:mb-10'>تعرفه خدمات شبکه های اجتماعی تیم نهال آی تی</h6>
+                <h6 className='text-gray-66 text-center 2xl:mt-20 2xl:mb-10 py-3'>تعرفه خدمات شبکه های اجتماعی تیم نهال آی تی</h6>
                 <div className='flex flex-wrap flex-col sm:gap-0 gap-5 items-center sm:flex-row justify-between'>
                     <img src={tarrif_1} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
                     <img src={tarrif_2} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>

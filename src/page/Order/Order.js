@@ -24,7 +24,7 @@ const Order = () => {
         ?
         <>
           <section className="bg-[#f5f5f9]">
-            <div className="container px-56 max-lg:px-20 max-md:px-10 max-sm:px-4 mx-auto">
+            <div className="container mx-auto px-3">
               <h2 className="font-[shabnamBold] text-lg pt-5 tracking-tight">سفارش طراحی</h2>
               <div>
                 <h3 className="font-[shabnamBold] tracking-tighter mt-4">راهنمای سفارش :</h3>
@@ -58,7 +58,7 @@ const Order = () => {
             </div>
           </section>
           <section className="bg-[#f5f5f9] pt-20 pb-10 relative z-50">
-            <div className="px-48 max-lg:px-20 max-md:px-10 max-sm:px-4 mx-auto flex flex-wrap justify-between max-2xl:justify-center">
+            <div className="w-full max-lg:px-20 max-md:px-10 max-sm:px-4 mx-auto flex flex-wrap justify-between max-2xl:justify-center">
               <form className="flex flex-col items-start justify-center gap-y-2">
                 <label htmlFor="name">نام</label>
                 <input

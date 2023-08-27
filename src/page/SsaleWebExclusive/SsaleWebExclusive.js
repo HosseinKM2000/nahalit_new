@@ -49,7 +49,7 @@ function SsaleWebExclusive() {
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-center items-center'>
               <div>
-                <motion.h2 whileInView={{x:[500,-20,20,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>طراحی وب سایت فروشگاهی</motion.h2>
+                <motion.h2 whileInView={{x:[500,-20,20,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137 py-3'>طراحی وب سایت فروشگاهی</motion.h2>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>با توجه به فراهم شدن بستر استفاده از پرداخت اینترنتی و از سوی دیگر مشکلاتی مانند ترافیک، ازدحام جمعیت و نداشتن وقت کافی برای خرید حضوری، این روزها تمایل افراد برای خرید کالا به صورت اینترنتی رو به افزایش است.</motion.p>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>هر کسی دوست دارد بدون خروج از منزل یا محل کار، سریعا وارد سایت یک فروشگاه اینترنتی شده و محصول خود را خریداری کند. بنابراین توجه به مسئله ساخت سایت فروشگاهی برای کسب و کارهای سنتی، افزایش یافته است.</motion.p>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>استفاده از خدمات طراحی سایت فروشگاهی حرفه ای این امکان را به شما خواهد داد که بتوانید بازار هدف خود را که شامل مشتریان یک محله و شهر خاصی هستند را توسعه داده و در سطح کلان کشوری آنها را جذب کنید. این کار باعث دیده شدن بیشتر خدمات و محصولات شما شده و خواهید توانست به راحتی بازار بزرگی از مشتریان را به خود جذب کنید.</motion.p>
@@ -59,14 +59,14 @@ function SsaleWebExclusive() {
             <div className='flex flex-col sm:flex-row justify-center items-center'>
               <motion.img src={Img_2} alt="Img_2" className='w-[12rem] 2xl:w-[20rem]' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
               <div>
-                <motion.h3 className='text-green-137' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>طراحی وب سایت خبری</motion.h3>
+                <motion.h3 className='text-green-137 py-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>طراحی وب سایت خبری</motion.h3>
                   <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>افراد عاشق شنیدن خبر های تازه هستند . اما از آن جایی که بسیاری از مردم این روزها به دنیای اینترنت رو آورده اند، بسیاری از اخبار را از طریق وب سایت های خبری دنبال می کنند. به همین علت طراحی وبسایت خبری از تقاضای بالایی در تهران و دیگر شهرستان ها برخوردار شده است . وب سایت نهال آی تی به شما کمک می کند تا با آسودگی خاطر اقدام به سفارش طراحی وب سایت کنید.</motion.p>
                   <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>اگر با حوزه تولید محتوا آشنا باشید، می‌دانید که اگر تولید محتوای مناسب و جذابی داشته باشید، روزانه هزاران کاربر را به سمت خود می‌کشانید. همین ویژگی افزایش بازدید در طی ماه‌ها و سال‌ها موجب شده تا درآمد سایت‌های خبری تا حد زیادی افزایش یابد.</motion.p>
               </div>
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-center items-center'>
               <div>
-                <motion.h4 whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>طراحی وب سایت شرکتی</motion.h4>
+                <motion.h4 whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137 py-3'>طراحی وب سایت شرکتی</motion.h4>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اگر هدف شما از طراحی سایت شرکتی، ورود به عرصه رقابت با وب سایت ها و شرکت های رقیب که فعالیتی مشابه شما دارند است، حتما طراحی وب سایت شرکتی اختصاصی لازمه موفقیت کار شماست.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>در پروژه های طراحی سایت شرکت نهال آی تی ، علاوه بر زیبایی نمای بصری و گرافیکی وب سایت در طرح های اختصاصی، نیاز و سلیقه شما در دیزاین لحاظ شده و همچنین اصول اولیه افزایش رتبه وب سایت و سئو نیز بر اساس نوع فعالیت شما به نحو شایسته ای در سایت طراحی شده پیاده سازی می‌ شود.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>علاوه بر آن امکانات خاص مد نظر شما در طراحی سایت شرکت با انتخاب طراحی وب سایت اختصاصی قابلیت توسعه بیشتری خواهد داشت.‎</motion.p>
@@ -76,13 +76,13 @@ function SsaleWebExclusive() {
             <div className='flex gap-3 flex-col sm:flex-row justify-center items-center'>
               <motion.img src={Img_4} alt="Img_4" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
               <div>
-                <motion.h5 className='text-green-137' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>طراحی وب سایت اشتراک گذاری عکس و فیلم</motion.h5>
+                <motion.h5 className='text-green-137 py-3' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>طراحی وب سایت اشتراک گذاری عکس و فیلم</motion.h5>
                 <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>پنل مدیریت وب سایت به اشتراک گذاری ویدئو و اشتراک گذاری عکس یکی از cms های دست نویس تیم نهال آی تی می باشد و از هیچ گونه سیستم های آماده همانند وردپرس و جوملا و … استفاده نشده است و به زبان php نوشته شده است.</motion.p>
                 <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>با توجه به دست نویس بودن کامل این سیستم، امکان اختصاصی سازی چه از نظر ظاهری و چه از نظر امکانات و بخش ها قابل مدیریت و برنامه نویسی می باشد .</motion.p>
               </div>
             </div>
             <motion.div  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>
-              <h6 className='text-center text-green-137 2xl:mb-5 2xl:mt-10'>طراحی وب سایت حرفه ای</h6>
+              <h6 className='text-center text-green-137 2xl:mb-5 2xl:mt-10 py-3'>طراحی وب سایت حرفه ای</h6>
               <div className='flex flex-col items-center sm:flex-row gap-2 gap-y-8'>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
                   <img src={domain} alt="domain" className='w-28 2xl:w-64'/>
@@ -102,7 +102,7 @@ function SsaleWebExclusive() {
               </div>
             </motion.div>
             <div className='mb-32 2xl:mt-20'>
-                <h6 className='text-gray-66 text-center'>تعرفه خدمات طراحی وب سایت</h6>
+                <h6 className='text-gray-66 text-center py-3'>تعرفه خدمات طراحی وب سایت</h6>
                 <div className='flex flex-col justify-center flex-wrap items-center sm:flex-row gap-5 sm:gap-2'>
                   <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_laravel} alt="laravel" />
                   <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_jango} alt="jango" />

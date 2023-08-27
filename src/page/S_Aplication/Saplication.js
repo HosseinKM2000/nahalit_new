@@ -41,7 +41,7 @@ function Saplication() {
         <div className='flex flex-col gap-10 px-1'>
             <div className='flex flex-col-reverse sm:flex-row items-center'>
                 <div className='text-justify'>
-                    <motion.h1 className='text-green-08A' whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن یا نرم‌افزار چیست؟</motion.h1>
+                    <motion.h1 className='text-green-08A py-3' whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن یا نرم‌افزار چیست؟</motion.h1>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}>بسیاری از برنامه‌های موجود بر روی گوشی هوشمند، که استفاده از آنها فرد را قادر به برقراری ارتباط با دیگران یا انجام فعالیت‌های روزمره می‌کند، اپلیکیشن یا نرم‌افزار نامیده می‌شود.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}>به عبارت ساده، تمام برنامه‌هایی که بر روی گوشی هوشمند خود دارید نرم‌افزار به‌حساب می‌آیند؛ اما اگر بخواهیم تعریفی دقیق از نرم‌افزار ارائه دهیم باید بگوییم، تمام برنامه‌های موجود در گوشی‌های هوشمند به‌جز زبان‌های برنامه‌نویسی و سیستم‌عامل گوشی در دسته اپلیکیشن­های موبایل قرار می‌گیرند.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}>وب‌سایت Techopedia مرجع رسمی اصطلاحات دنیای تکنولوژی است.</motion.p>
@@ -52,18 +52,18 @@ function Saplication() {
                 <motion.img src={img_1} alt="application or softwar" className='w-[15rem] sm:w-[25rem] sm:h-[15rem] h-[10rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5,delay:0.5}} viewport={{once:true}}/>
             </div>
             <div>
-                <motion.h2 className='text-green-08A' whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اهمیت ساخت اپلیکیشن موبایل</motion.h2>
+                <motion.h2 className='text-green-08A py-3' whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اهمیت ساخت اپلیکیشن موبایل</motion.h2>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>امروزه هر کسب و کاری قصد دارد مخاطبان، محبوبیت برند، فروش و درآمدزایی خود را افزایش دهد. یک برنامه تلفن همراه توانایی انجام همه این کارها را دارد و به مشاغل کمک می کند فرصت های رشد چندگانه را پیدا کنند و درآمد خود را افزایش دهند.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>امروزه تعداد کاربران گوشی های هوشمند با جهشی فوق العاده در حال افزایش است و اعتقاد بر این است که تقریباً 80٪ از مردم دنیا از تلفن های همراه استفاده می کنند. مردم از دستگاه های تلفن همراه برای تأمین نیازهای روزمره خود مانند رزرو تاکسی، خرید آنلاین، خرید بلیط و … استفاده می کنند.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>بنابراین در عصر حاضر طراحی اپلیکیشن موبایل برای هر کسب و کاری ضروری است، چه یک شرکت تازه تاسیس باشد چه یک شرکت باسابقه. اگر هنوز قصد ندارید یک برنامه تلفن همراه برای تجارت خود بسازید پس از رقبای خود بسیار عقب هستید. برای غلبه بر رقابت و پیشی گرفتن از رقبای خود اکنون باید برنامه ریزی کنید. تمام کاری که شما باید انجام دهید این است که یک ایده ابتکاری برای ساخت اپلیکیشن موبایل خود بدست آورید و با یک توسعه دهنده اپلیکیشن تماس بگیرید.</motion.p>
             </div>
             <div>
-                <motion.h3 whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A text-center'>خدمات اپلیکیشن موبایل</motion.h3>
+                <motion.h3 whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A text-center py-3'>خدمات اپلیکیشن موبایل</motion.h3>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>این روزها کمتر کسی را می توان پیدا کرد که از گوشی هوشمند استفاده نکند. تقریبا می شود گفت گوشی های هوشمند به بخش غیر قابل انکار زندگی هر کدام از ما تبدیل شده است. چنانچه هر کدام از ما مشکلی یا سوال داشته باشیم سریعا به گوشی های هوشمند خود سر می زنیم .برای برقراری ارتباط، جهت بازی، برای خرید اینترنتی برای هر کاری که بشود آن را از طریق اینترنت انجام داد. کلمه “اپ” مخفف کلمه “اپلیکیشن” است که می تواند از طریق مرورگر وب یا آفلاین در رایانه شما و در تلفن هوشمند، تبلت یا سایر دستگاه های الکترونیکی از جمله تلویزیون های هوشمند و باید به فکر ساعت های هوشمند اجرا شود. پس اگر شما به دنبال رونق کسب و کار خود هستید، حتماً ایجاد بخشی اینترنتی برای آن نیز باشید. در میان بخش های مجازی مربوط به کسب و کار ها، از آن جا که گوشی های تلفن همراه گسترش بیشتری نسبت به کامپیوتر ها در میان اقشار جامعه داشته اند و تقریباً مردم از هر سنی یک گوشی هوشمند همراه خود دارند، ساخت و طراحی اپلیکیشن کسب و کارتان در بستر گوشی های تلفن همراه از تمام بخش های دیگر دارای اهمیت بیشتری است.</motion.p>
             </div>
             <div className='flex flex-col-reverse sm:flex-row gap-5 items-center justify-around'>
                 <div>
-                    <motion.h4 whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A'>مزایای طراحی اپلیکیشن اختصاصی</motion.h4>
+                    <motion.h4 whileInView={{opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A py-3'>مزایای طراحی اپلیکیشن اختصاصی</motion.h4>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>افزایش بهره وری کسب و کار شما</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>افزایش محبوبیت برند شما</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>برقرای ارتباط نزدیک با مشتریان</motion.p>
@@ -77,7 +77,7 @@ function Saplication() {
                 <motion.img src={img_2} alt="benifits-exclusive-application" className='w-[15rem] sm:w-[25rem] sm:h-[15rem] h-[10rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
             </div>
             <div>
-                <motion.h5 className='text-green-08A text-center' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن موبایل چیست؟</motion.h5>
+                <motion.h5 className='text-green-08A text-center py-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن موبایل چیست؟</motion.h5>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>اپلیکیشن‌ موبایل عبارت‌است از از نرم افزارهایی که ارتباط مستقیم با پردازنده‎های سیستم عامل گوشی همراه دارند و مستقیماً درخواست‎های کاربران را انجام می‌دهند. اپلیکیشن ها در موبایل به صورت مستقیم دستوری را انجام می‌دهند که کاملاً برای کاربران ملموس و قابل رؤیت است. اگر بخواهیم در مورد اپلیکیشن موبایل مثالی را بزنیم باید بگوئیم به کلیه نرم افزارهای گوشی که کاربر توسط آنها به اجرای فرمانی در گوشی می پردازد اپلیکیشن نام دارد. برای مثال شما ممکن است برای فعالیت های مالی بسته به حساب بانکی خود ممکن است از اپلیکیشن موبایل بانک ملت، اپلیکیشن موبایل بانک پاسارگاد، اپلیکیشن موبایل بانک ملی، اپلیکیشن موبایل بانک سامان، اپلیکیشن موبایل بانک اقتصاد نوین، اپلیکیشن موبایل بانک سپه، اپلیکیشن موبایل بانک آینده و یا غیره استفاده نمائید. و یا ممکن است شما در طول روز به استفاده از ابزارهای دیگری در گوشی همراه خود بپردازید. برای مثال ممکن است برای دنبال کردن رویدادهای ورزشی از اپلیکیشن موبایل شبکه سه استفاده کنید </motion.p>
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-around items-center'>
@@ -86,14 +86,14 @@ function Saplication() {
             </div>
             <div className='flex flex-col-reverse sm:flex-row justify-around items-center'>
                 <div className='w-full sm:w-2/4'>
-                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}   className='text-green-08A'>اپلیکیشن اندروید</motion.h6>
+                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}   className='text-green-08A py-3'>اپلیکیشن اندروید</motion.h6>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='text-justify '>Android به زبان ساده سیستم عاملی است برای دستگاه های موبایل و گوشی های هوشمند که توسط بیش از 30 کمپانی معروف پشتیبانی می شود. اندروید اوپن سورس است و توسعه دهندگان می توانند با استفاده از Android SDK انواع اپلیکیشن اندروید را برای این سیستم عامل بنویسند. در واقع اندروید بستری را فراهم می کند تا برنامه نویسان اپلیکیشن اندروید بتوانند هرچه سریعتر و بهتر برنامه هایی بسازند که از تمام ویژگی های یک گوشی هوشمند استفاده کند. اندروید به معنای واقعی “ باز” (Open) است، یعنی برنامه نویس می تواند از تمام قدرت یک تلفن همراه استفاده کند. اندروید امکان استفاده از توابع داخلی گوشی موبایل همچون شماره گیری، فرستادن SMS یا استفاده از دوربین گوشی را به برنامه نویسان می دهد تا بتوانند اپلیکیشن اندروید قدرتمند و کاربردی برای کاربران بسازند.</motion.p>
                 </div>
                 <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  src={img_4} alt="android-application" className='w-[20rem] 2xl:w-[25rem]'/>
             </div>
             <div className='flex flex-col-reverse sm:flex-row items-center justify-around'>
                 <div className='flex flex-col  sm:items-start items-center w-full sm:w-2/4 text-justify'>
-                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='text-green-08A'>اپلیکیشن جاوا</motion.h6>
+                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}  className='text-green-08A py-3'>اپلیکیشن جاوا</motion.h6>
                     <motion.b whileInView={{x:[400,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>زبان برنامه نویسی جاوا چیست؟ </motion.b>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='mt-5'><b>Java</b> یکی از زبان های برنامه نویسی سطح بالا می باشد که مبتنی بر کلاس و شی گرا است و به صورت رایگان در اختیار برنامه نویسان قرار می گیرد و با آن می توان برنامه های مختلفی ساخت. زبان برنامه نویسی Java بیشتر در ساخت نرم افزار اندروید مورد استفاده قرار می گیرد و کاربرد دارد.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>جاوا پر کاربــرد ترین پلت فرم براي گوشي هاي بدون سیستم عامل است ما میتوانیم یک اپلیکیشن فوق العاده با استفاده از جاوا برای شما بسازیم.</motion.p>
@@ -102,13 +102,13 @@ function Saplication() {
             </div>
             <div className='flex flex-col-reverse sm:flex-row items-center justify-around'>
                 <div className='w-full sm:w-2/4'>
-                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A'>اپلیکیشن ios</motion.h6>
+                    <motion.h6 whileInView={{x:[300,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-green-08A py-3'>اپلیکیشن ios</motion.h6>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='text-justify'>شرکت نهال آی تی علاوه بر طراحی اپلیکیشن های اندرویدی به ساخت وطراحی اپلیکیشن ios نیز می پردازد و طبق خواسته مشتری هریک از این اپ ها را به صورت اختصاصی و حرفه تولید و طراحی کرده و در اختیار شما عزیزان قرار خواهد داد، البته لازم به ذکر است که نهال آی تی با استفاده از فریم ورک های حرفه ای برنامه نویسی اپلیکیشن ها را به گونه ای طراحی می کند که هم در پلتفرم اندروید و هم در ios سازگار باشد، برای اطلاعات بیشتر در زمینه طراحی اپلیکیشن موبایل با مشاورین نهال آی تی در تماس باشید.</motion.p>
                 </div>
                 <motion.img whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} src={img_6} alt="ios-appliacation" className='w-[15rem] 2xl:w-[20rem]'/>
             </div>
             <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}} className='gap-5 sm:gap-2 2xl:mt-10'>
-                <h6 className='text-green-137 text-center'>خدمات طراحی اپلیکیشن موبایل</h6>
+                <h6 className='text-green-137 text-center py-10'>خدمات طراحی اپلیکیشن موبایل</h6>
                 <div className='flex flex-col sm:flex-row gap-5 design-mobile-application'>
                     <div className='flex flex-col gap-3 2xl:gap-8 items-center'>
                         <img src={img_7} alt="andriod" className='w-[3rem] 2xl:w-[5rem]'/>
@@ -128,7 +128,7 @@ function Saplication() {
                 </div>
             </motion.div>
             <div className='flex flex-col gap-5 2xl:gap-10 2xl:mt-20'>
-                <h6 className='text-center text-gray-4444'>تعرفه خدمات اپلیکیشن موبایل تیم نهال آی تی</h6>
+                <h6 className='text-center text-gray-4444 py-3'>تعرفه خدمات اپلیکیشن موبایل تیم نهال آی تی</h6>
                 <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row justify-evenly items-center'>
                     <img src={img_10} alt="tarrif" className='w-[15rem] sm:w-[25%] 2xl:w-[25rem] md:w-[28%]'/>
                     <img src={img_11} alt="tarrif" className='w-[15rem] sm:w-[25%] 2xl:w-[25rem] md:w-[28%]'/>

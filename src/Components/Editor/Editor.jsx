@@ -11,7 +11,6 @@ function Editor({ setDesc , desc='' }) {
             editor={ClassicEditor}
             data={desc}
             onReady={editor => {
-                console.log(editor)
             }}
             onChange={(event, editor) => {
                 const data = editor.getData();

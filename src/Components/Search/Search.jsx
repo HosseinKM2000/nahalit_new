@@ -19,10 +19,6 @@ const Search = () => {
   const searchRef = useRef();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(showResult)
-  },[showResult])
-
   const searchInBlogs = () => {
     dispatch(searchBlogs(searchRef.current.value))
     setShowResult('blogs');
@@ -39,6 +35,13 @@ const Search = () => {
         <input
           type="search"
           ref={searchRef}
+          onKeyDown={(e)=>{
+            if(e.key === 'Enter')
+            {
+              setSuggest(true);
+              
+            }
+          }}
           onChange={(e)=>{
             if(e.target.value === '')
             {

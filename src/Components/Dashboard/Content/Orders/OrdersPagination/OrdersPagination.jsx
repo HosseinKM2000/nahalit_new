@@ -28,7 +28,7 @@ function OrdersPagination() {
           dispatch(setScrollUp());
           setItemOffset(newOffset)
         };
-        console.log(orders)
+
       return (
         <>
         {

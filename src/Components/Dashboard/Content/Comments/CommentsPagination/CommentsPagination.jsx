@@ -19,10 +19,6 @@ function CommentsPagination() {
     const pageCount = Math.ceil(comments.length / itemsPerPage);
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        console.log(comments)
-    },[]);
-
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % comments.length;
       dispatch(setScrollUp());

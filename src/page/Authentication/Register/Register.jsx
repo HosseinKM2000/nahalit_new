@@ -99,7 +99,7 @@ function Register() {
     <div className='w-screen relative min-h-[dvh] bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
         <HomeButton/>
         <div className='container mx-auto max-w-[400px]'>
-          <div className='flex flex-col my-5 overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
+          <div className='flex flex-col mx-3 my-5 overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>
               <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
                   <div className='flex flex-col gap-1 2xl:gap-3 items-center'>
                       <div className='bg-[#464c56] rounded-[50%] w-[4rem] h-[4rem] 2xl:h-[6rem] 2xl:w-[6rem] 2xl:text-7xl 2xl:p-3 text-5xl flex justify-center items-center'>

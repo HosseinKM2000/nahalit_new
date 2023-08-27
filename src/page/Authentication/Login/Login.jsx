@@ -66,7 +66,7 @@ function Login() {
     <div className='w-screen relative min-h-screen bg-gray-300 flex justify-center font-[shabnamMedium] items-center'>
       <HomeButton/>
       <div className='container mx-auto max-w-[400px]'>
-        <div className='flex flex-col  2xl:my-10 my-5  overflow-hidden rounded-md shadow-[0px_5px_14px_5px_rgba(0,0,0,0.05)]'>
+        <div className='flex mx-3 flex-col  2xl:my-10 my-5  overflow-hidden rounded-md shadow-[0px_5px_14px_5px_rgba(0,0,0,0.05)]'>
           <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
               <div className='flex flex-col gap-1 items-center'>
                       <div className='bg-[#464c56] rounded-[50%] 2xl:h-[6rem] 2xl:w-[6rem] w-[4rem] 2xl:p-3 h-[4rem] 2xl:text-7xl text-5xl flex justify-center items-center'>

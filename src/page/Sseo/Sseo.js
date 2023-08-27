@@ -45,7 +45,7 @@ function Sseo() {
             </div>
             <div className='flex sm:flex-row flex-col items-center'>
                 <div>
-                    <motion.h2 whileInView={{x:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>سئو وب سایت چیست ؟</motion.h2>
+                    <motion.h2 whileInView={{x:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137 py-3'>سئو وب سایت چیست ؟</motion.h2>
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>سئو چیست؟ امروزه همان سوالی است که در تمامی زیرشاخه های کسب و کارهای اینترنتی و دیجیتال مارکتینگ، مطرح می شود.</motion.p>
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>به طور خلاصه می توان گفت بهینه سازی وب سایت یا همان سئو ، موجب می شود یک سایت توسط موتورهای جستجو نظیر گوگل، یعنی در صفحه سرچ آن ها به افرادی که کلمات مربوط به آن وب سایت ها را جستجو می کنند، در جایگاه بالاتری نمایش داده شود و آن افراد جذب وب سایت ها شوند.</motion.p>
                 </div>
@@ -59,7 +59,7 @@ function Sseo() {
             </motion.div>
             <div className='flex sm:flex-row flex-col items-center justify-between'>
                 <div>
-                    <motion.h3 whileInView={{x:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>موتور جست و جو چیست ؟</motion.h3>
+                    <motion.h3 whileInView={{x:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137 py-3'>موتور جست و جو چیست ؟</motion.h3>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتور جستجو یک ابزار آنلاین است که به افراد برای پیدا کردن اطلاعات مورد نظرشان در اینترنت کمک می‌کند. موتور جستجوی گوگل و موتور جستجوی بینگ مایکروسافت از معروف ترین موتورهای جستجو هستند.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتورهای جستجوی در نحوه رتبه بندی وب سایت‌ ها در هنگام جستجوی کلید واژه‌های مختلف توسط کاربران، عملکرد متفاوتی دارند. این تفاوت رتبه دهی ناشی از هوش مصنوعی مورد استفاده در موتورهای جستجو است.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>گوگل نتایج بهتری در هنگام جستجو به کاربران نشان ‌می‌ دهد و فرایند جستجو در اینترنت را برای کاربران در مقایسه با سایر موتورهای جستجو در گوگل دلپذیرتر است. به همین دلیل گوگل تبدیل به پرطرفدارترین موتور جستجو در اینترنت شده‌ است.</motion.p>
@@ -67,7 +67,7 @@ function Sseo() {
                 <motion.img src={Img_2} alt="search-engine" className='w-64 h-50 2xl:w-[30rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
-                <h4 className='text-green-137'>موتور جستجو چگونه کار می‌کند ؟</h4>
+                <h4 className='text-green-137 py-3'>موتور جستجو چگونه کار می‌کند ؟</h4>
                 <p>موتورهای جستجو مانند گوگل و بینگ برای بررسی صفحات مختلف در وبسایت‌ها از ربات‌ها استفاده می‌کنند. این ربات‌ها در واقع برنامه‌های کامپیوتری هستند که از سایتی به سایت دیگر می‌روند و اطلاعات مربوط به صفحات موجود در سایت‌های مختلف را جمع‌آوری می‌کنند. در نهایت این اطلاعات را در یک پایگاه داده عظیم ذخیره یا اصطلاحا ایندِکس (Index) می‌کنند.</p>
                 <p>بطور کلی عملکرد موتورهای جستجو شامل چهار مرحله است:</p>
                 <p><b>1- خزش (Crawling) :</b> مشاهده و بررسی صفحات وب سایت‌ ها که اصطلاحا به آن کراولینگ یا خزیدن می‌ گویند.</p>
@@ -78,7 +78,7 @@ function Sseo() {
             </motion.div>
             <div className='flex sm:flex-row flex-col items-center justify-between'>
                 <div>
-                  <motion.h5  whileInView={{opacity:[0,1],scale:[0,1],x:[-50,0],y:[-30,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137'>رتبه بندی در SERP ها چیست ؟</motion.h5>
+                  <motion.h5  whileInView={{opacity:[0,1],scale:[0,1],x:[-50,0],y:[-30,0]}} transition={{duration:1}} viewport={{once:true}} className='text-green-137 py-3'>رتبه بندی در SERP ها چیست ؟</motion.h5>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>حالا که شما فهمیده اید که سئو چیست و چه معنا و مفهومی دارد، می خواهیم کمی جلوتر برویم. یکی دیگر از سوالات رایج که می شنویم این است :</motion.p>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>رتبه بندی سایت در گوگل چیست؟</motion.p>
                 </div>
@@ -91,7 +91,7 @@ function Sseo() {
             </motion.div>
             <div className='flex sm:flex-row flex-col items-center'>
                 <div>
-                    <h6 className='text-green-137'>افزایش بازدید سایت</h6>
+                    <h6 className='text-green-137 py-3'>افزایش بازدید سایت</h6>
                     <p>افزایش بازدید سایت یکی از اصلی ترین کارهایی است که هر صاحب سایتی باید به آن اهمیت دهد. در واقع اگر شما صاحب هر کسب و کار آنلاینی هستید باید در صدد بالا بردن بازدید سایت خود باشید. فرقی نمی کند چه خدمات و محصولاتی را ارائه می کنید، در هر صورت باید به فکر بالا بردن بازدید سایت تان باشید. کاملا مشخص است که ترافیک هر سایتی جزئی از سرمایه آن است.</p>
                     <p>هر چقدر که وب سایت شما از هر لحاظی عالی باشد تا زمانی که نتوانید ترافیک واقعی دریافت کنید بی فایده است و هیچ سودی برای شما نخواهد داشت.</p>
                 </div>
@@ -103,7 +103,7 @@ function Sseo() {
                 <p>با این توضیحات باید گفت که تمرکز اصلی شما نباید فقط روی تعداد بازدیدهای کسب شده باشد، بلکه باید روی مسئله نرخ تبدیل تمرکز کنید. مسلماً هرچه بازدیدهای کسب شده بیشتر باشد، شانس افزایش نرخ تبدیل نیز بیشتر می‌ شود.</p>
             </motion.div>
             <motion.div whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2,delay:1}} viewport={{once:true}} className='flex flex-col gap-3 2xl:gap-3'>
-                <h6 className='text-center text-green-137'>خدمات وب سایت</h6>
+                <h6 className='text-center text-green-137 py-3'>خدمات وب سایت</h6>
                 <div className='flex sm:flex-row flex-col items-center justify-center gap-1'>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
                         <img src={Img_5} alt="seo" className='w-24 2xl:w-[30%]'/>

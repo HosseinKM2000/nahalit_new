@@ -40,7 +40,7 @@ function Sproposal() {
             <motion.div className='flex flex-col sm:flex-row items-center gap-5' whileInView={{x:[-1000,0],skew:[-100,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>
                 <img src={Img_2} alt="building" className='w-[15rem] 2xl:w-[25rem]'/>
                 <div>
-                    <h2 className='text-green-1c'>چرا به بیزینس پلن نیاز داریم؟</h2>
+                    <h2 className='text-green-1c py-3'>چرا به بیزینس پلن نیاز داریم؟</h2>
                     <p className='mb-5'>فرض کنید یک زمین 400 متری دارید و می‌خواهید یک ویلا در آن بسازید. چه کار می‌کنید؟</p>
                     <p className='mb-5'>همینطوری می‌روید وسط زمین و شروع می‌کنید به چیدن آجرها روی یکدیگر؟</p>
                     <p className='mb-5'>یا نه، ابتدا نقشۀ ساختمانی که می‌خواهید بسازید را آماده می‌کنید؟</p>
@@ -49,7 +49,7 @@ function Sproposal() {
             </motion.div>
             <motion.div className='flex flex-col-reverse sm:flex-row gap-5 items-center px-1 sm:px-0 justify-between' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1.5}} viewport={{once:true}}>
                 <div>
-                    <h3 className='text-green-1c'>چه کسانی به بیزینس پلن نیاز دارند؟</h3>
+                    <h3 className='text-green-1c py-3'>چه کسانی به بیزینس پلن نیاز دارند؟</h3>
                     <p className='mb-7'>اگر یک کسب‌وکار کوچک برای خودتان دارید که نیازی به سرمایه‌گذار یا توسعه آن‌چنانی ندارد، نیازی به نوشتن طرح کسب و کار نیست.</p>
                     <p className='mb-7'>مثلاً فرض کنید که یک سایت شخصی دارید و از طریق آن پروژه‌های سئو می‌گیرید؛ اگر برنامه‌ای برای گسترش کارتان ندارید و به همین شیوه راضی هستید، نیازی به نوشتن بیزینس پلن ندارید.</p>
                     <b>اما در 2 حالت است که شما حتماً به بیزینس پلن نیاز پیدا می‌کنید:</b>
@@ -61,7 +61,7 @@ function Sproposal() {
                 <img src={Img_3} alt="planing" className='w-[15rem] 2xl:w-[25rem]'/>
             </motion.div>
             <motion.div whileInView={{y:[300,-20,0,-20,0,-20,0]}} transition={{duration:1.2}} viewport={{once:true}}>
-                <h4 className='text-green-1c'>یک بیزینس پلن از چه بخش‌هایی تشکیل شده است؟</h4>
+                <h4 className='text-green-1c py-3'>یک بیزینس پلن از چه بخش‌هایی تشکیل شده است؟</h4>
                 <p>تا الان طرح‌های مختلفی برای بیزینس پلن ارائه شده است که در بعضی بخش‌ها با هم تفاوت دارند؛ اما کامل‌ترین و بهترین طرح از نظر ما، باید شامل بخش‌های زیر باشد:</p>
                 <p>یک جلد مرتبط</p>
                 <p>فهرست مطالب</p>

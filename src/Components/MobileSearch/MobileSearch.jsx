@@ -19,10 +19,6 @@ function MobileSearch({ dropSearchBox , setDropSearchBox }) {
     const searchRef = useRef();
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log(showResult)
-      },[showResult])
-
     const searchInBlogs = () => {
         dispatch(searchBlogs(searchRef.current.value))
         setShowResult('blogs');
@@ -34,7 +30,7 @@ function MobileSearch({ dropSearchBox , setDropSearchBox }) {
       }
 
   return (
-    <div className={dropSearchBox ? "w-[100vw] flex overflow-y-scroll pb-5 scroll_zero items-center flex-col justify-start md:w-[50vw] z-[70] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700" : "w-[100vw] flex items-center flex-col justify-start md:w-[50vw] z-[70] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-[-50rem] sm:right-[-60rem] md:right-[-70rem] transition-all duration-700"}>
+    <div className={dropSearchBox ? "w-[100vw] flex overflow-y-scroll pb-5 scroll_zero items-center flex-col justify-start md:w-[50vw] z-[101] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700" : "w-[100vw] flex items-center flex-col justify-start md:w-[50vw] z-[101] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-[-50rem] sm:right-[-60rem] md:right-[-70rem] transition-all duration-700"}>
         <div className='w-full flex justify-end text-4xl p-3' style={{borderBottom:'1px solid white'}}>
             <MdOutlineClose className='text-white' onClick={()=>{
                 setDropSearchBox(false)

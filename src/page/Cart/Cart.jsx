@@ -28,10 +28,6 @@ const Cart = () => {
     dispatch(getProducts());
   },[])
 
-  useEffect(() => {
-    console.log(baskets)
-  },[baskets,products])
-
   const addSignToMoney = (number) => {
     const options = {style: 'decimal'};
     return number.toLocaleString('fa-IR', options) + ' تومان';

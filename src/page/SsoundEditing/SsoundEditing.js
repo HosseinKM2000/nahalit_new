@@ -40,12 +40,12 @@ function SsoundEditing() {
                 <p>قطعا یکی از مهم ترین رکن ها در انتقال حس و درک مفاهیم، صدا است. این پدیده آنقدر مهم و حیاتی است که روزانه با افراد مختلفی از طریق آن ارتباط برقرار میکنیم. امروزه با گسترش چشمگیر تکنولوژی قطعا نیاز به صدای باکیفیت بیش از پیش احساس میشود و این امر جز با صداگذاری و تدوین حرفه ای انجام نمیپذیرد. در تیم نهال آی تی، جهت بهره برداری بهتر خدمات ما در حوزه ی تدوین صدا و صداگذاری ، کاربران میتوانند به راحتی با متخصصان مختلف در حوزه صداگذاری به صورت مشترک، مشاوره بگیرند.</p>
             </div>
             <div>
-                <h2 className='text-green-1c'>صدا گذاری و تدوین صدا چیست؟</h2>
+                <h2 className='text-green-1c py-3'>صدا گذاری و تدوین صدا چیست؟</h2>
                 <p>صداگذاری و تدوین صدا یکی از ارکان اصلی ادیت در محتواهای دیجیتال می باشند. برای مثال شما در اکثر فیلم ها صداهای مختلفی را می شنوید که شاید در واقعیت این صداها وجود نداشته باشد و بعد از فیلمبرداری توسط مهندسین صدا آن را بر روی فیلم قرار داده باشند اگر بخواهیم یک نمونه از آن را به شما بگوییم می توانیم به صدای باران اشاره کنیم که در بسیاری از فیلم ها باران به صورت مصنوعی ساخته شده و صدای آن توسط مهندس صدا بر روی تصویر قرار داده می شود که به این عمل صداگذاری می گویند.</p>
             </div>
             <div className='flex p-0 lg:pl-10 gap-10 sm:gap-0 flex-col-reverse sm:flex-row justify-between items-center'>
                 <div>
-                    <motion.h3 whileInView={{x:[700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}  className='text-green-1c'>موارد استفاده تدوین صدا</motion.h3>
+                    <motion.h3 whileInView={{x:[700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}  className='text-green-1c py-3'>موارد استفاده تدوین صدا</motion.h3>
                     <motion.ul whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}  className='flex flex-col gap-5 mr-0 sm:mr-10'>
                         <li>برنامه های تلویزیونی</li>
                         <li>فیلم ها</li>
@@ -60,17 +60,17 @@ function SsoundEditing() {
                 <motion.img src={img_1} alt="soundEditing" className='w-[15rem] sm:w-[20rem] 2xl:w-[400px] 2xl:ml-5 px-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} />
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} >
-                <h4 className='text-green-1c'>تفاوت صداگذاری و تدوین صدا</h4>
+                <h4 className='text-green-1c py-3'>تفاوت صداگذاری و تدوین صدا</h4>
                 <p>در ابتدا بهتر است به مبحث صداگذاری بپردازیم که این روزها جایگاه بسیار خوبی در شبکه پخش خانگی پیدا کرده است، برای مثال شرکت هایی هستند که فیلم های زبان اصلی را دوبله می کنند که در همین کار عمل صداگذاری و تدوین صدا اعمال می شود برای مثال در ابتدا باید صدای خود فیلم حذف شده و صدای گوینده به زبان فارسی بر روی فیلم قرار داده شود به این عمل صداگذاری گفته می شود.</p>
                 <p>حال قصد داریم به تدوین صدا بپردازیم در واقع شاید در قسمتی از کار نیاز باشد که شما مقداری از فیلم را سانسور کنید در نتیجه بعد از حذف شدن آن قسمت از فیلم باید آن قسمت از صدا که مربوط به بخش بریده شده فیلم است را کات کنید و مابقی صداها را به هم بچسبانید که به این کار تدوین صدا گفته میشود و در نهایت بهتر است بدانید که این دو موضوع با هم متفاوت هستند اما برای انجام یک کار حرفه ای به هر دوی آن ها نیاز است.</p>
             </motion.div>
             <div>
-                <motion.h5 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}  className='text-green-1c'>نرم افزارهای حرفه ای ویرایش صدا</motion.h5>
+                <motion.h5 whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}  className='text-green-1c py-3'>نرم افزارهای حرفه ای ویرایش صدا</motion.h5>
                 <p>در ادامه به معرفی چند نرم افزار محبوب و حرفه ای تدوین صدا میپردازیم :</p>
             </div>
             <div className='flex gap-10 sm:gap-0 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
-                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c'>1 - نرم افزار سونی وگاس</motion.h6>
+                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c py-3'>1 - نرم افزار سونی وگاس</motion.h6>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>شرکت سونی نه تنها در زمینه صنعت فیلم سازی دستی دارد، بلکه نرم افزاری را در زمینه میکس، مونتاژ و ویرایش فیلم تهیه کرده است که بسیار قدرتمند می باشد. هر چند این نرم افزار به سیستم بسیار قوی نیاز دارد و کمی پیچیده است.</motion.p>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>استفاده از نهایت کیفیت در صداها و تصاویر خروجی که نهایت لذت را برای ببینده به همراه دارد یکی از مهم ترین خصوصیاتی است که در Sony Vegas Pro به چشم می خورد. انواعی از افکت ها در این ابزار گنجانده شده اند تا کاربران حرفه ای به راحتی با کنار هم قرار دادن تصاویر و همین افکت ها به جذاب تر شدن کار خود کمک کنند.</motion.p>
                 </div>
@@ -78,7 +78,7 @@ function SsoundEditing() {
             </div>
             <div className='flex gap-10 sm:gap-0 p-0 lg:pl-10 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
-                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c'>2 - نرم افزار cyberlink audio director</motion.h6>
+                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c py-3'>2 - نرم افزار cyberlink audio director</motion.h6>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>این شرکت با ارائه نرم افزار های قدرتمند در زمینه تولید و ویرایش محتوا بسیار مورد استقبال کاربران قرار گرفته است. حال اینبار با ارائه یک نرم افزار قدرتمند دیگر در زمینه تدوین صدا نظر کاربران را به خود جلب کرده است. از ویژگی های این نرم افزار میتوان به موارد زیر اشاره کرد :</motion.p>
                     <motion.ul whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} className='mt-5 sm:mr-10 m-0'>
                         <li>ویرایش فایل های صوتی با امکانات متعدد</li>
@@ -93,7 +93,7 @@ function SsoundEditing() {
             </div>
             <div className='flex p-0 lg:pl-10 gap-8 sm:gap-0 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
-                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c'>3 - نرم افزار Adobe Audition</motion.h6>
+                    <motion.h6 whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='text-green-1c py-3'>3 - نرم افزار Adobe Audition</motion.h6>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>Adobe Audition یکی از بهترین نرم افزارهای رکورد آهنگ است که امکاناتی مثل waveform و نمایش چند آهنگ برای ترکیب، ویرایش و بازیابی محتوای صوتی را در اختیارتان می گذارد. این برنامه برای سرعت بخشیدن به روند تولید ویدئو و فایل صوتی طراحی شده است. از ویژگی های این نرم افزار میتوان به موارد زیر اشاره کرد :</motion.p>
                     <motion.ul whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} className='flex flex-col gap-3 mt-5 m-0 sm:mr-10'>
                         <li>می توانید کلیپ های آهنگتان رابه راحتی ضبط، ویرایش و ادغام کنید.</li>
@@ -106,7 +106,7 @@ function SsoundEditing() {
                 <motion.img src={img_4} alt="Adobe Audition" className='w-[5rem] sm:w-[10rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='flex flex-col gap-5'>
-                <h6 className='text-green-137 text-center'>خدمات صداگذاری و تدوین صدا</h6>
+                <h6 className='text-green-137 text-center py-3'>خدمات صداگذاری و تدوین صدا</h6>
                 <div className='flex flex-col sm:flex-row items-center justify-around sound-editing-Services '>
                     <div className='flex flex-col gap-3 items-center'>
                         <img src={img_5} alt="img" className='2xl:w-[10rem] w-36'/>

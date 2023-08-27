@@ -5,9 +5,7 @@ import { useDispatch } from 'react-redux';
 function All({ currentItems , setShow}) {
 
   const dispatch = useDispatch();
-  useEffect(()=>{
-    console.log(currentItems)
-  },[currentItems])
+
   return (
     <div className='flex items-center justify-center flex-wrap gap-8 mb-5'>
         {

@@ -35,7 +35,7 @@ function About_us() {
       </header>
       <main>
         <hr className='h-[5px] w-full lg:h-0 bg-[#1FC49A]'/>
-        <div className='w-full h-[30rem] 2xl:h-[50rem] relative bg-[#00202B] bg-cover bg-right flex justify-center lg:justify-end items-center' style={{backgroundImage:'url("http://nahalit.com/wp-content/uploads/2020/06/beanner-dokan.png")'}}>
+        <div className='w-full h-[30rem] 2xl:h-[50rem] relative  bg-[#00202B] lg:bg-[url("http://nahalit.com/wp-content/uploads/2020/06/beanner-dokan.png")] bg-cover bg-right flex justify-center lg:justify-end items-center'>
           <div className='flex flex-col my-16 relative z-20 w-[35rem] lg:ml-5 p-3 2xl:ml-[8rem] gap-4'>
             <h1 className=' text-white text-2xl font-[IranSans-b]'>درباره نهال آی تی</h1>
             <p className='font-[vasirLight] text-white text-justify leading-6 text-[0.9rem]'>تیم نهال آی تی در شهریور ۱۴۰۱ با همراهی جمعی از بهترین های ایران تشکیل شد تا هر گونه خدماتی در زمینه IT را به همه ی هموطن هایمان در سراسر ایران ارائه دهیم . سعی تیم ما بر این است که بتوانیم کیفیت خود را هر روز بهتر نماییم . اگر نظر و پیشنهادی دارید از قسمت ارتباط با ما یا قسمت های پشتیبانی حتما مطرح کنید .</p>
@@ -79,7 +79,7 @@ function About_us() {
         <div className='bg-[#95989A] text-white px-5 py-10 lg:p-16 mt-5 flex flex-col'>
           <div className='flex flex-col gap-2 items-center'>
             <h1 className='text-2xl font-[IranSans-b]'>حوزه نهال آیتی</h1>
-            <span className='font-[vasir]'>برترین مارکت ایران در حوزه IT</span>
+            <span className='font-[vasir] text-center'>برترین مارکت ایران در حوزه IT</span>
             <p className='text-sm tracking-tighter text-center'>تیم نهال آیتی با تکیه بر اشتغال زایی و جذب نیروی کار جوان در راستای توسعه پیشرفت و شکوفایی کشور فعالیت خود را آغاز کرده و از اقصی نقاط کشور اقدام به جذب نیروی جوان ، با انگیزه و متخصص مینماید .</p>
           </div>
           <div className='flex mt-20 gap-10 justify-center items-center flex-col lg:flex-row'>
@@ -98,9 +98,9 @@ function About_us() {
             </div>
           </div>
         </div>
-        <div className='py-16 bg-cover bg-center' style={{backgroundImage:'url(http://nahalit.com/wp-content/uploads/2020/04/startnow-bg.png)'}}>
+        <div className='py-16 bg-cover bg-center bg-[url("http://nahalit.com/wp-content/uploads/2020/04/startnow-bg.png")]'>
           <div className='mx-auto gap-5 flex flex-col items-center'>
-              <h1 className='text-xl font-[IranSans-b] text-center text-stone-500'>برای شروع و راه اندازی کسب و کار دیجیتال خود با نهال آیتی شروع کنید ...</h1>
+              <h1 className='text-xl font-[IranSans-b] text-center px-1 text-stone-500'>برای شروع و راه اندازی کسب و کار دیجیتال خود با نهال آیتی شروع کنید ...</h1>
               <p className='max-w-[29rem] text-sm text-center'>پشتیبانان ما در لحظه از شبانه روز آماده ارائه مشاوره جهت بهبود کسب و کار شما  می باشند . در نهال آیتی به راحتی و آسودگی شما اهمیت میدهیم .</p>
               <button onClick={()=>window.scrollTo(0,0)} className='bg-[#57C053] hover:bg-[#59da55] transition-all text-sm text-white font-[vasir] py-2 px-3 rounded-sm'>هم اکنون شروع کنید!</button>
           </div>

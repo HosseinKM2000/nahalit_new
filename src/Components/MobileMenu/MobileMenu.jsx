@@ -10,12 +10,12 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   const loginStatus = useSelector(state => state.authentication.loginStatus);
   const itemsMenu = [
     {id:0,title:'صفحه اصلی',cateId:null,beList:false,link:'/'},
-    {id:1,title:"محصولات",cateId:null,beList:true,link:'/shop'},
-    {id:2,title:"ثبت سفارش",cateId:null,beList:false},
+    {id:1,title:"محصولات",cateId:null,beList:false,link:'/shop'},
+    {id:2,title:"ثبت سفارش",cateId:null,beList:false,link:"/order"},
     {id:3,title:"بلاگ",cateId:null,beList:false,link:'/articles'},
     {id:4,title:"نمونه کارها",cateId:null,beList:true},
-    {id:5,title:"آموزش ورود",cateId:null,beList:false},
-    {id:6,title:"استخدام",cateId:null,beList:false},
+    {id:5,title:"آموزش ورود",cateId:null,beList:false,link:"/LoginLearn"},
+    {id:6,title:"استخدام",cateId:null,beList:false,link:"/recruitment"},
     {id:7,title:"خدمات ما",cateId:null,beList:true},
     {id:8,title:"سایت های آماده",cateId:1,beList:true},
     {id:9,title:"پلاگین ورد پرس",cateId:1,beList:true},
@@ -39,16 +39,6 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     {id:27,title:"اپلیکیشن موبایل",cateId:7,beList:false,link:'/services/اپلیکیشن-موبایل'},
     {id:28,title:"خدمات پریمیر, تدوین فیلم",cateId:7,beList:false,link:"/services/خدمات-پریمیر-و-تدوین-فیلم"},
     {id:29,title:"خدمات تدوین صدا و صداگذاری",cateId:7,beList:false,link:"/services/خدمات-تدوین-صدا-و-صدا-گذاری"},
-    {id:30,title:"سایت آماده لاراول",cateId:8,beList:false},
-    {id:31,title:"پلاگین امنیتی",cateId:9,beList:false},
-    {id:32,title:"پلاگین مدیریتی",cateId:9,beList:false},
-    {id:33,title:"پلاگین کاربردی",cateId:9,beList:false},
-    {id:34,title:"قالب شخصی",cateId:10,beList:false},
-    {id:35,title:"قالب شرکتی",cateId:10,beList:false},
-    {id:36,title:"قالب فروشگاهی",cateId:10,beList:false},
-    {id:37,title:"قالب خبری",cateId:10,beList:false},
-    {id:38,title:"اپلیکیشن اندروید",cateId:11,beList:false},
-    {id:39,title:"اسکریپت لاراول",cateId:12,beList:false},
     {id:40,title:"نمونه کار موشن گرافیک",cateId:13,beList:false,link:"/workSamples/graphic/MotionGraphics"},
     {id:41,title:"نمونه کار UI/UX",cateId:13,beList:false,link:"/workSamples/graphic/UI_UX"},
     {id:42,title:"نمونه کار بروشور",cateId:13,beList:false,link:"/workSamples/graphic/Brochure"},
@@ -70,7 +60,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   },[stepList])
   return (
 
-    <div className={!dropMenu ? "w-[100vw] z-[70] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[50vw] z-[70] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
+    <div className={!dropMenu ? "w-[100vw] z-[101] h-[100dvh] bg-[#59ce90f8] fixed top-0 right-[-40rem] sm:right-[-50rem] md:right-[-70rem] transition-all duration-700" : "w-[100vw] md:w-[50vw] z-[101] h-screen bg-[#59ce90f8] fixed top-0 right-0 transition-all duration-700"}>
     <div className="flex items-center w-full justify-between px-4 flex-row-reverse py-3 h-fit" style={{borderBottom:'1px solid #fff'}}>
       <img src={clearIcon} alt="close" className="w-[20px] h-[20px]" onClick={()=>{
         setKeyList({key:'',cateId:''})

@@ -44,6 +44,7 @@ const articlesSlice = createSlice({
         })
         .addCase(getArticles.rejected, (state,action) => {
             state.isLoading = false;
+            console.log("error in getting article =>",action)
         })
     }
 })

@@ -22,7 +22,6 @@ function Categories() {
     {                      
       setInnerComponent(<SecondChildrenCate/>)
     }
-    console.log(Criterion)
   },[Criterion])
 
 

@@ -14,17 +14,12 @@ function EditRole({ setIsEdit , role , permissions }) {
 
     useEffect(() => {
       dispatch(getRoleById(role?.id))
-      console.log("getRolById")
     }, [role])
     
     useEffect(() => {
       setActivePermissions(permissionsForEdit.map(permission => permission.id)) 
-      console.log("setActive")
     },[permissionsForEdit])
 
-    useEffect(()=> {
-      console.log(activePermissions)
-    },[activePermissions])
     
     const addPermission = (permission) => {
 

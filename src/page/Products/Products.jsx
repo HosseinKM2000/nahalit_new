@@ -25,12 +25,14 @@ function Products() {
         {
           loginStatus 
           ?
-          <div className='w-full flex lg:pr-0 lg:pl-5 lg:flex-row flex-col-reverse'>
-            <Helmet>
-              <title>نهال آی تی | محصولات</title>
-            </Helmet>
-            <Side/>
-            <Main/>
+          <div className='container mx-auto'>
+            <div className='w-full flex lg:pr-0 lg:pl-5 lg:flex-row flex-col-reverse'>
+              <Helmet>
+                <title>نهال آی تی | محصولات</title>
+              </Helmet>
+              <Side/>
+              <Main/>
+            </div>
           </div>
           :
           <NotLogined/>

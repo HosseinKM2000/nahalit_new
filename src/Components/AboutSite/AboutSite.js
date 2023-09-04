@@ -3,32 +3,32 @@ import React from "react";
 const AboutSite = () => {
   return (
     <div className="flex-col w-[80%] sm:w-[80%] lg:w-[70%] sm:flex-row flex-wrap flex lg:gap-1 gap-10   items-center justify-between max-lg:gap-12  bg-[#f3f3f5] py-10 rounded-lg">
-        <div className="flex w-fit sm:w-[40%] 2xl:text-2xl lg:w-[24%] justify-between sm:justify-center items-center gap-2">
+        <div className="flex w-fit sm:w-[40%] text-sm  lg:w-[24%] justify-between sm:justify-center items-center gap-2">
         <img alt="aboutSite" src="https://nahalit.com/wp-content/themes/Sigma/assets/img/s1.png" />
         <div className="flex flex-col items-start gap-1 justify-center">
-          <p className="tracking-tighter">طراحی استاندارد</p>
-          <p className="tracking-tighter">طرح ارسالی</p>
+          <p className="tracking-tighter font-[shabnam]">طراحی استاندارد</p>
+          <p className="tracking-tighter font-[shabnam]">طرح ارسالی</p>
         </div>
         </div>
-        <div className="flex w-fit sm:w-[40%] 2xl:text-2xl lg:w-[24%] justify-between sm:justify-center items-center gap-2">
+        <div className="flex w-fit sm:w-[40%] text-sm  lg:w-[24%] justify-between sm:justify-center items-center gap-2">
           <img alt="aboutSite" src="https://nahalit.com/wp-content/themes/Sigma/assets/img/s2.png" />
           <div className="flex flex-col items-start gap-1 justify-center">
-            <p className="tracking-tighter">پرداخت اقساطی</p>
-            <p className="tracking-tighter">به صورت آنلاین</p>
+            <p className="tracking-tighter font-[shabnam]">پرداخت اقساطی</p>
+            <p className="tracking-tighter font-[shabnam]">به صورت آنلاین</p>
           </div>
         </div>
-        <div className="flex justify-between w-fit 2xl:text-2xl sm:w-[40%] lg:w-[24%] sm:justify-center items-center gap-2">
+        <div className="flex justify-between w-fit text-sm  sm:w-[40%] lg:w-[24%] sm:justify-center items-center gap-2">
           <img alt="aboutSite" src="https://nahalit.com/wp-content/themes/Sigma/assets/img/s3.png" />
           <div className="flex flex-col items-start gap-1 justify-center">
-            <p className="tracking-tighter">تحویل فوری</p>
-            <p className="tracking-tighter">با بالاترین کیفیت</p>
+            <p className="tracking-tighter font-[shabnam]">تحویل فوری</p>
+            <p className="tracking-tighter font-[shabnam]">با بالاترین کیفیت</p>
           </div>
         </div>
-        <div className="flex w-fit sm:w-[40%] lg:w-[24%] 2xl:text-2xl justify-between sm:justify-center items-center gap-2">
+        <div className="flex w-fit sm:w-[40%] lg:w-[24%] text-sm  justify-between sm:justify-center items-center gap-2">
           <img alt="aboutSite" src="https://nahalit.com/wp-content/themes/Sigma/assets/img/s4.png" />
           <div className="flex flex-col items-start gap-1 justify-center">
-            <p className="tracking-tighter">پشتیبانی قوی</p>
-            <p className="tracking-tighter">به صورت آنی</p>
+            <p className="tracking-tighter font-[shabnam]">پشتیبانی قوی</p>
+            <p className="tracking-tighter font-[shabnam]">به صورت آنی</p>
           </div>
         </div>
     </div>

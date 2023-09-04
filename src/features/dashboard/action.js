@@ -225,7 +225,19 @@ export const getUsers = createAsyncThunk('dashboard/getUsers', async () => {
     const { data } = response;
     return data;
 })
+export const updateUser = createAsyncThunk('dashboard/updateUser', async (id,dataObj) => {
+    const response = await instance.put(`/users/${id}`,dataObj);
+    const { data } = response;
+    return data;
+})
 export const deleteUser = createAsyncThunk('dashboard/deleteUser', async (id) => {
     const response = await instance.delete(`/users/${id}`);
+    return response;
+})
+
+
+
+export const getWorkSamples = createAsyncThunk('dashboard/getWorkSamples' , async () => {
+    const response = await instance.get('/work-sample');
     return response;
 })

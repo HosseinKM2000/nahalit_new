@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { DatePicker } from "zaman";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import { useSelector } from "react-redux";
 import NotLogined from "../../Components/NotLogined/NotLogined";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 const Recruitment = () => {
+  const [birthDate,setBirthDate] = useState('');
   const loginStatus = useSelector(state => state.authentication.loginStatus);
+
   return (
     <div>
       <header>
@@ -68,27 +71,37 @@ const Recruitment = () => {
               <label htmlFor="NameRecruitment" className="font-[shabnamBold]">
                 نام شما <span className="text-red-500">*</span>
               </label>
-              <input id="NameRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
+              <input required={true} id="NameRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
+              <label htmlFor="FamilyRecruitment" className="font-[shabnamBold]">
+                نام خانوادگی <span className="text-red-500">*</span>
+              </label>
+              <input required={true} id="FamilyRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
               <label htmlFor="EmailRecruitment" className="font-[shabnamBold]">
                 ایمیل شما <span className="text-red-500">*</span>
               </label>
-              <input id="EmailRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="email" />
-              <label htmlFor="AgeRecruitment" className="font-[shabnamBold]">
-                سن <span className="text-red-500">*</span>
+              <input 
+              required={true} 
+              pattern="test@gmail.com"
+              id="EmailRecruitment" 
+              className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" 
+              type="email" />
+              <label htmlFor="birthdateRecruitment" className="font-[shabnamBold]">
+                تاریخ تولد <span className="text-red-500">*</span>
               </label>
-              <input id="AgeRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="number" />
-              <label htmlFor="GenderRecruitment" className="font-[shabnamBold]">
+                <DatePicker onChange={(e) => console.log(e.value.toISOString().split('T')[0])}/>
+              <label htmlFor="martial_statusRecruitment" className="font-[shabnamBold]">
                 وضعیت تاهل <span className="text-red-500">*</span>
               </label>
-              <select className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" id="GenderRecruitment">
-                <option>انتخاب کنید</option>
-                <option>مجرد</option>
-                <option>متاهل</option>
+              <select required={true} name="martial_statusRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" id="martial_statusRecruitment">
+                <option className="font-[shabnam]" value={false}>مجرد</option>
+                <option className="font-[shabnam]" value={true}>متاهل</option>
               </select>
               <label htmlFor="AddressRecruitment" className="font-[shabnamBold]">
                 آدرس <span className="text-red-500">*</span>
               </label>
               <input
+                required={true}
+                placeholder=""
                 id="AddressRecruitment"
                 className="py-2 border border-solid border-[#c7c7c7] outline-none px-2"
                 type="text"
@@ -96,117 +109,42 @@ const Recruitment = () => {
               <label htmlFor="NumRecruitment" className="font-[shabnamBold]">
                 شماره تلفن <span className="text-red-500">*</span>
               </label>
-              <input id="NumRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
-            </form>
-            <div className="mt-7 px-1">
+              <input 
+              required={true} 
+              id="NumRecruitment" 
+              placeholder="09123456789" 
+              className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" 
+              type="number"/>
+              <div className="mt-7 px-1">
               <label htmlFor="checkBoxRecruitment" className="font-[shabnamBold]">
                 فعالیت ها <span className="text-red-500">*</span>
               </label>
-              <form className="mt-3">
-                <div className="flex text-sm gap-5 items-center justify-around font-[shabnamMedium]">
-                  <div className="flex flex-col flex-wrap gap-y-5">
-                    <div className="flex flex-col flex-wrap gap-y-1">
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح سایت بخش فرانت اند</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح قالب وردپرس</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح اپلیکیشن اندروید</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>برنامه نویس لاراول</label>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-y-1">
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>برنامه نویس جاوا</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>سئو</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>انیمیشن</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>برنامه نویس پایتون</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-y-5">
-                    <div className="flex flex-col gap-y-1">
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح سایت بخش بک اند</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح پلاگین وردپرس</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>طراح اپلیکیشن IOS</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>متخصص پایگاه داده (MYSql یا Sql Server )</label>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-y-1">
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>تولید محتوا</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>گرافیک</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>بازاریابی</label>
-                      </div>
-                      <div className="flex items-center gap-x-1">
-                        <input type="checkbox" />
-                        <label>موشن گرافیک</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                <textarea cols={50} rows={10} placeholder="سایر فعالیت ها..." className="m-3 placeholder:text-sm outline-none p-3 text-sm font-[shabnam]"/>
             </div>
-            <div className="mt-10 px-3">
-              <form className="flex flex-col gap-y-4 font-[shabnamBold]">
+            <div className="mt-10 px-3 flex flex-col gap-y-5">
                 <label className="font-[shabnamBold]">
                   وضعیت تحصیل <span className="text-red-500">*</span>
                 </label>
-                <input type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" />
+                <input type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" required={true} />
                 <label className="font-[shabnamBold]">شرح توانایی شما (اختیاری)</label>
-                <textarea className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2"></textarea>
+                <textarea className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2" required={true}></textarea>
                 <label className="font-[shabnamBold]">
                   شماره شبای کارت بانکی <span className="text-red-500">*</span>
                 </label>
                 <input
+                  required={true}
                   type="text"
                   placeholder="شماره شبا بانکی خود را بدون IR وارد کنید"
                   className="py-2 border border-solid font-[shabnamMedium] border-[#cecece] outline-none px-2"
                 />
                 <button
-                  type="button"
+                  type="submit"
                   className="bg-[#38BDF8] w-full self-start px-4 py-1 border border-solid text-white  border-[#cccccc] hover:bg-[#53ccff] transition-all duration-200"
                 >
                   ثبت
                 </button>
-              </form>
             </div>
+            </form>
           </div>
         </div>
       </div>

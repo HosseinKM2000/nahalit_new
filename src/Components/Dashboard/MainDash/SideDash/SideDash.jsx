@@ -159,11 +159,11 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'new'}))} style={{backgroundColor:prCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
               </div>
           </div>
-          <div onClick={()=>listSwitch('comments')}  style={{backgroundColor:content==='comments'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+          {/* <div onClick={()=>listSwitch('comments')}  style={{backgroundColor:content==='comments'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
               <FaRegComments className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
               <li className='text-white font-bold text-lg  text-center'>نظرات</li>
               <div className='w-[1.5rem] h-[1.5rem]'></div>
-          </div>
+          </div> */}
           <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('roles')

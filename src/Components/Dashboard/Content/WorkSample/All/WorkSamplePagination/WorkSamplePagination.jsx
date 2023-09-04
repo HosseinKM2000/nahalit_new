@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import Edit from '../../Edit/Edit';
 import All from '../All';
+import { getWorkSamples } from '../../../../../../features/dashboard/action';
 
 function WorkSamplePagination() {
     const workSample = [
@@ -117,6 +118,7 @@ function WorkSamplePagination() {
     const currentItems = workSample.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(workSample.length / itemsPerPage);
     useEffect(()=>{
+        dispatch(getWorkSamples())
     },[]);
 
     const handlePageClick = (event) => {

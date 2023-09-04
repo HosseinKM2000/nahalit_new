@@ -34,7 +34,7 @@ function Users({ currentItems , setShowDetails }) {
           currentItems.map((user,index) => (
             <div key={user.id} className={`w-[15rem] md:w-full flex flex-col md:flex-row gap-y-3 items-center bg-white hover:bg-[#f1f1f1] text-[#171e28] justify-between px-5 py-4 rounded-xl`} onClick={()=>setShowDetails(user)}>
               <HiUserCircle className='scale-[2.5]'/>
-              <h1 className='text-lg font-[shabnambold]'>{user.first_name} {user.last_name}</h1>
+              <h1 className='text-lg font-[shabnambold]'>{user?.first_name} {user?.last_name}</h1>
               <span>userUser@gmail.com</span>
               <span className='font-[shabnam] text-sm'>{roleValue}</span>
               <span className='text-sm font-bold'>1401/05/26</span>

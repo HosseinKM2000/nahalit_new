@@ -30,17 +30,25 @@ import Footer from '../../../Components/Footer/Footer';
 import Header from '../../../Components/Header/Header';
 import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
 import Comments from './Comments/Comments';
+import HTMLRenderer from 'react-html-renderer';
+import { getProducts } from '../../../features/products/action';
+import { addBasket } from '../../../features/cart/action';
 
 function Product() {
     const [criterion,setCriterion] = useState(true);
-    const [favorites,setFavorites] = useState([]);
+    const [favorites,setFavorites] = useState([]); 
+    const products = useSelector(state => state.products.products);
     const [Switch,setSwitch] = useState(false)
     const params = useParams();
-    const products = useSelector(state => state.products.products);
-    const goalProduct = useSelector(state => state.products.goalProduct);
+    const goalId = JSON.parse(params.id);
+    const userId = JSON.parse(Cookies.get('user')).id;
+    const goalProduct = products?.find(product => product.id === goalId);
     const mobile = window.innerWidth <= 425 ? true : false;
     const dispatch = useDispatch();
-    dispatch(foundProduct(params.id))
+console.log(products)
+    useEffect(() => {
+      dispatch(getProducts())
+    },[])
 
     useEffect(() => {
         const list = JSON.parse(localStorage.getItem('favProducts'));
@@ -88,6 +96,10 @@ function Product() {
       e.target.style.backgroundSize = '100%';
     };
 
+    const addToBasket = () => {
+      dispatch(addBasket({user_id:userId,product_id:goalProduct.id}))
+    }
+
   return (
     <main >
       <header>
@@ -106,11 +118,11 @@ function Product() {
                 <li><Link to='/' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>صفحه اصلی</Link></li>
                 <li><Link to='/shop' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>سایت های آماده</Link></li>
                 <li><Link to='/shop' className='hover:text-sky-blue font-[shabnamLight] text-stone-800'>سایت آماده لاراول</Link></li>
-                <li className='text-gray-88 font-[shabnamThin]'>{goalProduct.title}</li>
+                <li className='text-gray-88 font-[shabnamThin]'>{goalProduct?.title}</li>
             </ul>
             <div  className='flex flex-col mt-10 2xl:gap-20 items-start'>
-              <h1 className='text-lg font-[shabnamBold] text-stone-700 mb-5'>{goalProduct.title}</h1>
-              <div className='w-full h-[30rem] bg-no-repeat sm:h-[40rem] xl:w-[70rem] xl:h-[70rem] max-w-full overflow-hidden cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct.img})`,backgroundSize:'cover'}}></div>
+              <h1 className='text-lg font-[shabnamBold] text-stone-700 mb-5'>{goalProduct?.title}</h1>
+              <div className='w-full h-[30rem] bg-no-repeat bg-gray-88 sm:h-[40rem] xl:w-[70rem] xl:h-[70rem] max-w-full overflow-hidden cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct?.img})`,backgroundSize:'cover'}}></div>
               {/* <div className='flex gap-5 text-white text-sm  font-bold my-5 '>
                 <span onClick={()=>setSwitch(false)} className='bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>توضیحات</span>
                 <div onClick={()=>setSwitch(true)} className='flex gap-1 items-center bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>
@@ -123,38 +135,39 @@ function Product() {
                   ? 
                   <div className='flex flex-col my-5 gap-5 w-full'>
                     <span className='text-[1.2rem] font-bold text-stone-700 m-0 p-0 w-full text-start'>توضیحات</span>
-                    <p className='text-[0.9rem]  text-justify mb-5 font-[shabnamLight] leading-8 text-stone-600'>{goalProduct.explain}</p>
+                    <div className='text-[1rem]  text-justify mb-5 font-[shabnamLight] leading-8 text-stone-600'>
+                      <HTMLRenderer html={goalProduct?.description}/>
+                    </div>
                     <div className='w-full flex flex-col items-center gap-5'>
-                      <img className='w-[25rem] xl:w-[40rem]' src={desImg} alt="property" />
                       <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-5'>
                       <span className='font-bold text-xs font-[shabnamLight] text-stone-600'>جهت مشاهده سایت و توضیحات بیشتر ، فیلم زیر را مشاهده کنید :</span>
                       <iframe
-                title="movie"
-                className="w-[100%] flex Iframe justify-center items-center h-[15rem] 2xl:h-[40rem] sm:h-[25rem] scroll_None"
-                src='https://www.aparat.com/v/Vg8LE'
-                allowFullScreen={true}
-                webkitallowfullscreen={true}
-                mozallowfullscreen={true}
-              ></iframe>
+                        title="movie"
+                        className="w-[100%] flex Iframe justify-center items-center h-[15rem] 2xl:h-[40rem] sm:h-[25rem] scroll_None"
+                        src='https://www.aparat.com/v/Vg8LE'
+                        allowFullScreen={true}
+                        webkitallowfullscreen={true}
+                        mozallowfullscreen={true}
+                      ></iframe>
                       </div>
                     </div>
                     <div className='flex flex-col items-start mt-10 2xl:gap-20 gap-5 w-full'>
                 <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0 2xl:m-12'/>
                 <div className='flex flex-col sm:flex-row text-white w-full'>
-                  <Link to='https://twitter.com/intent/tweet?text=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTwitter className='scale-125 2xl:w-12 2xl:h-12'/>
+                  <Link to='https://twitter.com/intent/tweet' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
+                    <BsTwitter className='scale-125'/>
                     <span className='text-xs text-center  sm:text-sm  font-[vasirBold]'>اشتراک در توییتر</span> 
                   </Link>
-                  <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-3 px-5 gap-5'  to="https://www.facebook.com/sharer/sharer.php?u=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">
-                    <FaFacebookF className='scale-125 2xl:w-12 2xl:h-12'/>
+                  <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-3 px-5 gap-5'  to="https://www.facebook.com/sharer/sharer.php">
+                    <FaFacebookF className='scale-125'/>
                    <span className='text-xs text-center  sm:text-sm font-[vasirBold]'> اشتراک در فیسبوک</span>
                   </Link>
-                  <Link to="https://telegram.me/share/url?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
-                    <BsTelegram className='scale-125 2xl:w-12 2xl:h-12'/>
+                  <Link to="https://telegram.me/share/url" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
+                    <BsTelegram className='scale-125'/>
                    <span className='text-xs text-center  sm:text-sm font-[vasirBold]'> اشتراک در تلگرام</span>
                   </Link>
-                  <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-12 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
-                    <BsPinterest className='scale-125 2xl:w-12 2xl:h-12'/>
+                  <Link to="https://pinterest.com/pin/create/button" className='flex flex-col justify-center 2xl:py-5 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-3 px-5 gap-5 '>
+                    <BsPinterest className='scale-125'/>
                     <span  className='text-xs text-center sm:text-sm font-[vasirBold]'>اشتراک در پینترست</span>
                   </Link>
                 </div>
@@ -162,87 +175,77 @@ function Product() {
                             {/* junction-path */}
               <div className='flex flex-col sm:flex-row w-full sm:w-auto  items-center 2xl:p-12 justify-between gap-y-3 py-5 px-4 my-10 text-white bg-light-blue'>
                <span className='text-xs sm:text-sm flex items-center text-center sm:text-start '>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
-               <button className='border-2  2xl:py-4 2xl:px-4 border-white px-2 py-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
+               <button className='border-2  2xl:py-1 2xl:px-4 border-white px-2 py-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
               </div>
                             {/* Suggested-contents */}
-                <div className='flex flex-col gap-2 items-center w-full'>
-                <div className='flex justify-start w-full border-r-4 2xl: 2xl:py-8 border-light-orang py-2  my-5' style={{borderRight:'solid 5px #00BDAF'}}>
-                  <span className='font-bold text-gray-77 text-lg m-0 pr-3'>محصولات مرتبط</span>
-                </div>
-                <div className='flex carsoule-parent z-0'> 
-                    <Swiper
-                    modules={[Navigation, Pagination, A11y]}
-                    spaceBetween={mobile ? 0 : 20 }
-                    slidesPerView={mobile ? 1 : 3}
-                    navigation
-                    pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
-                    // onSlideChange={() => console.log('slide change')}
-                    // onSwiper={(swiper) => console.log(swiper)}
-                    initialSlide={0}
-                  >
-                    {
-                      products.map((product,index) => (
-                        <SwiperSlide className='SwiperSlide'>
-                          <div className='flex flex-col bg-[#f8f8f8] 2xl:mb-10 mb-8 gap-1 2xl:gap-1 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
-                            <Link to={{pathname:`/shop/product`,search:`?name=${product.title}`}} className='z-10'><img src={product.img} alt={product.title} className='hover:brightness-125 z-10 2xl:w-full cursor-pointer transition-all'/></Link>
-                            <span className='pt-2 cursor-pointer hover:text-gray-88 pr-2 text-sm suggest-title font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${product.title}`}}>{product.title}</Link></span>
-                            <div className='flex flex-col py-2 text-sm '>
-                              <p className='line-clamp-4  text-gray-66 leading-5 px-2 suggest-text text-justify mb-1'>{product.explain}</p>
-                            </div>
-                            <div className='flex flex-col'>
-                            <div className='flex items-center justify-between px-3'>
-                             <HiCurrencyDollar className='text-yellow-600 scale-[1.5]'/>
-                             <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block' } onClick={()=>{
-                              addToFavorite(index)
-                             }}/>
-                             <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
-                              deleteFromFavorites(index)
-                             }}/>
-                            </div>
-                            <div className='w-full flex items-center 2xl:text-lg font-bold px-2 text-xs my-3 gap-1'>
-                                <del className='flex gap-1 items-center text-red-600'>
-                                  <span>8,800,000</span>
-                                  <span>تومان</span>
-                                </del>
-                                <span>-</span>
-                                <div className='flex gap-1 items-center text-stone-500'>
-                                    <span>8,000,000</span>
-                                    <span>تومان</span>
-                                </div>
-                            </div>
-                            </div>
-                            <div className='flex text-sm p-2 2xl:text-4xl 2xl:justify-between flex-row gap-10 sm:gap-1'>
-                              <AiTwotoneFolder className='text-stone-600'/>
-                              <div className='line-clamp-1 text-xs 2xl:text-xl text-stone-600 font-bold'>
-                                {
-                                  product.tags.map(tag => (
-                                    <span className='hover:text-sky-500 mx-1 cursor-default'>{tag}</span>
-                                  ))
-                                }
+              {/* <div className='flex flex-col gap-2 items-center w-full'>
+                  <div className='flex justify-start w-full border-r-4 2xl: 2xl:py-3 border-light-orang py-1  my-5' style={{borderRight:'solid 5px #00BDAF'}}>
+                    <span className='font-[shabnamBold] text-gray-77 text-lg m-0 pr-2'>محصولات مرتبط</span>
+                  </div>
+                  <div className='flex carsoule-parent z-0'> 
+                      <Swiper
+                      modules={[Navigation, Pagination, A11y]}
+                      spaceBetween={mobile ? 0 : 20 }
+                      slidesPerView={mobile ? 1 : 3}
+                      navigation
+                      pagination={{ clickable: true }}
+                      scrollbar={{ draggable: true }}
+                      // onSlideChange={() => console.log('slide change')}
+                      // onSwiper={(swiper) => console.log(swiper)}
+                      initialSlide={0}
+                    >
+                      {
+                        products?.map((product,index) => (
+                          <SwiperSlide className='SwiperSlide'>
+                            <div className='flex flex-col bg-[#f8f8f8] 2xl:mb-10 mb-8 gap-1 2xl:gap-1 rounded-md border-2 border-for-border' style={{border:'solid 1px #DFDFDF'}}>
+                              <Link to={{pathname:`/shop/product`,search:`?id=${product.id}`}} className='z-10'><img src={product.image.replace('public','/storage')} alt={product.title} className='hover:brightness-125 z-10 2xl:w-full cursor-pointer transition-all'/></Link>
+                              <span className='pt-2 cursor-pointer hover:text-gray-88 pr-2 text-sm suggest-title font-bold'><Link to={{pathname:`/articles/article`,search:`?name=${product.title}`}}>{product.title}</Link></span>
+                              <div className='flex flex-col py-2 text-sm '>
+                                <p className='line-clamp-4  text-gray-66 leading-5 px-2 suggest-text text-justify mb-1'>{product.explain}</p>
                               </div>
+                              <div className='flex flex-col'>
+                              <div className='flex items-center justify-between px-3'>
+                              <HiCurrencyDollar className='text-yellow-600 scale-[1.5]'/>
+                              <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block' } onClick={()=>{
+                                addToFavorite(index)
+                              }}/>
+                              <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                                deleteFromFavorites(index)
+                              }}/>
+                              </div>
+                              <div className='w-full flex items-center 2xl:text-lg font-bold px-2 text-xs my-3 gap-1'>
+                                  <del className='flex gap-1 items-center text-red-600'>
+                                    <span>8,800,000</span>
+                                    <span>تومان</span>
+                                  </del>
+                                  <span>-</span>
+                                  <div className='flex gap-1 items-center text-stone-500'>
+                                      <span>8,000,000</span>
+                                      <span>تومان</span>
+                                  </div>
+                              </div>
+                              </div>
+                              <Link>
+                                <button className='flex gap-1 w-full items-center bg-sky-600 text-white py-2 justify-center hover:bg-sky-500 transition-all'>
+                                <BsBagFill/>
+                                <span>خرید محصول</span>
+                                </button>
+                              </Link>
                             </div>
-                            <Link>
-                              <button className='flex gap-1 w-full items-center bg-sky-600 text-white py-2 justify-center hover:bg-sky-500 transition-all'>
-                              <BsBagFill/>
-                              <span>خرید محصول</span>
-                              </button>
-                            </Link>
-                          </div>
-                        </SwiperSlide>
-                      ))
-                    }
-                    ...
-                  </Swiper>
-                </div>
-              </div>
+                          </SwiperSlide>
+                        ))
+                      }
+                      ...
+                    </Swiper>
+                  </div>
+              </div> */}
                   </div>
                   : <Comments/>
                 }
             </div>
         </div>
       </div>
-              {/* left side */}
+        {/* left side */}
       <div className='flex gap-10 flex-col mt-10 w-full lg:w-[30%] sm:px-12 px-5'>
         <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
           <img src={gearIMG} alt="gear" className='w-[4rem]'/>
@@ -271,17 +274,11 @@ function Product() {
                         <span>تومان</span>
                     </div>
             </div>
-            <div className='w-full'>
-            <button className='text-white my-1 font-bold rounded-sm gap-2 text-sm transition-all hover:bg-sky-400 py-2 2xl:py-2 w-full bg-sky-500 border-b-2 border-sky-800 flex justify-center items-center'>
-              <BsBagFill/>
-              <span>افزودن به سبد خرید</span>
-            </button>
-            </div>
             <div className='flex flex-col w-full gap-1 2xl:gap-5'>
               <Link className='w-full'>
             <button className='text-white font-bold my-1 2xl:py-2 rounded-sm gap-2 text-sm transition-all hover:bg-lime-500 py-2 w-full bg-lime-600 border-b-2 border-lime-800 flex justify-center items-center'>
               <BsBagFill/>
-              <span>پیشنمایش محصول</span>
+              <span>پیش نمایش محصول</span>
             </button>
             </Link>
             </div>
@@ -319,7 +316,7 @@ function Product() {
                   <BsArrowBarUp/>
                   <span>بروزرسانی:</span>
                 </div>
-                <span>1401/10/07</span>
+                <span>{goalProduct.update_at}</span>
               </div>
                             <div className='flex items-center w-full justify-between'>
                             <div className='flex gap-1 items-center'>
@@ -361,7 +358,7 @@ function Product() {
       <footer>
           <Footer/>
       </footer>
-      <button className='fixed bottom-0 w-full text-white font-bold px-3 py-3 transition-all hover:bg-green-500  2xl:py-5 flex justify-center gap-2 bg-green-600 z-[49]]'>
+      <button onClick={addToBasket} className='fixed bottom-0 items-center w-full text-white font-bold px-3 py-3 transition-all hover:bg-green-500  2xl:py-5 flex justify-center gap-2 bg-green-600 z-[49]]'>
         <GiBasket/>
         <span>افزودن به سبد خرید</span>
       </button>
@@ -370,5 +367,3 @@ function Product() {
 }
 
 export default Product;
-
-// shabnamMedium

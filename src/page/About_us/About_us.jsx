@@ -101,7 +101,7 @@ function About_us() {
         <div className='py-16 bg-cover bg-center bg-[url("http://nahalit.com/wp-content/uploads/2020/04/startnow-bg.png")]'>
           <div className='mx-auto gap-5 flex flex-col items-center'>
               <h1 className='text-xl font-[IranSans-b] text-center px-1 text-stone-500'>برای شروع و راه اندازی کسب و کار دیجیتال خود با نهال آیتی شروع کنید ...</h1>
-              <p className='max-w-[29rem] text-sm text-center'>پشتیبانان ما در لحظه از شبانه روز آماده ارائه مشاوره جهت بهبود کسب و کار شما  می باشند . در نهال آیتی به راحتی و آسودگی شما اهمیت میدهیم .</p>
+              <p className='max-w-[29rem] text-sm text-center'>پشتیبانان ما در هر لحظه از شبانه روز آماده ارائه مشاوره جهت بهبود کسب و کار شما  می باشند . در نهال آیتی به راحتی و آسودگی شما اهمیت میدهیم .</p>
               <button onClick={()=>window.scrollTo(0,0)} className='bg-[#57C053] hover:bg-[#59da55] transition-all text-sm text-white font-[vasir] py-2 px-3 rounded-sm'>هم اکنون شروع کنید!</button>
           </div>
         </div>

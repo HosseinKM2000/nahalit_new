@@ -16,7 +16,7 @@ const ResponseHeader = () => {
   const [dropMenu,setDropMenu] = useState(false);
   const [dropSearchBox,setDropSearchBox] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
-  const userId = Cookies.get('user') === undefined ? '' : JSON.parse(Cookies.get('user')).id
+  const userId = Cookies.get('user') === undefined ? '' : JSON.parse(Cookies.get('user')).id;
   const location = useLocation();
   const urlPath = location.pathname;
   

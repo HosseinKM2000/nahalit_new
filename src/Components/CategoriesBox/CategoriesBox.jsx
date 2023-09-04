@@ -26,13 +26,13 @@ function CategoriesBox({ dropCate , setDropCate }) {
     <div className='w-full flex justify-start items-start gap-3'>
             <div className='flex flex-col gap-3 justify-center items-start'>
             <button type='button' onClick={()=>{
-                setDropCate({status:!dropCate.status,value:dropCate.value})
+                setDropCate({status:!dropCate.status,value:dropCate.value,id:dropCate.id})
                 setChildList(false)
                 setChildList_2(false)
             }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
             {
                 dropCate.value !== null
-                ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
+                ? <div className='bg-transparent p-1 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
                 :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
             }
             </div>
@@ -92,7 +92,7 @@ function CategoriesBox({ dropCate , setDropCate }) {
             {
                 categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
                     <li key={i} onClick={(e)=>{
-                        setDropCate({status:false,value:item.id})
+                        setDropCate({status:false,value:item.title,id:item.id})
                         setChildList(false)
                         setChildList_2(false)
                     }} className='cursor-pointer hover:text-lime-600 hover:font-bold transition-all'>{item.title}</li>

@@ -28,26 +28,28 @@ import Footer from '../../../Components/Footer/Footer';
 import Header from '../../../Components/Header/Header';
 import ResponseHeader from '../../../Components/ResponseHeader/ResponseHeader';
 import { Helmet } from 'react-helmet';
+import HTMLRenderer from 'react-html-renderer';
+import { getArticles } from '../../../features/article/action';
 
 const Article = () => {
 
   const [params,setParams] = useSearchParams();
-  const [title,setTitle] = useState(params.get('name'));
+  const goalId = JSON.parse(params.get('id'));
   const location = useLocation();
   const articles = useSelector(state => state.articles.articles);
-  const goalArticle = useSelector(state => state.articles.goalArticle);
+  const goalArticle = articles.find(article => article.id === goalId);
   const shortLink = useSelector(state => state.articles.shortLink);
   const mobile = window.innerWidth <= 768 ? true : false;
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    dispatch(foundArticle(title))
+    dispatch(getArticles())
   },[])
-
+console.log(goalId)
   return (
     <main>
         <Helmet>
-          <title>مقالات | {title}</title>
+          <title>مقالات | {goalArticle?.title}</title>
         </Helmet>
         <header>
         <div className="max-lg:hidden">
@@ -64,11 +66,11 @@ const Article = () => {
                   <ul className='flex flex-row border-y-2 font-[shabnamMedium] text-xs justify-center md:justify-start border-for-border gap-2 sm:gap-20 py-3'>
                       <li><Link to='/' className='hover:text-sky-blue font-[shabnamLight]'>صفحه اصلی</Link></li>
                       <li><Link to='/news' className='hover:text-sky-blue font-[shabnamLight]'>اخبار سایت</Link></li>
-                      <li className='text-gray-88 font-[shabnamLight]'>{goalArticle.title}</li>
+                      <li className='text-gray-88 font-[shabnamLight]'>{goalArticle?.title}</li>
                   </ul>
                   {/* article-content */}
                   <div className='flex flex-col mt-10 2xl:gap-20 w-[90%] md:w-full items-start overflow-x-hidden'>
-                    <h1 className='text-[1.1rem] mr-2 font-extrabold text-gray-77 font-[shabnamMedium] tracking-wide'>{goalArticle.title}</h1>
+                    <h1 className='text-[1.1rem] mr-2 font-extrabold text-gray-77 font-[shabnamMedium] tracking-wide'>{goalArticle?.title}</h1>
                     {/* article-information */}
                     <div className='flex flex-col mr-2 md:flex-row mt-3 gap-5 md:gap-10 text-gray-88'>
                       <div className='flex flex-row items-center gap-2'>
@@ -89,8 +91,10 @@ const Article = () => {
                     </div>
                     {/* article-poster and article-text */}
                     <div className='mt-7 flex flex-col items-center md:inline-block'>
-                      <img src={goalArticle.img} alt="postIMg" className='w-[300px] h-[300px] float-right ml-0 mb-4 md:ml-4'/>
-                      <p className='text-gray-66 font-[shabnamMedium] text-justify font-thin text-sm leading-7 px-3'>{text}</p>
+                      <img src={goalArticle?.img} alt="postIMg" className='w-[300px] bg-gray-77 h-[300px] float-right ml-0 mb-4 md:ml-4'/>
+                      <p className='text-gray-66 font-[shabnamMedium] text-justify font-thin text-sm leading-7 px-3'>
+                        <HTMLRenderer html={goalArticle?.body}/>
+                      </p>
                     </div>
                     {/* socalMedia */}
                     <div className='flex flex-col pl-2 items-center 2xl:items-start  mt-10  gap-5 w-full'>
@@ -127,7 +131,7 @@ const Article = () => {
                       <img src={messageIMG} alt="comment"  className='absolute w-60 opacity-20'/>
                     </div>
                     {/* Suggested-contents */}
-                    <div className='flex flex-col gap-3 items-center w-full md:items-start'>
+                    {/* <div className='flex flex-col gap-3 items-center w-full md:items-start'>
                       <div className='flex justify-start w-full border-r-4 2xl:py-8 border-light-orang px-5 py-2  mt-16'>
                         <span className='font-[shabnambold] text-gray-77 text-[1.1rem] m-0'>مطالب زیر را حتما بخوانید:</span>
                       </div>
@@ -164,14 +168,14 @@ const Article = () => {
                           ...
                         </Swiper>
                       </div>
-                    </div>
+                    </div> */}
                     {/* junction-path */}
                     <div className='flex flex-col sm:flex-row w-full 2xl:w-[80%] 2xl:justify-between 2xl:py-5 sm:w-auto  items-center 2xl:p-12 gap-4 sm:gap-32 py-5 px-4 my-10 text-white bg-light-blue'>
                     <span className='text-[0.9rem] flex text-center'>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
                     <button className='border-2  text-[0.9rem] border-white p-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
                     </div>
                     {/* comments */}
-                    <Comments/>
+                    {/* <Comments/> */}
                   </div>
               </div>
               {/* left side */}

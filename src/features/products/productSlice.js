@@ -21,9 +21,9 @@ const productsSlice = createSlice({
         },
         foundProduct : (state,action) =>
         {
-            let title = action.payload;
-            const target = state.products.find(item => item.title === title);
-           state.goalProduct = target;
+            let id = action.payload;
+            const target = state.products.find(item => item.id === id);
+            state.goalProduct = target;
         },
         sortByAll : (state) => {
             state.FilteredProducts = state.products;
@@ -53,7 +53,7 @@ const productsSlice = createSlice({
             state.FilteredProducts = newList;
         },
         sortByPriceRange : (state,action) => {
-            let { minValue : minPrice , maxValue : maxPrice }  = action.payload;
+            let { min : minPrice , max : maxPrice }  = action.payload;
             let newList = state.products.filter(product => {
                 return product.price >= minPrice && product.price <= maxPrice
             });

@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
@@ -5,24 +6,19 @@ import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addProduct } from '../../../../../features/dashboard/action';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
-import Cookies from 'js-cookie';
 
 function NewProduct() {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
-    const [priceValue,setPriceValue] = useState(0);
-    const [dropCate,setDropCate] = useState({status:false,value:null})
+    const [priceValue,setPriceValue] = useState('0');
+    const [discountValue,setDiscountValue] = useState('0');
+    const [dropCate,setDropCate] = useState({status:false,value:null,id:null})
     const userId = JSON.parse(Cookies.get("user")).id;
     const titleRef = useRef();
     const imageRef = useRef()
     const discountRef = useRef();
     const dispatch = useDispatch();
-    const loading = useSelector(state => state.dashboard.productLoading);
-    const [text, setText] = useState('');
-
-    function handleChange(value) {
-      setText(value); 
-    }
+    const loading = useSelector(state => state.dashboard.productsLoading);
 
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -55,10 +51,11 @@ function NewProduct() {
         const form = {
             title:titleRef.current.value,
             image:imageName,
-            category_id:dropCate.value,
+            category_id:dropCate.id,
             price:JSON.parse(priceValue.replaceAll(',','')),
+            discount:JSON.parse(discountValue),
             description:desc,
-            seller_id:1,
+            seller_id:userId,
         }
       
         switch(true)
@@ -73,6 +70,10 @@ function NewProduct() {
             break;
             case form.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
             break;
+            case form.price === 0 : toast.warn("قیمت را وارد کنید");
+            break;
+            case form.discount === 0 : toast.warn("تخفیف را وارد کنید");
+            break;
             default : sendProduct(form)
         }
 
@@ -83,7 +84,7 @@ function NewProduct() {
             formdata.append("title", form.title);
             formdata.append("description", form.description);
             formdata.append("category_id", form.category_id);
-            formdata.append("seller_id", userId );
+            formdata.append("seller_id", form.seller_id );
             formdata.append("price", form.price);
             formdata.append("image", form.image , `${imageRef.current.value}`);
             dispatch(addProduct(formdata))
@@ -114,7 +115,6 @@ function NewProduct() {
                 <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
                 <input onChange={(e)=>{
                     setImageName(e.target.files[0])
-                    console.log(e.target.files[0])
                 }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
                {/* describe */}
@@ -143,10 +143,14 @@ function NewProduct() {
                     e.target.value = '100';
                     toast.warn("مقدار قابل قبول نیست")
                     }
+                    else
+                    {
+                      setDiscountValue(e.target.value)
+                    }
              }}/>
               </div>
             </div>
-            <button type='submit' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
+            <button type='submit' className='w-[50%] min-h-[35px] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg rounded-sm'>
                 {
                     loading
                     ? <img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>

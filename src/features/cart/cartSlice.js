@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBaskets , addBasket , deleteBasket } from "./action";
+import { getBaskets , addBasket , deleteBasket , getBasketsByUserId } from "./action";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -24,7 +24,16 @@ const cartSlice = createSlice({
       .addCase(getBaskets.pending, (state,action) => {
       })
       .addCase(getBaskets.rejected, (state,action) => {
-        console.error("error in upload baskets =>",action)
+        console.error("error in getting baskets =>",action)
+      })
+      .addCase(getBasketsByUserId.fulfilled, (state,action) => {
+        state.baskets = action.payload;
+        console.log(action.payload);
+      })
+      .addCase(getBasketsByUserId.pending, (state,action) => {
+      })
+      .addCase(getBasketsByUserId.rejected, (state,action) => {
+        console.error("error in getting baskets by userId =>",action)
       })
       .addCase(addBasket.fulfilled, (state,action) => {
         state.loading = false;
@@ -39,11 +48,14 @@ const cartSlice = createSlice({
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {
         toast.success("محصول با موفقیت حذف شد")
-        console.log(action.payload)
+        state.loading = false;
       })
       .addCase(deleteBasket.pending, (state,action) => {
+        state.loading = true;
       })
       .addCase(deleteBasket.rejected, (state,action) => {
+        state.loading = false;
+        console.log(action)
       })
     }
 })

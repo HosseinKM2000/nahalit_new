@@ -6,7 +6,7 @@ const SliderSwiper = () => {
   return (
     <div className="relative -z-50 max-w-full overflow-hidden">
       <Swiper
-        className="mt-[3rem] w-[80%] 2xl:w-[45%]"
+        className="mt-[3rem] w-[80%] 2xl:w-[70%]"
         modules={[Navigation, A11y, Autoplay, Pagination, EffectCards]}
         effect="cards"
         slidesPerView={1}

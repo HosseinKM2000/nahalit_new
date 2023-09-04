@@ -19,7 +19,7 @@ const CustomSlider = () => {
   }
 
   return (
-    <div className="mx-auto w-[90%] sm:w-[95%] 2xl:w-[80%]  py-5 bg-[#f3f3f5] rounded-xl p-3">
+    <div className="w-[90%] sm:w-[95%] 2xl:w-[90%] mx-auto  py-5 bg-[#f3f3f5] rounded-xl p-3">
       <div className="flex items-center sm:gap-0 justify-between">
         <div className="border-r-4 text-[#868686] border-[#07B235] font-bold border-solid">
           <span className="py-2 pr-2 text-xl font-[shabnambold]">قالب های ویژه HTML</span>

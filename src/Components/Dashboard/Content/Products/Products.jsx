@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductsPagination from './AllProducts/ProductsPagination/ProductsPagination';
-import EditProduct from './EditProduct/EditProduct';
 import NewProduct from './NewProduct/NewProduct';
 import ProductGallery from './ProductGallery/ProductGallery';
 
@@ -16,8 +15,6 @@ function Products() {
       case "all" : setInnerComponent(<ProductsPagination/>);
       break;
       case "new" : setInnerComponent(<NewProduct/>)
-      break;
-      case "edit" : setInnerComponent(<EditProduct/>);
       break;
       case "gallery" : setInnerComponent(<ProductGallery/>);
       break;

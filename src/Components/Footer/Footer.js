@@ -10,6 +10,7 @@ import trustLogo from '../../assets/img/trustlogo.png';
 
 const Footer = () => {
   const [Footer, setFooter] = useState(false);
+
   const SiteCreateOnEnterMouse = () => {
     setFooter(true);
   };

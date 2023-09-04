@@ -36,13 +36,17 @@ function Side() {
     }
 
     const changeMinValue = (value) => { 
-      setMinValue(value)
-      dispatch(sortByPriceRange({minValue,maxValue})) 
+      setMinValue(JSON.parse(value))
+      let min = JSON.parse(value)
+      dispatch(sortByPriceRange({min,max:maxValue}))
+      console.log(minValue,maxValue) 
     }
 
     const changeMaxValue = (value) => { 
-      setMaxValue(value)
-      dispatch(sortByPriceRange({minValue,maxValue})) 
+      setMaxValue(JSON.parse(value))
+      let max = JSON.parse(value)
+      dispatch(sortByPriceRange({min:minValue,max}))
+      console.log(minValue,maxValue)  
     }
 
   return (

@@ -19,6 +19,7 @@
     "framework7": "^8.0.5",
     "framework7-react": "^8.0.5",
     "js-cookie": "^3.0.5",
+    "moment-jalaali": "^0.10.0",
     "raw-loader": "^4.0.2",
     "rc-progress": "^3.4.2",
     "react": "^18.2.0",
@@ -39,7 +40,8 @@
     "redux-thunk": "^2.4.2",
     "router-dom": "^2.2.10",
     "swiper": "^9.1.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zaman": "^2.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,6 +63,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "html-webpack-plugin": "^5.5.3",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"
   }

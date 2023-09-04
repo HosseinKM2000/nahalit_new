@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL:"https://api.nahalit.ir/api/v1",
+    baseURL:"http://localhost:8000/api/v1",
     timeout:10000
 })
-console.log(localStorage.getItem('access_token'))
+
 instance.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
     return config

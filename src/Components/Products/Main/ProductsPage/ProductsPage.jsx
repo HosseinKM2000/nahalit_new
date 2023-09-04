@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../assets/img/Pulse-1.2s-229px.svg';
-import { addBasket, getBaskets } from '../../../../features/cart/action';
+import { addBasket, deleteBasket, getBaskets } from '../../../../features/cart/action';
 import HTMLRenderer from 'react-html-renderer';
 
 
@@ -50,6 +50,10 @@ function ProductsPage({currentItems}) {
         dispatch(addBasket({user_id:userId,product_id:id}))
     }
 
+    const deleteFromBasket = (id) => {
+        dispatch(deleteBasket(id))
+    }
+
   return (
     <>
       {/* toaster */}
@@ -77,7 +81,7 @@ function ProductsPage({currentItems}) {
                         <span>تخفیف</span>
                     </div>
                     <FaEye className='absolute 2xl:text-2xl right-1 top-3  rounded-full bg-lime-600 px-1 text-xl text-white font-bold'/>
-                    <img src={product.image} alt={product.title} className='hover:brightness-125 transition-all'/>
+                    <img src={"https://nahalit.com/wp-content/uploads/2022/11/4fc9dcca-e64b-4f8e-80c4-7f6749f4e814-min.jpg"} alt={product.title} className='hover:brightness-125 transition-all'/>
                     <div className='px-1 py-1'>
                         <h1 className='text-[0.9rem] leading-5 font-bold text-stone-600'>{product.title}</h1>
                     </div>
@@ -113,7 +117,7 @@ function ProductsPage({currentItems}) {
                                     addToBasket(product.id)
                                     setKeyLoading(product.id)
                                 }}/>
-                                <BsFillBagFill className={ goalIds.includes(product.id) ? 'text-lime-500 scale-150 block' : 'hidden' } onClick={()=>toast.info("برای مدیریت محصولات به سبد خرید بروید")}/>
+                                <BsFillBagFill className={ goalIds.includes(product.id) ? 'text-lime-500 scale-150 block' : 'hidden' } onClick={()=>deleteFromBasket(product.id)}/>
                                 </>
                             }
                         </div>
@@ -130,7 +134,7 @@ function ProductsPage({currentItems}) {
                         <span>تومان</span>
                     </div>
                     </div>
-                    <Link to={`/shop/product/${product.title}`} className='flex items-center mx-3 mb-3 bg-lime-600 hover:bg-lime-500 transition-all duration-300 justify-center gap-1 text-white py-1 text-sm font-bold rounded-md'>
+                    <Link to={`/shop/product/${product.id}`} className='flex items-center mx-3 mb-3 bg-lime-600 hover:bg-lime-500 transition-all duration-300 justify-center gap-1 text-white py-1 text-sm font-bold rounded-md'>
                         <FaShoppingBag/>
                         <span>خرید محصول</span>
                     </Link>

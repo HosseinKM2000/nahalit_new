@@ -52,6 +52,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
             type="number"
             className="input-min font-[shabnamBold]"
             value={minValue}
+            min={minPoint}
             onChange={event => setMin(event.target.value)}
           />
           <span>تومان</span>
@@ -62,6 +63,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
             type="number"
             className="input-max font-[shabnamBold]"
             value={maxValue}
+            max={maxPoint}
             onChange={event => setMax(event.target.value)}
           />
           <span>تومان</span>

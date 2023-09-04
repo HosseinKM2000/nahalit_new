@@ -7,6 +7,7 @@ import {
     addProduct,
     addProject,
     deleteBlog,
+    deleteProduct,
     addRole,
     deleteParentCategories,
     deleteUser,
@@ -16,7 +17,9 @@ import {
     editProject,
     deleteRole,
     updateRole,
+    updateUser,
     getUserRole,
+    getWorkSamples,
     getBlogs,
     getCategories,
     getProducts,
@@ -39,6 +42,7 @@ const initialState = {
     products:[],
     projects:[],
     productsLoading:false,
+    deleteProductSuccess:false,
     usersLoading:false,
     users:[],
     projectsLoading:false,
@@ -54,6 +58,7 @@ const initialState = {
     deleteSuccess : false,
     editSuccess : false,
     articleLoading:false,
+    workSamplesLoading:false,
     roles:[],
     permissions:[],
     userPermissions:[],
@@ -222,6 +227,22 @@ const dashboardSlice = createSlice({
         })
 
 
+        // delete product
+        .addCase(deleteProduct.fulfilled, (state,action) => {
+            state.productsLoading = false;
+            state.deleteProductSuccess = !state.deleteProductSuccess;
+            toast.success('محصول با موفقیت حذف شد')
+        })
+        .addCase(deleteProduct.pending, (state,action) => {
+            state.productsLoading = true;
+        })
+        .addCase(deleteProduct.rejected, (state,action) => {
+            state.productsLoading = false;
+            console.log("error in adding product with this status =>", action)
+            toast.error("خطا در حذف محصول")
+        })
+
+
         // edit product
         .addCase(editProduct.fulfilled,(state,action) => {
             state.productsLoading = false;
@@ -339,7 +360,7 @@ const dashboardSlice = createSlice({
         // delete blog
         .addCase(deleteBlog.fulfilled,(state,action) => {
             state.blogsDeleteLoading = false;
-            state.articlesSwitch = 'all'
+            state.articlesSwitch = 'all';
             toast.success('مقاله با موفقیت حذف شد')
         })
         .addCase(deleteBlog.pending,(state,action) => {
@@ -451,6 +472,21 @@ const dashboardSlice = createSlice({
         })
 
 
+        // update user
+        .addCase(updateUser.fulfilled,(state,action) => {
+            state.usersLoading = false;
+            console.log(action)
+        })
+        .addCase(updateUser.pending,(state,action) => {
+            state.usersLoading = true;
+        })
+        .addCase(updateUser.rejected,(state,action) => {
+            state.usersLoading = false;
+            toast.error('خطا در ویرایش کاربر')
+            console.log(action)
+        })
+
+
         // delete user
         .addCase(deleteUser.fulfilled,(state,action) => {
             state.usersLoading = false;
@@ -462,6 +498,21 @@ const dashboardSlice = createSlice({
         .addCase(deleteUser.rejected,(state,action) => {
             state.usersLoading = false;
             toast.error("خطا در حذف کاربر")
+            console.log(action)
+        })
+
+
+        // get work-sample
+        .addCase(getWorkSamples.fulfilled,(state,action) => {
+            state.workSamplesLoading = false;
+            console.log(action.payload)
+        })
+        .addCase(getWorkSamples.pending,(state,action) => {
+            state.workSamplesLoading = true;
+        })
+        .addCase(getWorkSamples.rejected,(state,action) => {
+            state.workSamplesLoading = false;
+            toast.error('خطا در بارگیری نمونه کارها')
             console.log(action)
         })
     }

@@ -22,7 +22,8 @@ const Header = () => {
   const [showSlide12, setShowSlide12] = useState(false);
   const [showSlide13, setShowSlide13] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
-  const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : ''
+  const baskets = useSelector(state => state.cart.baskets);
+  const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : '';
   const location = useLocation();
   const urlPath = location.pathname;
   const userPermissions = useSelector(state => state.dashboard.userPermissions);
@@ -385,7 +386,9 @@ const Header = () => {
                       <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}/>
                     </Link>
                     <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
-                      0
+                      {
+                        baskets?.length
+                      }
                     </span>
                   </>
                 }

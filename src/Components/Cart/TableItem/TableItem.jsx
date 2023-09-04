@@ -36,7 +36,7 @@ const TableItem = ({cartItem}) => {
       </td>
       <div>
             <button
-              onClick={() => dispatch(deleteBasket(""))}
+              onClick={() => dispatch(deleteBasket(cartItem.id))}
               className="bg-red-500 hover:bg-red-600 h-fit w-fit p-1 text-white rounded"
               title="حذف"
             >

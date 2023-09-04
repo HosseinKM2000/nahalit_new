@@ -4,7 +4,7 @@ import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import ReactPaginate from 'react-paginate';
 import Users from '../Users';
 import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
-import { getUsers } from '../../../../../features/dashboard/action';
+import { getRoles, getUsers } from '../../../../../features/dashboard/action';
 import UserDetails from '../UserDetails/UserDetails';
 
 function UsersPagination() {
@@ -23,6 +23,10 @@ function UsersPagination() {
     useEffect(()=>{
       dispatch(getUsers())
     },[]);
+
+    useEffect(() => {
+      dispatch(getRoles())
+    },[])
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % users.length;

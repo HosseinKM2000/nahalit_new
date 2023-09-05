@@ -1,18 +1,20 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import { AiFillDashboard, AiFillHtml5, AiOutlineHeart } from "react-icons/ai";
-import { BsPerson, BsWordpress } from "react-icons/bs";
-import { FaAndroid, FaSpa, FaUserCircle } from "react-icons/fa";
+import { AiFillDashboard, AiOutlineHeart } from "react-icons/ai";
+import { BsPerson } from "react-icons/bs";
+import { FaSpa, FaUserCircle } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { RiArrowDownSLine, RiWordpressFill } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { getBasketsByUserId } from "../../features/cart/action";
 import { getUserRole } from "../../features/dashboard/action";
+import HeaderWeAddress from "../HeaderWeAddress/HeaderWeAddress";
 import ScrollTop from "../ScrollTop/ScrollTop";
 import UserAvatarIcon from "../UserAvatar/UserAvatar";
-import { getBasketsByUserId } from "../../features/cart/action";
-import HeaderWeAddress from "../HeaderWeAddress/HeaderWeAddress";
+import HeaderProductsLogo from "../HeaderProductsLogo/HeaderProductsLogo";
+import HeaderAdminProfileIcon from "../HeaderAdminProfileIcon/HeaderAdminProfileIcon";
 
 const Header = () => {
 
@@ -87,45 +89,13 @@ const Header = () => {
       <ScrollTop/>
       <div className="min-w-full">
         <HeaderWeAddress/>
-        <div className="flex justify-center mt-10">
-          <div>
-            <div className="border-l-2 gap-1 border-dotted cursor-default border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
-              <BsWordpress className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
-              <p className="text-[#191919] hover:text-[#64d24b] transition-all text-[0.9rem] font-[shabnamthin] tracking-tighter">قالب وردپرس</p>
-            </div>
-          </div>
-          <div>
-            <div className="border-l-2 gap-1 border-dotted cursor-default border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
-              <AiFillHtml5 className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
-              <p className="text-[#191919] hover:text-[#64d24b] transition-all text-[0.9rem] font-[shabnamThin] tracking-tighter">قالب html</p>
-            </div>
-          </div>
-          <div>
-            <div className="border-l-2 gap-1 cursor-default border-dotted border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">
-              <RiWordpressFill className="text-[2rem] text-[#57C053] hover:text-[#6ade66] transition-all duration-300" />
-              <p className="text-[#191919] hover:text-[#64d24b] transition-all text-[0.9rem] font-[shabnamThin] tracking-tighter">پلاگین وردپرس</p>
-            </div>
-          </div>
-          <div>
-            <div className="px-4 py-3 flex gap-1 cursor-default flex-col items-center justify-center">
-              <FaAndroid className="text-[2rem] text-[#57C053]  hover:text-[#6ade66] transition-all duration-300" />
-              <p className="text-[#191919] hover:text-[#64d24b] transition-all text-[0.9rem] font-[shabnamThin] tracking-tighter">محصولات اپلیکیشن</p>
-            </div>
-          </div>
-        </div>
+        <HeaderProductsLogo/>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
           <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
               {
               loginStatus && userId === 1
               ?
-              <div className="relative">
-                <Link to={'/userPage/userProfile'} onMouseEnter={()=>setShowSlide13(true)} onMouseLeave={()=>setShowSlide13(false)}>
-                  <UserAvatarIcon/>
-                </Link>
-                <div className={showSlide13 ? "box arrow-avatar" : "box arrow-avatar opacity-0 transition-all duration-300"}>
-                  پنل کاربری
-                </div>
-              </div>
+              <HeaderAdminProfileIcon showSlide13={showSlide13} setShowSlide13={setShowSlide13}/>
               :
               <></>
             }

@@ -16,7 +16,7 @@ const Table = ({ goalProducts }) => {
         </thead>
         <div>
           <tbody className="flex flex-wrap lg:flex-col justify-start h-fit gap-y-4 py-3 w-full">
-            {goalProducts.map(cartItem => <TableItem cartItem={cartItem}/>)}
+            {goalProducts?.map(cartItem => <TableItem cartItem={cartItem}/>)}
           </tbody>
         </div>
       </table>

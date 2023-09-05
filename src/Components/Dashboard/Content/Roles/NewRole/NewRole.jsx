@@ -49,39 +49,32 @@ function NewRole() {
   return (
     <div className='w-full h-full flex-col justify-center items-center'>
       <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
-        {/* toaster */}
-        <ToastContainer 
-         position='top-center'
-         theme='colored'
-         autoClose={2500}
-         className='Toast_info'
-         />
-       <div className='w-full bg-[#C0D9DB] p-2'>
-           <h1 className='font-semibold text-lg text-stone-800'>نقش جدید</h1>
-       </div>
-       <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
-           {/* title */}
-       <div className='flex flex-col gap-2 w-full'>
-           <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
-           <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
-       </div>
-         {/* permissions */}
-       <div className='flex flex-col gap-5 w-full'>
-         <label htmlFor="permissions" className='font-semibold text-[#2e424a]'>وظایف</label>
-         <div className='flex items-center flex-wrap gap-x-10 gap-y-10'>
-            {
-                permissions.map(item => (
-                    <InteractiveButton item={item} setPermission={addPermission}/>
-                ))
-            }
-         </div>
-         <div>
-
-         </div>
-       </div>
-       <button onClick={(e)=>formSubmitter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
-   </form>
+        <div className='w-full bg-[#C0D9DB] p-2'>
+            <h1 className='font-semibold text-lg text-stone-800'>نقش جدید</h1>
         </div>
+        <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
+            {/* title */}
+        <div className='flex flex-col gap-2 w-full'>
+            <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
+            <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
+        </div>
+          {/* permissions */}
+        <div className='flex flex-col gap-5 w-full'>
+          <label htmlFor="permissions" className='font-semibold text-[#2e424a]'>وظایف</label>
+          <div className='flex items-center flex-wrap gap-x-10 gap-y-10'>
+              {
+                  permissions.map(item => (
+                      <InteractiveButton item={item} setPermission={addPermission}/>
+                  ))
+              }
+          </div>
+          <div>
+
+          </div>
+        </div>
+        <button onClick={(e)=>formSubmitter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
+        </form>
+      </div>
     </div>
   )
 }

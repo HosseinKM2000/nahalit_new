@@ -55,54 +55,47 @@ function New() {
 
   return (
     <div className='flex flex-col 2xl:w-[70%] w-full opacity-motion'>
-             {/* toaster */}
-             <ToastContainer 
-              position='top-center'
-              theme='colored'
-              autoClose={2500}
-              className='Toast_info'
-              />
-            <div className='w-full bg-[#C0D9DB] p-2'>
-                <h1 className='font-semibold text-lg text-stone-800'>ایجاد</h1>
+        <div className='w-full bg-[#C0D9DB] p-2'>
+            <h1 className='font-semibold text-lg text-stone-800'>ایجاد</h1>
+        </div>
+        <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
+        {/* title */}
+        <div className='flex flex-col gap-2 w-full'>
+            <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
+            <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
+        </div>
+        {/* image */}
+        <div className='flex flex-col gap-2 w-full'>
+            <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر</label>
+            <input  onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
+        </div>
+            {/* products categories */}
+            <div className='w-full flex-col sm:flex-row flex justify-start items-start gap-3'>
+            <div className='flex flex-col gap-3 justify-center items-start'>
+            <button type='button' onClick={()=>{
+                setDropCate({status:!dropCate.status,value:dropCate.value})
+            }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
+            {
+                dropCate.value !== null
+                ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
+                :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
+            }
             </div>
-            <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
-           {/* title */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
-            </div>
-            {/* image */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="poster" className='font-semibold text-[#2e424a]'>تصویر</label>
-                <input  onChange={(e)=>setImageName(e.target.files[0].name)} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='poster'/>
-            </div>
-                {/* products categories */}
-                <div className='w-full flex-col sm:flex-row flex justify-start items-start gap-3'>
-                <div className='flex flex-col gap-3 justify-center items-start'>
-                <button type='button' onClick={()=>{
-                    setDropCate({status:!dropCate.status,value:dropCate.value})
-                }} className='text-sm w-fit bg-yellow-600 py-1 px-2 border-2 border-[#BABCBE] hover:bg-yellow-500 transition-all rounded-md text-white font-bold'>دسته بندی ها</button>
+                <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
                 {
-                    dropCate.value !== null
-                    ? <div className='bg-transparent p-2 w-fit rounded-sm font-bold text-white border-dashed border-white border-2'>{dropCate.value}</div>
-                    :<span className='text-rose-600 font-bold'>دسته بندی انتخاب نشده!</span>
+                    products.map((cate,i)=>(
+                        <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
+                        onClick={(e)=>{
+                            setDropCate({status:false,value:cate.title})
+                        }}
+                        >
+                            <span>{cate.title}</span>
+                        </li>
+                    ))
                 }
-                </div>
-                    <ul className='bg-white px-2 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll transition-all duration-300 rounded-sm' style={{height:dropCate.status?'fit-content':'0px',padding:dropCate.status?'3px':'0px'}}>
-                    {
-                        products.map((cate,i)=>(
-                            <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
-                            onClick={(e)=>{
-                                setDropCate({status:false,value:cate.title})
-                            }}
-                            >
-                                <span>{cate.title}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
-                </div>
-            <button onClick={(e)=>addGalleryHandle()} type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
+            </ul>
+            </div>
+        <button onClick={(e)=>addGalleryHandle()} type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
         </form>
     </div>
   )

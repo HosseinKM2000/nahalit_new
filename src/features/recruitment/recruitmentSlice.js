@@ -4,16 +4,11 @@ import { toast } from "react-toastify";
 
 const initialState = {
     loading:false,
-    blogsResult:[],
-    productsResult:[],
-    isError: false,
-    errorBlogsMessage : '',
-    errorProductsMessage : ''
 }
 
-const searchSlice = createSlice({
+const recruitmentSlice = createSlice({
     initialState,
-    name:'search',
+    name:'recruitment',
     extraReducers:(builder) => {
         builder
         .addCase(searchBlogs.fulfilled, (state,action) => {

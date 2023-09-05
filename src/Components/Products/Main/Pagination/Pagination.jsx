@@ -40,13 +40,6 @@ function Pagination() {
 
   return (
     <>
-      {/* toaster */}
-    <ToastContainer 
-    position='top-center'
-    theme='colored'
-    autoClose={2500}
-    className='Toast_info'
-    />
     <ProductsPage currentItems={currentItems}/>
     <ReactPaginate
       breakLabel="..."

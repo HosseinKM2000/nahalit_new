@@ -11,6 +11,8 @@ import { Link, useLocation } from "react-router-dom";
 import { getUserRole } from "../../features/dashboard/action";
 import ScrollTop from "../ScrollTop/ScrollTop";
 import UserAvatarIcon from "../UserAvatar/UserAvatar";
+import { getBasketsByUserId } from "../../features/cart/action";
+import HeaderWeAddress from "../HeaderWeAddress/HeaderWeAddress";
 
 const Header = () => {
 
@@ -23,6 +25,7 @@ const Header = () => {
   const [showSlide13, setShowSlide13] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
   const baskets = useSelector(state => state.cart.baskets);
+  const success = useSelector(state => state.cart.success);
   const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : '';
   const location = useLocation();
   const urlPath = location.pathname;
@@ -34,6 +37,12 @@ const Header = () => {
       dispatch(getUserRole(userId))
     }
   },[loginStatus])
+
+  useEffect(() => {
+    if(loginStatus) {
+      dispatch(getBasketsByUserId(userId))
+    }
+  },[success])
 
   const clickEntershowslide2 = () => {
     setShowSlide2(true);
@@ -77,12 +86,7 @@ const Header = () => {
       <div className="bg-[#07B235] h-1" id="UP"></div>
       <ScrollTop/>
       <div className="min-w-full">
-        <div className="flex justify-between w-full text-center px-5 py-1">
-          <p className="font-[shabnamLight]  leading-10 text-[#707070] text-[0.9rem]">
-            آدرس : تهران میدان فردوسی خیابان ایرانشهر بین سمیه و طالقانی مجتمع تجاری میلاد واحد 9
-          </p>
-          <p className="font-[shabnamLight] leading-10 text-[#707070] text-[0.9rem]">پشتیبانی 24 ساعته : 02188867940 – 09927674217</p>
-        </div>
+        <HeaderWeAddress/>
         <div className="flex justify-center mt-10">
           <div>
             <div className="border-l-2 gap-1 border-dotted cursor-default border-[#d7f0d6] px-4 py-3 flex flex-col items-center justify-center">

@@ -88,13 +88,6 @@ function EditProduct({ isEdit , setIsEdit }) {
 
   return (
     <div className='flex w-full sm:w-[90%] md:w-full 2xl:w-[70%] flex-col opacity-motion'>
-         {/* toaster */}
-        <ToastContainer 
-        position='top-center'
-        theme='colored'
-        autoClose={2500}
-        className='Toast_info'
-        />
         <div className='bg-[#C0D9DB] p-2 flex items-center justify-between'>
             <h1 className='font-semibold text-lg text-stone-800'>ویرایش محصول</h1>
             <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>setIsEdit({status:false,value:""})}/>

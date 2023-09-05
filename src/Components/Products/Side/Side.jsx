@@ -38,19 +38,17 @@ function Side() {
     const changeMinValue = (value) => { 
       setMinValue(JSON.parse(value))
       let min = JSON.parse(value)
-      dispatch(sortByPriceRange({min,max:maxValue}))
-      console.log(minValue,maxValue) 
+      dispatch(sortByPriceRange({min,max:maxValue})) 
     }
 
     const changeMaxValue = (value) => { 
       setMaxValue(JSON.parse(value))
       let max = JSON.parse(value)
       dispatch(sortByPriceRange({min:minValue,max}))
-      console.log(minValue,maxValue)  
     }
 
   return (
-    <div className='flex w-full pb-5 px-3 2xl:px-10 bg-[#f2f2f2] lg:w-[25%] flex-col pt-5 gap-5 2xl:gap-10'>
+    <div className='flex w-full pb-5 px-3 2xl:px-8 bg-[#f2f2f2] 2xl:w-[15%] lg:w-[25%] flex-col pt-5 gap-5 2xl:gap-10'>
         <select onChange={(e)=>selectHandle(e)} id="select" ref={filterSelectRef} className='text-sm font-[shabnamMedium] text-stone-600 lg:w-[100%] w-full sm:w-[50%] outline-none mt-3 p-1 2xl:w-[70%]' style={{border:'solid 1px #DBDCDD'}}>
              <option value="" className='font-[shabnamMedium]'>مرتب سازی پیش فرض</option>
              <option value="all" className='font-[shabnamMedium]'>همه محصولات</option>

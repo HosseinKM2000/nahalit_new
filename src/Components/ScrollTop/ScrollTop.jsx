@@ -16,7 +16,7 @@ function ScrollTop() {
   return (
     <>{
       ScrollY > 1000 
-      ? <button className={'text-white bottom-5 z-[100] fixed rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[1.8rem] sm:text-[2rem] flex w-fit h-fit'} style={{border:'1px solid #fff'}} onClick={scrollToTop}><TbHandFinger className='m-1'/></button>
+      ? <button className={'text-white bottom-10 z-[100] fixed rounded-md left-5 bg-green-600 hover:bg-green-500 transition-all duration-300 cursor-pointer text-[1.8rem] sm:text-[2rem] flex w-fit h-fit'} style={{border:'1px solid #fff'}} onClick={scrollToTop}><TbHandFinger className='m-1'/></button>
       : null
     }</>
   )

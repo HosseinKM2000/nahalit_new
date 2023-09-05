@@ -7,11 +7,23 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import NotLogined from "../../Components/NotLogined/NotLogined";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import { toast } from "react-toastify";
 
 const Recruitment = () => {
   const [birthDate,setBirthDate] = useState('');
-  const loginStatus = useSelector(state => state.authentication.loginStatus);
-
+  const formSubmit = e => {
+    e.preventDefault();
+    let formObj = {};
+    Array.from(e.target.elements).forEach(element => {
+        formObj[element.id] = element.value; 
+    });
+    delete formObj[""];
+    formObj = {
+      ...formObj,
+      birthday:birthDate
+    }
+    console.log(formObj)
+  }
   return (
     <div>
       <header>
@@ -22,9 +34,6 @@ const Recruitment = () => {
           <ResponseHeader />
         </div>
       </header>
-      {
-        loginStatus
-        ?
         <div className="bg-[#f5f5f9] pb-32">
         <div className="px-8 max-lg:px-16 max-md:px-5 max-sm:px-2 mx-auto pt-12 flex max-xl:flex-wrap max-lg:justify-center justify-between items-start gap-x-12">
           <div className="flex flex-col max-xl:mb-8">
@@ -67,72 +76,74 @@ const Recruitment = () => {
             </Link>
           </div>
           <div>
-            <form className="flex flex-col px-3 justify-center w-[35rem] max-xl:w-[25rem] max-lg:w-[20rem] gap-y-2">
-              <label htmlFor="NameRecruitment" className="font-[shabnamBold]">
+            <form onSubmit={(e)=>formSubmit(e)} className="flex flex-col px-3 justify-center w-[35rem] max-xl:w-[25rem] max-lg:w-[20rem] gap-y-2">
+              <label htmlFor="first_name" className="font-[shabnamBold]">
                 نام شما <span className="text-red-500">*</span>
               </label>
-              <input required={true} id="NameRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
-              <label htmlFor="FamilyRecruitment" className="font-[shabnamBold]">
+              <input required={true} id="first_name" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
+              <label htmlFor="last_name" className="font-[shabnamBold]">
                 نام خانوادگی <span className="text-red-500">*</span>
               </label>
-              <input required={true} id="FamilyRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
-              <label htmlFor="EmailRecruitment" className="font-[shabnamBold]">
+              <input required={true} id="last_name" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" type="text" />
+              <label htmlFor="email" className="font-[shabnamBold]">
                 ایمیل شما <span className="text-red-500">*</span>
               </label>
               <input 
               required={true} 
-              pattern="test@gmail.com"
-              id="EmailRecruitment" 
+              id="email" 
               className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" 
               type="email" />
-              <label htmlFor="birthdateRecruitment" className="font-[shabnamBold]">
+              <label htmlFor="birthday" className="font-[shabnamBold]">
                 تاریخ تولد <span className="text-red-500">*</span>
               </label>
-                <DatePicker onChange={(e) => console.log(e.value.toISOString().split('T')[0])}/>
-              <label htmlFor="martial_statusRecruitment" className="font-[shabnamBold]">
+                <div className="zamanDatePicker">
+                  <DatePicker id="birthday" onChange={(e) => setBirthDate(e.value.toISOString().split('T')[0])}/>
+                </div>
+              <label htmlFor="martial_status" className="font-[shabnamBold]">
                 وضعیت تاهل <span className="text-red-500">*</span>
               </label>
-              <select required={true} name="martial_statusRecruitment" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" id="martial_statusRecruitment">
+              <select required={true} name="martial_status" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" id="martial_status">
                 <option className="font-[shabnam]" value={false}>مجرد</option>
                 <option className="font-[shabnam]" value={true}>متاهل</option>
               </select>
-              <label htmlFor="AddressRecruitment" className="font-[shabnamBold]">
+              <label htmlFor="address" className="font-[shabnamBold]">
                 آدرس <span className="text-red-500">*</span>
               </label>
               <input
                 required={true}
                 placeholder=""
-                id="AddressRecruitment"
+                id="address"
                 className="py-2 border border-solid border-[#c7c7c7] outline-none px-2"
                 type="text"
               />
-              <label htmlFor="NumRecruitment" className="font-[shabnamBold]">
+              <label htmlFor="phone" className="font-[shabnamBold]">
                 شماره تلفن <span className="text-red-500">*</span>
               </label>
               <input 
               required={true} 
-              id="NumRecruitment" 
+              id="phone" 
               placeholder="09123456789" 
               className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" 
               type="number"/>
               <div className="mt-7 px-1">
-              <label htmlFor="checkBoxRecruitment" className="font-[shabnamBold]">
+              <label htmlFor="activty" className="font-[shabnamBold]">
                 فعالیت ها <span className="text-red-500">*</span>
               </label>
-                <textarea cols={50} rows={10} placeholder="سایر فعالیت ها..." className="m-3 placeholder:text-sm outline-none p-3 text-sm font-[shabnam]"/>
+                <textarea id="activty" cols={50} rows={10} placeholder="سایر فعالیت ها..." className="m-3 placeholder:text-sm outline-none p-3 text-sm font-[shabnam]"/>
             </div>
             <div className="mt-10 px-3 flex flex-col gap-y-5">
-                <label className="font-[shabnamBold]">
+                <label className="font-[shabnamBold]" htmlFor="education_status">
                   وضعیت تحصیل <span className="text-red-500">*</span>
                 </label>
-                <input type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" required={true} />
-                <label className="font-[shabnamBold]">شرح توانایی شما (اختیاری)</label>
-                <textarea className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2" required={true}></textarea>
-                <label className="font-[shabnamBold]">
+                <input htmlFor="education_status" type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" required={true} />
+                <label htmlFor="ability_description" className="font-[shabnamBold]">شرح توانایی شما (اختیاری)</label>
+                <textarea id="ability_description" className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2" required={true}></textarea>
+                <label htmlFor="shaba_number" className="font-[shabnamBold]">
                   شماره شبای کارت بانکی <span className="text-red-500">*</span>
                 </label>
                 <input
                   required={true}
+                  id="shaba_number"
                   type="text"
                   placeholder="شماره شبا بانکی خود را بدون IR وارد کنید"
                   className="py-2 border border-solid font-[shabnamMedium] border-[#cecece] outline-none px-2"
@@ -148,9 +159,6 @@ const Recruitment = () => {
           </div>
         </div>
       </div>
-      :
-      <NotLogined/>
-      }
       <div>
         <FixedIcon />
       </div>

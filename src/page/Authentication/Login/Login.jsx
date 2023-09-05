@@ -22,7 +22,7 @@ function Login() {
         if(redirect)
         {
           setTimeout(()=>{
-            navigate('/')
+            navigate(-1)
           },1000)
           dispatch(changeRedirect())
         }
@@ -32,8 +32,7 @@ function Login() {
     e.preventDefault()
     let phone = phoneRef.current.value;
     let password = passwordRef.current.value;
-    switch(true)
-    {
+    switch(true) {
       case phone.length === 0 : toast.warn("شماره تلفن را وارد کنید");
       break;
       case password.length === 0 : toast.warn('رمز عبور را وارد کنید');
@@ -45,68 +44,62 @@ function Login() {
       case password.length < 8 : toast.warn('رمز عبور کوتاه است')
       break;
       default : loginFnc({password,mobile:phone})
-    }
-  }
+    }};
 
+    
   const loginFnc = (dataObj) => {
     dispatch(login(dataObj))
   }
 
   return (
     <>
-    <Helmet>
-      <title>نهال آی تی | ورود</title>
-    </Helmet>
-    <ToastContainer 
-    position='top-center'
-    theme='colored'
-    autoClose={2500}
-    className='Toast_info'
-    />
-    <div className='w-screen relative min-h-screen bg-gray-300 flex justify-center font-[shabnamMedium] items-center'>
-      <HomeButton/>
-      <div className='container mx-auto max-w-[400px]'>
-        <div className='flex mx-3 flex-col  2xl:my-10 my-5  overflow-hidden rounded-md shadow-[0px_5px_14px_5px_rgba(0,0,0,0.05)]'>
-          <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
-              <div className='flex flex-col gap-1 items-center'>
-                      <div className='bg-[#464c56] rounded-[50%] 2xl:h-[6rem] 2xl:w-[6rem] w-[4rem] 2xl:p-3 h-[4rem] 2xl:text-7xl text-5xl flex justify-center items-center'>
-                        <HiOutlineLogin/>
-                      </div>
-                      <span className='text-lg'>ورود</span>
+      <Helmet>
+        <title>نهال آی تی | ورود</title>
+      </Helmet>
+      <div className='w-screen relative min-h-screen bg-gray-300 flex justify-center font-[shabnamMedium] items-center'>
+          <HomeButton/>
+          <div className='container mx-auto max-w-[400px]'>
+            <div className='flex mx-3 flex-col  2xl:my-10 my-5  overflow-hidden rounded-md shadow-[0px_5px_14px_5px_rgba(0,0,0,0.05)]'>
+              <div className='w-full bg-[#2b323b] text-white justify-center flex py-5 2xl:py-10'>
+                  <div className='flex flex-col gap-1 items-center'>
+                          <div className='bg-[#464c56] rounded-[50%] 2xl:h-[6rem] 2xl:w-[6rem] w-[4rem] 2xl:p-3 h-[4rem] 2xl:text-7xl text-5xl flex justify-center items-center'>
+                            <HiOutlineLogin/>
+                          </div>
+                          <span className='text-lg'>ورود</span>
+                  </div>
               </div>
+              <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
+                        <div className='flex flex-col items-center gap-2 w-full lg:items-center text-sm'>
+                          <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
+                          <input ref={phoneRef} type="text" className='bg-gray-300 font-[shabnambold] text-left outline-none border-none 2xl:p-2 w-full p-1' name='phone'/>
+                        </div>
+                        <div className='flex flex-col items-end gap-2 w-full lg:items-center text-sm'>
+                          <label className='text-stone-600 w-full' htmlFor="password">گذرواژه:</label>
+                          <input ref={passwordRef} type="password" name="password" id="password" className='bg-gray-300 text-left 2xl:p-2 outline-none border-none w-full p-1'/>
+                        </div>
+                        <div className='flex items-center gap-1 2xl:gap-3'>
+                          <input type="checkbox" name="remember" id="remember" className='2xl:scale-150'/>
+                          <label htmlFor="remember" className='text-sm font-[shabnamLight] text-stone-500'>مرا به خاطر بسپار</label>
+                        </div>
+                        <div className='w-full flex flex-col items-center text-sm justify-center gap-3'>
+                    <button type="submit" className='bg-green-600 font-bold w-full items-center 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1  flex justify-center'>
+                      {
+                        loading
+                        ? <img src={loadingSvg} alt="loading" className='w-[1.5rem]'/>
+                        : <span>ورود</span>
+                      }
+                    </button>
+                          <Link to={'/register'} className='bg-blue-600 2xl:py-2 hover:bg-blue-500 text-center transition-all duration-300 text-white rounded-md py-1 w-full font-bold'><button type="button">عضویت</button></Link>
+                        </div>
+                        <span className='w-full  text-center text-xs text-stone-400 cursor-pointer font-[shabnamBold] hover:text-blue-500 transition-all'>گذرواژه خود را فراموش کرده اید؟</span>
+                        <span className='w-full text-center text-stone-500 font-bold'>یا</span>
+                        <div className='w-full flex flex-col items-center justify-center'>
+                        <Link className='bg-[#54a733] w-full text-sm 2xl:py-2 hover:bg-[#70c64e] font-bold text-center transition-all duration-300 text-white rounded-md py-1'><button type="button">ورود با کد یکبار مصرف</button></Link>
+                        </div>
+              </form>
+            </div>
           </div>
-           <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
-                    <div className='flex flex-col items-center gap-2 w-full lg:items-center text-sm'>
-                      <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
-                      <input ref={phoneRef} type="text" className='bg-gray-300 font-[shabnambold] text-left outline-none border-none 2xl:p-2 w-full p-1' name='phone'/>
-                    </div>
-                    <div className='flex flex-col items-end gap-2 w-full lg:items-center text-sm'>
-                      <label className='text-stone-600 w-full' htmlFor="password">گذرواژه:</label>
-                      <input ref={passwordRef} type="password" name="password" id="password" className='bg-gray-300 text-left 2xl:p-2 outline-none border-none w-full p-1'/>
-                    </div>
-                    <div className='flex items-center gap-1 2xl:gap-3'>
-                      <input type="checkbox" name="remember" id="remember" className='2xl:scale-150'/>
-                      <label htmlFor="remember" className='text-sm font-[shabnamLight] text-stone-500'>مرا به خاطر بسپار</label>
-                    </div>
-                    <div className='w-full flex flex-col items-center text-sm justify-center gap-3'>
-                <button type="submit" className='bg-green-600 font-bold w-full items-center 2xl:py-2 hover:bg-green-500 text-center transition-all duration-300 text-white rounded-md py-1  flex justify-center'>
-                  {
-                    loading
-                    ? <img src={loadingSvg} alt="loading" className='w-[1.5rem]'/>
-                    : <span>ورود</span>
-                  }
-                </button>
-                      <Link to={'/register'} className='bg-blue-600 2xl:py-2 hover:bg-blue-500 text-center transition-all duration-300 text-white rounded-md py-1 w-full font-bold'><button type="button">عضویت</button></Link>
-                    </div>
-                    <span className='w-full  text-center text-xs text-stone-400 cursor-pointer font-[shabnamBold] hover:text-blue-500 transition-all'>گذرواژه خود را فراموش کرده اید؟</span>
-                    <span className='w-full text-center text-stone-500 font-bold'>یا</span>
-                    <div className='w-full flex flex-col items-center justify-center'>
-                    <Link className='bg-[#54a733] w-full text-sm 2xl:py-2 hover:bg-[#70c64e] font-bold text-center transition-all duration-300 text-white rounded-md py-1'><button type="button">ورود با کد یکبار مصرف</button></Link>
-                    </div>
-           </form>
-        </div>
       </div>
-     </div>
     </>
   )
 }

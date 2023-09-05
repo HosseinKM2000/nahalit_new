@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BsPersonCircle } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetAnswerAction, SetAnswerStatus, checkForm, emailAnswer, nameAnswer, setComment, setEmail, setName, textAnswer } from '../../../../features/productComments/productCommentsSlice';
 import './Comments.css';
-import { useState } from 'react';
-import { useSelector , useDispatch} from 'react-redux';
-import {BsPersonCircle} from 'react-icons/bs';
-import { setName , setComment , setEmail , checkForm , nameAnswer , emailAnswer , textAnswer , SetAnswerStatus , SetAnswerAction} from '../../../../features/productComments/productCommentsSlice';
-import { ToastContainer} from 'react-toastify';
 
 const Comments = () => {
 
@@ -35,17 +33,10 @@ const Comments = () => {
           })
         }  
         
-        console.log(warnAnswer)
     }
 
   return (
     <>
-             <ToastContainer 
-              position='top-center'
-              theme='colored'
-              autoClose={2500}
-              className='Toast_info'
-              />
               <div className='my-8 flex flex-col gap-20 2xl:gap-80'>
               {
                 comments ? comments.map((comment) => (

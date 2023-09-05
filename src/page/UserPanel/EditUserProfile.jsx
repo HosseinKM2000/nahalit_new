@@ -106,39 +106,33 @@ const UserProfilePage = () => {
 
   return (
     <>
-    <ToastContainer 
-    position='top-center'
-    theme='colored'
-    autoClose={2500}
-    className='Toast_info'
-    />
-    <div className="flex w-[100%]">
-        <div className="w-full">
-          <h2 className="mb-6 font-bold text-2xl">پروفایل کاربری</h2>
-          <form onSubmit={e => handleSubmit(e)}>
-            <div className="grid gap-6 mb-6 md:grid-cols-2">
-              <ProfileInput name={"first_name"} type={"text"} label={"نام"} placeholder={"علی"} data={data.first_name} setData={handleInputChange}/>
-              <ProfileInput name={"last_name"} type={"text"} label={"نام خانوادگی"} placeholder={"موسوی"} data={data.last_name} setData={handleInputChange}/>
-              <ProfileInput name={"username"} type={"text"} label={"نام کاربری"} placeholder={""} data={data.username} setData={handleInputChange}/>
-              <ProfileInput name={"email"} type={"email"} label={"آدرس ایمیل"} placeholder={"email@example.com"} data={data.email} setData={handleInputChange}/>
-              <ProfileInput name={"mobile"} type={"number"} label={"شماره موبایل"} placeholder={"09123456789"} data={data.mobile} setData={handleInputChange}/>
-              <ProfileInput name={"card_number"} type={"number"} label={"شماره کارت"} placeholder={"1234567890123456"} data={data.card_number} setData={handleInputChange}/>
-              <ProfileInput name={"code_meli"} type={"number"} label={"کد ملی"} placeholder={"0123456789"} data={data.code_meli} setData={handleInputChange}/>
-            </div>
-            <hr/>
-            <h2 className="mb-6 mt-4 font-bold text-xl">تغییر رمز عبور</h2>
-            <div className="grid gap-6">
-              <ProfileInput name={"password"} type={"password"} label={"رمز عبور قبلی"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password} setData={handleInputChange}/>
-              <ProfileInput name={"new_password"} type={"password"} label={"رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.newPassword} setData={handleInputChange}/>
-              <ProfileInput name={"confirm_new_password"} type={"password"} label={"تکرار رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password_confirmation} setData={handleInputChange}/>
-              <button type="submit"
-                      className="text-white bg-green-600 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm w-full 2xl:w-[80%] 2xl:mx-auto sm:w-auto px-5 py-2.5 text-center">
-                ذخیره
-              </button>
-            </div>
-          </form>
-        </div>
-    </div>
+      <div className="flex w-[100%]">
+          <div className="w-full">
+            <h2 className="mb-6 font-bold text-2xl">پروفایل کاربری</h2>
+            <form onSubmit={e => handleSubmit(e)}>
+              <div className="grid gap-6 mb-6 md:grid-cols-2">
+                <ProfileInput name={"first_name"} type={"text"} label={"نام"} placeholder={"علی"} data={data.first_name} setData={handleInputChange}/>
+                <ProfileInput name={"last_name"} type={"text"} label={"نام خانوادگی"} placeholder={"موسوی"} data={data.last_name} setData={handleInputChange}/>
+                <ProfileInput name={"username"} type={"text"} label={"نام کاربری"} placeholder={""} data={data.username} setData={handleInputChange}/>
+                <ProfileInput name={"email"} type={"email"} label={"آدرس ایمیل"} placeholder={"email@example.com"} data={data.email} setData={handleInputChange}/>
+                <ProfileInput name={"mobile"} type={"number"} label={"شماره موبایل"} placeholder={"09123456789"} data={data.mobile} setData={handleInputChange}/>
+                <ProfileInput name={"card_number"} type={"number"} label={"شماره کارت"} placeholder={"1234567890123456"} data={data.card_number} setData={handleInputChange}/>
+                <ProfileInput name={"code_meli"} type={"number"} label={"کد ملی"} placeholder={"0123456789"} data={data.code_meli} setData={handleInputChange}/>
+              </div>
+              <hr/>
+              <h2 className="mb-6 mt-4 font-bold text-xl">تغییر رمز عبور</h2>
+              <div className="grid gap-6">
+                <ProfileInput name={"password"} type={"password"} label={"رمز عبور قبلی"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password} setData={handleInputChange}/>
+                <ProfileInput name={"new_password"} type={"password"} label={"رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.newPassword} setData={handleInputChange}/>
+                <ProfileInput name={"confirm_new_password"} type={"password"} label={"تکرار رمز عبور جدید"} placeholder={"•••••••••"} autocomplete={"password"} data={data.password_confirmation} setData={handleInputChange}/>
+                <button type="submit"
+                        className="text-white bg-green-600 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm w-full 2xl:w-[80%] 2xl:mx-auto sm:w-auto px-5 py-2.5 text-center">
+                  ذخیره
+                </button>
+              </div>
+            </form>
+          </div>
+      </div>
     </>
   )
 };

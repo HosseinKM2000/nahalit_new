@@ -129,6 +129,14 @@ p
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+.Toastify__toast-container--top-center 
+{
+  min-width: fit-content;
+}
+.Toastify__toast-body
+{
+  min-width: fit-content;
+}
 .Toastify__toast-body > div:last-child
 {
   font-size: 0.8rem !important;
@@ -498,6 +506,19 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
   border-left: 15px solid transparent;
   border-bottom: 16px solid #9fe89c;
 }
+.zamanDatePicker > input
+{
+  width: 100%;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #c5c5c5;
+  font-family: shabnam;
+}
+b 
+{
+  color: #0f5502;
+}
+
 
 
 

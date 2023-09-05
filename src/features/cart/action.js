@@ -13,9 +13,11 @@ export const getBasketsByUserId = createAsyncThunk('cart/getBasketsByUserId', as
 })
 export const addBasket = createAsyncThunk('cart/addBasket', async (dataObj) => {
     const response = await instance.post("/baskets",dataObj);
-    return response;
+    const { data } = response;
+    return data;
 })
 export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => {
     const response = await instance.delete(`/baskets/${id}`);
-    return response;
+    const { data } = response;
+    return data;
 })

@@ -31,13 +31,6 @@ function ArticlesPagination() {
 
   return (
     <>
-      {/* toaster */}
-      <ToastContainer 
-      position='top-center'
-      theme='colored'
-      autoClose={2500}
-      className='Toast_info'
-      />
     {
       Loading
       ?

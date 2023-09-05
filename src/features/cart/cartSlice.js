@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getBaskets , addBasket , deleteBasket , getBasketsByUserId } from "./action";
 import { toast } from "react-toastify";
+import { data } from "autoprefixer";
 
 const initialState = {
     discount: "",
     loading:false,
     baskets:[],
+    success:false,
 }
 
 const cartSlice = createSlice({
@@ -28,7 +30,6 @@ const cartSlice = createSlice({
       })
       .addCase(getBasketsByUserId.fulfilled, (state,action) => {
         state.baskets = action.payload;
-        console.log(action.payload);
       })
       .addCase(getBasketsByUserId.pending, (state,action) => {
       })
@@ -37,7 +38,9 @@ const cartSlice = createSlice({
       })
       .addCase(addBasket.fulfilled, (state,action) => {
         state.loading = false;
-        toast.success("محصول به سبد خرید اضافه شد")
+        toast.success(action.payload.massage);
+        state.success = !state.success;
+        console.log(action)
       })
       .addCase(addBasket.pending, (state,action) => {
         state.loading = true;
@@ -45,10 +48,12 @@ const cartSlice = createSlice({
       .addCase(addBasket.rejected, (state,action) => {
         state.loading = false;
         toast.error("خطا در اضافه کردن محصول به سبد خرید")
+        console.log(action)
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {
-        toast.success("محصول با موفقیت حذف شد")
+        toast.success(action.payload.massage)
         state.loading = false;
+        state.success = !state.success;
       })
       .addCase(deleteBasket.pending, (state,action) => {
         state.loading = true;

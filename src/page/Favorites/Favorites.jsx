@@ -10,7 +10,6 @@ import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 function Favorites() {
-  const login = useSelector(state => state.authentication.loginStatus);
   const location = useLocation();
   const urlPath = location.pathname;
 
@@ -35,11 +34,7 @@ function Favorites() {
       </header>
     }
     <main>
-          {
-            login
-            ?<Main/>
-            :<NotLogined/>
-          }
+       <Main/>
     </main>
     {
       urlPath === '/userPage/favorites'

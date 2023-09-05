@@ -73,12 +73,6 @@ function ParentsCate() {
 
   return (
     <>
-          <ToastContainer 
-          position='top-center'
-          theme='colored'
-          autoClose={2500}
-          className='Toast_info'
-          />
           <div className='flex flex-col items-center md:flex-row flex-wrap sm:w-[60%] md:w-full w-full gap-x-10 gap-y-10 justify-center'>
             {
               Loading

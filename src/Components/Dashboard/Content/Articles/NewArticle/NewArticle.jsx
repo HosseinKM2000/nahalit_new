@@ -60,13 +60,6 @@ function NewArticle() {
     return (
     
     <div className='flex flex-col w-[93%] sm:w-full opacity-motion 2xl:w-[70%]'>
-        {/* toaster */}
-        <ToastContainer 
-        position='top-center'
-        theme='colored'
-        autoClose={2500}
-        className='Toast_info'
-        />
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>مقاله جدید</h1>
         </div>

@@ -34,7 +34,7 @@ function Register() {
     let mobile = phoneRef.current.value || "09123547587";
     let password = passwordRef.current.value || "012345678lk";
     let password_confirmation = passwordConfirmationRef.current.value || "012345678lk";
-
+    
     switch(true)
     {
       case first_name.length < 2 && first_name.length !== 0 : toast.warn('!نام کوتاه است');
@@ -79,7 +79,8 @@ function Register() {
       break;
       default : formSubmitter({first_name,last_name,username,mobile,email,password,password_confirmation});
     }
-  }
+  };
+
   const formSubmitter = (dataObj) => {
     dispatch(register(dataObj))
     setAcceptCode(!acceptCode)
@@ -90,12 +91,6 @@ function Register() {
     <Helmet>
       <title>نهال آی تی |  ثبت نام</title>
     </Helmet>
-    <ToastContainer 
-    position='top-center'
-    theme='colored'
-    autoClose={2500}
-    className='Toast_info'
-    />
     <div className='w-screen relative min-h-[dvh] bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
         <HomeButton/>
         <div className='container mx-auto max-w-[400px]'>

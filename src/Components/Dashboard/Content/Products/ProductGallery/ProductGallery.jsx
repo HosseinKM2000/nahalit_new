@@ -11,13 +11,6 @@ function ProductGallery() {
 
   return (
     <div className='flex flex-col w-full opacity-motion'>
-        {/* toaster */}
-        <ToastContainer 
-            position='top-center'
-            theme='colored'
-            autoClose={2500}
-            className='Toast_info'
-        />
         <div className='w-full bg-[#C0D9DB] p-2 flex items-center justify-between'>
             <h1 className='font-semibold text-xl text-stone-800'>گالری محصول</h1>
             <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>dispatch(setSwitch({key:'products',value:'all',id:null}))}/>

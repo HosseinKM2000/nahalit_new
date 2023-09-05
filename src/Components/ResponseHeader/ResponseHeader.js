@@ -22,64 +22,64 @@ const ResponseHeader = () => {
   
   return (
     <div  className="flex flex-row-reverse relative items-center justify-between p-4" style={{borderBottom:'1px solid #c3c3c3'}}>
-      <Link id="UP" to="/">
-        <img src="https://nahalit.com/wp-content/uploads/2022/09/photo_2022-09-21_19-42-20.jpg" className="w-[3rem]" alt="nahal it icon" />
-      </Link>
-      <div className="flex items-center min-w-fit w-[50%] sm:w-[30%] justify-between">
-        {
-          loginStatus
-          ?
-          <UserAvatarIcon/>
-          :
-          <></>
-        }
-        {
-          loginStatus
-          ?
-          <>
-          {
-            urlPath === '/cart'
-            ?
-            <></>
-            :
-            <Link to={'/cart'}>
-              <BsCart className="text-xl text-[#8E8C8C]" />
-            </Link>
-          }
-            </>
-            :
-            <Link to={"/login"}>
-              <BiLogInCircle className="text-2xl text-[#8E8C8C]"/>
-            </Link>
-        }
-        {
-            userId !== '' && userId === 1 && loginStatus
-            ?
-            <Link to={'/dashboard'}>
-            <RiDashboard3Line className="text-2xl text-[#8E8C8C] font-thin" />
-            </Link>
-            :
-            <></>
-        }
-        {
-            urlPath === '/favorites'
-            ?
-            <></>
-            :
-            <Link to={'/favorites'}>
-              <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
-            </Link>
-        }
-        <Link>
-          <BsSearch className="text-xl text-[#8E8C8C]" onClick={()=>setDropSearchBox(true)}/>
+        <Link id="UP" to="/">
+          <img src="https://nahalit.com/wp-content/uploads/2022/09/photo_2022-09-21_19-42-20.jpg" className="w-[3rem]" alt="nahal it icon" />
         </Link>
-      </div>
-      <div>
-        <RxHamburgerMenu className="text-2xl text-[#8E8C8C]" onClick={()=> setDropMenu(true)}/>
-      </div>
-      <MobileSearch dropSearchBox={dropSearchBox} setDropSearchBox={setDropSearchBox}/>
-      <MobileMenu dropMenu={dropMenu} setDropMenu={setDropMenu}/>
-      <ScrollTop/>
+        <div className="flex items-center min-w-fit w-[50%] sm:w-[30%] justify-between">
+          {
+            loginStatus
+            ?
+            <UserAvatarIcon/>
+            :
+            <></>
+          }
+          {
+            loginStatus
+            ?
+            <>
+            {
+              urlPath === '/cart'
+              ?
+              <></>
+              :
+              <Link to={'/cart'}>
+                <BsCart className="text-xl text-[#8E8C8C]" />
+              </Link>
+            }
+              </>
+              :
+              <Link to={"/login"}>
+                <BiLogInCircle className="text-2xl text-[#8E8C8C]"/>
+              </Link>
+          }
+          {
+              userId !== '' && userId === 1 && loginStatus
+              ?
+              <Link to={'/dashboard'}>
+              <RiDashboard3Line className="text-2xl text-[#8E8C8C] font-thin" />
+              </Link>
+              :
+              <></>
+          }
+          {
+              urlPath === '/favorites'
+              ?
+              <></>
+              :
+              <Link to={'/favorites'}>
+                <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
+              </Link>
+          }
+          <Link>
+            <BsSearch className="text-xl text-[#8E8C8C]" onClick={()=>setDropSearchBox(true)}/>
+          </Link>
+        </div>
+        <div>
+          <RxHamburgerMenu className="text-2xl text-[#8E8C8C]" onClick={()=> setDropMenu(true)}/>
+        </div>
+        <MobileSearch dropSearchBox={dropSearchBox} setDropSearchBox={setDropSearchBox}/>
+        <MobileMenu dropMenu={dropMenu} setDropMenu={setDropMenu}/>
+        <ScrollTop/>
     </div>
   );
 };

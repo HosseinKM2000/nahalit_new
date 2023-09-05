@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios_config/axios";
+import axios from "axios";
 
 export const searchBlogs = createAsyncThunk('search/searchBlogs', async (value) => {
-     const response = await instance.get(`/blogs/search/${value}`);
+     const response = await axios.get(`http://api.nahalit.ir/api/v1/blogs/search/${value}`);
      return response;
 })
 
 export const searchProducts = createAsyncThunk('search/searchProducts', async (value) => {
-     const response = await instance.get(`/products/search/${value}`);
+     const response = await axios.get(`http://api.nahalit.ir/api/v1/products/search/${value}`);
      return response;
 })

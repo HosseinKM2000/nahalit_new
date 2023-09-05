@@ -62,6 +62,13 @@ const App = () => {
       <>
       <ScrollToTophg />
       <div className="app w-full">
+        {/* toaster */}
+        <ToastContainer
+        position='top-center'
+        theme='colored'
+        autoClose={2500}
+        className='Toast_info'
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/order" element={<Order />} />
@@ -97,7 +104,7 @@ const App = () => {
           <Route path="/news" element={<News/>}/>
           <Route path="*" element={<Error/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path="/shop" element={<Products/>}/>
+          <Route path="/shop?" element={<Products/>}/>
           <Route path="/shop/product/:id" element={<Product/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
@@ -114,13 +121,6 @@ const App = () => {
           <Route path="/create_content" element={<CreateContent/>}/>
           <Route path="/SocialMediaBot" element={<SocialMediaBot/>}/>
         </Routes>
-              {/* toaster */}
-          <ToastContainer
-          position='top-center'
-          theme='colored'
-          autoClose={2500}
-          className='Toast_info'
-          />
       </div>
       <ApiLoading/>
       </>

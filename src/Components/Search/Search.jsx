@@ -31,42 +31,42 @@ const Search = () => {
  
   return (
     <div className="w-[100%] relative flex items-center justify-center my-10">
-      <form className="flex md:w-[60%] 2xl:w-[50%] w-[90%] flex-row border-2 border-solid border-[#07B235] py-1 px-2 rounded-full" onSubmit={(e)=>e.preventDefault()}>
-        <input
-          type="search"
-          ref={searchRef}
-          onKeyDown={(e)=>{
-            if(e.key === 'Enter')
-            {
-              setSuggest(true);
+        <form className="flex md:w-[60%] 2xl:w-[50%] w-[90%] flex-row border-2 border-solid border-[#07B235] py-1 px-2 rounded-full" onSubmit={(e)=>e.preventDefault()}>
+          <input
+            type="search"
+            ref={searchRef}
+            onKeyDown={(e)=>{
+              if(e.key === 'Enter')
+              {
+                setSuggest(true);
 
-            }
-          }}
-          onChange={(e)=>{
-            if(e.target.value === '')
-            {
-              setSuggest(false)
-            }
-            setShowResult('empty')
-            setShowMore(false)
-          }}
-          placeholder="دنبال چی میگردی؟"
-          className="w-full py-1 px-5 text outline-0 placeholder:text-black placeholder:text-xs placeholder:font-[shabnambold] md:placeholder:text-md focus:placeholder:text-white transition-all  duration-500"
-        />
-        <button
-          type="button"
-          className="flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm  md:text-md md:px-8 bg-[#07B235] hover:bg-[#2ac954] transition-all duration-300 rounded-full text-white"
-          onClick={(e)=>{
-            if(searchRef.current.value !== '' ) {
-              setSuggest(true)
+              }
+            }}
+            onChange={(e)=>{
+              if(e.target.value === '')
+              {
+                setSuggest(false)
+              }
               setShowResult('empty')
               setShowMore(false)
-            }
-          }}
-        >
-          جستجو
-        </button>
-      </form>
+            }}
+            placeholder="دنبال چی میگردی؟"
+            className="w-full py-1 px-5 text outline-0 placeholder:text-black placeholder:text-xs placeholder:font-[shabnambold] md:placeholder:text-md focus:placeholder:text-white transition-all  duration-500"
+          />
+          <button
+            type="button"
+            className="flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm  md:text-md md:px-8 bg-[#07B235] hover:bg-[#2ac954] transition-all duration-300 rounded-full text-white"
+            onClick={(e)=>{
+              if(searchRef.current.value !== '' ) {
+                setSuggest(true)
+                setShowResult('empty')
+                setShowMore(false)
+              }
+            }}
+          >
+            جستجو
+          </button>
+        </form>
         <div className='w-[40rem] absolute mx-auto top-10 flex-col bg-white mt-5 px-1 py-3 gap-3 transition-allS' style={{boxShadow:'0px 0px 5px 1px #686868',display:suggest && showResult === 'empty' ? "flex" : "none" ,transition:'all 0.3s'}}>
             <div className='w-full cursor-default flex gap-1 items-center p-1 hover:text-white hover:bg-[#c2c2c2] text-[#127218]' onClick={()=>searchInProducts()}>
                   <span className='text-sm font-[shabnammedium]'>جستجو در محصولات</span>
@@ -86,22 +86,22 @@ const Search = () => {
                 :
                 isError
                 ?
-                 showResult === 'blogs'
-                 ?
-                 <span className="w-full text-center font-[shabnammedium]">{errorBlogsMessage}</span>
-                 :
-                 showResult === 'products'
-                 ?
+                showResult === 'blogs'
+                ?
+                <span className="w-full text-center font-[shabnammedium]">{errorBlogsMessage}</span>
+                :
+                showResult === 'products'
+                ?
                   <span className="w-full text-center font-[shabnammedium]">{errorProductsMessage}</span>
-                 :
-                 <>error</>
+                :
+                <>error</>
                 :
                 <div className="w-full flex flex-col gap-y-3">
                 {
                   showResult === 'blogs'
                   ?
-                   receiptBlogsData.length !== 0
-                   ?
+                  receiptBlogsData.length !== 0
+                  ?
                     receiptBlogsData.length > 5
                     ?
                     showMore
@@ -112,18 +112,18 @@ const Search = () => {
                     :
                     <>
                     {
-                     receiptBlogsData.slice(0,5).map(blog => (
-                       <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
-                     ))
+                    receiptBlogsData.slice(0,5).map(blog => (
+                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
+                    ))
                     }
                     <button className="w-full bg-slate-500 transition-all hover:bg-slate-400 rounded-sm text-white py-1 text-sm">نمایش همه نتایج</button>
-                   </>
+                  </>
                     :
                     receiptBlogsData.map(blog => (
                       <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
                     ))
-                   :
-                   <span className="w-full text-center font-[shabnammedium]">مقاله ای یافت نشد!</span>
+                  :
+                  <span className="w-full text-center font-[shabnammedium]">مقاله ای یافت نشد!</span>
                   :
                   receiptProductsData.length !== 0
                   ?

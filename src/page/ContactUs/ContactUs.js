@@ -1,5 +1,4 @@
 import React from "react";
-import "./ContactUs.css";
 import { Link } from "react-router-dom";
 // import images
 import { BsInstagram } from "react-icons/bs";

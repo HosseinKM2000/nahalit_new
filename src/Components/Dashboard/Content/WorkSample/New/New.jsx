@@ -28,13 +28,6 @@ function New() {
 
   return (
     <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
-            {/* toaster */}
-             <ToastContainer 
-              position='top-center'
-              theme='colored'
-              autoClose={2500}
-              className='Toast_info'
-              />
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>افزودن نمونه کار</h1>
         </div>

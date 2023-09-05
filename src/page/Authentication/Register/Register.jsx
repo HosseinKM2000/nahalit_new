@@ -2,10 +2,10 @@ import { React, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BsPersonFill } from 'react-icons/bs';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
-import { PiEyeClosedBold } from 'react-icons/pi';
+import { FaRegEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import loadingSvg from '../../../assets/img/Rolling-0.8s-200px.svg';
 import { register } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
@@ -138,7 +138,7 @@ function Register() {
                       ?
                       <MdOutlineRemoveRedEye onClick={()=>setShowpassword(true)}/>
                       :
-                      <PiEyeClosedBold onClick={()=>setShowpassword(false)}/>
+                      <FaRegEyeSlash onClick={()=>setShowpassword(false)}/>
                     }
                     <input type={showpassword?'text':'password'} minLength={'8'} ref={passwordRef} name="password" id="password" className='bg-gray-200 outline-none text-left border-none w-[100%] sm:w-[90%] 2xl:w-[80%] p-1'/>
                     </div>

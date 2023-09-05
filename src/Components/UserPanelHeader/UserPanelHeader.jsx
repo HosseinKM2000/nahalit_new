@@ -16,8 +16,8 @@ function UserPanelHeader({setDropMenu , dropMenu}) {
         :
         <HiOutlineMenu className='text-2xl text-slate-700 md:hidden' onClick={()=>setDropMenu(true)}/>
       }
-      <img src={plantImg} alt="plant" className='scale-[1.5]'/>
       <UserAvatarIcon/>
+      <img src={plantImg} alt="plant" className='scale-[1.5]'/>
     </div>
   )
 }

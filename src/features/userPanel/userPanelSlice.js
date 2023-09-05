@@ -1,21 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { updateUser } from "./action";
+import { changeUserPassword, updateUserInfo } from "./action";
+import { toast } from "react-toastify";
 
-const initialState = {};
+const initialState = {
+    isLoading:false,
+};
 
-const userPanelSlice = {
+const userPanelSlice = createSlice({
     name:'userPanel',
     initialState,
-    extraReducer : (builder) => [
+    extraReducer : builder => [
         builder
-        .addCase(updateUser.fulfilled, (state,action) => {
-            
+        .addCase(updateUserInfo.fulfilled, (state,action) => {
+            state.isLoading = false;
         })
-        .addCase(updateUser.pending, (state,action) => {
-
+        .addCase(updateUserInfo.pending, (state,action) => {
+            state.isLoading = true;
         })
-        .addCase(updateUser.rejected, (state,action) => {
-
+        .addCase(updateUserInfo.rejected, (state,action) => {
+            state.isLoading = false;
+        })
+        .addCase(changeUserPassword.fulfilled, (state,action) => {
+            state.isLoading = false;
+            console.log(action)
+            toast.success("ok")
+        })
+        .addCase(changeUserPassword.pending, (state,action) => {
+            state.isLoading = true;
+        })
+        .addCase(changeUserPassword.rejected, (state,action) => {
+            state.isLoading = false;
+            console.log(action)
         })
     ]
-}
+})
+
+export default userPanelSlice.reducer;

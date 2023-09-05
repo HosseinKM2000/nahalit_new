@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import UserAvatarIcon from '../UserAvatar/UserAvatar'
+import { useState } from 'react';
 
-function HeaderAdminProfileIcon({ showSlide13 , setShowSlide13 , userId  , loginStatus }) {
+function HeaderAdminProfileIcon({ userId  , loginStatus }) {
+    const [showSlide13, setShowSlide13] = useState(false);
+
   return (
     <div className="relative">
         {

@@ -1,29 +1,40 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { DatePicker } from "zaman";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import NotLogined from "../../Components/NotLogined/NotLogined";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import { toast } from "react-toastify";
+import { sendRecruitment } from "../../features/recruitment/action";
 
 const Recruitment = () => {
   const [birthDate,setBirthDate] = useState('');
+  const dispatch = useDispatch();
+
   const formSubmit = e => {
     e.preventDefault();
-    let formObj = {};
+    let dataObj = {};
     Array.from(e.target.elements).forEach(element => {
-        formObj[element.id] = element.value; 
+        dataObj[element.id] = element.value; 
     });
-    delete formObj[""];
-    formObj = {
-      ...formObj,
-      birthday:birthDate
+    delete dataObj[""];
+    dataObj = {
+      ...dataObj,
+      birthday:birthDate,
+      status:0
     }
-    console.log(formObj)
+    if(!dataObj.birthday.length  < 1){
+      dispatch(sendRecruitment(dataObj))
+    }
+    else
+    {
+      toast.warn("تاریخ تولد را وارد کنید")
+      console.log(dataObj.birthday)
+    }
   }
+
   return (
     <div>
       <header>
@@ -97,14 +108,14 @@ const Recruitment = () => {
                 تاریخ تولد <span className="text-red-500">*</span>
               </label>
                 <div className="zamanDatePicker">
-                  <DatePicker id="birthday" onChange={(e) => setBirthDate(e.value.toISOString().split('T')[0])}/>
+                  <DatePicker id="birthday" inputAttributes={{required:true}} onChange={(e) => setBirthDate(e.value.toISOString().split('T')[0])}/>
                 </div>
               <label htmlFor="martial_status" className="font-[shabnamBold]">
                 وضعیت تاهل <span className="text-red-500">*</span>
               </label>
               <select required={true} name="martial_status" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" id="martial_status">
-                <option className="font-[shabnam]" value={false}>مجرد</option>
-                <option className="font-[shabnam]" value={true}>متاهل</option>
+                <option className="font-[shabnam]" value={0}>مجرد</option>
+                <option className="font-[shabnam]" value={1}>متاهل</option>
               </select>
               <label htmlFor="address" className="font-[shabnamBold]">
                 آدرس <span className="text-red-500">*</span>
@@ -126,18 +137,18 @@ const Recruitment = () => {
               className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" 
               type="number"/>
               <div className="mt-7 px-1">
-              <label htmlFor="activty" className="font-[shabnamBold]">
+              <label htmlFor="activtiy" className="font-[shabnamBold]">
                 فعالیت ها <span className="text-red-500">*</span>
               </label>
-                <textarea id="activty" cols={50} rows={10} placeholder="سایر فعالیت ها..." className="m-3 placeholder:text-sm outline-none p-3 text-sm font-[shabnam]"/>
+                <textarea id="activity" required={true} cols={50} rows={10} placeholder="سایر فعالیت ها..." className="m-3 placeholder:text-sm outline-none p-3 text-sm font-[shabnam]"/>
             </div>
             <div className="mt-10 px-3 flex flex-col gap-y-5">
-                <label className="font-[shabnamBold]" htmlFor="education_status">
+                <label className="font-[shabnamBold]" htmlFor="eduction_status">
                   وضعیت تحصیل <span className="text-red-500">*</span>
                 </label>
-                <input htmlFor="education_status" type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" required={true} />
+                <input id="eduction_status" type="text" className="py-2 border border-solid border-[#c7c7c7] outline-none px-2" required={true} />
                 <label htmlFor="ability_description" className="font-[shabnamBold]">شرح توانایی شما (اختیاری)</label>
-                <textarea id="ability_description" className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2" required={true}></textarea>
+                <textarea id="ability_description" className="min-h-[7rem] text-sm outline-none font-[shabnamMedium] p-2"></textarea>
                 <label htmlFor="shaba_number" className="font-[shabnamBold]">
                   شماره شبای کارت بانکی <span className="text-red-500">*</span>
                 </label>

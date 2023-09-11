@@ -1,25 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
-// import images
-import HeadImg from "../../assets/img/ExWebDesign/طراحی-سایت-اختصاصی-1024x576.jpg";
-import Img_1 from "../../assets/img/ExWebDesign/1.png";
-import Img_2 from "../../assets/img/ExWebDesign/2.png";
-import Img_3 from "../../assets/img/ExWebDesign/3.png";
-import Img_4 from "../../assets/img/ExWebDesign/4.png";
-import domain from "../../assets/img/ExWebDesign/domain-min.png";
-import Img_5 from "../../assets/img/ExWebDesign/5.png";
-import Img_6 from "../../assets/img/ExWebDesign/6.png";
-import tarrif_laravel from "../../assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-لاراول-549x1024.png";
-import tarrif_jango from "../../assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-جنگو-549x1024.png";
-import tarrif_php from "../../assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-php-549x1024.png";
-import tarrif_wordpress from "../../assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-وردپرس-549x1024.png";
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import React from "react";
+import { Helmet } from "react-helmet";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
-import { Helmet } from "react-helmet";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 function SsaleWebExclusive() {
   return (
@@ -36,7 +23,7 @@ function SsaleWebExclusive() {
         </div>
       </header>
       <div className='ExWebDesign-content Services-style flex flex-col items-center gap-10 mb-10'>
-        <img src={HeadImg} alt="header" className='w-full max-sm:h-80'/>
+        <img src={"/img/ExWebDesign/طراحی-سایت-اختصاصی-1024x576.jpg"} alt="header" className='w-full'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
               <h1 className='text-center text-green-137'>طراحی انواع وب سایت اختصاصی</h1>
@@ -54,10 +41,10 @@ function SsaleWebExclusive() {
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>هر کسی دوست دارد بدون خروج از منزل یا محل کار، سریعا وارد سایت یک فروشگاه اینترنتی شده و محصول خود را خریداری کند. بنابراین توجه به مسئله ساخت سایت فروشگاهی برای کسب و کارهای سنتی، افزایش یافته است.</motion.p>
                 <motion.p whileInView={{x:[1000,-20,20,0]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>استفاده از خدمات طراحی سایت فروشگاهی حرفه ای این امکان را به شما خواهد داد که بتوانید بازار هدف خود را که شامل مشتریان یک محله و شهر خاصی هستند را توسعه داده و در سطح کلان کشوری آنها را جذب کنید. این کار باعث دیده شدن بیشتر خدمات و محصولات شما شده و خواهید توانست به راحتی بازار بزرگی از مشتریان را به خود جذب کنید.</motion.p>
               </div>
-              <motion.img  whileInView={{x:[-500,20,-20,0]}} transition={{duration:1}} viewport={{once:true}} src={Img_1} alt="Img_1" className='w-[12rem] 2xl:w-[20rem]'/>
+              <motion.img  whileInView={{x:[-500,20,-20,0]}} transition={{duration:1}} viewport={{once:true}} src={"/img/ExWebDesign/1.png"} alt="Img_1" className='w-[12rem] 2xl:w-[20rem]'/>
             </div>
             <div className='flex flex-col sm:flex-row justify-center items-center'>
-              <motion.img src={Img_2} alt="Img_2" className='w-[12rem] 2xl:w-[20rem]' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
+              <motion.img src={"/img/ExWebDesign/2.png"} alt="Img_2" className='w-[12rem] 2xl:w-[20rem]' whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}/>
               <div>
                 <motion.h3 className='text-green-137 py-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>طراحی وب سایت خبری</motion.h3>
                   <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>افراد عاشق شنیدن خبر های تازه هستند . اما از آن جایی که بسیاری از مردم این روزها به دنیای اینترنت رو آورده اند، بسیاری از اخبار را از طریق وب سایت های خبری دنبال می کنند. به همین علت طراحی وبسایت خبری از تقاضای بالایی در تهران و دیگر شهرستان ها برخوردار شده است . وب سایت نهال آی تی به شما کمک می کند تا با آسودگی خاطر اقدام به سفارش طراحی وب سایت کنید.</motion.p>
@@ -71,10 +58,10 @@ function SsaleWebExclusive() {
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>در پروژه های طراحی سایت شرکت نهال آی تی ، علاوه بر زیبایی نمای بصری و گرافیکی وب سایت در طرح های اختصاصی، نیاز و سلیقه شما در دیزاین لحاظ شده و همچنین اصول اولیه افزایش رتبه وب سایت و سئو نیز بر اساس نوع فعالیت شما به نحو شایسته ای در سایت طراحی شده پیاده سازی می‌ شود.</motion.p>
                 <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>علاوه بر آن امکانات خاص مد نظر شما در طراحی سایت شرکت با انتخاب طراحی وب سایت اختصاصی قابلیت توسعه بیشتری خواهد داشت.‎</motion.p>
               </div>
-              <motion.img src={Img_3} alt="Img_3" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+              <motion.img src={"/img/ExWebDesign/3.png"} alt="Img_3" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <div className='flex gap-3 flex-col sm:flex-row justify-center items-center'>
-              <motion.img src={Img_4} alt="Img_4" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+              <motion.img src={"/img/ExWebDesign/4.png"} alt="Img_4" className='w-[12rem] 2xl:w-[20rem]'  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
               <div>
                 <motion.h5 className='text-green-137 py-3' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}}>طراحی وب سایت اشتراک گذاری عکس و فیلم</motion.h5>
                 <motion.p whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2.2}} viewport={{once:true}}>پنل مدیریت وب سایت به اشتراک گذاری ویدئو و اشتراک گذاری عکس یکی از cms های دست نویس تیم نهال آی تی می باشد و از هیچ گونه سیستم های آماده همانند وردپرس و جوملا و … استفاده نشده است و به زبان php نوشته شده است.</motion.p>
@@ -85,17 +72,17 @@ function SsaleWebExclusive() {
               <h6 className='text-center text-green-137 2xl:mb-5 2xl:mt-10 py-3'>طراحی وب سایت حرفه ای</h6>
               <div className='flex flex-col items-center sm:flex-row gap-2 gap-y-8'>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={domain} alt="domain" className='w-28 2xl:w-64'/>
+                  <img src={"/img/ExWebDesign/domain-min.png"} alt="domain" className='w-28 2xl:w-64'/>
                   <span className='font-bold text-gray-66'>ثبت دامنه ی اختصاصی</span>
                   <p className='text-gray-66 text-center span  leading-8 text-sm'>دوست دارید آدرس وب‌ سایت شما چه باشد؟ شما می‌ توانید خیلی سریع دامنه مورد نظرتان را ثبت کنید یا دامنه‌ قبلی خود را به سایت متصل نمایید.</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={Img_5} alt="Img_5" className='w-28 2xl:w-64'/>
+                  <img src={"/img/ExWebDesign/5.png"} alt="Img_5" className='w-28 2xl:w-64'/>
                   <span className='font-bold text-gray-66'>قالب‌ های مناسب و جذاب</span>
                   <p className='text-gray-66 text-center span   leading-8 text-sm'>طراحی انواع قالب های گرافیکی زیبا و همچنین بهینه سازی انواع قالب ها متناسب با سلیقه کاربر به همراه پشتیبانی از سایت</p>
                 </div>
                 <div className=' w-11/12 sm:w-1/3 flex flex-col items-center gap-5 sm:gap-2'>
-                  <img src={Img_6} alt="Img_6" className='w-28 2xl:w-64'/>
+                  <img src={"/img/ExWebDesign/6.png"} alt="Img_6" className='w-28 2xl:w-64'/>
                   <span className='font-bold  text-gray-66'>ایجاد پنل برای مدیریت آسان سایت</span>
                   <p className='text-gray-66 text-center span leading-8 text-sm'>کار با پنل مدیریت سایت واقعاً ساده است و هر کسی از پس مدیریت آن بر خواهد آمد. بنابراین در آینده به هیچ مشکلی برخورد نمی‌کنید.</p>
                 </div>
@@ -104,10 +91,10 @@ function SsaleWebExclusive() {
             <div className='mb-32 2xl:mt-20'>
                 <h6 className='text-gray-66 text-center py-3'>تعرفه خدمات طراحی وب سایت</h6>
                 <div className='flex flex-col justify-center flex-wrap items-center sm:flex-row gap-5 sm:gap-2'>
-                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_laravel} alt="laravel" />
-                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_jango} alt="jango" />
-                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_php} alt="php" />
-                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={tarrif_wordpress} alt="wordpress" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={"/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-لاراول-549x1024.png"} alt="laravel" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={"/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-جنگو-549x1024.png"} alt="jango" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={"/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-php-549x1024.png"} alt="php" />
+                  <img className='w-[13rem] sm:w-[15rem] 2xl:w-1/4' src={"/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-وردپرس-549x1024.png"} alt="wordpress" />
                 </div>
             </div>
         </div>

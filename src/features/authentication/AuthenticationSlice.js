@@ -36,7 +36,7 @@ const authenticationSlice = createSlice({
         })
         .addCase(register.rejected,(state,action) => {
             state.loading = false;
-            toast.error("متاسفانه ثبت نام با خطا مواجه شد")
+            toast.error("!خطایی در ثبت نام پیش آمده است")
             console.log(action)
         })
         .addCase(login.fulfilled,(state,action) => {
@@ -52,7 +52,7 @@ const authenticationSlice = createSlice({
         })
         .addCase(login.rejected,(state,action) => {
             state.loading = false;
-            toast.error('متاسفانه خطایی در ورود پیش آمده است')
+            toast.error('!لطفا اطلاعات وارد شده را بررسی کنید')
             console.log(action)
         })
     }

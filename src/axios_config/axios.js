@@ -9,7 +9,13 @@ instance.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
     return config
 }, function (error) {
-    return Promise.reject(error);
+    if (401 === error.response.code) {
+        return Promise.reject(error.response.massage)
+    }
+    else
+    {
+        return Promise.reject(error);
+    }
   });
 
 export default instance;

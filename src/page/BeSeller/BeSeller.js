@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import { useSelector } from "react-redux";
 import NotLogined from "../../Components/NotLogined/NotLogined";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 const BeSeller = () => {
   const loginStatus = useSelector(state => state.authentication.loginStatus);

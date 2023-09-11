@@ -1,14 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3c61439d-a927-4413-9bf0-0c207435df38" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Content/Roles/NewRole/NewRole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Content/Roles/NewRole/NewRole.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/2900821_25540.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/Business-Logo-Design-Best-Qualitytrahy-lwgw-ksb-w-kar_1609095951-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/brand-registration1-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/branding-matters-1-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/logo-design-service-500x500-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/sms-anboh-transformed-1-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/تعرفه-خدمات-کسب-و-کار-600x831.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/مقاله-پیامک-انبوه-3-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Business/کسب-و-کار-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/121-min-270x270.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/PHP-logo.svg-min-1024x553.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/VPFCsW8yTV3x0SmlRLtu8phgnxa607YetR6UmHPA-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/python-django-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/turquoise-logo-wordpress-cms-png-7-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/خدمات-کامپیوتر.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ec_Ex_Website/فروش-سایت-اختصاصی۱-1024x595.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/domain-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-php-549x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-جنگو-549x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-زبان-لاراول-549x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/تعرفه-طراحی-وبسایت-اختصاصی-با-وردپرس-549x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/ExWebDesign/طراحی-سایت-اختصاصی-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/10-1024x558.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/1179699_138-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/2-1024x569.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/3-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/3-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/499739efcfb11a821e7ac49ea3680b74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/5-1-191x300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/9710403-preview-min.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/9999.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/Everything-About-Poster-Design.minimal-abstract-design-posters-covers-templates-vector-20561722_1621174761.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/HQUoCr8dMVC4oVgcCl87wAmpOltlD2dlBxldH4aLjpeg_512X512X70-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/Instagram-2-1-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/Top_636517983781500000.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/You-Need-Design-Coffee-Shop-Business-Card.ea5487eb-b453-4534-a070-e27b069175f0_1624390131-min.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/brochure-template-with-hexagonal-shapes_1017-8667-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/dsf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/images-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/logo-design-service-500x500-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/lrg_397400_tizbar1-min.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/pinocchio_character_Design-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/teraket-rang.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/trifold-Brochure-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/what-is-the-catalog-98-04-16-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/windows-desktop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/آموزش-ساخت-تیزر-تبلیغاتی-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/تعرفه-طراحی-گرافیک2-min-600x841.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Graphic/خدمات-گرافیک-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/IMG_20221129_173915_800-600x837.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/1-400x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/2-min-400x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/3-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/4-min-300x300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/5-min-1024x682.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/6-min-1024x759.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/android (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/apple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/java.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-اقتصادی-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-حرفه-ای-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/تعرفه-اپلیکیشن-موبایل-ویژه-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MobileApplication/خدمات-اپلیکیشن-موبایل-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/13038-removebg-preview-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/2902191-removebg-preview-min-400x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/4-removebg-preview-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/5-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/تعرفه-موشن2-1024x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/MotionGraphic/خدمات-موشن-گرافی-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/announcement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/concept-of-man-got-success-and-achieving-goal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/facebook-advertisement-tutorial.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/man-watching-online-video-1024x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/sharing-and-video-marketing-concept-with-loud-speaker-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/speech.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/youtube-creator-awards-1024x683.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/تعرفه-تدوین-فیلم2-min-600x600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/PremierEditing/خدمات-فیلم-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Proposal/building.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Proposal/images.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Proposal/planing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Proposal/تدوین-پروپوزال-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Pulse-1.2s-229px.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Ripple-0.8s-200px.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Rolling-0.8s-200px.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/React-JS-1-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/jawa-askrypt-chyst-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/ndsmpb4j2hvj-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/swlmhhhghszz-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/z5haaa5lwdko-min-1024x627.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/تعرفه-فروش-قالب-html-600x800.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/خدمات-کامپیوتر.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SaleReadyTemplate/طراحی-قالب-سایت1-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/8-2-seo-png-pic-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/What-is-a-SERP-transformed-min-250x250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/head-visit-website-f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/search-engine-optimization.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/seo-services-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/seooo-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/تعرفه-اپلیکیشن-خدمات-سئو-ویژه.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/تعرفه-خدمات-سئو-حرفه-ای.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/تعرفه-خدمات-سئو.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/سئو-سایت-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/Seo/موتور-های-جست-و-جو-1024x745-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/Facebook_Logo-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/Glossy-Instagram-logo-PNG-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/Telegram-icon-on-transparent-PNG-min-transformed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/c3e8b__h0310ixa90232keq4t6l-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/image_600_400-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/kisspng-telegram-encapsulated-postscript-transfer-5b1706056101263859681215282355253974-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/linkedin-logo-transparent-116602552215dpnc1i8cu-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/social-marketer-banner-hurn-and-social-icons-around-desk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/what-is-linkedin-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-اقتصادی2-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-حرفه-ای2-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-ویژه2-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SocalMedia/خدمات-شبکه-های-اجتماعی-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/1398090309273659318951144-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/4674029-scaled-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/Adobe_Audition_CC_icon_2020.svg-1024x1000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/kisspng-vegas-pro-portable-network-graphics-computer-icons-iconos-sony-vegas-9-pro-5b7b7f843fec75.0596849215348202282618-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/productIcon_v2_20200705203105080.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/saxophonist-playing-saxophone-wearing-golden-glasses-1024x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/about_us-bg-png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/animation_640_licugqts.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/clear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/enviroment_1341950.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/frm-thbt-sfarsh-transformed-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/Screen-Shot-2563-04-27-at-21.23.27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/photo5630286681.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/photo5630286814-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/photo_2022-09-21_19-42-20-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/امیر-رضا-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/امیرحسین-1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/زنگویی-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/سعید.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/شهراد.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/محمد-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/ملیکا.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/مهدی-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/members/نیما-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/mustLogin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/photo2468980173-400x400.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/plant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/product/info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/product/license.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/product/shopping-carts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/Reserve-300x300.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_5_2022-12-25_23-57-58-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_5_2022-12-25_23-58-11-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_6_2022-12-25_23-57-58-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_7_2022-12-25_23-57-58-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_8_2022-12-25_23-57-58-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_8_2022-12-25_23-58-11-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_9_2022-12-25_23-57-58-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/photo_9_2022-12-25_23-58-11-300x200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/products/rahro-300x300.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/trustlogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cart/TableItem/TableItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cart/TableItem/TableItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Content/Products/EditProduct/EditProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Content/Products/EditProduct/EditProduct.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ResponseHeader/ResponseHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ResponseHeader/ResponseHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/HeaderProductsLogo/HeaderProductsLogo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HeaderProductsLogo/HeaderProductsLogo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Products/Main/Pagination/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Products/Main/Pagination/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Products/Main/ProductsPage/ProductsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Products/Main/ProductsPage/ProductsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Products/Side/CategoriesP/CategoriesP.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Products/Side/CategoriesP/CategoriesP.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Products/Side/Side.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Products/Side/Side.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios_config/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios_config/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/authentication/AuthenticationSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/authentication/AuthenticationSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/cart/cartSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/dashboard/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/action.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/dashboard/dashboardSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/dashboardSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/products/productSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/products/productSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/userPanel/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/userPanel/action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/userPanel/userPanelSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/userPanel/userPanelSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Authentication/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Authentication/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Authentication/Register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Authentication/Register/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Products/Product/Product.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Products/Product/Product.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Sgraphic/Sgraphic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Sgraphic/Sgraphic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/UserPanel/EditUserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/UserPanel/EditUserProfile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/UserPanel/UserSideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/UserPanel/UserSideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +227,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2Te60XLM0S1pYJS91XvRCWY93rv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,11 +244,31 @@
     "git-widget-placeholder": "master",
     "last_opened_file_path": "F:/work/nahalit_master_new/nahalIt-master",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +278,7 @@
       <option name="presentableId" value="Default" />
       <updated>1691390977452</updated>
       <workItem from="1691390979562" duration="30000" />
+      <workItem from="1694256137743" duration="493000" />
     </task>
     <servers />
   </component>

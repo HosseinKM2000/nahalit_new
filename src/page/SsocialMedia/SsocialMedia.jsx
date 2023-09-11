@@ -1,28 +1,11 @@
-import React from "react";
 import { motion } from "framer-motion";
-// import images
-import HeadImg from "../../assets/img/SocalMedia/خدمات-شبکه-های-اجتماعی-1024x576.jpg";
-import SocalMarcet from "../../assets/img/SocalMedia/social-marketer-banner-hurn-and-social-icons-around-desk.png";
-import telegram from "../../assets/img/SocalMedia/Telegram-icon-on-transparent-PNG-min-transformed.png";
-import linkedin from "../../assets/img/SocalMedia/what-is-linkedin-transformed-min.png";
-import twitter from "../../assets/img/SocalMedia/image_600_400-transformed-min.png";
-import faceBook from "../../assets/img/SocalMedia/c3e8b__h0310ixa90232keq4t6l-min.png";
-import aparat from "../../assets/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png";
-import youtube from "../../assets/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png";
-import instagram from "../../assets/img/SocalMedia/Glossy-Instagram-logo-PNG-transformed-min.png";
-import TelegramIcon from "../../assets/img/SocalMedia/kisspng-telegram-encapsulated-postscript-transfer-5b1706056101263859681215282355253974-transformed-min.png";
-import LinkedinIcon from "../../assets/img/SocalMedia/linkedin-logo-transparent-116602552215dpnc1i8cu-transformed-min.png";
-import TwitterIcon from "../../assets/img/SocalMedia/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo-transformed-min.png";
-import FaceBookLogo from "../../assets/img/SocalMedia/Facebook_Logo-min.png";
-import tarrif_1 from "../../assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-اقتصادی2-min.png";
-import tarrif_2 from "../../assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-حرفه-ای2-min.png";
-import tarrif_3 from "../../assets/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-ویژه2-min.png";
+import React from "react";
+import { Helmet } from "react-helmet";
+import EndBox3 from "../../Components/EndBox3/EndBox3";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import EndBox3 from "../../Components/EndBox3/EndBox3";
-import { Helmet } from "react-helmet";
 
 
 function SsocialMedia() {
@@ -40,7 +23,7 @@ function SsocialMedia() {
         </div>
       </header>
       <div className='SocalMedia Services-style flex flex-col items-center gap-10 2xl:gap-20 mb-10'>
-        <img src={HeadImg} alt="header" className='w-full sm:h-auto h-96'/>
+        <img src={"/img/SocalMedia/خدمات-شبکه-های-اجتماعی-1024x576.jpg"} alt="header" className='w-full'/>
         <div className='flex flex-col gap-10 2xl:gap-20 px-1'>
             <div>
                 <h1 className='text-center text-green-137 font-bold font-[IranSans-b]'>خدمات شبکه های اجتماعی</h1>
@@ -69,7 +52,7 @@ function SsocialMedia() {
                     <motion.p  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>برخلاف فیس بوک و توییتر که بیش تر بر پایه محتوای متنی بنا شده اند، اینستاگرام با اولویت عکس و فیلم و محتوای تصویری فعالیت می‌ کند. ولی با این حال امکان قرار دادن محتوای متنی نیز در قسمت کپشن پست ها و هچنین استوری ها وجود دارد.</motion.p>
                     <motion.p  whileInView={{y:[-300,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>اگر بخواهیم یک تعریف به زبان عامیانه از اینستاگرام ارائه دهیم، می‌ توان گفت این شبکه اجتماعی محبوب، برای انجام فعالیت های گوناگون از فعالیت های سیاسی و اجتماعی تا تفریحی و یا ایجاد یک کسب و کار موفق ، محل بسیار مناسبی است.</motion.p>
                 </div>
-                <motion.img src={SocalMarcet} alt="socalmedia" className='w-[10rem] sm:w-[15rem] 2xl:w-[20rem]'  whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/social-marketer-banner-hurn-and-social-icons-around-desk.png"} alt="socalmedia" className='w-[10rem] sm:w-[15rem] 2xl:w-[20rem]'  whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>سال 2010 همان سالی است که در آن معجزه ای به نام اینستاگرام توسط کوین سیستروم و مایک کرایگر ساخته و منتشر شد. برنامه ای که در طی مدت کوتاهی توانست افراد زیادی را به خود جذب کند و تبدیل به یک شبکه ی اجتماعی بسیار پرطرفدار شود.</p>
@@ -78,7 +61,7 @@ function SsocialMedia() {
                 <p>قابلیت ها و امکانات اینستاگرام برای کاربران قرار داده است بسیار زیاد و متنوع بوده و همین یکی از دلایل محبوب بودن و پرکاربردی بودن این اپلیکیشن می باشد. شما می توانید در اینستاگرام تمامی خوانندگان یا بازیگران و یا چیزهای مورد علاقه تان را دنبال کنید و از اخبار روز دنیا خبر دار باشید.</p>
             </motion.div>
             <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row items-center'>
-                <motion.img src={telegram} alt="telegram" className='w-[10rem] sm:w-[15rem] 2xl:w-[15rem]' whileInView={{x:[300,0], opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/Telegram-icon-on-transparent-PNG-min-transformed.png"} alt="telegram" className='w-[10rem] sm:w-[15rem] 2xl:w-[15rem]' whileInView={{x:[300,0], opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
                 <div>
                     <motion.h3 className='text-green-1c py-3' whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>تلگرام چیست ؟</motion.h3>
                     <motion.p whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:2}} viewport={{once:true}}>در میان انبوه اپلیکیشن های پیام رسانی که این روزها در موبایل ها می بینیم، شکی نیست که تلگرام یکی از محبوب ترین آنهاست. این اپلیکیشن که توسط دو برادر برنامه نویس روس طراحی شده است.</motion.p>
@@ -98,10 +81,10 @@ function SsocialMedia() {
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>لینکدین در واقع یک شبکه اجتماعی حرفه ای است که اساسا برای بهبود کسب و کارهای مختلف و آشنا کردن دیگران با آن ها طراحی شده است. با این حال، استفاده از لینکدین تنها به این موضوع محدود نمی شود و کاربران این شبکه اجتماعی می توانند از طریق آن، با افراد دیگری که در حوزه کاری شان فعالیت می کنند، آشنا شوند و با آن ها ارتباط برقرار کنند.</motion.p>
                     <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>همچنین می توان از این سیستم برای پیدا کردن کار یا استخدام افراد نیز استفاده کرد. این موضوع چندان مسئله عجیبی نیست؛ کافیست سری به صفحات اشخاص یا شرکت های مختف بزنید تا از این مسئله با خبر شوید. علاوه بر این، محدود به داشتن یک حساب کاربری نیستید و می توانید با در اختیار داشتن چند اکانت مختلف، استفاده های متعددی از لینکدین داشته باشید. کار کردن با این پلفترم نیز بسیار راحت تر از چیزیست که فکرش را می کنید.</motion.p>
                 </div>
-                <motion.img src={linkedin} alt="linkedin" className='w-80 h-60 2xl:h-96 2xl:w-[500px] linking-img' whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/what-is-linkedin-transformed-min.png"} alt="linkedin" className='w-80 h-60 2xl:h-96 2xl:w-[500px] linking-img' whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div className='flex flex-col sm:flex-row items-center'>
-                <motion.img src={twitter} alt="twitter" className='w-80 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],scale:[0,1],rotate:[270,0]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/image_600_400-transformed-min.png"} alt="twitter" className='w-80 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],scale:[0,1],rotate:[270,0]}} transition={{duration:2}} viewport={{once:true}}/>
                 <motion.div whileInView={{opacity:[0,1],x:[-1000,0]}} transition={{duration:1}} viewport={{once:true}}>
                     <h6 className='text-green-1c py-3'>توییتر چیست ؟</h6>
                     <p>توییتر یک سرویس میکروبلاگینگ است. یعنی در شبکه اجتماعی توییتر، وبلاگ نویسی در 280 کارکتر یا حرف فراهم شده است. این یعنی می توان خبر، دیدگاه یا جملات خود را با جملات کوتاه به مخاطبان منتقل کرد.</p>
@@ -116,7 +99,7 @@ function SsocialMedia() {
                     <p>فعالیت در فیسبوک از سال های دور بین کاربران ایرانی رواج داشته و از این شبکه اجتماعی برای تبادل اطلاعات، اشتراک گذاری عکس و ویدیو و مواردی از این دست استفاده می شود.</p>
                     <p>داشتن بازدید و لایک بالا در فیسبوک، می تواند برای افرادی که در این شبکه اجتماعی فعال هستند، جزو مواردی باشد که اعتبار پیج را افزایش می دهد. همچنین به دلیل اهمیت بالای فیسبوک برای گوگل و سایر شبکه های اجتماعی، داشتن سیگنال بالا از این شبکه اجتماعی می تواند برای سئوی سایت نیز موثر باشد.</p>
                 </motion.div>
-                <motion.img src={faceBook} alt="faceBook"  className='w-40 sm:w-[15rem] 2xl:h-[15rem] 2xl:w-[15rem]' whileInView={{opacity:[0,1],x:[-700,0]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/c3e8b__h0310ixa90232keq4t6l-min.png"} alt="faceBook"  className='w-40 sm:w-[15rem] 2xl:h-[15rem] 2xl:w-[15rem]' whileInView={{opacity:[0,1],x:[-700,0]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div className='flex flex-col-reverse gap-5 sm:gap-0 sm:flex-row items-center'>
                 <div>
@@ -125,10 +108,10 @@ function SsocialMedia() {
                     <motion.p whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>هر چه ویدیوهای یک کاربر از بازدید بالاتری برخوردار باشد، اعتبار بیشتری نزد کاربران و بازدیدکنندگان یافته و تاثیر بیشتری در ذهن آنان می گذارد.</motion.p>
                     <motion.p whileInView={{opacity:[0,1,0,1,0,1]}} transition={{duration:2}} viewport={{once:true}}>ضمنا به دلیل اینکه سایت آپارات از سئو و ارزش دامنه بالایی برخوردار است، امکان بهبود جایگاه ویدیوی شما در نتایج گوگل نیز وجود دارد.</motion.p>
                 </div>
-                <motion.img src={aparat} alt="aparat"  className='w-40 sm:w-[15rem] 2xl:h-[15rem] 2xl:w-[15rem]' whileInView={{opacity:[0,1],y:[300,0]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png"} alt="aparat"  className='w-40 sm:w-[15rem] 2xl:h-[15rem] 2xl:w-[15rem]' whileInView={{opacity:[0,1],y:[300,0]}} transition={{duration:2}} viewport={{once:true}}/>
             </div>
             <div className='flex flex-col sm:flex-row items-center'>
-                <motion.img src={youtube} alt="youtube" className='w-80 h-48 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2}} viewport={{once:true}}/>
+                <motion.img src={"/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png"} alt="youtube" className='w-80 h-48 2xl:h-3/4 2xl:w-1/4' whileInView={{opacity:[0,1],x:[700,0]}} transition={{duration:2}} viewport={{once:true}}/>
                 <div>
                     <h6 className='text-green-1c py-3'>یوتیوب چیست ؟</h6>
                     <p>یوتیوب به عنوان یکی از زیرمجموعه های بزرگ کمپانی گوگل، معتبرترین سایت جهان در زمینه اشتراک ویدیو محسوب می شود و بسیاری از کاربران اینترنت از سراسر جهان، ویدیوهای خود را در آن به اشتراک گذاشته و از آن کسب درآمد می کنند. یکی از شروط لازم برای کسب درآمد از یوتیوب این است که ویدیوهای کانال شما حداقل 4 هزار ساعت بازدید داشته باشند.</p>
@@ -139,39 +122,39 @@ function SsocialMedia() {
                 <h6 className='text-center text-green-137 py-3'>خدمات شبکه های اجتماعی</h6>
                 <div className='flex flex-col sm:flex-row items-center flex-wrap gap-[5rem] socalMedia-services sm:justify-center  lg:justify-between'>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
-                        <img src={instagram} alt="instagram" className='w-[4rem] 2xl:w-[6rem]'/>
+                        <img src={"/img/SocalMedia/Glossy-Instagram-logo-PNG-transformed-min.png"} alt="instagram" className='w-[4rem] 2xl:w-[6rem]'/>
                         <span className='2xl:text-3xl'>خدمات اینستاگرام</span>
                         <p className='text-center span'>اینستاگرام برای ایجاد یک کسب و کار موفق ، محل بسیار مناسبی است. ما در تیم نهال آی تی، تمامی خدمات مربوط به اینستاگرام را اعم از افزایش لایک و فالوور و بازدید پست ها را انجام میدهیم تا کسب و کار شما رونق پیدا کند.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
-                        <img src={TelegramIcon} alt="Telegram" className='w-[7rem] 2xl:w-[10rem]'/>
+                        <img src={"/img/SocalMedia/kisspng-telegram-encapsulated-postscript-transfer-5b1706056101263859681215282355253974-transformed-min.png"} alt="Telegram" className='w-[7rem] 2xl:w-[10rem]'/>
                         <span className='2xl:text-3xl'>خدمات تلگرام</span>
                         <p className='span'>شکی نیست که تلگرام یکی از محبوب ترین اپلیکیشن ها می باشد. تلگرام ویژگی‌ های متعددی دارد که آن را از سایر اپلیکیشن‌ های پیام رسان متمایز می‌ کند. ما در این بستر به شما کمک میکنیم تا بتوانید کسب و کار خود را رونق دهید.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
-                        <img src={LinkedinIcon} alt="linkedin" className='w-[4rem] 2xl:w-[5rem]'/>
+                        <img src={"/img/SocalMedia/linkedin-logo-transparent-116602552215dpnc1i8cu-transformed-min.png"} alt="linkedin" className='w-[4rem] 2xl:w-[5rem]'/>
                         <span className='2xl:text-3xl'>خدمات لینکدین</span>
                         <p className='span'>لینکدین در واقع یک شبکه اجتماعی است که اساسا برای بهبود کسب و کارهای مختلف طراحی شده است. ما در نهال آی تی به شما کمک میکنیم تا با افراد دیگری که در حوزه کاری تان فعالیت می کنند، آشنا شوید.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={TwitterIcon} alt="twitter" className='w-[4rem] 2xl:w-[6rem]'/>
+                        <img src={"/img/SocalMedia/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo-transformed-min.png"} alt="twitter" className='w-[4rem] 2xl:w-[6rem]'/>
                         <span className='2xl:text-3xl'>خدمات توییتر</span>
                         <p className='span'>داشتن بازدید ویدیو، لایک و کامنت بالا و همچنین فالوور های معتبر، از جمله مواردی است که در الگوریتم توئیتر تاثیرگذار بوده و نهال آی تی نیز این خدمت را در اختیار شما قرار می دهد.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={FaceBookLogo} alt="faceBook" className='w-[4rem] 2xl:w-[5rem]'/>
+                        <img src={"/img/SocalMedia/Facebook_Logo-min.png"} alt="faceBook" className='w-[4rem] 2xl:w-[5rem]'/>
                         <span className='2xl:text-3xl'>خدمات فیسبوک</span>
                         <p className='span'>داشتن بازدید و لایک بالا در فیسبوک، می تواند برای افرادی که در این شبکه اجتماعی فعال هستند، جزو مواردی باشد که اعتبار پیج را افزایش می دهد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={aparat} alt="aparat" className='w-[4rem] 2xl:w-[6rem]'/>
+                        <img src={"/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png"} alt="aparat" className='w-[4rem] 2xl:w-[6rem]'/>
                         <span className='2xl:text-3xl'>خدمات آپارات</span>
                         <p className='span'>هر چه ویدیوهای یک کاربر از بازدید بالاتری برخوردار باشد، اعتبار بیشتری نزد کاربران و بازدیدکنندگان یافته و تاثیر بیشتری در ذهن آنان می گذارد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است.</p>
                     </motion.div>
                 </div>
             </div>
             <motion.div className='flex flex-col items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:2}} viewport={{once:true}}>
-                <img src={youtube} alt="youtube" className='w-[10rem] 2xl:w-[15rem]' />
+                <img src={"/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png"} alt="youtube" className='w-[10rem] 2xl:w-[15rem]' />
                 <div className='flex flex-col items-center gap-3 2xl:gap-5'>
                     <b className='2xl:text-3xl'>خدمات یوتیوب</b>
                     <div>
@@ -182,9 +165,9 @@ function SsocialMedia() {
             <div>
                 <h6 className='text-gray-66 text-center 2xl:mt-20 2xl:mb-10 py-3'>تعرفه خدمات شبکه های اجتماعی تیم نهال آی تی</h6>
                 <div className='flex flex-wrap flex-col sm:gap-0 gap-5 items-center sm:flex-row justify-between'>
-                    <img src={tarrif_1} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
-                    <img src={tarrif_2} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
-                    <img src={tarrif_3} alt="tariff" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
+                    <img src={"/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-اقتصادی2-min.png"} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
+                    <img src={"/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-حرفه-ای2-min.png"} alt="tarrif" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
+                    <img src={"/img/SocalMedia/تعرفه-شبکه-های-اجتماعی-ویژه2-min.png"} alt="tariff" className='w-64 md:w-[30%] 2xl:w-[20%]'/>
                 </div>
             </div>
         </div>

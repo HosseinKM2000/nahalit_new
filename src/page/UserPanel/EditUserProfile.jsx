@@ -1,14 +1,16 @@
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { changeUserPassword } from "../../features/userPanel/action";
+import { changeUserPassword, updateUserInfo } from "../../features/userPanel/action";
 import ProfileInput from "./ProfileInput";
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { FaRegEyeSlash } from 'react-icons/fa';
+import { Active, deActive } from "../../features/loading/loadingSlice";
 
 const UserProfilePage = () => {
   const [showPassword,setShowPassword] = useState(false);
+  const isLoading = useSelector(state => state.userPanel.isLoading);
   const userInfo = JSON.parse(Cookies.get("user"));
   const dispatch = useDispatch();
   const [data, setData] = useState({
@@ -22,8 +24,16 @@ const UserProfilePage = () => {
     password: "",
     newPassword: "",
     password_confirmation: "",
+    role_id:userInfo.role_id
   });
 
+  if(isLoading){
+    dispatch(Active())
+  }
+  else
+  {
+    dispatch(deActive())
+  }
   const handleInputChange = (e) => {
     const tmpData = JSON.parse(JSON.stringify(data));
     switch (e.target.name) {
@@ -64,6 +74,12 @@ const UserProfilePage = () => {
 
   const editProfile = e => {
     e.preventDefault();
+    let dataObj = {};
+    for(let key in data){
+      if(key !== "password" && key !== "newPassword" && key !== "password_confirmation"){
+        dataObj[key] = data[key]
+      }
+    }
     switch(true)
     {
       case data.first_name.length === 0 : toast.warning("نام را وارد کنید");
@@ -92,9 +108,14 @@ const UserProfilePage = () => {
       break;
       case data.card_number.length !== 0 && data.card_number.length < 16 : toast.warning("شماره کارت کوتاه است");
       break;
+      case data.card_number.length !== 0 && data.card_number.length > 16 : toast.warning("شماره کارت اشتباه است");
+      break;
       case data.code_meli.length !== 0 && data.code_meli.length < 10   : toast.warning("کد ملی کوتاه است");
       break;
-      default : console.table(data)
+      default : {
+        dispatch(updateUserInfo({userId:userInfo.id,dataObj}))
+        console.log(dataObj)
+      }
     }
   }
 

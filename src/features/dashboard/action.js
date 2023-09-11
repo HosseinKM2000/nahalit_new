@@ -43,21 +43,16 @@ export const getProducts = createAsyncThunk('dashboard/getProducts', async () =>
 
 export const addProduct = createAsyncThunk('dashboard/addProduct', async (formData) => {
     const response = await instance.post('/products',formData);
-    const { status } = response;
-    return response;
 })
 
 export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (id) => {
-
     const response = await instance.delete(`/products/${id}`);
-
     return response;
 })
 
-export const editProduct = createAsyncThunk('dashboard/editProduct', async (id,newData) => {
-
-    const response = await instance.put(`/products/${id}`,newData);
-
+export const editProduct = createAsyncThunk('dashboard/editProduct', async ({id,formdata}) => {
+    const response = await instance.post(`/products/${id}?_method=PATCH`,formdata);
+    const { status } = response;
     return response;
 })
 
@@ -89,9 +84,7 @@ export const editProject = createAsyncThunk('dashboard/editProject', async (id,n
 
 // discount
 export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () => {
-
     const response = await axios.get(`/discounts`);
-
     return response;
 })
 
@@ -100,14 +93,11 @@ export const addDiscount = createAsyncThunk('dashboard/addDiscount', async (data
     const response = await axios.post(`/discounts`,{
         ...data
     });
-
     return response;
 })
 
 export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', async (id) => {
-
     const response = await axios.delete(`/discounts/${id}`);
-
     return response;
 })
 
@@ -120,14 +110,11 @@ export const editDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({
 
 // gallery
 export const getGalleries = createAsyncThunk('dashboard/getGalleries', async () => {
-
     const response = await axios.get(`/galleries`);
-
     return response;
 })
 
 export const addGallery = createAsyncThunk('dashboard/addGalleries', async (data) => {
-
     const response = await axios.post(`/galleries`,{
         ...data
     });

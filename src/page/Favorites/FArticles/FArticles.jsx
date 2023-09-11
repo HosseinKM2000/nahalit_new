@@ -1,7 +1,6 @@
-import React , { useState , useEffect } from 'react';
-import Cookies from 'js-cookie';
-import EmptyFavorite from '../../../Components/EmptyFavorite/EmptyFavorite';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import EmptyFavorite from '../../../Components/EmptyFavorite/EmptyFavorite';
 
 function FArticles() {
     const [favoriteArt,setFavoriteArt] = useState([]);

@@ -4,11 +4,13 @@ import { getProducts } from "./action";
 
 const initialState = {
     products : [],
+    productsCate:[],
+    FilteredProducts:[],
     goalProduct:'',
     isLoading:false,
-    FilteredProducts:[],
     maxPrice:0,
-    minPrice:0
+    minPrice:0,
+    categorySearch:false,
 }
 
 
@@ -26,68 +28,136 @@ const productsSlice = createSlice({
             state.goalProduct = target;
         },
         sortByAll : (state) => {
+            state.categorySearch = false;
             state.FilteredProducts = state.products;
         },
         sortByLatest : (state) => {
-            let newList = state.products.sort((a,b) => {
-                let dateA = a.date.split('/');
-                let dateB = b.date.split('/');
-
-                dateA = dateA[0] + dateA[1] + dateA[2]; 
-                dateB = dateB[0] + dateB[1] + dateB[2];
-
-                return dateB - dateA;
-            });
-            state.FilteredProducts = newList;
+            if(state.categorySearch)
+            {
+                let newList = state.productsCate.sort((a,b) => {
+                    let dateA = a.created_at.split('/');
+                    let dateB = b.created_at.split('/');
+    
+                    dateA = dateA[0] + dateA[1] + dateA[2]; 
+                    dateB = dateB[0] + dateB[1] + dateB[2];
+    
+                    return dateB - dateA;
+                });
+                state.FilteredProducts = newList;
+            }
+            else
+            {
+                let newList = state.products.sort((a,b) => {
+                    let dateA = a.created_at.split('/');
+                    let dateB = b.created_at.split('/');
+    
+                    dateA = dateA[0] + dateA[1] + dateA[2]; 
+                    dateB = dateB[0] + dateB[1] + dateB[2];
+    
+                    return dateB - dateA;
+                });
+                state.FilteredProducts = newList;
+            }
         },
         sortByCheapest : (state) => {
-            let newList = state.products.sort((a,b) => {
-                return a.price - b.price;
-            })
-            state.FilteredProducts = newList;
+            if(state.categorySearch){
+                let newList = state.productsCate.sort((a,b) => {
+                    return a.price - b.price;
+                })
+                state.FilteredProducts = newList;
+            }
+            else
+            {
+                let newList = state.products.sort((a,b) => {
+                    return a.price - b.price;
+                })
+                state.FilteredProducts = newList;
+            }
         },
         sortByExpensive : (state) => {
-            let newList = state.products.sort((a,b) => {
-                return b.price - a.price;
-            })
-            state.FilteredProducts = newList;
+            if(state.categorySearch){
+                let newList = state.productsCate.sort((a,b) => {
+                    return b.price - a.price;
+                })
+                state.FilteredProducts = newList;
+            }
+            else
+            {
+                let newList = state.products.sort((a,b) => {
+                    return b.price - a.price;
+                })
+                state.FilteredProducts = newList;
+            }
         },
         sortByPriceRange : (state,action) => {
-            let { min : minPrice , max : maxPrice }  = action.payload;
-            let newList = state.products.filter(product => {
-                return product.price >= minPrice && product.price <= maxPrice
-            });
-            state.FilteredProducts = newList; 
+            if(state.categorySearch){
+                let { min : minPrice , max : maxPrice }  = action.payload;
+                let newList = state.productsCate.filter(product => {
+                    return product.price >= minPrice && product.price <= maxPrice
+                });
+                state.FilteredProducts = newList; 
+            }
+            else
+            {
+                let { min : minPrice , max : maxPrice }  = action.payload;
+                let newList = state.products.filter(product => {
+                    return product.price >= minPrice && product.price <= maxPrice
+                });
+                state.FilteredProducts = newList; 
+            }
         },
         sortByName : (state,action) => {
             let value = action.payload;
-            if(value !== ''){
-                let newList = state.products.filter(product => {
-                    return product.title.includes(value)
-                })
-                state.FilteredProducts = newList;
-            }else {
-                state.FilteredProducts = state.products
+            if(state.categorySearch){
+                if(value !== ''){
+                    let newList = state.productsCate.filter(product => {
+                        return product.title.includes(value)
+                    })
+                    state.FilteredProducts = newList;
+                }else {
+                    state.FilteredProducts = state.productsCate;
+                }
+            }
+            else
+            {
+                if(value !== ''){
+                    let newList = state.products.filter(product => {
+                        return product.title.includes(value)
+                    })
+                    state.FilteredProducts = newList;
+                }else {
+                    state.FilteredProducts = state.products
+                }
             }
         },
         sortByCategory : (state,action) => {
+            state.categorySearch = true;
             let ID = action.payload;
             let newList = state.products.filter(product => product.category_id === ID);
-            state.FilteredProducts = newList
+            state.productsCate = newList;
+            state.FilteredProducts = newList;
+            state.maxPrice = state.FilteredProducts.reduce((max , item) => Math.max(max , item.price), -Infinity);
+            state.minPrice = state.FilteredProducts.reduce((min , item) => Math.min(min , item.price), Infinity);
         },
         deleteAllFilters : (state) => {
-            state.FilteredProducts = state.products;
+
+            if(state.categorySearch){
+                state.FilteredProducts = state.productsCate;
+            }
+            else
+            {
+                state.FilteredProducts = state.products;
+            }
         },
     },
     extraReducers : builder => {
-
         builder
         .addCase(getProducts.fulfilled , (state,action) => {
             state.isLoading = false;
             state.products = action.payload.data;
             state.FilteredProducts = action.payload.data;
-            state.maxPrice = action.payload.data.reduce((max , item) => Math.max(max , item.price), -Infinity)
-            state.minPrice = action.payload.data.reduce((min , item) => Math.min(min , item.price), Infinity)
+            state.maxPrice = action.payload.data.reduce((max , item) => Math.max(max , item.price), -Infinity);
+            state.minPrice = action.payload.data.reduce((min , item) => Math.min(min , item.price), Infinity);
         })
         .addCase(getProducts.pending , (state,action) => {
             state.isLoading = true;

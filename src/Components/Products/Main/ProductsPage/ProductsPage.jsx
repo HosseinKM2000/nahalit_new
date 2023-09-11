@@ -10,12 +10,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import loadingSvg from '../../../../assets/img/Pulse-1.2s-229px.svg';
 import { addBasket, deleteBasket, getBaskets } from '../../../../features/cart/action';
 import HTMLRenderer from 'react-html-renderer';
+import moment from 'moment-jalaali';
 
 
 function ProductsPage({currentItems}) {
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]);
-    const [keyLoading,setKeyLoading] = useState();
     const dispatch = useDispatch();
     const LoadingStatus = useSelector(state => state.cart.loading);
 
@@ -40,14 +40,6 @@ function ProductsPage({currentItems}) {
 
     const deleteFromFavorites = (id) => {
         setFavorites(favorites.filter(key => key !== id));
-    }
-
-    const addToBasket = (id) => {
-        dispatch(addBasket({user_id:userId,product_id:id}))
-    }
-
-    const deleteFromBasket = (id) => {
-        dispatch(deleteBasket(id))
     }
 
   return (
@@ -88,7 +80,7 @@ function ProductsPage({currentItems}) {
                         <div className='w-full flex items-center justify-between text-stone-500 text-xs p-1'>
                             <div className='flex items-center gap-1'>
                                 <BsCalendar4/>
-                                <span className='font-[shabnambold]'>{product.created_at}</span>
+                                <span className='font-[shabnambold]'>{moment(product.created_at).format('jYYYY/jMM/jDD')}</span>
                             </div>
                             <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
                                 <AiOutlineHeart className={ favorites.includes(product.id) ? 'hidden' : 'block scale-[1.5]' } onClick={()=>{

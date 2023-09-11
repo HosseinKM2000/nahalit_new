@@ -1,6 +1,9 @@
 import React from "react";
 import { Navigation, A11y, Autoplay, Pagination, EffectCards } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import img_1 from '../../assets/img/sliderSwiper1.jpg';
+import img_2 from '../../assets/img/sliderSwiper2.jpg';
+import img_3 from '../../assets/img/sliderSwiper3.jpg';
 
 const SliderSwiper = () => {
   return (
@@ -15,7 +18,7 @@ const SliderSwiper = () => {
         <SwiperSlide>
           <img
             className="hover:opacity-80 transition-all duration-300"
-            src="https://nahalit.com/wp-content/uploads/2022/11/3.jpg"
+            src={"/img/sliderSwiper1.jpg"}
             alt="slider_image"
             width={2000}
           />
@@ -23,7 +26,7 @@ const SliderSwiper = () => {
         <SwiperSlide>
           <img
             className="hover:opacity-80 transition-all duration-300"
-            src="https://nahalit.com/wp-content/uploads/2022/11/sayt3.jpg"
+            src={"/img/sliderSwiper2.jpg"}
             alt="slider_image_2"
             width={2000}
           />
@@ -31,7 +34,7 @@ const SliderSwiper = () => {
         <SwiperSlide>
           <img
             className="hover:opacity-80 transition-all duration-300"
-            src="https://nahalit.com/wp-content/uploads/2022/11/slider4-scaled.jpg"
+            src={"/img/sliderSwiper3.jpg"}
             alt="slider_image_3"
             width={2000}
           />

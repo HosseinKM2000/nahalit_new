@@ -1,20 +1,12 @@
 import React from "react";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
-
-// import images
-import headImg from "../../assets/img/Ec_Ex_Website/فروش-سایت-اختصاصی۱-1024x595.jpg";
-import djangoImg from "../../assets/img/Ec_Ex_Website/python-django-min.png";
-import phpImg from "../../assets/img/Ec_Ex_Website/PHP-logo.svg-min-1024x553.png";
-import laravelImg from "../../assets/img/Ec_Ex_Website/VPFCsW8yTV3x0SmlRLtu8phgnxa607YetR6UmHPA-min.png";
-import wordpressImg from "../../assets/img/Ec_Ex_Website/turquoise-logo-wordpress-cms-png-7-min.png";
-//import motion
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import { Helmet } from "react-helmet";
 
 function EecoSaleWeb() {
   return (
@@ -31,7 +23,7 @@ function EecoSaleWeb() {
         </div>
       </header>
       <div className='flex flex-col gap-7 Services-style ExEcWebsite-content mb-10'>
-        <img src={headImg} alt="headImg" className='w-full max-sm:h-80'/>
+        <img src={"/img/Ec_Ex_Website/فروش-سایت-اختصاصی۱-1024x595.jpg"} alt="headImg" className='w-full max-sm:h-80'/>
         <div className='px-1 flex justify-center items-center'>
         </div>
         <motion.div className='flex flex-col'
@@ -66,7 +58,7 @@ function EecoSaleWeb() {
             <p>جنگو یک فریمورک وب مبتنی بر زبان برنامه نویسی پایتون و زبان سطح بالا می باشد که امکان طراحی سایت فروشگاهی و توسعه سریع وب سایت‌ های ایمن را فراهم می‌کند.</p>
             <p>جنگو توسط توسعه دهندگان باتجربه ساخته شده و از بسیاری از مشکلات هنگام تولید وب سایت پیشگیری می‌کند. این برنامه رایگان و منبع باز (Open Source) است، همچنین دارای یک انجمن پرکاربرد و فعال، مستندات عالی و گزینه‌های زیادی برای پشتیبانی رایگان و غیر رایگان می‌ باشد.</p>
           </motion.div>
-          <motion.img initial={{translateX:-50}} viewport={{once:true}} whileInView={{translateX:0}} transition={{duration:1}}  src={djangoImg} alt="django" className='w-[50%] sm:w-[15rem] 2xl:w-[30rem]'/>
+          <motion.img initial={{translateX:-50}} viewport={{once:true}} whileInView={{translateX:0}} transition={{duration:1}}  src={"/img/Ec_Ex_Website/python-django-min.png"} alt="django" className='w-[50%] sm:w-[15rem] 2xl:w-[30rem]'/>
         </div>
         <motion.div
          initial={{translateY:-100,opacity:0}}
@@ -91,7 +83,7 @@ function EecoSaleWeb() {
             <p>اگر بخواهیم ریزتر به سوال PHP چیست؟ پاسخ دهیم، باید بگوییم که PHP کارهای پشت صحنه را در صفحات وب انجام میدهد. به این معنا که شما با استفاده از PHP نمیتوانید ظاهر سایت را تغییر دهید. PHP یک زبان برنامه</p>
             <p>نویسی است که تاثیر مستقیمی روی ظاهر سایت ندارد. با استفاده از PHP شما میتوانید اطلاعات مختلف را از پایگاه داده بگیرید و به کاربر نشان دهید.</p>
           </motion.div>
-          <motion.img initial={{translateX:500, opacity:0}} viewport={{once:true}}  whileInView={{translateX:0,opacity:1}} transition={{duration:1}} src={phpImg} alt="php" className='w-[15rem] sm:w-[25rem] sm:mr-2 h-[6rem] sm:h-[8rem] 2xl:w-[30rem] 2xl:h-[15rem]'/>
+          <motion.img initial={{translateX:500, opacity:0}} viewport={{once:true}}  whileInView={{translateX:0,opacity:1}} transition={{duration:1}} src={"/img/Ec_Ex_Website/PHP-logo.svg-min-1024x553.png"} alt="php" className='w-[15rem] sm:w-[25rem] sm:mr-2 h-[6rem] sm:h-[8rem] 2xl:w-[30rem] 2xl:h-[15rem]'/>
         </div>
         <motion.div initial={{translateX:0,opacity:1}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateX:[5,-5,5,-5,5,-5,5,-5,0],opacity:1}} >
           <h1 className='text-green-00'>داینامیک و استاتیک یعنی چی؟</h1>
@@ -109,7 +101,7 @@ function EecoSaleWeb() {
             <p>زبان برنامه نویسی PHP یکی از برترین و محبوب‌ترین زبان‌های برنامه ‌نویسی در حوزه طراحی وب است. این زبان برنامه نویسی Framework ‌های بسیار زیادی دارد که لاراول یکی از آن‌ها است.</p>
             <p>زمانی که در مورد فریم ورک‌های توسعه وب اپلیکیشن صحبت می‌شود، همیشه نام لاراول به میان می‌آید. از لاراول می‌توان به عنوان محبوب‌ترین فریم ورک زبان برنامه نویسی PHP یاد کرد. این فریم ورک توانسته است در زمانی کوتاه، به اولین گزینه‌ی توسعه دهندگان برای توسعه برنامه‌های پیچیده تحت وب تبدیل شود.</p>
           </div>
-          <motion.img initial={{translateY:200,opacity:0}} viewport={{once:true}} whileInView={{translateY:0,opacity:1}} transition={{duration:1}} src={laravelImg} alt="laravel" className='w-80 2xl:w-[30rem]'/>
+          <motion.img initial={{translateY:200,opacity:0}} viewport={{once:true}} whileInView={{translateY:0,opacity:1}} transition={{duration:1}} src={"/img/Ec_Ex_Website/VPFCsW8yTV3x0SmlRLtu8phgnxa607YetR6UmHPA-min.png"} alt="laravel" className='w-80 2xl:w-[30rem]'/>
         </div>
         <div>
           <p>لاراول فریم ورکی مبتنی بر معماری MVC است که به صورت رایگان و متن باز ارائه شده است. این فریم‌ ورک امکانات هوشمندی در اختیار برنامه نویسان قرار می‌دهد و برنامه‌‌ نویسی را برای آن‌ها لذت بخش‌تر می‌کند. </p>
@@ -127,7 +119,7 @@ function EecoSaleWeb() {
             <motion.h1 initial={{translateX:100,opacity:0}} viewport={{once:true}} whileInView={{translateX:0,opacity:1}} className='text-green-0E'>وردپرس چیست ؟</motion.h1>
             <motion.p initial={{scale:0}} viewport={{once:true}} transition={{duration:1}} whileInView={{scale:1}}>اگر بخواهیم به زبان ساده به معرفی وردپرس بپردازیم، وردپرس عبارت است از یک سیستم مدیریت محتوای سایت ساز که با استفاده از آن قادر خواهید بود تا به راه اندازی انواع گوناگونی از وبسایت و وبلاگ بپردازید. با اطمینان بر اساس تجربیات شخصی و نمونه های  مشاهده شده به جرأت می توانم این اطمینان را به شما بدهم به دلیل انعطاف بالایی که سیستم مدیریت محتوای وردپرس دارد با استفاده از آن قادر خواهید بود تا اقدام به راه اندازی هر نوع وبسایت با وردپرس کنید.</motion.p>
           </div>
-          <motion.img initial={{translateY:-200}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}} src={wordpressImg} alt="wordpress" className='w-[10rem] md:w-[15rem] 2xl:w-[40%]'/>
+          <motion.img initial={{translateY:-200}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}} src={"/img/Ec_Ex_Website/turquoise-logo-wordpress-cms-png-7-min.png"} alt="wordpress" className='w-[10rem] md:w-[15rem] 2xl:w-[40%]'/>
         </div>
         <div>
           <motion.p initial={{translateY:100}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0}}>وردپرس، یک سیستم سایت ساز و پکیج راه انداز وب‌سایت، فروشگاه اینترنتی و وبلاگ (از هر نوع و هر مدل است) است که به صورت رایگان شما می‌توانید آن را از طریق وب‌سایت رسمی وردپرس (فارسی یا انگلیسی) دانلود کرده و بر روی فضای اینترنتی خود نصب کنید. فضای اینترنتی همان فضایی است که سایت شما و محتویات آن بر روی آن فضا قرار می‌گیرد و سپس وب‌سایت خود را به طور کامل با جزئیات و امکانات متفاوت و طرح دلخواه بر روی آن راه اندازی کرده و مطالب و بخش‌های مختلف سایت را خودتان مدیریت کنید.</motion.p>

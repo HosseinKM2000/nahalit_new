@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 
-const OurProuduct = () => {
+const OurProduct = () => {
   return (
     <div className="flex items-center justify-center gap-[6rem] flex-wrap w-full">
       <div className="w-[90%]  min-h-fit sm:w-[28rem] flex pb-5 flex-col items-center justify-between h-[35rem] bg-[#F3F3F5] border border-solid border-[#dbdbdb]">
@@ -125,6 +125,6 @@ const OurProuduct = () => {
   );
 };
 
-export default OurProuduct;
+export default OurProduct;
 
 

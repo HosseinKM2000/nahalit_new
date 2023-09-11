@@ -215,7 +215,7 @@ const dashboardSlice = createSlice({
         // add product
         .addCase(addProduct.fulfilled, (state,action) => {
             state.productsLoading = false;
-            toast.success('محصول با موفقیت ذخیره شد')
+            toast.success('محصول با موفقیت ذخیره شد');
         })
         .addCase(addProduct.pending, (state,action) => {
             state.productsLoading = true;
@@ -255,6 +255,7 @@ const dashboardSlice = createSlice({
         .addCase(editProduct.rejected,(state,action) => {
             state.productsLoading = false;
             toast.error("خطا در ویرایش محصول")
+            console.log(action)
         })
 
 
@@ -324,7 +325,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(getBlogs.rejected,(state,action) => {
             state.blogsLoading = false;
-            toast.error("خطا در بارگیری مقاله ها")
+            console.error(action)
         })
 
 
@@ -467,8 +468,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(getUsers.rejected,(state,action) => {
             state.usersLoading = false;
-            toast.error('خطا در بارگیری کاربران')
-            console.log(action)
+            console.error(action)
         })
 
 

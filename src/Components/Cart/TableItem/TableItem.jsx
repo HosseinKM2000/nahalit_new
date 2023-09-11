@@ -6,6 +6,7 @@ import { deleteBasket } from '../../../features/cart/action';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 import { Active, deActive } from '../../../features/loading/loadingSlice';
+import moment from 'moment-jalaali';
 
 const TableItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -15,6 +16,16 @@ const TableItem = ({ cartItem }) => {
   const loading = useSelector(state => state.cart.loading);
   const userId = JSON.parse(Cookies.get("user")).id;
   const goalId = baskets.find(basket => basket.product_id === cartItem.id && basket.user_id === userId )?.id;
+  let created_date = moment(cartItem.created_at);
+  let updated_date = moment(cartItem.updated_at);
+  const createdYear = created_date.jYear();
+  const createdMonth = created_date.jMonth(); 
+  const createdDate = created_date.jDate();
+  const updatedYear = updated_date.jYear();
+  const updatedMonth = updated_date.jMonth(); 
+  const updatedDate = updated_date.jDate();
+  created_date = moment(`${createdYear}-${createdMonth}-${createdDate}`,'jYYYY-jMM-jDD');
+  updated_date = moment(`${updatedYear}-${updatedMonth}-${updatedDate}`,'jYYYY-jMM-jDD');
 
   useEffect(()=> {
     if(loading) {
@@ -42,15 +53,15 @@ const TableItem = ({ cartItem }) => {
                 alt={cartItem.title}
               />
             <div className='flex flex-col items-center lg:items-start'>
-              <Link className="block text-stone-500 break-words max-w-[500px] text-[1.07rem] line-clamp-1 font-[shabnam] text-center lg:text-start hover:text-blue-600" to={"#"}>{cartItem.title}</Link>
-              <span className='font-[shabnamBold] mt-3'>فروشنده: {"علی آقایی"}</span>
+              <Link className="block text-stone-500 break-words max-w-[500px] text-[1rem] line-clamp-1 font-[shabnam] text-center lg:text-start hover:text-blue-600" to={"#"}>{cartItem.title}</Link>
+              <span className='font-[shabnamBold] mt-3'> آخرین بروزرسانی: {updated_date.format('jYYYY/jMM/jDD')}</span>
             </div>
           </div>
         </div>
       </td>
       <div className='flex items-center flex-col lg:flex-row'>
       <td className="p-4">
-        <span>{addSignToMoney(cartItem.price)}</span>
+        <span className='font-[shabnam]'>{addSignToMoney(cartItem.price)}</span>
       </td>
       <div>
             <button

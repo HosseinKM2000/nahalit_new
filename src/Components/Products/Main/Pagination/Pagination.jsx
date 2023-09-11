@@ -37,7 +37,6 @@ function Pagination() {
       setItemOffset(newOffset);
     };
 
-
   return (
     <>
     <ProductsPage currentItems={currentItems}/>

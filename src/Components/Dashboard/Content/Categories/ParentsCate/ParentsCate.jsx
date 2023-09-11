@@ -22,7 +22,6 @@ function ParentsCate() {
   const add = useSelector(state => state.dashboard.addSuccess);
   const Delete = useSelector(state => state.dashboard.deleteSuccess);
   const edit = useSelector(state => state.dashboard.editSuccess);
-  
   useEffect(()=>{
       dispatch(getCategories())
   },[add,Delete,edit])

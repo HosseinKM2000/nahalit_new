@@ -17,6 +17,7 @@ const Header = () => {
     const baskets = useSelector(state => state.cart.baskets);
     const userPermissions = useSelector(state => state.dashboard.userPermissions);
     const success = useSelector(state => state.cart.success);
+    const roleId = loginStatus ? JSON.parse(Cookies.get("user"))?.role_id  : '';
     const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : '';
     const dispatch = useDispatch(); 
     const location = useLocation();
@@ -24,9 +25,9 @@ const Header = () => {
 
     useEffect(() => {
       if(loginStatus){
-        dispatch(getUserRole(userId))
+        dispatch(getUserRole(roleId))
       }
-    },[loginStatus])
+    },[])
 
     useEffect(() => {
       if(loginStatus) {
@@ -44,9 +45,9 @@ const Header = () => {
         <HeaderProductsLogo/>
         <div className="flex justify-center mt-3 items-center font-[shabnamMedium] py-5" style={{borderBottom:'1px #D6D3D1 solid',borderTop:'1px #D6D3D1 solid'}}>
         <div className="text-[#7c7c7c] text-sm flex items-center justify-center w-full gap-5 2xl:justify-center 2xl:gap-x-[8rem] px-3">
-            <HeaderAdminProfileIcon userId={userId} loginStatus={loginStatus}/>
+            <HeaderAdminProfileIcon roleId={roleId} loginStatus={loginStatus}/>
             <HeaderNavbar/>
-            <HeaderNavButtons loginStatus={loginStatus} userId={userId}/>
+            <HeaderNavButtons loginStatus={loginStatus} roleId={roleId}/>
             <HeaderFavButtons urlPath={urlPath} baskets={baskets}/> 
         </div>
         </div>

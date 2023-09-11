@@ -65,7 +65,7 @@ function EditProduct({ isEdit , setIsEdit }) {
         formdata.append("seller_id", form.userId );
         formdata.append("price", form.price);
         formdata.append("image", form.image , `${imageRef.current.value}`);
-        dispatch(editProduct(isEdit.value.id,formdata))
+        dispatch(editProduct({id:isEdit.value.id,formdata}))
     }
 
     function separateByCommas(number) {

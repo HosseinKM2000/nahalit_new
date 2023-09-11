@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import UserAvatarIcon from '../UserAvatar/UserAvatar'
 import { useState } from 'react';
 
-function HeaderAdminProfileIcon({ userId  , loginStatus }) {
+function HeaderAdminProfileIcon({ roleId  , loginStatus }) {
     const [showSlide13, setShowSlide13] = useState(false);
 
   return (
     <div className="relative">
         {
-            loginStatus && userId === 1
+            loginStatus && roleId === 1
             ?
             <>
             <Link to={'/userPage/userProfile'} onMouseEnter={()=>setShowSlide13(true)} onMouseLeave={()=>setShowSlide13(false)}>

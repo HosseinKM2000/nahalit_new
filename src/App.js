@@ -71,55 +71,55 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/recruitment" element={<Recruitment />} />
-          <Route path="/LoginLearn" element={<LoginLearn />} />
-          <Route path="/workSamples/graphic/MotionGraphics" element={<MotionGraphics />} />
-          <Route path="/workSamples/graphic/UI_UX" element={<UI_UX />} />
-          <Route path="/workSamples/graphic/Brochure" element={<Brochure />} />
-          <Route path="/workSamples/graphic/Poster" element={<Poster />} />
-          <Route path="/workSamples/graphic/Catalog" element={<Catalog />} />
-          <Route path="/workSamples/graphic/BusinessCard" element={<BusinessCard />} />
-          <Route path="/workSamples/graphic/Logo" element={<Logo />} />
-          <Route path="/workSamples/Premiere" element={<Premiere />} />
-          <Route path="/workSamples/web/WebsiteDesignPortfolio" element={<WebsiteDesignPortfolio />} />
-          <Route path="/workSamples/Aplication" element={<Aplication />} />
-          <Route path="/workSamples/Seo" element={<Seo />} />
-          <Route path="/workSamples/Voicing" element={<Voicing />} />
-          <Route path="/services/اپلیکیشن-موبایل" element={<Saplication />} />
-          <Route path="/services/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SsoundEditing />} />
-          <Route path="/services/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
-          <Route path="/services/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
-          <Route path="/services/فروش-قالب-سایت" element={<SsaleWeb />} />
-          <Route path="/services/خدمات-سئو-وب-سایت" element={<Sseo />} />
-          <Route path="/services/خدمات-کسب-و-کار" element={<SworkService />} />
-          <Route path="/services/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
-          <Route path="/services/موشن-گرافیک" element={<SmotionGhraphic />} />
-          <Route path="/services/تدوین-پروپوزال" element={<Sproposal />} />
-          <Route path="/services/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
-          <Route path="/services/خدمات-گرافیک" element={<Sgraphic />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/articles" element={<ArticlesPagination/>}/>
-          <Route path="/articles/article" element={<Article/>}/>
-          <Route path="/news" element={<News/>}/>
+          <Route path="order" element={<Order />} />
+          <Route path="recruitment" element={<Recruitment />} />
+          <Route path="LoginLearn" element={<LoginLearn />} />
+          <Route path="workSamples/graphic/MotionGraphics" element={<MotionGraphics />} />
+          <Route path="workSamples/graphic/UI_UX" element={<UI_UX />} />
+          <Route path="workSamples/graphic/Brochure" element={<Brochure />} />
+          <Route path="workSamples/graphic/Poster" element={<Poster />} />
+          <Route path="workSamples/graphic/Catalog" element={<Catalog />} />
+          <Route path="workSamples/graphic/BusinessCard" element={<BusinessCard />} />
+          <Route path="workSamples/graphic/Logo" element={<Logo />} />
+          <Route path="workSamples/Premiere" element={<Premiere />} />
+          <Route path="workSamples/web/WebsiteDesignPortfolio" element={<WebsiteDesignPortfolio />} />
+          <Route path="workSamples/Aplication" element={<Aplication />} />
+          <Route path="workSamples/Seo" element={<Seo />} />
+          <Route path="workSamples/Voicing" element={<Voicing />} />
+          <Route path="services/اپلیکیشن-موبایل" element={<Saplication />} />
+          <Route path="services/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SsoundEditing />} />
+          <Route path="services/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
+          <Route path="services/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
+          <Route path="services/فروش-قالب-سایت" element={<SsaleWeb />} />
+          <Route path="services/خدمات-سئو-وب-سایت" element={<Sseo />} />
+          <Route path="services/خدمات-کسب-و-کار" element={<SworkService />} />
+          <Route path="services/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
+          <Route path="services/موشن-گرافیک" element={<SmotionGhraphic />} />
+          <Route path="services/تدوین-پروپوزال" element={<Sproposal />} />
+          <Route path="services/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
+          <Route path="services/خدمات-گرافیک" element={<Sgraphic />} />
+          <Route path="ContactUs" element={<ContactUs />} />
+          <Route path="articles" element={<ArticlesPagination/>}/>
+          <Route path="articles/article" element={<Article/>}/>
+          <Route path="news" element={<News/>}/>
           <Route path="*" element={<Error/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path="/shop?" element={<Products/>}/>
-          <Route path="/shop/product/:id" element={<Product/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/favorites" element={<Favorites/>}/>
-          <Route path="/userPage" element={<UserPage/>}>
+          <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path="shop?" element={<Products/>}/>
+          <Route path="shop/product/:id" element={<Product/>}/>
+          <Route path="register" element={<Register/>}/>
+          <Route path="login" element={<Login/>}/>
+          <Route path="cart" element={<Cart/>}/>
+          <Route path="favorites" element={<Favorites/>}/>
+          <Route path="userPage" element={<UserPage/>}>
             <Route path="editProfile" element={<EditUserProfile/>}/>
             <Route path="cart" element={<Cart/>}/>
             <Route path="favorites" element={<Favorites/>}/>
             <Route path="userProfile" element={<UserProfile/>}/>
           </Route>
-          <Route path="/about_us" element={<About_us/>}/>
-          <Route path="/be_seller" element={<BeSeller/>}/>
-          <Route path="/create_content" element={<CreateContent/>}/>
-          <Route path="/SocialMediaBot" element={<SocialMediaBot/>}/>
+          <Route path="about_us" element={<About_us/>}/>
+          <Route path="be_seller" element={<BeSeller/>}/>
+          <Route path="create_content" element={<CreateContent/>}/>
+          <Route path="SocialMediaBot" element={<SocialMediaBot/>}/>
         </Routes>
       </div>
       <ApiLoading/>

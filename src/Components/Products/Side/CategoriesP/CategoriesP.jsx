@@ -4,12 +4,22 @@ import { SlMagnifier } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../../../features/dashboard/action';
 import { deleteAllFilters, sortByCategory, sortByName } from '../../../../features/products/productSlice';
+import { useSearchParams } from 'react-router-dom';
 
 function CategoriesP() {
   const categories = useSelector(state => state.dashboard.categories);
   const isBeProducts = categories.find(cate => cate.title === "محصولات") === undefined ? false : true;
   const dispatch = useDispatch();
+  const [searchParams,setSearchParams] = useSearchParams();
+  let paramsKey = searchParams.get('category');
+  paramsKey = categories.find(cate => cate.title === paramsKey)?.id || "not";
   const searchRef = useRef();
+
+  useEffect(()=>{
+    paramsKey !== "not" 
+    ? filterHandler(paramsKey)
+    :null
+  },[paramsKey,categories])
 
   useEffect(()=> {
     dispatch(getCategories())

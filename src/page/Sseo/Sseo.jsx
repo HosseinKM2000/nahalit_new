@@ -1,24 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
-// import images
-import HeadImg from "../../assets/img/Seo/سئو-سایت-1024x576.jpg";
-import Img_1 from "../../assets/img/Seo/search-engine-optimization.png";
-import Img_2 from "../../assets/img/Seo/موتور-های-جست-و-جو-1024x745-min.png";
-import Img_3 from "../../assets/img/Seo/What-is-a-SERP-transformed-min-250x250.png";
-import Img_4 from "../../assets/img/Seo/seooo-transformed-min.png";
-import Img_5 from "../../assets/img/Seo/8-2-seo-png-pic-min.png";
-import Img_6 from "../../assets/img/Seo/head-visit-website-f.png";
-import Img_7 from "../../assets/img/Seo/seo-services-min.png";
-import Img_8 from "../../assets/img/Seo/تعرفه-خدمات-سئو.png";
-import Img_9 from "../../assets/img/Seo/تعرفه-خدمات-سئو-حرفه-ای.png";
-import Img_10 from "../../assets/img/Seo/تعرفه-اپلیکیشن-خدمات-سئو-ویژه.png";
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import FixedIcon from "../../Components/FixedIcon/FixedIcon";
-import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
+import React from "react";
+import { Helmet } from "react-helmet";
 import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
-import { Helmet } from "react-helmet";
+import FixedIcon from "../../Components/FixedIcon/FixedIcon";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 function Sseo() {
   return (
@@ -35,7 +23,7 @@ function Sseo() {
         </div>
       </header>
       <div className='Seo-content Services-style flex flex-col items-center gap-5 mb-10'>
-        <img src={HeadImg} alt="header" className='w-full sm:h-auto h-96'/>
+        <img src={"/img/Seo/سئو-سایت-1024x576.jpg"} alt="header" className='w-full'/>
         <div className='flex flex-col gap-10 px-1 2xl:gap-16'>
             <div>
                 <motion.h1 whileInView={{x:[10,-10,10,-10,10,0]}} transition={{duration:1}} viewport={{once:true}} className='text-center text-green-02'>خدمات سئو وب سایت</motion.h1>
@@ -49,7 +37,7 @@ function Sseo() {
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>سئو چیست؟ امروزه همان سوالی است که در تمامی زیرشاخه های کسب و کارهای اینترنتی و دیجیتال مارکتینگ، مطرح می شود.</motion.p>
                     <motion.p  whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>به طور خلاصه می توان گفت بهینه سازی وب سایت یا همان سئو ، موجب می شود یک سایت توسط موتورهای جستجو نظیر گوگل، یعنی در صفحه سرچ آن ها به افرادی که کلمات مربوط به آن وب سایت ها را جستجو می کنند، در جایگاه بالاتری نمایش داده شود و آن افراد جذب وب سایت ها شوند.</motion.p>
                 </div>
-                <motion.img src={Img_1} alt="roocket" className='w-80 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/Seo/search-engine-optimization.png"} alt="roocket" className='w-80 2xl:w-[35%] 2xl:h-[20rem]' whileInView={{rotate:[10,-10,10,-10,10,-10,0]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>تاریخچه سئو، به دهه ۹۰ میلادی و ظهور موتورهای جستجو برمی‌گردد.</p>
@@ -64,7 +52,7 @@ function Sseo() {
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>موتورهای جستجوی در نحوه رتبه بندی وب سایت‌ ها در هنگام جستجوی کلید واژه‌های مختلف توسط کاربران، عملکرد متفاوتی دارند. این تفاوت رتبه دهی ناشی از هوش مصنوعی مورد استفاده در موتورهای جستجو است.</motion.p>
                     <motion.p whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1,delay:0.5}} viewport={{once:true}}>گوگل نتایج بهتری در هنگام جستجو به کاربران نشان ‌می‌ دهد و فرایند جستجو در اینترنت را برای کاربران در مقایسه با سایر موتورهای جستجو در گوگل دلپذیرتر است. به همین دلیل گوگل تبدیل به پرطرفدارترین موتور جستجو در اینترنت شده‌ است.</motion.p>
                 </div>
-                <motion.img src={Img_2} alt="search-engine" className='w-64 h-50 2xl:w-[30rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/Seo/موتور-های-جست-و-جو-1024x745-min.png"} alt="search-engine" className='w-64 h-50 2xl:w-[30rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <h4 className='text-green-137 py-3'>موتور جستجو چگونه کار می‌کند ؟</h4>
@@ -82,7 +70,7 @@ function Sseo() {
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>حالا که شما فهمیده اید که سئو چیست و چه معنا و مفهومی دارد، می خواهیم کمی جلوتر برویم. یکی دیگر از سوالات رایج که می شنویم این است :</motion.p>
                   <motion.p whileInView={{opacity:[0,1],x:[1000,0]}} transition={{duration:1}} viewport={{once:true}}>رتبه بندی سایت در گوگل چیست؟</motion.p>
                 </div>
-                <motion.img src={Img_3} alt="SERP" className='w-64 2xl:w-[20rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/Seo/What-is-a-SERP-transformed-min-250x250.png"} alt="SERP" className='w-64 2xl:w-[20rem] 2xl:h-[20rem]' whileInView={{scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div  whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>SERP (Search Engine Result Page) به معنی صفحه نتایج موتور جستجو می باشد. رتبه بندی سایت در گوگل شرکت شما یعنی جایگاه سایت شما در SERP گوگل.</p>
@@ -95,7 +83,7 @@ function Sseo() {
                     <p>افزایش بازدید سایت یکی از اصلی ترین کارهایی است که هر صاحب سایتی باید به آن اهمیت دهد. در واقع اگر شما صاحب هر کسب و کار آنلاینی هستید باید در صدد بالا بردن بازدید سایت خود باشید. فرقی نمی کند چه خدمات و محصولاتی را ارائه می کنید، در هر صورت باید به فکر بالا بردن بازدید سایت تان باشید. کاملا مشخص است که ترافیک هر سایتی جزئی از سرمایه آن است.</p>
                     <p>هر چقدر که وب سایت شما از هر لحاظی عالی باشد تا زمانی که نتوانید ترافیک واقعی دریافت کنید بی فایده است و هیچ سودی برای شما نخواهد داشت.</p>
                 </div>
-                <img src={Img_4} alt="seooo" className='w-80 2xl:w-[30rem] 2xl:h-[30rem]'/>
+                <img src={"/img/Seo/seooo-transformed-min.png"} alt="seooo" className='w-80 2xl:w-[30rem] 2xl:h-[30rem]'/>
             </div>
             <motion.div whileInView={{opacity:[0,1],scale:[0,1]}} transition={{duration:1}} viewport={{once:true}}>
                 <p>دلیل عمده بسیاری از کسب و کارهای آنلاینی هم که موفق نیستند نداشتن ترافیک کافی است. همین حالا وب سایت هایی وجود دارند که از هر لحاظی با کیفیت هستند ولی مشکل اصلی آن ها دیده شدن است. در واقع مدیران این سایت ها در بالا بردن ترافیک سایت شان ناتوان هستند و نمی توانند به خوبی روزانه ترافیک واقعی و هدفمندی را روانه سایت خود کنند.</p>
@@ -106,17 +94,17 @@ function Sseo() {
                 <h6 className='text-center text-green-137 py-3'>خدمات وب سایت</h6>
                 <div className='flex sm:flex-row flex-col items-center justify-center gap-1'>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
-                        <img src={Img_5} alt="seo" className='w-24 2xl:w-[30%]'/>
+                        <img src={"/img/Seo/8-2-seo-png-pic-min.png"} alt="seo" className='w-24 2xl:w-[30%]'/>
                         <span className='font-bold text-black'>سئو حرفه ای وب سایت</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>سئو حرفه ای انواع وب سایت ها و افزایش رتبه سایت و افزایش فروش ، با استفاده از جدید ترین روش های سئو وب سایت</p>
                     </div>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
-                        <img src={Img_6} alt="head-visit-website" className='w-32 2xl:w-2/5'/>
+                        <img src={"/img/Seo/head-visit-website-f.png"} alt="head-visit-website" className='w-32 2xl:w-2/5'/>
                         <span className='font-bold text-black'>افزایش بازدید سایت</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>افزایش بازدید سایت بعد از سئو، مهم ترین اصل برای افزایش فروش و برندسازی هر کسب و کار است که با تیم زبده نهال آی تی، این امکان برای شما فراهم خواهد شد.</p>
                     </div>
                     <div className='flex flex-col items-center w-11/12 sm:w-1/3 gap-2 justify-between'>
-                        <img src={Img_7} alt="seo-service" className='w-32 2xl:w-2/5'/>
+                        <img src={"/img/Seo/seo-services-min.png"} alt="seo-service" className='w-32 2xl:w-2/5'/>
                         <span className='font-bold  text-black'>رسیدن به صفحه اول گوگل</span>
                         <p className='text-center span font-thin text-sm leading-8 text-gray-77'>افزایش رتبه وب سایت شما و رسیدن به صفحات بالاتر و رسیدن به صفحه اول گوگل، که منجر به افزایش مشتریان شما و افزایش فروش شما می شود.</p>
                     </div>
@@ -125,9 +113,9 @@ function Sseo() {
             <div className='flex flex-col gap-2 2xl:gap-10'>
                 <h6 className='text-center text-gray-66'>تعرفه خدمات وبسایت و سئو وبسایت تیم نهال آی تی</h6>
                 <div className=' flex-col sm:flex-row flex items-center justify-between lg:justify-evenly gap-5 sm:gap-0'>
-                    <img src={Img_8} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
-                    <img src={Img_9} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
-                    <img src={Img_10} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
+                    <img src={"/img/Seo/تعرفه-خدمات-سئو.png"} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
+                    <img src={"/img/Seo/تعرفه-خدمات-سئو-حرفه-ای.png"} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
+                    <img src={"/img/Seo/تعرفه-اپلیکیشن-خدمات-سئو-ویژه.png"} alt="tarrif" className='sm:w-[25%] md:w-[20%] w-[60%]'/>
                 </div>
             </div>
         </div>

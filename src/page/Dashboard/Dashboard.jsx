@@ -9,7 +9,7 @@ import Cookies from 'js-cookie';
 function Dashboard() {
   const [dropMenu,setDropMenu] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
-  const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id : '';
+  const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.role_id : '';
 
   return (
     <div className='flex flex-wrap relative overflow-hidden h-screen w-screen'>

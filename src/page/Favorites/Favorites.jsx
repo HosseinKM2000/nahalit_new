@@ -1,13 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
 import FixedIcon from '../../Components/FixedIcon/FixedIcon';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
 import Main from './Main/Main';
-import NotLogined from '../../Components/NotLogined/NotLogined';
-import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 
 function Favorites() {
   const location = useLocation();

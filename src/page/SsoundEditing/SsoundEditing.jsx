@@ -1,21 +1,11 @@
 import { motion } from "framer-motion";
 import React from "react";
 import EndBox3 from "../../Components/EndBox3/EndBox3";
-// import images
+import { Helmet } from "react-helmet";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import img_7 from "../../assets/img/SoundEditing/1398090309273659318951144-transformed-min.png";
-import img_6 from "../../assets/img/SoundEditing/4674029-scaled-transformed-min.png";
-import img_4 from "../../assets/img/SoundEditing/Adobe_Audition_CC_icon_2020.svg-1024x1000.png";
-import img_2 from "../../assets/img/SoundEditing/kisspng-vegas-pro-portable-network-graphics-computer-icons-iconos-sony-vegas-9-pro-5b7b7f843fec75.0596849215348202282618-removebg-preview.png";
-import img_3 from "../../assets/img/SoundEditing/productIcon_v2_20200705203105080.png";
-import img_1 from "../../assets/img/SoundEditing/saxophonist-playing-saxophone-wearing-golden-glasses-1024x1024.png";
-import img_5 from "../../assets/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png";
-import img_8 from "../../assets/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png";
-import headImg from "../../assets/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg";
-import { Helmet } from "react-helmet";
 
 
 function SsoundEditing() {
@@ -33,7 +23,7 @@ function SsoundEditing() {
         </div>
       </header>
       <div className='soundEditing-content Services-style flex flex-col items-center gap-10 mb-10'>
-        <img src={headImg} alt="header" className='w-full h-96 sm:h-auto'/>
+        <img src={"/img/SoundEditing/خدمات-صداگذاری-1024x576.jpg"} alt="header" className='w-full'/>
         <div className='flex flex-col gap-10 px-1'>
             <div>
                 <h1 className='text-green-1c'>صدا</h1>
@@ -57,7 +47,7 @@ function SsoundEditing() {
                         <li>و …</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_1} alt="soundEditing" className='w-[15rem] sm:w-[20rem] 2xl:w-[400px] 2xl:ml-5 px-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} />
+                <motion.img src={"/img/SoundEditing/saxophonist-playing-saxophone-wearing-golden-glasses-1024x1024.png"} alt="soundEditing" className='w-[15rem] sm:w-[20rem] 2xl:w-[400px] 2xl:ml-5 px-3' whileInView={{x:[-1000,0],opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} />
             </div>
             <motion.div whileInView={{opacity:[0,1]}} transition={{duration:2}} viewport={{once:true}} >
                 <h4 className='text-green-1c py-3'>تفاوت صداگذاری و تدوین صدا</h4>
@@ -74,7 +64,7 @@ function SsoundEditing() {
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>شرکت سونی نه تنها در زمینه صنعت فیلم سازی دستی دارد، بلکه نرم افزاری را در زمینه میکس، مونتاژ و ویرایش فیلم تهیه کرده است که بسیار قدرتمند می باشد. هر چند این نرم افزار به سیستم بسیار قوی نیاز دارد و کمی پیچیده است.</motion.p>
                     <motion.p whileInView={{y:[500,0],opacity:[0,1]}} transition={{duration:1.5}} viewport={{once:true}}>استفاده از نهایت کیفیت در صداها و تصاویر خروجی که نهایت لذت را برای ببینده به همراه دارد یکی از مهم ترین خصوصیاتی است که در Sony Vegas Pro به چشم می خورد. انواعی از افکت ها در این ابزار گنجانده شده اند تا کاربران حرفه ای به راحتی با کنار هم قرار دادن تصاویر و همین افکت ها به جذاب تر شدن کار خود کمک کنند.</motion.p>
                 </div>
-                <motion.img src={img_2} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-[rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
+                <motion.img src={"/img/SoundEditing/kisspng-vegas-pro-portable-network-graphics-computer-icons-iconos-sony-vegas-9-pro-5b7b7f843fec75.0596849215348202282618-removebg-preview.png"} alt="sonyVegas" className='w-[7rem] sm:w-[15rem] 2xl:w-[rem]' whileInView={{x:[-700,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} />
             </div>
             <div className='flex gap-10 sm:gap-0 p-0 lg:pl-10 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
@@ -89,7 +79,7 @@ function SsoundEditing() {
                         <li>و …</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_3} alt="cyberlink audio director" className='sm:w-[10rem] w-[5rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/SoundEditing/productIcon_v2_20200705203105080.png"} alt="cyberlink audio director" className='sm:w-[10rem] w-[5rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <div className='flex p-0 lg:pl-10 gap-8 sm:gap-0 flex-col-reverse sm:flex-row items-center justify-between'>
                 <div>
@@ -103,23 +93,23 @@ function SsoundEditing() {
                         <li>از این پلتفرم می توان برای ایجاد پادکست های جذاب استفاده کرد.</li>
                     </motion.ul>
                 </div>
-                <motion.img src={img_4} alt="Adobe Audition" className='w-[5rem] sm:w-[10rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
+                <motion.img src={"/img/SoundEditing/Adobe_Audition_CC_icon_2020.svg-1024x1000.png"} alt="Adobe Audition" className='w-[5rem] sm:w-[10rem] 2xl:w-[15rem]' whileInView={{x:[-500,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}}/>
             </div>
             <motion.div whileInView={{x:[1000,0],opacity:[0,1]}} transition={{duration:1}} viewport={{once:true}} className='flex flex-col gap-5'>
                 <h6 className='text-green-137 text-center py-3'>خدمات صداگذاری و تدوین صدا</h6>
                 <div className='flex flex-col sm:flex-row items-center justify-around sound-editing-Services '>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_5} alt="img" className='2xl:w-[10rem] w-36'/>
+                        <img src={"/img/SoundEditing/آموزش-ساخت-تیزر-تبلیغاتی-min.png"} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>تهیه تیزر تبلیغاتی</b>
                         <span className='text-center'>با گستردگی روزافزون مخاطبان شبکه مجازی یکی از بهترین تبلیغات در این بخش ساخت ویدئوهای ویژه کوتاه، برای نمایش در صفحات شبکه های اجتماعی و بستر های مختلف است.</span>
                     </div>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_6} alt="img" className='2xl:w-[10rem] w-36'/>
+                        <img src={"/img/SoundEditing/4674029-scaled-transformed-min.png"} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>خدمات نریشن</b>
                         <span className='text-center'>نریشن، هنر تبدیل متون مختلف به کلام تاثیرگذار است. در بسیاری از موارد مخاطبان ما علاقه ایی به خواندن متون از خود نشان نمیدهند و این امر ممکن است باعث شود بسیاری از مطالب مهم، از نظرشان پنهان بماند.</span>
                     </div>
                     <div className='flex flex-col gap-3 items-center'>
-                        <img src={img_7} alt="img" className='2xl:w-[10rem] w-36'/>
+                        <img src={"/img/SoundEditing/1398090309273659318951144-transformed-min.png"} alt="img" className='2xl:w-[10rem] w-36'/>
                         <b>گویندگی و دوبله</b>
                         <span className='text-center'>درواقع گویندگی ،اثرگذاری یک موضوع را چندین برابر میکند و باعث میشود که متون به کلامی دلنشین ، اثرگذار و زیبا تبدیل شود. از هنر گویندگی در رادیو ، تلوزیون، فیلم، تئاتر، انیمیشن، تبلیغاتی، و … استفاده می شود .</span>
                     </div>
@@ -127,7 +117,7 @@ function SsoundEditing() {
             </motion.div>
             <div className='flex flex-col items-center'> 
                 <h6 className='text-gray3030'>تعرفه های تیم نهال آی تی در حوزه تدوین و صداگذاری</h6>
-                <img src={img_8} alt="tarrif" className='w-[100%] sm:w-[40%]'/>
+                <img src={"/img/SoundEditing/تعرفه-تدوین-صدا2-min-600x600.png"} alt="tarrif" className='w-[100%] sm:w-[40%]'/>
             </div>
         </div>
     </div>

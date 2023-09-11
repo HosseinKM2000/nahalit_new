@@ -47,7 +47,7 @@ const cartSlice = createSlice({
       })
       .addCase(addBasket.rejected, (state,action) => {
         state.loading = false;
-        toast.error("خطا در اضافه کردن محصول به سبد خرید")
+        toast.info("این محصول در سبد خرید موجود است")
         console.log(action)
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {

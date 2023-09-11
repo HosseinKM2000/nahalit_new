@@ -6,6 +6,7 @@ import PriceRange from './PriceRange/PriceRange';
 import { useEffect } from 'react';
 
 function Side() {
+    const productsCate = useSelector(state => state.products.productsCate);
     const MaxPrice = useSelector(state => state.products.maxPrice);
     const MinPrice = useSelector(state => state.products.minPrice);
     const [minPrice,setMinPrice] = useState(MinPrice);
@@ -19,6 +20,7 @@ function Side() {
       setMaxPrice(MaxPrice)
       setMinValue(MinPrice)
       setMaxValue(MaxPrice)
+      console.log(productsCate)
     },[MinPrice,MaxPrice])
 
     const selectHandle = (e) => {

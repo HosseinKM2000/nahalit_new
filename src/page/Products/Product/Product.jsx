@@ -5,9 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 import { BsArrowBarUp, BsBagFill, BsPinterest, BsTags, BsTelegram, BsTwitter } from 'react-icons/bs';
 import { FaEye, FaFacebookF, FaStar } from 'react-icons/fa';
 import { MdDateRange, MdModeComment, MdOutlineComputer, MdShoppingCart } from 'react-icons/md';
-import wonderIMG from '../../../assets/img/product/info.svg';
-import gearIMG from '../../../assets/img/product/license.svg';
-import cardsIMG from '../../../assets/img/product/shopping-carts.png';
 // import modules
 // import styles
 import 'react-toastify/dist/ReactToastify.css';
@@ -249,12 +246,12 @@ function Product() {
         {/* left side */}
         <div className='flex gap-10 flex-col mt-10 w-full lg:w-[30%] sm:px-12 px-5'>
           <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
-            <img src={gearIMG} alt="gear" className='w-[4rem]'/>
+            <img src={"/img/product/license.svg"} alt="gear" className='w-[4rem]'/>
             <span className='text-base font-[shabnambold] font-bold mb-1 w-full text-center text-stone-600'>قوانین استفاده از محصول</span>
             <p className='text-center lg:text-start leading-5  2xl:leading-9 text-[0.9rem] text-stone-500'>در این سایت امکان تعریف نقش کاربران، خدمات، مقالات، تعرفه های انجام خدمات، دسته بندی ها، درخواست پشتیبانی ارائه مشاوره رایگان وجود دارد. همچنین امکان نمایش نظرات کاربران و تماس با افراد پشتیبان وجود دارد. در ادمین امکان ویرایش، حذف همه قسمت های مختلف وجود دارد. این سایت مناسب شرکت هایی می باشد که در […]</p>
           </div>
           <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
-            <img src={wonderIMG} alt="wonder" className='w-[4rem]'/>
+            <img src={"/img/product/info.svg"} alt="wonder" className='w-[4rem]'/>
             <span className='text-base font-[shabnambold] font-bold mb-1 w-full text-center text-stone-600'>قوانین استفاده از محصول</span>
             <ul className='flex flex-col gap-2 2xl:gap-0 list-disc'>
               <li><span className='text-[0.8rem]  font-bold'>بسته نصبی + راهنمای نصب فارسی</span></li>
@@ -336,7 +333,7 @@ function Product() {
               </div>
               <div className='flex flex-col items-center gap-3 my-5 w-full 2xl:my-20'>
                 <span className='text-sm  text-center text-stone-600 font-bold'>پرداخت امن با کلیه کارت های عضو شتاب</span>
-                <img src={cardsIMG} alt="cards" className='w-full 2xl:w-[80%]'/>
+                <img src={"/img/product/shopping-carts.png"} alt="cards" className='w-full 2xl:w-[80%]'/>
               </div>
             {/* <div className='flex flex-col items-start w-full my-10'>
               <div className='w-full py-3 2xl:py-1 pr-2 font-bold text-sm font-[shabnambold] text-stone-700' style={{borderRight:'solid 5px #03A9F4'}}>
@@ -362,7 +359,7 @@ function Product() {
           <ADbasketBtn productId={goalProduct?.id}/>
           :
           <Link to={"/login"} className='fixed bottom-0 items-center w-[100vw] text-white font-bold px-3 py-3 transition-all hover:bg-[#4FC0D0]  2xl:py-5 flex justify-center gap-2 bg-[#3facba] z-[49]'>
-            <span>برای خرید محصولات باید ابتدا در سایت عضو باشید</span>
+            <span>برای خرید محصولات ابتدا باید در سایت عضو شوید</span>
           </Link>
         }
       <footer>

@@ -7,6 +7,8 @@ function HeaderFavButtons({ urlPath , baskets }) {
 
     const [showSlide4, setShowSlide4] = useState(false);
     const [showSlide5, setShowSlide5] = useState(false);
+    const [favProductsID,setFavProductsID] = useState(localStorage.getItem('favProducts') === null ? [] : JSON.parse(localStorage.getItem('favProducts')));
+    const [favArticlesID,setFavArticlesID] = useState(localStorage.getItem('favArticles') === null ? [] : JSON.parse(localStorage.getItem('favArticles')));
     const clickEntershowslide4 = () => {
         setShowSlide4(true);
       };
@@ -31,6 +33,11 @@ function HeaderFavButtons({ urlPath , baskets }) {
             <Link to={"/favorites"}>
             <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}/>
             </Link>
+            <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center p-1 bg-[#57C053] text-white min-w-fit">
+              {
+                favArticlesID.length + favProductsID.length 
+              }
+            </span>
             <div className={showSlide4 ? "box arrow-top" : "box arrow-top opacity-0 transition-all duration-300"}>
             مشاهده علاقه مندی ها
             </div>
@@ -46,9 +53,9 @@ function HeaderFavButtons({ urlPath , baskets }) {
                 <Link to={"/cart"}>
                     <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}/>
                 </Link>
-                <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
+                <span className="absolute -top-3 -left-1 min-w-fit p-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
                     {
-                    baskets?.length
+                    baskets?.length 
                     }
                 </span>
                 </>

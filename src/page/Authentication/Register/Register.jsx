@@ -6,13 +6,12 @@ import { FaRegEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import loadingSvg from '../../../assets/img/Rolling-0.8s-200px.svg';
 import { register } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
 
 function Register() {
   const [Switch,setSwitch] = useState(false);
-  const [showpassword,setShowpassword] = useState(false);
+  const [showPassword,setShowPassword] = useState(false);
   const [acceptCode,setAcceptCode] = useState(false);
   const nameRef = useRef();
   const familyRef = useRef();
@@ -27,13 +26,13 @@ function Register() {
 
   const registerHandler = (e) => {
     e.preventDefault()
-    let first_name = nameRef.current.value || "javad";
-    let last_name = familyRef.current.value || "javadi";
-    let username = usernameRef.current.value || "javad12345654";
-    let email = emailRef.current.value || "test1234fddf5@gmail.com";
-    let mobile = phoneRef.current.value || "09123547587";
-    let password = passwordRef.current.value || "012345678lk";
-    let password_confirmation = passwordConfirmationRef.current.value || "012345678lk";
+    let first_name = nameRef.current.value;
+    let last_name = familyRef.current.value;
+    let username = usernameRef.current.value;
+    let email = emailRef.current.value;
+    let mobile = phoneRef.current.value;
+    let password = passwordRef.current.value;
+    let password_confirmation = passwordConfirmationRef.current.value;
     
     switch(true)
     {
@@ -106,47 +105,41 @@ function Register() {
               <form onSubmit={(e)=>registerHandler(e)} className='bg-white flex flex-col 2xl:gap-10 gap-5 text-stone-700 py-5 px-5'>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                     <label className='text-stone-600 w-full' htmlFor="name">نام:</label>
-                    <input ref={nameRef} type="text" className='bg-gray-200 text-left outline-none border-none w-full p-1' name='name'/>
+                    <input ref={nameRef} type="text" className='bg-gray-300 font-[shabnam] text-left outline-none border-none w-full p-2 text-[1.1rem]' name='name'/>
                   </div>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                     <label className='text-stone-600 w-full' htmlFor="family">نام خانوادگی:</label>
-                    <input ref={familyRef} type="text" className='bg-gray-200 text-left outline-none border-none w-full p-1' name='family'/>
+                    <input ref={familyRef} type="text" className='bg-gray-300 font-[shabnam] text-left outline-none border-none w-full p-2 text-[1.1rem]' name='family'/>
                   </div>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                     <label className='text-stone-600 w-full' htmlFor="username">نام کاربری:</label>
-                    <input ref={usernameRef} type="text" className='bg-gray-200 text-left outline-none border-none w-full p-1' name='username'/>
+                    <input ref={usernameRef} type="text" className='bg-gray-300 font-[shabnam] text-left outline-none border-none w-full p-2 text-[1.1rem]' name='username'/>
                   </div>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                       <label className='text-stone-600 w-full' htmlFor="email">ایمیل:</label>
-                      <input ref={emailRef} className='bg-gray-200 outline-none text-left border-none w-full p-1' type="email" name="email" id="" />
+                      <input ref={emailRef} className='bg-gray-300 outline-none font-[shabnam] text-left border-none w-full p-2 text-[1.1rem]' type="email" name="email" id="" />
                   </div>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                       <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
-                        <input onChange={(e)=>{
-                          if(e.target.value.search(/\D+/g) !== -1)
-                          {
-                            e.target.value = ''
-                            toast.warn("شماره تلفن صحیح را وارد کنید")
-                          }
-                        }} ref={phoneRef}  type="text" className='bg-gray-200 outline-none text-left border-none w-[100%] p-1' name='phone'/>
+                        <input ref={phoneRef}  type="number" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-[100%] p-2 text-[1.1rem]' name='phone'/>
                   </div>
                   <div className='flex flex-col items-end gap-2 w-full text-sm'>
-                    <label htmlFor="password" className='text-stone-600 w-full'>رمز عبور</label>
-                    <div className='w-full flex items-center justify-end 2xl:justify-center gap-3'>
-                    {
-                      !showpassword
-                      ?
-                      <MdOutlineRemoveRedEye onClick={()=>setShowpassword(true)}/>
-                      :
-                      <FaRegEyeSlash onClick={()=>setShowpassword(false)}/>
-                    }
-                    <input type={showpassword?'text':'password'} minLength={'8'} ref={passwordRef} name="password" id="password" className='bg-gray-200 outline-none text-left border-none w-[100%] sm:w-[90%] 2xl:w-[80%] p-1'/>
-                    </div>
-                  </div>
+                          <label className='text-stone-600 w-full' htmlFor="password">رمز عبور:</label>
+                          <div className='w-full flex bg-gray-300 items-center justify-end 2xl:justify-center gap-3 p-2 text-[1.1rem]'>
+                          {
+                            !showPassword
+                            ?
+                            <MdOutlineRemoveRedEye onClick={()=>setShowPassword(true)}/>
+                            :
+                            <FaRegEyeSlash onClick={()=>setShowPassword(false)}/>
+                          }
+                          <input type={showPassword?'text':'password'} minLength={'8'} ref={passwordRef} name="password" id="password" className='bg-transparent text-left outline-none text-[1.1rem] font-[shabnam] border-none 2xl:p-2 w-full'/>
+                          </div>
+                        </div>
                   <div className='flex flex-col items-end gap-2 w-full text-sm'>
                     <label htmlFor="passwordConfermation" className='text-stone-600 w-full'>تکرار رمز عبور</label>
                     <div className='w-full flex items-center justify-end 2xl:justify-center gap-3'>
-                    <input type={showpassword?'text':'password'} minLength={'8'} ref={passwordConfirmationRef} name="passwordConfermation" id="passwordConfermation" className='bg-gray-200 outline-none text-left border-none w-[100%] sm:w-[90%] 2xl:w-[80%] p-1'/>
+                    <input type={showPassword?'text':'password'} minLength={'8'} ref={passwordConfirmationRef} name="passwordConfermation" id="passwordConfermation" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-full p-2 text-[1.1rem]'/>
                     </div>
                   </div>
                   {
@@ -154,7 +147,7 @@ function Register() {
                     ?
                     <div className='flex items-center justify-start gap-2 w-full mt-5 text-s'>
                       <label htmlFor="acceptCode">کد تایید:</label>
-                      <input name='acceptCode' type="text" onChange={(e)=>{}} className='bg-gray-200 text-left outline-none border-none w-[20%] p-1 2xl:w-[10%]'/>
+                      <input name='acceptCode' type="text" onChange={(e)=>{}} className='bg-gray-300 text-left outline-none font-[shabnam] border-none w-[20%] p-2 text-[1.1rem] 2xl:w-[10%]'/>
                     </div>
                     :
                     <></>
@@ -164,17 +157,17 @@ function Register() {
                     {
                       acceptCode
                       ?
-                      <button type="button" className='bg-green-600  hover:bg-green-500 transition-all font-bold duration-300 text-white rounded-md py-1 w-full'>ثبت کد تایید</button>
+                      <button type="button" className='bg-green-600  hover:bg-green-500 transition-all font-bold duration-300 text-white rounded-md p-2 text-[1.1rem] w-full'>ثبت کد تایید</button>
                       :
-                      <button type="submit" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md py-1 w-full'>
+                      <button type="submit" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md p-2 w-full'>
                         {
                           loading
-                          ?  <img src={loadingSvg} alt="loading" className='w-[1.5rem]'/>
+                          ?  <img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem]'/>
                           : <span>عضویت</span>
                         }
                       </button>
                     }
-                    <Link to={'/login'} className='bg-blue-600  hover:bg-blue-500 transition-all duration-300 text-white rounded-md font-bold py-1 w-full flex justify-center'><button>ورود</button></Link>
+                    <Link to={'/login'} className='bg-blue-600  hover:bg-blue-500 transition-all duration-300 text-white rounded-md font-bold py-2 w-full flex justify-center'><button>ورود</button></Link>
                   </div>
               </form>
           </div>

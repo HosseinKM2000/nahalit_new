@@ -22,29 +22,28 @@ function Main() {
     const mountedRef = useRef(false);
 
       if(!mountedRef.current){
-        dispatch(getUsers())
-        mountedRef.current = true; 
-      }
+          dispatch(getUsers())
+          mountedRef.current = true; 
+        }
 
       useEffect(()=>{
         dispatch(getProducts());
       },[])
   
+      useEffect(()=>{
+          dispatch(getBasketsByUserId(userId));
+        },[success])
 
-    useEffect(()=>{
-        dispatch(getBasketsByUserId(userId));
-      },[success])
-
-    const addSignToMoney = (number) => {
-        const options = {style: 'decimal'};
-        return number.toLocaleString('fa-IR', options) + ' تومان';
-      }
-    
+      const addSignToMoney = (number) => {
+          const options = {style: 'decimal'};
+          return number.toLocaleString('fa-IR', options) + ' تومان';
+        }
+      
       const allPrice = (cart) => {
-        let allPrice = 0;
-        cart.map(item => allPrice += item.price);
-        return allPrice;
-      }
+          let allPrice = 0;
+          cart.map(item => allPrice += item.price);
+          return allPrice;
+        }
 
   return (
     <div className="w-full">

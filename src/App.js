@@ -30,7 +30,7 @@ import News from './page/News/News';
 import Order from "./page/Order/Order";
 import Poster from "./page/Poster/Poster";
 import Premiere from "./page/Premiere/Premiere";
-import Product from "./page/Products/Product/Product";
+import Product from "./Components/Product/Product";
 import Products from "./page/Products/Products";
 import Recruitment from "./page/Recruitment/Recruitment";
 import Saplication from "./page/S_Aplication/Saplication";

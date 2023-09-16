@@ -46,13 +46,13 @@ const authenticationSlice = createSlice({
             localStorage.setItem("access_token",action.payload.token)
             Cookies.set("user",JSON.stringify(action.payload.user))
             state.loginStatus = true;
+            console.log(action)
         })
         .addCase(login.pending,(state) => {
             state.loading = true;
         })
         .addCase(login.rejected,(state,action) => {
             state.loading = false;
-            toast.error('!لطفا اطلاعات وارد شده را بررسی کنید')
             console.log(action)
         })
     }

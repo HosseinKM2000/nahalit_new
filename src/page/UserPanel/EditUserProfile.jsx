@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { changeUserPassword, updateUserInfo } from "../../features/userPanel/action";
+import { changeUserPassword, showUserInfo, updateUserInfo } from "../../features/userPanel/action";
 import ProfileInput from "./ProfileInput";
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { FaRegEyeSlash } from 'react-icons/fa';
@@ -113,8 +113,7 @@ const UserProfilePage = () => {
       case data.code_meli.length !== 0 && data.code_meli.length < 10   : toast.warning("کد ملی کوتاه است");
       break;
       default : {
-        dispatch(updateUserInfo({userId:userInfo.id,dataObj}))
-        console.log(dataObj)
+        dispatch(showUserInfo())
       }
     }
   }

@@ -10,7 +10,7 @@ img[alt='comment']
 }
 .rulls > li::marker
 {
-    content:url('../../../assets/img//play.png');
+    content:url('../../../public//img/play.png');
     background-size: 1px;
 }
 .Product-carsoule

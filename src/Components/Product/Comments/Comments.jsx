@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetAnswerAction, SetAnswerStatus, checkForm, emailAnswer, nameAnswer, setComment, setEmail, setName, textAnswer } from '../../../../features/productComments/productCommentsSlice';
+import { SetAnswerAction, SetAnswerStatus, checkForm, emailAnswer, nameAnswer, setComment, setEmail, setName, textAnswer } from '../../../features/productComments/productCommentsSlice';
 import './Comments.css';
 
 const Comments = () => {

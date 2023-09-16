@@ -10,9 +10,7 @@ import { register } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
 
 function Register() {
-  const [Switch,setSwitch] = useState(false);
   const [showPassword,setShowPassword] = useState(false);
-  const [acceptCode,setAcceptCode] = useState(false);
   const nameRef = useRef();
   const familyRef = useRef();
   const usernameRef = useRef();
@@ -82,7 +80,6 @@ function Register() {
 
   const formSubmitter = (dataObj) => {
     dispatch(register(dataObj))
-    setAcceptCode(!acceptCode)
   }
   
   return (
@@ -142,23 +139,8 @@ function Register() {
                     <input type={showPassword?'text':'password'} minLength={'8'} ref={passwordConfirmationRef} name="passwordConfermation" id="passwordConfermation" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-full p-2 text-[1.1rem]'/>
                     </div>
                   </div>
-                  {
-                    acceptCode 
-                    ?
-                    <div className='flex items-center justify-start gap-2 w-full mt-5 text-s'>
-                      <label htmlFor="acceptCode">کد تایید:</label>
-                      <input name='acceptCode' type="text" onChange={(e)=>{}} className='bg-gray-300 text-left outline-none font-[shabnam] border-none w-[20%] p-2 text-[1.1rem] 2xl:w-[10%]'/>
-                    </div>
-                    :
-                    <></>
-                  }
                   <span className=' text-stone-500 text-xs text-justify'>اطلاعات شخصی شما برای پردازش سفارش شما استفاده می‌شود، و پشتیبانی از تجربه شما در این وبسایت، و برای اهداف دیگری که در سیاست حفظ حریم خصوصی توضیح داده شده است.</span>
                   <div className='w-full flex flex-col items-center gap-3 2xl:gap-5 my-3'>
-                    {
-                      acceptCode
-                      ?
-                      <button type="button" className='bg-green-600  hover:bg-green-500 transition-all font-bold duration-300 text-white rounded-md p-2 text-[1.1rem] w-full'>ثبت کد تایید</button>
-                      :
                       <button type="submit" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md p-2 w-full'>
                         {
                           loading
@@ -166,7 +148,6 @@ function Register() {
                           : <span>عضویت</span>
                         }
                       </button>
-                    }
                     <Link to={'/login'} className='bg-blue-600  hover:bg-blue-500 transition-all duration-300 text-white rounded-md font-bold py-2 w-full flex justify-center'><button>ورود</button></Link>
                   </div>
               </form>

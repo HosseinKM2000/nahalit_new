@@ -71,7 +71,7 @@ function Product() {
     }
     
   return (
-    <main >
+    <div>
       <header>
         <div className="max-lg:hidden">
             <Header />
@@ -80,28 +80,30 @@ function Product() {
             <ResponseHeader />
         </div>
       </header>
-      <div className='flex flex-col lg:flex-row mt-5 w-full justify-between overflow-x-hidden text-right px-5'>
-        {/* right side */}
-        <RightSide goalProduct={goalProduct}/>
-        {/* left side */}
-        <LeftSide goalProduct={goalProduct}/>
-      </div>
-      <div>
-      <FixedIcon />
-      </div>
-      {
-          loginStatus
-          ?
-          <ADbasketBtn productId={goalProduct?.id}/>
-          :
-          <Link to={"/login"} className='fixed bottom-0 items-center w-[100vw] text-white font-bold px-3 py-3 transition-all hover:bg-[#4FC0D0]  2xl:py-5 flex justify-center gap-2 bg-[#3facba] z-[49]'>
-            <span>برای خرید محصولات ابتدا باید در سایت عضو شوید</span>
-          </Link>
-        }
+      <main className='container mx-auto'>
+        <div className='flex flex-col lg:flex-row mt-5 w-full justify-between overflow-x-hidden text-right px-3 sm:p-0'>
+          {/* right side */}
+          <RightSide goalProduct={goalProduct}/>
+          {/* left side */}
+          <LeftSide goalProduct={goalProduct}/>
+        </div>
+        <div>
+        <FixedIcon />
+        </div>
+      </main>
+        {
+            loginStatus
+            ?
+            <ADbasketBtn productId={goalProduct?.id}/>
+            :
+            <Link to={"/login"} className='fixed bottom-0 items-center w-[100vw] text-white font-bold px-3 py-3 transition-all hover:bg-[#4FC0D0]  2xl:py-5 flex justify-center gap-2 bg-[#3facba] z-[49]'>
+              <span>برای خرید محصولات ابتدا باید در سایت عضو شوید</span>
+            </Link>
+          }
       <footer>
           <Footer/>
       </footer>
-    </main>
+    </div>
   )
 }
 

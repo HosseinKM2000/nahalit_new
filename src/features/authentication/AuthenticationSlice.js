@@ -25,7 +25,7 @@ const authenticationSlice = createSlice({
         builder
         .addCase(register.fulfilled,(state,action) => {
             state.loading = false;
-            state.redirect = true;
+            state.redirect = !state.redirect;
             toast.success(action.payload.massage)
             Cookies.set("user",JSON.stringify(action.payload.user))
             localStorage.setItem("access_token",action.payload.token)

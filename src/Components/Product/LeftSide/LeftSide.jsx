@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function LeftSide({ goalProduct }) {
   return (
-    <div className='flex gap-10 flex-col mt-10 w-full lg:w-[30%] sm:px-12 px-5'>
+    <div className='flex gap-10 flex-col mt-10 w-full lg:w-[30%] 2xl:w-[25%] sm:px-12 px-5'>
     <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
       <img src={"/img/product/license.svg"} alt="gear" className='w-[4rem]'/>
       <span className='text-base font-[shabnambold] font-bold mb-1 w-full text-center text-stone-600'>قوانین استفاده از محصول</span>
@@ -50,7 +50,7 @@ function LeftSide({ goalProduct }) {
               <MdDateRange/>
               <span>تاریخ:</span>
             </div>
-            <span>{moment(goalProduct.updated_at).format("jYYYY/jMM/jDD")}</span>
+            <span>{moment(goalProduct?.created_at).format("jYYYY/jMM/jDD")}</span>
           </div>
           <div className='flex items-center w-full justify-between'>
             <div className='flex gap-1 items-center'>
@@ -78,7 +78,7 @@ function LeftSide({ goalProduct }) {
               <BsArrowBarUp/>
               <span>بروزرسانی:</span>
             </div>
-            <span>{moment(goalProduct.updated_at).format("jYYYY/jMM/jDD")}</span>
+            <span>{moment(goalProduct?.updated_at).format("jYYYY/jMM/jDD")}</span>
           </div>
                         <div className='flex items-center w-full justify-between'>
                         <div className='flex gap-1 items-center'>

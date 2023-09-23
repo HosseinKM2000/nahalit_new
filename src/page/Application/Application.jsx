@@ -6,7 +6,7 @@ import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import { Helmet } from "react-helmet";
 
-const Aplication = () => {
+const Application = () => {
   return (
     <main>
       <Helmet>
@@ -77,4 +77,4 @@ const Aplication = () => {
   );
 };
 
-export default Aplication;
+export default Application;

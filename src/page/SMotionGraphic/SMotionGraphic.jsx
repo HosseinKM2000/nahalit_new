@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function SmotionGhraphic() {
+function SMotionGraphic() {
   return (
     <main>
         <Helmet>
@@ -117,4 +117,4 @@ function SmotionGhraphic() {
   );
 }
 
-export default SmotionGhraphic;
+export default SMotionGraphic;

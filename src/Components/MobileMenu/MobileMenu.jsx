@@ -25,7 +25,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
     {id:13,title:"نمونه کار گرافیک",cateId:4,beList:true,},
     {id:14,title:"نمونه کار پریمیر",cateId:4,beList:false,link:"/workSamples/Premiere"},
     {id:15,title:"نمونه کار طراحی سایت",cateId:4,beList:true,},
-    {id:16,title:"نمونه کار اپلیکیشن",cateId:4,beList:false,link:"/workSamples/Aplication"},
+    {id:16,title:"نمونه کار اپلیکیشن",cateId:4,beList:false,link:"/workSamples/Application"},
     {id:17,title:"نمونه کار سئو",cateId:4,beList:false,link:"/workSamples/Seo"},
     {id:18,title:"نمونه کار تدوین و صدا گذاری",cateId:4,beList:false,link:"/workSamples/Voicing"},
     {id:19,title:"فروش سایت اختصاصی و اقتصادی",cateId:7,beList:false,link:"/services/فروش-سایت-اختصاصی-و-اقتصادی"},

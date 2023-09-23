@@ -9,16 +9,16 @@ function HeaderFavButtons({ urlPath , baskets }) {
     const [showSlide5, setShowSlide5] = useState(false);
     const [favProductsID,setFavProductsID] = useState(localStorage.getItem('favProducts') === null ? [] : JSON.parse(localStorage.getItem('favProducts')));
     const [favArticlesID,setFavArticlesID] = useState(localStorage.getItem('favArticles') === null ? [] : JSON.parse(localStorage.getItem('favArticles')));
-    const clickEntershowslide4 = () => {
+    const clickEnterShowSlide4 = () => {
         setShowSlide4(true);
       };
-      const clickoutshowslide4 = () => {
+      const clickOutShowSlide4 = () => {
         setShowSlide4(false);
       };
-      const clickEntershowslide5 = () => {
+      const clickEnterShowSlide5 = () => {
         setShowSlide5(true);
       };
-      const clickoutshowslide5 = () => {
+      const clickOutShowSlide5 = () => {
         setShowSlide5(false);
       };
 
@@ -31,7 +31,7 @@ function HeaderFavButtons({ urlPath , baskets }) {
         :
         <div className="relative">
             <Link to={"/favorites"}>
-            <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide4} onMouseLeave={clickoutshowslide4}/>
+            <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEnterShowSlide4} onMouseLeave={clickOutShowSlide4}/>
             </Link>
             <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center p-1 bg-[#57C053] text-white min-w-fit">
               {
@@ -51,7 +51,7 @@ function HeaderFavButtons({ urlPath , baskets }) {
                 :
                 <>
                 <Link to={"/cart"}>
-                    <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEntershowslide5} onMouseLeave={clickoutshowslide5}/>
+                    <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEnterShowSlide5} onMouseLeave={clickOutShowSlide5}/>
                 </Link>
                 <span className="absolute -top-3 -left-1 min-w-fit p-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
                     {

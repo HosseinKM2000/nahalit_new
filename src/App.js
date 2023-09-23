@@ -7,8 +7,8 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./App.css";
 import ApiLoading from "./Components/ApiLoading/ApiLoading";
-import ScrollToTophg from "./Components/ScrollToTop/ScrollToTop";
-import Aplication from "./page/Aplication/Aplication";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import Application from "./page/Application/Application";
 import Article from "./page/Articles/Article/Article";
 import ArticlesPagination from "./page/Articles/ArticlesPagination/ArticlesPagination";
 import Login from "./page/Authentication/Login/Login";
@@ -19,7 +19,7 @@ import Cart from "./page/Cart/Cart";
 import Catalog from "./page/Catalog/Catalog";
 import ContactUs from "./page/ContactUs/ContactUs";
 import Dashboard from './page/Dashboard/Dashboard.jsx';
-import EecoSaleWeb from "./page/EecoSaleWeb/EecoSaleWeb";
+import EcoSaleWeb from "./page/EcoSaleWeb/EcoSaleWeb";
 import Error from "./page/Error/Error";
 import Favorites from "./page/Favorites/Favorites";
 import Home from "./page/Home/Home";
@@ -33,18 +33,18 @@ import Premiere from "./page/Premiere/Premiere";
 import Product from "./Components/Product/Product";
 import Products from "./page/Products/Products";
 import Recruitment from "./page/Recruitment/Recruitment";
-import Saplication from "./page/S_Aplication/Saplication";
+import SApplication from "./page/SApplication/SApplication";
 import Seo from "./page/Seo/Seo";
-import Sgraphic from "./page/Sgraphic/Sgraphic";
-import SmotionGhraphic from "./page/SmotionGhraphic/SmotionGhraphic";
-import Spremier from "./page/Spremier/Spremier";
-import Sproposal from "./page/Sproposal/Sproposal";
-import SsaleWeb from "./page/SsaleWeb/SsaleWeb";
-import SsaleWebExclusive from "./page/SsaleWebExclusive/SsaleWebExclusive";
-import Sseo from "./page/Sseo/Sseo";
-import SsocialMedia from "./page/SsocialMedia/SsocialMedia";
-import SsoundEditing from "./page/SsoundEditing/SsoundEditing";
-import SworkService from "./page/SworkService/SworkService";
+import SGraphic from "./page/SGraphic/SGraphic";
+import SMotionGraphic from "./page/SMotionGraphic/SMotionGraphic";
+import SPremier from "./page/SPremier/SPremier";
+import SProposal from "./page/SProposal/SProposal";
+import SSaleWeb from "./page/SSaleWeb/SSaleWeb";
+import SSaleWebExclusive from "./page/SSaleWebExclusive/SSaleWebExclusive";
+import SSeo from "./page/SSeo/SSeo";
+import SSocialMedia from "./page/SSocialMedia/SSocialMedia";
+import SSoundEditing from "./page/SSoundEditing/SSoundEditing";
+import SWorkService from "./page/SWorkService/SWorkService";
 import UI_UX from "./page/UI_UX/UI_UX";
 import EditUserProfile from "./page/UserPanel/EditUserProfile";
 import UserPage from "./page/UserPanel/UserPage";
@@ -58,11 +58,12 @@ import SocialMediaBot from "./page/SocialMediaBot/SocialMediaBot";
 import { ToastContainer } from "react-toastify";
 import ConfirmNumberAlert from "./Components/ConfirmNumberAlert/ConfirmNumberAlert";
 import ConfirmNumberPage from "./page/Authentication/ConfirmNumberPage/ConfirmNumberPage";
+import ForgetPassword from "./page/Authentication/ForgetPassword/ForgetPassword";
 
 const App = () => {
   return (
       <>
-      <ScrollToTophg />
+      <ScrollToTop/>
       <div className="app w-full">
         {/* toaster */}
         <ToastContainer
@@ -86,21 +87,21 @@ const App = () => {
           <Route path="workSamples/graphic/Logo" element={<Logo />} />
           <Route path="workSamples/Premiere" element={<Premiere />} />
           <Route path="workSamples/web/WebsiteDesignPortfolio" element={<WebsiteDesignPortfolio />} />
-          <Route path="workSamples/Aplication" element={<Aplication />} />
+          <Route path="workSamples/Application" element={<Application />} />
           <Route path="workSamples/Seo" element={<Seo />} />
           <Route path="workSamples/Voicing" element={<Voicing />} />
-          <Route path="services/اپلیکیشن-موبایل" element={<Saplication />} />
-          <Route path="services/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SsoundEditing />} />
-          <Route path="services/فروش-سایت-اختصاصی-و-اقتصادی" element={<EecoSaleWeb />} />
-          <Route path="services/طراحی-سایت-اختصاصی" element={<SsaleWebExclusive />} />
-          <Route path="services/فروش-قالب-سایت" element={<SsaleWeb />} />
-          <Route path="services/خدمات-سئو-وب-سایت" element={<Sseo />} />
-          <Route path="services/خدمات-کسب-و-کار" element={<SworkService />} />
-          <Route path="services/خدمات-شبکه-های-اجتماعی" element={<SsocialMedia />} />
-          <Route path="services/موشن-گرافیک" element={<SmotionGhraphic />} />
-          <Route path="services/تدوین-پروپوزال" element={<Sproposal />} />
-          <Route path="services/خدمات-پریمیر-و-تدوین-فیلم" element={<Spremier />} />
-          <Route path="services/خدمات-گرافیک" element={<Sgraphic />} />
+          <Route path="services/اپلیکیشن-موبایل" element={<SApplication />} />
+          <Route path="services/خدمات-تدوین-صدا-و-صدا-گذاری" element={<SSoundEditing />} />
+          <Route path="services/فروش-سایت-اختصاصی-و-اقتصادی" element={<EcoSaleWeb />} />
+          <Route path="services/طراحی-سایت-اختصاصی" element={<SSaleWebExclusive />} />
+          <Route path="services/فروش-قالب-سایت" element={<SSaleWeb />} />
+          <Route path="services/خدمات-سئو-وب-سایت" element={<SSeo />} />
+          <Route path="services/خدمات-کسب-و-کار" element={<SWorkService />} />
+          <Route path="services/خدمات-شبکه-های-اجتماعی" element={<SSocialMedia />} />
+          <Route path="services/موشن-گرافیک" element={<SMotionGraphic />} />
+          <Route path="services/تدوین-پروپوزال" element={<SProposal />} />
+          <Route path="services/خدمات-پریمیر-و-تدوین-فیلم" element={<SPremier />} />
+          <Route path="services/خدمات-گرافیک" element={<SGraphic />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="articles" element={<ArticlesPagination/>}/>
           <Route path="articles/article" element={<Article/>}/>
@@ -124,6 +125,7 @@ const App = () => {
           <Route path="create_content" element={<CreateContent/>}/>
           <Route path="SocialMediaBot" element={<SocialMediaBot/>}/>
           <Route path="confirmNumber" element={<ConfirmNumberPage/>}/>
+          <Route path="ForgetPassword" element={<ForgetPassword/>}/>
         </Routes>
       </div>
       <ApiLoading/>

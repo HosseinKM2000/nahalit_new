@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function SsaleWebExclusive() {
+function SSaleWebExclusive() {
   return (
     <main>
       <Helmet>
@@ -113,4 +113,4 @@ function SsaleWebExclusive() {
   );
 }
 
-export default SsaleWebExclusive;
+export default SSaleWebExclusive;

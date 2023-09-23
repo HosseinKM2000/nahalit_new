@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function EecoSaleWeb() {
+function EcoSaleWeb() {
   return (
     <main>
       <Helmet>
@@ -139,4 +139,4 @@ function EecoSaleWeb() {
   );
 }
 
-export default EecoSaleWeb;
+export default EcoSaleWeb;

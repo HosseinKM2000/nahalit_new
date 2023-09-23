@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function Sseo() {
+function SSeo() {
   return (
     <main>
       <Helmet>
@@ -134,4 +134,4 @@ function Sseo() {
   );
 }
 
-export default Sseo;
+export default SSeo;

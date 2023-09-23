@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function Saplication() {
+function SApplication() {
   return (
     <main>
         <Helmet>
@@ -138,4 +138,4 @@ function Saplication() {
   );
 }
 
-export default Saplication;
+export default SApplication;

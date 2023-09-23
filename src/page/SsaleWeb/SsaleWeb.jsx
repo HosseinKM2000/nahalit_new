@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
-function SsaleWeb() {
+function SSaleWeb() {
   return (
     <main>
       <Helmet>
@@ -145,4 +145,4 @@ function SsaleWeb() {
   );
 }
 
-export default SsaleWeb;
+export default SSaleWeb;

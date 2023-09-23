@@ -8,7 +8,7 @@ import EndBox1 from "../../Components/EndBox1/EndBox1";
 import EndBox2 from "../../Components/EndBox2/EndBox2";
 import { Helmet } from "react-helmet";
 
-function Sgraphic() {
+function SGraphic() {
   return (
     <main>
       <Helmet>
@@ -263,4 +263,4 @@ function Sgraphic() {
   );
 }
 
-export default Sgraphic;
+export default SGraphic;

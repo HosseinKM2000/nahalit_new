@@ -8,7 +8,7 @@ import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 
-function SsoundEditing() {
+function SSoundEditing() {
   return (
     <main className="w-full">
         <Helmet>
@@ -132,4 +132,4 @@ function SsoundEditing() {
   );
 }
 
-export default SsoundEditing;
+export default SSoundEditing;

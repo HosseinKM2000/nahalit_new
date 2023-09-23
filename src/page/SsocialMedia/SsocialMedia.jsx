@@ -8,7 +8,7 @@ import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 
-function SsocialMedia() {
+function SSocialMedia() {
   return (
     <main>
       <Helmet>
@@ -183,4 +183,4 @@ function SsocialMedia() {
   );
 }
 
-export default SsocialMedia;
+export default SSocialMedia;

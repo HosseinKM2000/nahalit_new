@@ -8,7 +8,7 @@ import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 
 
-function SworkService() {
+function SWorkService() {
   return (
     <main>
       <Helmet>
@@ -103,4 +103,4 @@ function SworkService() {
   );
 }
 
-export default SworkService;
+export default SWorkService;

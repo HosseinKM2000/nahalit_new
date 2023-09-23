@@ -9,6 +9,7 @@ import { updateRole } from '../../../../../features/dashboard/action';
 function EditRole({ setIsEdit , role , permissions }) {
     const [activePermissions,setActivePermissions] = useState([]);
     const permissionsForEdit = useSelector(state => state.dashboard.permissionsForEdit);
+    const Loading = useSelector(state => state.dashboard.rolesLoading);
     const titleRef = useRef();
     const dispatch = useDispatch();
 
@@ -86,7 +87,15 @@ function EditRole({ setIsEdit , role , permissions }) {
 
                   </div>
                 </div>
-                <button onClick={(e)=>formSubmitter()} type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>ثبت</button>
+                <button onClick={(e)=>formSubmitter()} type='button' className='w-[80%] flex justify-center sm:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
+                  {
+                      Loading
+                      ?
+                      <img src="/img/Rolling-0.8s-200px.svg" alt="loading" className='w-[30px]'/>
+                      :
+                      <span>ویرایش</span>
+                  }
+                </button>
           </form>
       </div>
     </div>

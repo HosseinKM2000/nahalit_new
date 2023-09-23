@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
     isLoading: false,
+    criterion: false,
 }
 
 const userPanelSlice = createSlice({
@@ -15,9 +16,17 @@ const userPanelSlice = createSlice({
         .addCase(updateUserInfo.fulfilled , (state,action) => {
             const {res, newData} = action.payload;
             state.isLoading = false;
-            toast.success(res.massage);
+            state.criterion = !state.criterion;
             // Cookies.set("user",JSON.stringify(newData.user));
-            console.log(newData)
+            console.log(action)
+            if(action.payload.error)
+            {
+                toast.warning(action.payload.error.data.massage)
+            }
+            else if(action.payload?.res){
+                toast.success(action.payload.res.massage);
+                Cookies.set("user",JSON.stringify(action.payload.newData.user))
+            }
         })
         .addCase(updateUserInfo.pending , (state,action) => {
             state.isLoading = true;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import EmptyFavorite from '../../../Components/EmptyFavorite/EmptyFavorite';
 
 function FArticles() {
@@ -55,7 +55,7 @@ function FArticles() {
                             <span className='text-[1rem] w-[5rem] line-clamp-1 font-[shabnambold] text-stone-500'>{item.title}</span>
                             <p className={urlPath === '/userPage/favorites' ? 'w-[10rem] 2xl:w-[15rem] line-clamp-1 text-sm' : 'w-[10rem] md:w-[15rem] line-clamp-3 md:line-clamp-1 text-sm text-center'}>متن آزمایشی برای تست پروژه ها  شسیسبسیبس سیزسیبییبلبببببببببببببببببببببببببببببببببببببببببببببببببببببببببببببببببسبسیبیسبی کوچک</p>
                             <span className='text-sm font-[shabnambold]'>1401/03/15</span>
-                            <button className='bg-[#E7B10A] shadow-base text-white rounded-md px-0 w-1/2 md:w-fit md:px-2 lg:px-5 text-xs transition-all hover:brightness-105 py-1'>نمایش</button>
+                            <Link to={{pathname:'/articles/article', search:`id=${""}`}}><button className='bg-[#E7B10A] shadow-base text-white rounded-md px-0 w-1/2 md:w-fit md:px-2 lg:px-5 text-xs transition-all hover:brightness-105 py-1'>نمایش</button></Link>
                             <button className='bg-red-500 text-white rounded-md px-0 w-1/2 md:w-fit md:px-2 lg:px-5 text-xs transition-all hover:bg-red-400 py-1' onClick={()=>deleteFromFavorites(item.id)}>حذف</button>
                         </div>
                     ))

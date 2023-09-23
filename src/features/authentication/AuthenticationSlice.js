@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
-import { login, register } from "./action";
+import { login, register, sendCode } from "./action";
 
 const initialState = {
     loading:false,
     message:'',
     redirect:false,
-    loginStatus: Cookies.get('user') ? true : false
+    loginStatus: Cookies.get('user') ? true : false,
+    codeSent:false
 }
 
 const authenticationSlice = createSlice({
@@ -41,7 +42,7 @@ const authenticationSlice = createSlice({
         })
         .addCase(login.fulfilled,(state,action) => {
             state.loading = false;
-            state.redirect = true;
+            state.redirect = !state.redirect;
             toast.success(action.payload.massage)
             localStorage.setItem("access_token",action.payload.token)
             Cookies.set("user",JSON.stringify(action.payload.user))
@@ -52,6 +53,18 @@ const authenticationSlice = createSlice({
             state.loading = true;
         })
         .addCase(login.rejected,(state,action) => {
+            state.loading = false;
+            console.log(action)
+        })
+        .addCase(sendCode.fulfilled,(state,action) => {
+            state.loading = false;
+            state.codeSent = true;
+            console.log(action)
+        })
+        .addCase(sendCode.pending,(state) => {
+            state.loading = true;
+        })
+        .addCase(sendCode.rejected,(state,action) => {
             state.loading = false;
             console.log(action)
         })

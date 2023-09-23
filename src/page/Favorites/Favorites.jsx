@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import FixedIcon from '../../Components/FixedIcon/FixedIcon';
@@ -6,10 +6,18 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
 import Main from './Main/Main';
+import { useDispatch } from 'react-redux';
+import { getBlogs } from '../../features/dashboard/action';
+import { getProducts } from '../../features/products/action';
 
 function Favorites() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const urlPath = location.pathname;
+  useEffect(()=>{
+    dispatch(getBlogs())
+    dispatch(getProducts())
+  },[])
 
   return (
     <>

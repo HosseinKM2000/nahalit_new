@@ -26,7 +26,9 @@ import {
     getProjects,
     getRoleById,
     getRoles,
-    getUsers
+    getUsers,
+    getSellers,
+    getGalleryById
 } from "./action";
 
 const initialState = {
@@ -44,13 +46,16 @@ const initialState = {
     productsLoading:false,
     deleteProductSuccess:false,
     usersLoading:false,
+    sellerLoading:false,
     users:[],
     projectsLoading:false,
     blogsLoading : false,
     rolesLoading : false,
+    galleryLoading : false,
     blogsDeleteLoading : false,
     categories :[],
     blogs:[],
+    gallery:[],
     categoriesLoading:false,
     categoriesError:'',
     addSuccess : false,
@@ -60,6 +65,7 @@ const initialState = {
     articleLoading:false,
     workSamplesLoading:false,
     roles:[],
+    sellers:[],
     permissions:[],
     userPermissions:[],
     permissionsForEdit:[],
@@ -238,7 +244,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(deleteProduct.rejected, (state,action) => {
             state.productsLoading = false;
-            console.log("error in adding product with this status =>", action)
+            console.log("error in deleting product with this status =>", action)
             toast.error("خطا در حذف محصول")
         })
 
@@ -312,6 +318,19 @@ const dashboardSlice = createSlice({
         })
         .addCase(addGallery.rejected, (state,action) => {
                 toast.error("گالری ذخیره نشد")
+        })
+
+        // get gallery by id
+        .addCase(getGalleryById.fulfilled,(state,action) => {
+            state.galleryLoading = false;
+            state.gallery = action.payload.data
+        })
+        .addCase(getGalleryById.pending,(state,action) => {
+            state.galleryLoading = true;
+        })
+        .addCase(getGalleryById.rejected,(state,action) => {
+            state.galleryLoading = false;
+            console.error(action)
         })
 
 
@@ -398,7 +417,7 @@ const dashboardSlice = createSlice({
         })
         .addCase(addRole.rejected,(state,action) => {
             state.rolesLoading = false;
-            console.log("* error in getting roles *")
+            console.log("* error in getting roles *",action)
             toast.error('خطا در افزودن نقش')
         })
 
@@ -512,6 +531,21 @@ const dashboardSlice = createSlice({
         })
         .addCase(getWorkSamples.rejected,(state,action) => {
             state.workSamplesLoading = false;
+            toast.error('خطا در بارگیری نمونه کارها')
+            console.log(action)
+        })
+
+
+        // get sellers
+        .addCase(getSellers.fulfilled,(state,action) => {
+            state.sellerLoading = false;
+            state.sellers = action.payload.data;
+        })
+        .addCase(getSellers.pending,(state,action) => {
+            state.sellerLoading = true;
+        })
+        .addCase(getSellers.rejected,(state,action) => {
+            state.sellerLoading = false;
             toast.error('خطا در بارگیری نمونه کارها')
             console.log(action)
         })

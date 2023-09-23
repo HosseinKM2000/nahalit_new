@@ -42,6 +42,24 @@ function ProductsPage({currentItems}) {
         setFavorites(favorites.filter(key => key !== id));
     }
 
+    function separateByCommas(number) {
+        let numberString = String(number);
+        
+        let separatedNumber = '';
+        let counter = 0;
+        
+        for (let i = numberString.length - 1; i >= 0; i--) {
+          if (counter === 3) {
+            separatedNumber = ',' + separatedNumber;
+            counter = 0;
+          }
+          separatedNumber = numberString.charAt(i) + separatedNumber;
+          counter++;
+        }
+        
+        return separatedNumber
+    }
+
   return (
     <>
       <div className='container mx-auto'>
@@ -94,12 +112,12 @@ function ProductsPage({currentItems}) {
                         <div className='w-full flex items-center font-bold px-2 text-xs my-3 gap-1'>
                             <HiCurrencyDollar className='text-yellow-600 scale-150'/>
                             <del className='flex gap-1 items-center text-red-600'>
-                            <span>{product.price}</span>
+                            <span>{separateByCommas(product.price)}</span>
                             <span>تومان</span>
                             </del>
                             <span>-</span>
                         <div className='flex gap-1 items-center text-green-600'>
-                            <span>{product.price}</span>
+                            <span>{separateByCommas(product.price)}</span>
                             <span>تومان</span>
                         </div>
                         </div>

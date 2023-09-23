@@ -21,6 +21,7 @@ function Register() {
   const passwordConfirmationRef = useRef();
   const dispatch = useDispatch();
   const loading = useSelector(state => state.authentication.loading);
+  const redirect = useSelector(state => state.authentication.redirect);
 
   const registerHandler = (e) => {
     e.preventDefault()
@@ -78,6 +79,16 @@ function Register() {
     }
   };
 
+    useEffect(() => {
+      if(redirect)
+      {
+        setTimeout(()=>{
+          navigate("/confirmNumber")
+        },1000)
+        dispatch(changeRedirect())
+      }
+  },[redirect]);
+
   const formSubmitter = (dataObj) => {
     dispatch(register(dataObj))
   }
@@ -87,7 +98,7 @@ function Register() {
     <Helmet>
       <title>نهال آی تی |  ثبت نام</title>
     </Helmet>
-    <div className='w-screen relative min-h-[dvh] bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
+    <div className='w-screen relative min-h-[100dvh] bg-gray-300 login-gradient flex justify-center font-[shabnamMedium] items-center'>
         <HomeButton/>
         <div className='container mx-auto max-w-[400px]'>
           <div className='flex flex-col mx-3 my-5 overflow-hidden rounded-md shadow-[0px_2px_5px_1px_rgba(0,0,0,0.5)]'>

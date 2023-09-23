@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getBasketsByUserId } from "../../features/cart/action";
+import { getBaskets, getBasketsByUserId } from "../../features/cart/action";
 import { getUserRole } from "../../features/dashboard/action";
 import HeaderAdminProfileIcon from "../HeaderAdminProfileIcon/HeaderAdminProfileIcon";
 import HeaderNavButtons from "../HeaderNavButtons/HeaderNavButtons";
@@ -34,8 +34,7 @@ const Header = () => {
         dispatch(getBasketsByUserId(userId))
       }
     },[success])
-
-
+    
   return (
     <>
       <div className="bg-[#07B235] h-1" id="UP"></div>

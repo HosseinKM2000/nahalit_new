@@ -29,7 +29,7 @@ function Login() {
           },1000)
           dispatch(changeRedirect())
         }
-  },[redirect])
+  },[redirect]);
 
   const loginHandler = (e) => {
     e.preventDefault()
@@ -59,7 +59,7 @@ function Login() {
       <Helmet>
         <title>نهال آی تی | ورود</title>
       </Helmet>
-      <div className='w-screen relative min-h-screen bg-gray-300 flex justify-center font-[shabnamMedium] items-center'>
+      <div className='w-screen relative min-h-[100dvh] bg-gray-300 flex justify-center font-[shabnamMedium] items-center'>
           <HomeButton/>
           <div className='container mx-auto max-w-[400px]'>
             <div className='flex mx-3 flex-col  2xl:my-10 my-5  overflow-hidden rounded-md shadow-[0px_5px_14px_5px_rgba(0,0,0,0.05)]'>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
 import { getProjects } from '../../../../../../features/dashboard/action';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import Edit from '../../Edit/Edit';
@@ -35,7 +34,7 @@ function ProjectPagination() {
         isLoading
         ?
         <div className='h-[4rem] w-full lg:w-[27%] flex items-center justify-center'>
-          <img src={loading} alt="loading" className='w-[30%]'/>
+          <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className='w-[30%]'/>
         </div>
         :
         <>

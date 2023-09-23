@@ -129,9 +129,10 @@ export const deleteGallery = createAsyncThunk('dashboard/deleteGalleries', async
     return response;
 })
 
-export const getOneGallery = createAsyncThunk('dashboard/getOneGalleries', async ({id,}) => {
-    const response = await axios.get(`/galleries/${id}`);
-    return response;
+export const getGalleryById = createAsyncThunk('dashboard/getGalleryById', async (id) => {
+    const response = await instance.get(`/galleries/${id}`);
+    const { data } = response
+    return data;
 })
 
 export const editGallery = createAsyncThunk('dashboard/getGalleries', async ({id,}) => {
@@ -227,4 +228,13 @@ export const deleteUser = createAsyncThunk('dashboard/deleteUser', async (id) =>
 export const getWorkSamples = createAsyncThunk('dashboard/getWorkSamples' , async () => {
     const response = await instance.get('/work-sample');
     return response;
+})
+
+
+
+// seller
+export const getSellers = createAsyncThunk("dashboard/getSellers" , async () => {
+    const response = await instance.get('/sellers');
+    const { data } = response;
+    return data;
 })

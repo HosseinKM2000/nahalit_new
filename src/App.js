@@ -56,6 +56,8 @@ import BeSeller from "./page/BeSeller/BeSeller";
 import CreateContent from "./page/CreateContent/CreateContent";
 import SocialMediaBot from "./page/SocialMediaBot/SocialMediaBot";
 import { ToastContainer } from "react-toastify";
+import ConfirmNumberAlert from "./Components/ConfirmNumberAlert/ConfirmNumberAlert";
+import ConfirmNumberPage from "./page/Authentication/ConfirmNumberPage/ConfirmNumberPage";
 
 const App = () => {
   return (
@@ -69,6 +71,7 @@ const App = () => {
         autoClose={2500}
         className='Toast_info'
         />
+        <ConfirmNumberAlert/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="order" element={<Order />} />
@@ -120,6 +123,7 @@ const App = () => {
           <Route path="be_seller" element={<BeSeller/>}/>
           <Route path="create_content" element={<CreateContent/>}/>
           <Route path="SocialMediaBot" element={<SocialMediaBot/>}/>
+          <Route path="confirmNumber" element={<ConfirmNumberPage/>}/>
         </Routes>
       </div>
       <ApiLoading/>

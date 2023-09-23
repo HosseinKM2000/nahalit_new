@@ -113,7 +113,7 @@ const UserProfilePage = () => {
       case data.code_meli.length !== 0 && data.code_meli.length < 10   : toast.warning("کد ملی کوتاه است");
       break;
       default : {
-        dispatch(showUserInfo())
+        dispatch(updateUserInfo({userId:userInfo.id,dataObj}))
       }
     }
   }

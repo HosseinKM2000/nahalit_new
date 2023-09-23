@@ -16,8 +16,6 @@ function Products() {
       break;
       case "new" : setInnerComponent(<NewProduct/>)
       break;
-      case "gallery" : setInnerComponent(<ProductGallery/>);
-      break;
       default : setInnerComponent(<></>)
     }
   },[Criterion])

@@ -10,7 +10,7 @@ import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import { deleteProduct } from '../../../../../features/dashboard/action';
 
-function AllProducts({ currentItems , setIsEdit }) {
+function AllProducts({ currentItems , setIsEdit , setShowGallery }) {
   
   const products = useSelector(state => state.dashboard.products);
   const categories = useSelector(state => state.dashboard.categories);
@@ -18,6 +18,24 @@ function AllProducts({ currentItems , setIsEdit }) {
 
   const deletingProduct = id => {
     dispatch(deleteProduct(id))
+  }
+
+  function separateByCommas(number) {
+      let numberString = String(number);
+      
+      let separatedNumber = '';
+      let counter = 0;
+      
+      for (let i = numberString.length - 1; i >= 0; i--) {
+        if (counter === 3) {
+          separatedNumber = ',' + separatedNumber;
+          counter = 0;
+        }
+        separatedNumber = numberString.charAt(i) + separatedNumber;
+        counter++;
+      }
+      
+      return separatedNumber
   }
   
   return (
@@ -48,7 +66,7 @@ function AllProducts({ currentItems , setIsEdit }) {
               <img src={product.url} alt={'h'}  className='w-full h-[15rem] md:w-[5rem] md:h-[5rem] bg-red-600'/>
               <span className='w-full md:w-[20%] line-clamp-2 text-sm leading-5 font-[shabnambold] text-start text-slate-700  text-wrap'>{product.title}</span>
               <div className='flex items-center gap-1 text-[#2956e7] font-[shabnambold]'>
-                <span className='font-[shabnambold]'>{product.price}</span>
+                <span className='font-[shabnambold]'>{separateByCommas(product.price)}</span>
                 <span>تومان</span>
               </div>
               <span className='text-stone-600 font-[shabnambold] text-sm'>{categories.find(category => category.id === product.category_id).title}</span>
@@ -60,7 +78,9 @@ function AllProducts({ currentItems , setIsEdit }) {
                      <span>حذف</span>
                 </button>
               </div>
-              <button className='w-full transition-all hover:bg-[#5cc7c0] py-1 text-xl text-white flex items-center justify-center bg-[#47a9a3] rounded-sm' onClick={(e)=>dispatch(setSwitch({key:'products',value:'gallery',id:product.id}))}><FaImages/></button>
+              <button className='w-full transition-all hover:bg-[#5cc7c0] py-1 text-xl text-white flex items-center justify-center bg-[#47a9a3] rounded-sm' onClick={(e)=>{
+               setShowGallery({status:true,id:product.id})
+              }}><FaImages/></button>
               </div>
             </div>
             ))

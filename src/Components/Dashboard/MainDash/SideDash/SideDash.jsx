@@ -89,7 +89,8 @@ function SideDash({ dropMenu , setDropMenu }) {
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'new',id:null}))} style={{backgroundColor:aCriterion === 'new' ? '#ffffff4d' : ''}}>مقاله جدید</button>
               </div>
           </div>
-          <div className='w-full flex flex-col items-center'>
+          {/* work samples */}
+          {/* <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('workSample')
                 setWRotate(!wRotate)
@@ -103,7 +104,7 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'workSample',value:'all',id:null}))} style={{backgroundColor:wCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'workSample',value:'new',id:null}))} style={{backgroundColor:wCriterion === 'new' ? '#ffffff4d' : ''}}>افزودن</button>
               </div>
-          </div>
+          </div> */}
           <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('products')
@@ -119,7 +120,8 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'new',id:null}))} style={{backgroundColor:pCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
                 </div>
           </div>
-          <div className='w-full flex flex-col items-center'>
+          {/* gallery */}
+          {/* <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('gallery')
                 setGRotate(!gRotate)
@@ -133,7 +135,7 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'all'}))} style={{backgroundColor:gCriterion === 'all' || gCriterion === 'edit' ? '#ffffff4d' : ''}}>همه</button>
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'new'}))} style={{backgroundColor:gCriterion === 'new' ? '#ffffff4d' : ''}}>جدید</button>
                 </div>
-          </div>
+          </div> */}
           <div onClick={()=>listSwitch('users')}  style={{backgroundColor:content==='users'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
               <ImUsers className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
               <li className='text-white font-bold text-lg  text-center'>کاربران</li>

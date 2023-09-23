@@ -1,14 +1,15 @@
 import { React, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import loading from '../../../../../../assets/img/Ripple-0.8s-200px.svg';
 import { getProducts } from '../../../../../../features/dashboard/action';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import AllProducts from '../AllProducts';
 import EditProduct from '../../EditProduct/EditProduct';
+import ProductGallery from '../../ProductGallery/ProductGallery';
 
 function ProductsPagination() {
     const [isEdit,setIsEdit] = useState({status:false,value:""});
+    const [showGallery,setShowGallery] = useState({status:false,id:""});
     const [itemOffset, setItemOffset] = useState(0);
     const products = useSelector(state => state.dashboard.products);
     const productsLoading = useSelector(state => state.dashboard.productsLoading);
@@ -34,6 +35,12 @@ function ProductsPagination() {
   return (
     <>
      {
+      showGallery.status
+      ?
+      <ProductGallery showGallery={showGallery} setShowGallery={setShowGallery}/>
+      :
+      <>
+           {
       isEdit.status
       ?
       <EditProduct isEdit={isEdit} setIsEdit={setIsEdit}/>
@@ -43,11 +50,11 @@ function ProductsPagination() {
           productsLoading
           ?
           <div className='h-[10rem] w-[full] flex items-center justify-center'>
-            <img src={loading} alt="loading" className='w-[30%]'/>
+            <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className='w-[30%]'/>
           </div>
         :
         <>
-          <AllProducts currentItems={currentItems} setIsEdit={setIsEdit} productsLoading={productsLoading}/>
+          <AllProducts currentItems={currentItems} setIsEdit={setIsEdit} setShowGallery={setShowGallery} productsLoading={productsLoading}/>
           <ReactPaginate
           breakLabel="..."
           nextLabel={mobile ? '>>' : "برگه بعدی >>"}
@@ -63,6 +70,8 @@ function ProductsPagination() {
         />
         </>
         }
+      </>
+     }
       </>
      }
     </>

@@ -12,8 +12,8 @@ function UserProfile() {
       <UserInfoDiv title={"نام کاربری"} value={userInfo.username}/>
       <UserInfoDiv title={"ایمیل"} value={userInfo.email}/>
       <UserInfoDiv title={"شماره موبایل"} value={userInfo.mobile}/>
-      <UserInfoDiv title={"کد ملی"} value={userInfo.code_meli || "3925468719"}/>
-      <UserInfoDiv title={"شماره کارت"} value={userInfo.card_number || "6512879546215874"}/>
+      <UserInfoDiv title={"کد ملی"} value={userInfo.code_meli || ""}/>
+      <UserInfoDiv title={"شماره کارت"} value={userInfo.card_number || ""}/>
     </div>
   )
 }

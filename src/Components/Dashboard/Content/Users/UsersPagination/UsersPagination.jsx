@@ -11,6 +11,7 @@ function UsersPagination() {
 
   const users = useSelector(state => state.dashboard.users);
     const isLoading = useSelector(state => state.dashboard.usersLoading);
+    const criterion = useSelector(state => state.userPanel.criterion);
     const [itemOffset, setItemOffset] = useState(0);
     const [showDetails,setShowDetails] = useState('');
     const mobile = window.innerWidth <= 425 ? true : false;
@@ -22,7 +23,7 @@ function UsersPagination() {
 
     useEffect(()=>{
       dispatch(getUsers())
-    },[]);
+    },[criterion]);
 
     useEffect(() => {
       dispatch(getRoles())

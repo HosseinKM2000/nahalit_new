@@ -9,7 +9,6 @@ import Side from '../../Components/Products/Side/Side.jsx';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.js';
 
 function Products() {
-  const loginStatus = useSelector(state => state.authentication.loginStatus);
 
   return (
     <main className='w-full flex flex-col'>

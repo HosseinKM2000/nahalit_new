@@ -29,7 +29,7 @@ const Home = () => {
     dispatch(getProducts())
     dispatch(getBlogs())
   },[])
-console.log(latestBlogs)
+
   return (
     <div className="w-[100vw]">
       <Helmet>

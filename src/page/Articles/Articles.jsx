@@ -71,11 +71,11 @@ const Articles = ({currentItems}) => {
                                           <span>0</span>
                                       </div>
                                       <div className='flex items-center gap-5 font-[shabnamMedium] px-1'>
-                                      <AiOutlineHeart className={ favorites.includes(index) ? 'hidden' : 'block scale-[1.1]' } onClick={()=>{
-                                        addToFavorite(index)
+                                      <AiOutlineHeart className={ favorites.includes(article.id) ? 'hidden' : 'block scale-[1.1]' } onClick={()=>{
+                                        addToFavorite(article.id)
                                       }}/>
-                                      <AiFillHeart className={ favorites.includes(index) ? 'block text-red-600 scale-[1.1] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
-                                        deleteFromFavorites(index)
+                                      <AiFillHeart className={ favorites.includes(article.id) ? 'block text-red-600 scale-[1.1] hover:text-red-500 transition-all' : 'hidden' } onClick={()=>{
+                                        deleteFromFavorites(article.id)
                                       }}/>
                                   </div>
                                   </div>

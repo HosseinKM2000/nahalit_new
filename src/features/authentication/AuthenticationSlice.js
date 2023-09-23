@@ -25,12 +25,21 @@ const authenticationSlice = createSlice({
     extraReducers:( builder ) => {
         builder
         .addCase(register.fulfilled,(state,action) => {
-            state.loading = false;
-            state.redirect = !state.redirect;
-            toast.success(action.payload.massage)
-            Cookies.set("user",JSON.stringify(action.payload.user))
-            localStorage.setItem("access_token",action.payload.token)
-            state.loginStatus = true;
+            if(action.payload.error){
+                toast.warning(action.payload.error.data.message)
+                state.loading = false;
+            }
+            else
+            {
+                state.loading = false;
+                state.redirect = !state.redirect;
+                console.log(action)
+                toast.success(action.payload.massage)
+                Cookies.set("user",JSON.stringify(action.payload.user))
+                localStorage.setItem("access_token",action.payload.token)
+                state.loginStatus = true;
+            }
+            console.log(action.payload)
         })
         .addCase(register.pending,(state) => {
             state.loading = true;
@@ -41,12 +50,19 @@ const authenticationSlice = createSlice({
             console.log(action)
         })
         .addCase(login.fulfilled,(state,action) => {
-            state.loading = false;
-            state.redirect = !state.redirect;
-            toast.success(action.payload.massage)
-            localStorage.setItem("access_token",action.payload.token)
-            Cookies.set("user",JSON.stringify(action.payload.user))
-            state.loginStatus = true;
+            if(action.payload.error){
+                state.loading = false;
+                toast.warning(action.payload.error.data.massage)
+            }
+            else
+            {
+                state.loading = false;
+                state.redirect = !state.redirect;
+                toast.success(action.payload.data.massage)
+                localStorage.setItem("access_token",action.payload.data.token)
+                Cookies.set("user",JSON.stringify(action.payload.data.user))
+                state.loginStatus = true;
+            }
             console.log(action)
         })
         .addCase(login.pending,(state) => {

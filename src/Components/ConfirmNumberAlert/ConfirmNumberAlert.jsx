@@ -12,7 +12,7 @@ function ConfirmNumberAlert() {
   return (
     <>
     {
-      loginStatus && pathName !== "/confirmNumber" && pathName !== "/login" 
+      loginStatus && pathName !== "/confirmNumber" && pathName !== "/login"  && pathName !== "/register"
       ?
       <div className="w-full items-center flex-wrap gap-y-3 justify-between bg-[#ECEE81] px-10 py-3 flex">
         <div className="flex items-center text-yellow-900 gap-1">

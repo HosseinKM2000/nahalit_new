@@ -1,4 +1,4 @@
-import { React, useRef, useState } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BsPersonFill } from 'react-icons/bs';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
@@ -152,7 +152,7 @@ function Register() {
                   </div>
                   <span className=' text-stone-500 text-xs text-justify'>اطلاعات شخصی شما برای پردازش سفارش شما استفاده می‌شود، و پشتیبانی از تجربه شما در این وبسایت، و برای اهداف دیگری که در سیاست حفظ حریم خصوصی توضیح داده شده است.</span>
                   <div className='w-full flex flex-col items-center gap-3 2xl:gap-5 my-3'>
-                      <button type="submit" className='bg-green-600  font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md p-2 w-full'>
+                      <button type="submit" className='bg-green-600 flex items-center justify-center font-bold hover:bg-green-500 transition-all duration-300 text-white rounded-md p-2 w-full'>
                         {
                           loading
                           ?  <img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem]'/>

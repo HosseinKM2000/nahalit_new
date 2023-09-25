@@ -6,29 +6,29 @@ import {
     addParentCategories,
     addProduct,
     addProject,
-    deleteBlog,
-    deleteProduct,
     addRole,
+    deleteBlog,
     deleteParentCategories,
+    deleteProduct,
+    deleteRole,
     deleteUser,
     editBlog,
     editParentCategories,
     editProduct,
     editProject,
-    deleteRole,
-    updateRole,
-    updateUser,
-    getUserRole,
-    getWorkSamples,
     getBlogs,
     getCategories,
+    getGalleryById,
     getProducts,
     getProjects,
     getRoleById,
     getRoles,
-    getUsers,
     getSellers,
-    getGalleryById
+    getUserRole,
+    getUsers,
+    getWorkSamples,
+    updateRole,
+    updateUser,
 } from "./action";
 
 const initialState = {
@@ -311,12 +311,17 @@ const dashboardSlice = createSlice({
 
         // add gallery
         .addCase(addGallery.fulfilled,(state,action) => {
-            if(action.payload.status === 200)
+            state.galleryLoading = false;
+            if(action.payload === 201)
             {
                 toast.success('گالری ذخیره شد')
             }
         })
+        .addCase(addGallery.pending,(state,action) => {
+            state.galleryLoading = true;
+        })
         .addCase(addGallery.rejected, (state,action) => {
+            state.galleryLoading = false;
                 toast.error("گالری ذخیره نشد")
         })
 

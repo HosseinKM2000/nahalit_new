@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addProduct } from '../../../../../features/dashboard/action';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
@@ -15,7 +14,7 @@ function NewProduct() {
     const [dropCate,setDropCate] = useState({status:false,value:null,id:null})
     const userId = JSON.parse(Cookies.get("user")).id;
     const titleRef = useRef();
-    const imageRef = useRef()
+    const imageRef = useRef();
     const discountRef = useRef();
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.productsLoading);
@@ -146,7 +145,7 @@ function NewProduct() {
             <button type='submit' className='w-[50%] min-h-[35px] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg rounded-sm'>
                 {
                     loading
-                    ? <img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                    ? <img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem] mx-auto'/>
                     :<span>ثبت محصول</span>
                 }
             </button>

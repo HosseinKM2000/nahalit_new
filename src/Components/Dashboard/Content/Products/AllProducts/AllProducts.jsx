@@ -60,7 +60,7 @@ function AllProducts({ currentItems , setIsEdit , setShowGallery }) {
           {
             currentItems.map((product,index) => (
               <div key={product.id} className='flex w-[80%] sm:w-[45%] md:w-full flex-col gap-y-3 md:flex-row shadow-[1px_1px_5px_1px_rgba(0,0,0,0.5)] justify-between font-bold items-start md:items-center transition-all duration-300 hover:bg-[#fefefed6] bg-[#fefefeb5] pe-2 ps-3 py-3 rounded-sm'>
-              <span className='text-lg text-stone-600 hidden md:block' style={{textDecoration:'solid underline #575366'}}>{product.id}</span>
+              <span className='text-lg text-stone-600 hidden md:block' style={{textDecoration:'solid underline #575366'}}>{index+1}</span>
               <img src={product.url} alt={'h'}  className='w-full h-[15rem] md:w-[5rem] md:h-[5rem] bg-red-600'/>
               <span className='w-full md:w-[20%] line-clamp-2 text-sm leading-5 font-[shabnambold] text-start text-slate-700  text-wrap'>{product.title}</span>
               <div className='flex items-center gap-1 text-[#2956e7] font-[shabnambold]'>

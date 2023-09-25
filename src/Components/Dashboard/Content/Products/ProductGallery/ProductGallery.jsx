@@ -6,6 +6,8 @@ import { getGalleryById } from '../../../../../features/dashboard/action';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { useState } from 'react';
+import { FiPlusCircle } from 'react-icons/fi';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function ProductGallery({ showGallery , setShowGallery }) {
     const [visibleIcon,setVisibleIcon] = useState("");
@@ -16,9 +18,8 @@ function ProductGallery({ showGallery , setShowGallery }) {
     useEffect(()=>{
       dispatch(getGalleryById(showGallery.id))
     },[]);
-console.log(gallery)
+
     const deleteGallery = id => {
-      console.log(id)
       
     }
 
@@ -39,6 +40,9 @@ console.log(gallery)
               </div>
             ))
           }
+          <div className='w-[200px] h-[200px] border-2 border-white border-dashed text-white flex justify-center items-center hover:border-orange-500 hover:text-orange-500' onClick={()=>dispatch(setSwitch({key:'products',value:'addGallery',id:showGallery.id}))}>
+              <FiPlusCircle className='scale-[3]'/>
+          </div>
         </section>
     </div>
   )

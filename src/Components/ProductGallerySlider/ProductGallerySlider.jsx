@@ -5,9 +5,18 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import './style.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGalleryById } from '../../features/dashboard/action';
 
-function ProductGallerySlider() {
+function ProductGallerySlider({ Id }) {
     const widthScreen = window.innerWidth;
+    const dispatch = useDispatch();
+    const gallery = useSelector(state => state.dashboard.gallery);
+    useEffect(()=>{
+        dispatch(getGalleryById(Id))
+    },[])
+
   return (
     <div className='gallery_box'>
         <span className='text-[1.2rem] font-bold text-stone-700 m-0 w-full text-start'>تصاویر محصول</span>
@@ -28,33 +37,13 @@ function ProductGallerySlider() {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
         >
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg"/>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg"/>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
+            {
+                gallery.map(img => (
+                    <SwiperSlide key={img?.id}>
+                       <img src={img?.image} alt={img?.title} className='w-[200px] h-[200px] max-w-[200px] max-h-[200px]'/>
+                    </SwiperSlide>
+                ))
+            }
         </Swiper>
     </div>
   )

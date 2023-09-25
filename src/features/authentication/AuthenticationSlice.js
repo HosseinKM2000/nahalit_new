@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
-import { login, register, sendCode } from "./action";
+import { forgetPassword, login, register, sendCode } from "./action";
 
 const initialState = {
     loading:false,
@@ -28,11 +28,12 @@ const authenticationSlice = createSlice({
             if(action.payload.error){
                 toast.warning(action.payload.error.data.message)
                 state.loading = false;
+                state.redirect = false;
             }
             else
             {
                 state.loading = false;
-                state.redirect = !state.redirect;
+                state.redirect = true;
                 console.log(action)
                 toast.success(action.payload.massage)
                 Cookies.set("user",JSON.stringify(action.payload.user))
@@ -52,12 +53,13 @@ const authenticationSlice = createSlice({
         .addCase(login.fulfilled,(state,action) => {
             if(action.payload.error){
                 state.loading = false;
+                state.redirect = false;
                 toast.warning(action.payload.error.data.massage)
             }
             else
             {
                 state.loading = false;
-                state.redirect = !state.redirect;
+                state.redirect = true;
                 toast.success(action.payload.data.massage)
                 localStorage.setItem("access_token",action.payload.data.token)
                 Cookies.set("user",JSON.stringify(action.payload.data.user))
@@ -82,6 +84,27 @@ const authenticationSlice = createSlice({
         })
         .addCase(sendCode.rejected,(state,action) => {
             state.loading = false;
+            console.log(action)
+        })
+        .addCase(forgetPassword.fulfilled,(state,action) => {
+            if(action.payload.error) {
+                state.loading = false;
+                toast.warn(action.payload.error.data.message);
+                state.redirect = false;
+            }
+            else
+            {
+                state.loading = false;
+                toast.success(action.payload.data.massage);
+                state.redirect = true;
+            }
+        })
+        .addCase(forgetPassword.pending,(state) => {
+            state.loading = true;
+        })
+        .addCase(forgetPassword.rejected,(state,action) => {
+            state.loading = false;
+            state.redirect = false;
             console.log(action)
         })
     }

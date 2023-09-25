@@ -107,20 +107,20 @@ const Search = () => {
                     showMore
                     ?
                     receiptBlogsData.map(blog => (
-                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
+                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"} type={"blog"}/>
                     ))
                     :
                     <>
                     {
                     receiptBlogsData.slice(0,5).map(blog => (
-                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
+                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"} type={"blog"}/>
                     ))
                     }
                     <button className="w-full bg-slate-500 transition-all hover:bg-slate-400 rounded-sm text-white py-1 text-sm">نمایش همه نتایج</button>
                   </>
                     :
                     receiptBlogsData.map(blog => (
-                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"}/>
+                      <SearchResultItem showResult={showResult} data={blog} deviceSize={"large"} type={"blog"}/>
                     ))
                   :
                   <span className="w-full text-center font-[shabnammedium]">مقاله ای یافت نشد!</span>
@@ -132,20 +132,20 @@ const Search = () => {
                   showMore
                   ?
                     receiptProductsData.map(product => (
-                      <SearchResultItem showResult={showResult} data={product} deviceSize={"large"}/>
+                      <SearchResultItem showResult={showResult} data={product} deviceSize={"large"} type={"product"}/>
                     ))          
                   :
                     <>
                         {
                         receiptProductsData.slice(0,5).map(product => (
-                          <SearchResultItem showResult={showResult} data={product} deviceSize={"large"}/>
+                          <SearchResultItem showResult={showResult} data={product} deviceSize={"large"} type={"product"}/>
                         ))
                         }
                         <button className="w-full bg-slate-500 transition-all hover:bg-slate-400 rounded-sm text-white py-1 text-sm" onClick={()=>setShowMore(true)}>نمایش همه نتایج</button>
                     </>
                   :
                     receiptProductsData.map(product => (
-                      <SearchResultItem showResult={showResult} data={product} deviceSize={"large"}/>
+                      <SearchResultItem showResult={showResult} data={product} deviceSize={"large"} type={"product"}/>
                     ))
                   :
                   <span className="w-full text-center font-[shabnammedium]">محصولی پیدا نشد!</span>

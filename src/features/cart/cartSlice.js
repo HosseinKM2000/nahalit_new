@@ -30,6 +30,7 @@ const cartSlice = createSlice({
       })
       .addCase(getBasketsByUserId.fulfilled, (state,action) => {
         state.baskets = action.payload;
+        console.log(action)
       })
       .addCase(getBasketsByUserId.pending, (state,action) => {
       })

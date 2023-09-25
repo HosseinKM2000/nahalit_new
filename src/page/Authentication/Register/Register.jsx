@@ -87,11 +87,11 @@ function Register() {
         },1000)
         dispatch(changeRedirect())
       }
-  },[redirect]);
+    },[redirect]);
 
-  const formSubmitter = (dataObj) => {
-    dispatch(register(dataObj))
-  }
+    const formSubmitter = (dataObj) => {
+      dispatch(register(dataObj))
+    }
   
   return (
     <>
@@ -143,9 +143,9 @@ function Register() {
                           }
                           <input type={showPassword?'text':'password'} minLength={'8'} ref={passwordRef} name="password" id="password" className='bg-transparent text-left outline-none text-[1.1rem] font-[shabnam] border-none 2xl:p-2 w-full'/>
                           </div>
-                        </div>
+                  </div>
                   <div className='flex flex-col items-end gap-2 w-full text-sm'>
-                    <label htmlFor="passwordConfermation" className='text-stone-600 w-full'>تکرار رمز عبور</label>
+                    <label htmlFor="passwordConfermation" className='text-stone-600 w-full'>تکرار رمز عبور:</label>
                     <div className='w-full flex items-center justify-end 2xl:justify-center gap-3'>
                     <input type={showPassword?'text':'password'} minLength={'8'} ref={passwordConfirmationRef} name="passwordConfermation" id="passwordConfermation" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-full p-2 text-[1.1rem]'/>
                     </div>

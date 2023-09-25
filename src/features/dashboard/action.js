@@ -123,9 +123,7 @@ export const addGallery = createAsyncThunk('dashboard/addGalleries', async (data
 })
 
 export const deleteGallery = createAsyncThunk('dashboard/deleteGalleries', async (id) => {
-
-    const response = await axios.delete(`/galleries/${id}`);
-
+    const response = await instance.delete(`/galleries/${id}`);
     return response;
 })
 

@@ -14,18 +14,17 @@ const userPanelSlice = createSlice({
     extraReducers: builder => {
         builder
         .addCase(updateUserInfo.fulfilled , (state,action) => {
-            const {res, newData} = action.payload;
+            let {res, newData} = action.payload;
             state.isLoading = false;
-            state.criterion = !state.criterion;
-            // Cookies.set("user",JSON.stringify(newData.user));
             console.log(action)
             if(action.payload.error)
             {
                 toast.warning(action.payload.error.data.massage)
             }
             else if(action.payload?.res){
-                toast.success(action.payload.res.massage);
-                Cookies.set("user",JSON.stringify(action.payload.newData.user))
+                state.criterion = !state.criterion;
+                toast.success(res.massage);
+                Cookies.set("user",JSON.stringify(newData.user))
             }
         })
         .addCase(updateUserInfo.pending , (state,action) => {

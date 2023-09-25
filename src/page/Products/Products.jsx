@@ -1,12 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
-import FixedIcon from '../../Components/FixedIcon/FixedIcon.js';
-import Footer from '../../Components/Footer/Footer.js';
-import Header from '../../Components/Header/Header.js';
+import FixedIcon from '../../Components/FixedIcon/FixedIcon.jsx';
+import Footer from '../../Components/Footer/Footer.jsx';
+import Header from '../../Components/Header/Header.jsx';
 import Main from '../../Components/Products/Main/Main.jsx';
 import Side from '../../Components/Products/Side/Side.jsx';
-import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.js';
+import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader.jsx';
 
 function Products() {
 

@@ -6,8 +6,6 @@ import { IoMdPricetags } from 'react-icons/io';
 import { MdOutlineFormatListNumberedRtl, MdTitle } from 'react-icons/md';
 import { TbBrandCashapp, TbCategory2 } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
-import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import { deleteProduct } from '../../../../../features/dashboard/action';
 
 function AllProducts({ currentItems , setIsEdit , setShowGallery }) {

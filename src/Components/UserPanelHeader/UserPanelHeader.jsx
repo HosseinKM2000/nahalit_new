@@ -2,7 +2,6 @@ import React from 'react';
 import UserAvatarIcon from '../UserAvatar/UserAvatar';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-import plantImg from '../../assets/img/plant.png';
 import { useState } from 'react';
 
 function UserPanelHeader({setDropMenu , dropMenu}) {
@@ -16,8 +15,8 @@ function UserPanelHeader({setDropMenu , dropMenu}) {
         :
         <HiOutlineMenu className='text-2xl text-slate-700 md:hidden' onClick={()=>setDropMenu(true)}/>
       }
+      <img src={"/img/plant.png"} alt="plant" className='scale-[1.3]'/>
       <UserAvatarIcon/>
-      <img src={plantImg} alt="plant" className='scale-[1.5]'/>
     </div>
   )
 }

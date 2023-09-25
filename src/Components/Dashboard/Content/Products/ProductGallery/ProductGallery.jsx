@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getGalleryById } from '../../../../../features/dashboard/action';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { useState } from 'react';
 
 function ProductGallery({ showGallery , setShowGallery }) {
-
+    const [visibleIcon,setVisibleIcon] = useState("");
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.galleryLoading);
     const gallery = useSelector(state => state.dashboard.gallery);
@@ -15,6 +17,11 @@ function ProductGallery({ showGallery , setShowGallery }) {
       dispatch(getGalleryById(showGallery.id))
     },[]);
 console.log(gallery)
+    const deleteGallery = id => {
+      console.log(id)
+      
+    }
+
   return (
     <div className='flex flex-col w-full opacity-motion'>
         <div className='flex w-full items-center justify-between bg-[#ffffff1a] rounded-sm p-1'>
@@ -23,11 +30,12 @@ console.log(gallery)
           </div>
           <RiDeleteBack2Fill onClick={()=>setShowGallery({status:false,id:""})} className='text-[#ff4000] text-3xl rotate-[180deg] transition-all hover:text-red-600'/>
         </div>
-        <section className='flex flex-col items-center px-2 py-5 w-full gap-8 z-10'>
+        <section className='flex flex-col md:flex-row justify-center flex-wrap items-center px-2 py-5 w-full gap-8 z-10'>
           {
             gallery.map(img => (
-              <div className='w-[50px] h-[50px] bg-stone-600'>
+              <div className='w-[200px] relative h-[200px] bg-stone-600' onMouseEnter={()=>setVisibleIcon(img.id)} onMouseLeave={()=>setVisibleIcon("")}>
                 <img src={img.image} alt={img.title} />
+                <AiTwotoneDelete className='absolute top-2 left-2 text-red-600 scale-125 cursor-pointer' style={{visibility:visibleIcon === img.id ? "visible" : "hidden"}} onClick={()=>deleteGallery(img.id)}/>
               </div>
             ))
           }

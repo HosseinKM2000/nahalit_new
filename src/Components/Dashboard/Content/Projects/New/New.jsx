@@ -1,12 +1,14 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
+import { getUsers } from '../../../../../features/dashboard/action';
 
 function New() {
 
-    const [dropCate,setDropCate] = useState({status:false,value:null})
+    const [dropCate,setDropCate] = useState({status:false,value:null,id:""})
+    const users = useSelector(state => state.dashboard.users)
     const [desc,setDesc] = useState('');
     const [fileName,setFileName] = useState('');
     const [priceValue,setPriceValue] = useState(0);
@@ -16,6 +18,10 @@ function New() {
     const supervisorRef = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
+
+    useEffect(() => {
+        dispatch(getUsers())
+    },[])
 
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
@@ -28,10 +34,10 @@ function New() {
         e.preventDefault()
         const formData = {
             title:titleRef.current.value,
-            category_id:1,
+            category_id:dropCate.id,
             description:desc,
             file:fileName,
-            supervisor_id:1,
+            supervisor_id:JSON.parse(supervisorRef.current.value),
             price:priceValue,
             status:statusRef.current.value,
             progress:progressRef.current.value,
@@ -44,14 +50,16 @@ function New() {
             break;
             case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
             break;
+            case formData.supervisor_id === null : toast.warn("سرپرست را مشخص کنید");
+            break;
             case formData.file === '' : toast.warn('فایل را وارد کنید');
             break;
             case formData.price === 0 : toast.warn('قیمت را وارد کنید');
             break;
             case formData.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
             break;
-            // case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
-            // break;
+            case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
+            break;
             default : sendProduct(formData)
         }
     }
@@ -89,13 +97,20 @@ function New() {
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
                 <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
             </div>
-            {/* supervisor */}
-            <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="title" className='font-semibold text-[#2e424a]'>سرپرست</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={supervisorRef} required={true} name='title'/>
-            </div>
            {/* describe */}
             <Editor setDesc={setDesc}/>
+            {/* supervisor */}
+            <div className='flex flex-col gap-2 w-full'>
+                <label htmlFor="supervisor" className='font-semibold text-[#2e424a]'>سرپرست</label>
+                <select id="supervisor" ref={supervisorRef} className='py-1'>
+                    <option value="null">{"..."}</option>
+                    {
+                        users.map(user => (
+                            <option value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+                        ))
+                    }
+                </select>
+            </div>
             {/* categories */}
             <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
             {/* file */}

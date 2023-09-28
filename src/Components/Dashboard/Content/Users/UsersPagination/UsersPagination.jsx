@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import ReactPaginate from 'react-paginate';
 import Users from '../Users';
-import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
 import { getRoles, getUsers } from '../../../../../features/dashboard/action';
 import UserDetails from '../UserDetails/UserDetails';
 
@@ -48,7 +47,7 @@ function UsersPagination() {
         isLoading 
         ?
         <div className='h-[10rem] w-[full] flex items-center justify-center'>
-           <img src={loading} alt="loading" className='w-[30%]'/>
+           <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className='w-[30%]'/>
         </div>
         :
         <>

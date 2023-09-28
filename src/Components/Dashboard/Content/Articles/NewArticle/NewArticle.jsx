@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
 import { addBlog } from '../../../../../features/dashboard/action';
 import Editor from '../../../../Editor/Editor';
 
@@ -92,7 +91,7 @@ function NewArticle() {
             <button type='button' onClick={(e)=>formSubmitter(e)}  className='w-[80%] md:w-[50%] 2xl:w-[30%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl py-1 rounded-sm'>
                 {
                     loading
-                    ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                    ?<img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem] mx-auto'/>
                     :<span>ثبت</span>
                 }
             </button>

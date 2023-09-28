@@ -2,8 +2,7 @@ import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import loadingSvg from '../../../../../assets/img/Rolling-0.8s-200px.svg';
+import { toast } from 'react-toastify';
 import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import Editor from '../../../../Editor/Editor';
@@ -117,14 +116,14 @@ function EditArticle() {
                 <button type='button' onClick={(e)=>formSubmitter(e)}  className='w-[50%] 2xl:w-[30%] bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
                     {
                         loading
-                        ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                        ?<img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem] mx-auto'/>
                         :<span>ویرایش</span>
                     }
                 </button>
                 <button type='button' onClick={(e)=>articleDelete(e)}  className='w-[50%] 2xl:w-[30%] bg-[#d91e0a] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fb250d] text-white font-bold text-lg py-1 rounded-sm'>
                     {
                         deleteLoading
-                        ?<img src={loadingSvg} alt="loading" className='w-[1.5rem] mx-auto'/>
+                        ?<img src={"/img/Rolling-0.8s-200px.svg"} alt="loading" className='w-[1.5rem] mx-auto'/>
                         :<span>حذف</span>
                     }
                 </button>

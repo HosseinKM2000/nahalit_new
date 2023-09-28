@@ -5,8 +5,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
 import { TiDelete, TiTick } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import loading from '../../../../../assets/img/Ripple-0.8s-200px.svg';
+import { toast } from 'react-toastify';
 import {
   addParentCategories,
   deleteParentCategories,
@@ -109,7 +108,7 @@ function SecondChildrenCate() {
         Loading 
         ?
         <div className='h-[4rem] w-[30%] flex items-center justify-center mt-10'>
-        <img src={loading} alt="loading" className='w-[30%]'/>
+        <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className='w-[30%]'/>
         </div>
         :
         <div className='w-full'>

@@ -38,7 +38,7 @@ export const editParentCategories = createAsyncThunk('dashboard/editParentCatego
 export const getProducts = createAsyncThunk('dashboard/getProducts', async () => {
     const response = await instance.get('/products');
     const { data } = response;
-    return data.data;
+    return data;
 })
 
 export const addProduct = createAsyncThunk('dashboard/addProduct', async (formData) => {
@@ -77,33 +77,29 @@ export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (
 
 export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
     const response = await instance.put(`/projects/${id}`,newData);
-    return response;
+    const { data } = response;
+    return data;
 })
 
 
 
 // discount
-export const getDiscounts = createAsyncThunk('dashboard/getDiscounts', async () => {
-    const response = await axios.get(`/discounts`);
-    return response;
+export const addDiscount = createAsyncThunk('dashboard/addDiscount', async ({id,value}) => {
+    const response = await instance.post(`/discounts/${id}`,{value});
+    const { data } = response;
+    return data;
 })
 
-export const addDiscount = createAsyncThunk('dashboard/addDiscount', async (data) => {
-
-    const response = await axios.post(`/discounts`,{
-        ...data
-    });
-    return response;
+export const deleteDiscount = createAsyncThunk('dashboard/deleteDiscount', async (id) => {
+    const response = await instance.delete(`/discounts/${id}`);
+    const { data } = response;
+    return data;
 })
 
-export const deleteDiscounts = createAsyncThunk('dashboard/deleteDiscounts', async (id) => {
-    const response = await axios.delete(`/discounts/${id}`);
-    return response;
-})
-
-export const editDiscounts = createAsyncThunk('dashboard/getDiscounts', async ({id}) => {
-    const response = await axios.put(`/discounts/${id}`,{});
-    return response;
+export const editDiscount = createAsyncThunk('dashboard/getDiscount', async ({productId,discountValue}) => {
+    const response = await instance.patch(`/discounts/${productId}`,{value:discountValue});
+    const { data } = response;
+    return data;
 })
 
 
@@ -231,6 +227,25 @@ export const getWorkSamples = createAsyncThunk('dashboard/getWorkSamples' , asyn
 // seller
 export const getSellers = createAsyncThunk("dashboard/getSellers" , async () => {
     const response = await instance.get('/sellers');
+    const { data } = response;
+    return data;
+})
+export const deleteSeller = createAsyncThunk("dashboard/deleteSeller" , async (id) => {
+    const response = await instance.delete(`/sellers/${id}`);
+    const { data } = response;
+    return data;
+})
+export const addSeller = createAsyncThunk("dashboard/addSeller" , async (dataObj) => {
+    const response = await instance.post(`/sellers`,dataObj);
+    const { data } = response;
+    return data;
+})
+
+
+
+// orders
+export const getOrders = createAsyncThunk("dashboard/getOrders" , async () => {
+    const response = await instance.get('/orders');
     const { data } = response;
     return data;
 })

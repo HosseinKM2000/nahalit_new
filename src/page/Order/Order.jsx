@@ -112,7 +112,7 @@ const Order = () => {
                 </button>
               </form>
               <div>
-                <img width="500" alt="order_Image" src="https://nahalit.com/wp-content/uploads/2022/11/WEB-corporate-design.png" />
+                <img width="500" alt="order_Image" src="/img/WEB-corporate-design.png" />
               </div>
             </div>
           </section>

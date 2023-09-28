@@ -9,36 +9,35 @@ import ProductGallerySlider from '../../ProductGallerySlider/ProductGallerySlide
 function RightSide({ goalProduct }) {
     const [Switch,setSwitch] = useState(false);
 
-    const mouseMoveHandler = (e) => {
-        e.target.style.backgroundSize = '140%';
-        const targ = e.target
-        if(targ.style.backgroundSize ==='140%'){
-          targ.addEventListener('mousemove',function(e){
-              let dimentions = this.getBoundingClientRect()
+    // const mouseMoveHandler = (e) => {
+    //     e.target.style.backgroundSize = '140%';
+    //     const targ = e.target
+    //     if(targ.style.backgroundSize ==='140%'){
+    //       targ.addEventListener('mousemove',function(e){
+    //           let dimentions = this.getBoundingClientRect()
         
-              let x = e.clientX - dimentions.left;
-              let y = e.clientY - dimentions.top
+    //           let x = e.clientX - dimentions.left;
+    //           let y = e.clientY - dimentions.top
         
-             x = Math.round(100/(dimentions.width/x));
-             y = Math.round(100/(dimentions.height/y));
+    //          x = Math.round(100/(dimentions.width/x));
+    //          y = Math.round(100/(dimentions.height/y));
   
-             targ.style.backgroundPosition = `${x}% ${y}%`
-          })}else{
-              console.log('not zoom')
-          }
-      };
+    //          targ.style.backgroundPosition = `${x}% ${y}%`
+    //       })}else{
+    //           console.log('not zoom')
+    //       }
+    //   };
   
-      const mouseOutHandler = (e) => {
-        e.target.style.backgroundSize = '100%';
-      };
+    //   const mouseOutHandler = (e) => {
+    //     e.target.style.backgroundSize = 'cover';
+    //   };
   
   return (
     <div className='flex flex-col w-full lg:w-[70%] p-0 sm:pr-5'>
     <div className='flex flex-col w-full'>
         <div  className='flex flex-col mt-10 items-start'>
           <h1 className='text-lg font-[shabnamBold] text-stone-700 mb-5'>{goalProduct?.title}</h1>
-          <div className='w-full h-[30rem] bg-no-repeat bg-gray-88 sm:h-[700px] sm:w-[700px] max-w-full overflow-hidden cursor-zoom-in' onMouseOut={(e)=>mouseOutHandler(e)} onMouseMove={(e)=>mouseMoveHandler(e)} style={{backgroundImage:`url(${goalProduct?.img})`,backgroundSize:'cover'}}>
-          </div>
+          <img src={goalProduct?.image} alt={goalProduct?.title} className='w-full'/>
           {/* <div className='flex gap-5 text-white text-sm  font-bold my-5 '>
             <span onClick={()=>setSwitch(false)} className='bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>توضیحات</span>
             <div onClick={()=>setSwitch(true)} className='flex gap-1 items-center bg-slate-600 rounded-md py-1 px-3 2xl:p-3 cursor-default hover:bg-slate-500 transition-all'>
@@ -57,7 +56,7 @@ function RightSide({ goalProduct }) {
                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                      </span>
                     </div>
-                    <ProductGallerySlider Id={goalProduct.id}/>
+                    <ProductGallerySlider Id={goalProduct?.id}/>
                     <div className='flex flex-col items-start mt-10 gap-5 w-full'>
                     <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0'/>
                     <div className='flex flex-col sm:flex-row text-white w-full'>

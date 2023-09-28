@@ -3,7 +3,6 @@ import { FaStore } from 'react-icons/fa';
 import { MdOutlineArticle } from 'react-icons/md';
 import { searchBlogs , searchProducts  } from "../../features/search/action";
 import { useDispatch , useSelector } from "react-redux";
-import loadingSvg from '../../assets/img/Ripple-0.8s-200px.svg';
 import SearchResultItem from "./SearchResultItem/SearchResultItem";
 
 const Search = () => {
@@ -67,7 +66,7 @@ const Search = () => {
             جستجو
           </button>
         </form>
-        <div className='w-[40rem] absolute mx-auto top-10 flex-col bg-white mt-5 px-1 py-3 gap-3 transition-allS' style={{boxShadow:'0px 0px 5px 1px #686868',display:suggest && showResult === 'empty' ? "flex" : "none" ,transition:'all 0.3s'}}>
+        <div className='w-[500px] absolute mx-auto top-10 flex-col bg-white mt-5 px-1 py-3 gap-3 transition-allS' style={{boxShadow:'0px 0px 5px 1px #686868',display:suggest && showResult === 'empty' ? "flex" : "none" ,transition:'all 0.3s'}}>
             <div className='w-full cursor-default flex gap-1 items-center p-1 hover:text-white hover:bg-[#c2c2c2] text-[#127218]' onClick={()=>searchInProducts()}>
                   <span className='text-sm font-[shabnammedium]'>جستجو در محصولات</span>
                   <FaStore className='text-xl'/>
@@ -77,12 +76,12 @@ const Search = () => {
                   <MdOutlineArticle className='text-xl'/>
             </div>
         </div>
-        <div className='w-[40rem] absolute mx-auto top-10 flex-col bg-white mt-5 p-3 gap-3 scroll_zero transition-all max-h-[30rem] overflow-y-scroll' style={{boxShadow:'0px 0px 5px 1px #686868',display:showResult !== 'empty' ? "flex" : "none",transition:'all 0.3s'}}>
+        <div className='w-[500px] absolute mx-auto top-10 flex-col bg-white mt-5 px-3 pb-3 gap-3 scroll_zero transition-all max-h-[30rem] overflow-y-scroll' style={{boxShadow:'0px 0px 5px 1px #686868',display:showResult !== 'empty' ? "flex" : "none",transition:'all 0.3s'}}>
             <div className="w-full flex justify-center">
               {
                 isLoading
                 ?
-                <img src={loadingSvg} alt="loading" className="w-[5rem]"/>
+                <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className="w-[5rem]"/>
                 :
                 isError
                 ?
@@ -96,7 +95,7 @@ const Search = () => {
                 :
                 <>error</>
                 :
-                <div className="w-full flex flex-col gap-y-3">
+                <div className="w-full flex flex-col">
                 {
                   showResult === 'blogs'
                   ?

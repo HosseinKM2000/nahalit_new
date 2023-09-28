@@ -17,7 +17,7 @@ function ConfirmNumberAlert() {
       <div className="w-full items-center flex-wrap gap-y-3 justify-between bg-[#ECEE81] px-10 py-3 flex">
         <div className="flex items-center text-yellow-900 gap-1">
             <BsPatchExclamation className="text-2xl"/>
-            <span className="m-0 font-[vasir] text-[1rem] tracking-wider">شماره تلفن شما هنوز تایید نشده است.</span>
+            <span className="m-0 font-[vasir] text-[0.9rem] tracking-wider">شماره تلفن شما هنوز تایید نشده است.</span>
         </div>
         <Link to={"confirmNumber"} className="flex items-center transition-all cursor-pointer text-yellow-950 gap-1 hover:text-yellow-900">
             <span className="m-0 font-[vasirBold] text-[0.9rem] tracking-wider decoration-solid underline decoration-yellow-950">تایید شماره تلفن</span>

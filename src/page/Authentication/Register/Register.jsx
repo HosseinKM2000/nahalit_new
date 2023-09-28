@@ -4,10 +4,11 @@ import { BsPersonFill } from 'react-icons/bs';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { register } from '../../../features/authentication/action';
 import HomeButton from '../HomeButton/HomeButton';
+import { changeRedirect } from '../../../features/authentication/AuthenticationSlice';
 
 function Register() {
   const [showPassword,setShowPassword] = useState(false);
@@ -20,6 +21,7 @@ function Register() {
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const loading = useSelector(state => state.authentication.loading);
   const redirect = useSelector(state => state.authentication.redirect);
 

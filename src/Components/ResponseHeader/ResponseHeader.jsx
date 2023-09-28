@@ -17,6 +17,8 @@ const ResponseHeader = () => {
   const [dropSearchBox,setDropSearchBox] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
   const userId = Cookies.get('user') === undefined ? '' : JSON.parse(Cookies.get('user')).id;
+  const [favProductsID,setFavProductsID] = useState(localStorage.getItem('favProducts') === null ? [] : JSON.parse(localStorage.getItem('favProducts')));
+  const [favArticlesID,setFavArticlesID] = useState(localStorage.getItem('favArticles') === null ? [] : JSON.parse(localStorage.getItem('favArticles')));
   const location = useLocation();
   const urlPath = location.pathname;
   
@@ -66,8 +68,13 @@ const ResponseHeader = () => {
               ?
               <></>
               :
-              <Link to={'/favorites'}>
+              <Link to={'/favorites'} className="relative">
                 <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
+                <span className="absolute top-[-12px] left-[-10px] bg-green-400 text-xs font-[shabnamBold] p-1 text-white min-w-[20px] h-[20px] flex justify-center items-center rounded-full">
+                  {
+                    favArticlesID.length + favProductsID.length 
+                  }
+                </span>
               </Link>
           }
           <Link>

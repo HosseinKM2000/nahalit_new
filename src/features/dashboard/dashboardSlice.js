@@ -6,16 +6,20 @@ import {
     addParentCategories,
     addProduct,
     addProject,
+    addDiscount,
     addRole,
     deleteBlog,
     deleteParentCategories,
     deleteProduct,
     deleteRole,
     deleteUser,
+    deleteDiscount,
     editBlog,
+    deleteGallery,
     editParentCategories,
     editProduct,
     editProject,
+    editDiscount,
     getBlogs,
     getCategories,
     getGalleryById,
@@ -29,6 +33,9 @@ import {
     getWorkSamples,
     updateRole,
     updateUser,
+    getOrders,
+    deleteSeller,
+    addSeller
 } from "./action";
 
 const initialState = {
@@ -43,10 +50,14 @@ const initialState = {
     productId:null,
     products:[],
     projects:[],
+    discounts:[],
     productsLoading:false,
+    discountsLoading:false,
     deleteProductSuccess:false,
     usersLoading:false,
     sellerLoading:false,
+    ordersLoading:false,
+    deleteSellerSuccess:false,
     users:[],
     projectsLoading:false,
     blogsLoading : false,
@@ -55,6 +66,7 @@ const initialState = {
     blogsDeleteLoading : false,
     categories :[],
     blogs:[],
+    orders:[],
     gallery:[],
     categoriesLoading:false,
     categoriesError:'',
@@ -64,6 +76,7 @@ const initialState = {
     editSuccess : false,
     articleLoading:false,
     workSamplesLoading:false,
+    discountId:"",
     roles:[],
     sellers:[],
     permissions:[],
@@ -132,6 +145,9 @@ const dashboardSlice = createSlice({
         setScrollUp: (state,action) => {
             state.scrollUp = !state.scrollUp
         },
+        setDiscountId: (state,action) => {
+            state.discountId = action.payload;
+        }
       },
     extraReducers: (builder) => {
 
@@ -206,7 +222,8 @@ const dashboardSlice = createSlice({
         // get products
         .addCase(getProducts.fulfilled , (state,action) => {
             state.productsLoading = false;
-            state.products = action.payload;
+            state.products = action.payload.products;
+            state.discounts = action.payload.discounts;
         })
         .addCase(getProducts.pending , (state,action) => {
             state.productsLoading = true;
@@ -214,7 +231,6 @@ const dashboardSlice = createSlice({
         .addCase(getProducts.rejected , (state,action) => {
             state.productsLoading = false;
             console.error("* error in getting products *")
-            toast.error('خطا در بارگیری محصولات')
         })
 
 
@@ -265,6 +281,57 @@ const dashboardSlice = createSlice({
         })
 
 
+        // delete discount
+        .addCase(deleteDiscount.fulfilled,(state,action) => {
+            state.discountsLoading = false;
+            toast.success(action.payload.massage);
+            console.log(action)
+        })
+        .addCase(deleteDiscount.pending,(state,action) => {
+            state.discountsLoading = true;
+        })
+        .addCase(deleteDiscount.rejected,(state,action) => {
+            state.discountsLoading = false;
+            toast.error("خطا در حذف تخفیف ");
+            console.log(action);
+        })
+
+
+        
+        // edit discount
+        .addCase(editDiscount.fulfilled,(state,action) => {
+            state.discountsLoading = false;
+            state.discountId = "";
+            toast.success(action.payload.massage);
+            console.log(action)
+        })
+        .addCase(editDiscount.pending,(state,action) => {
+            state.discountsLoading = true;
+        })
+        .addCase(editDiscount.rejected,(state,action) => {
+            state.discountsLoading = false;
+            state.discountId = "";
+            toast.error("خطا در ویرایش ");
+            console.log(action);
+        })
+
+
+
+        // add discount
+        .addCase(addDiscount.fulfilled,(state,action) => {
+            state.discountsLoading = false;
+            toast.success("تخفیف اضافه شد");
+        })
+        .addCase(addDiscount.pending,(state,action) => {
+            state.discountsLoading = true;
+        })
+        .addCase(addDiscount.rejected,(state,action) => {
+            state.discountsLoading = false;
+            toast.error("خطا در افزودن تخفیف ");
+            console.log(action);
+        })
+
+
         // get projects
         .addCase(getProjects.fulfilled , (state,action) => {
             state.projectsLoading = false;
@@ -280,6 +347,7 @@ const dashboardSlice = createSlice({
         })
 
 
+        
         // add projects
         .addCase(addProject.fulfilled, (state,action) => {
             state.projectsLoading = false;
@@ -293,6 +361,7 @@ const dashboardSlice = createSlice({
             console.log(action.payload)
             toast.error("خطا در ذخیره پروژه")
         })
+
 
 
         // edit projects
@@ -323,6 +392,20 @@ const dashboardSlice = createSlice({
         .addCase(addGallery.rejected, (state,action) => {
             state.galleryLoading = false;
                 toast.error("گالری ذخیره نشد")
+        })
+
+
+        // delete gallery
+        .addCase(deleteGallery.fulfilled,(state,action) => {
+            toast.success("تصویر با موفقیت حذف شد")
+            console.log(action)
+        })
+        .addCase(deleteGallery.pending,(state,action) => {
+            state.galleryLoading = true;
+        })
+        .addCase(deleteGallery.rejected, (state,action) => {
+            state.galleryLoading = false;
+                toast.error("خطا در حذف تصویر")
         })
 
         // get gallery by id
@@ -551,8 +634,52 @@ const dashboardSlice = createSlice({
         })
         .addCase(getSellers.rejected,(state,action) => {
             state.sellerLoading = false;
-            toast.error('خطا در بارگیری نمونه کارها')
+            toast.error('خطا در بارگیری  فروشنده ها')
             console.log(action)
+        })
+
+
+        // delete seller
+        .addCase(deleteSeller.fulfilled,(state,action) => {
+            state.sellerLoading = false;
+            state.deleteSellerSuccess = !state.deleteSellerSuccess;
+            toast.success(action.payload.message);
+        })
+        .addCase(deleteSeller.pending,(state,action) => {
+            state.sellerLoading = true;
+        })
+        .addCase(deleteSeller.rejected,(state,action) => {
+            state.sellerLoading = false;
+            toast.error('خطا در حذف فروشنده')
+            console.log(action)
+        })
+
+
+        // add seller
+        .addCase(addSeller.fulfilled,(state,action) => {
+            state.sellerLoading = false;
+            toast.success("درخواست با موفقیت ارسال شد")
+        })
+        .addCase(addSeller.pending,(state,action) => {
+            state.sellerLoading = true;
+        })
+        .addCase(addSeller.rejected,(state,action) => {
+            state.sellerLoading = false;
+            toast.error("متاسفانه درخواست با مشکل روبرو شد!")
+        })
+
+
+        // get orders
+        .addCase(getOrders.fulfilled,(state,action) => {
+            state.ordersLoading = false;
+            state.orders = action.payload.data;
+        })
+        .addCase(getOrders.pending,(state,action) => {
+            state.ordersLoading = true;
+        })
+        .addCase(getOrders.rejected,(state,action) => {
+            state.ordersLoading = false;
+            toast.error('خطا در بارگیری  سفارش ها')
         })
     }
 })
@@ -562,6 +689,7 @@ export const { setContent,
                setSwitch,
                setSwitchCategories, 
                setSwitchCategories_2,
-               setScrollUp } = dashboardSlice.actions;
+               setScrollUp,
+               setDiscountId } = dashboardSlice.actions;
 
 export default dashboardSlice.reducer;

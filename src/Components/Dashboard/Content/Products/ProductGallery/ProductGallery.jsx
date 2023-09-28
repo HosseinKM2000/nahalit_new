@@ -1,12 +1,9 @@
-import React from 'react';
-import { MdCancel } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getGalleryById } from '../../../../../features/dashboard/action';
-import { RiDeleteBack2Fill } from 'react-icons/ri';
+import React, { useEffect, useState } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
-import { useState } from 'react';
 import { FiPlusCircle } from 'react-icons/fi';
+import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteGallery, getGalleryById } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function ProductGallery({ showGallery , setShowGallery }) {
@@ -17,10 +14,10 @@ function ProductGallery({ showGallery , setShowGallery }) {
 
     useEffect(()=>{
       dispatch(getGalleryById(showGallery.id))
-    },[]);
+    },[loading]);
 
-    const deleteGallery = id => {
-      
+    const deleteGalleryFnc = id => {
+      dispatch(deleteGallery(id))
     }
 
   return (
@@ -36,7 +33,13 @@ function ProductGallery({ showGallery , setShowGallery }) {
             gallery.map(img => (
               <div className='w-[200px] relative h-[200px] bg-stone-600' onMouseEnter={()=>setVisibleIcon(img.id)} onMouseLeave={()=>setVisibleIcon("")}>
                 <img src={img.image} alt={img.title} />
-                <AiTwotoneDelete className='absolute top-2 left-2 text-red-600 scale-125 cursor-pointer' style={{visibility:visibleIcon === img.id ? "visible" : "hidden"}} onClick={()=>deleteGallery(img.id)}/>
+                {
+                  loading
+                  ?
+                  <img src={"/img/Rolling-0.8s-200px.svg"} alt='loading' className='w-[20px] absolute top-2 left-2' style={{visibility:visibleIcon === img.id ? "visible" : "hidden"}}/>
+                  :
+                  <AiTwotoneDelete className='absolute top-2 left-2 text-red-600 scale-125 cursor-pointer' style={{visibility:visibleIcon === img.id ? "visible" : "hidden"}} onClick={()=>deleteGalleryFnc(img.id)}/>
+                }
               </div>
             ))
           }

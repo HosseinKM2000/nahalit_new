@@ -3,7 +3,6 @@ import { FaStore } from 'react-icons/fa';
 import { MdOutlineArticle, MdOutlineClose } from 'react-icons/md';
 import { useSelector , useDispatch } from 'react-redux';
 import { searchBlogs , searchProducts } from '../../features/search/action';
-import loadingSvg from '../../assets/img/Ripple-0.8s-200px.svg';
 import SearchResultItem from "../Search/SearchResultItem/SearchResultItem";
 
 function MobileSearch({ dropSearchBox , setDropSearchBox }) { 
@@ -36,6 +35,7 @@ function MobileSearch({ dropSearchBox , setDropSearchBox }) {
                 setDropSearchBox(false)
                 setSuggest(false)
                 setShowResult('empty')
+                searchRef.current.value = ""
             }}/>
         </div>
         <div className='bg-white mt-5 rounded-sm w-[80%] h-fit flex justify-start items-center'>
@@ -60,12 +60,12 @@ function MobileSearch({ dropSearchBox , setDropSearchBox }) {
                 <MdOutlineArticle className='text-xl'/>
             </div>
         </div>
-        <div className='w-[80%] max-h-[20rem] scroll_zero overflow-y-scroll flex-col bg-white mt-5 px-1 py-3 gap-3 transition-all' style={{boxShadow:'0px 0px 5px 1px #686868',display:showResult !== 'empty' ? "flex" : "none",transition:'all 0.3s'}}>
+        <div className='w-[80%] max-h-[25rem] scroll_zero overflow-y-scroll flex-col bg-white mt-5 px-1 py-3 gap-3 transition-all' style={{boxShadow:'0px 0px 5px 1px #686868',display:showResult !== 'empty' ? "flex" : "none",transition:'all 0.3s'}}>
             <div className="w-full flex justify-center">
               {
                 isLoading
                 ?
-                <img src={loadingSvg} alt="loading" className="w-[5rem]"/>
+                <img src={"/img/Ripple-0.8s-200px.svg"} alt="loading" className="w-[5rem]"/>
                 :
                 isError
                 ?

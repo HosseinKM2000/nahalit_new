@@ -35,9 +35,9 @@ const authenticationSlice = createSlice({
                 state.loading = false;
                 state.redirect = true;
                 console.log(action)
-                toast.success(action.payload.massage)
-                Cookies.set("user",JSON.stringify(action.payload.user))
-                localStorage.setItem("access_token",action.payload.token)
+                toast.success(action.payload.data.massage)
+                Cookies.set("user",JSON.stringify(action.payload.data.user))
+                localStorage.setItem("access_token",action.payload.data.token)
                 state.loginStatus = true;
             }
             console.log(action.payload)

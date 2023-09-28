@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import { getRoleById , getRoles } from '../../../../../features/dashboard/action';
+import { toast } from 'react-toastify';
+import { getRoleById, updateRole } from '../../../../../features/dashboard/action';
 import InteractiveButton2 from "./InteractiveButton_2/InteractiveButton_2";
-import { updateRole } from '../../../../../features/dashboard/action';
 
 function EditRole({ setIsEdit , role , permissions }) {
     const [activePermissions,setActivePermissions] = useState([]);

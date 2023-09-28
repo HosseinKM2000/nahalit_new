@@ -5,6 +5,7 @@ import instance from "../../axios_config/axios";
 export const register = createAsyncThunk('authentication/register', async (dataObj) => {
         try {
         const response = await axios.post('http://api.nahalit.ir/api/v1/users/register',dataObj)
+        console.log(response)
         return { data: response.data }
     } catch (axiosError) {
         let err = axiosError

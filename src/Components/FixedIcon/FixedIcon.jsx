@@ -15,7 +15,7 @@ const FixedIcon = () => {
   useEffect(() => {
     dispatch(getBasketsByUserId(userId));
   },[])
-console.log(baskets)
+
   return (
     <Link to="/cart" className="fixed z-50">
       <BiShoppingBag className="sm:w-10 sm:h-10 w-10 h-10 fixed bottom-10 right-5 bg-[#227e1f] hover:bg-[#2d9b29] transition-all duration-200 text-white p-2  rounded-full" />

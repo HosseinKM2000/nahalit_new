@@ -4,6 +4,7 @@ import { getProducts } from "./action";
 
 const initialState = {
     products : [],
+    discounts:[],
     productsCate:[],
     FilteredProducts:[],
     goalProduct:'',
@@ -153,11 +154,12 @@ const productsSlice = createSlice({
     extraReducers : builder => {
         builder
         .addCase(getProducts.fulfilled , (state,action) => {
+            state.discounts = action.payload.discounts;
             state.isLoading = false;
-            state.products = action.payload.data;
-            state.FilteredProducts = action.payload.data;
-            state.maxPrice = action.payload.data.reduce((max , item) => Math.max(max , item.price), -Infinity);
-            state.minPrice = action.payload.data.reduce((min , item) => Math.min(min , item.price), Infinity);
+            state.products = action.payload.products;
+            state.FilteredProducts = action.payload.products;
+            state.maxPrice = action.payload.products.reduce((max , item) => Math.max(max , item.price), -Infinity);
+            state.minPrice = action.payload.products.reduce((min , item) => Math.min(min , item.price), Infinity);
         })
         .addCase(getProducts.pending , (state,action) => {
             state.isLoading = true;

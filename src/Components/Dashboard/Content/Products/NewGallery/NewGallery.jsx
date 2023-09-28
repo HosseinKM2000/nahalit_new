@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
+import { toast } from 'react-toastify';
 import { addGallery } from '../../../../../features/dashboard/action';
+import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
 function NewGallery() {
   const [imageName,setImageName] = useState('');

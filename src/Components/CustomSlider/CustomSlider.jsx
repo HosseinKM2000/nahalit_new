@@ -20,7 +20,7 @@ const CustomSlider = ({ title , items }) => {
     const options = {style: 'decimal'};
     return number.toLocaleString('fa-IR', options) + ' تومان';
   }
-
+ 
   return (
     <div className="w-[90%] sm:w-[95%] 2xl:w-[90%] mx-auto  py-5 bg-[#f3f3f5] rounded-xl p-3">
       <div className="flex items-center sm:gap-0 justify-between">
@@ -50,7 +50,7 @@ const CustomSlider = ({ title , items }) => {
                 <img
                   className="rounded-tl-2xl rounded-tr-2xl w-full h-auto max-h-[230px] bg-green-400"
                   alt="product_Slide_Image"
-                  src={product.img}
+                  src={product.image}
                 />
               </div>
               <div className="flex flex-col items-start justify-center gap-3 h-[50%] py-3">

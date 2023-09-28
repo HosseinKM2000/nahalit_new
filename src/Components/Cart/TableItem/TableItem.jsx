@@ -41,7 +41,7 @@ const TableItem = ({ cartItem }) => {
     const options = {style: 'decimal'};
     return number.toLocaleString('fa-IR', options) + ' تومان';
   }
-
+console.log(cartItem)
   return (
     <tr className="border flex flex-col  lg:flex-row w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#f7f7f7] bg-[#fafafa] text-gray-600 text-center shadow-md">
       <td className="py-5 md:py-1  px-4">

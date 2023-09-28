@@ -34,7 +34,7 @@ const Header = () => {
         dispatch(getBasketsByUserId(userId))
       }
     },[success])
-    console.log(baskets)
+   
   return (
     <>
       <div className="bg-[#07B235] h-1" id="UP"></div>

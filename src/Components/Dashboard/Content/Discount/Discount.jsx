@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import AllDiscount from './AllDiscount/AllDiscount';
+import DiscountsPagination from './AllDiscounts/DiscountsPagination/DiscountsPagination';
 import NewDiscount from './NewDiscount/NewDiscount';
 
 function Discount() {
@@ -9,7 +9,7 @@ function Discount() {
     useEffect(()=>{
         switch(Criterion)
         {
-            case 'all' : setInnerComponent(<AllDiscount/>);
+            case 'all' : setInnerComponent(<DiscountsPagination/>);
             break;
             case 'new' : setInnerComponent(<NewDiscount/>)
             break;
@@ -26,4 +26,4 @@ function Discount() {
   )
 }
 
-export default Discount
+export default Discount;

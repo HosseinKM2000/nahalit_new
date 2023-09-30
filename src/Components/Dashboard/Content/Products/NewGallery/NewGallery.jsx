@@ -5,9 +5,8 @@ import { toast } from 'react-toastify';
 import { addGallery } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 
-function NewGallery() {
+function NewGallery({ newImg , setNewImg }) {
   const [imageName,setImageName] = useState('');
-  const productId = useSelector(state => state.dashboard.productId);  
   const loading = useSelector(state => state.dashboard.galleryLoading);  
   const titleRef = useRef();
   const imageRef = useRef();
@@ -43,14 +42,14 @@ function NewGallery() {
     let formObj = new FormData();
     formObj.append("title",form.title);
     formObj.append("image", imageRef.current.files[0] , imageName);
-    dispatch(addGallery({id:productId,formObj}))
+    dispatch(addGallery({id:newImg.id,formObj}))
   }
 
   return (
     <div className='flex flex-col 2xl:w-[70%] w-full opacity-motion'>
         <div className='w-full bg-[#C0D9DB] p-2 flex items-center justify-between'>
             <h1 className='font-semibold text-lg text-stone-800'>افزودن تصویر</h1>
-            <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>dispatch(setSwitch({key:'products',value:'all',id:null}))}/>
+            <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>setNewImg({status:false,id:""})}/>
         </div>
         <form onSubmit={ e => addGalleryHandle(e)} className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
         {/* title */}

@@ -26,16 +26,6 @@ function LeftSide({ goalProduct }) {
       </ul>
     </div>
     <div className='w-full flex flex-col items-center'>
-    <div className='w-full flex items-center font-bold text-sm my-3 gap-3'>
-                    <del className='flex gap-1 items-center text-red-600'>
-                      <span>8,800,000</span>
-                      <span>تومان</span>
-                    </del>
-                <div className='flex gap-1 items-center text-stone-500'>
-                    <span>8,000,000</span>
-                    <span>تومان</span>
-                </div>
-        </div>
         <div className='flex flex-col w-full gap-1 2xl:gap-5'>
           <Link className='w-full'>
         <button className='text-white font-bold my-1 2xl:py-2 rounded-sm gap-2 text-sm transition-all hover:bg-lime-500 py-2 w-full bg-lime-600 border-b-2 border-lime-800 flex justify-center items-center'>

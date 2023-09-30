@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { copyLink } from '../../../features/article/articleSlice';
 // import Icons
 import { AiOutlineBarChart } from 'react-icons/ai';
 import { BsPinterest, BsTags, BsTelegram, BsTwitter } from 'react-icons/bs';
@@ -9,7 +8,6 @@ import { FaFacebookF, FaLink } from 'react-icons/fa';
 import { HiOutlineDocument } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
 import { TfiMenuAlt } from 'react-icons/tfi';
-import messageIMG from '../../../assets/img/2900821_25540.png';
 // import modules
 import { keyWord } from '../../../API/data';
 // import styles
@@ -20,8 +18,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Article.css';
 // import Components
+import moment from 'moment-jalaali';
 import { Helmet } from 'react-helmet';
 import HTMLRenderer from 'react-html-renderer';
+import { toast } from 'react-toastify';
 import FixedIcon from '../../../Components/FixedIcon/FixedIcon';
 import Footer from '../../../Components/Footer/Footer';
 import Header from '../../../Components/Header/Header';
@@ -35,7 +35,6 @@ const Article = () => {
   const location = useLocation();
   const articles = useSelector(state => state.articles.articles);
   const goalArticle = articles.find(article => article.id === goalId);
-  const shortLink = useSelector(state => state.articles.shortLink);
   const mobile = window.innerWidth <= 768 ? true : false;
   const dispatch = useDispatch();
   const helmetTitle = goalArticle?.title || ""
@@ -79,16 +78,16 @@ const Article = () => {
                         </div>
                         <div className='flex flex-row items-center gap-2 text-[0.9rem]'>
                           <MdDateRange/>
-                          <span className='flex gap-1'><bdi>24</bdi>بهمن<bdi>1401</bdi></span>
+                          <span className='flex gap-1 font-[shabnamBold]'>{moment(goalArticle?.created_at).format("jYYYY/jMM/jDD")}</span>
                         </div>
                         <div className='flex flex-row text-[0.9rem] items-center gap-1.5 sm:gap-5'>
                           <AiOutlineBarChart/>
-                          <span>27</span>
+                          <span>0</span>
                         </div>
                       </div>
                       {/* article-poster and article-text */}
                       <div className='mt-7 flex flex-col items-center md:inline-block'>
-                        <img src={goalArticle?.img} alt="postIMg" className='w-[300px] bg-gray-77 h-[300px] float-right ml-0 mb-4 md:ml-4'/>
+                        <img src={goalArticle?.image} alt={goalArticle?.title} className='w-[300px] bg-gray-77 float-right ml-0 mb-4 md:ml-4'/>
                         <p className='text-gray-66 font-[shabnamMedium] text-justify font-thin text-sm leading-7 px-3'>
                           <HTMLRenderer html={goalArticle?.body}/>
                         </p>
@@ -97,19 +96,19 @@ const Article = () => {
                       <div className='flex flex-col pl-2 items-center 2xl:items-start  mt-10  gap-5 w-full'>
                         <div className='flex items-center w-full justify-start px-5'><BsTags className='scale-150 text-gray-66 mr-5 sm:m-0'/></div>
                         <div className='flex flex-col sm:flex-row text-white w-[80%] md:w-full 2xl:w-[70%]'>
-                          <Link to='https://twitter.com/intent/tweet?text=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-5 px-5 gap-2 '>
+                          <Link to='https://twitter.com' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-5 px-5 gap-2 '>
                             <BsTwitter className='scale-125'/>
                             <span className='text-xs text-center'>اشتراک در توییتر</span> 
                           </Link>
-                          <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-5 px-5 gap-2'  to="https://www.facebook.com/sharer/sharer.php?u=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/">
+                          <Link className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-dark-blue py-5 px-5 gap-2'  to="https://www.facebook.com">
                             <FaFacebookF className='scale-125'/>
                           <span className='text-xs text-center'> اشتراک در فیسبوک</span>
                           </Link>
-                          <Link to="https://telegram.me/share/url?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-5 px-5 gap-2 '>
+                          <Link to="https://telegram.me" className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-5 px-5 gap-2 '>
                             <BsTelegram className='scale-125'/>
                           <span className='text-xs text-center'> اشتراک در تلگرام</span>
                           </Link>
-                          <Link to="https://pinterest.com/pin/create/button/?url=https://nahalit.com/%d8%af%d9%88%d9%86%d8%af%d8%b1%d8%b2-%da%86%db%8c%d8%b3%d8%aa%d8%9f/" className='flex flex-col justify-center 2xl:py-5 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-5 px-5 gap-2 '>
+                          <Link to="https://pinterest.com/" className='flex flex-col justify-center 2xl:py-5 items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-soft-red py-5 px-5 gap-2 '>
                             <BsPinterest className='scale-125'/>
                             <span  className='text-xs text-center'>اشتراک در پینترست</span>
                           </Link>
@@ -125,7 +124,7 @@ const Article = () => {
                           <li className='font-[shabnamLight]'>چنانچه در دیدگاه خود از شماره تماس، ایمیل و آیدی تلگرام استفاده کرده باشید تایید نخواهد شد</li>
                           <li className='font-[shabnamLight]'>چنانچه دیدگاهی بی ارتباط با موضوع آموزش مطرح شود تایید نخواهد شد</li>
                         </ul>
-                        <img src={messageIMG} alt="comment"  className='absolute w-60 opacity-20'/>
+                        <img src={"/img/2900821_25540.png"} alt="comment"  className='absolute w-60 opacity-20'/>
                       </div>
                       {/* Suggested-contents */}
                       {/* <div className='flex flex-col gap-3 items-center w-full md:items-start'>
@@ -183,10 +182,15 @@ const Article = () => {
                       <span className='text-[0.9rem] font-bold'>لینک مطلب:</span>
                     </div>
                     <div className='flex flex-row gap-2'>
-                      <div className='bg-gray-88 cursor-pointer 2xl:w-fit 2xl:h-fit hover:bg-gray-white transition-all w-9 justify-center items-center flex p-2 rounded-full' onClick={(e)=> dispatch(copyLink())}>
+                      <div className='bg-gray-88 cursor-pointer 2xl:w-fit 2xl:h-fit hover:bg-gray-white transition-all w-9 justify-center items-center flex p-2 rounded-full' onClick={(e)=>{
+                        navigator.clipboard.writeText(window.location.href);
+                        toast.success('لینک کپی شد' , {
+                          position: "top-center",
+                      })
+                      }}>
                       <HiOutlineDocument className='text-white documentImg'/>
                       </div>
-                      <input className='border-2 text-gray-66 rounded border-for-border p-1 outline-none text-xs' type="url" name="" id="" value={shortLink}/>
+                      <input className='border-2 text-gray-66 rounded border-for-border p-1 outline-none text-xs' type="url" name="" id="" value={window.location.href}/>
                     </div>
                   </div>
                   <div className='flex flex-col items-end text-sm'>

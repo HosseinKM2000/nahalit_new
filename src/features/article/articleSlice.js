@@ -8,7 +8,6 @@ const initialState =
     articles:[],
     goalArticle:'',
     isLoading:false,
-    shortLink:window.location.href,
 }
 
 function foundArticleAction(state,action)
@@ -18,20 +17,11 @@ function foundArticleAction(state,action)
     state.goalArticle = target;
 }
 
-function copyLinkAction(state,action)
-{
-    navigator.clipboard.writeText(state.shortLink);
-    toast.success('لینک کپی شد' , {
-        position: "top-center",
-    })
-}
-
 const articlesSlice = createSlice({
     name:'articles',
     initialState,
     reducers:{
         foundArticleAction,
-        copyLinkAction,
     },
     extraReducers : (builder) => {
         builder
@@ -51,7 +41,6 @@ const articlesSlice = createSlice({
 
 export const {
         foundArticleAction: foundArticle,
-        copyLinkAction : copyLink,
      } = articlesSlice.actions;
 
 export default articlesSlice.reducer;

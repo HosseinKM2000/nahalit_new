@@ -67,7 +67,7 @@ function AllProducts({ currentItems , setIsEdit , setShowGallery }) {
                 <span className='font-[shabnambold]'>{separateByCommas(product.price)}</span>
                 <span>تومان</span>
               </div>
-              <span className='text-stone-600 font-[shabnambold] text-sm'>{categories.find(category => category.id === product.category_id).title}</span>
+              <span className='text-stone-600 font-[shabnambold] text-sm'>{categories.find(category => category.id === product.category_id)?.title}</span>
               <span className='text-[#724cc4] font-[shabnambold] text-sm'>50%</span>
               <div className='flex w-full items-center md:w-fit flex-col gap-y-2'>
               <div className='flex w-full items-center gap-x-1 text-sm'>

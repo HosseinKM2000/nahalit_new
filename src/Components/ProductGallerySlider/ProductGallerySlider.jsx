@@ -20,31 +20,37 @@ function ProductGallerySlider({ Id }) {
   return (
     <div className='gallery_box'>
         <span className='text-[1.2rem] font-bold text-stone-700 m-0 w-full text-start'>تصاویر محصول</span>
-        <Swiper
-        initialSlide={widthScreen < 425 ? 0 : 1}
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={widthScreen < 425 ? 1 : widthScreen < 2000 ? 3 : 4}
-        coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-        }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
-        className="mySwiper"
-        >
-            {
-                gallery.map(img => (
-                    <SwiperSlide key={img?.id}>
-                       <img src={img?.image} alt={img?.title} className='w-[200px] h-[200px] max-w-[200px] max-h-[200px]'/>
-                    </SwiperSlide>
-                ))
-            }
-        </Swiper>
+        {
+            gallery.length === 0 
+            ?
+            <p className='mt-5 font-[shabnamThin] text-base text-yellow-900'>هنوز تصویری برای این محصول اضافه نشده</p>
+            :
+            <Swiper
+            initialSlide={widthScreen < 425 ? 0 : 1}
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={widthScreen < 425 ? 1 : widthScreen < 2000 ? 3 : 4}
+            coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            }}
+            pagination={true}
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper"
+            >
+                {
+                    gallery.map(img => (
+                        <SwiperSlide key={img?.id}>
+                           <img src={img?.image} alt={img?.title} className='w-[200px] h-[200px] max-w-[200px] max-h-[200px]'/>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+        }
     </div>
   )
 }

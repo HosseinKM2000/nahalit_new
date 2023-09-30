@@ -56,6 +56,7 @@ const initialState = {
     deleteProductSuccess:false,
     usersLoading:false,
     sellerLoading:false,
+    deleteGallerySuccess:false,
     ordersLoading:false,
     deleteSellerSuccess:false,
     users:[],
@@ -399,6 +400,7 @@ const dashboardSlice = createSlice({
 
         // delete gallery
         .addCase(deleteGallery.fulfilled,(state,action) => {
+            state.galleryLoading = false;
             toast.success("تصویر با موفقیت حذف شد")
             console.log(action)
         })
@@ -413,6 +415,7 @@ const dashboardSlice = createSlice({
         // get gallery by id
         .addCase(getGalleryById.fulfilled,(state,action) => {
             state.galleryLoading = false;
+            state.deleteGallerySuccess = !state.deleteGallerySuccess;
             state.gallery = action.payload.data
         })
         .addCase(getGalleryById.pending,(state,action) => {

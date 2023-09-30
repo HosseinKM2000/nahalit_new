@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { addProject, getUsers } from '../../../../../features/dashboard/action';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
-import { getUsers } from '../../../../../features/dashboard/action';
 
 function New() {
 
     const [dropCate,setDropCate] = useState({status:false,value:null,id:""})
     const users = useSelector(state => state.dashboard.users)
+    const loading = useSelector(state => state.dashboard.projectsLoading);
     const [desc,setDesc] = useState('');
-    const [fileName,setFileName] = useState('');
     const [priceValue,setPriceValue] = useState(0);
     const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
@@ -18,6 +18,7 @@ function New() {
     const supervisorRef = useRef();
     const statusRef  = useRef();
     const progressRef  = useRef();
+    const confirmRef  = useRef();
 
     useEffect(() => {
         dispatch(getUsers())
@@ -32,39 +33,38 @@ function New() {
     }
     const formSubmitter = (e) => {
         e.preventDefault()
-        const formData = {
+        const dataObj = {
             title:titleRef.current.value,
             category_id:dropCate.id,
             description:desc,
-            file:fileName,
-            supervisor_id:JSON.parse(supervisorRef.current.value),
-            price:priceValue,
+            supervisor_id:supervisorRef.current.value,
+            price:priceValue.replaceAll(",",""),
             status:statusRef.current.value,
             progress:progressRef.current.value,
+            confirm:confirmRef.current.value
         }
         switch(true)
         {
-            case formData.title.length === 0 : toast.warn("عنوان را وارد کنید");
+            case dataObj.title.length === 0 : toast.warn("عنوان را وارد کنید");
             break;
-            case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
+            case dataObj.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
-            case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
+            case dataObj.description.length === 0 : toast.warn("توضیح را وارد کنید");
             break;
-            case formData.supervisor_id === null : toast.warn("سرپرست را مشخص کنید");
+            case dataObj.supervisor_id === null : toast.warn("سرپرست را مشخص کنید");
             break;
-            case formData.file === '' : toast.warn('فایل را وارد کنید');
+            case dataObj.price.length === 0 : toast.warn('قیمت را وارد کنید');
             break;
-            case formData.price === 0 : toast.warn('قیمت را وارد کنید');
+            case dataObj.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
             break;
-            case formData.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
+            case dataObj.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
             break;
-            case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
-            break;
-            default : sendProduct(formData)
+            default : sendProduct(dataObj)
         }
     }
 
     const sendProduct = (dataObj) => {
+        dispatch(addProject(dataObj))
         console.log(dataObj)
     }
 
@@ -113,18 +113,21 @@ function New() {
             </div>
             {/* categories */}
             <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
-            {/* file */}
-            <div className='flex items-start flex-col gap-2 w-full'>
-                <label htmlFor="file" className='font-semibold text-[#2e424a]'>فایل</label>
-                <input onChange={(e)=>setFileName(e.target.files[0].name)} type="file" name="file" id="" />
-            </div>
                 {/* status */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="status" className='font-semibold text-[#2e424a]'>وضعیت</label>
                 <select name="status" id="" ref={statusRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
-                    <option value="doing">در حال انجام</option>
-                    <option value="completed">کامل شد</option>
-                    <option value="canceled">لغو شد</option>
+                    <option value="waiting">در حال انجام</option>
+                    <option value="answered">کامل شد</option>
+                    <option value="failed">لغو شد</option>
+                </select>
+            </div>
+                            {/* confirm */}
+            <div className='flex flex-col gap-2 w-full'>
+                <label htmlFor="confirm" className='font-semibold text-[#2e424a]'></label>
+                <select name="confirm" id="" ref={confirmRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
+                        <option value={1}>تایید</option>
+                        <option value={0}>عدم تایید</option>
                 </select>
             </div>
                 {/* progress */}
@@ -152,7 +155,13 @@ function New() {
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
              <div className='flex items-center w-[80%] sm:w-[50%] 2xl:w-[30%] justify-between'>
-             <button type='button' onClick={(e) => formSubmitter(e)} className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>ثبت</button>
+             <button type='button' onClick={(e) => formSubmitter(e)} className='w-[100%] bg-[#07C7A3] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#0eecc3] text-white font-bold text-xl py-1 rounded-sm'>
+                {
+                    loading
+                    ?<img src="/img/Rolling-0.8s-200px.svg" alt="loading..." className='w-[30px] mx-auto'/>
+                    :"ثبت"
+                }
+             </button>
              </div>
            </div>
         </form>

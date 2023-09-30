@@ -62,6 +62,7 @@ const initialState = {
     projectsLoading:false,
     blogsLoading : false,
     rolesLoading : false,
+    editProjectLoading : false,
     galleryLoading : false,
     blogsDeleteLoading : false,
     categories :[],
@@ -351,14 +352,14 @@ const dashboardSlice = createSlice({
         // add projects
         .addCase(addProject.fulfilled, (state,action) => {
             state.projectsLoading = false;
-            toast.success('پروژه با موفقیت ذخیره شد')
+            toast.success('پروژه با موفقیت ذخیره شد');
         })
         .addCase(addProject.pending, (state,action) => {
             state.projectsLoading = true;
         })
         .addCase(addProject.rejected, (state,action) => {
             state.projectsLoading = false;
-            console.log(action.payload)
+            console.log(action)
             toast.error("خطا در ذخیره پروژه")
         })
 
@@ -366,15 +367,16 @@ const dashboardSlice = createSlice({
 
         // edit projects
         .addCase(editProject.fulfilled,(state,action) => {
-            state.projectsLoading = false;
-            toast.success('ویرایش پروژه با موفقیت انجام شد')
+            state.editProjectLoading = false;
+            toast.success(action.payload[0]);
         })
         .addCase(editProject.pending,(state,action) => {
-            state.projectsLoading = true;
+            state.editProjectLoading = true;
         })
         .addCase(editProject.rejected,(state,action) => {
-            state.projectsLoading = false;
+            state.editProjectLoading = false;
             toast.error("خطا در ویرایش پروژه")
+            console.log(action)
         })
 
 

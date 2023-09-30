@@ -63,23 +63,19 @@ export const getProjects = createAsyncThunk('dashboard/getProjects', async () =>
     const response = await instance.get('/projects');
     const { data } = response;
     return data.data;
-})
+});
 
-export const addProject = createAsyncThunk('dashboard/addProject', async (formData) => {
-    const response = await instance.post('/projects',formData);
-    return response;
-})
-
-export const deleteProject = createAsyncThunk('dashboard/deleteProject', async (id) => {
-    const response = await instance.delete(`projects/${id}`);
-    return response;
-})
-
-export const editProject = createAsyncThunk('dashboard/editProject', async (id,newData) => {
-    const response = await instance.put(`/projects/${id}`,newData);
+export const addProject = createAsyncThunk('dashboard/addProject', async (dataObj) => {
+    const response = await instance.post('/projects',dataObj);
     const { data } = response;
     return data;
-})
+});
+
+export const editProject = createAsyncThunk('dashboard/editProject', async (id,dataObj) => {
+    const response = await instance.put(`/projects/${id}`,dataObj);
+    const { data } = response;
+    return data;
+});
 
 
 

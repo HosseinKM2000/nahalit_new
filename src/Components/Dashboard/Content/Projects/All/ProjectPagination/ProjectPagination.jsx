@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjects } from '../../../../../../features/dashboard/action';
+import { getCategories, getProjects, getUsers } from '../../../../../../features/dashboard/action';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import Edit from '../../Edit/Edit';
 import All from '../All';
@@ -11,6 +11,8 @@ function ProjectPagination() {
     const [showDetails,setShowDetails] = useState({status:false,value:''});
     const [itemOffset, setItemOffset] = useState(0);
     const isLoading = useSelector(state => state.dashboard.projectsLoading);
+    const users = useSelector(state => state.dashboard.users);
+    const categories = useSelector(state => state.dashboard.categories);
     const projects = useSelector(state => state.dashboard.projects) || [];
  
     const dispatch = useDispatch();
@@ -26,6 +28,8 @@ function ProjectPagination() {
       };     
     useEffect(()=> {
         dispatch(getProjects())
+        dispatch(getUsers())
+        dispatch(getCategories())
     },[])
     
   return (
@@ -42,7 +46,7 @@ function ProjectPagination() {
             !showDetails.status
             ?
             <>
-            <All currentItems={currentItems} setShowDetails={setShowDetails} />
+            <All currentItems={currentItems} setShowDetails={setShowDetails} users={users} categories={categories}/>
             <ReactPaginate
             breakLabel="..."
             nextLabel={mobile ? '>>' : "برگه بعدی >>"}
@@ -58,7 +62,7 @@ function ProjectPagination() {
             />
             </>
             :
-            <Edit details={showDetails.value} setShowDetails={setShowDetails}/>
+            <Edit details={showDetails.value} setShowDetails={setShowDetails} users={users} categories={categories}/>
         }
         </>
     }

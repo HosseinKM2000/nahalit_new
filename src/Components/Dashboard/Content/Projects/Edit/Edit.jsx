@@ -1,21 +1,25 @@
 import React, { useRef, useState } from 'react';
 import { BiSolidChevronsRight } from 'react-icons/bi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
+import { MdCancel } from 'react-icons/md';
+import moment from 'moment-jalaali';
+import { editProject } from '../../../../../features/dashboard/action';
 
-function Edit({ details , setShowDetails}) {
-    const [dropCate,setDropCate] = useState({status:false,value:null})
-    const [desc,setDesc] = useState('');
+function Edit({ details , setShowDetails , users  , categories}) {
+    const [dropCate,setDropCate] = useState({status:false,value:categories.find(cate => cate.id === details.category_id)?.title,id:categories.find(cate => cate.id === details.category_id)?.id})
+    const [desc,setDesc] = useState(details.description);
+    const loading = useSelector(state => state.dashboard.editProjectLoading);
     const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
-    const categoryRef = useRef();
     const titleRef = useRef();
     const supervisorRef = useRef();
     const priceRef  = useRef();
     const statusRef  = useRef();
+    const confirmRef  = useRef();
     const progressRef  = useRef();
 
     const formKeyNotSubmit = (e) => {
@@ -27,51 +31,125 @@ function Edit({ details , setShowDetails}) {
     }
     const formSubmitter = (e) => {
         e.preventDefault()
-        const formData = {
+        const dataObj = {
             title:titleRef.current.value,
-            category_id:categoryRef,
+            category_id:JSON.parse(supervisorRef.current.value),
             description:desc,
+            price:priceRef.current.value.replaceAll(",",""),
+            confirm:confirmRef.current.value,
+            progress:progressRef.current.value,
+            supervisor_id:supervisorRef.current.value,
+            status:statusRef.current.value,
         }
+        switch(true)
+        {
+            case dataObj.title.length === 0 : toast.warn("عنوان را وارد کنید");
+            break;
+            case dataObj.title.length < 3 : toast.warn("عنوان کوتاه است");
+            break;
+            case dataObj.description.length === 0 : toast.warn("توضیح را وارد کنید");
+            break;
+            case dataObj.supervisor_id === null : toast.warn("سرپرست را مشخص کنید");
+            break;
+            case dataObj.price.length === 0 : toast.warn('قیمت را وارد کنید');
+            break;
+            case dataObj.progress === '' : toast.warn('درصد پیشرفت را وارد کنید');
+            break;
+            case dataObj.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
+            break;
+            default : sendProduct(dataObj)
+        }
+    }
+
+    const sendProduct = (dataObj) => {
+        dispatch(editProject(details.id,dataObj))
     }
 
   return (
     <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
-        <div className='w-full bg-[#C0D9DB] p-2'>
+        <div className='w-full bg-[#C0D9DB] p-2 flex justify-between items-center'>
             <h1 className='font-semibold text-lg text-stone-800'>جزئیات</h1>
+            <MdCancel className='text-red-600 font-bold text-3xl transition-all hover:text-red-500' onClick={(e)=>{
+                setShowDetails({status:false,value:''});
+                dispatch(setScrollUp())
+            }}/>
         </div>
-        <form className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
+        <form onSubmit={formSubmitter} className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
             {/* title */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="title" className='font-semibold text-[#2e424a]'>عنوان</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title'/>
+                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='title' defaultValue={details.title}/>
             </div>
             {/* supervisor */}
             <div className='flex flex-col gap-2 w-full'>
-                <label htmlFor="title" className='font-semibold text-[#2e424a]'>سرپرست</label>
-                <input type="text" className='p-1  outline-[#0ab694] w-full' ref={supervisorRef} required={true} name='title'/>
+                <label htmlFor="supervisor" className='font-semibold text-[#2e424a]'>سرپرست</label>
+                <select id="supervisor" ref={supervisorRef} className='py-1'>
+                    <option value={users.find(user => user.id === details.supervisor_id)?.id} >{`${users.find(user => user.id === details.supervisor_id)?.first_name} ${users.find(user => user.id === details.supervisor_id)?.last_name}`}</option>
+                    {
+                        users.map(user => (
+                            <option value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+                        ))
+                    }
+                </select>
             </div>
            {/* describe */}
-            <Editor setDesc={setDesc}/>
+            <Editor setDesc={setDesc} desc={desc}/>
             {/* categories */}
             <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
-            {/* file */}
-            <div className='flex items-start flex-col gap-2 w-full'>
-                <label htmlFor="file" className='font-semibold text-[#2e424a]'>فایل</label>
-                <input type="file" name="file" id="" />
-            </div>
                 {/* status */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="status" className='font-semibold text-[#2e424a]'>وضعیت</label>
                 <select name="status" id="" ref={statusRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
-                    <option value="doing">در حال انجام</option>
-                    <option value="completed">کامل شد</option>
-                    <option value="canceled">لغو شد</option>
+                    {
+                        details.status === "waiting"
+                        ?
+                        <>
+                        <option value="waiting">در حال انجام</option>
+                        <option value="answered">اتمام پروژه</option>
+                        <option value="failed">لغو شد</option>
+                        </>
+                        :
+                        details.status === "failed"
+                        ?
+                        <>
+                        <option value="failed">لغو شد</option>
+                        <option value="waiting">در حال انجام</option>
+                        <option value="answered">اتمام پروژه</option>
+                        </>
+                        :
+                        <>
+                        <option value="answered">اتمام پروژه</option>
+                        <option value="waiting">در حال انجام</option>
+                        <option value="failed">لغو شد</option>
+                        </>
+                    }
+                </select>
+            </div>
+                {/* confirm */}
+            <div className='flex flex-col gap-2 w-full'>
+                <label htmlFor="confirm" className='font-semibold text-[#2e424a]'></label>
+                <select name="confirm" id="" ref={confirmRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
+                    {
+                        details.confirm === 0
+                        ?
+                        <>
+                        <option value={0}>عدم تایید</option>
+                        <option value={1}>تایید</option>
+                        </>
+                        :
+                        <>
+                        <option value={1}>تایید</option>
+                        <option value={0}>عدم تایید</option>
+                        </>
+                    }
                 </select>
             </div>
                 {/* progress */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="persent" className='font-semibold text-[#2e424a]'>پیشرفت</label>
-                <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
+                <div className='flex items-center gap-1'>
+                    <span>%</span>
+                    <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef} defaultValue={details.progress}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
                     if(e.target.value.search(/\D+/g) !== -1)
                         {
                         e.target.value = ''
@@ -83,35 +161,33 @@ function Edit({ details , setShowDetails}) {
                         toast.warn("مقدار قابل قبول نیست")
                     }
                         }}/>
+                </div>
             </div>
                 {/* price */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="price" className='font-semibold text-[#2e424a]'>مبلغ</label>
-                <input type="text" name="price" id="" placeholder='به تومان...' ref={priceRef}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
-                    if(e.target.value.search(/\D+/g) !== -1)
-                        {
-                        e.target.value = ''
-                        toast.warn("مقدار قابل قبول نیست")
-                        }}}/>
+                <input type="number" name="price" id="" placeholder='به تومان...' ref={priceRef} defaultValue={details.price}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'/>
             </div>
-            {/* create */}
+            {/* created */}
             <div className='w-full flex items-center gap-3'>
              <label htmlFor="create" className='font-semibold text-[#2e424a]'>تاریخ ایجاد:</label>
-             <span>{details.start_date}</span>
+             <span className='font-[shabnamBold]'>{moment(details.created_at).format("jYYYY/jMM/jDD")}</span>
             </div>
-                {/* update */}
+                {/* updated */}
             <div className='w-full flex items-center gap-3'>
              <label htmlFor="update" className='font-semibold text-[#2e424a]'>تاریخ بروزرسانی:</label>
-             <span>{details.start_date}</span>
+             <span className='font-[shabnamBold]'>{moment(details.updated_at).format("jYYYY/jMM/jDD")}</span>
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
              <div className='flex items-center 2xl:w-[30%] w-[80%] sm:w-[50%] justify-between'>
-             <button type='button' className='w-[100%] bg-[#e5bc27] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fdc702] text-white font-bold text-xl py-1 rounded-sm'>ویرایش</button>
+             <button type='submit' className='w-[100%] bg-[#ddb730] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#fdc702] text-white font-bold text-lg py-1 rounded-sm'>
+                {
+                    loading
+                    ?<img src="/img/Rolling-0.8s-200px.svg" alt="loading..." className='w-[30px] mx-auto'/>
+                    :"ویرایش"
+                }
+             </button>
              </div>
-             <button type='button' className='w-[80%] sm:w-[50%] 2xl:w-[30%] bg-[#ec9807] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#eea300] text-white font-bold text-xl py-1 rounded-sm justify-center flex items-center' onClick={()=>{
-                setShowDetails({status:false,value:''});
-                dispatch(setScrollUp())
-             }}><BiSolidChevronsRight/></button>
            </div>
         </form>
     </div>

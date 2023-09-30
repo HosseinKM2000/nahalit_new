@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import Details from '../Details/Details';
 import Orders from '../Orders';
-import { getOrders } from '../../../../../features/dashboard/action';
+import { getOrders, getUsers } from '../../../../../features/dashboard/action';
 
 function OrdersPagination() {
     const [showDetails,setShowDetails] = useState({status:false,value:''});
     const [itemOffset, setItemOffset] = useState(0);
     const orders = useSelector(state => state.dashboard.orders);
+    const users = useSelector(state => state.dashboard.users);
     const loading = useSelector(state => state.dashboard.ordersLoading);
     const dispatch = useDispatch();
     const mobile = window.innerWidth <= 425 ? true : false;
@@ -25,6 +26,7 @@ function OrdersPagination() {
 
     useEffect(() => {
       dispatch(getOrders())
+      dispatch(getUsers())
     },[])
 
       return (
@@ -39,7 +41,7 @@ function OrdersPagination() {
               !showDetails.status
               ?
               <>
-              <Orders currentItems={currentItems} setShowDetails={setShowDetails} />
+              <Orders currentItems={currentItems} setShowDetails={setShowDetails} users={users}/>
               <ReactPaginate
               breakLabel="..."
               nextLabel={mobile ? '>>' : "برگه بعدی >>"}

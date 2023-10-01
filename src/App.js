@@ -59,6 +59,8 @@ import { ToastContainer } from "react-toastify";
 import ConfirmNumberAlert from "./Components/ConfirmNumberAlert/ConfirmNumberAlert";
 import ConfirmNumberPage from "./page/Authentication/ConfirmNumberPage/ConfirmNumberPage";
 import ForgetPassword from "./page/Authentication/ForgetPassword/ForgetPassword";
+import Privacy from "./page/Privacy/Privacy";
+import Orders from "./page/UserPanel/Orders";
 
 const App = () => {
   return (
@@ -119,6 +121,7 @@ const App = () => {
             <Route path="cart" element={<Cart/>}/>
             <Route path="favorites" element={<Favorites/>}/>
             <Route path="userProfile" element={<UserProfile/>}/>
+            <Route path="orders" element={<Orders/>}/>
           </Route>
           <Route path="about_us" element={<About_us/>}/>
           <Route path="be_seller" element={<BeSeller/>}/>
@@ -126,6 +129,7 @@ const App = () => {
           <Route path="SocialMediaBot" element={<SocialMediaBot/>}/>
           <Route path="confirmNumber" element={<ConfirmNumberPage/>}/>
           <Route path="ForgetPassword" element={<ForgetPassword/>}/>
+          <Route path="privacy_and_policy" element={<Privacy/>}/>
         </Routes>
       </div>
       <ApiLoading/>

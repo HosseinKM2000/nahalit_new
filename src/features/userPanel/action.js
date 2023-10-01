@@ -24,12 +24,17 @@ export const updateUserInfo = createAsyncThunk("userPanel/updateUserInfo" , asyn
 })
 
 export const changeUserPassword = createAsyncThunk("userPanel/changeUserPassword" , async (dataObj) => {
-    const response = await instance.post(`/users/changePassword`,dataObj);
-    const { data } = response;
-    return data;
-})
-
-export const showUserInfo = createAsyncThunk("userPanel/showUserInfo" , async () => {
-    const { data , status , request } = await instance.get(`/users/show`);
-    console.log(status)
+    try {
+        const response = await instance.post(`/users/changePassword`,dataObj);
+        return { data : response.data };
+    }
+    catch (axiosError) {
+        let err = axiosError
+        return{
+            error:{
+                status : err?.status,
+                data : err.response?.data || err.massage 
+            }
+        }
+    }
 })

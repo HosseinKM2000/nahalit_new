@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { Active, deActive } from '../../../features/loading/loadingSlice';
 import moment from 'moment-jalaali';
 
-const TableItem = ({ cartItem }) => {
+const TableItem = ({ cartItem , discounts , discountIds }) => {
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart.cart);
   const users = useSelector(state => state.dashboard.users);
@@ -41,7 +41,7 @@ const TableItem = ({ cartItem }) => {
     const options = {style: 'decimal'};
     return number.toLocaleString('fa-IR', options) + ' تومان';
   }
-console.log(cartItem)
+
   return (
     <tr className="border flex flex-col  lg:flex-row w-[100%] pb-3 mx-auto items-center justify-between pl-3 lg:py-1 hover:bg-[#f7f7f7] bg-[#fafafa] text-gray-600 text-center shadow-md">
       <td className="py-5 md:py-1  px-4">
@@ -61,7 +61,16 @@ console.log(cartItem)
       </td>
       <div className='flex items-center flex-col lg:flex-row'>
       <td className="p-4">
-        <span className='font-[shabnam]'>{addSignToMoney(cartItem.price)}</span>
+        {
+          discountIds.includes(cartItem.id)
+          ?
+          <div className='flex items-center gap-5'>
+            <span className='font-[shabnam] line-through'>{addSignToMoney(cartItem.price)}</span>
+            <span className='font-[shabnam]'>{addSignToMoney(discounts.find(dis => dis.product_id === cartItem.id)?.value * cartItem.price / 100)}</span>
+          </div>
+          :
+          <span className='font-[shabnam]'>{addSignToMoney(cartItem.price)}</span>
+        }
       </td>
       <div>
             <button

@@ -18,7 +18,6 @@ function Pagination() {
     const itemsPerPage = 12;
     const products = useSelector(state => state.products.FilteredProducts);
     const isLoading = useSelector(state => state.products.isLoading);
-    const baskets = useSelector(state => state.cart.baskets);
     const LoadingStatus = useSelector(state => state.cart.loading);
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = products.slice(itemOffset, endOffset);

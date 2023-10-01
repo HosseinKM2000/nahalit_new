@@ -54,18 +54,19 @@ const authenticationSlice = createSlice({
             if(action.payload.error){
                 state.loading = false;
                 state.redirect = false;
-                toast.warning(action.payload.error.data.massage)
+                toast.warning(action.payload.error.data?.massage)
+                console.log(action)
             }
             else
             {
                 state.loading = false;
                 state.redirect = true;
-                toast.success(action.payload.data.massage)
+                toast.success(action.payload.data?.massage);
+                console.log(action)
                 localStorage.setItem("access_token",action.payload.data.token)
                 Cookies.set("user",JSON.stringify(action.payload.data.user))
                 state.loginStatus = true;
             }
-            console.log(action)
         })
         .addCase(login.pending,(state) => {
             state.loading = true;

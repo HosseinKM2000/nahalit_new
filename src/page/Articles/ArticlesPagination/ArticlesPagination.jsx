@@ -13,7 +13,8 @@ import { Active, deActive } from '../../../features/loading/loadingSlice';
 function ArticlesPagination() {
 
     const [itemOffset, setItemOffset] = useState(0);
-    const articles = useSelector(state => state.articles.articles);
+    let articles = useSelector(state => state.articles.articles);
+    articles = articles.filter(art => art.is_active === 1);
     const isLoading = useSelector(state => state.articles.isLoading);
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
@@ -26,7 +27,7 @@ function ArticlesPagination() {
       window.scrollTo({top:0,behavior:'instant'})
       setItemOffset(newOffset);
     };
-
+    console.log(articles)
     useEffect(() => {
       dispatch(getArticles());
     },[])

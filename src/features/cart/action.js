@@ -21,3 +21,32 @@ export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => 
     const { data } = response;
     return data;
 })
+export const addOrder = createAsyncThunk("cart/addOrder" , async (dataObj) => {
+    const response = await instance.post('/orders',dataObj);
+    const { data } = response;
+    return data;
+    // try{
+    //     const [response1, response2] = await Promise.all([
+    //         await instance.post('/orders',dataObj),
+    //         await instance.delete(`/baskets/${id}`)
+    //     ]);
+    
+    //     return { res:response1.data,
+    //              newData:response2.data 
+    //            };
+    // }
+    // catch(axiosError){
+    //     let err = axiosError;
+    //     return {
+    //         error: {
+    //             status: err.response?.status,
+    //             data: err.response?.data || err.massage,
+    //     }
+    //   }
+    // }
+})
+export const getOrderById = createAsyncThunk("cart/getOrderById" , async (id) => {
+    const response = await instance.get(`/orders/${id}`);
+    const { data } = response
+    return data;
+})

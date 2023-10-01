@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBaskets , addBasket , deleteBasket , getBasketsByUserId } from "./action";
+import { getBaskets , addBasket , deleteBasket , getBasketsByUserId , addOrder , getOrderById } from "./action";
 import { toast } from "react-toastify";
 import { data } from "autoprefixer";
 
@@ -8,6 +8,9 @@ const initialState = {
     loading:false,
     baskets:[],
     success:false,
+    successOrder:false,
+    orderProducts:[],
+    order:[]
 }
 
 const cartSlice = createSlice({
@@ -61,6 +64,34 @@ const cartSlice = createSlice({
       .addCase(deleteBasket.rejected, (state,action) => {
         state.loading = false;
         console.log(action)
+      })
+      .addCase(addOrder.fulfilled, (state,action) => {
+        state.loading = false;
+        state.success = !state.success;
+        state.successOrder = true;
+      })
+      .addCase(addOrder.pending, (state,action) => {
+        state.loading = true;
+        state.successOrder = false;
+      })
+      .addCase(addOrder.rejected, (state,action) => {
+        state.loading = false;
+        console.log(action)
+      })
+      .addCase(getOrderById.fulfilled, (state,action) => {
+        state.orderProducts = action.payload.products;
+        state.order = action.payload.order;
+        state.loading = false;
+        console.log(action)
+      })
+      .addCase(getOrderById.pending, (state,action) => {
+        state.orderProducts = [];
+        state.order = [];
+        state.loading = true;
+      })
+      .addCase(getOrderById.rejected, (state,action) => {
+        console.log(action)
+        state.loading = false;
       })
     }
 })

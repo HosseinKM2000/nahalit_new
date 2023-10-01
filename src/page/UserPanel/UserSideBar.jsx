@@ -9,7 +9,7 @@ const UserSideBar = ({ dropMenu , logOutHandle}) => {
         <SideBarLink link={"editProfile"} text={"ویرایش پروفایل"}/>
         <SideBarLink link={"cart"} text={"سبد خرید"}/>
         <SideBarLink link={"favorites"} text={"علاقه مندی ها"}/>
-        <SideBarLink link={"factors"} text={"صورت حساب ها"}/>
+        <SideBarLink link={"orders"} text={"سفارش ها"}/>
         <SideBarLink link={"downloads"} text={"دانلود ها"}/>
         <SideBarLink link={"/"} text={"صفحه اصلی"}/>
         <li>

@@ -31,9 +31,8 @@ function FArticles() {
 
       useEffect(() => {
         if(favArticlesID.length !== 0) setFavoriteArt(filterProductsById(favArticlesID,articles));
-      },[])
+      },[articles])
 
-    console.log(favoriteArt)
     const deleteFromFavorites = (id) => {
         setFavoriteArt(favoriteArt.filter(item => item.id !== id));
         let list = JSON.stringify(favArticlesID.filter(item => item !== id))

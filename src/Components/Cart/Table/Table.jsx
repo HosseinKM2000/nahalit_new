@@ -1,7 +1,7 @@
 import React from "react";
 import TableItem from '../TableItem/TableItem';
 
-const Table = ({ goalProducts }) => {
+const Table = ({ goalProducts , discounts , discountIds }) => {
 
   return (
     <div className="relative overflow-x-auto w-full">
@@ -16,7 +16,7 @@ const Table = ({ goalProducts }) => {
         </thead>
         <div>
           <tbody className="flex flex-wrap lg:flex-col justify-start h-fit gap-y-4 py-3 w-full">
-            {goalProducts?.map(cartItem => <TableItem cartItem={cartItem}/>)}
+            {goalProducts?.map(cartItem => <TableItem cartItem={cartItem} discounts={discounts} discountIds={discountIds}/>)}
           </tbody>
         </div>
       </table>

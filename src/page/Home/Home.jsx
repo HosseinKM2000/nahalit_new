@@ -20,6 +20,7 @@ import { getBlogs } from "../../features/dashboard/action";
 
 const Home = () => {
   const products = useSelector(state => state.products.products);
+  const discounts = useSelector(state => state.products.discounts);
   const blogs = useSelector(state => state.dashboard.blogs);
   let latestProducts = products.slice().reverse();
   let latestBlogs = blogs.slice().reverse().slice(0,3);
@@ -57,7 +58,7 @@ const Home = () => {
           <ServicesHomePage />
         </section>
         <section className="mt-[8rem]">
-          <CustomSlider title={"جدیدترین محصولات"} items={latestProducts}/>
+          <CustomSlider title={"جدیدترین محصولات"} items={latestProducts} discounts={discounts}/>
         </section>
         <section className="my-[8rem] flex justify-center items-center">
           <AboutSite />
@@ -66,7 +67,7 @@ const Home = () => {
           <OurProduct />
         </section>
         <section className="mt-14">
-          <CustomSlider title={"قالب های وردپرسی"} items={wordPressPlugins}/>
+          <CustomSlider title={"قالب های وردپرسی"} items={wordPressPlugins} discounts={discounts}/>
         </section>
         <section className="mt-24">
           <News />

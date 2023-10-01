@@ -7,6 +7,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
+    config.headers["Content-Type"] = "application/json"
+    config.headers.Accept = "application/json"
     return config
 }, function (error) {
     if (401 === error.response.code) {

@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { MdUpdate } from "react-icons/md";
 import moment from "moment-jalaali";
 
-const CustomSlider = ({ title , items }) => {
+const CustomSlider = ({ title , items , discounts }) => {
   const sliderRef = useRef();
   const navigate = useNavigate();
+  const discountIds = discounts.map(dis => dis.product_id);
   const swiperCustome = (data) => {
     if (sliderRef.current) {
       const width = sliderRef.current.offsetWidth;
@@ -70,7 +71,16 @@ const CustomSlider = ({ title , items }) => {
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-end w-full gap-x-2">
-                    <p className="bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white font-[shabnamBold]">{addSignToMoney(product.price)}</p>
+                    {
+                      discountIds.includes(product.id)
+                      ?
+                        <div className="flex items-center gap-3 bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white">
+                            <p className="font-[shabnamBold] line-through">{addSignToMoney(product.price)}</p>
+                            <p className="font-[shabnamBold]">{addSignToMoney(product.price*discounts.find(dis => dis.product_id === product.id)?.value/100)}</p>
+                        </div>
+                      :
+                      <p className="bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white font-[shabnamBold]">{addSignToMoney(product.price)}</p>
+                    }
                   </div>
                 </div>
               </div>

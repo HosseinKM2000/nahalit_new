@@ -13,7 +13,6 @@ function ProductsPage({currentItems}) {
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]);
     const dispatch = useDispatch();
-    const LoadingStatus = useSelector(state => state.cart.loading);
     const discounts = useSelector(state => state.products.discounts);
     const discountIds = discounts.map(discount => discount.product_id);
 

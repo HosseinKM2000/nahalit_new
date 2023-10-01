@@ -124,6 +124,9 @@ const Footer = () => {
           <li>
             <Link to={"/shop"} className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">فروشگاه</Link>
           </li>
+          <li>
+            <Link to={"/privacy_and_policy"} className="hover:bg-[#4CA449] px-3 py-2 rounded-md transition-all duration-300 text-[#c5c3c3]">سیاست و حریم خصوصی</Link>
+          </li>
         </ul>
         <div className="flex items-center justify-center mt-3 sm:mt-0 gap-x-1 mr-10">
           <HiCode

@@ -37,14 +37,18 @@ const userPanelSlice = createSlice({
         })
         .addCase(changeUserPassword.fulfilled, (state,action) => {
             state.isLoading = false; 
-            toast.success(action.payload.massage);
+            if(action.payload.error){
+                toast.error(action.payload.error.data.massage)
+            }
+            else {
+                toast.success(action.payload.data.massage)
+            }
         })
         .addCase(changeUserPassword.pending, (state,action) => {
             state.isLoading = true; 
         })
         .addCase(changeUserPassword.rejected, (state,action) => {
             state.isLoading = false; 
-            toast.error("لطفا صحت اطلاعات وارد شده را بررسی کنید")
             console.error(action)
         })
     }

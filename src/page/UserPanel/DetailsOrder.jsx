@@ -66,7 +66,7 @@ function DetailsOrder(props) {
                     ?
                     <div>
                      <button className='w-full text-[#736000] rounded-sm hover:brightness-105 font-[shabnamBold] py-2' style={{background:"linear-gradient(90deg, rgba(252,236,0,1) 13%, rgba(255,213,0,1) 100%)"}}>ادامه جهت تسویه حساب</button>
-                     <button className='w-full text-white hover:bg-blue-400 rounded-sm bg-blue-500 mt-3 font-[shabnamBold] py-2'>لغو سفارش</button>
+                     <button className='w-full text-white hover:bg-red-400 rounded-sm bg-red-500 mt-3 font-[shabnamBold] py-2'>لغو سفارش</button>
                     </div>
                     :
                     showDetails.type === "canceled"

@@ -36,7 +36,10 @@ import {
     updateUser,
     getOrders,
     deleteSeller,
-    addSeller
+    addSeller,
+    getCoupons,
+    deleteCoupon,
+    editCoupon
 } from "./action";
 
 const initialState = {
@@ -53,9 +56,11 @@ const initialState = {
     products:[],
     projects:[],
     discounts:[],
+    coupons:[],
     productsLoading:false,
     discountsLoading:false,
     deleteProductSuccess:false,
+    couponsSuccess:false,
     usersLoading:false,
     sellerLoading:false,
     deleteGallerySuccess:false,
@@ -694,6 +699,20 @@ const dashboardSlice = createSlice({
         })
 
 
+        // get coupons
+        .addCase(getCoupons.fulfilled,(state,action) => {
+            state.couponLoading = false;
+            state.coupons = action.payload.data;
+        })
+        .addCase(getCoupons.pending,(state,action) => {
+            state.couponLoading = true;
+        })
+        .addCase(getCoupons.rejected,(state,action) => {
+            state.couponLoading = false;
+            console.log(action)
+        })
+
+
         // add coupon
         .addCase(addCoupon.fulfilled,(state,action) => {
             state.couponLoading = false;
@@ -705,6 +724,35 @@ const dashboardSlice = createSlice({
         .addCase(addCoupon.rejected,(state,action) => {
             state.couponLoading = false;
             toast.error('خطا در  ذخیره کوپن')
+        })
+
+
+        // delete coupon
+        .addCase(deleteCoupon.fulfilled,(state,action) => {
+            state.couponLoading = false;
+            state.couponsSuccess = !state.couponsSuccess;
+            toast.success("کوپن با موفقیت حذف شد")
+        })
+        .addCase(deleteCoupon.pending,(state,action) => {
+            state.couponLoading = true;
+        })
+        .addCase(deleteCoupon.rejected,(state,action) => {
+            state.couponLoading = false;
+            toast.error('خطا در  حذف کوپن')
+        })
+
+
+        // edit coupon
+        .addCase(editCoupon.fulfilled,(state,action) => {
+            state.couponLoading = false;
+            toast.success("ویرایش با موفقیت انجام شد")
+        })
+        .addCase(editCoupon.pending,(state,action) => {
+            state.couponLoading = true;
+        })
+        .addCase(editCoupon.rejected,(state,action) => {
+            state.couponLoading = false;
+            toast.error('خطا در  ویرایش کوپن')
         })
     }
 })

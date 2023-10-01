@@ -1,9 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import AllCoupons from './AllCoupons/AllCoupons';
-import NewCoupon from './NewCoupon/NewCoupon';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import CouponPagination from './CouponPagination/CouponPagination';
+import NewCoupon from './NewCoupon/NewCoupon';
 
 function Coupons() {
     const [innerComponent,setInnerComponent] = useState(<></>);
@@ -11,7 +9,7 @@ function Coupons() {
     useEffect(()=>{
         switch(Criterion)
         {
-            case 'all' : setInnerComponent(<AllCoupons/>);
+            case 'all' : setInnerComponent(<CouponPagination/>);
             break;
             case 'new' : setInnerComponent(<NewCoupon/>)
             break;
@@ -20,7 +18,7 @@ function Coupons() {
     },[Criterion])
 
   return (
-    <div className='w-full h-full p-3 md:p-10'>
+    <div className='container mx-auto flex justify-center items-center h-full p-3 md:p-10'>
         {
             innerComponent
         }

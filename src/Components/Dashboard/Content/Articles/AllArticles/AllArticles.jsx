@@ -5,7 +5,6 @@ import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import HTMLRenderer from 'react-html-renderer';
 
 function AllArticles({currentItems}) {
-  console.log(currentItems)
   const wholeBlogs = useSelector(state => state.dashboard.blogs);
   const dispatch = useDispatch();
 

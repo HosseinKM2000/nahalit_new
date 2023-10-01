@@ -249,8 +249,23 @@ export const getOrders = createAsyncThunk("dashboard/getOrders" , async () => {
 
 
 // coupons
+export const getCoupons = createAsyncThunk("dashboard/getCoupons" , async () => {
+    const response = await instance.get(`/coupons`);
+    const { data } = response;
+    return data;
+})
 export const addCoupon = createAsyncThunk("dashboard/addCoupon" , async (dataObj) => {
     const response = await instance.post(`/coupons`,dataObj);
+    const { data } = response;
+    return data;
+})
+export const deleteCoupon = createAsyncThunk("dashboard/deleteCoupon" , async (id) => {
+    const response = await instance.delete(`/coupons/${id}`);
+    const { data } = response;
+    return data;
+})
+export const editCoupon = createAsyncThunk("dashboard/editCoupon" , async ({id,dataObj}) => {
+    const response = await instance.put(`/coupons/${id}`,dataObj);
     const { data } = response;
     return data;
 })

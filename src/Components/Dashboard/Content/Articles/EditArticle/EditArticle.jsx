@@ -35,7 +35,7 @@ function EditArticle() {
             title:titleRef.current.value,
             image:imageName,
             body:desc,
-            is_active:situationRef.current.value,
+            is_active:JSON.parse(situationRef.current.value),
             user_id:JSON.parse(Cookies.get('user')).id
         }
         switch(true)
@@ -60,6 +60,7 @@ function EditArticle() {
             formdata.append("is_active", form.is_active);
             formdata.append("image", form.image , `${imageRef.current.value}`);
             dispatch(editBlog({id:goalArticle.id,formdata}))
+            console.log(form)
     }
 
 
@@ -86,7 +87,6 @@ function EditArticle() {
                 <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
                 <input onChange={(e)=>{
                     setImageName(e.target.files[0])
-                    console.log(e.target.files[0])
                 }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
             {/* describe */}

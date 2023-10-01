@@ -106,15 +106,16 @@ export const getGalleries = createAsyncThunk('dashboard/getGalleries', async () 
     return response;
 })
 
-export const addGallery = createAsyncThunk('dashboard/addGallery', async ({id,formObj}) => {
-    const response = await instance.post(`/galleries/${id}`,formObj)
+export const addGallery = createAsyncThunk('dashboard/addGallery', async ({id,formdata}) => {
+    const response = await instance.post(`/galleries/${id}`,formdata)
     let { status } = response;
     return status;
 })
 
 export const deleteGallery = createAsyncThunk('dashboard/deleteGallery', async (id) => {
     const response = await instance.delete(`/galleries/${id}`);
-    return response;
+    const {data} = response;
+    return data;
 })
 
 export const getGalleryById = createAsyncThunk('dashboard/getGalleryById', async (id) => {

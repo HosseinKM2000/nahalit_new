@@ -50,7 +50,6 @@ function NewProduct() {
             image:imageName,
             category_id:dropCate.id,
             price:JSON.parse(priceValue.replaceAll(',','')),
-            discount:JSON.parse(discountValue),
             description:desc,
             seller_id:userId,
         }
@@ -68,8 +67,6 @@ function NewProduct() {
             case form.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
             break;
             case form.price === 0 : toast.warn("قیمت را وارد کنید");
-            break;
-            case form.discount === 0 : toast.warn("تخفیف را وارد کنید");
             break;
             default : sendProduct(form)
         }

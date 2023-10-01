@@ -21,14 +21,28 @@ export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => 
     const { data } = response;
     return data;
 })
-export const addOrder = createAsyncThunk("cart/addOrder" , async (dataObj) => {
-    const response = await instance.post('/orders',dataObj);
+export const addOrder = createAsyncThunk("cart/addOrder" , async ({userId,dataObj}) => {
+    const response = await instance({
+        headers:{
+            "Content-Type":"application/json",
+        },
+        data:dataObj,
+        method:"post",
+        url:'/orders'
+    });
     const { data } = response;
     return data;
     // try{
     //     const [response1, response2] = await Promise.all([
-    //         await instance.post('/orders',dataObj),
-    //         await instance.delete(`/baskets/${id}`)
+    //         await instance({
+    //             headers:{
+    //                 "Content-Type":"application/json",
+    //             },
+    //             data:dataObj,
+    //             method:"post",
+    //             url:'/orders'
+    //         }),
+    //         await instance.delete(`/baskets/${userId}`)
     //     ]);
     
     //     return { res:response1.data,

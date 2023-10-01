@@ -14,7 +14,7 @@ function ADbasketBtn({ productId }) {
 
   return (
     <div>
-      <button onClick={addToBasket} className='fixed bottom-0 items-center w-full text-white font-bold px-3 py-3 transition-all hover:bg-green-500  2xl:py-5 flex justify-center gap-2 bg-green-600 z-[49]]'>
+      <button onClick={addToBasket} className='fixed bottom-0 items-center w-full text-white font-bold px-3 py-3 transition-all hover:bg-green-500  2xl:py-5 flex justify-center gap-2 bg-green-600 z-[49]'>
         <GiBasket/>
         <span>افزودن به سبد خرید</span>
       </button>

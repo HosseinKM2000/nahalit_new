@@ -77,7 +77,7 @@ function RightSide({ goalProduct }) {
                     </div>
                         {/* junction-path */}
                     <div className='flex flex-col sm:flex-row w-full sm:w-auto  items-center justify-between gap-y-3 py-8 px-4 my-10 text-white bg-light-blue'>
-                        <span className='text-xs sm:text-sm flex items-center text-center sm:text-start '>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
+                        <span className='text-xs sm:text-sm flex items-center text-center sm:text-start font-[shabnam]'>راه آسان تری برای ارتباط با کاربرانمان پیدا کرده ایم :)</span>
                         <button className='border-2  2xl:py-1 2xl:px-4 border-white px-2 py-1  btn-telegram transition-all'><Link to='https://telegram.me/nahal_it'>عضویت در کانال </Link></button>
                     </div>
                         {/* Suggested-contents */}

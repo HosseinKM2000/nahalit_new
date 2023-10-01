@@ -15,13 +15,13 @@ function ProductGallerySlider({ Id }) {
     const gallery = useSelector(state => state.dashboard.gallery);
     useEffect(()=>{
         dispatch(getGalleryById(Id))
-    },[])
+    },[Id])
 
   return (
     <div className='gallery_box'>
         <span className='text-[1.2rem] font-bold text-stone-700 m-0 w-full text-start'>تصاویر محصول</span>
         {
-            gallery.length === 0 
+            gallery?.length === 0 
             ?
             <p className='mt-5 font-[shabnamThin] text-base text-yellow-900'>هنوز تصویری برای این محصول اضافه نشده</p>
             :

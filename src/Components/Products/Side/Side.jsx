@@ -20,7 +20,6 @@ function Side() {
       setMaxPrice(MaxPrice)
       setMinValue(MinPrice)
       setMaxValue(MaxPrice)
-      console.log(productsCate)
     },[MinPrice,MaxPrice])
 
     const selectHandle = (e) => {

@@ -66,9 +66,16 @@ const cartSlice = createSlice({
         console.log(action)
       })
       .addCase(addOrder.fulfilled, (state,action) => {
-        state.loading = false;
+        // if(action.payload.error) {
+        //   console.log(action)
+        // } else {
+        //   state.success = !state.success;
+        //   state.successOrder = true;
+        // }
         state.success = !state.success;
         state.successOrder = true;
+        state.loading = false;
+        console.log(action)
       })
       .addCase(addOrder.pending, (state,action) => {
         state.loading = true;
@@ -76,6 +83,7 @@ const cartSlice = createSlice({
       })
       .addCase(addOrder.rejected, (state,action) => {
         state.loading = false;
+        toast.error("خطا در ثبت محصول")
         console.log(action)
       })
       .addCase(getOrderById.fulfilled, (state,action) => {

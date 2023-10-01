@@ -39,10 +39,10 @@ function NewGallery({ newImg , setNewImg }) {
   }
 
   const addGalleryFnc = form => {
-    let formObj = new FormData();
-    formObj.append("title",form.title);
-    formObj.append("image", imageRef.current.files[0] , imageName);
-    dispatch(addGallery({id:newImg.id,formObj}))
+    let formdata = new FormData();
+    formdata.append("title",form.title);
+    formdata.append("image", imageRef.current.files[0] , form.imageName);
+    dispatch(addGallery({id:newImg.id,formdata}))
   }
 
   return (

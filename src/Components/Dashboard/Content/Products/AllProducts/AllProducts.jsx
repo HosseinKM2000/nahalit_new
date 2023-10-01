@@ -38,9 +38,9 @@ function AllProducts({ currentItems , setIsEdit , setShowGallery }) {
   
   return (
       <div className='flex flex-col w-full 2xl:w-[70%]'>
-      <span className='w-full text-white font-bold'>تعداد محصولات ( {products !== [] ? products.length : 'NaN'} )</span>
+      <span className='w-full text-white font-bold'>تعداد محصولات ( {products.length !== 0 ? products.length : 'NaN'} )</span>
       {
-      products !== []
+      products.length !== 0
       ?
       <>
       {

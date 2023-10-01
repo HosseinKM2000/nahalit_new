@@ -12,17 +12,21 @@ function ProductGallery({ showGallery , setShowGallery }) {
     const [galleryId,setGalleryId] = useState("");
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.galleryLoading);
-    const success = useSelector(state => state.dashboard.deleteGallerySuccess);
+    const deleteSuccess = useSelector(state => state.dashboard.deleteGallerySuccess);
     const gallery = useSelector(state => state.dashboard.gallery);
 
     useEffect(()=>{
       if(!newImg.status){
         dispatch(getGalleryById(showGallery.id))
       }
+
+    },[newImg.status,deleteSuccess]);
+
+    useEffect(() => {
       if(!loading){
         setGalleryId("")
       }
-    },[success,newImg.status]);
+    },[])
 
     const deleteGalleryFnc = id => {
       setGalleryId(id);

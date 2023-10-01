@@ -19,4 +19,7 @@
     padding-top: 20px;
     padding-bottom: 50px;
   }
-  
+ .swiper-slide-shadow-right
+ {
+  background-image: none !important;
+ }

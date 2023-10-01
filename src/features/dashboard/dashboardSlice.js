@@ -84,6 +84,7 @@ const initialState = {
     addSuccess : false,
     scrollUp:false,
     deleteSuccess : false,
+    getGallerySuccess : false,
     editSuccess : false,
     articleLoading:false,
     workSamplesLoading:false,
@@ -405,13 +406,15 @@ const dashboardSlice = createSlice({
         })
         .addCase(addGallery.rejected, (state,action) => {
             state.galleryLoading = false;
-                toast.error("گالری ذخیره نشد")
+            console.log(action)
+            toast.error("گالری ذخیره نشد")
         })
 
 
         // delete gallery
         .addCase(deleteGallery.fulfilled,(state,action) => {
             state.galleryLoading = false;
+            state.deleteGallerySuccess = !state.deleteGallerySuccess;
             toast.success("تصویر با موفقیت حذف شد")
             console.log(action)
         })
@@ -426,7 +429,7 @@ const dashboardSlice = createSlice({
         // get gallery by id
         .addCase(getGalleryById.fulfilled,(state,action) => {
             state.galleryLoading = false;
-            state.deleteGallerySuccess = !state.deleteGallerySuccess;
+            state.getGallerySuccess = !state.getGallerySuccess;
             state.gallery = action.payload.data
         })
         .addCase(getGalleryById.pending,(state,action) => {

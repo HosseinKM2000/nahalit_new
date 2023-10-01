@@ -10,7 +10,7 @@ import Editor from '../../../../Editor/Editor';
 function EditProduct({ isEdit , setIsEdit }) {
     const categories = useSelector(state => state.dashboard.categories);
     const [imageName,setImageName] = useState('');
-    const [desc,setDesc] = useState('');
+    const [desc,setDesc] = useState(isEdit.value.description);
     const [dropCate,setDropCate] = useState({status:false,value:categories?.find(cate => cate.id === isEdit.value.category_id ).title,id:isEdit.value.category_id})
     const [priceValue,setPriceValue] = useState(isEdit.value.price);
     const loading = useSelector(state => state.dashboard.productsLoading);
@@ -99,7 +99,7 @@ function EditProduct({ isEdit , setIsEdit }) {
                 <input onChange={(e)=>setImageName(e.target.files[0])} ref={imageRef} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
             </div>
             {/* describe */}
-               <Editor setDesc={setDesc}/>
+               <Editor setDesc={setDesc} desc={desc}/>
             {/* categories */}
              <CategoriesBox dropCate={dropCate} setDropCate={setDropCate}/>
             {/* price */}

@@ -54,7 +54,7 @@ function Main() {
           user_id:userId,
           total:allPrice(goalProducts)
         });
-        dispatch(addOrder(dataObj))
+        dispatch(addOrder({userId,dataObj}))
       }
 
   return (

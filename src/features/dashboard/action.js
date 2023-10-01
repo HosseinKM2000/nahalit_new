@@ -212,7 +212,7 @@ export const deleteUser = createAsyncThunk('dashboard/deleteUser', async (id) =>
 })
 
 
-
+// work_samples
 export const getWorkSamples = createAsyncThunk('dashboard/getWorkSamples' , async () => {
     const response = await instance.get('/work-sample');
     return response;
@@ -242,6 +242,15 @@ export const addSeller = createAsyncThunk("dashboard/addSeller" , async (dataObj
 // orders
 export const getOrders = createAsyncThunk("dashboard/getOrders" , async () => {
     const response = await instance.get('/orders');
+    const { data } = response;
+    return data;
+})
+
+
+
+// coupons
+export const addCoupon = createAsyncThunk("dashboard/addCoupon" , async (dataObj) => {
+    const response = await instance.post(`/coupons`,dataObj);
     const { data } = response;
     return data;
 })

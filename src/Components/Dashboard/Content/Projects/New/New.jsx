@@ -65,7 +65,6 @@ function New() {
 
     const sendProduct = (dataObj) => {
         dispatch(addProject(dataObj))
-        console.log(dataObj)
     }
 
     function separateByCommas(number) {

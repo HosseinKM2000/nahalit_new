@@ -122,8 +122,16 @@ function ProductsPage({currentItems}) {
                                 </del>
                                 <span>-</span>
                                 <div className='flex gap-1 items-center text-green-600'>
-                                    <span className='font-[shabnamBold]'>{separateByCommas(discounts.find(discount => discount.product_id === product.id)?.value * product.price / 100)}</span>
-                                    <span className='font-[shabnamBold]'>تومان</span>
+                                    {
+                                        discounts.find(discount => discount.product_id === product.id)?.value === 100
+                                        ?
+                                        <span>رایگان</span>
+                                        :
+                                        <>
+                                          <span className='font-[shabnamBold]'>{separateByCommas(discounts.find(discount => discount.product_id === product.id)?.value * product.price / 100)}</span>
+                                          <span className='font-[shabnamBold]'>تومان</span>
+                                        </>
+                                    }
                                 </div>
                             </div>
                             :

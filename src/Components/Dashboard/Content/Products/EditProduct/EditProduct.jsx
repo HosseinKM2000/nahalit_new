@@ -1,8 +1,6 @@
 import Cookies from 'js-cookie';
 import { React, useRef, useState } from 'react';
-import { GiCancel } from 'react-icons/gi';
 import { MdCancel } from 'react-icons/md';
-import { TiTickOutline } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { editProduct } from '../../../../../features/dashboard/action';
@@ -13,13 +11,11 @@ function EditProduct({ isEdit , setIsEdit }) {
     const categories = useSelector(state => state.dashboard.categories);
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
-    const [editDiscount,setEditDiscount] = useState(false);
     const [dropCate,setDropCate] = useState({status:false,value:categories?.find(cate => cate.id === isEdit.value.category_id ).title,id:isEdit.value.category_id})
     const [priceValue,setPriceValue] = useState(isEdit.value.price);
     const loading = useSelector(state => state.dashboard.productsLoading);
     const titleRef = useRef();
     const imageRef = useRef();
-    const discountRef = useRef();
     const dispatch = useDispatch();
     
     const formKeyNotSubmit = (e) => {
@@ -112,32 +108,6 @@ function EditProduct({ isEdit , setIsEdit }) {
             <input type="text" name="price" id="" onChange={(e)=>{
                 !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
             }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] w-[20%] text-left font-[shabnambold]' style={{direction:'ltr'}}/>
-            </div>
-            {/* discount */}
-            <div className='w-full flex flex-col gap-2'>
-                    <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
-                    <div className='flex w-[10%]'>
-                    <button className='px-2 py-1 border-2 border-[#ffffffa2] rounded-sm hover:bg-purple-500 transition-all text-white font-bold bg-purple-600' type='button' onClick={(e)=>setEditDiscount(true)}>5%</button>
-                    <button className='px-2 py-1 rounded-sm border-y-2 border-[#ffffffa2] border-l-2 hover:bg-rose-500 transition-all text-white font-bold bg-rose-600'>حذف</button>
-                    </div>
-                    <div className={editDiscount ? 'flex gap-1 w-full items-center mr-1 transition-all h-fit duration-300 overflow-hidden' : 'h-0 p-0 mr-1 flex overflow-hidden'}>
-                        <input ref={discountRef} type="text" className='w-[20%] sm:w-[10%] md:w-[10%] p-1 h-[2rem] font-bold outline-stone-500 text-[#000] font-[shabnambold]' onChange={(e)=>{
-                            if(e.target.value.search(/\D+/g) !== -1)
-                                {
-                                    e.target.value = ''
-                                    toast.warn("مقدار قابل قبول نیست")
-                                }
-                            else if(parseInt(e.target.value) > 100)
-                            {
-                                e.target.value = '100';
-                                toast.warn("مقدار قابل قبول نیست")
-                            }
-                        }}/>
-                        <div className='flex flex-col gap-1 items-center'>
-                            <TiTickOutline className='text-green-800 text-xl transition-all hover:text-green-700'/>
-                            <GiCancel className='text-red-600 transition-all hover:text-red-500' onClick={(e)=>setEditDiscount(false)}/>
-                        </div>
-                    </div>
             </div>
             <button type='submit' className='w-[50%] min-h-[35px] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl rounded-sm'>
                 {

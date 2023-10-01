@@ -6,6 +6,7 @@ import {
     addParentCategories,
     addProduct,
     addProject,
+    addCoupon,
     addDiscount,
     addRole,
     deleteBlog,
@@ -45,6 +46,7 @@ const initialState = {
     productsSwitch:'all',
     rolesSwitch:'all',
     workSampleSwitch:'all',
+    couponSwitch:'all',
     projectSwitch:'all',
     discountSwitch:'all',
     productId:null,
@@ -61,6 +63,7 @@ const initialState = {
     deleteSellerSuccess:false,
     users:[],
     projectsLoading:false,
+    couponLoading:false,
     blogsLoading : false,
     rolesLoading : false,
     editProjectLoading : false,
@@ -70,6 +73,7 @@ const initialState = {
     blogs:[],
     orders:[],
     gallery:[],
+    galleryId:"",
     categoriesLoading:false,
     categoriesError:'',
     addSuccess : false,
@@ -130,6 +134,8 @@ const dashboardSlice = createSlice({
                 case 'projects' : state.projectSwitch = value;
                 break;
                 case 'discount' : state.discountSwitch = value;
+                break;
+                case 'coupon' : state.couponSwitch = value;
                 break;
                 default : console.log('non value')
             }
@@ -685,6 +691,20 @@ const dashboardSlice = createSlice({
         .addCase(getOrders.rejected,(state,action) => {
             state.ordersLoading = false;
             toast.error('خطا در بارگیری  سفارش ها')
+        })
+
+
+        // add coupon
+        .addCase(addCoupon.fulfilled,(state,action) => {
+            state.couponLoading = false;
+            toast.success("کوپن با موفقیت ذخیره شد")
+        })
+        .addCase(addCoupon.pending,(state,action) => {
+            state.couponLoading = true;
+        })
+        .addCase(addCoupon.rejected,(state,action) => {
+            state.couponLoading = false;
+            toast.error('خطا در  ذخیره کوپن')
         })
     }
 })

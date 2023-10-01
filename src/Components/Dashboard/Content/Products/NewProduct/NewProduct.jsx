@@ -10,12 +10,10 @@ function NewProduct() {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState('');
     const [priceValue,setPriceValue] = useState('0');
-    const [discountValue,setDiscountValue] = useState('0');
     const [dropCate,setDropCate] = useState({status:false,value:null,id:null})
     const userId = JSON.parse(Cookies.get("user")).id;
     const titleRef = useRef();
     const imageRef = useRef();
-    const discountRef = useRef();
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.productsLoading);
 
@@ -119,28 +117,6 @@ function NewProduct() {
             <input type="text" name="price" id="" onChange={(e)=>{
                 !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
             }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] font-[shabnambold] w-[20%] text-left' style={{direction:'ltr'}}/>
-            </div>
-               {/* discount */}
-            <div className='w-full flex flex-col gap-2'>
-              <label htmlFor="price" className='font-semibold text-[#2e424a]'>تخفیف</label>
-              <div className='flex gap-1 w-full items-center transition-all duration-300 overflow-hidden'>
-               <input type="text" ref={discountRef} className='w-[10%] p-1 h-[2rem] font-bold outline-stone-500 placeholder:text-xs placeholder:text-stone-300 text-[#000] font-[shabnambold]' placeholder='درصد...' onChange={(e)=>{
-                  if(e.target.value.search(/\D+/g) !== -1)
-                    {
-                    e.target.value = ''
-                    toast.warn("مقدار قابل قبول نیست")
-                    }
-                  else if(parseInt(e.target.value) > 100)
-                    {
-                    e.target.value = '100';
-                    toast.warn("مقدار قابل قبول نیست")
-                    }
-                    else
-                    {
-                      setDiscountValue(e.target.value)
-                    }
-             }}/>
-              </div>
             </div>
             <button type='submit' className='w-[50%] min-h-[35px] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg rounded-sm'>
                 {

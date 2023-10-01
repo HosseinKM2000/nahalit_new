@@ -45,7 +45,7 @@ function NewDiscount() {
         <form  className='flex flex-col items-center bg-[#ffffff70] px-2 py-5 w-full gap-8 z-10 opacity-90' onKeyDown={(e)=>formKeyNotSubmit(e)}>
         {/* discount */}
         <div className='flex flex-col gap-2 w-full'>
-            <label htmlFor="title" className='font-semibold text-[#2e424a]'>مقدار</label>
+            <label htmlFor="discount" className='font-semibold text-[#2e424a]'>مقدار</label>
             <input type="number" className='p-1  outline-[#0ab694] w-full' ref={discountRef} required={true} name='discount'/>
         </div>
             {/* products */}

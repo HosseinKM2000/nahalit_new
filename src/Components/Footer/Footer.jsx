@@ -26,12 +26,12 @@ const Footer = () => {
             لینک های کمکی
           </span>
           <div className="w-full h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/order">
+          <Link className="mt-5 text-[1rem]" to="/order">
             ثبت سفارش
           </Link>
-          <Link to="/be_seller">فروشنده باشید</Link>
-          <Link to="/recruitment">استخدام</Link>
-          <Link to="/">اخبار سایت نهال آی تی</Link>
+          <Link className="text-[1rem]" to="/be_seller">فروشنده باشید</Link>
+          <Link className="text-[1rem]" to="/recruitment">استخدام</Link>
+          <Link className="text-[1rem]" to="/">اخبار سایت نهال آی تی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <BsFillBriefcaseFill className="text-5xl text-white" />
@@ -39,12 +39,12 @@ const Footer = () => {
              خدمات اداری
           </span>
           <div className="w-[70%] h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/">
+          <Link className="mt-5 text-[1rem]" to="/">
             ایمیل مارکتینگ
           </Link>
-          <Link to="/">پیامک انبوه</Link>
-          <Link to="/create_content">تولید محتوا</Link>
-          <Link to="/SocialMediaBot">ربات شبکه های اجتماعی</Link>
+          <Link className="text-[1rem]" to="/">پیامک انبوه</Link>
+          <Link className="text-[1rem]" to="/create_content">تولید محتوا</Link>
+          <Link className="text-[1rem]" to="/SocialMediaBot">ربات شبکه های اجتماعی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <FaSeedling className="text-5xl text-white" />
@@ -52,15 +52,15 @@ const Footer = () => {
             خدمات تیم نهال آی تی
           </span>
           <div className="w-full h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
+          <Link className="mt-5 text-[1rem]" to="/services/فروش-سایت-اختصاصی-و-اقتصادی">
             فروش سایت اختصاصی و اقتصادی
           </Link>
-          <Link to="/services/فروش-قالب-سایت">فروش قالب سایت</Link>
-          <Link to="/services/طراحی-سایت-اختصاصی">طراحی سایت اختصاصی</Link>
-          <Link to="/services/خدمات-سئو-وب-سایت">خدمات وبسایت و سئو وب سایت</Link>
-          <Link to="/services/خدمات-کسب-و-کار">خدمات کسب و کار</Link>
-          <Link to="/services/خدمات-شبکه-های-اجتماعی" >خدمات شبکه های اجتماعی</Link>
-          <Link to="/services/موشن-گرافیک">خدمات موشن گرافیک</Link>
+          <Link className="text-[1rem]" to="/services/فروش-قالب-سایت">فروش قالب سایت</Link>
+          <Link className="text-[1rem]" to="/services/طراحی-سایت-اختصاصی">طراحی سایت اختصاصی</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-سئو-وب-سایت">خدمات وبسایت و سئو وب سایت</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-کسب-و-کار">خدمات کسب و کار</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-شبکه-های-اجتماعی" >خدمات شبکه های اجتماعی</Link>
+          <Link className="text-[1rem]" to="/services/موشن-گرافیک">خدمات موشن گرافیک</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
           <FaSeedling className="text-5xl text-white" />
@@ -68,13 +68,13 @@ const Footer = () => {
             خدمات تیم نهال آی تی
           </span>
           <div className="w-[100%] h-[2px] bg-white"></div>
-          <Link className="mt-5 tracking-tighter" to="/services/خدمات-گرافیک">
+          <Link className="mt-5 text-[1rem]" to="/services/خدمات-گرافیک">
             خدمات گرافیک
           </Link>
-          <Link to="/services/تدوین-پروپوزال">تدوین پروپوزال و بیزنس پلن</Link>
-          <Link to="/services/اپلیکیشن-موبایل">خدمات اپلیکیشن موبایل</Link>
-          <Link to="/services/خدمات-پریمیر-و-تدوین-فیلم">خدمات پریمیر و تدوین فیلم</Link>
-          <Link to="/services/خدمات-تدوین-صدا-و-صدا-گذاری">خدمات تدوین صدا و صدا گذاری</Link>
+          <Link className="text-[1rem]" to="/services/تدوین-پروپوزال">تدوین پروپوزال و بیزنس پلن</Link>
+          <Link className="text-[1rem]" to="/services/اپلیکیشن-موبایل">خدمات اپلیکیشن موبایل</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-پریمیر-و-تدوین-فیلم">خدمات پریمیر و تدوین فیلم</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-تدوین-صدا-و-صدا-گذاری">خدمات تدوین صدا و صدا گذاری</Link>
         </div>
         <div className="flex flex-col justify-center items-center gap-y-4">
           <BsHeart className="text-5xl text-white" />

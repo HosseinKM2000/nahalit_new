@@ -1,6 +1,5 @@
 import React from 'react';
 import { BiSolidBadgeDollar } from 'react-icons/bi';
-import { MdOutlineDateRange } from 'react-icons/md';
 
 function Orders({ currentItems  , setShowDetails , users }) {
 
@@ -28,7 +27,7 @@ function Orders({ currentItems  , setShowDetails , users }) {
     <div className='w-full flex flex-row flex-wrap justify-center md:flex-col gap-3 items-center'>
       {
         currentItems.map((order,index) => (
-          <div key={index} className='bg-[#ffffffb4] flex-col md:flex-row gap-y-3 w-[15rem] md:w-full rounded-sm transition-all text-sm  hover:brightness-95 py-5 px-3 font-[shabnambold] flex items-center justify-between'>
+          <div key={index} className='bg-[#ffffffb4] flex-col md:flex-row gap-y-3 w-[15rem] md:w-full rounded-sm transition-all text-sm  hover:brightness-95 py-5 px-3 font-[shabnambold] flex items-center justify-between' onClick={()=>setShowDetails({status:true,value:order})}>
               <span className='bg-stone-400 px-5 py-2 md:p-2 rounded-md'>{index+1}</span>
               <div className='flex items-center gap-1'>
                 <span className='font-[shabnamBold]'>{users.find(user => user.id === order.user_id)?.first_name}</span>
@@ -48,8 +47,6 @@ function Orders({ currentItems  , setShowDetails , users }) {
                <span className='font-[shabnamBold]'>تومان</span>
                <BiSolidBadgeDollar className='text-base'/>
               </div>
-
-              <button className='py-1 md:w-fit w-[70%] px-3 bg-[#46895d] text-white shadow-xl transition-all hover:brightness-110' onClick={()=>setShowDetails({status:true,value:order})}>بیشتر</button>
           </div>
         ))
       }

@@ -57,7 +57,7 @@ function OrdersPagination() {
               />
               </>
               :
-              <Details details={showDetails.value} setShowDetails={setShowDetails}/>
+              <Details details={showDetails.value} setShowDetails={setShowDetails} users={users}/>
           }
           </>
          }

@@ -11,15 +11,25 @@ export const getBasketsByUserId = createAsyncThunk('cart/getBasketsByUserId', as
     const { data } = response;
     return data.data;
 })
-export const addBasket = createAsyncThunk('cart/addBasket', async (dataObj) => {
-    const response = await instance.post("/baskets",dataObj);
-    const { data } = response;
-    return data;
+export const addBasket = createAsyncThunk('cart/addBasket', async (dataObj) => {  
+    try{
+        const response = await instance.post("/baskets",dataObj);
+        return { data : response.data }
+    }   
+     catch (axiosError) {
+        let err = axiosError
+        return{
+            error:{
+                status : err?.status,
+                data : err.response?.data || err.massage 
+            }
+          }
+        }
 })
 export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => {
-    const response = await instance.delete(`/baskets/${id}`);
-    const { data } = response;
-    return data;
+        const response = await instance.delete(`/baskets/${id}`);
+        const { data } = response;
+        return data;
 })
 export const addOrder = createAsyncThunk("cart/addOrder" , async ({userId,dataObj}) => {
     const response = await instance({

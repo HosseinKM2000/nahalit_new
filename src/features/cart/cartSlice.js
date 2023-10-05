@@ -41,17 +41,19 @@ const cartSlice = createSlice({
       })
       .addCase(addBasket.fulfilled, (state,action) => {
         state.loading = false;
-        toast.success(action.payload.massage);
-        state.success = !state.success;
-        console.log(action)
+        if(action.payload.error){
+          toast.info(action.payload.error.data.massage)
+        }else{
+          toast.success(action.payload.data.massage);
+          state.success = !state.success;
+        }
       })
       .addCase(addBasket.pending, (state,action) => {
         state.loading = true;
       })
       .addCase(addBasket.rejected, (state,action) => {
         state.loading = false;
-        toast.info("این محصول در سبد خرید موجود است")
-        console.log(action)
+        toast.info("خطا در افزودن محصول به سبد خرید")
       })
       .addCase(deleteBasket.fulfilled, (state,action) => {
         toast.success(action.payload.massage)
@@ -63,7 +65,7 @@ const cartSlice = createSlice({
       })
       .addCase(deleteBasket.rejected, (state,action) => {
         state.loading = false;
-        console.log(action)
+        toast.error("خطا در حذف محصول")
       })
       .addCase(addOrder.fulfilled, (state,action) => {
         // if(action.payload.error) {

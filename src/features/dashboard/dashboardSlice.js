@@ -698,7 +698,6 @@ const dashboardSlice = createSlice({
         })
         .addCase(getOrders.rejected,(state,action) => {
             state.ordersLoading = false;
-            toast.error('خطا در بارگیری  سفارش ها')
         })
 
 

@@ -574,8 +574,9 @@ img[alt='comment']
   .Toastify__toast
   {
       width: 15rem;
-      right: 10px;
+      min-width: fit-content;
       top: 10px;
+      margin: 0 auto ;
   }
   .graphic-services > div
 {
@@ -832,6 +833,7 @@ img[alt='comment']
         padding: 2rem !important;
         gap: 1rem !important;
         width: 30rem;
+        min-width: fit-content;
     }
     .Toastify__close-button
     {

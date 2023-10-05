@@ -18,7 +18,7 @@ function Coupons() {
     },[Criterion])
 
   return (
-    <div className='container mx-auto flex justify-center items-center h-full p-3 md:p-10'>
+    <div className='container mx-auto flex flex-col justify-between items-center h-full p-3 md:p-10'>
         {
             innerComponent
         }

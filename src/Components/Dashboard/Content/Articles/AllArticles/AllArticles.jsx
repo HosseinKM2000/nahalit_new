@@ -7,7 +7,7 @@ import HTMLRenderer from 'react-html-renderer';
 function AllArticles({currentItems}) {
   const wholeBlogs = useSelector(state => state.dashboard.blogs);
   const dispatch = useDispatch();
-
+  
   return (
     <div className='w-full flex flex-col gap-5 items-center'>
         <span className='w-full text-white font-bold mx-5 md:m-0'> همه مقالات ( {wholeBlogs !== null ? wholeBlogs.length : 'NaN'} )</span>

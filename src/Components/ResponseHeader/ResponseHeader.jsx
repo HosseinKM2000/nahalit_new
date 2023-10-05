@@ -1,15 +1,15 @@
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCart, BsSearch } from "react-icons/bs";
+import { CgEnter } from "react-icons/cg";
 import { RiDashboard3Line } from "react-icons/ri";
-import { BiLogInCircle } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import MobileSearch from "../MobileSearch/MobileSearch";
 import ScrollTop from "../ScrollTop/ScrollTop";
-import Cookies from "js-cookie";
-import { useSelector } from "react-redux";
 import UserAvatarIcon from "../UserAvatar/UserAvatar";
 
 const ResponseHeader = () => {
@@ -51,7 +51,7 @@ const ResponseHeader = () => {
               </>
               :
               <Link to={"/login"}>
-                <BiLogInCircle className="text-2xl text-[#8E8C8C]"/>
+                <CgEnter className="text-2xl text-[#8E8C8C]"/>
               </Link>
           }
           {

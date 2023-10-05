@@ -48,7 +48,7 @@ function NewRole() {
     }
 
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center'>
+    <div className='w-full h-full flex flex-col justify-start items-center'>
       <div className='flex flex-col w-full 2xl:w-[70%] opacity-motion'>
         <div className='w-full bg-[#C0D9DB] p-2'>
             <h1 className='font-semibold text-lg text-stone-800'>نقش جدید</h1>

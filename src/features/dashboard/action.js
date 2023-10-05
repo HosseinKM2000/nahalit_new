@@ -53,7 +53,7 @@ export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (
 export const editProduct = createAsyncThunk('dashboard/editProduct', async ({id,formdata}) => {
     const response = await instance.post(`/products/${id}?_method=PATCH`,formdata);
     const { status } = response;
-    return response;
+    return status;
 })
 
 
@@ -71,7 +71,7 @@ export const addProject = createAsyncThunk('dashboard/addProject', async (dataOb
     return data;
 });
 
-export const editProject = createAsyncThunk('dashboard/editProject', async (id,dataObj) => {
+export const editProject = createAsyncThunk('dashboard/editProject', async ({id,dataObj}) => {
     const response = await instance.put(`/projects/${id}`,dataObj);
     const { data } = response;
     return data;

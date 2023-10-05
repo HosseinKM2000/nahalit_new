@@ -18,7 +18,7 @@ function Roles() {
     },[Criterion])
 
   return (
-    <div className='w-full h-full p-3 md:p-10'>
+    <div className='w-full h-full p-3 md:p-10 flex justify-center items-start'>
         {
             innerComponent
         }

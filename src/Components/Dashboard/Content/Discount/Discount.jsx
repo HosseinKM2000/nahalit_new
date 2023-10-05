@@ -18,7 +18,7 @@ function Discount() {
     },[Criterion])
 
   return (
-    <div className='container mx-auto h-full p-3 md:p-10 flex justify-center items-center'>
+    <div className='container mx-auto h-full p-3 md:p-10 flex flex-col justify-between items-center'>
         {
             innerComponent
         }

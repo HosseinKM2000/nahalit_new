@@ -1,19 +1,17 @@
+import moment from 'moment-jalaali';
 import React, { useRef, useState } from 'react';
-import { BiSolidChevronsRight } from 'react-icons/bi';
+import { MdCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { editProject } from '../../../../../features/dashboard/action';
 import { setScrollUp } from '../../../../../features/dashboard/dashboardSlice';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
-import { MdCancel } from 'react-icons/md';
-import moment from 'moment-jalaali';
-import { editProject } from '../../../../../features/dashboard/action';
 
 function Edit({ details , setShowDetails , users  , categories}) {
     const [dropCate,setDropCate] = useState({status:false,value:categories.find(cate => cate.id === details.category_id)?.title,id:categories.find(cate => cate.id === details.category_id)?.id})
-    const [desc,setDesc] = useState(details.description);
+    const [desc,setDesc] = useState(details?.description);
     const loading = useSelector(state => state.dashboard.editProjectLoading);
-    const mobile = window.innerWidth < 425 ? true : false;
     const dispatch = useDispatch();
     const titleRef = useRef();
     const supervisorRef = useRef();
@@ -33,12 +31,12 @@ function Edit({ details , setShowDetails , users  , categories}) {
         e.preventDefault()
         const dataObj = {
             title:titleRef.current.value,
-            category_id:JSON.parse(supervisorRef.current.value),
+            category_id:JSON.parse(dropCate.id),
             description:desc,
             price:priceRef.current.value.replaceAll(",",""),
-            confirm:confirmRef.current.value,
-            progress:progressRef.current.value,
-            supervisor_id:supervisorRef.current.value,
+            confirm:JSON.parse(confirmRef.current.value),
+            progress:JSON.parse(progressRef.current.value),
+            supervisor_id:JSON.parse(supervisorRef.current.value),
             status:statusRef.current.value,
         }
         switch(true)
@@ -62,7 +60,7 @@ function Edit({ details , setShowDetails , users  , categories}) {
     }
 
     const sendProduct = (dataObj) => {
-        dispatch(editProject(details.id,dataObj))
+        dispatch(editProject({id:details.id,dataObj}))
     }
 
   return (
@@ -84,10 +82,10 @@ function Edit({ details , setShowDetails , users  , categories}) {
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="supervisor" className='font-semibold text-[#2e424a]'>سرپرست</label>
                 <select id="supervisor" ref={supervisorRef} className='py-1'>
-                    <option value={users.find(user => user.id === details.supervisor_id)?.id} >{`${users.find(user => user.id === details.supervisor_id)?.first_name} ${users.find(user => user.id === details.supervisor_id)?.last_name}`}</option>
+                    <option value={users.find(user => user.id === details?.supervisor_id)?.id} >{`${users.find(user => user.id === details.supervisor_id)?.first_name} ${users.find(user => user.id === details.supervisor_id)?.last_name}`}</option>
                     {
-                        users.map(user => (
-                            <option value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+                        users?.map(user => (
+                            <option value={user.id}>{`${user?.first_name} ${user?.last_name}`}</option>
                         ))
                     }
                 </select>
@@ -101,7 +99,7 @@ function Edit({ details , setShowDetails , users  , categories}) {
                 <label htmlFor="status" className='font-semibold text-[#2e424a]'>وضعیت</label>
                 <select name="status" id="" ref={statusRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
                     {
-                        details.status === "waiting"
+                        details?.status === "waiting"
                         ?
                         <>
                         <option value="waiting">در حال انجام</option>
@@ -109,7 +107,7 @@ function Edit({ details , setShowDetails , users  , categories}) {
                         <option value="failed">لغو شد</option>
                         </>
                         :
-                        details.status === "failed"
+                        details?.status === "failed"
                         ?
                         <>
                         <option value="failed">لغو شد</option>
@@ -130,7 +128,7 @@ function Edit({ details , setShowDetails , users  , categories}) {
                 <label htmlFor="confirm" className='font-semibold text-[#2e424a]'></label>
                 <select name="confirm" id="" ref={confirmRef} className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'>
                     {
-                        details.confirm === 0
+                        details?.confirm === 0
                         ?
                         <>
                         <option value={0}>عدم تایید</option>
@@ -149,7 +147,7 @@ function Edit({ details , setShowDetails , users  , categories}) {
                 <label htmlFor="persent" className='font-semibold text-[#2e424a]'>پیشرفت</label>
                 <div className='flex items-center gap-1'>
                     <span>%</span>
-                    <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef} defaultValue={details.progress}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
+                    <input type="text" name="persent" id="" placeholder="درصد..." ref={progressRef} defaultValue={details?.progress}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]' onChange={(e)=>{                        
                     if(e.target.value.search(/\D+/g) !== -1)
                         {
                         e.target.value = ''
@@ -166,17 +164,17 @@ function Edit({ details , setShowDetails , users  , categories}) {
                 {/* price */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="price" className='font-semibold text-[#2e424a]'>مبلغ</label>
-                <input type="number" name="price" id="" placeholder='به تومان...' ref={priceRef} defaultValue={details.price}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'/>
+                <input type="number" name="price" id="" placeholder='به تومان...' ref={priceRef} defaultValue={details?.price}  className='p-1 font-[shabnambold] outline-[#0ab694] w-[50%] sm:w-[20%]'/>
             </div>
             {/* created */}
             <div className='w-full flex items-center gap-3'>
              <label htmlFor="create" className='font-semibold text-[#2e424a]'>تاریخ ایجاد:</label>
-             <span className='font-[shabnamBold]'>{moment(details.created_at).format("jYYYY/jMM/jDD")}</span>
+             <span className='font-[shabnamBold]'>{moment(details?.created_at).format("jYYYY/jMM/jDD")}</span>
             </div>
                 {/* updated */}
             <div className='w-full flex items-center gap-3'>
              <label htmlFor="update" className='font-semibold text-[#2e424a]'>تاریخ بروزرسانی:</label>
-             <span className='font-[shabnamBold]'>{moment(details.updated_at).format("jYYYY/jMM/jDD")}</span>
+             <span className='font-[shabnamBold]'>{moment(details?.updated_at).format("jYYYY/jMM/jDD")}</span>
             </div>
            <div className='flex w-full flex-col items-center mt-5 gap-3'>
              <div className='flex items-center 2xl:w-[30%] w-[80%] sm:w-[50%] justify-between'>

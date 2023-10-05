@@ -23,7 +23,7 @@ function ProductsPagination() {
 
     useEffect(()=>{
       dispatch(getProducts())
-    },[deleteProductSuccess]);
+    },[deleteProductSuccess,isEdit.status]);
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % products.length;

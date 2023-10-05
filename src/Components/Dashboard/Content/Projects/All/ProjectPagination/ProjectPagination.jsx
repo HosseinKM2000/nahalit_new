@@ -30,7 +30,7 @@ function ProjectPagination() {
         dispatch(getProjects())
         dispatch(getUsers())
         dispatch(getCategories())
-    },[])
+    },[showDetails.status])
     
   return (
     <>

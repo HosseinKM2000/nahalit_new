@@ -40,9 +40,9 @@ function CategoriesP() {
   
   return (
     <div className='flex flex-col w-full mt-5 gap-3 2xl:gap-8'>
-       <span className='px-3 py-3 text-sm  font-[vasirbold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
+       <span className='px-3 py-3 text-sm font-[shabnamBold] text-stone-700' style={{borderRight:'solid 5px #02AAF1'}}>دسته بندی محصولات</span>
        <div style={{border:'solid 1px #AAAAC8'}} className='flex bg-[#ffffff] px-2 justify-between items-center w-full sm:w-[50%] lg:w-full 2xl:w-[70%]'>
-       <input onKeyDown={(e)=>searchHandler(e)} onChange={(e)=>e.target.value === '' ? dispatch(sortByName('')) : null} ref={searchRef}  type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-bold text-stone-600 outline-none w-[90%]'/>
+       <input onKeyDown={(e)=>searchHandler(e)} onChange={(e)=>e.target.value === '' ? dispatch(sortByName('')) : null} ref={searchRef}  type="search" name="" id="" placeholder='جستجو...' className='p-1 text-sm font-[shabnamBold] text-stone-600 outline-none w-[90%]'/>
        <SlMagnifier onClick={(e)=>searchHandler(e,'search')} className='rounded-sm font-bold p-1 hover:bg-[#57C053] transition-all hover:text-white scale-150'/>
        </div>
        <div>
@@ -54,14 +54,14 @@ function CategoriesP() {
             categories.filter(cate => cate.category_id ===  categories.find(cate => cate.title === "محصولات").id).map(item => (
               <div key={item.id} className='flex flex-col items-start  gap-2'>
                 <div className='flex items-center gap-1 text-stone-600 text-sm'>
-                  <span>{ item.title }</span>
+                  <span className='font-[shabnamBold]'>{ item.title }</span>
                 </div>
                 <div className='flex flex-col gap-1 pr-3'>
                   {
                     categories.filter(Case => Case.category_id === item.id).map(Instance => (
                       <div className='flex items-center gap-1 text-stone-600'>
                         <input type="radio" name="cate" id={Instance.id} />
-                        <label htmlFor="readyLaravel">{Instance.title}</label>
+                        <label htmlFor={Instance.title} className='font-[shabnamBold]'>{Instance.title}</label>
                       </div>
                     ))
                   }
@@ -76,7 +76,7 @@ function CategoriesP() {
         <section className='flex flex-col gap-5 my-5'>
           <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
             <RiRestartFill className='scale-150'/>
-            <span className='text-xs  font-bold' onClick={(e)=>dispatch(deleteAllFilters())}>پاکسازی فیلتر</span>
+            <span className='text-xs  font-[shabnamBold]' onClick={(e)=>dispatch(deleteAllFilters())}>پاکسازی فیلتر</span>
           </div>
         </section>
         {/* <div className='flex flex-col items-start text-sm w-full sm:w-[50%] lg:w-[100%] 2xl:w-[70%]'>

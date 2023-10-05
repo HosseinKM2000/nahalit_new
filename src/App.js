@@ -9,7 +9,7 @@ import "./App.css";
 import ApiLoading from "./Components/ApiLoading/ApiLoading";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import Application from "./page/Application/Application";
-import Article from "./page/Articles/Article/Article";
+import Article from "./page/Article/Article";
 import ArticlesPagination from "./page/Articles/ArticlesPagination/ArticlesPagination";
 import Login from "./page/Authentication/Login/Login";
 import Register from "./page/Authentication/Register/Register";

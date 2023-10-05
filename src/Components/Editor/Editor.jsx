@@ -4,7 +4,7 @@ import React from 'react';
 
 
 
-function Editor({ setDesc , desc='' }) {
+function Editor({ setDesc , desc = '' }) {
 
   return (
     <div className='w-full flex flex-col gap-3'>

@@ -71,7 +71,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
         stepList > 1
         ? <MdKeyboardDoubleArrowRight className="w-[32px] h-[32px] text-white" onClick={()=>{
           setStepList(stepList-1)
-            setKeyList({key:itemsMenu.find(item => item.id === itemsMenu.find(item => item.id === keyList.cateId).cateId).title,cateId:itemsMenu.find(item => item.id === keyList.cateId).cateId})
+            setKeyList({key:itemsMenu.find(item => item.id === itemsMenu.find(item => item.id === keyList.cateId)?.cateId)?.title,cateId:itemsMenu.find(item => item.id === keyList.cateId)?.cateId})
         }}/>
         : <div className="w-[30px] h-[30px]"></div>
       }

@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import LotteryHomePage from "../../Components/LotteryHomePage/LotteryHomePage";
 import News from "../../Components/News/News";
-import OurProduct from "../../Components/OurProduct/OurProduct";
+import OurPlans from "../../Components/OurPlans/OurPlans";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
 import ServicesHomePage from "../../Components/ServicesHomePage/ServicesHomePage";
@@ -64,7 +64,7 @@ const Home = () => {
           <AboutSite />
         </section>
         <section className="my-32">
-          <OurProduct />
+          <OurPlans />
         </section>
         <section className="mt-14">
           <CustomSlider title={"قالب های وردپرسی"} items={wordPressPlugins} discounts={discounts}/>

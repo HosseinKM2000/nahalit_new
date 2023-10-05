@@ -27,7 +27,6 @@ function ArticlesPagination() {
       window.scrollTo({top:0,behavior:'instant'})
       setItemOffset(newOffset);
     };
-    console.log(articles)
     useEffect(() => {
       dispatch(getArticles());
     },[])

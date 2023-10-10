@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const OurPlans = () => {
   return (
@@ -36,9 +37,11 @@ const OurPlans = () => {
             <p>مناسب کسب و کار های کوچک</p>
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
-            <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#4dce49] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
-              خرید این پلن
-            </button>
+            <Link to={"/our-business-plans"}>
+              <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+                خرید این پلن
+              </button>
+            </Link>
             <p className="mt-2 font-[shabnamBold] text-slate-500">این طرح شامل بروزرسانی های رایگان است.</p>
           </div>
         </div>
@@ -75,9 +78,11 @@ const OurPlans = () => {
             <p>مناسب کسب و کار های تازه تاسیس</p>
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
-            <button className="bg-[#56C253] font-[shabnamBold] hover:bg-[#4dce49] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[.4rem] rounded-lg text-white text-lg">
-              خرید این پلن
-            </button>
+            <Link to={"/our-business-plans"}>
+                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+                  خرید این پلن
+                </button>
+              </Link>
             <p className="mt-2 font-[shabnamBold] text-slate-500">این طرح شامل بروزرسانی های رایگان است.</p>
           </div>
         </div>
@@ -114,9 +119,11 @@ const OurPlans = () => {
             <p>مناسب کسب و کار های بزرگ و حرفه ای</p>
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
-            <button className="bg-[#56C253] font-[shabnamBold] hover:bg-[#4dce49] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[.4rem] rounded-lg text-white text-lg">
-              خرید این پلن
-            </button>
+            <Link to={"/our-business-plans"}>
+                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+                  خرید این پلن
+                </button>
+              </Link>
             <p className="mt-2 font-[shabnamBold] text-slate-500">این طرح شامل بروزرسانی های رایگان است.</p>
           </div>
         </div>

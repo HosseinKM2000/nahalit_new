@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
 import AboutSite from "../../Components/AboutSite/AboutSite";
 import CustomSlider from "../../Components/CustomSlider/CustomSlider";
 import Details from "../../Components/Details/Details";
@@ -12,23 +14,25 @@ import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
 import ServicesHomePage from "../../Components/ServicesHomePage/ServicesHomePage";
 import SliderSwiper from "../../Components/SliderSwiper/SliderSwiper";
-import { Helmet } from "react-helmet";
-import { useDispatch, useSelector } from "react-redux";
+import { getBlogs, getUsers } from "../../features/dashboard/action";
 import { getProducts } from "../../features/products/action";
-import { getBlogs } from "../../features/dashboard/action";
 
 
 const Home = () => {
   const products = useSelector(state => state.products.products);
   const discounts = useSelector(state => state.products.discounts);
+  const users = useSelector(state => state.dashboard.users);
   const blogs = useSelector(state => state.dashboard.blogs);
+  const baskets = useSelector(state => state.cart.baskets);
   let latestProducts = products.slice().reverse();
-  let latestBlogs = blogs.slice().reverse().slice(0,3);
+  let latestBlogs = blogs.slice().reverse().slice(0,9);
   let wordPressPlugins = products.filter(item => item.category_id === 14);
   const dispatch = useDispatch();
+
   useEffect(()=>{
     dispatch(getProducts())
     dispatch(getBlogs())
+    dispatch(getUsers())
   },[])
 
   return (
@@ -58,7 +62,7 @@ const Home = () => {
           <ServicesHomePage />
         </section>
         <section className="mt-[8rem]">
-          <CustomSlider title={"جدیدترین محصولات"} items={latestProducts} discounts={discounts}/>
+          <CustomSlider title={"جدیدترین محصولات"} translate={"Latest Products"} items={latestProducts} discounts={discounts}/>
         </section>
         <section className="my-[8rem] flex justify-center items-center">
           <AboutSite />
@@ -67,16 +71,16 @@ const Home = () => {
           <OurPlans />
         </section>
         <section className="mt-14">
-          <CustomSlider title={"قالب های وردپرسی"} items={wordPressPlugins} discounts={discounts}/>
+          <CustomSlider title={"قالب های وردپرسی"} translate={"Wordpress Plugins"} items={wordPressPlugins} discounts={discounts}/>
         </section>
         <section className="mt-24">
           <News />
         </section>
         <section className="mt-14">
-          <Details blogs={latestBlogs}/>
+          <Details blogs={latestBlogs} users={users}/>
         </section>
         <div>
-          <FixedIcon />
+          <FixedIcon baskets={baskets} />
         </div>
       </main>
       <footer className="mt-5 w-full">

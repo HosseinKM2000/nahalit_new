@@ -5,8 +5,9 @@ import { products } from "../../API/data";
 import { useNavigate } from "react-router-dom";
 import { MdUpdate } from "react-icons/md";
 import moment from "moment-jalaali";
+import { PiStarFill } from 'react-icons/pi';
 
-const CustomSlider = ({ title , items , discounts }) => {
+const CustomSlider = ({ title , translate , items , discounts }) => {
   const sliderRef = useRef();
   const navigate = useNavigate();
   const discountIds = discounts.map(dis => dis.product_id);
@@ -25,8 +26,12 @@ const CustomSlider = ({ title , items , discounts }) => {
   return (
     <div className="w-[90%] sm:w-[95%] 2xl:w-[90%] mx-auto  py-5 bg-[#f3f3f5] rounded-xl p-3">
       <div className="flex items-center sm:gap-0 justify-between">
-        <div className="border-r-4 text-[#868686] border-[#07B235] font-bold border-solid">
-          <span className="py-2 pr-2 text-xl font-[shabnambold]">{title}</span>
+        <div className="border-r-4 flex-col text-[#868686] border-[#07B235] font-bold border-solid flex items-start pr-1 gap-1">
+          <span className="text-xl mr-1 font-[shabnambold]">{title}</span>
+          <div className="flex items-center gap-1">
+            <PiStarFill className="text-2xl text-orange-400"/>
+            <span className="text-sm tracking-wider">{translate}</span>
+          </div>
         </div>
         <div className="flex justify-end items-center w-fit sm:w-[15rem]">
           <div className="flex gap-x-4 text-2xl">
@@ -46,45 +51,45 @@ const CustomSlider = ({ title , items , discounts }) => {
         {
           items.map((product,index) => (
             <div key={`product-slide${index}`} className="sliderItem" onClick={()=>navigate(`/shop/product/${product.id}`)}>
-            <div className="sm:w-[40vw] lg:w-[25vw] xl:w-[20vw] 2xl:w-[16.5vw] cursor-pointer hover:brightness-125 w-[85vw] flex h-[370px] flex-col bg-white justify-around  overflow-hidden rounded-2xl   hover:-translate-y-2 transition-all duration-500 hover:shadow-[4px_4px_17px_-10px_rgba(0,0,0,1)] shadow-[0px_2px_8px_rgba(0,0,0,0.15)]">
-              <div className="flex items-start justify-center h-full">
-                <img
-                  className="rounded-tl-2xl rounded-tr-2xl w-full h-auto max-h-[230px] bg-green-400"
-                  alt="product_Slide_Image"
-                  src={product.image}
-                />
-              </div>
-              <div className="flex flex-col items-start justify-center gap-3 h-[50%] py-3">
-                <div className="mr-3">
-                  {/* <div className="flex items-center gap-2">
-                    {
-                      product.tags.map((tag,index) => (
-                        <p key={`product-tag-${index}`} className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">{tag}</p>
-                      ))
-                    }
-                  </div> */}
-                  <span className="text-[#656666] font-[shabnambold] line-clamp-1 text-[1.1rem] mb-3">{product.title}</span>
-                  <div className="flex items-center gap-1 text-[#717171]">
-                    <MdUpdate className="scale-125 text-green-700"/>
-                    <span className="font-[shabnamBold]">{moment(product.created_at).format('jYYYY/jMM/jDD')}</span>
+              <div className="sm:w-[40vw] lg:w-[25vw] xl:w-[20vw] 2xl:w-[16.5vw] cursor-pointer hover:brightness-125 w-[85vw] flex h-[370px] flex-col bg-white justify-around  overflow-hidden rounded-2xl   hover:-translate-y-2 transition-all duration-500 hover:shadow-[4px_4px_17px_-10px_rgba(0,0,0,1)] shadow-[0px_2px_8px_rgba(0,0,0,0.15)]">
+                <div className="flex items-start justify-center h-full">
+                  <img
+                    className="rounded-tl-2xl rounded-tr-2xl w-full h-auto max-h-[230px] bg-green-400"
+                    alt="product_Slide_Image"
+                    src={product.image}
+                  />
+                </div>
+                <div className="flex flex-col items-start justify-center gap-3 h-[50%] py-3">
+                  <div className="mr-3">
+                    {/* <div className="flex items-center gap-2">
+                      {
+                        product.tags.map((tag,index) => (
+                          <p key={`product-tag-${index}`} className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">{tag}</p>
+                        ))
+                      }
+                    </div> */}
+                    <span className="text-[#656666] font-[shabnambold] line-clamp-1 text-[1.1rem] mb-3">{product.title}</span>
+                    <div className="flex items-center gap-1 text-[#717171]">
+                      <MdUpdate className="scale-125 text-green-700"/>
+                      <span className="font-[shabnamBold]">{moment(product.created_at).format('jYYYY/jMM/jDD')}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center justify-end w-full gap-x-2">
+                      {
+                        discountIds.includes(product.id)
+                        ?
+                          <div className="flex items-center gap-3 bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white">
+                              <p className="font-[shabnamBold] line-through text-red-900">{addSignToMoney(product.price)}</p>
+                              <p className="font-[shabnamBold]">{addSignToMoney(product.price*discounts.find(dis => dis.product_id === product.id)?.value/100)}</p>
+                          </div>
+                        :
+                        <p className="bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white font-[shabnamBold]">{addSignToMoney(product.price)}</p>
+                      }
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between w-full">
-                  <div className="flex items-center justify-end w-full gap-x-2">
-                    {
-                      discountIds.includes(product.id)
-                      ?
-                        <div className="flex items-center gap-3 bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white">
-                            <p className="font-[shabnamBold] line-through">{addSignToMoney(product.price)}</p>
-                            <p className="font-[shabnamBold]">{addSignToMoney(product.price*discounts.find(dis => dis.product_id === product.id)?.value/100)}</p>
-                        </div>
-                      :
-                      <p className="bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white font-[shabnamBold]">{addSignToMoney(product.price)}</p>
-                    }
-                  </div>
-                </div>
               </div>
-            </div>
             </div>
           ))
         }

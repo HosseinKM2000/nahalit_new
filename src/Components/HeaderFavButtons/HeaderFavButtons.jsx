@@ -33,7 +33,7 @@ function HeaderFavButtons({ urlPath , baskets }) {
             <Link to={"/favorites"}>
             <AiOutlineHeart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEnterShowSlide4} onMouseLeave={clickOutShowSlide4}/>
             </Link>
-            <span className="absolute -top-3 -left-1 rounded-full w-5 h-5 flex items-center justify-center p-1 bg-[#57C053] text-white min-w-fit">
+            <span className="absolute -top-3 font-[shabnamBold] -left-1 rounded-full w-5 h-5 flex items-center justify-center p-1 bg-[#57C053] text-white min-w-fit">
               {
                 favArticlesID.length + favProductsID.length 
               }
@@ -53,7 +53,7 @@ function HeaderFavButtons({ urlPath , baskets }) {
                 <Link to={"/cart"}>
                     <HiOutlineShoppingCart className="text-[#57C053] text-3xl hover:text-[#62d15e]" onMouseEnter={clickEnterShowSlide5} onMouseLeave={clickOutShowSlide5}/>
                 </Link>
-                <span className="absolute -top-3 -left-1 min-w-fit p-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
+                <span className="absolute -top-3 -left-1 font-[shabnamBold] min-w-fit p-1 rounded-full w-5 h-5 flex items-center justify-center bg-[#57C053] text-white">
                     {
                     baskets?.length 
                     }

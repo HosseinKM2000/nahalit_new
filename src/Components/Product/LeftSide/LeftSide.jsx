@@ -12,7 +12,7 @@ function LeftSide({ goalProduct }) {
     <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
       <img src={"/img/product/license.svg"} alt="gear" className='w-[4rem]'/>
       <span className='text-base font-[shabnambold] font-bold mb-1 w-full text-center text-stone-600'>قوانین استفاده از محصول</span>
-      <p className='text-center lg:text-start leading-5  2xl:leading-9 text-[0.9rem] text-stone-500'>در این سایت امکان تعریف نقش کاربران، خدمات، مقالات، تعرفه های انجام خدمات، دسته بندی ها، درخواست پشتیبانی ارائه مشاوره رایگان وجود دارد. همچنین امکان نمایش نظرات کاربران و تماس با افراد پشتیبان وجود دارد. در ادمین امکان ویرایش، حذف همه قسمت های مختلف وجود دارد. این سایت مناسب شرکت هایی می باشد که در […]</p>
+      <p className='text-justify leading-6  2xl:leading-9 text-[0.9rem] text-stone-500'>در این سایت امکان تعریف نقش کاربران، خدمات، مقالات، تعرفه های انجام خدمات، دسته بندی ها، درخواست پشتیبانی ارائه مشاوره رایگان وجود دارد. همچنین امکان نمایش نظرات کاربران و تماس با افراد پشتیبان وجود دارد. در ادمین امکان ویرایش، حذف همه قسمت های مختلف وجود دارد. این سایت مناسب شرکت هایی می باشد که در […]</p>
     </div>
     <div className='w-full flex flex-col gap-3 2xl:gap-5 items-center'>
       <img src={"/img/product/info.svg"} alt="wonder" className='w-[4rem]'/>

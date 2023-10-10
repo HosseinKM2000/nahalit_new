@@ -16,12 +16,13 @@ const ResponseHeader = () => {
   const [dropMenu,setDropMenu] = useState(false);
   const [dropSearchBox,setDropSearchBox] = useState(false);
   const loginStatus = useSelector(state => state.authentication.loginStatus);
+  const baskets = useSelector(state => state.cart.baskets);
   const userId = Cookies.get('user') === undefined ? '' : JSON.parse(Cookies.get('user')).id;
   const [favProductsID,setFavProductsID] = useState(localStorage.getItem('favProducts') === null ? [] : JSON.parse(localStorage.getItem('favProducts')));
   const [favArticlesID,setFavArticlesID] = useState(localStorage.getItem('favArticles') === null ? [] : JSON.parse(localStorage.getItem('favArticles')));
   const location = useLocation();
   const urlPath = location.pathname;
-  
+
   return (
     <div  className="flex flex-row-reverse relative items-center justify-between p-4" style={{borderBottom:'1px solid #c3c3c3'}}>
         <Link id="UP" to="/">
@@ -44,8 +45,13 @@ const ResponseHeader = () => {
               ?
               <></>
               :
-              <Link to={'/cart'}>
+              <Link to={'/cart'} className="relative">
                 <BsCart className="text-xl text-[#8E8C8C]" />
+                <span className="absolute top-[-12px] left-[-10px] bg-green-400 text-xs font-[shabnamBold] p-1 text-white min-w-[20px] h-[20px] flex justify-center items-center rounded-full">
+                  {
+                    baskets?.length
+                  }
+                </span>
               </Link>
             }
               </>
@@ -70,7 +76,7 @@ const ResponseHeader = () => {
               :
               <Link to={'/favorites'} className="relative">
                 <AiOutlineHeart className="text-2xl text-[#8E8C8C] font-thin" />
-                <span className="absolute top-[-12px] left-[-10px] bg-green-400 text-xs font-[shabnamBold] p-1 text-white min-w-[20px] h-[20px] flex justify-center items-center rounded-full">
+                <span className="absolute top-[-12px] left-[-10px] bg-orange-400 text-xs font-[shabnamBold] p-1 text-white min-w-[20px] h-[20px] flex justify-center items-center rounded-full">
                   {
                     favArticlesID.length + favProductsID.length 
                   }

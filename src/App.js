@@ -61,6 +61,7 @@ import ConfirmNumberPage from "./page/Authentication/ConfirmNumberPage/ConfirmNu
 import ForgetPassword from "./page/Authentication/ForgetPassword/ForgetPassword";
 import Privacy from "./page/Privacy/Privacy";
 import Orders from "./page/UserPanel/Orders";
+import PlansPage from "./page/PlansPage/PlansPage";
 
 const App = () => {
   return (
@@ -130,6 +131,7 @@ const App = () => {
           <Route path="confirmNumber" element={<ConfirmNumberPage/>}/>
           <Route path="ForgetPassword" element={<ForgetPassword/>}/>
           <Route path="privacy_and_policy" element={<Privacy/>}/>
+          <Route path="our-business-plans" element={<PlansPage/>}/>
         </Routes>
       </div>
       <ApiLoading/>

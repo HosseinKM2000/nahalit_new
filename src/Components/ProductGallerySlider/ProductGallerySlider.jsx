@@ -30,7 +30,7 @@ function ProductGallerySlider({ Id }) {
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={widthScreen < 425 ? 1 : widthScreen < 2000 ? 3 : 4}
+            slidesPerView={widthScreen < 425 ? 1 : 3 }
             coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -45,7 +45,7 @@ function ProductGallerySlider({ Id }) {
                 {
                     gallery.map(img => (
                         <SwiperSlide key={img?.id}>
-                           <img src={img?.image} alt={img?.title} className='w-[200px] h-[200px] max-w-[200px] max-h-[200px]'/>
+                           <img src={img?.image} alt={img?.title} className='2xl:w-[400px]'/>
                         </SwiperSlide>
                     ))
                 }

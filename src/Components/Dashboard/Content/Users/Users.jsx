@@ -34,7 +34,7 @@ function Users({ currentItems , setShowDetails }) {
               <h1 className='text-lg font-[shabnambold]'>{user?.first_name} {user?.last_name}</h1>
               <span>{user?.email}</span>
               <span className='font-[shabnam] text-sm'>{roles.find(role => role.id === user?.role_id)?.title}</span>
-              <span className='text-sm font-bold'>{moment(user?.created_at).format("jYYYY/jMM/jDD")}</span>
+              <span className='text-sm font-[shabnamBold]'>{moment(user?.created_at).format("jYYYY/jMM/jDD")}</span>
               {/* <div className='flex items-center gap-3'>
                 <MdDeleteSweep className='scale-[1.5] hover:text-red-600 text-red-700 transition-all' onClick={()=>userRemoval(user.id)}/>
               </div> */}

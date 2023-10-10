@@ -47,7 +47,8 @@ export const addProduct = createAsyncThunk('dashboard/addProduct', async (formDa
 
 export const deleteProduct = createAsyncThunk('dashboard/deleteProduct', async (id) => {
     const response = await instance.delete(`/products/${id}`);
-    return response;
+    const { data } = response;
+    return data;
 })
 
 export const editProduct = createAsyncThunk('dashboard/editProduct', async ({id,formdata}) => {

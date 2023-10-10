@@ -19,32 +19,32 @@ const Catalog = () => {
           <ResponseHeader />
         </div>
       </header>
-      <div className="bg-[#f5f5f9] pt-9 mb-12">
-        <div className="container px-48 max-lg:px-20 max-sm:px-10 mx-auto">
+      <div className="pt-9 mb-12">
+        <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-8">
             <img
               alt="Imgae_Catalog"
-              width={355}
+              width={300}
               src="https://nahalit.com/wp-content/uploads/2022/11/photo_6023757646743583833_y-1024x1024.jpg"
             />
             <img
               alt="Imgae_Catalog"
-              width={355}
+              width={300}
               src="https://nahalit.com/wp-content/uploads/2022/11/photo_6023757646743583834_y-1024x1024.jpg"
             />
             <img
               alt="Imgae_Catalog"
-              width={355}
+              width={300}
               src="https://nahalit.com/wp-content/uploads/2022/11/photo_6023757646743583835_y-1024x1024.jpg"
             />
             <img
               alt="Imgae_Catalog"
-              width={550}
+              width={300}
               src="https://nahalit.com/wp-content/uploads/2022/11/photo_6023757646743583830_y-1024x682.jpg"
             />
             <img
               alt="Imgae_Catalog"
-              width={550}
+              width={300}
               src="https://nahalit.com/wp-content/uploads/2022/11/photo_6023757646743583831_y-1024x683.jpg"
             />
           </div>

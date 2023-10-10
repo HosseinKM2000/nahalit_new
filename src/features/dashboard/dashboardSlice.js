@@ -264,7 +264,7 @@ const dashboardSlice = createSlice({
 
 
         // delete product
-        .addCase(deleteProduct.fulfilled, (state,action) => {
+        .addCase(deleteProduct.fulfilled, (state) => {
             state.productsLoading = false;
             state.deleteProductSuccess = !state.deleteProductSuccess;
             toast.success('محصول با موفقیت حذف شد')

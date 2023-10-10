@@ -120,43 +120,43 @@ function SSocialMedia() {
             </div>
             <div className='flex flex-col gap-3 2xl:gap-8 my-1'>
                 <h6 className='text-center text-green-137 py-3'>خدمات شبکه های اجتماعی</h6>
-                <div className='flex flex-col sm:flex-row items-center flex-wrap gap-[5rem] socalMedia-services sm:justify-center  lg:justify-between'>
+                <div className='flex flex-col sm:flex-row items-center flex-wrap gap-[5rem] socalMedia-services sm:justify-center  lg:justify-between px-5'>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
-                        <img src={"/img/SocalMedia/Glossy-Instagram-logo-PNG-transformed-min.png"} alt="instagram" className='w-[4rem] 2xl:w-[6rem]'/>
-                        <span className='2xl:text-3xl'>خدمات اینستاگرام</span>
-                        <p className='text-center span'>اینستاگرام برای ایجاد یک کسب و کار موفق ، محل بسیار مناسبی است. ما در تیم نهال آی تی، تمامی خدمات مربوط به اینستاگرام را اعم از افزایش لایک و فالوور و بازدید پست ها را انجام میدهیم تا کسب و کار شما رونق پیدا کند.</p>
+                        <img src={"/img/SocalMedia/Glossy-Instagram-logo-PNG-transformed-min.png"} alt="instagram" className='w-[4rem] 2xl:w-[5rem]'/>
+                        <span className=''>خدمات اینستاگرام</span>
+                        <p className='text-justify span'>اینستاگرام برای ایجاد یک کسب و کار موفق ، محل بسیار مناسبی است. ما در تیم نهال آی تی، تمامی خدمات مربوط به اینستاگرام را اعم از افزایش لایک و فالوور و بازدید پست ها را انجام میدهیم تا کسب و کار شما رونق پیدا کند.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
-                        <img src={"/img/SocalMedia/kisspng-telegram-encapsulated-postscript-transfer-5b1706056101263859681215282355253974-transformed-min.png"} alt="Telegram" className='w-[7rem] 2xl:w-[10rem]'/>
-                        <span className='2xl:text-3xl'>خدمات تلگرام</span>
-                        <p className='span'>شکی نیست که تلگرام یکی از محبوب ترین اپلیکیشن ها می باشد. تلگرام ویژگی‌ های متعددی دارد که آن را از سایر اپلیکیشن‌ های پیام رسان متمایز می‌ کند. ما در این بستر به شما کمک میکنیم تا بتوانید کسب و کار خود را رونق دهید.</p>
+                        <img src={"/img/SocalMedia/kisspng-telegram-encapsulated-postscript-transfer-5b1706056101263859681215282355253974-transformed-min.png"} alt="Telegram" className='w-[7rem] 2xl:w-[9rem]'/>
+                        <span className=''>خدمات تلگرام</span>
+                        <p className='text-justify'>شکی نیست که تلگرام یکی از محبوب ترین اپلیکیشن ها می باشد. تلگرام ویژگی‌ های متعددی دارد که آن را از سایر اپلیکیشن‌ های پیام رسان متمایز می‌ کند. ما در این بستر به شما کمک میکنیم تا بتوانید کسب و کار خود را رونق دهید.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2}} viewport={{once:true}}>
                         <img src={"/img/SocalMedia/linkedin-logo-transparent-116602552215dpnc1i8cu-transformed-min.png"} alt="linkedin" className='w-[4rem] 2xl:w-[5rem]'/>
-                        <span className='2xl:text-3xl'>خدمات لینکدین</span>
-                        <p className='span'>لینکدین در واقع یک شبکه اجتماعی است که اساسا برای بهبود کسب و کارهای مختلف طراحی شده است. ما در نهال آی تی به شما کمک میکنیم تا با افراد دیگری که در حوزه کاری تان فعالیت می کنند، آشنا شوید.</p>
+                        <span className=''>خدمات لینکدین</span>
+                        <p className='text-justify'>لینکدین در واقع یک شبکه اجتماعی است که اساسا برای بهبود کسب و کارهای مختلف طراحی شده است. ما در نهال آی تی به شما کمک میکنیم تا با افراد دیگری که در حوزه کاری تان فعالیت می کنند، آشنا شوید.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={"/img/SocalMedia/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo-transformed-min.png"} alt="twitter" className='w-[4rem] 2xl:w-[6rem]'/>
-                        <span className='2xl:text-3xl'>خدمات توییتر</span>
+                        <img src={"/img/SocalMedia/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo-transformed-min.png"} alt="twitter" className='w-[4rem] 2xl:w-[4rem]'/>
+                        <span className=''>خدمات توییتر</span>
                         <p className='span'>داشتن بازدید ویدیو، لایک و کامنت بالا و همچنین فالوور های معتبر، از جمله مواردی است که در الگوریتم توئیتر تاثیرگذار بوده و نهال آی تی نیز این خدمت را در اختیار شما قرار می دهد.</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={"/img/SocalMedia/Facebook_Logo-min.png"} alt="faceBook" className='w-[4rem] 2xl:w-[5rem]'/>
-                        <span className='2xl:text-3xl'>خدمات فیسبوک</span>
-                        <p className='span'>داشتن بازدید و لایک بالا در فیسبوک، می تواند برای افرادی که در این شبکه اجتماعی فعال هستند، جزو مواردی باشد که اعتبار پیج را افزایش می دهد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است</p>
+                        <img src={"/img/SocalMedia/Facebook_Logo-min.png"} alt="faceBook" className='w-[4rem] 2xl:w-[4rem]'/>
+                        <span className=''>خدمات فیسبوک</span>
+                        <p className='text-justify'>داشتن بازدید و لایک بالا در فیسبوک، می تواند برای افرادی که در این شبکه اجتماعی فعال هستند، جزو مواردی باشد که اعتبار پیج را افزایش می دهد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است</p>
                     </motion.div>
                     <motion.div className='flex flex-col gap-3 2xl:gap-5 items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:1}} viewport={{once:true}}>
-                        <img src={"/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png"} alt="aparat" className='w-[4rem] 2xl:w-[6rem]'/>
-                        <span className='2xl:text-3xl'>خدمات آپارات</span>
-                        <p className='span'>هر چه ویدیوهای یک کاربر از بازدید بالاتری برخوردار باشد، اعتبار بیشتری نزد کاربران و بازدیدکنندگان یافته و تاثیر بیشتری در ذهن آنان می گذارد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است.</p>
+                        <img src={"/img/SocalMedia/nody-لوگو-آپارات-1628455708-min.png"} alt="aparat" className='w-[4rem] 2xl:w-[4rem]'/>
+                        <span className=''>خدمات آپارات</span>
+                        <p className='text-justify'>هر چه ویدیوهای یک کاربر از بازدید بالاتری برخوردار باشد، اعتبار بیشتری نزد کاربران و بازدیدکنندگان یافته و تاثیر بیشتری در ذهن آنان می گذارد که این امر، توسط تیم نهال آی تی ، برایتان فراهم شده است.</p>
                     </motion.div>
                 </div>
             </div>
             <motion.div className='flex flex-col items-center' whileInView={{x:[1000,0]}} transition={{duration:2,delay:2}} viewport={{once:true}}>
-                <img src={"/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png"} alt="youtube" className='w-[10rem] 2xl:w-[15rem]' />
+                <img src={"/img/SocalMedia/Simple-YouTube-Logo-i-transformed-min (1).png"} alt="youtube" className='w-[10rem] 2xl:w-[10rem]' />
                 <div className='flex flex-col items-center gap-3 2xl:gap-5'>
-                    <b className='2xl:text-3xl'>خدمات یوتیوب</b>
+                    <b className=''>خدمات یوتیوب</b>
                     <div>
                     <p className='text-center px-3 span text-gray-77 leading-8'>یوتیوب معتبرترین سایت جهان در زمینه اشتراک ویدیو محسوب می شود و بسیاری از کاربران اینترنت از سراسر جهان، ویدیوهای خود را در آن به اشتراک گذاشته و از آن کسب درآمد می کنند. یکی از شروط لازم برای کسب درآمد از یوتیوب این است که ویدیوهای کانال شما حداقل 4 هزار ساعت بازدید داشته باشند. ما در تیم نهال آی تی به شما کمک میکنیم تا به کسب درامد برسید.</p>
                     </div>

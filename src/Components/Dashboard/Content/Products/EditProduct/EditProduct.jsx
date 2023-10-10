@@ -32,7 +32,7 @@ function EditProduct({ isEdit , setIsEdit }) {
             title:titleRef.current.value,
             image:imageName,
             category_id:dropCate.id,
-            price:priceValue,
+            price:priceValue.replaceAll(",",""),
             description:desc,
             userId : JSON.parse(Cookies.get("user")).id
         }

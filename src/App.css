@@ -306,10 +306,6 @@ b
 {
     font-family: IranSans-r;
 }
-.socalMedia-services > div
-{
-    width: 30%;
-}
 .socalMedia-services > div > span
 {
     font-family: IranSans-b;
@@ -318,8 +314,9 @@ b
 .socalMedia-services > div > p
 {
     font-family: IranSans-r;
-    text-align: center;
+    text-align: justify;
     color:#7A7A7A;
+    font-size: 0.8rem;
     line-height: 1.8;
 }
 .sound-editing-Services  > div > span
@@ -684,61 +681,48 @@ img[alt='comment']
 
 @media (min-width:640px)
 {
-  .Services-style
-{
-    direction: rtl;
-    overflow: hidden;
-    text-align: right;
-} 
+      .Services-style
+    {
+        direction: rtl;
+        overflow: hidden;
+        text-align: right;
+    } 
     .store-text,
     .service-text
     {
         width: 100%;
     }
-    .Services-style > div
-{
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-}
-.span
-{
-  line-height: 2rem; 
-  font-size: 0.9rem;
-}
-.editing-video-Services > div
-{
-    width: 30%;
-    justify-content:flex-start;
-    margin-bottom: 5rem;
-}
-.motionImg
-{
-    width: 30rem;
-    height: 20rem
-}
-.motionImg2
-{
-    width: 25rem;
-    height: 15rem
-}
-.graphic-services > div
-{
-    width: 30%;
-    margin-bottom: 5rem;
-    justify-content: space-between;
-}
-}
-
-
-
-
-@media(max-width:1700px)
-{
-  .Services-style > div
-  {
-    padding-right: 0;
-    padding-left: 0;
-  }
+    .span
+    {
+      line-height: 2rem; 
+      font-size: 0.9rem;
+    }
+    .editing-video-Services > div
+    {
+        width: 30%;
+        justify-content:flex-start;
+        margin-bottom: 5rem;
+    }
+    .motionImg
+    {
+        width: 30rem;
+        height: 20rem
+    }
+    .motionImg2
+    {
+        width: 25rem;
+        height: 15rem
+    }
+    .graphic-services > div
+    {
+        width: 30%;
+        margin-bottom: 5rem;
+        justify-content: space-between;
+    }
+    .socalMedia-services > div
+    {
+        width: 25%;
+    }
 }
 
 
@@ -878,7 +862,7 @@ img[alt='stopmotion']
 }
 .span
 {
-  padding: 0 8rem;
+  padding: 0 3rem;
 }
 .xl-line-clamp-2
 {

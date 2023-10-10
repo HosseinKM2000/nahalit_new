@@ -40,6 +40,11 @@ function CategoriesBox({ dropCate , setDropCate }) {
                 {
                     cateList.filter(cate => cate.category_id === null).map((cate,i)=>(
                         <li key={i} className='cursor-pointer flex items-center gap-1 hover:text-purple-600 hover:font-bold transition-all'
+                        onClick={()=>{
+                            setDropCate({status:false,value:cate.title,id:cate.id})
+                            setChildList(false)
+                            setChildList_2(false)
+                        }}
                         onMouseEnter={(e)=>{
                             liHandler(cate.title)
                             setChildList_2(false)
@@ -65,7 +70,13 @@ function CategoriesBox({ dropCate , setDropCate }) {
             <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList?'fit-content':'0px'}}>
                 {
                     categories.filter(cate => cate.category_id === goalCate.id).map((item,i)=>(
-                        <li key={i} onMouseEnter={(e)=>{
+                        <li key={i}
+                        onClick={()=>{
+                            setDropCate({status:false,value:item.title,id:item.id})
+                            setChildList(false)
+                            setChildList_2(false)
+                        }}
+                        onMouseEnter={(e)=>{
                             liHandler_2(item.id)
                             setChildList_2(true)
                         }}  className='cursor-pointer hover:text-orange-600 hover:font-bold transition-all flex items-center gap-1'>
@@ -91,7 +102,7 @@ function CategoriesBox({ dropCate , setDropCate }) {
             <ul className='bg-white px-2 rounded-sm transition-all duration-300 cate-scroll overflow-hidden max-h-[10rem] overflow-y-scroll' style={{height:childList_2?'fit-content':'0px'}}>
             {
                 categories.filter(cate => cate.category_id === goalChild.id).map((item,i)=>(
-                    <li key={i} onClick={(e)=>{
+                    <li key={i} onClick={()=>{
                         setDropCate({status:false,value:item.title,id:item.id})
                         setChildList(false)
                         setChildList_2(false)

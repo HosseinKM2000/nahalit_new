@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import front_1 from "../../assets/img/frm-thbt-sfarsh-transformed-min.png";
 import { Link } from 'react-router-dom';
 
 function EndBox1({ content }) {
   return (
     <motion.div initial={{translateY:200,opacity:0}} viewport={{once:true}} transition={{duration:1}} whileInView={{translateY:0,opacity:1}} className='bg-blue-db py-10 px-3 flex w-full flex-col sm:flex-row items-center justify-around'>
-    <img src={front_1} alt="store" className='w-[50%] sm:w-[20%]'/>
+    <img src={"/img/frm-thbt-sfarsh-transformed-min.png"} alt="store" className='w-[50%] sm:w-[20%]'/>
     <div className='w-[80%] flex flex-col items-center gap-5 2xl:gap-[3rem]'>
       <p className='store-text'>{content.p}</p>
     <Link to={'/order'}>

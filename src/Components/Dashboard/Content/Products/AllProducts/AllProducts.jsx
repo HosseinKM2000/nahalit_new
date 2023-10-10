@@ -16,6 +16,7 @@ function AllProducts({ currentItems , setIsEdit , setShowGallery }) {
 
   const deletingProduct = id => {
     dispatch(deleteProduct(id))
+    console.log(id)
   }
 
   function separateByCommas(number) {

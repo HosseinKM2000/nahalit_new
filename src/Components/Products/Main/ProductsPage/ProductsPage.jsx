@@ -12,9 +12,9 @@ import { Link } from 'react-router-dom';
 function ProductsPage({currentItems}) {
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]);
-    const dispatch = useDispatch();
     const discounts = useSelector(state => state.products.discounts);
     const discountIds = discounts.map(discount => discount.product_id);
+    const tags = useSelector(state => state.products.tags);
 
     useEffect(() => {
         const list = JSON.parse(localStorage.getItem('favProducts'));
@@ -87,13 +87,13 @@ function ProductsPage({currentItems}) {
                         <div className='px-1 py-2'>
                             <h1 className='text-[0.9rem] leading-5 font-[shabnamBold] text-stone-600'>{product.title}</h1>
                         </div>
-                        {/* <div className='px-1 py-2 flex items-center gap-3'>
-                            {
-                                product.tags.map((tag,index) => (
-                                    <Link to={''} key={index} className='text-[0.7rem] bg-stone-400 font-bold text-white p-1 rounded-lg'>{tag}</Link>
-                                ))
-                            }
-                        </div> */}
+                        <div className="flex items-center gap-2 mx-1">
+                        {
+                            tags?.filter(tag => tag.product_id === product.id).map((item,index) => (
+                            <p key={`product-tag-${index}`} className="py-1 my-2 px-1 text-[0.7rem] bg-[#cccccc] font-[shabnam] rounded-md">{item.title}</p>
+                            ))
+                        }
+                        </div>
                         <div className='line-clamp-3 text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2'>
                             <HTMLRenderer html={product?.description}/>
                         </div>

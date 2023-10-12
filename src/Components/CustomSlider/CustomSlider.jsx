@@ -7,7 +7,7 @@ import { MdUpdate } from "react-icons/md";
 import moment from "moment-jalaali";
 import { PiStarFill } from 'react-icons/pi';
 
-const CustomSlider = ({ title , translate , items , discounts }) => {
+const CustomSlider = ({ title , translate , items , discounts , tags }) => {
   const sliderRef = useRef();
   const navigate = useNavigate();
   const discountIds = discounts.map(dis => dis.product_id);
@@ -61,17 +61,17 @@ const CustomSlider = ({ title , translate , items , discounts }) => {
                 </div>
                 <div className="flex flex-col items-start justify-center gap-3 h-[50%] py-3">
                   <div className="mr-3">
-                    {/* <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2">
                       {
-                        product.tags.map((tag,index) => (
-                          <p key={`product-tag-${index}`} className="2xl:py-2 py-1 my-2 px-1 text-sm bg-[#F4F4F5] rounded-lg">{tag}</p>
+                        tags?.filter(tag => tag.product_id === product.id).map((item,index) => (
+                          <p key={`product-tag-${index}`} className="py-1 my-2 px-1 text-[0.7rem] bg-[#e2e2e2] rounded-md">{item.title}</p>
                         ))
                       }
-                    </div> */}
-                    <span className="text-[#656666] font-[shabnambold] line-clamp-1 text-[1.1rem] mb-3">{product.title}</span>
+                    </div>
+                    <span className="text-[#656666] font-[shabnambold] line-clamp-1 text-[1rem] mb-3">{product.title}</span>
                     <div className="flex items-center gap-1 text-[#717171]">
                       <MdUpdate className="scale-125 text-green-700"/>
-                      <span className="font-[shabnamBold]">{moment(product.created_at).format('jYYYY/jMM/jDD')}</span>
+                      <span className="font-[shabnamBold] text-sm">{moment(product.created_at).format('jYYYY/jMM/jDD')}</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between w-full">

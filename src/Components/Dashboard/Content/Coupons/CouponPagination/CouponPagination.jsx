@@ -49,7 +49,7 @@ function CouponPagination() {
         </div>
         :
         <>
-        <AllCoupons currentItems={currentItems} users={users} setShowDetails={setShowDetails}/>
+        <AllCoupons currentItems={currentItems} users={users} setShowDetails={setShowDetails} coupons={coupons}/>
         <ReactPaginate
         breakLabel="..."
         nextLabel={mobile ? '>>' : "برگه بعدی >>"}

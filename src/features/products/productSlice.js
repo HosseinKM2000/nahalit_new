@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { products } from "../../API/data";
-import { getProducts } from "./action";
+import { getProducts , getTags } from "./action";
 
 const initialState = {
     products : [],
     discounts:[],
+    tags:[],
     productsCate:[],
     FilteredProducts:[],
     goalProduct:'',
@@ -167,6 +168,18 @@ const productsSlice = createSlice({
         .addCase(getProducts.rejected , (state,action) => {
             state.isLoading = false;
             console.log(action)
+        })
+        // tags
+        .addCase(getTags.fulfilled , (state,action) => {
+            state.isLoading = false;
+            state.tags = action.payload.tags;
+            console.log(action)
+        })
+        .addCase(getTags.pending , (state,action) => {
+            state.isLoading = true;
+        })
+        .addCase(getTags.rejected , (state,action) => {
+            state.isLoading = false;
         })
     }
 })

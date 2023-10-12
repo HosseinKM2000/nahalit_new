@@ -13,6 +13,7 @@ import WorkSample from '../../Content/WorkSample/WorkSample';
 import Discount from '../../Content/Discount/Discount';
 import SellersPagination from '../../Content/Sellers/SellersPagination/SellersPagination';
 import Coupons from '../../Content/Coupons/Coupons';
+import Tags from '../../Content/Tags/Tags';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -49,6 +50,8 @@ function ContentDash() {
       case 'sellers' : setCurrentContent(<SellersPagination/>)
       break;
       case 'coupon' : setCurrentContent(<Coupons/>)
+      break;
+      case 'tags' : setCurrentContent(<Tags/>)
       break;
       default : setCurrentContent('این بخش وجود ندارد')
     }

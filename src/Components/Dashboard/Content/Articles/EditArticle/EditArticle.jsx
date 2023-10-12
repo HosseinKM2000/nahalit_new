@@ -48,6 +48,8 @@ function EditArticle() {
             break;
             case formData.body === '' : toast.warn("توضیحات را وارد کنید");
             break;
+            case formData.body.length < 20 : toast.warn("توضیحات کوتاه است");
+            break;
             default : editArticle(formData)
         }
     }
@@ -56,11 +58,10 @@ function EditArticle() {
         let formdata = new FormData();
             formdata.append("title", form.title);
             formdata.append("body", form.body);
-            formdata.append("user_id", form.user_id );
+            formdata.append("user_id", form.user_id);
             formdata.append("is_active", form.is_active);
             formdata.append("image", form.image , `${imageRef.current.value}`);
             dispatch(editBlog({id:goalArticle.id,formdata}))
-            console.log(form)
     }
 
 

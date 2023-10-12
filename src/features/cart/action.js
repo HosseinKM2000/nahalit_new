@@ -32,42 +32,42 @@ export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => 
         return data;
 })
 export const addOrder = createAsyncThunk("cart/addOrder" , async ({userId,dataObj}) => {
-    const response = await instance({
-        headers:{
-            "Content-Type":"application/json",
-        },
-        data:dataObj,
-        method:"post",
-        url:'/orders'
-    });
-    const { data } = response;
-    return data;
-    // try{
-    //     const [response1, response2] = await Promise.all([
-    //         await instance({
-    //             headers:{
-    //                 "Content-Type":"application/json",
-    //             },
-    //             data:dataObj,
-    //             method:"post",
-    //             url:'/orders'
-    //         }),
-    //         await instance.delete(`/baskets/${userId}`)
-    //     ]);
+    // const response = await instance({
+    //     headers:{
+    //         "Content-Type":"application/json",
+    //     },
+    //     data:dataObj,
+    //     method:"post",
+    //     url:'/orders'
+    // });
+    // const { data } = response;
+    // return data;
+    try{
+        const [response1, response2] = await Promise.all([
+            await instance({
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                data:dataObj,
+                method:"post",
+                url:'/orders'
+            }),
+            await instance.delete(`/baskets/destroyAll/${userId}`)
+        ]);
     
-    //     return { res:response1.data,
-    //              newData:response2.data 
-    //            };
-    // }
-    // catch(axiosError){
-    //     let err = axiosError;
-    //     return {
-    //         error: {
-    //             status: err.response?.status,
-    //             data: err.response?.data || err.massage,
-    //     }
-    //   }
-    // }
+        return { res:response1.data,
+                 newData:response2.data 
+               };
+    }
+    catch(axiosError){
+        let err = axiosError;
+        return {
+            error: {
+                status: err.response?.status,
+                data: err.response?.data || err.massage,
+        }
+      }
+    }
 })
 export const getOrderById = createAsyncThunk("cart/getOrderById" , async (id) => {
     const response = await instance.get(`/orders/${id}`);

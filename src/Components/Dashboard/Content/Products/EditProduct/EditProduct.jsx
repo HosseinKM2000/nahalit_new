@@ -12,7 +12,7 @@ function EditProduct({ isEdit , setIsEdit }) {
     const [imageName,setImageName] = useState('');
     const [desc,setDesc] = useState(isEdit.value.description);
     const [dropCate,setDropCate] = useState({status:false,value:categories?.find(cate => cate.id === isEdit.value.category_id ).title,id:isEdit.value.category_id})
-    const [priceValue,setPriceValue] = useState(isEdit.value.price);
+    const [priceValue,setPriceValue] = useState(`${isEdit.value.price}`);
     const loading = useSelector(state => state.dashboard.productsLoading);
     const titleRef = useRef();
     const imageRef = useRef();
@@ -32,7 +32,7 @@ function EditProduct({ isEdit , setIsEdit }) {
             title:titleRef.current.value,
             image:imageName,
             category_id:dropCate.id,
-            price:priceValue.replaceAll(",",""),
+            price:priceValue.replaceAll(',',''),
             description:desc,
             userId : JSON.parse(Cookies.get("user")).id
         }

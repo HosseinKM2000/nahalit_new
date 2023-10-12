@@ -182,17 +182,20 @@ export const getBlogs = createAsyncThunk('dashboard/getBlogs' , async () => {
 
 export const addBlog = createAsyncThunk('dashboard/addBlog' , async (dataObj) => {
     const response = await instance.post('/blogs',dataObj);
-    return response;
+    const { data } = response;
+    return data;
 })
 
-export const editBlog = createAsyncThunk('dashboard/editBlog' , async ({id,dataObj}) => {
-    const response = await instance.put(`/blogs/${id}`,dataObj);
-    return response;
+export const editBlog = createAsyncThunk('dashboard/editBlog' , async ({id,formdata}) => {
+    const response = await instance.post(`/blogs/${id}`,formdata);
+    const { data } = response;
+    return data;
 })
 
 export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) => {
     const response = await instance.delete(`/blogs/${id}`);
-    return response;
+    const { data } = response;
+    return data;
 })
 
 
@@ -268,6 +271,25 @@ export const deleteCoupon = createAsyncThunk("dashboard/deleteCoupon" , async (i
 })
 export const editCoupon = createAsyncThunk("dashboard/editCoupon" , async ({id,dataObj}) => {
     const response = await instance.put(`/coupons/${id}`,dataObj);
+    const { data } = response;
+    return data;
+})
+
+
+
+// tags
+export const getTags = createAsyncThunk("dashboard/getTags" , async () => {
+    const response = await instance.get(`/tags`);
+    const { data } = response;
+    return data;
+})
+export const addTag = createAsyncThunk("dashboard/addTag" , async (dataObj) => {
+    const response = await instance.post(`/tags`,dataObj);
+    const { data } = response;
+    return data;
+})
+export const deletingTag = createAsyncThunk("dashboard/deletingTag" , async (id) => {
+    const response = await instance.delete(`/tags/${id}`);
     const { data } = response;
     return data;
 })

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { getBaskets, getBasketsByUserId } from '../../../../features/cart/action';
 import { Active, deActive } from '../../../../features/loading/loadingSlice';
-import { getProducts } from '../../../../features/products/action';
+import { getProducts, getTags } from '../../../../features/products/action';
 import ProductsPage from '../ProductsPage/ProductsPage';
 import './Pagination.css';
 import Cookies from 'js-cookie';
@@ -27,6 +27,7 @@ function Pagination() {
     useEffect(() => {
       dispatch(getBasketsByUserId(userId));
       dispatch(getProducts());
+      dispatch(getTags());
     },[LoadingStatus])
 
     useEffect(()=>{

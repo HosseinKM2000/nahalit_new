@@ -35,6 +35,7 @@ const cartSlice = createSlice({
         state.baskets = action.payload;
       })
       .addCase(getBasketsByUserId.pending, (state,action) => {
+        state.successOrder = false;
       })
       .addCase(getBasketsByUserId.rejected, (state,action) => {
         console.error("error in getting baskets by userId =>",action)

@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { BiCategory, BiSolidMask } from 'react-icons/bi';
-import { FaRegComments, FaWindowClose } from 'react-icons/fa';
+import { FaRegComments, FaTags, FaWindowClose } from 'react-icons/fa';
 import { FiShoppingBag } from 'react-icons/fi';
 import { BsPersonBoundingBox } from 'react-icons/bs';
 import { GiClockwork } from 'react-icons/gi';
@@ -24,6 +24,7 @@ function SideDash({ dropMenu , setDropMenu }) {
   const [wRotate,setWRotate] = useState(false);
   const [dRotate,setDRotate] = useState(false);
   const [coRotate,setCoRotate] = useState(false);
+  const [tRotate,setTRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
   const pCriterion = useSelector(state => state.dashboard.productsSwitch);
@@ -32,13 +33,14 @@ function SideDash({ dropMenu , setDropMenu }) {
   const wCriterion = useSelector(state => state.dashboard.workSampleSwitch);
   const prCriterion = useSelector(state => state.dashboard.projectSwitch);
   const dCriterion = useSelector(state => state.dashboard.discountSwitch);
+  const tCriterion = useSelector(state => state.dashboard.tagsSwitch);
   const coCriterion = useSelector(state => state.dashboard.couponSwitch);
   const dispatch = useDispatch();
 
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | coRotate && value !== 'articles')
+    if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate && value !== 'articles')
     {
       setCRotate(false);
       setGRotate(false);
@@ -48,8 +50,9 @@ function SideDash({ dropMenu , setDropMenu }) {
       setPRRotate(false);
       setDRotate(false);
       setCoRotate(false);
+      setTRotate(false);
     }
-    else if( pRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | coRotate && value !== 'products')
+    else if( pRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate && value !== 'products')
     {
       setCRotate(false);
       setGRotate(false);
@@ -59,6 +62,7 @@ function SideDash({ dropMenu , setDropMenu }) {
       setPRRotate(false);
       setDRotate(false);
       setCoRotate(false);
+      setTRotate(false);
     }
   }
   
@@ -214,6 +218,21 @@ function SideDash({ dropMenu , setDropMenu }) {
                 <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:coRotate?'fit-content':'0px',padding:coRotate?'10px':'0px',overflow:coRotate?'':'hidden',visibility:coRotate?'visible':'hidden',marginTop:coRotate?'1rem':'0px'}} >
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'coupon',value:'all'}))} style={{backgroundColor:coCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'coupon',value:'new'}))} style={{backgroundColor:coCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
+                </div>
+          </div>
+          <div className='w-full flex flex-col items-center'>
+              <div onClick={()=>{
+                listSwitch('tags')
+                setTRotate(!tRotate)
+                dispatch(setSwitch({key:'tags',value:'all'}))
+              }}  style={{backgroundColor:content==='coupon'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+                <FaTags className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+                <li className='text-white font-bold text-lg  text-center'>تگ ها</li>
+                <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:tRotate?'-90deg':'0deg'}}/>
+                </div>
+                <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:tRotate?'fit-content':'0px',padding:tRotate?'10px':'0px',overflow:tRotate?'':'hidden',visibility:tRotate?'visible':'hidden',marginTop:tRotate?'1rem':'0px'}} >
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'tags',value:'all'}))} style={{backgroundColor:tCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'tags',value:'new'}))} style={{backgroundColor:tCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
                 </div>
           </div>
           <div  onClick={()=>{

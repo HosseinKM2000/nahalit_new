@@ -1,33 +1,31 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBlogs, getProducts } from '../../../../../../features/dashboard/action';
-import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
-import AllDiscounts from '../AllDiscounts';
+import { getProducts, getTags } from '../../../../../features/dashboard/action';
+import AllTags from './AllTags/AllTags';
 
-function DiscountsPagination() {
+function TagsPagination() {
     const [itemOffset, setItemOffset] = useState(0);
     const products = useSelector(state => state.dashboard.products) || [];
-    const discounts = useSelector(state => state.dashboard.discounts) || [];
-    const Loading = useSelector(state => state.dashboard.productsLoading);
-    const discountsLoading = useSelector(state => state.dashboard.discountsLoading);
-    const ListDiscounts = discounts.slice(0,100) 
+    const deleteTagSuccess = useSelector(state => state.dashboard.deleteTagSuccess);
+    const tags = useSelector(state => state.dashboard.tags) || [];
+    const Loading = useSelector(state => state.dashboard.tagsLoading); 
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 20;
     const endOffset = itemOffset + itemsPerPage;
-    const currentItems = ListDiscounts.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(ListDiscounts.length / itemsPerPage);
+    const currentItems = tags.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(tags.length / itemsPerPage);
     const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(getProducts())
-    },[discountsLoading]);
+      dispatch(getTags())
+    },[deleteTagSuccess]);
 
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % ListDiscounts.length;
+      const newOffset = (event.selected * itemsPerPage) % tags.length;
       dispatch(setScrollUp());
       setItemOffset(newOffset);
     };
-
 
   return (
     <>
@@ -39,7 +37,7 @@ function DiscountsPagination() {
       </div>
      :
      <>
-      <AllDiscounts currentItems={currentItems} products={products} discounts={discounts}/>
+      <AllTags currentItems={currentItems} products={products} tags={tags}/>
       <ReactPaginate
       breakLabel="..."
       nextLabel={mobile ? '>>' : "برگه بعدی >>"}
@@ -59,4 +57,4 @@ function DiscountsPagination() {
   )
 }
 
-export default DiscountsPagination;
+export default TagsPagination;

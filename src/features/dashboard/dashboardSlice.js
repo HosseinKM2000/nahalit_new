@@ -39,7 +39,10 @@ import {
     addSeller,
     getCoupons,
     deleteCoupon,
-    editCoupon
+    editCoupon,
+    getTags,
+    addTag,
+    deletingTag
 } from "./action";
 
 const initialState = {
@@ -52,6 +55,7 @@ const initialState = {
     couponSwitch:'all',
     projectSwitch:'all',
     discountSwitch:'all',
+    tagsSwitch:'all',
     productId:null,
     products:[],
     projects:[],
@@ -63,9 +67,11 @@ const initialState = {
     couponsSuccess:false,
     usersLoading:false,
     sellerLoading:false,
+    tagsLoading:false,
     deleteGallerySuccess:false,
     ordersLoading:false,
     deleteSellerSuccess:false,
+    deleteTagSuccess:false,
     users:[],
     projectsLoading:false,
     couponLoading:false,
@@ -90,6 +96,7 @@ const initialState = {
     workSamplesLoading:false,
     discountId:"",
     roles:[],
+    tags:[],
     sellers:[],
     permissions:[],
     userPermissions:[],
@@ -140,6 +147,8 @@ const dashboardSlice = createSlice({
                 case 'projects' : state.projectSwitch = value;
                 break;
                 case 'discount' : state.discountSwitch = value;
+                break;
+                case 'tags' : state.tagsSwitch = value;
                 break;
                 case 'coupon' : state.couponSwitch = value;
                 break;
@@ -472,7 +481,8 @@ const dashboardSlice = createSlice({
         // edit blog
         .addCase(editBlog.fulfilled,(state,action) => {
             state.blogsLoading = false;
-            toast.success('مقاله با موفقیت ویرایش شد')
+            toast.success(action.payload.message);
+            console.log(action)
         })
         .addCase(editBlog.pending,(state,action) => {
             state.blogsLoading = true;
@@ -755,6 +765,49 @@ const dashboardSlice = createSlice({
         .addCase(editCoupon.rejected,(state,action) => {
             state.couponLoading = false;
             toast.error('خطا در  ویرایش کوپن')
+        })
+
+
+        // get tags
+        .addCase(getTags.fulfilled,(state,action) => {
+            state.tagsLoading = false;
+            state.tags = action.payload.tags;
+        })
+        .addCase(getTags.pending,(state,action) => {
+            state.tagsLoading = true;
+        })
+        .addCase(getTags.rejected,(state,action) => {
+            state.tagsLoading = false;
+            toast.error('خطا در بارگیری تک ها')
+        })
+
+
+        // get tags
+        .addCase(addTag.fulfilled,(state,action) => {
+            state.tagsLoading = false;
+            toast.success('تگ اضافه شد');
+        })
+        .addCase(addTag.pending,(state,action) => {
+            state.tagsLoading = true;
+        })
+        .addCase(addTag.rejected,(state,action) => {
+            state.tagsLoading = false;
+            toast.error('خطا در افزودن تگ')
+        })
+
+
+        // delete tag
+        .addCase(deletingTag.fulfilled,(state,action) => {
+            state.tagsLoading = false;
+            state.deleteTagSuccess = !state.deleteTagSuccess;
+            toast.success(action.payload.massage);
+        })
+        .addCase(deletingTag.pending,(state,action) => {
+            state.tagsLoading = true;
+        })
+        .addCase(deletingTag.rejected,(state,action) => {
+            state.tagsLoading = false;
+            toast.error('خطا در حذف تک')
         })
     }
 })

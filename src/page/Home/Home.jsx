@@ -14,27 +14,32 @@ import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
 import ServicesHomePage from "../../Components/ServicesHomePage/ServicesHomePage";
 import SliderSwiper from "../../Components/SliderSwiper/SliderSwiper";
-import { getBlogs, getUsers } from "../../features/dashboard/action";
-import { getProducts } from "../../features/products/action";
+import { getBlogs, getCategories, getUsers } from "../../features/dashboard/action";
+import { getProducts, getTags } from "../../features/products/action";
 
 
 const Home = () => {
   const products = useSelector(state => state.products.products);
+  const categories = useSelector(state => state.dashboard.categories);
   const discounts = useSelector(state => state.products.discounts);
+  const tags = useSelector(state => state.products.tags);
   const users = useSelector(state => state.dashboard.users);
   const blogs = useSelector(state => state.dashboard.blogs);
   const baskets = useSelector(state => state.cart.baskets);
+  const wordpressCateId = categories?.find(cate => cate.title === "وردپرس")?.id;
   let latestProducts = products.slice().reverse();
   let latestBlogs = blogs.slice().reverse().slice(0,9);
-  let wordPressPlugins = products.filter(item => item.category_id === 14);
+  let wordPressPlugins = products.filter(item => item.category_id === wordpressCateId);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(getProducts())
     dispatch(getBlogs())
     dispatch(getUsers())
+    dispatch(getCategories())
+    dispatch(getTags())
   },[])
-
+  console.log(tags)
   return (
     <div className="w-[100vw]">
       <Helmet>
@@ -62,7 +67,7 @@ const Home = () => {
           <ServicesHomePage />
         </section>
         <section className="mt-[8rem]">
-          <CustomSlider title={"جدیدترین محصولات"} translate={"Latest Products"} items={latestProducts} discounts={discounts}/>
+          <CustomSlider title={"جدیدترین محصولات"} translate={"Latest Products"} items={latestProducts} discounts={discounts} tags={tags}/>
         </section>
         <section className="my-[8rem] flex justify-center items-center">
           <AboutSite />
@@ -71,7 +76,7 @@ const Home = () => {
           <OurPlans />
         </section>
         <section className="mt-14">
-          <CustomSlider title={"قالب های وردپرسی"} translate={"Wordpress Plugins"} items={wordPressPlugins} discounts={discounts}/>
+          <CustomSlider title={"قالب های وردپرسی"} translate={"Wordpress Plugins"} items={wordPressPlugins} discounts={discounts} tags={tags}/>
         </section>
         <section className="mt-24">
           <News />

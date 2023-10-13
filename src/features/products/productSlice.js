@@ -173,7 +173,6 @@ const productsSlice = createSlice({
         .addCase(getTags.fulfilled , (state,action) => {
             state.isLoading = false;
             state.tags = action.payload.tags;
-            console.log(action)
         })
         .addCase(getTags.pending , (state,action) => {
             state.isLoading = true;

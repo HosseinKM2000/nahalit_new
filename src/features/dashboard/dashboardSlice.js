@@ -782,7 +782,7 @@ const dashboardSlice = createSlice({
         })
 
 
-        // get tags
+        // add tag
         .addCase(addTag.fulfilled,(state,action) => {
             state.tagsLoading = false;
             toast.success('تگ اضافه شد');

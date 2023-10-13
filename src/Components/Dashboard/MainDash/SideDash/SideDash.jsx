@@ -225,7 +225,7 @@ function SideDash({ dropMenu , setDropMenu }) {
                 listSwitch('tags')
                 setTRotate(!tRotate)
                 dispatch(setSwitch({key:'tags',value:'all'}))
-              }}  style={{backgroundColor:content==='coupon'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+              }}  style={{backgroundColor:content==='tags'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
                 <FaTags className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
                 <li className='text-white font-bold text-lg  text-center'>تگ ها</li>
                 <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:tRotate?'-90deg':'0deg'}}/>

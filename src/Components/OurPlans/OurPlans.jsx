@@ -38,7 +38,7 @@ const OurPlans = () => {
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
             <Link to={"/our-business-plans"}>
-              <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+              <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-3 min-w-fit  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
                 خرید این پلن
               </button>
             </Link>
@@ -79,7 +79,7 @@ const OurPlans = () => {
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
             <Link to={"/our-business-plans"}>
-                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-3 min-w-fit  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
                   خرید این پلن
                 </button>
               </Link>
@@ -120,7 +120,7 @@ const OurPlans = () => {
           </div>
           <div className="flex flex-col items-center justify-center mt-9 gap-1">
             <Link to={"/our-business-plans"}>
-                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-1  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
+                <button className="bg-[#56C253] font-[shabnamBold]  hover:bg-[#63df5f] transition-all duration-200 px-3 min-w-fit  w-[70%] md:w-fit md:px-16 py-[0.4rem] rounded-lg text-white tracking-wide text-lg">
                   خرید این پلن
                 </button>
               </Link>

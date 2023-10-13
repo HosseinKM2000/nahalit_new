@@ -1,7 +1,7 @@
 import "./PriceRange.css";
 
 const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setMax}) => {
-
+  
   const rangeInput = document.querySelectorAll(".range-input input");
   const priceInput = document.querySelectorAll(".price-input input");
   const range = document.querySelector(".slider .progress");
@@ -28,6 +28,7 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
     input.addEventListener("input", e => {
       let minVal = parseInt(rangeInput[0].value),
         maxVal = parseInt(rangeInput[1].value);
+
       if ((maxVal - minVal) < priceGap) {
         if (e.target.className === "range-min") {
           rangeInput[0].value = maxVal - priceGap
@@ -37,8 +38,10 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
       } else {
         priceInput[0].value = minVal;
         priceInput[1].value = maxVal;
-        range.style.right = ((minVal / rangeInput[0].max) * 100) + "%";
+        range.style.right = ((minVal / rangeInput[0].max) * 100)  + "%";
         range.style.left = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        console.log((minVal / rangeInput[0].max) * 100)
+        console.log('this =>',minVal , rangeInput[0].max)
       }
     });
   });

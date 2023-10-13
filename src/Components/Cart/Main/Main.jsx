@@ -77,23 +77,12 @@ function Main() {
               <p className="font-black">{addSignToMoney(allPrice(goalProducts))}</p>
             </div>
           </div>
-          {
-            successOrder
-            ?
-            <div className='w-full flex flex-col mt-5'>
-              <p className='text-green-700 font-[shabnamBold] w-full text-center py-3' style={{border:"dotted 5px green"}}>ثبت سفارش با موفقیت انجام شد</p>
-              <div className='mt-4 flex justify-center cursor-pointer sm:mb-0 basis-full sm:basis-1/2 lg:basis-1/4 xl:basis-1/6 text-white py-3 font-bold w-full bg-blue-500 hover:bg-blue-600 px-3 rounded'>
-                <span>ادامه جهت تسویه حساب</span>
-              </div>
-            </div>
-            :
-            <button
+          <button
             onClick={orderHandle}
             className="mt-4 sm:mb-0 basis-full cursor-pointer sm:basis-1/2 lg:basis-1/4 xl:basis-1/6 text-white py-3 font-bold w-full bg-blue-500 hover:bg-blue-600 px-3 rounded"
           >
              ثبت سفارش
           </button>
-          }
         </section> :
         <section className="container mx-auto font-[shabnam] bg-white shadow-black/5 p-16 my-10 shadow-xl text-center">
           <p>سبد خرید شما در حال حاضر خالی است</p>

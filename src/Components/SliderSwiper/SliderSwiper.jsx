@@ -1,9 +1,6 @@
 import React from "react";
-import { Navigation, A11y, Autoplay, Pagination, EffectCards } from "swiper";
+import { A11y, Autoplay, EffectCards, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import img_1 from '../../assets/img/sliderSwiper1.jpg';
-import img_2 from '../../assets/img/sliderSwiper2.jpg';
-import img_3 from '../../assets/img/sliderSwiper3.jpg';
 
 const SliderSwiper = () => {
   return (
@@ -13,7 +10,7 @@ const SliderSwiper = () => {
         modules={[Navigation, A11y, Autoplay, Pagination, EffectCards]}
         effect="cards"
         slidesPerView={1}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
         <SwiperSlide>
           <img

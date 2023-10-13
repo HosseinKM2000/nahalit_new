@@ -69,16 +69,14 @@ const cartSlice = createSlice({
         toast.error("خطا در حذف محصول")
       })
       .addCase(addOrder.fulfilled, (state,action) => {
-        // if(action.payload.error) {
-        //   console.log(action)
-        // } else {
-        //   state.success = !state.success;
-        //   state.successOrder = true;
-        // }
-        state.success = !state.success;
-        state.successOrder = true;
+        if(action.payload.error) {
+          toast.error("متاسفانه خطایی پیش آمده است")
+        } else {
+          toast.success("سفارش شما ثبت شد")
+          state.success = !state.success;
+          state.successOrder = true;
+        }
         state.loading = false;
-        console.log(action)
       })
       .addCase(addOrder.pending, (state,action) => {
         state.loading = true;
@@ -86,7 +84,7 @@ const cartSlice = createSlice({
       })
       .addCase(addOrder.rejected, (state,action) => {
         state.loading = false;
-        toast.error("خطا در ثبت محصول")
+        toast.error("خطا در ثبت سفارش")
         console.log(action)
       })
       .addCase(getOrderById.fulfilled, (state,action) => {

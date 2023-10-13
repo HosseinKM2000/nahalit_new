@@ -39,7 +39,7 @@ const Home = () => {
     dispatch(getCategories())
     dispatch(getTags())
   },[])
-  console.log(tags)
+
   return (
     <div className="w-[100vw]">
       <Helmet>

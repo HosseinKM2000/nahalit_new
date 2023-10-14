@@ -12,7 +12,6 @@ import { getUsers } from '../../../features/dashboard/action';
 function Main() {
     const baskets = useSelector(state => state.cart.baskets);
     const success = useSelector(state => state.cart.success);
-    const successOrder = useSelector(state => state.cart.successOrder);
     const products = useSelector(state => state.products.products);
     const discounts = useSelector(state => state.products.discounts);
     const discountIds = discounts.map(discount => discount.product_id);

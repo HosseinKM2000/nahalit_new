@@ -2,18 +2,15 @@ import { React, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../../Content/Articles/Articles';
 import Categories from '../../Content/Categories/Categories';
-import CommentsPagination from '../../Content/Comments/CommentsPagination/CommentsPagination';
-import Gallery from '../../Content/Gallery/Gallery';
+import Coupons from '../../Content/Coupons/Coupons';
+import Discount from '../../Content/Discount/Discount';
 import OrdersPagination from '../../Content/Orders/OrdersPagination/OrdersPagination';
 import Products from '../../Content/Products/Products';
 import Projects from '../../Content/Projects/Projects';
 import Roles from '../../Content/Roles/Roles';
-import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
-import WorkSample from '../../Content/WorkSample/WorkSample';
-import Discount from '../../Content/Discount/Discount';
 import SellersPagination from '../../Content/Sellers/SellersPagination/SellersPagination';
-import Coupons from '../../Content/Coupons/Coupons';
 import Tags from '../../Content/Tags/Tags';
+import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -35,13 +32,7 @@ function ContentDash() {
       break
       case 'users' : setCurrentContent(<UsersPagination/>)
       break
-      case 'comments' : setCurrentContent(<CommentsPagination/>)
-      break
-      case 'workSample' : setCurrentContent(<WorkSample/>)
-      break
       case 'projects' : setCurrentContent(<Projects/>)
-      break
-      case 'gallery' : setCurrentContent(<Gallery/>)
       break
       case 'roles' : setCurrentContent(<Roles/>)
       break;

@@ -1,16 +1,15 @@
 import { React, useState } from 'react';
-import { AiOutlinePicture } from 'react-icons/ai';
 import { BiCategory, BiSolidMask } from 'react-icons/bi';
-import { FaRegComments, FaTags, FaWindowClose } from 'react-icons/fa';
-import { FiShoppingBag } from 'react-icons/fi';
 import { BsPersonBoundingBox } from 'react-icons/bs';
+import { FaTags, FaWindowClose } from 'react-icons/fa';
+import { FiShoppingBag } from 'react-icons/fi';
 import { GiClockwork } from 'react-icons/gi';
 import { ImUsers } from 'react-icons/im';
-import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart, MdWorkspaces } from 'react-icons/md';
+import { MdOutlineArrowLeft, MdOutlineArticle, MdShoppingCart } from 'react-icons/md';
+import { RiCoupon3Fill } from 'react-icons/ri';
 import { TbDiscountCheckFilled } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContent, setSwitch, setSwitchCategories } from '../../../../features/dashboard/dashboardSlice';
-import { RiCoupon3Fill } from 'react-icons/ri';
 
 function SideDash({ dropMenu , setDropMenu }) {
 
@@ -98,22 +97,6 @@ function SideDash({ dropMenu , setDropMenu }) {
                 <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'articles',value:'new',id:null}))} style={{backgroundColor:aCriterion === 'new' ? '#ffffff4d' : ''}}>مقاله جدید</button>
               </div>
           </div>
-          {/* work samples */}
-          {/* <div className='w-full flex flex-col items-center'>
-              <div onClick={()=>{
-                listSwitch('workSample')
-                setWRotate(!wRotate)
-                dispatch(setSwitch({key:'workSample',value:'all'}))
-                }}  style={{backgroundColor:content==='workSample'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-              <MdWorkspaces className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-              <li className='text-white font-bold text-lg  text-center'>نمونه کار ها</li>
-              <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:wRotate?'-90deg':'0deg'}}/>
-              </div>
-              <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:wRotate?'fit-content':'0px',padding:wRotate?'10px':'0px',overflow:wRotate?'':'hidden',visibility:wRotate?'visible':'hidden',marginTop:wRotate?'1rem':'0px'}} >
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'workSample',value:'all',id:null}))} style={{backgroundColor:wCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'workSample',value:'new',id:null}))} style={{backgroundColor:wCriterion === 'new' ? '#ffffff4d' : ''}}>افزودن</button>
-              </div>
-          </div> */}
           <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('products')
@@ -129,22 +112,6 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'products',value:'new',id:null}))} style={{backgroundColor:pCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
                 </div>
           </div>
-          {/* gallery */}
-          {/* <div className='w-full flex flex-col items-center'>
-              <div onClick={()=>{
-                listSwitch('gallery')
-                setGRotate(!gRotate)
-                dispatch(setSwitch({key:'gallery',value:'all'}))
-              }}  style={{backgroundColor:content==='gallery'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-              <AiOutlinePicture className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-              <li className='text-white font-bold text-lg  text-center'>گالری</li>
-              <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:gRotate?'-90deg':'0deg'}}/>
-              </div>
-                <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:gRotate?'fit-content':'0px',padding:gRotate?'10px':'0px',overflow:gRotate?'':'hidden',visibility:gRotate?'visible':'hidden',marginTop:gRotate?'1rem':'0px'}} >
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'all'}))} style={{backgroundColor:gCriterion === 'all' || gCriterion === 'edit' ? '#ffffff4d' : ''}}>همه</button>
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'gallery',value:'new'}))} style={{backgroundColor:gCriterion === 'new' ? '#ffffff4d' : ''}}>جدید</button>
-                </div>
-          </div> */}
           <div onClick={()=>listSwitch('users')}  style={{backgroundColor:content==='users'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
               <ImUsers className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
               <li className='text-white font-bold text-lg  text-center'>کاربران</li>
@@ -170,11 +137,6 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'projects',value:'new'}))} style={{backgroundColor:prCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
               </div>
           </div>
-          {/* <div onClick={()=>listSwitch('comments')}  style={{backgroundColor:content==='comments'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-              <FaRegComments className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-              <li className='text-white font-bold text-lg  text-center'>نظرات</li>
-              <div className='w-[1.5rem] h-[1.5rem]'></div>
-          </div> */}
           <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('roles')

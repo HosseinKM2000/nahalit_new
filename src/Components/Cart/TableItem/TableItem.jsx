@@ -10,8 +10,6 @@ import moment from 'moment-jalaali';
 
 const TableItem = ({ cartItem , discounts , discountIds }) => {
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart.cart);
-  const users = useSelector(state => state.dashboard.users);
   const baskets = useSelector(state => state.cart.baskets);
   const loading = useSelector(state => state.cart.loading);
   const userId = JSON.parse(Cookies.get("user")).id;

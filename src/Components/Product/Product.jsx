@@ -15,7 +15,6 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ResponseHeader from '../ResponseHeader/ResponseHeader';
 import { getProducts } from '../../features/products/action';
-import Comments from './Comments/Comments';
 import { Active, deActive } from '../../features/loading/loadingSlice';
 import RightSide from './RightSide/RightSide';
 import LeftSide from './LeftSide/LeftSide';
@@ -30,7 +29,6 @@ function Product() {
     const goalId = JSON.parse(params.id);
     
     const goalProduct = products?.find(product => product.id === goalId);
-    const mobile = window.innerWidth <= 425 ? true : false;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -61,14 +59,6 @@ function Product() {
           dispatch(deActive())
         }
       },[loading])
-
-    const addToFavorite = (id) => {
-        setFavorites(favorites.concat(id));
-    }
-
-    const deleteFromFavorites = (id) => {
-        setFavorites(favorites.filter(key => key !== id));
-    }
     
   return (
     <div>

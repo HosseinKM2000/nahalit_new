@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import HTMLRenderer from 'react-html-renderer';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsCalendar4 } from 'react-icons/bs';
-import { FaEye, FaShoppingBag } from 'react-icons/fa';
+import { FaShoppingBag } from 'react-icons/fa';
 import { HiCurrencyDollar } from 'react-icons/hi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 

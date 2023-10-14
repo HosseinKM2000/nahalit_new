@@ -55,7 +55,7 @@ import About_us from "./page/About_us/About_us";
 import BeSeller from "./page/BeSeller/BeSeller";
 import CreateContent from "./page/CreateContent/CreateContent";
 import SocialMediaBot from "./page/SocialMediaBot/SocialMediaBot";
-import { ToastContainer , ToastOptions, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import ConfirmNumberAlert from "./Components/ConfirmNumberAlert/ConfirmNumberAlert";
 import ConfirmNumberPage from "./page/Authentication/ConfirmNumberPage/ConfirmNumberPage";
 import ForgetPassword from "./page/Authentication/ForgetPassword/ForgetPassword";

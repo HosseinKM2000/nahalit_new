@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import NotLogined from "../../Components/NotLogined/NotLogined";
 
 const Order = () => {
-  const loginStatus = useSelector(state => state.authentication.loginStatus);
+
   return (
     <main>
       <header>
@@ -19,10 +19,6 @@ const Order = () => {
           <ResponseHeader />
         </div>
       </header>
-      {
-        loginStatus
-        ?
-        <>
           <section className="bg-[#f5f5f9]">
             <div className="container mx-auto px-3">
               <h2 className="font-[shabnamBold] text-lg pt-5 tracking-tight">سفارش طراحی</h2>
@@ -116,10 +112,6 @@ const Order = () => {
               </div>
             </div>
           </section>
-        </>
-        :
-        <NotLogined/>
-      }
       <div>
         <FixedIcon />
       </div>

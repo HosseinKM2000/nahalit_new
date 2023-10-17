@@ -43,7 +43,9 @@ import {
     getTags,
     addTag,
     deletingTag,
-    getNews
+    getNews,
+    addNews,
+    deleteNews
 } from "./action";
 
 const initialState = {
@@ -827,6 +829,34 @@ const dashboardSlice = createSlice({
         .addCase(getNews.rejected,(state,action) => {
             state.newsLoading = false;
             toast.error('خطا در  بارگیری اخبار')
+        })
+
+
+        // add news
+        .addCase(addNews.fulfilled,(state,action) => {
+            state.newsLoading = false;
+            toast.success("با موفقیت ذخیره شد")
+        })
+        .addCase(addNews.pending,(state,action) => {
+            state.newsLoading = true;
+        })
+        .addCase(addNews.rejected,(state,action) => {
+            state.newsLoading = false;
+            toast.error('خطا در  افزودن خبر')
+        })
+
+
+        // delete news
+        .addCase(deleteNews.fulfilled,(state,action) => {
+            state.newsLoading = false;
+            console.log(action)
+        })
+        .addCase(deleteNews.pending,(state,action) => {
+            state.newsLoading = true;
+        })
+        .addCase(deleteNews.rejected,(state,action) => {
+            state.newsLoading = false;
+            toast.error('خطا در  حذف خبر')
         })
     }
 })

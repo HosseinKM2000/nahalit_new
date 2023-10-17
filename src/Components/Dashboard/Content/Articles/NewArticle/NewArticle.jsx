@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { addBlog } from '../../../../../features/dashboard/action';
 import Editor from '../../../../Editor/Editor';
 

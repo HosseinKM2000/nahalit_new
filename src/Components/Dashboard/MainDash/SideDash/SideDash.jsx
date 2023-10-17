@@ -126,8 +126,8 @@ function SideDash({ dropMenu , setDropMenu }) {
               <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:pRotate?'-90deg':'0deg'}}/>
               </div>
                 <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:nRotate?'fit-content':'0px',padding:nRotate?'10px':'0px',overflow:nRotate?'':'hidden',visibility:nRotate?'visible':'hidden',marginTop:nRotate?'1rem':'0px'}} >
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'news',value:'all',id:null}))} style={{backgroundColor:nCriterion === 'all' || nCriterion === 'edit' || nCriterion === 'gallery' ? '#ffffff4d' : ''}}>همه محصولات</button>
-                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'news',value:'new',id:null}))} style={{backgroundColor:nCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'news',value:'all'}))} style={{backgroundColor:nCriterion === 'all' || nCriterion === 'gallery' ? '#ffffff4d' : ''}}>همه محصولات</button>
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'news',value:'new'}))} style={{backgroundColor:nCriterion === 'new' ? '#ffffff4d' : ''}}>محصول جدید</button>
                 </div>
           </div>
           <div onClick={()=>listSwitch('users')}  style={{backgroundColor:content==='users'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>

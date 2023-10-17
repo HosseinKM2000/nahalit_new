@@ -19,7 +19,7 @@ function ProductGallerySlider({ Id }) {
 
   return (
     <div className='gallery_box'>
-        <span className='text-[1.2rem] font-bold text-stone-700 m-0 w-full text-start'>تصاویر محصول</span>
+        <span className='text-[1.2rem] font-[shabnamBold] text-stone-700 m-0 w-full text-start'>تصاویر محصول</span>
         {
             gallery?.length === 0 
             ?

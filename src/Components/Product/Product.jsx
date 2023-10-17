@@ -14,7 +14,7 @@ import FixedIcon from '../FixedIcon/FixedIcon';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ResponseHeader from '../ResponseHeader/ResponseHeader';
-import { getProducts } from '../../features/products/action';
+import { getProducts, getTagsById } from '../../features/products/action';
 import { Active, deActive } from '../../features/loading/loadingSlice';
 import RightSide from './RightSide/RightSide';
 import LeftSide from './LeftSide/LeftSide';
@@ -23,18 +23,19 @@ function Product() {
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]); 
     const products = useSelector(state => state.products.products);
+    const tags = useSelector(state => state.products.tags);
     const loading = useSelector(state => state.cart.loading);
     const loginStatus = useSelector(state => state.authentication.loginStatus);
     const params = useParams();
     const goalId = JSON.parse(params.id);
-    
     const goalProduct = products?.find(product => product.id === goalId);
     const dispatch = useDispatch();
 
     useEffect(() => {
       dispatch(getProducts())
+      dispatch(getTagsById(goalId))
     },[])
-
+   
     useEffect(() => {
         const list = JSON.parse(localStorage.getItem('favProducts'));
         if(list) {
@@ -73,7 +74,7 @@ function Product() {
       <main className='container mx-auto'>
         <div className='flex flex-col lg:flex-row mt-5 w-full justify-between overflow-x-hidden text-right px-3 sm:p-0'>
           {/* right side */}
-          <RightSide goalProduct={goalProduct}/>
+          <RightSide goalProduct={goalProduct} tags={tags}/>
           {/* left side */}
           <LeftSide goalProduct={goalProduct}/>
         </div>

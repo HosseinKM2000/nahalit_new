@@ -6,9 +6,8 @@ import { FaFacebookF } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ProductGallerySlider from '../../ProductGallerySlider/ProductGallerySlider';
 
-function RightSide({ goalProduct }) {
-    const [Switch,setSwitch] = useState(false);
-  
+function RightSide({ goalProduct , tags }) {
+
   return (
     <div className='flex flex-col w-full lg:w-[70%] p-0 sm:pr-5'>
     <div className='flex flex-col w-full'>
@@ -23,6 +22,13 @@ function RightSide({ goalProduct }) {
                     <ProductGallerySlider Id={goalProduct?.id}/>
                     <div className='flex flex-col items-start mt-10 gap-5 w-full'>
                     <BsTags className='scale-150 tagsIcon text-gray-66 mr-5 sm:m-0'/>
+                    <div className='flex items-center gap-5'>
+                        {
+                            tags.map(tag => (
+                                <strong className='text-sm p-1 bg-slate-400 text-slate-800 rounded-md'>{tag.title}</strong>
+                            ))
+                        }
+                    </div>
                     <div className='flex flex-col sm:flex-row text-white w-full'>
                     <Link to='https://twitter.com/intent/tweet' className='flex flex-col justify-center items-center w-full sm:w-1/4 cursor-pointer hover:brightness-125 transition-all bg-light-blue py-3 px-5 gap-5 '>
                         <BsTwitter className='scale-150'/>
@@ -49,7 +55,7 @@ function RightSide({ goalProduct }) {
                     </div>
                         {/* comment-ruls */}
                       <div className='mt-20 text-gray-66 relative'>
-                            <span className='font-[shabnambold] px-5 text-[1.1rem] w-fit'>قوانین ارسال دیگاه در سایت</span>
+                            <span className='font-[shabnambold] px-5 text-[1.2rem] text-stone-700 w-fit'>قوانین ارسال دیگاه در سایت</span>
                             <ul className='mt-5 2xl:mt-5 pr-5 text-sm text-gray-88 2xl:gap-3 gap-5 flex flex-col font-bold rulls px-5 justify-center'>
                             <li className='font-[shabnamLight]'>چنانچه دیدگاهی توهین آمیز باشد تایید نخواهد شد</li>
                             <li className='font-[shabnamLight]'>چنانچه دیدگاه شما جنبه ی تبلیغاتی داشته باشد تایید نخواهد شد</li>

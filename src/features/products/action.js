@@ -13,3 +13,8 @@ export const getTags = createAsyncThunk("products/getTags" , async () => {
     const { data } = response;
     return data;
 })
+export const getTagsById = createAsyncThunk("products/getTagsById" , async id => {
+    const response = await instance.get(`tags/productTags/${id}`);
+    const { data } = response;
+    return data;
+})

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { products } from "../../API/data";
-import { getProducts , getTags } from "./action";
+import { getProducts , getTags , getTagsById } from "./action";
 
 const initialState = {
     products : [],
@@ -179,6 +178,10 @@ const productsSlice = createSlice({
         })
         .addCase(getTags.rejected , (state,action) => {
             state.isLoading = false;
+        })
+        // get tags by id
+        .addCase(getTagsById.fulfilled , (state,action) => {
+            state.tags = action.payload.tags;
         })
     }
 })

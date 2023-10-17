@@ -42,8 +42,6 @@ function EditProduct({ isEdit , setIsEdit }) {
             break;
             case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
-            case formData.image === '' : toast.warn('فایل تصویر را وارد کنید');
-            break;
             case formData.description.length === 0 : toast.warn("توضیح را وارد کنید");
             break;
             case formData.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
@@ -59,7 +57,9 @@ function EditProduct({ isEdit , setIsEdit }) {
         formdata.append("category_id", form.category_id);
         formdata.append("seller_id", form.userId );
         formdata.append("price", form.price);
-        formdata.append("image", form.image , `${imageRef.current.value}`);
+        if(form.image !== "") {
+            formdata.append("image", form.image , `${imageRef.current.value}`);
+        }
         dispatch(editProduct({id:isEdit.value.id,formdata}))
     }
 
@@ -96,7 +96,7 @@ function EditProduct({ isEdit , setIsEdit }) {
             {/* image */}
             <div className='flex flex-col gap-2 w-full'>
                 <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
-                <input onChange={(e)=>setImageName(e.target.files[0])} ref={imageRef} type="file" className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
+                <input onChange={(e)=>setImageName(e.target.files[0])} ref={imageRef} type="file" className='p-1 outline-[#0ab694] w-full text-left' name='image'/>
             </div>
             {/* describe */}
                <Editor setDesc={setDesc} desc={desc}/>

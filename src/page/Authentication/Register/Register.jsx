@@ -131,7 +131,7 @@ function Register() {
                   </div>
                   <div className='flex flex-col items-center gap-2 w-full text-sm'>
                       <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
-                        <input ref={phoneRef}  type="number" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-[100%] p-2 text-[1.1rem]' name='phone'/>
+                        <input ref={phoneRef}  type="tel" className='bg-gray-300 outline-none text-left font-[shabnam] border-none w-[100%] p-2 text-[1.1rem]' name='phone'/>
                   </div>
                   <div className='flex flex-col items-end gap-2 w-full text-sm'>
                           <label className='text-stone-600 w-full' htmlFor="password">رمز عبور:</label>

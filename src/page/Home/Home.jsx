@@ -20,16 +20,14 @@ import { getProducts, getTags } from "../../features/products/action";
 
 const Home = () => {
   const products = useSelector(state => state.products.products);
-  const categories = useSelector(state => state.dashboard.categories);
   const discounts = useSelector(state => state.products.discounts);
   const tags = useSelector(state => state.products.tags);
   const users = useSelector(state => state.dashboard.users);
   const blogs = useSelector(state => state.dashboard.blogs);
   const baskets = useSelector(state => state.cart.baskets);
-  const wordpressCateId = categories?.find(cate => cate.title === "وردپرس")?.id;
-  let latestProducts = products.slice().reverse();
+  let latestProducts = products.slice(0,10).reverse();
   let latestBlogs = blogs.slice().reverse().slice(0,9);
-  let wordPressPlugins = products.filter(item => item.category_id === wordpressCateId);
+  let moreProducts = products.slice(0,10)
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -76,7 +74,7 @@ const Home = () => {
           <OurPlans />
         </section>
         <section className="mt-14">
-          <CustomSlider title={"قالب های وردپرسی"} translate={"Wordpress Plugins"} items={wordPressPlugins} discounts={discounts} tags={tags}/>
+          <CustomSlider title={"سایر محصولات"} translate={"More Products"} items={moreProducts} discounts={discounts} tags={tags}/>
         </section>
         <section className="mt-24">
           <News />

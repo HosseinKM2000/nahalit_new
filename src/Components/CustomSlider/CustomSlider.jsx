@@ -81,7 +81,7 @@ const CustomSlider = ({ title , translate , items , discounts , tags }) => {
                         ?
                           <div className="flex items-center gap-3 bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white">
                               <p className="font-[shabnamBold] line-through text-red-900">{addSignToMoney(product.price)}</p>
-                              <p className="font-[shabnamBold]">{addSignToMoney(product.price*discounts.find(dis => dis.product_id === product.id)?.value/100)}</p>
+                              <p className="font-[shabnamBold]">{addSignToMoney(product.price - (product.price * discounts.find(discount => discount.product_id === product.id)?.value) / 100)}</p>
                           </div>
                         :
                         <p className="bg-[#888888] px-5 py-1 rounded-tr-lg rounded-br-lg text-white font-[shabnamBold]">{addSignToMoney(product.price)}</p>

@@ -14,7 +14,6 @@ function ProductsPage({currentItems}) {
     const [favorites,setFavorites] = useState([]);
     const discounts = useSelector(state => state.products.discounts);
     const discountIds = discounts.map(discount => discount.product_id);
-    const tags = useSelector(state => state.products.tags);
 
     useEffect(() => {
         const list = JSON.parse(localStorage.getItem('favProducts'));
@@ -87,13 +86,6 @@ function ProductsPage({currentItems}) {
                         <div className='px-1 py-2'>
                             <h1 className='text-[0.9rem] leading-5 font-[shabnamBold] text-stone-600'>{product.title}</h1>
                         </div>
-                        <div className="flex items-center gap-2 mx-1">
-                        {
-                            tags?.filter(tag => tag.product_id === product.id).map((item,index) => (
-                            <p key={`product-tag-${index}`} className="py-1 my-2 px-1 text-[0.7rem] bg-[#cccccc] font-[shabnam] rounded-md">{item.title}</p>
-                            ))
-                        }
-                        </div>
                         <div className='line-clamp-3 text-[0.8rem] leading-5 text-stone-500 w-full px-1 font-[shabnamMedium] my-2'>
                             <HTMLRenderer html={product?.description}/>
                         </div>
@@ -128,7 +120,7 @@ function ProductsPage({currentItems}) {
                                         <span className='font-[shabnamBold]'>رایگان</span>
                                         :
                                         <>
-                                          <span className='font-[shabnamBold]'>{separateByCommas(discounts.find(discount => discount.product_id === product.id)?.value * product.price / 100)}</span>
+                                          <span className='font-[shabnamBold]'>{separateByCommas(product.price - (product.price * discounts.find(discount => discount.product_id === product.id)?.value) / 100)}</span>
                                           <span className='font-[shabnamBold]'>تومان</span>
                                         </>
                                     }

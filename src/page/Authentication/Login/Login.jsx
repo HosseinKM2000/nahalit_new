@@ -74,7 +74,7 @@ function Login() {
               <form onSubmit={(e)=>loginHandler(e)} className='bg-white flex flex-col gap-5 2xl:gap-10 2xl:py-10 text-stone-700 py-3 px-5'>
                         <div className='flex flex-col items-center gap-2 w-full lg:items-center text-sm'>
                           <label className='text-stone-600 w-full' htmlFor="phone">شماره موبایل:</label>
-                          <input ref={phoneRef} type="number" className='bg-gray-300 font-[shabnam] text-left outline-none text-[1.1rem] border-none 2xl:p-2 w-full p-2' name='phone'/>
+                          <input ref={phoneRef} type="tel" className='bg-gray-300 font-[shabnam] text-left outline-none text-[1.1rem] border-none 2xl:p-2 w-full p-2' name='phone'/>
                         </div>
                         <div className='flex flex-col items-end gap-2 w-full text-sm'>
                           <label className='text-stone-600 w-full' htmlFor="password">گذرواژه:</label>

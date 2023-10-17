@@ -46,7 +46,7 @@ function DetailsOrder(props) {
                                     ?
                                     <div>
                                         <span className='line-through mr-3 font-[shabnamBold]'>{separateByCommas(product.price)}</span>
-                                        <span className='font-[shabnamBold]'>{separateByCommas(product.price*discounts.find(dis => dis.product_id === product.id)?.value/100)}</span>
+                                        <span className='font-[shabnamBold]'>{separateByCommas(product.price - (product.price * discounts.find(dis => dis.product_id === product.id)?.value) / 100)}</span>
                                     </div>
                                     :
                                     <span className='font-[shabnamBold]'>{separateByCommas(product.price)}</span>

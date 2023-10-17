@@ -64,7 +64,7 @@ const TableItem = ({ cartItem , discounts , discountIds }) => {
           ?
           <div className='flex items-center gap-5'>
             <span className='font-[shabnam] line-through'>{addSignToMoney(cartItem.price)}</span>
-            <span className='font-[shabnam]'>{addSignToMoney(discounts.find(dis => dis.product_id === cartItem.id)?.value * cartItem.price / 100)}</span>
+            <span className='font-[shabnam]'>{addSignToMoney(cartItem.price - (cartItem.price * discounts.find(discount => discount.product_id === cartItem.id)?.value) / 100)}</span>
           </div>
           :
           <span className='font-[shabnam]'>{addSignToMoney(cartItem.price)}</span>

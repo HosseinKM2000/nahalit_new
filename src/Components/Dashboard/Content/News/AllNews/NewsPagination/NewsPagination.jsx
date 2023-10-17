@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { getNews } from '../../../../../../features/dashboard/action';
-import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
+import { setDeleteNewsSuccess, setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import EditNews from '../../EditNews/EditNews';
 import AllNews from '../AllNews';
 
@@ -18,7 +18,10 @@ function NewsPagination() {
     const pageCount = Math.ceil(news.length / itemsPerPage);
     const dispatch = useDispatch();
     useEffect(()=>{
-      dispatch(getNews())
+      if(isEdit === ''){
+        dispatch(getNews())
+        dispatch(setDeleteNewsSuccess(false))
+      }
     },[isEdit]);
 
     const handlePageClick = (event) => {

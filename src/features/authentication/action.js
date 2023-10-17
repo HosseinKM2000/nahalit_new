@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { Axios, AxiosError } from "axios";
+import axios from "axios";
 import instance from "../../axios_config/axios";
 
 export const register = createAsyncThunk('authentication/register', async (dataObj) => {

@@ -32,16 +32,6 @@ export const deleteBasket = createAsyncThunk('cart/deleteBasket', async (id) => 
         return data;
 })
 export const addOrder = createAsyncThunk("cart/addOrder" , async ({userId,dataObj}) => {
-    // const response = await instance({
-    //     headers:{
-    //         "Content-Type":"application/json",
-    //     },
-    //     data:dataObj,
-    //     method:"post",
-    //     url:'/orders'
-    // });
-    // const { data } = response;
-    // return data;
     try{
         const [response1, response2] = await Promise.all([
             await instance({

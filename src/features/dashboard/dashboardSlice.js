@@ -2,50 +2,51 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import {
     addBlog,
+    addCoupon,
+    addDiscount,
     addGallery,
+    addNews,
     addParentCategories,
     addProduct,
     addProject,
-    addCoupon,
-    addDiscount,
     addRole,
+    addSeller,
+    addTag,
     deleteBlog,
+    deleteCoupon,
+    deleteDiscount,
+    deleteGallery,
+    deleteNews,
     deleteParentCategories,
     deleteProduct,
     deleteRole,
+    deleteSeller,
     deleteUser,
-    deleteDiscount,
+    deletingTag,
     editBlog,
-    deleteGallery,
+    editCoupon,
+    editDiscount,
+    editNews,
     editParentCategories,
     editProduct,
     editProject,
-    editDiscount,
     getBlogs,
     getCategories,
+    getCoupons,
     getGalleryById,
+    getNews,
+    getOrders,
     getProducts,
     getProjects,
     getRoleById,
     getRoles,
     getSellers,
+    getTags,
     getUserRole,
     getUsers,
     getWorkSamples,
     updateRole,
-    updateUser,
-    getOrders,
-    deleteSeller,
-    addSeller,
-    getCoupons,
-    deleteCoupon,
-    editCoupon,
-    getTags,
-    addTag,
-    deletingTag,
-    getNews,
-    addNews,
-    deleteNews
+    updateUser
 } from "./action";
 
 const initialState = {
@@ -71,8 +72,10 @@ const initialState = {
     couponsSuccess:false,
     usersLoading:false,
     sellerLoading:false,
+    editNewsLoading:false,
     tagsLoading:false,
     deleteGallerySuccess:false,
+    deleteNewsSuccess:false,
     newsDeleteLoading:false,
     ordersLoading:false,
     deleteSellerSuccess:false,
@@ -178,6 +181,9 @@ const dashboardSlice = createSlice({
         },
         setDiscountId: (state,action) => {
             state.discountId = action.payload;
+        },
+        setDeleteNewsSuccess: (state,action) => {
+            state.deleteNewsSuccess = action.payload;
         }
       },
     extraReducers: (builder) => {
@@ -849,16 +855,31 @@ const dashboardSlice = createSlice({
 
         // delete news
         .addCase(deleteNews.fulfilled,(state,action) => {
-            state.newsLoading = false;
-            state.newsDeleteLoading = !state.newsDeleteLoading;
+            state.newsDeleteLoading = false;
+            state.deleteNewsSuccess = true;
+            toast.success(action.payload.massage);
             console.log(action)
         })
         .addCase(deleteNews.pending,(state,action) => {
-            state.newsLoading = true;
+            state.newsDeleteLoading = true;
         })
         .addCase(deleteNews.rejected,(state,action) => {
-            state.newsLoading = false;
+            state.newsDeleteLoading = false;
             toast.error('خطا در  حذف خبر')
+        })
+
+
+        // edit news
+        .addCase(editNews.fulfilled,(state,action) => {
+            state.editNewsLoading = false;
+            toast.success(action.payload.massage);
+        })
+        .addCase(editNews.pending,(state,action) => {
+            state.editNewsLoading = true;
+        })
+        .addCase(editNews.rejected,(state,action) => {
+            state.editNewsLoading = false;
+            toast.error('خطا در  ویرایش خبر')
         })
     }
 })
@@ -869,6 +890,7 @@ export const { setContent,
                setSwitchCategories, 
                setSwitchCategories_2,
                setScrollUp,
-               setDiscountId } = dashboardSlice.actions;
+               setDiscountId,
+               setDeleteNewsSuccess } = dashboardSlice.actions;
 
 export default dashboardSlice.reducer;

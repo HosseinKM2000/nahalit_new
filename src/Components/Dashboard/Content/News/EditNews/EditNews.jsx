@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
+import { deleteBlog, deleteNews, editBlog, editNews } from '../../../../../features/dashboard/action';
 import Editor from '../../../../Editor/Editor';
 
 function EditNews({ isEdit , setIsEdit }) {
@@ -11,10 +11,12 @@ function EditNews({ isEdit , setIsEdit }) {
     const titleRef = useRef();
     const situationRef = useRef();
     const dispatch = useDispatch();
-    const loading = useSelector(state => state.dashboard.blogsLoading);
+    const loading = useSelector(state => state.dashboard.editNewsLoading);
     const deleteLoading = useSelector(state => state.dashboard.newsDeleteLoading);
+    const deleteSuccess = useSelector(state => state.dashboard.deleteNewsSuccess);
     const [desc,setDesc] = useState(isEdit.body);
     const imageRef = useRef();
+
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {
@@ -22,6 +24,12 @@ function EditNews({ isEdit , setIsEdit }) {
             e.stopPropagation()
         }
     }
+
+    useEffect(()=> {
+        if(deleteSuccess){
+            setIsEdit('')
+        }
+    },[deleteSuccess])
     
     const formSubmitter = (e) => {
         e.preventDefault()
@@ -42,11 +50,11 @@ function EditNews({ isEdit , setIsEdit }) {
             break;
             case formData.body.length < 20 : toast.warn("توضیحات کوتاه است");
             break;
-            default : editArticle(formData)
+            default : editNewsFnc(formData)
         }
     }
 
-    const editArticle = (form) => {
+    const editNewsFnc = (form) => {
         let formdata = new FormData();
             formdata.append("title", form.title);
             formdata.append("body", form.body);
@@ -55,7 +63,7 @@ function EditNews({ isEdit , setIsEdit }) {
             if(form.image !== '') {
                 formdata.append("image", form.image , `${imageRef.current.value}`);
             }
-            dispatch(editBlog({id:isEdit.id,formdata}))
+        dispatch(editNews({id:isEdit.id,formdata}))
     }
 
 

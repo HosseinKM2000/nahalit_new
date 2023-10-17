@@ -14,7 +14,6 @@ function EditArticle() {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.dashboard.blogsLoading);
     const deleteLoading = useSelector(state => state.dashboard.blogsDeleteLoading);
-    const mobile = window.innerWidth > 425 ? true : false;
     const articleId = useSelector(state => state.dashboard.articleId);
     const articles = useSelector(state => state.dashboard.blogs) || [{title:'',url:'',id:''}]
     const goalArticle = articles.find((item) => item.id === articleId) ||  {title:'',url:'',id:''}
@@ -44,8 +43,6 @@ function EditArticle() {
             break;
             case formData.title.length < 3 : toast.warn("عنوان کوتاه است");
             break;
-            case formData.image === '' : toast.warn("تصویر را وارد کنید");
-            break;
             case formData.body === '' : toast.warn("توضیحات را وارد کنید");
             break;
             case formData.body.length < 20 : toast.warn("توضیحات کوتاه است");
@@ -60,7 +57,9 @@ function EditArticle() {
             formdata.append("body", form.body);
             formdata.append("user_id", form.user_id);
             formdata.append("is_active", form.is_active);
-            formdata.append("image", form.image , `${imageRef.current.value}`);
+            if(form.image !== '') {
+                formdata.append("image", form.image , `${imageRef.current.value}`);
+            }
             dispatch(editBlog({id:goalArticle.id,formdata}))
     }
 
@@ -88,7 +87,7 @@ function EditArticle() {
                 <label htmlFor="image" className='font-semibold text-[#2e424a]'>تصویر</label>
                 <input onChange={(e)=>{
                     setImageName(e.target.files[0])
-                }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' required={true} name='image'/>
+                }} type="file" ref={imageRef} className='p-1 outline-[#0ab694] w-full text-left' name='image'/>
             </div>
             {/* describe */}
             <Editor setDesc={setDesc} desc={ desc }/>

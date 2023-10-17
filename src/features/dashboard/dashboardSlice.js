@@ -51,10 +51,10 @@ const initialState = {
     gallerySwitch:'all',
     productsSwitch:'all',
     rolesSwitch:'all',
-    workSampleSwitch:'all',
     couponSwitch:'all',
     projectSwitch:'all',
     discountSwitch:'all',
+    newsSwitch:'all',
     tagsSwitch:'all',
     productId:null,
     products:[],
@@ -63,6 +63,7 @@ const initialState = {
     coupons:[],
     productsLoading:false,
     discountsLoading:false,
+    newsLoading:false,
     deleteProductSuccess:false,
     couponsSuccess:false,
     usersLoading:false,
@@ -73,6 +74,7 @@ const initialState = {
     deleteSellerSuccess:false,
     deleteTagSuccess:false,
     users:[],
+    news:[],
     projectsLoading:false,
     couponLoading:false,
     blogsLoading : false,
@@ -151,6 +153,8 @@ const dashboardSlice = createSlice({
                 case 'tags' : state.tagsSwitch = value;
                 break;
                 case 'coupon' : state.couponSwitch = value;
+                break;
+                case 'news' : state.newsSwitch = value;
                 break;
                 default : console.log('non value')
             }

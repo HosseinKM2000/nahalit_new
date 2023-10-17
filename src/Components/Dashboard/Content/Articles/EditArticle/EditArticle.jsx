@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import Editor from '../../../../Editor/Editor';
-import moment from 'moment';
 
 function EditArticle() {
     const [imageName,setImageName] = useState('');

@@ -3,7 +3,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import HTMLRenderer from 'react-html-renderer';
 import moment from 'moment-jalaali';
 
-function AllNews({ currentItems , newsLength }) {
+function AllNews({ currentItems , newsLength , setIsEdit }) {
 
   return (
     <div className='w-full flex flex-col gap-5 items-center'>
@@ -22,7 +22,7 @@ function AllNews({ currentItems , newsLength }) {
                 </div>
                 <div className='w-full h-fit md:h-full md:w-fit flex flex-row items-center md:flex-col justify-between py-3'>
                   <span className={news.is_active === 1 ? 'rounded-[50%] bg-green-500 p-3' : 'rounded-[50%] bg-red-500 p-3'}></span>
-                  <button className='cursor-default hover:scale-110 transition-all  rounded-[50%] text-center bg-[#529b9f] text-white p-1 text-xl'>
+                  <button className='cursor-default hover:scale-110 transition-all  rounded-[50%] text-center bg-[#529b9f] text-white p-1 text-xl' onClick={()=>setIsEdit(news)}>
                     <IoIosArrowBack/>
                   </button>
                 </div>

@@ -73,6 +73,7 @@ const initialState = {
     sellerLoading:false,
     tagsLoading:false,
     deleteGallerySuccess:false,
+    newsDeleteLoading:false,
     ordersLoading:false,
     deleteSellerSuccess:false,
     deleteTagSuccess:false,
@@ -849,6 +850,7 @@ const dashboardSlice = createSlice({
         // delete news
         .addCase(deleteNews.fulfilled,(state,action) => {
             state.newsLoading = false;
+            state.newsDeleteLoading = !state.newsDeleteLoading;
             console.log(action)
         })
         .addCase(deleteNews.pending,(state,action) => {

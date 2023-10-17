@@ -11,14 +11,14 @@ function CategoriesP() {
   const isBeProducts = categories.find(cate => cate.title === "محصولات") === undefined ? false : true;
   const dispatch = useDispatch();
   const [searchParams,setSearchParams] = useSearchParams();
-  let paramsKey = searchParams.get('category');
-  paramsKey = categories.find(cate => cate.title === paramsKey)?.id || "not";
+  let params = searchParams.get('category');
+  let paramsKey = categories.find(cate => cate.title === params)?.id || "";
   const searchRef = useRef();
 
   useEffect(()=>{
-    paramsKey !== "not" 
-    ? filterHandler(paramsKey)
-    :null
+    if(params !== null) {
+      filterHandler(paramsKey)
+    }
   },[paramsKey,categories])
 
   useEffect(()=> {
@@ -34,8 +34,7 @@ function CategoriesP() {
   }
 
   const filterHandler = (value) => {
-    let ID = JSON.parse(value);
-    dispatch(sortByCategory(ID))
+    dispatch(sortByCategory(value))
   } 
   
   return (

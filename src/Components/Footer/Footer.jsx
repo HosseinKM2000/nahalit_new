@@ -6,7 +6,6 @@ import { HiCode } from "react-icons/hi";
 import { RiSendBackward } from "react-icons/ri";
 import { SiAparat } from "react-icons/si";
 import { Link } from "react-router-dom";
-import trustLogo from '../../assets/img/trustlogo.png';
 
 const Footer = () => {
   const [Footer, setFooter] = useState(false);
@@ -21,8 +20,8 @@ const Footer = () => {
     <div className="text-[#ccc] footer-border border-black 2xl:justify-center left-0 bg-[#223621] whitespace-nowrap px-48 max-xl:px-0 mx-auto pt-5 -z-10 pb-8">
       <div className="container flex-wrap gap-12 mb-10 mx-auto 2xl:gap-11 2xl:justify-between 2xl:w-full flex items-start justify-center 2xl:text-2xl text-sm mt-24 max-xl:gap-y-12 tracking-tight">
         <div className="flex flex-col justify-center items-start gap-y-4">
-          <RiSendBackward className="text-5xl text-white" />
-          <span className="font-[shabnamMedium] text-base" to="/">
+          <RiSendBackward className="text-4xl text-white" />
+          <span className="font-[shabnamMedium] text-base">
             لینک های کمکی
           </span>
           <div className="w-full h-[2px] bg-white"></div>
@@ -34,21 +33,21 @@ const Footer = () => {
           <Link className="text-[1rem]" to="/">اخبار سایت نهال آی تی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
-          <BsFillBriefcaseFill className="text-5xl text-white" />
-          <span className="font-[shabnamMedium] text-base word-spa" to="/">
+          <BsFillBriefcaseFill className="text-4xl text-white" />
+          <span className="font-[shabnamMedium] text-base word-spa">
              خدمات اداری
           </span>
           <div className="w-[70%] h-[2px] bg-white"></div>
-          <Link className="mt-5 text-[1rem]" to="/">
+          <Link className="mt-5 text-[1rem]" to="/services/خدمات-کسب-و-کار">
             ایمیل مارکتینگ
           </Link>
-          <Link className="text-[1rem]" to="/">پیامک انبوه</Link>
+          <Link className="text-[1rem]" to="/services/خدمات-کسب-و-کار">پیامک انبوه</Link>
           <Link className="text-[1rem]" to="/create_content">تولید محتوا</Link>
           <Link className="text-[1rem]" to="/SocialMediaBot">ربات شبکه های اجتماعی</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
-          <FaSeedling className="text-5xl text-white" />
-          <span className="font-[shabnamMedium] text-base" to="/">
+          <FaSeedling className="text-4xl text-white" />
+          <span className="font-[shabnamMedium] text-base">
             خدمات تیم نهال آی تی
           </span>
           <div className="w-full h-[2px] bg-white"></div>
@@ -63,7 +62,7 @@ const Footer = () => {
           <Link className="text-[1rem]" to="/services/موشن-گرافیک">خدمات موشن گرافیک</Link>
         </div>
         <div className="flex flex-col justify-center gap-y-4">
-          <FaSeedling className="text-5xl text-white" />
+          <FaSeedling className="text-4xl text-white" />
           <span className="font-[shabnamMedium] text-base">
             خدمات تیم نهال آی تی
           </span>
@@ -77,11 +76,11 @@ const Footer = () => {
           <Link className="text-[1rem]" to="/services/خدمات-تدوین-صدا-و-صدا-گذاری">خدمات تدوین صدا و صدا گذاری</Link>
         </div>
         <div className="flex flex-col justify-center items-center gap-y-4">
-          <BsHeart className="text-5xl text-white" />
+          <BsHeart className="text-4xl text-white" />
           <p className="font-[shabnamBold] text-base">نماد اعتماد الکترونیکی</p>
           <div className="w-36 bg-transparent border_ border-2 border-white py-[0.5px]"></div>
           <span className="font-bold">جزو اتحادیه کسب و کار های مجازی</span>
-          <img src={trustLogo} alt="trustLogo"/>
+          <img src={"/img/trustlogo.png"} alt="trustLogo" className="w-[100px]"/>
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-y-6">

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 function HeaderNavbar() {
     const [showSlide11, setShowSlide11] = useState(false);
-    const [showSlide12, setShowSlide12] = useState(false);
     const [showSlide2, setShowSlide2] = useState(false);
     const [showSlide3, setShowSlide3] = useState(false);
 
@@ -14,12 +13,6 @@ function HeaderNavbar() {
       };
       const clickOutShowSlide11 = () => {
         setShowSlide11(false);
-      };
-      const clickEnterShowSlide12 = () => {
-        setShowSlide12(true);
-      };
-      const clickOutShowSlide12 = () => {
-        setShowSlide12(false);
       };
       const clickEnterShowSlide2 = () => {
         setShowSlide2(true);
@@ -41,6 +34,9 @@ function HeaderNavbar() {
         <li className="flex items-center gap-x-1 relative">
         <Link to={"/shop"} className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">محصولات</Link>
         </li>
+        <li className="flex items-center gap-x-1 relative">
+        <Link to={"/news"} className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">اخبار</Link>
+        </li>
         <li>
         <Link to="/order" className="font-[shabnamMedium] text-[#171717] text-sm cursor-pointer">ثبت سفارش</Link>
         </li>
@@ -58,8 +54,8 @@ function HeaderNavbar() {
             onMouseEnter={clickEnterShowSlide2}
             className={
             showSlide2
-                ? "w-56 2xl:w-fit z-50 absolute top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] transition-all duration-500 -translate-y-[1rem]"
-                : "w-56 2xl:w-fit z-50 absolute top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] opacity-0 -translate-y-[50rem] transition-all duration-500"
+                ? "w-56 2xl:w-fit z-50 absolute top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] transition-all duration-700 -translate-y-[1rem]"
+                : "w-56 2xl:w-fit z-50 absolute top-9 shadow-[1px_1px_10px_rgba(0,0,0,.25)] opacity-0 -translate-y-[50rem] transition-all duration-700"
             }
         >
             <div className="bg-[#07B235] h-[2px] absolute top-0 right-0 left-0 text-center w-full"></div>
@@ -75,8 +71,8 @@ function HeaderNavbar() {
                 onMouseEnter={clickEnterShowSlide11}
                 className={
                     showSlide11
-                    ? "absolute bg-white -left-[15rem] -top-2 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center transition-all duration-500"
-                    : "absolute bg-white -left-[15rem] -top-2 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
+                    ? "absolute bg-white -left-[15rem] -top-2 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center transition-all duration-700"
+                    : "absolute bg-white -left-[15rem] -top-2 px-7 py-2 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-700"
                 }
                 >
                 <Link to="/workSamples/graphic/MotionGraphics" className="px-4 py-1">
@@ -107,25 +103,10 @@ function HeaderNavbar() {
                 <p className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">نمونه کار پریمیر</p>
                 </Link>
             </li>
-            <li
-                className="flex items-center justify-between py-2 relative"
-                onMouseEnter={clickEnterShowSlide12}
-                onMouseLeave={clickOutShowSlide12}
-                >
-                <span className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">نمونه کار طراحی سایت</span>
-                <MdKeyboardArrowLeft />
-                <div
-                    onMouseEnter={clickEnterShowSlide12}
-                    className={
-                    showSlide12
-                        ? "absolute bg-white -left-[12rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center transition-all duration-500"
-                        : "absolute bg-white -left-[12rem] -top-2 px-7 shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex flex-col gap-y-2 items-center justify-center opacity-0 -translate-y-[50rem] transition-all duration-500"
-                    }
-                >
-                    <Link className="px-4 py-2" to="/workSamples/web/WebsiteDesignPortfolio">
-                    <p className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">PHP (Laravel)</p>
-                    </Link>
-                </div>
+            <li>
+                <Link to="/workSamples/web/WebsiteDesignPortfolio"  className="flex items-center justify-start py-2">
+                <p className="text-[#171717] font-[shabnamMedium] text-sm cursor-pointer">نمونه کار طراحی سایت</p>
+                </Link>
             </li>
             <li>
                 <Link to="/workSamples/Application" className="flex items-center justify-between py-2">
@@ -162,8 +143,8 @@ function HeaderNavbar() {
             onMouseEnter={clickEnterShowSlide3}
             className={
             showSlide3
-                ? "w-64 2xl:w-fit z-50 absolute top-9 transition-all duration-500 -translate-y-[1rem]"
-                : "w-64 2xl:w-fit z-50 absolute top-9 opacity-0 -translate-y-[50rem] transition-all duration-500"
+                ? "w-64 2xl:w-fit z-50 absolute top-9 transition-all duration-700 -translate-y-[1rem]"
+                : "w-64 2xl:w-fit z-50 absolute top-9 opacity-0 -translate-y-[50rem] transition-all duration-700"
             }
         >
             <ul className="px-5 py-1 bg-white  w-fit flex shadow-[1px_1px_10px_rgba(0,0,0,.25)] flex-col items-start" style={{borderTop:'2px solid #57C053'}}>

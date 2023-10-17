@@ -11,6 +11,7 @@ function MobileMenu({ dropMenu , setDropMenu }) {
   const itemsMenu = [
     {id:0,title:'صفحه اصلی',cateId:null,beList:false,link:'/'},
     {id:1,title:"محصولات",cateId:null,beList:false,link:'/shop'},
+    {id:49,title:"اخبار",cateId:null,beList:false,link:'/news'},
     {id:2,title:"ثبت سفارش",cateId:null,beList:false,link:"/order"},
     {id:3,title:"بلاگ",cateId:null,beList:false,link:'/articles'},
     {id:4,title:"نمونه کارها",cateId:null,beList:true},

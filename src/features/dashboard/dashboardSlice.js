@@ -42,7 +42,8 @@ import {
     editCoupon,
     getTags,
     addTag,
-    deletingTag
+    deletingTag,
+    getNews
 } from "./action";
 
 const initialState = {
@@ -812,6 +813,20 @@ const dashboardSlice = createSlice({
         .addCase(deletingTag.rejected,(state,action) => {
             state.tagsLoading = false;
             toast.error('خطا در حذف تک')
+        })
+
+
+        // get news
+        .addCase(getNews.fulfilled,(state,action) => {
+            state.newsLoading = false;
+            state.news = action.payload.data;
+        })
+        .addCase(getNews.pending,(state,action) => {
+            state.newsLoading = true;
+        })
+        .addCase(getNews.rejected,(state,action) => {
+            state.newsLoading = false;
+            toast.error('خطا در  بارگیری اخبار')
         })
     }
 })

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { editProduct } from '../../../../../features/dashboard/action';
 import CategoriesBox from '../../../../CategoriesBox/CategoriesBox';
 import Editor from '../../../../Editor/Editor';
+import moment from 'moment-jalaali';
 
 function EditProduct({ isEdit , setIsEdit }) {
     const categories = useSelector(state => state.dashboard.categories);
@@ -108,6 +109,16 @@ function EditProduct({ isEdit , setIsEdit }) {
             <input type="text" name="price" id="" onChange={(e)=>{
                 !(e.target.value.length < 1) ? separateByCommas(parseInt(e.target.value.replaceAll(',',''))) : separateByCommas(0)
             }} value={priceValue}  placeholder='به تومان...' className='p-1 outline-[#0ab694] w-[20%] text-left font-[shabnambold]' style={{direction:'ltr'}}/>
+            </div>
+            <div className='flex items-start gap-3 w-full flex-col'>
+                <div>
+                    <span className='font-[shabnamBold] text-[#2e424a]'>تاریخ ایجاد:</span>
+                    <span className='font-[shabnamBold] mr-1'>{moment(isEdit.created_at).format('jYYYY/jMM/jDD')}</span>
+                </div>
+                <div>
+                    <span className='font-[shabnamBold] text-[#2e424a]'>آخرین ویرایش:</span>
+                    <span className='font-[shabnamBold] mr-1'>{moment(isEdit.updated_at).format('jYYYY/jMM/jDD')}</span>
+                </div>
             </div>
             <button type='submit' className='w-[50%] min-h-[35px] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-xl rounded-sm'>
                 {

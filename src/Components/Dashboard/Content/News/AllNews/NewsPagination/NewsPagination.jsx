@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { setScrollUp } from '../../../../../../features/dashboard/dashboardSlice';
 import AllNews from '../AllNews';
+import { getNews } from '../../../../../../features/dashboard/action';
 
 function NewsPagination() {
     const [itemOffset, setItemOffset] = useState(0);
@@ -15,7 +16,7 @@ function NewsPagination() {
     const pageCount = Math.ceil(news.length / itemsPerPage);
     const dispatch = useDispatch();
     useEffect(()=>{
-    //   dispatch(getBlogs())
+      dispatch(getNews())
     },[]);
 
     const handlePageClick = (event) => {

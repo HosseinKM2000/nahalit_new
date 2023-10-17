@@ -200,6 +200,33 @@ export const deleteBlog = createAsyncThunk('dashboard/deleteBlog' , async (id) =
 
 
 
+// blogs
+export const getNews = createAsyncThunk('dashboard/getNews' , async () => {
+    const response = await instance.get('/news');
+    const { data } = response;
+    return data;
+})
+
+// export const addNews = createAsyncThunk('dashboard/addNews' , async (dataObj) => {
+//     const response = await instance.post('/blogs',dataObj);
+//     const { data } = response;
+//     return data;
+// })
+
+// export const editNews = createAsyncThunk('dashboard/editNews' , async ({id,formdata}) => {
+//     const response = await instance.post(`/blogs/${id}`,formdata);
+//     const { data } = response;
+//     return data;
+// })
+
+// export const deleteNews = createAsyncThunk('dashboard/deleteNews' , async (id) => {
+//     const response = await instance.delete(`/blogs/${id}`);
+//     const { data } = response;
+//     return data;
+// })
+
+
+
 // users
 export const getUsers = createAsyncThunk('dashboard/getUsers', async () => {
     const response = await instance.get('/users');

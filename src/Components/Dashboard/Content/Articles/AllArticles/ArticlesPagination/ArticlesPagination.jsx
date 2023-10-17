@@ -7,7 +7,7 @@ import AllArticles from '../AllArticles';
 
 function ArticlesPagination() {
     const [itemOffset, setItemOffset] = useState(0);
-    const articles = useSelector(state => state.dashboard.blogs) || [];
+    const articles = useSelector(state => state.dashboard.blogs);
     const Loading = useSelector(state => state.dashboard.blogsLoading);
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 11;

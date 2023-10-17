@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { deleteBlog, editBlog } from '../../../../../features/dashboard/action';
 import { setSwitch } from '../../../../../features/dashboard/dashboardSlice';
 import Editor from '../../../../Editor/Editor';
+import moment from 'moment';
 
 function EditArticle() {
     const [imageName,setImageName] = useState('');
@@ -15,11 +16,10 @@ function EditArticle() {
     const loading = useSelector(state => state.dashboard.blogsLoading);
     const deleteLoading = useSelector(state => state.dashboard.blogsDeleteLoading);
     const articleId = useSelector(state => state.dashboard.articleId);
-    const articles = useSelector(state => state.dashboard.blogs) || [{title:'',url:'',id:''}]
-    const goalArticle = articles.find((item) => item.id === articleId) ||  {title:'',url:'',id:''}
+    const articles = useSelector(state => state.dashboard.blogs);
+    const goalArticle = articles?.find((item) => item.id === articleId) || [];
     const [desc,setDesc] = useState(goalArticle.body);
     const imageRef = useRef();
-
     const formKeyNotSubmit = (e) => {
         if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
         {

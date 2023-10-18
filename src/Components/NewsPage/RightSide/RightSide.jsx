@@ -10,18 +10,18 @@ import moment from 'moment-jalaali';
 import HTMLRenderer from 'react-html-renderer';
 import { Link } from 'react-router-dom';
 
-function RightSide({ goalArticle }) {
-
+function RightSide({ goalNews }) {
+    
   return (
     <div className='flex flex-col items-center w-full md:items-start lg:w-[80%]'>
         <ul className='flex flex-row border-y-2 font-[shabnamMedium] text-xs justify-center md:justify-start border-for-border gap-2 sm:gap-20 py-3'>
             <li><Link to='/' className='hover:text-sky-blue font-[shabnamLight]'>صفحه اصلی</Link></li>
             <li><Link to='/news' className='hover:text-sky-blue font-[shabnamLight]'>اخبار سایت</Link></li>
-            <li className='text-gray-88 font-[shabnamLight]'>{goalArticle?.title}</li>
+            <li className='text-gray-88 font-[shabnamLight]'>{goalNews?.title}</li>
         </ul>
         {/* article-content */}
         <div className='flex flex-col mt-10 2xl:gap-20 w-[90%] md:w-full items-start overflow-x-hidden'>
-        <h1 className='text-[1.1rem] mr-2 font-extrabold text-gray-77 font-[shabnamMedium] tracking-wide'>{goalArticle?.title}</h1>
+        <h1 className='text-[1.1rem] mr-2 font-extrabold text-gray-77 font-[shabnamMedium] tracking-wide'>{goalNews?.title}</h1>
         {/* article-information */}
         <div className='flex flex-col mr-2 md:flex-row mt-3 gap-5 md:gap-10 text-gray-88'>
             <div className='flex flex-row items-center gap-2'>
@@ -33,7 +33,7 @@ function RightSide({ goalArticle }) {
             </div>
             <div className='flex flex-row items-center gap-1 text-[0.9rem]'>
             <MdDateRange/>
-            <span className='flex gap-1 font-[shabnamBold]'>{moment(goalArticle?.created_at).format("jYYYY/jMM/jDD")}</span>
+            <span className='flex gap-1 font-[shabnamBold]'>{moment(goalNews?.created_at).format("jYYYY/jMM/jDD")}</span>
             </div>
             <div className='flex flex-row text-[0.9rem] items-center gap-1'>
             <AiOutlineBarChart/>
@@ -42,9 +42,9 @@ function RightSide({ goalArticle }) {
         </div>
         {/* article-poster and article-text */}
         <div className='mt-7 flex flex-col items-center md:inline-block'>
-            <img src={goalArticle?.image} alt={goalArticle?.title} className='w-[300px] bg-gray-77 float-right ml-0 mb-4 md:ml-4'/>
+            <img src={goalNews?.image} alt={goalNews?.title} className='w-[300px] bg-gray-77 float-right ml-0 mb-4 md:ml-4'/>
             <p className='text-gray-66 font-[shabnamMedium] text-justify font-thin text-sm leading-7 px-3'>
-            <HTMLRenderer html={goalArticle?.body}/>
+            <HTMLRenderer html={goalNews?.body}/>
             </p>
         </div>
         {/* socalMedia */}

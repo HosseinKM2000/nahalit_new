@@ -6,3 +6,9 @@ export const getAllNews = createAsyncThunk('news/getAllNews', async () => {
     const { data } = response;
     return data;
 })
+
+export const getNewsById = createAsyncThunk('news/getNewsById', async id => {
+    const response = await instance.get(`/news/${id}`);
+    const { data } = response;
+    return data;
+})

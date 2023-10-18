@@ -62,6 +62,8 @@ import ForgetPassword from "./page/Authentication/ForgetPassword/ForgetPassword"
 import Privacy from "./page/Privacy/Privacy";
 import Orders from "./page/UserPanel/Orders";
 import PlansPage from "./page/PlansPage/PlansPage";
+import NewsPage from "./page/NewsPage/NewsPage";
+
 
 const App = () => {
   return (
@@ -107,13 +109,13 @@ const App = () => {
           <Route path="services/خدمات-گرافیک" element={<SGraphic />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="articles" element={<ArticlesPagination/>}/>
-          <Route path="articles/article" element={<Article/>}/>
+          <Route path="articles/article/:id" element={<Article/>}/>
+          <Route path="news/page/:id" element={<NewsPage/>}/>
+          <Route path="shop/product/:id" element={<Product/>}/>
           <Route path="news" element={<News/>}/>
-          <Route path="news/news/:id" element={<News/>}/>
           <Route path="*" element={<Error/>}/>
           <Route path='dashboard' element={<Dashboard/>}/>
           <Route path="shop" element={<Products/>}/>
-          <Route path="shop/product/:id" element={<Product/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="cart" element={<Cart/>}/>

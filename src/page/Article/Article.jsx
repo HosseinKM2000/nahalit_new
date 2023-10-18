@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // import Icons
 // import modules
 // import styles
@@ -11,21 +11,19 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // import Components
 import { Helmet } from 'react-helmet';
+import Blog from '../../Components/Blog/Blog';
 import FixedIcon from '../../Components/FixedIcon/FixedIcon';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
 import { getArticles } from '../../features/article/action';
-import Blog from '../../Components/Blog/Blog';
 
 const Article = () => {
 
-  const [params,setParams] = useSearchParams();
-  const goalId = JSON.parse(params.get('id'));
-  const location = useLocation();
+  const params = useParams();
+  const goalId = JSON.parse(params.id);
   const articles = useSelector(state => state.articles.articles);
   const goalArticle = articles.find(article => article.id === goalId);
-  const mobile = window.innerWidth <= 768 ? true : false;
   const dispatch = useDispatch();
   const helmetTitle = goalArticle?.title || ""
   useEffect(()=> {

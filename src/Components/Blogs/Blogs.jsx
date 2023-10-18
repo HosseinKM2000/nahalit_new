@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Blogs({ currentItems }) {
-    const articles = useSelector(state => state.articles.articles);
     const navigate = useNavigate();
     const [criterion,setCriterion] = useState(true);
     const [favorites,setFavorites] = useState([]);
@@ -72,7 +71,7 @@ function Blogs({ currentItems }) {
                                 </div>
                                 <button className='flex gap-1 cursor-pointer flex-row w-full text-white  bg-green-bt py-2 px-2 justify-center items-center hover:bg-sky-blue transition-all'>
                                     <TfiMenuAlt className=''/>
-                                    <Link to={{pathname:'/articles/article', search:`id=${article.id}`}} className='text-[0.8rem] font-[shabnamBold]'>توضیحات بیشتر</Link>
+                                    <Link to={`/articles/article/${article?.id}`} className='text-[0.8rem] font-[shabnamBold]'>توضیحات بیشتر</Link>
                                 </button>
                             </div>
                         </div>

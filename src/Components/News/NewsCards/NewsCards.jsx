@@ -33,7 +33,7 @@ function NewsCards({currentItems}) {
                         </div>
                         <button className='flex gap-1 cursor-pointer flex-row w-full text-white  bg-green-bt py-2 px-2 justify-center items-center hover:bg-sky-blue transition-all'>
                             <TfiMenuAlt className=''/>
-                            <Link to={{pathname:'/news/news', search:`id=${news.id}`}} className='text-[0.8rem] font-[shabnamBold]'>مشاهده خبر</Link>
+                            <Link to={`/news/page/${news.id}`} className='text-[0.8rem] font-[shabnamBold]'>مشاهده خبر</Link>
                         </button>
                     </div>
                 </div>

@@ -1,10 +1,8 @@
 import React from 'react';
 import { useSelector , useDispatch} from 'react-redux';
 import { Link , useSearchParams , useNavigate} from 'react-router-dom';
-import Pagination from './Pagination/Pagination';
+import Pagination from '../../Components/News/Pagination/Pagination';
 import { useEffect } from 'react';
-import {getAllNews} from '../../features/news/action';
-import Loading from '../Loading/Loading';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
@@ -37,11 +35,11 @@ function News() {
       </div>
       <div className='flex flex-col w-full px-5 sm:px-14 py-5'>
         <div className='flex flex-row justify-start gap-10 text-sm'>
-          <Link to='/' className='text-gray-66 hover:text-sky-blue transition-all'>صفحه اصلی</Link>
-          <Link to='/news' className='text-gray-88 hover:text-sky-blue transition-all'>اخبار سایت</Link>
+          <Link to='/' className='text-gray-66 hover:text-sky-blue font-[shabnamBold] transition-all'>صفحه اصلی</Link>
+          <Link to='/news' className='text-gray-88 font-[shabnamBold] hover:text-sky-blue transition-all'>اخبار سایت</Link>
           {
             query !== null ?
-            <span className='text-gray-88 font-thin'>برگه{pageNumber}</span>
+            <span className='text-gray-88 font-[shabnamBold]'>برگه {pageNumber}</span>
             : <></>
           }
         </div>

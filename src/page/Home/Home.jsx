@@ -8,7 +8,7 @@ import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import LotteryHomePage from "../../Components/LotteryHomePage/LotteryHomePage";
-import News from "../../Components/News/News";
+import NewsHomePage from "../../Components/NewsHomePage/NewsHomePage";
 import OurPlans from "../../Components/OurPlans/OurPlans";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
 import Search from "../../Components/Search/Search";
@@ -78,7 +78,7 @@ const Home = () => {
           <CustomSlider title={"سایر محصولات"} translate={"More Products"} items={moreProducts} discounts={discounts} tags={tags} isLoading={productLoading}/>
         </section>
         <section className="mt-24">
-          <News />
+          <NewsHomePage />
         </section>
         <section className="mt-14">
           <Details blogs={latestBlogs} users={users} isLoading={blogLoading}/>

@@ -109,9 +109,10 @@ const App = () => {
           <Route path="articles" element={<ArticlesPagination/>}/>
           <Route path="articles/article" element={<Article/>}/>
           <Route path="news" element={<News/>}/>
+          <Route path="news/news/:id" element={<News/>}/>
           <Route path="*" element={<Error/>}/>
           <Route path='dashboard' element={<Dashboard/>}/>
-          <Route path="shop?" element={<Products/>}/>
+          <Route path="shop" element={<Products/>}/>
           <Route path="shop/product/:id" element={<Product/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="login" element={<Login/>}/>

@@ -20,11 +20,12 @@ import { getProducts, getTags } from "../../features/products/action";
 
 const Home = () => {
   const products = useSelector(state => state.products.products);
-  const isLoading = useSelector(state => state.products.isLoading);
+  const productLoading = useSelector(state => state.products.isLoading);
   const discounts = useSelector(state => state.products.discounts);
   const tags = useSelector(state => state.products.tags);
   const users = useSelector(state => state.dashboard.users);
   const blogs = useSelector(state => state.dashboard.blogs);
+  const blogLoading = useSelector(state => state.dashboard.blogsLoading);
   const baskets = useSelector(state => state.cart.baskets);
   let latestProducts = products.slice(0,10).reverse();
   let latestBlogs = blogs.slice().reverse().slice(0,9);
@@ -66,7 +67,7 @@ const Home = () => {
           <ServicesHomePage />
         </section>
         <section className="mt-[8rem]">
-          <CustomSlider title={"جدیدترین محصولات"} translate={"Latest Products"} items={latestProducts} discounts={discounts} tags={tags} isLoading={isLoading}/>
+          <CustomSlider title={"جدیدترین محصولات"} translate={"Latest Products"} items={latestProducts} discounts={discounts} tags={tags} isLoading={productLoading}/>
         </section>
         <section className="my-[8rem] flex justify-center items-center">
           <AboutSite />
@@ -75,13 +76,13 @@ const Home = () => {
           <OurPlans />
         </section>
         <section className="mt-14">
-          <CustomSlider title={"سایر محصولات"} translate={"More Products"} items={moreProducts} discounts={discounts} tags={tags} isLoading={isLoading}/>
+          <CustomSlider title={"سایر محصولات"} translate={"More Products"} items={moreProducts} discounts={discounts} tags={tags} isLoading={productLoading}/>
         </section>
         <section className="mt-24">
           <News />
         </section>
         <section className="mt-14">
-          <Details blogs={latestBlogs} users={users}/>
+          <Details blogs={latestBlogs} users={users} isLoading={blogLoading}/>
         </section>
         <div>
           <FixedIcon baskets={baskets} />

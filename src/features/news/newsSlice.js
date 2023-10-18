@@ -16,9 +16,8 @@ const newsSlice = createSlice({
 
         builder
         .addCase(getAllNews.fulfilled , (state , action) => {
-            const data100 = action.payload.slice(20,99)
             state.loading = false;
-            state.news = data100;
+            state.news = action.payload.data;
         })
         .addCase(getAllNews.pending , (state) => {
             state.loading = true;

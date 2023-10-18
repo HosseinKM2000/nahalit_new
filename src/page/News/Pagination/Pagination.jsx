@@ -6,22 +6,25 @@ import { useSelector , useDispatch} from 'react-redux';
 import { useSearchParams  , useNavigate} from 'react-router-dom';
 import NewsPages from '../NewsPages/NewsPages';
 import { setPageQuery } from '../../../features/news/newsSlice';
+import { useEffect } from 'react';
+import { getAllNews } from '../../../features/news/action';
 
 function Pagination() {
 
     const [itemOffset, setItemOffset] = useState(0);
     const [params] = useSearchParams()
-    const [numberOfPage] = useState(params.get('page'))
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
     const news = useSelector(state => state.news.news);
-
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = news.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(news.length / itemsPerPage);
   
+    useEffect(() => {
+      dispatch(getAllNews())
+    },[])
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % news.length;

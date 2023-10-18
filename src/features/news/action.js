@@ -1,10 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"; 
+import instance from "../../axios_config/axios";
 
 export const getAllNews = createAsyncThunk('news/getAllNews', async () => {
-
-    const Data =  await fetch('https://jsonplaceholder.typicode.com/photos')
-          .then(response => response.json())
-          .then(data => data)
-
-    return Data;
+    const response = await instance.get('/news');
+    const { data } = response;
+    return data;
 })

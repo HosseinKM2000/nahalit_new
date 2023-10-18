@@ -26,7 +26,6 @@ const Home = () => {
   const users = useSelector(state => state.dashboard.users);
   const blogs = useSelector(state => state.dashboard.blogs);
   const blogLoading = useSelector(state => state.dashboard.blogsLoading);
-  const baskets = useSelector(state => state.cart.baskets);
   let latestProducts = products.slice(0,10).reverse();
   let latestBlogs = blogs.slice().reverse().slice(0,9);
   let moreProducts = products.slice(0,10)
@@ -85,7 +84,7 @@ const Home = () => {
           <Details blogs={latestBlogs} users={users} isLoading={blogLoading}/>
         </section>
         <div>
-          <FixedIcon baskets={baskets} />
+          <FixedIcon/>
         </div>
       </main>
       <footer className="mt-5 w-full">

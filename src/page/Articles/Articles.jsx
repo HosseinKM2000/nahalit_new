@@ -14,4 +14,4 @@ const Articles = ({currentItems}) => {
   )
 }
 
-export default Articles
+export default Articles;

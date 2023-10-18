@@ -1,5 +1,4 @@
 import React from 'react';
-import './News.css';
 import { useSelector , useDispatch} from 'react-redux';
 import { Link , useSearchParams , useNavigate} from 'react-router-dom';
 import Pagination from './Pagination/Pagination';
@@ -9,6 +8,7 @@ import Loading from '../Loading/Loading';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ResponseHeader from '../../Components/ResponseHeader/ResponseHeader';
+import FixedIcon from '../../Components/FixedIcon/FixedIcon';
 
 function News() {
 
@@ -19,7 +19,6 @@ function News() {
   const navigate = useNavigate();
   const query = useSelector(state => state.news.number)
   useEffect(() => { 
-    dispatch(getAllNews())
     if(query === null)
     {
       navigate(`/news`)
@@ -29,8 +28,6 @@ function News() {
   
 
   return (
-      loading ? <Loading/>
-      :
       <div className='w-[100vw] flex flex-col'>
       <header className='max-lg:hidden'>
         <Header/>
@@ -53,10 +50,9 @@ function News() {
           <span>اخبارسایت</span>
         </div>
         <Pagination/>
-        <div className='flex flex-col gap-1 justify-start text-sm py-10'>
-          <span className='text-gray-66'>اخبار سایت</span>
-          <p className='text-gray-77'>دسته‌ها برخلاف برچسب‌ها می‌توانند سلسله مراتب داشته باشند. به طور مثال شما می‌توانید یک دسته به نام موسیقی داشته باشید و برای آن دسته، زیر دسته‌هایی مانند موسیقی ایرانی و یا موسیقی غربی تعریف کنید.</p>
-        </div>
+      </div>
+      <div>
+        <FixedIcon />
       </div>
       <footer>
         <Footer/> 

@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import AllLinks from './AllLinks/AllLinks';
+import NewLink from './NewLink/NewLink';
 
 function Links() {
     const [innerComponent,setInnerComponent] = useState(<></>);
@@ -9,9 +11,9 @@ function Links() {
     useEffect(()=>{
         switch(Criterion)
         {
-            case 'all' : setInnerComponent(<></>);
+            case 'all' : setInnerComponent(<AllLinks/>);
             break;
-            case 'new' : setInnerComponent(<></>)
+            case 'new' : setInnerComponent(<NewLink/>)
             break;
             default : setInnerComponent(<></>)
         }

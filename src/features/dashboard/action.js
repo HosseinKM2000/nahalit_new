@@ -320,3 +320,22 @@ export const deletingTag = createAsyncThunk("dashboard/deletingTag" , async (id)
     const { data } = response;
     return data;
 })
+
+
+
+// links
+export const getLinks = createAsyncThunk("dashboard/getLinks" , async () => {
+    const response = await instance.get(`/sources`);
+    const { data } = response;
+    return data;
+})
+export const addLink = createAsyncThunk("dashboard/addLink" , async (dataObj) => {
+    const response = await instance.post(`/sources`,dataObj);
+    const { data } = response;
+    return data;
+})
+export const deleteLink = createAsyncThunk("dashboard/deleteLink" , async (id) => {
+    const response = await instance.delete(`/sources/${id}`);
+    const { data } = response;
+    return data;
+})

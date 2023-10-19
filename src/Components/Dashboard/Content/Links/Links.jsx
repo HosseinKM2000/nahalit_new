@@ -1,8 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import AllLinks from './AllLinks/AllLinks';
+import LinksPagination from './LinksPagination/LinksPagination';
 import NewLink from './NewLink/NewLink';
 
 function Links() {
@@ -11,7 +9,7 @@ function Links() {
     useEffect(()=>{
         switch(Criterion)
         {
-            case 'all' : setInnerComponent(<AllLinks/>);
+            case 'all' : setInnerComponent(<LinksPagination/>);
             break;
             case 'new' : setInnerComponent(<NewLink/>)
             break;

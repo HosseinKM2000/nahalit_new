@@ -5,6 +5,7 @@ import {
     addCoupon,
     addDiscount,
     addGallery,
+    addLink,
     addNews,
     addParentCategories,
     addProduct,
@@ -16,6 +17,7 @@ import {
     deleteCoupon,
     deleteDiscount,
     deleteGallery,
+    deleteLink,
     deleteNews,
     deleteParentCategories,
     deleteProduct,
@@ -34,6 +36,7 @@ import {
     getCategories,
     getCoupons,
     getGalleryById,
+    getLinks,
     getNews,
     getOrders,
     getProducts,
@@ -69,6 +72,7 @@ const initialState = {
     productsLoading:false,
     discountsLoading:false,
     newsLoading:false,
+    linksLoading:false,
     deleteProductSuccess:false,
     couponsSuccess:false,
     usersLoading:false,
@@ -78,11 +82,13 @@ const initialState = {
     deleteGallerySuccess:false,
     deleteNewsSuccess:false,
     newsDeleteLoading:false,
+    linkDeleteLoading:false,
     ordersLoading:false,
     deleteSellerSuccess:false,
     deleteTagSuccess:false,
     users:[],
     news:[],
+    links:[],
     projectsLoading:false,
     couponLoading:false,
     blogsLoading : false,
@@ -883,6 +889,50 @@ const dashboardSlice = createSlice({
         .addCase(editNews.rejected,(state,action) => {
             state.editNewsLoading = false;
             toast.error('خطا در  ویرایش خبر')
+        })
+        
+
+        // get Links
+        .addCase(getLinks.fulfilled,(state,action) => {
+            state.linksLoading = false;
+            state.links = action.payload.data;
+            console.log(action)
+        })
+        .addCase(getLinks.pending,(state,action) => {
+            state.linksLoading = true;
+        })
+        .addCase(getLinks.rejected,(state,action) => {
+            state.linksLoading = false;
+            toast.error('خطا در  بارگیری مسیر ها')
+        })
+
+
+        // add link
+        .addCase(addLink.fulfilled,(state,action) => {
+            state.linksLoading = false;
+            toast.success("با موفقیت ذخیره شد")
+        })
+        .addCase(addLink.pending,(state,action) => {
+            state.linksLoading = true;
+        })
+        .addCase(addLink.rejected,(state,action) => {
+            state.linksLoading = false;
+            toast.error('خطا در  افزودن مسیر')
+        })
+
+
+        // delete link
+        .addCase(deleteLink.fulfilled,(state,action) => {
+            state.linkDeleteLoading = false;
+            // toast.success(action.payload.massage);
+            console.log(action)
+        })
+        .addCase(deleteLink.pending,(state,action) => {
+            state.linkDeleteLoading = true;
+        })
+        .addCase(deleteLink.rejected,(state,action) => {
+            state.linkDeleteLoading = false;
+            toast.error('خطا در  حذف مسیر')
         })
     }
 })

@@ -17,10 +17,10 @@ function LeftSide() {
         </div>
         <div className='flex flex-row gap-2'>
             <div className='bg-gray-88 cursor-pointer 2xl:w-fit 2xl:h-fit hover:bg-gray-white transition-all w-9 justify-center items-center flex p-2 rounded-full' onClick={(e)=>{
-            navigator.clipboard.writeText(window.location.href);
-            toast.success('لینک کپی شد' , {
-                position: "top-center",
-            })
+                navigator.clipboard.writeText(window.location.href);
+                toast.success('لینک کپی شد' , {
+                    position: "top-center",
+                })
             }}>
             <HiOutlineDocument className='text-white documentImg'/>
             </div>

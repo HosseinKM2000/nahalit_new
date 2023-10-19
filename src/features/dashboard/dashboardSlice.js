@@ -58,6 +58,7 @@ const initialState = {
     couponSwitch:'all',
     projectSwitch:'all',
     discountSwitch:'all',
+    linksSwitch:'all',
     newsSwitch:'all',
     tagsSwitch:'all',
     productId:null,
@@ -162,6 +163,8 @@ const dashboardSlice = createSlice({
                 case 'coupon' : state.couponSwitch = value;
                 break;
                 case 'news' : state.newsSwitch = value;
+                break;
+                case 'links' : state.linksSwitch = value;
                 break;
                 default : console.log('non value')
             }

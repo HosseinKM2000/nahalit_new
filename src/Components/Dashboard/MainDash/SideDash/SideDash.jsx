@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { BiCategory, BiSolidMask } from 'react-icons/bi';
 import { BsPersonBoundingBox } from 'react-icons/bs';
-import { FaTags, FaWindowClose } from 'react-icons/fa';
+import { FaLink, FaTags, FaWindowClose } from 'react-icons/fa';
 import { FiShoppingBag } from 'react-icons/fi';
 import { GiClockwork, GiNewspaper } from 'react-icons/gi';
 import { ImNewspaper, ImUsers } from 'react-icons/im';
@@ -25,6 +25,7 @@ function SideDash({ dropMenu , setDropMenu }) {
   const [coRotate,setCoRotate] = useState(false);
   const [tRotate,setTRotate] = useState(false);
   const [nRotate,setNRotate] = useState(false);
+  const [lRotate,setLRotate] = useState(false);
   const content = useSelector(state => state.dashboard.content);
   const aCriterion = useSelector(state => state.dashboard.articlesSwitch);
   const pCriterion = useSelector(state => state.dashboard.productsSwitch);
@@ -35,12 +36,13 @@ function SideDash({ dropMenu , setDropMenu }) {
   const tCriterion = useSelector(state => state.dashboard.tagsSwitch);
   const coCriterion = useSelector(state => state.dashboard.couponSwitch);
   const nCriterion = useSelector(state => state.dashboard.newsSwitch);
+  const lCriterion = useSelector(state => state.dashboard.linksSwitch);
   const dispatch = useDispatch();
 
 
   const listSwitch = (value) => {
     dispatch(setContent(value))
-    if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate | nRotate && value !== 'articles')
+    if(aRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate | nRotate | lRotate && value !== 'articles')
     {
       setCRotate(false);
       setGRotate(false);
@@ -52,8 +54,9 @@ function SideDash({ dropMenu , setDropMenu }) {
       setCoRotate(false);
       setTRotate(false);
       setNRotate(false);
+      setLRotate(false);
     }
-    else if( pRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate | nRotate && value !== 'products')
+    else if( pRotate | cRotate | gRotate | rRotate | prRotate | dRotate | wRotate | tRotate | coRotate | nRotate | lRotate && value !== 'products')
     {
       setCRotate(false);
       setGRotate(false);
@@ -65,6 +68,7 @@ function SideDash({ dropMenu , setDropMenu }) {
       setCoRotate(false);
       setTRotate(false);
       setNRotate(false);
+      setLRotate(false);
     }
   }
   
@@ -221,6 +225,21 @@ function SideDash({ dropMenu , setDropMenu }) {
               <BsPersonBoundingBox className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
               <li className='text-white font-bold text-lg  text-center'>فروشنده ها</li>
               <div className='w-[1.5rem] h-[1.5rem]'></div>
+          </div>
+          <div className='w-full flex flex-col items-center'>
+              <div onClick={()=>{
+                listSwitch('links')
+                setLRotate(!lRotate)
+                dispatch(setSwitch({key:'links',value:'all'}))
+              }}  style={{backgroundColor:content==='links'?'#232c38':''}}  className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+                <FaLink className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+                <li className='text-white font-bold text-lg  text-center'>راه های ارتباطی</li>
+                <MdOutlineArrowLeft className='text-white w-[1.5rem] h-[1.5rem] transition-all duration-300' style={{rotate:lRotate?'-90deg':'0deg'}}/>
+                </div>
+                <div className='flex flex-col text-white gap-3 text-sm bg-[#313e4d] justify-center items-center rounded-sm w-[50%] cursor-default transition-all ease-in-out duration-400' style={{height:lRotate?'fit-content':'0px',padding:lRotate?'10px':'0px',overflow:lRotate?'':'hidden',visibility:lRotate?'visible':'hidden',marginTop:lRotate?'1rem':'0px'}} >
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'links',value:'all'}))} style={{backgroundColor:lCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
+                  <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'links',value:'new'}))} style={{backgroundColor:lCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
+                </div>
           </div>
           <hr className='w-full h-[3rem] py-1 border-none'/>
         </ul>

@@ -12,6 +12,7 @@ import SellersPagination from '../../Content/Sellers/SellersPagination/SellersPa
 import Tags from '../../Content/Tags/Tags';
 import UsersPagination from '../../Content/Users/UsersPagination/UsersPagination';
 import News from '../../Content/News/News';
+import Links from '../../Content/Links/Links';
 
 function ContentDash() {
   const [currentContent,setCurrentContent] = useState(null);
@@ -46,6 +47,8 @@ function ContentDash() {
       case 'tags' : setCurrentContent(<Tags/>)
       break;
       case 'news' : setCurrentContent(<News/>)
+      break;
+      case 'links' : setCurrentContent(<Links/>)
       break;
       default : setCurrentContent('این بخش وجود ندارد')
     }

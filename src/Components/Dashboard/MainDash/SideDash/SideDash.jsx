@@ -219,13 +219,6 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'tags',value:'new'}))} style={{backgroundColor:tCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
                 </div>
           </div>
-          <div  onClick={()=>{
-            listSwitch('sellers')
-            }} style={{backgroundColor:content==='sellers'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
-              <BsPersonBoundingBox className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
-              <li className='text-white font-bold text-lg  text-center'>فروشنده ها</li>
-              <div className='w-[1.5rem] h-[1.5rem]'></div>
-          </div>
           <div className='w-full flex flex-col items-center'>
               <div onClick={()=>{
                 listSwitch('links')
@@ -240,6 +233,13 @@ function SideDash({ dropMenu , setDropMenu }) {
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'links',value:'all'}))} style={{backgroundColor:lCriterion === 'all' ? '#ffffff4d' : ''}}>همه</button>
                   <button className='font-normal cursor-default w-full hover:bg-[#ffffff0c] transition-all duration-300 p-1' onClick={()=>dispatch(setSwitch({key:'links',value:'new'}))} style={{backgroundColor:lCriterion === 'new' ? '#ffffff4d' : ''}}>ایجاد</button>
                 </div>
+          </div>
+          <div  onClick={()=>{
+            listSwitch('sellers')
+            }} style={{backgroundColor:content==='sellers'?'#232c38':''}} className='flex justify-between items-center rounded-sm w-[80%] py-2 px-2 cursor-default hover:bg-[#2a3441] hover:brightness-125 transition-all duration-300'>
+              <BsPersonBoundingBox className='bg-[#356E65] p-1 rounded-md text-white w-[2rem] h-[2rem]'/>
+              <li className='text-white font-bold text-lg  text-center'>فروشنده ها</li>
+              <div className='w-[1.5rem] h-[1.5rem]'></div>
           </div>
           <hr className='w-full h-[3rem] py-1 border-none'/>
         </ul>

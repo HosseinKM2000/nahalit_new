@@ -37,7 +37,7 @@ function AllLinks({ currentItems , linksLength , deleteLoading , dispatch }) {
                             </div>
                         </div>
                         <div className='font-[shabnamBold]'>
-                            <span>تعداد ورود: </span>
+                            <span>تعداد ورودی ها: </span>
                             <span>{link?.count}</span>
                         </div>
                         <button className='bg-red-500 mt-3 text-white px-5 py-[0.1rem] transition-all hover:bg-red-400 rounded-sm' onClick={()=>deleteLinkHandle(link?.id)}>

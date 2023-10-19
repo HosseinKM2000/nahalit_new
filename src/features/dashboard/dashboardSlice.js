@@ -924,8 +924,7 @@ const dashboardSlice = createSlice({
         // delete link
         .addCase(deleteLink.fulfilled,(state,action) => {
             state.linkDeleteLoading = false;
-            // toast.success(action.payload.massage);
-            console.log(action)
+            toast.success(action.payload.massage);
         })
         .addCase(deleteLink.pending,(state,action) => {
             state.linkDeleteLoading = true;

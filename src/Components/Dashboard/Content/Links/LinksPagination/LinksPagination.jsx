@@ -8,6 +8,7 @@ function LinksPagination() {
     const [itemOffset, setItemOffset] = useState(0);
     const links = useSelector(state => state.dashboard.links); 
     const Loading = useSelector(state => state.dashboard.linksLoading); 
+    const deleteLoading = useSelector(state => state.dashboard.linkDeleteLoading); 
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 20;
     const endOffset = itemOffset + itemsPerPage;
@@ -16,8 +17,7 @@ function LinksPagination() {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getLinks());
-        console.log(links)
-    },[]);
+    },[deleteLoading]);
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % links.length;
@@ -35,7 +35,7 @@ function LinksPagination() {
       </div>
      :
      <>
-      <AllLinks currentItems={currentItems} linksLength={links?.length}/>
+      <AllLinks currentItems={currentItems} linksLength={links?.length} deleteLoading={deleteLoading} dispatch={dispatch}/>
       <ReactPaginate
       breakLabel="..."
       nextLabel={mobile ? '>>' : "برگه بعدی >>"}

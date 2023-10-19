@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsLink } from 'react-icons/bs';
+import { MdOutlineDelete } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import { deleteLink } from '../../../../../features/dashboard/action';
 
-function AllLinks({ currentItems , linksLength }) {
+function AllLinks({ currentItems , linksLength , deleteLoading , dispatch }) {
 
   const copyPath = path => {
     navigator.clipboard.writeText(path);
@@ -10,11 +12,14 @@ function AllLinks({ currentItems , linksLength }) {
         position: "top-center",
     })
   }
+  const deleteLinkHandle = id => {
+    dispatch(deleteLink(id))
+  }
 
   return (
-    <div className='flex flex-col items-start gap-3'>
+    <div className='flex flex-col w-full items-start gap-3'>
         <span className='text-white font-bold mx-5 md:m-0'> مسیر ها ( {linksLength} )</span>
-        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5 mx-auto'>
             {
                 currentItems?.map(link => (
                     <div key={link?.id} className='bg-white p-3 rounded-sm'>
@@ -35,6 +40,9 @@ function AllLinks({ currentItems , linksLength }) {
                             <span>تعداد ورود: </span>
                             <span>{link?.count}</span>
                         </div>
+                        <button className='bg-red-500 mt-3 text-white px-5 py-[0.1rem] transition-all hover:bg-red-400 rounded-sm' onClick={()=>deleteLinkHandle(link?.id)}>
+                            <MdOutlineDelete className='scale-105'/>
+                        </button>
                     </div>
                 ))
             }

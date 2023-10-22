@@ -38,9 +38,9 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
       } else {
         priceInput[0].value = minVal;
         priceInput[1].value = maxVal;
-        range.style.right = ((minVal / rangeInput[0].max) * 100)  + "%";
+        range.style.right = (minVal / rangeInput[0].max) * 100  + "%";
         range.style.left = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-        console.log((minVal / rangeInput[0].max) * 100)
+        console.log( rangeInput[0])
         console.log('this =>',minVal , rangeInput[0].max)
       }
     });
@@ -73,6 +73,14 @@ const PriceRange = ({minPoint, maxPoint, minValue, maxValue, steps, setMin, setM
         </div>
       </div>
       <div className="slider">
+        <div className="lines">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div className="progress"></div>
       </div>
       <div className="range-input">

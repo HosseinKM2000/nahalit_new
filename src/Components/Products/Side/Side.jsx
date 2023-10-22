@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sortByAll, sortByCheapest, sortByExpensive, sortByLatest, sortByPriceRange } from '../../../features/products/productSlice';
 import CategoriesP from './CategoriesP/CategoriesP';
 import PriceRange from './PriceRange/PriceRange';
-import { useEffect } from 'react';
 
 function Side() {
     const MaxPrice = useSelector(state => state.products.maxPrice);
@@ -56,7 +55,7 @@ function Side() {
              <option value="cheapest" className='font-[shabnamMedium]'>مرتب سازی بر اساس ارزان ترین</option>
              <option value="expensive" className='font-[shabnamMedium]'>مرتب سازی بر اساس گرانترین</option>
         </select>
-        {/* <PriceRange minPoint={minPrice} maxPoint={maxPrice} minValue={minValue} maxValue={maxValue} steps={500} setMin={changeMinValue} setMax={changeMaxValue} /> */}
+        <PriceRange minPoint={minPrice} maxPoint={maxPrice} minValue={minValue} maxValue={maxValue} steps={500} setMin={changeMinValue} setMax={changeMaxValue} />
         <CategoriesP/>
     </div>
   )

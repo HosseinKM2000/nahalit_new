@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
-import { forgetPassword, login, register, sendCode } from "./action";
+import { forgetPassword, login, register, sendCode, verifyCode } from "./action";
 
 const initialState = {
     loading:false,
@@ -9,7 +9,6 @@ const initialState = {
     redirect:false,
     loginStatus: Cookies.get('user') ? true : false,
     codeSent:false,
-    codeVerify : Cookies.get('codeVerify') ? true : false,
     sendCodeLoading:false,
 }
 
@@ -68,8 +67,8 @@ const authenticationSlice = createSlice({
                 state.redirect = true;
                 toast.success(action.payload.data?.massage);
                 console.log(action)
-                localStorage.setItem("access_token",action.payload.data.token)
-                Cookies.set("user",JSON.stringify(action.payload.data.user))
+                localStorage.setItem("access_token",action.payload.data.token);
+                Cookies.set("user",JSON.stringify(action.payload.data.user));
                 state.loginStatus = true;
             }
         })
@@ -121,6 +120,27 @@ const authenticationSlice = createSlice({
         .addCase(sendCode.rejected,(state,action) => {
             state.sendCodeLoading = false;
             state.codeSent = false;
+            console.log(action)
+        })
+        .addCase(verifyCode.fulfilled,(state,action) => {
+            state.sendCodeLoading = false;
+            if(action.payload.error) {
+                toast.warn(action.payload.error.data?.massage);
+                console.log(action)
+            }
+            else
+            {
+                toast.success(action.payload.data.massage);
+                state.redirect = true;
+                console.log(action);
+            }
+        })
+        .addCase(verifyCode.pending,(state) => {
+            state.sendCodeLoading = true;
+            state.redirect = false;
+        })
+        .addCase(verifyCode.rejected,(state,action) => {
+            state.sendCodeLoading = false;
             console.log(action)
         })
     }

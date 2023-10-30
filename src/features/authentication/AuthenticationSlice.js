@@ -8,7 +8,9 @@ const initialState = {
     message:'',
     redirect:false,
     loginStatus: Cookies.get('user') ? true : false,
-    codeSent:false
+    codeSent:false,
+    codeVerify : Cookies.get('codeVerify') ? true : false,
+    sendCodeLoading:false,
 }
 
 const authenticationSlice = createSlice({
@@ -20,6 +22,9 @@ const authenticationSlice = createSlice({
         },
         changeLoginStatus : (state) => {
             state.loginStatus = false;
+        },
+        changeSendCode : (state) => {
+            state.codeSent = false;
         }
     },
     extraReducers:( builder ) => {
@@ -75,18 +80,6 @@ const authenticationSlice = createSlice({
             state.loading = false;
             console.log(action)
         })
-        .addCase(sendCode.fulfilled,(state,action) => {
-            state.loading = false;
-            state.codeSent = true;
-            console.log(action)
-        })
-        .addCase(sendCode.pending,(state) => {
-            state.loading = true;
-        })
-        .addCase(sendCode.rejected,(state,action) => {
-            state.loading = false;
-            console.log(action)
-        })
         .addCase(forgetPassword.fulfilled,(state,action) => {
             if(action.payload.error) {
                 state.loading = false;
@@ -108,9 +101,31 @@ const authenticationSlice = createSlice({
             state.redirect = false;
             console.log(action)
         })
+        .addCase(sendCode.fulfilled,(state,action) => {
+            state.sendCodeLoading = false;
+            if(action.payload.error) {
+                toast.warn(action.payload.error.data?.massage);
+                state.codeSent = false;
+                console.log(action)
+            }
+            else
+            {
+                toast.success(action.payload.data.massage);
+                state.codeSent = true;
+                console.log(action);
+            }
+        })
+        .addCase(sendCode.pending,(state) => {
+            state.sendCodeLoading = true;
+        })
+        .addCase(sendCode.rejected,(state,action) => {
+            state.sendCodeLoading = false;
+            state.codeSent = false;
+            console.log(action)
+        })
     }
 })
 
-export const  { changeRedirect , changeLoginStatus } = authenticationSlice.actions; 
+export const  { changeRedirect , changeLoginStatus , changeSendCode } = authenticationSlice.actions; 
 
 export default authenticationSlice.reducer;

@@ -33,8 +33,19 @@ export const login = createAsyncThunk('authentication/login', async (dataObj) =>
 })
 
 export const sendCode = createAsyncThunk('authentication/sendCode', async () => {
-    const response = await instance.post('/sms/sendVerify');
-})
+    try {
+        const response = await instance.post('/sms/sendVerify');
+        return { data: response.data }
+    } catch (axiosError) {
+        let err = axiosError
+        return {
+            error: {
+                status: err.response?.status,
+                data: err.response?.data || err.massage,
+            }
+        }
+    }
+});
 
 export const forgetPassword = createAsyncThunk('authentication/forgetPassword', async (dataObj) => {
     try {

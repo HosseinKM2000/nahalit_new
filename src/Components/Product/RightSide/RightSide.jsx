@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import Icons
-import { BsPinterest, BsTags, BsTelegram, BsTwitter } from 'react-icons/bs';
 import HTMLRenderer from 'react-html-renderer';
+import { BsPinterest, BsTags, BsTelegram, BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ProductGallerySlider from '../../ProductGallerySlider/ProductGallerySlider';
+import ProductComments from '../../ProductComments/ProductComments';
 
 function RightSide({ goalProduct , tags }) {
 
@@ -65,6 +66,7 @@ function RightSide({ goalProduct , tags }) {
                             </ul>
                             <img src={"/img/2900821_25540.png"} alt="comment"  className='absolute w-60 opacity-20'/>
                       </div>
+                      <ProductComments/>
               </div>
         </div>
     </div>

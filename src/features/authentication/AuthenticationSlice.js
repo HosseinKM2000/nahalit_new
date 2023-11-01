@@ -131,6 +131,7 @@ const authenticationSlice = createSlice({
             else
             {
                 toast.success(action.payload.data.massage);
+                Cookies.set('user',JSON.stringify(action.payload.data.user));
                 state.redirect = true;
                 console.log(action);
             }

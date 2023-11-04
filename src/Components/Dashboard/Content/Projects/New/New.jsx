@@ -59,11 +59,11 @@ function New() {
             break;
             case dataObj.category_id === null : toast.warn("دسته بندی را انتخاب کنید");
             break;
-            default : sendProduct(dataObj)
+            default : sendProject(dataObj)
         }
     }
 
-    const sendProduct = (dataObj) => {
+    const sendProject = (dataObj) => {
         dispatch(addProject(dataObj))
     }
 

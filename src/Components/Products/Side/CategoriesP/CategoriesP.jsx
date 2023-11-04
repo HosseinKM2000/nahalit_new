@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { RiRestartFill } from 'react-icons/ri';
 import { SlMagnifier } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../../../../features/dashboard/action';
-import { deleteAllFilters, sortByCategory, sortByName } from '../../../../features/products/productSlice';
 import { useSearchParams } from 'react-router-dom';
+import { getCategories } from '../../../../features/dashboard/action';
+import { sortByCategory, sortByName } from '../../../../features/products/productSlice';
 
 function CategoriesP() {
   const categories = useSelector(state => state.dashboard.categories);
@@ -72,12 +71,6 @@ function CategoriesP() {
           :
           <></>
         }
-        <section className='flex flex-col gap-5 my-5'>
-          <div className='flex items-center gap-2 cursor-default text-stone-600  hover:text-red-600 transition-all'>
-            <RiRestartFill className='scale-150'/>
-            <span className='text-xs  font-[shabnamBold]' onClick={(e)=>dispatch(deleteAllFilters())}>پاکسازی فیلتر</span>
-          </div>
-        </section>
         {/* <div className='flex flex-col items-start text-sm w-full sm:w-[50%] lg:w-[100%] 2xl:w-[70%]'>
             <span style={{border:'solid 1px #DBDCDD'}} className='py-2 px-4 border-2 border-gray-white rounded-t-md font-[vasirbold]'>کلمات کلیدی بلاگ</span>
             <div style={{border:'solid 1px #DBDCDD'}} className='py-2 px-6 border-2 border-for-border'>

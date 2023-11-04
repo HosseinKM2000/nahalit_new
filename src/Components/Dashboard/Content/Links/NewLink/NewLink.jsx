@@ -40,7 +40,7 @@ function NewLink() {
               <label htmlFor="tag" className='font-semibold text-[#2e424a]'>عنوان</label>
               <input type="text" className='p-1  outline-[#0ab694] w-full' ref={titleRef} required={true} name='tag'/>
           </div>
-          <button type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm'>
+          <button type='button' className='w-[50%] mt-5 bg-[#01d5ab] transition-all duration-300 hover:shadow-[0px_0px_5px_1px_rgba(0,0,0,0.2)] hover:bg-[#00dfb2] text-white font-bold text-lg py-1 rounded-sm' onClick={()=>addLinkHandle()}>
             {
               loading
               ?

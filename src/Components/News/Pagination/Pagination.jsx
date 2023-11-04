@@ -21,6 +21,7 @@ function Pagination() {
     let news = useSelector(state => state.news.news);
     let isLoading = useSelector(state => state.news.loading);
     news = news?.filter(item => item.is_active == 1);
+    news = news?.reverse();
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = news.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(news.length / itemsPerPage);

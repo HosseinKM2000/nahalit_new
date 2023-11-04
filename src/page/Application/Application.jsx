@@ -40,7 +40,7 @@ const Application = () => {
             <p className="mt-1">سرویس نوبت دهی نهال آی تی</p>
             <button
               type="button"
-              className="bg-[#367B1D] mt-6 hover:bg-[#459b26] text-sm transition-all duration-200 text-white px-7 py-2 font-bold rounded-lg tracking-tighter"
+              className="bg-[#367B1D] mt-6 hover:bg-[#459b26] text-sm transition-all duration-200 text-white px-7 py-2 font-[shabnamBold] rounded-lg"
             >
               برای مشاهده روی اینجا کلیک کنید
             </button>
@@ -60,7 +60,7 @@ const Application = () => {
             <p className="mt-1">سرویس خدمات بانکی راهرو</p>
             <button
               type="button"
-              className="bg-[#367B1D] text-sm mt-6 hover:bg-[#459b26] transition-all duration-200 text-white px-7 py-2 font-bold rounded-lg tracking-tighter"
+              className="bg-[#367B1D] text-sm mt-6 hover:bg-[#459b26] transition-all duration-200 text-white px-7 py-2 font-[shabnamBold] rounded-lg"
             >
               برای مشاهده روی اینجا کلیک کنید
             </button>

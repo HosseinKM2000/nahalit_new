@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './NewsCards.css';
 // import Img from '../../assets/img/6.png';
 import {MdPersonPin} from 'react-icons/md';
@@ -9,14 +9,15 @@ import { AiFillFolder } from 'react-icons/ai';
 import { TfiMenuAlt } from 'react-icons/tfi';
 
 function NewsCards({currentItems}) {
+    const navigate = useNavigate();
   return (
     <div className='container mx-auto'>
     <div className='flex sm:flex-wrap flex-col sm:flex-row justify-center gap-3 sm:gap-3 items-center'>
         {
             currentItems?.map(news => (
                 <div className='w-[17rem] sm:w-[45%] overflow-hidden rounded-sm justify-between h-[420px] md:w-[30%] lg:w-[23%] 2xl:w-[15%] flex flex-col mb-10' key={news.id} style={{boxShadow:'0px 0px 10px -6px #000'}}>
-                    <img onClick={() => navigate(`/news/news?name=${news.title}`)} src={news.image} alt={news.title} className='hover:brightness-125 max-h-[200px] cursor-pointer transition-all' style={{borderBottom:'1px solid #d7d7d7'}}/>
-                    <Link to={{pathname:'/news/news', search:`?name=${news.title}`}} className='py-3 px-2 text-gray-66 font-[shabnamBold] hover:text-gray-88 line-clamp-2 text-base  transition-all'>{news.title}</Link>
+                    <img onClick={() => navigate(`/news/page/${news.id}`)} src={news.image} alt={news.title} className='hover:brightness-125 max-h-[200px] cursor-pointer transition-all' style={{borderBottom:'1px solid #d7d7d7'}}/>
+                    <Link to={`/news/page/${news.id}`} className='py-3 px-2 text-gray-66 font-[shabnamBold] hover:text-gray-88 line-clamp-2 text-base  transition-all'>{news.title}</Link>
                     <div className='text-gray-500 px-2 text-stone-500 font-[shabnamLight] text-xs line-clamp-3 text-justify xl-line-clamp-2  leading-loose'>
                         <HTMLRenderer html={news.body}/>
                     </div>

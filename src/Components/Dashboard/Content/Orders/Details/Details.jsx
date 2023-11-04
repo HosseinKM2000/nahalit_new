@@ -34,6 +34,10 @@ function Details({ details , setShowDetails , users }) {
                 <span className='pr-5'>{`${user?.first_name} ${user?.last_name}`}</span>
             </div>
             <div className='flex flex-col gap-2'>
+                <span className='font-[shabnamBold] text-[#2e424a]'>تاریخ ایجاد:</span>
+                <span className='pr-5 font-[shabnamBold]'>{moment(user?.created_at).format('jYYYY/jMM/jDD')}</span>
+            </div>
+            <div className='flex flex-col gap-2'>
                 <span className='font-[shabnamBold] text-[#2e424a]'>وضعیت:</span>
                 {
                     details.status === null

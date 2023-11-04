@@ -27,7 +27,7 @@ function Detail({ blog , users }) {
                 </div>
                 <p className="line-clamp-4 2xl:text-[1rem] font-[shabnamMedium] text-[#686868] text-justify leading-7 text-sm px-3">{blog.body}</p>
                 <div className="w-full flex justify-center mt-2">
-                <Link to={`/articles/article?id=${blog.id}`}><button type="button" className="text-white px-3 py-1 flex rounded-md text-base font-bold transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
+                <Link to={`/articles/article/${blog.id}`}><button type="button" className="text-white px-3 py-1 flex rounded-md text-base font-[shabnamBold] transition-all duration-500 hover:bg-green-600 bg-green-500">بیشتر بخوانید...</button></Link>
                 </div>
             </div>
             </div>

@@ -15,6 +15,7 @@ function ArticlesPagination() {
     const [itemOffset, setItemOffset] = useState(0);
     let articles = useSelector(state => state.articles.articles);
     articles = articles.filter(art => art.is_active === 1);
+    articles = articles.reverse();
     const isLoading = useSelector(state => state.articles.isLoading);
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;

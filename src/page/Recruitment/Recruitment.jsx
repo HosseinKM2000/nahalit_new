@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { sendRecruitment } from "../../features/recruitment/action";
 
 const Recruitment = () => {
+  const loading = useSelector(state => state.recruitment.loading);
   const [birthDate,setBirthDate] = useState('');
   const dispatch = useDispatch();
 
@@ -163,7 +164,13 @@ const Recruitment = () => {
                   type="submit"
                   className="bg-[#38BDF8] w-full self-start px-4 py-1 border border-solid text-white  border-[#cccccc] hover:bg-[#53ccff] transition-all duration-200"
                 >
-                  ثبت
+                  {
+                    loading
+                    ?
+                    <img src="/img/Rolling-0.8s-200px.svg" alt="loading" className="w-[20px] mx-auto"/>
+                    :
+                    <span className="font-[shabnamBold]">ثبت</span>
+                  }
                 </button>
             </div>
             </form>

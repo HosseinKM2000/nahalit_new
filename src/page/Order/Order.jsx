@@ -1,14 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import FixedIcon from "../../Components/FixedIcon/FixedIcon";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import ResponseHeader from "../../Components/ResponseHeader/ResponseHeader";
-import { useSelector } from "react-redux";
-import NotLogined from "../../Components/NotLogined/NotLogined";
+import Cookies from "js-cookie";
+import { addSefaresh } from "../../features/dashboard/action";
 
 const Order = () => {
+  const loginStatus = useSelector(state => state.authentication.loginStatus);
+  const loading = useSelector(state => state.dashboard.projectsLoading);
+  const userInfo = loginStatus ? JSON.parse(Cookies.get('user')) : "" ;
+  const dispatch = useDispatch();
+  const titleRef = useRef();
+  const describeRef  = useRef();
+  const formKeyNotSubmit = (e) => {
+    if(e.key === 'Enter' && e.target.type !== 'textarea' | e.target.type.button)
+    {
+        e.preventDefault();
+        e.stopPropagation()
+    }
+}
+const formSubmitter = (e) => {
+    e.preventDefault()
+    const dataObj = {
+        title:titleRef.current.value,
+        description:describeRef.current.value,
+        user_id: userInfo?.id
+    }
+    switch(true)
+    {
+        case !loginStatus : toast.warn("ابتدا باید وراد سایت شوید");
+        break;
+        case dataObj.title === "انتخاب کنید" : toast.warn("عنوان را وارد کنید");
+        break;
+        case dataObj.title.length < 3 : toast.warn("عنوان کوتاه است");
+        break;
+        case dataObj.description.length === 0 : toast.warn("توضیح را وارد کنید");
+        break;
+        default : sendSefaresh(dataObj)
+    }
+}
 
+const sendSefaresh = (dataObj) => {
+    dispatch(addSefaresh(dataObj))
+}
   return (
     <main>
       <header>
@@ -55,56 +93,39 @@ const Order = () => {
           </section>
           <section className="bg-[#f5f5f9] pt-20 pb-10 relative z-50">
             <div className="w-full max-lg:px-20 max-md:px-10 max-sm:px-4 mx-auto flex flex-wrap justify-between max-2xl:justify-center">
-              <form className="flex flex-col items-start justify-center gap-y-2">
-                <label htmlFor="name">نام</label>
-                <input
-                  id="name"
-                  type="text"
-                  className="border border-solid border-[#ccc] w-[35rem] max-lg:w-[25rem] max-md:w-[20rem] max-sm:w-[15rem] outline-none rounded-full focus:placeholder:text-white placeholder:px-1 py-3 px-2"
-                  placeholder="نام"
-                />
-                <label htmlFor="num">شماره</label>
-                <input
-                  id="num"
-                  type="text"
-                  className="border border-solid border-[#ccc] w-[35rem] max-lg:w-[25rem] max-md:w-[20rem] max-sm:w-[15rem] outline-none rounded-full focus:placeholder:text-white placeholder:px-1 py-3 px-2"
-                  placeholder="شماره"
-                />
-                <label htmlFor="email">ایمیل</label>
-                <input
-                  id="email"
-                  type="text"
-                  className="border border-solid border-[#ccc] w-[35rem] max-lg:w-[25rem] max-md:w-[20rem] max-sm:w-[15rem] outline-none rounded-full focus:placeholder:text-white placeholder:px-1 py-3 px-2"
-                  placeholder="ایمیل"
-                />
-                <label htmlFor="select">سفارش پروژه</label>
+              <form onSubmit={e=>formKeyNotSubmit(e)} className="flex font-[shabnam] flex-col items-start justify-center gap-y-2">
+                <label htmlFor="select" className="font-[shabnamBold]">سفارش پروژه</label>
                 <select
                   id="select"
+                  ref={titleRef}
                   className="border border-solid border-[#ccc] w-[35rem] max-lg:w-[25rem] max-md:w-[20rem] max-sm:w-[15rem] outline-none rounded-full focus:placeholder:text-white py-3 px-2"
                 >
                   <option className="font-[shabnamBold]">انتخاب کنید</option>
-                  <option className="font-[shabnamBold]">طراحی وبسایت اختصاصی</option>
-                  <option className="font-[shabnamBold]">وبسایت و سعوی وبسایت</option>
-                  <option className="font-[shabnamBold]">کسب و کار</option>
-                  <option className="font-[shabnamBold]">شبکه های اجتماعی</option>
-                  <option className="font-[shabnamBold]">موشن گرافیک</option>
-                  <option className="font-[shabnamBold]">گرافیک</option>
-                  <option className="font-[shabnamBold]">بیزینس پلن پروپوزال</option>
-                  <option className="font-[shabnamBold]">طراحی اپلیکیشن موبایل</option>
-                  <option className="font-[shabnamBold]">تدوین فیلم</option>
-                  <option className="font-[shabnamBold]">تدوین صدا و صداگذاری</option>
+                  <option className="font-[shabnamBold]" value={"طراحی وبسایت اختصاصی"}>طراحی وبسایت اختصاصی</option>
+                  <option className="font-[shabnamBold]" value={"وبسایت و سئو وبسایت"}>وبسایت و سئو وبسایت</option>
+                  <option className="font-[shabnamBold]" value={"کسب و کار"}>کسب و کار</option>
+                  <option className="font-[shabnamBold]" value={"شبکه های اجتماعی"}>شبکه های اجتماعی</option>
+                  <option className="font-[shabnamBold]" value={"موشن گرافیک"}>موشن گرافیک</option>
+                  <option className="font-[shabnamBold]" value={"گرافیک"}>گرافیک</option>
+                  <option className="font-[shabnamBold]" value={"بیزینس پلن پروپوزال"}>بیزینس پلن پروپوزال</option>
+                  <option className="font-[shabnamBold]" value={"طراحی اپلیکیشن موبایل"}>طراحی اپلیکیشن موبایل</option>
+                  <option className="font-[shabnamBold]" value={"تدوین فیلم"}>تدوین فیلم</option>
+                  <option className="font-[shabnamBold]" value={"تدوین صدا و صداگذاری"}>تدوین صدا و صداگذاری</option>
                 </select>
-                <label htmlFor="area">توضیحات</label>
+                <label htmlFor="area" className="font-[shabnamBold]">توضیحات</label>
                 <textarea
+                  ref={describeRef}
                   className="border border-solid border-[#ccc] w-[35rem] max-lg:w-[25rem] max-md:w-[20rem] max-sm:w-[15rem] outline-none rounded-3xl min-h-[50px] placeholder:px-1 focus:placeholder:text-white py-3 px-3"
                   placeholder="توضیحات سفارش"
                 />
-                <label htmlFor="file" className="tracking-tighter mb-2">
-                  در صورت نیاز به آپلود فایل آپلود کنید
-                </label>
-                <input type="file" className="font-[shabnamBold]" />
-                <button className="bg-[#57C053] hover:bg-[#5ecf5a] transition-all duration-200 text-white w-full rounded-full py-2 font-[shabnamBold]">
-                  ارسال
+                <button type="button" onClick={(e)=>formSubmitter(e)} className="bg-[#57C053] hover:bg-[#5ecf5a] transition-all duration-200 text-white w-full rounded-full py-2 font-[shabnamBold]">
+                  {
+                    loading
+                    ?
+                    <img src="/img/Rolling-0.8s-200px.svg" alt="loading" className="mx-auto w-[25px]"/>
+                    :
+                    <span className="font-[shabnamBold]">ثبت</span>
+                  }
                 </button>
               </form>
               <div>

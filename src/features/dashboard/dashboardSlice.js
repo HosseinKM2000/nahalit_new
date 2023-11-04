@@ -11,6 +11,7 @@ import {
     addProduct,
     addProject,
     addRole,
+    addSefaresh,
     addSeller,
     addTag,
     deleteBlog,
@@ -403,6 +404,22 @@ const dashboardSlice = createSlice({
             state.projectsLoading = true;
         })
         .addCase(addProject.rejected, (state,action) => {
+            state.projectsLoading = false;
+            console.log(action)
+            toast.error("خطا در ذخیره پروژه")
+        })
+
+
+        
+        // add Sefaresh
+        .addCase(addSefaresh.fulfilled, (state,action) => {
+            state.projectsLoading = false;
+            toast.success('سفارش با موفقیت ذخیره شد');
+        })
+        .addCase(addSefaresh.pending, (state,action) => {
+            state.projectsLoading = true;
+        })
+        .addCase(addSefaresh.rejected, (state,action) => {
             state.projectsLoading = false;
             console.log(action)
             toast.error("خطا در ذخیره پروژه")

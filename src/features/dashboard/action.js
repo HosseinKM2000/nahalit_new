@@ -72,6 +72,12 @@ export const addProject = createAsyncThunk('dashboard/addProject', async (dataOb
     return data;
 });
 
+export const addSefaresh = createAsyncThunk('dashboard/addSefaresh', async (dataObj) => {
+    const response = await instance.post('/projects',dataObj);
+    const { data } = response;
+    return data;
+});
+
 export const editProject = createAsyncThunk('dashboard/editProject', async ({id,dataObj}) => {
     const response = await instance.put(`/projects/${id}`,dataObj);
     const { data } = response;

@@ -29,7 +29,7 @@ const Seo = () => {
           <p className="text-sm">اخذ سند</p>
           <p className="text-sm">گواهی عدم خلافی</p>
           <p className="text-sm">اخذ جواز ساختمان</p>
-          <button className="bg-[#57C053] hover:bg-[#5dcd59] transition-all duration-300 px-6 py-1 text-sm font-bold rounded-md text-white mt-2">
+          <button className="bg-[#57C053] hover:bg-[#5dcd59] transition-all duration-300 px-6 py-1 text-sm font-[shabnamBold] rounded-md text-white mt-2">
             مشاهده
           </button>
         </div>
@@ -37,7 +37,7 @@ const Seo = () => {
           <p className="font-[shabnamBold] tracking-tighter">بهینه سازی و سئو سایت مکسی</p>
           <p className="font-bold text-stone-500 text-[0.9rem]">کلمات بهینه شده در این پروژه: </p>
           <p className="text-sm">خرید و قیمت کفش بچه گانه</p>
-          <button className="bg-[#57C053] hover:bg-[#5dcd59] transition-all duration-200  px-6 py-1 text-sm font-bold rounded-md text-white mt-2">
+          <button className="bg-[#57C053] hover:bg-[#5dcd59] transition-all duration-200  px-6 py-1 text-sm font-[shabnamBold] rounded-md text-white mt-2">
             مشاهده
           </button>
         </div>

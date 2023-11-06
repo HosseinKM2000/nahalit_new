@@ -16,11 +16,12 @@ function Pagination() {
     const mobile = window.innerWidth <= 425 ? true : false;
     const itemsPerPage = 12;
     let products = useSelector(state => state.products.FilteredProducts);
+    let reversedProducts = [...products].reverse();
     const isLoading = useSelector(state => state.products.isLoading);
     const LoadingStatus = useSelector(state => state.cart.loading);
     const endOffset = itemOffset + itemsPerPage;
-    const currentItems = products.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(products.length / itemsPerPage);
+    const currentItems = reversedProducts.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(reversedProducts.length / itemsPerPage);
     const userId = loginStatus ? JSON.parse(Cookies.get("user"))?.id  : '';
   
     useEffect(() => {
@@ -34,7 +35,7 @@ function Pagination() {
     },[isLoading])
     
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % products.length;
+      const newOffset = (event.selected * itemsPerPage) % reversedProducts.length;
       window.scrollTo({top:0,behavior:'instant'})
       setItemOffset(newOffset);
     };
